@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academia Well · Inglés en Galdakao · Centro preparador oficial de Cambridge</title>
+<meta name="description" content="Academia de inglés en Galdakao. Centro preparador oficial de Cambridge. Grupos reducidos, de A1 a C2. Entrada por edad hasta los 10 años y por nivel desde los 11.">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAAMFBMVEX9/v3s4utLSagBMLUAM7reEicBL7QBL7MBLbMAJ7HtCRbgDB7fDB8AAPIAAQAAAAA5Ee7DAAAD50lEQVR42qWVT2hcVRTGf3fuJAOxNmfUGqibUVf+Gbzwlm4SaoXSzRSqkDTBCTQBU7BZFQSh64DUdDMuk0GSgiKkC7MLCQguKo/e+FSYhdOtqU3mjtKWSXvnungzk4klrdC3e/d+nHPu+b7vHBV4+pfheQFZoH7k7RugwrMjtL9ew2D7Dk36U2ejgArth5cTE6OLOo482muwGGgPGB6UCiq0H44y3JSgGgJNCY68k9CU+29t8eJaQYX2w8tofFJEe20NYA2QtOqOYVwGUBqLsYlPxFvwhgJ+vO56fbAWY8Fb7zD4hJcUv19zoCTtQyiCiQ1W2w/uJT7iOH78MzjxYbaUdlJ7b8FiFJhTiuYdGnCiUk77oBU2AkCZxiuN3cQ0MskGnP42p9MU+IhTu5aIYz8aNF4P4xg4O8I3kAGP9tYB3HZ4C1ruXXDIiHReoQFvLdhi4q23xjvaMLB8QLcF32EBXbRsF4BRQgfgMejIdAgzFm1cAIXq6oFYF4GkqGMgQrrxegANMXhiLNbgMq+pQ5ILFDVAYgZnZ731FABCnyYNMUbjfzuzsDDrtcIBWykmA6hY6yjBmLPX6vXPZ34JAUDRUKUUYLDGe6PluIO9qxdw2Qwwr1hLi7QRMXr7vZ++B7i7vmvUMXH7Tho9X8Ta8G7nbeHnKWQdXAt1YByfHRULqHOwW0mZ6XUS4ii67dLD80LYmQoI9CQ3MDMTF0ynNetj0KhsA49TU2WgtfDlzE2CEPIELglhZ3K0ACOdGv5p1//4YlLlt6J3ysBSFfYqm00Y7qZQhN2KDUaJgs39IYHahTIsdgEBQm1y4+XgAHVluQrtCgQWOzUogXZF70JTuNucGBKoKSCkNQxlTwvUpnTMOrAzslyF9lcQuq/gShXaFRtZhMe4uSGBOylfKWD/pEBtCgMwIoPL1dQlPboHVRXCutXhdVgKbmJIoD8CrZNCuDWVf79E4Ho+DaGm57tcqNziGOzd33QKNnFqekgg2+rT5NxFIVz3kmaW4eqKqI9v9M3J3Ooo/Fl2fwv75TxqfnXlfJqBDOBgbgZC5dcfwOGAuVdnlw9ULZBbKUFtEoFWAHL71fnDo/jSuZQBHjsFkJvvM44Ccm8L1D4pwMgRw1xVIdwcgyV5ApCa7AUh3BIOze7UOLlUjktjsKfoCgWgY5xWUABzbtOFq09ZKLnVMWjAZl+S8qGNM3fxgMPOt5z6QnVDlADGnijyIMSMAMwfKjIDjw5VoaZd717KkIVcu9k5mHjA1plAowtovunIAirfMb67Mf7pX6ICNMWJG1aLpf9uvQZKntyb3x25Ez/6H3vz+Xf3MwH/Arwukd1kC/W5AAAAAElFTkSuQmCC">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --azul:#21409A; --tinta:#232B42; --carmin:#C0293B;
+    --carmin-suave:#FBE9EB; --azul-suave:#E9EDF9; --neutro:#F2F1ED;
+    --crema:#FDFCF9; --verde-wa:#128C4B; --gris:#5E6575;
+    --linea:rgba(35,43,66,.12); --sombra:0 16px 44px rgba(35,43,66,.12); --radio:20px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:#fff;color:var(--tinta);font-family:'Figtree',sans-serif;font-size:17px;line-height:1.68}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  h2.section{font-family:'Bree Serif',serif;font-weight:400;font-size:clamp(28px,3.4vw,38px);color:var(--azul);line-height:1.18}
+  .sub{color:var(--gris);margin-top:12px;max-width:58ch;font-size:18px}
+  .kicker{font-size:14.5px;font-weight:700;color:var(--carmin);margin-bottom:10px;display:block}
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease, transform .55s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+    *{animation:none !important;transition:none !important}
+  }
+  .topbar{background:var(--azul);color:#fff;font-size:13.5px}
+  .topbar-inner{display:flex;justify-content:space-between;align-items:center;padding:8px 0}
+  .topbar a{color:#fff;text-decoration:none;font-weight:500}
+  .topbar .left{display:flex;gap:22px;align-items:center}
+  .topbar .left span{opacity:.85}
+  .topbar .right{display:flex;gap:16px;align-items:center}
+  .topbar .lang{display:flex;gap:10px}
+  .topbar .lang a{opacity:.65}
+  .topbar .lang a[aria-current]{opacity:1;font-weight:700;border-bottom:2px solid #F5B8C0;padding-bottom:1px}
+  .ig-link{display:inline-flex;align-items:center;gap:7px}
+  .ig-link svg{width:15px;height:15px}
+  header.main{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea);transition:box-shadow .25s ease}
+  header.main.scrolled{box-shadow:0 6px 24px rgba(35,43,66,.09)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:13px 0;transition:padding .25s ease}
+  header.main.scrolled .nav-inner{padding:8px 0}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--azul)}
+  .logo img{width:34px;height:auto}
+  .logo-text{font-family:'Bree Serif',serif;font-size:19px;line-height:1.05}
+  .menu{display:flex;align-items:center;gap:4px;list-style:none}
+  .menu > li{position:relative}
+  .menu > li > a, .menu > li > button{display:flex;align-items:center;gap:7px;padding:10px 15px;font-family:'Figtree',sans-serif;font-size:15.5px;font-weight:600;color:var(--tinta);text-decoration:none;background:none;border:none;cursor:pointer;border-radius:100px;transition:background .15s ease, color .15s ease}
+  .menu > li > a:hover, .menu > li > button:hover, .menu > li.open > button{background:var(--azul-suave);color:var(--azul)}
+  .menu > li > a:focus-visible, .menu > li > button:focus-visible{outline:2.5px solid var(--azul);outline-offset:2px}
+  .caret{width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s ease;margin-top:-3px}
+  .menu > li.open .caret{transform:rotate(225deg) translateY(-1px);margin-top:4px}
+  .drop{position:absolute;top:calc(100% + 12px);left:0;min-width:260px;background:var(--crema);border:1px solid var(--linea);border-radius:var(--radio);box-shadow:var(--sombra);padding:12px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s ease, transform .2s ease, visibility .2s}
+  .menu > li.open > .drop{opacity:1;visibility:visible;transform:none}
+  .drop a{display:block;padding:12px 15px;border-radius:13px;text-decoration:none;font-size:15px;font-weight:600;color:var(--tinta)}
+  .drop a span{display:block;font-size:13.5px;font-weight:400;color:var(--gris);margin-top:2px}
+  .drop a:hover{background:var(--azul-suave);color:var(--azul)}
+  .mega{position:absolute;top:calc(100% + 12px);left:50%;transform:translate(-50%,-6px);width:min(700px,90vw);background:var(--crema);border:1px solid var(--linea);border-radius:var(--radio);box-shadow:var(--sombra);padding:14px;display:grid;grid-template-columns:1.6fr 1fr;gap:14px;opacity:0;visibility:hidden;transition:opacity .2s ease, transform .2s ease, visibility .2s}
+  .menu > li.open > .mega{opacity:1;visibility:visible;transform:translate(-50%,0)}
+  .mega-list{display:grid;gap:4px}
+  .mega-list a{display:flex;gap:13px;align-items:flex-start;padding:12px 13px;border-radius:14px;text-decoration:none}
+  .mega-list a:hover{background:var(--azul-suave)}
+  .mega-ico{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+  .mi-1{background:var(--carmin-suave)} .mi-2{background:var(--azul-suave)} .mi-3{background:var(--neutro)} .mi-4{background:#FDF3E3}
+  .mega-list b{font-size:15.5px;color:var(--tinta);display:block}
+  .mega-list a:hover b{color:var(--azul)}
+  .mega-list span{font-size:13.5px;color:var(--gris);line-height:1.45;display:block;margin-top:1px}
+  .mega-promo{background:var(--azul);border-radius:14px;padding:22px 20px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;text-decoration:none}
+  .mega-promo svg{position:absolute;right:-14px;top:-10px;width:110px;opacity:.16}
+  .mega-promo em{font-style:normal;font-size:12.5px;font-weight:700;color:#F5B8C0}
+  .mega-promo b{font-family:'Bree Serif',serif;font-weight:400;font-size:19px;line-height:1.28;margin-top:6px;display:block}
+  .mega-promo span{font-size:13.5px;color:#C9D4F2;margin-top:6px;display:block}
+  .nav-cta{display:flex;align-items:center;gap:10px}
+  .btn{font-weight:600;font-size:15.5px;padding:13px 24px;border-radius:100px;text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease, box-shadow .15s ease;border:none;cursor:pointer;font-family:'Figtree',sans-serif}
+  .btn:hover{transform:translateY(-2px)}
+  .btn:focus-visible{outline:2.5px solid var(--azul);outline-offset:2px}
+  .btn-azul{background:var(--azul);color:#fff;box-shadow:0 6px 16px rgba(33,64,154,.24)}
+  .btn-rojo{background:var(--carmin);color:#fff;box-shadow:0 6px 16px rgba(192,41,59,.26)}
+  .btn-wa{background:var(--verde-wa);color:#fff;box-shadow:0 6px 16px rgba(18,140,75,.26)}
+  .btn-ghost{color:var(--azul);border:1.5px solid var(--azul);background:transparent}
+  .btn-blanco{background:#fff;color:var(--azul)}
+  .burger{display:none;background:none;border:none;cursor:pointer;padding:10px}
+  .burger span{display:block;width:24px;height:2.5px;background:var(--azul);margin:5px 0;border-radius:2px;transition:transform .25s ease, opacity .2s ease}
+  body.menu-open .burger span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+  body.menu-open .burger span:nth-child(2){opacity:0}
+  body.menu-open .burger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+  .mobile-menu{display:none}
+  @media(max-width:960px){
+    .menu, .nav-cta .btn-ghost{display:none}
+    .burger{display:block}
+    .mobile-menu{display:block;position:fixed;inset:0;background:#fff;z-index:90;padding:110px 32px 40px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .25s ease, transform .25s ease, visibility .25s}
+    body.menu-open .mobile-menu{opacity:1;visibility:visible;transform:none}
+    body.menu-open{overflow:hidden}
+    .mobile-menu nav > a, .m-group > button{display:flex;justify-content:space-between;align-items:center;width:100%;padding:17px 4px;font-family:'Bree Serif',serif;font-size:22px;color:var(--azul);text-decoration:none;background:none;border:none;border-bottom:1px solid var(--linea);cursor:pointer;text-align:left}
+    .m-sub{max-height:0;overflow:hidden;transition:max-height .3s ease}
+    .m-group.open .m-sub{max-height:400px}
+    .m-sub a{display:block;padding:13px 16px;font-size:16.5px;color:var(--tinta);text-decoration:none;border-bottom:1px solid var(--linea)}
+    .m-foot{margin-top:30px;display:grid;gap:12px}
+  }
+  /* HERO home */
+  .hero{padding:64px 0 40px;text-align:center;overflow:hidden}
+  .badge{display:inline-flex;align-items:center;gap:10px;background:var(--carmin-suave);border-radius:100px;padding:9px 18px 9px 12px;font-size:14px;font-weight:700;color:var(--carmin)}
+  .badge .cam-ico{width:22px;height:22px;border-radius:7px;background:var(--carmin);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Bree Serif',serif;font-size:13px}
+  h1{font-family:'Bree Serif',serif;font-weight:400;font-size:clamp(36px,4.8vw,54px);line-height:1.16;color:var(--azul)}
+  .hero h1{max-width:20ch;margin:22px auto 0}
+  .hero .lead{color:var(--gris);font-size:19px;max-width:52ch;margin:18px auto 0}
+  .trust-line{display:flex;justify-content:center;gap:10px;margin-top:22px;align-items:center;font-size:15px;color:var(--gris);flex-wrap:wrap}
+  .stars{color:#E8A020;letter-spacing:2px;font-size:17px}
+  .cta-row{display:flex;gap:14px;margin-top:30px;justify-content:center;flex-wrap:wrap}
+  .cta-note{font-size:14px;color:var(--gris);margin-top:14px}
+  .cta-note b{color:var(--carmin)}
+  .hero .stagger{opacity:0;transform:translateY(14px);animation:rise .6s ease forwards}
+  .hero .s1{animation-delay:.05s}.hero .s2{animation-delay:.14s}.hero .s3{animation-delay:.23s}.hero .s4{animation-delay:.3s}.hero .s5{animation-delay:.38s}.hero .s6{animation-delay:.45s}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .fotostrip{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:16px;margin-top:54px;align-items:end}
+  .fs{border-radius:var(--radio);overflow:hidden;box-shadow:var(--sombra);position:relative;background:linear-gradient(135deg,#E9EDF9,#DCE3F5)}
+  .fs img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .fs:hover img{transform:scale(1.04)}
+  .fs-1{aspect-ratio:4/4.4;transform:rotate(-1.6deg)}
+  .fs-2{aspect-ratio:16/10.5}
+  .fs-3{aspect-ratio:4/4.4;transform:rotate(1.6deg)}
+  .sticker{position:absolute;top:-16px;right:6%;background:var(--carmin);color:#fff;font-family:'Bree Serif',serif;font-size:15px;line-height:1.3;padding:13px 18px;border-radius:14px;transform:rotate(3deg);box-shadow:0 10px 24px rgba(192,41,59,.32);z-index:2}
+  .sticker small{display:block;font-family:'Figtree';font-weight:500;font-size:12px;opacity:.85}
+  .fotostrip-box{position:relative}
+  .trust{padding:64px 0 20px}
+  .trust-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .t-item{display:flex;gap:14px;align-items:center;border-radius:var(--radio);padding:22px 24px}
+  .t-item:nth-child(1){background:var(--carmin-suave)}
+  .t-item:nth-child(2){background:var(--azul-suave)}
+  .t-item:nth-child(3){background:var(--neutro)}
+  .t-item:nth-child(4){background:#FDF3E3}
+  .t-emoji{font-size:26px}
+  .t-item b{font-family:'Bree Serif',serif;font-weight:400;font-size:18px;display:block;line-height:1.2;color:var(--tinta)}
+  .t-item span{font-size:13.5px;color:var(--gris)}
+  .cursos{padding:84px 0 30px}
+  .centro{text-align:center}
+  .centro .sub{margin-left:auto;margin-right:auto}
+  .publico-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+  .publico{border-radius:var(--radio);text-decoration:none;color:var(--tinta);display:flex;flex-direction:column;transition:transform .18s ease, box-shadow .18s ease;overflow:hidden}
+  .publico:hover{transform:translateY(-6px);box-shadow:var(--sombra)}
+  .publico:focus-visible{outline:3px solid var(--azul);outline-offset:2px}
+  .p-infantil{background:var(--carmin-suave)} .p-jovenes{background:var(--azul-suave)} .p-adultos{background:var(--azul-suave)} .p-empresas{background:var(--neutro)}
+  .publico .foto{aspect-ratio:16/11;overflow:hidden;position:relative;margin:10px 10px 0;border-radius:14px;background:linear-gradient(135deg,#E9EDF9,#F2F1ED)}
+  .publico .foto img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .publico:hover .foto img{transform:scale(1.06)}
+  .publico .edad-chip{position:absolute;bottom:10px;left:10px;background:rgba(255,255,255,.95);color:var(--azul);font-size:12.5px;font-weight:700;padding:6px 12px;border-radius:100px}
+  .publico h3{font-family:'Bree Serif',serif;font-weight:400;font-size:21px;margin:18px 22px 6px;color:var(--azul)}
+  .publico p{font-size:14.5px;color:var(--gris);margin:0 22px;flex:1}
+  .publico .link{margin:16px 22px 20px;font-weight:700;font-size:14.5px;display:flex;align-items:center;gap:7px}
+  .p-infantil .link{color:var(--carmin)} .p-jovenes .link,.p-adultos .link{color:var(--azul)} .p-empresas .link{color:var(--tinta)}
+  .publico .link i{font-style:normal;transition:transform .18s ease}
+  .publico:hover .link i{transform:translateX(4px)}
+  .cambridge-outer{padding:84px 0 30px}
+  .cambridge{background:var(--azul);color:#fff;border-radius:28px;padding:64px;position:relative;overflow:hidden}
+  .w-deco{position:absolute;pointer-events:none;opacity:.07}
+  .cambridge .w-deco{right:-3%;bottom:-16%;height:115%}
+  .cam-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:60px;align-items:center;position:relative}
+  .cambridge .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:8px 16px;font-size:13.5px;font-weight:600;margin-bottom:20px}
+  .cambridge .pill .dot{width:8px;height:8px;border-radius:50%;background:#F5B8C0}
+  .cambridge h2{font-family:'Bree Serif',serif;font-weight:400;font-size:clamp(26px,3.2vw,36px);line-height:1.2}
+  .cambridge p{color:#C9D4F2;margin-top:16px;font-size:17px;max-width:46ch}
+  .camino{display:grid;gap:0}
+  .paso{display:grid;grid-template-columns:44px 1fr auto;gap:18px;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+  .paso:last-child{border-bottom:none}
+  .paso .nodo{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:'Bree Serif',serif;font-size:16px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.28)}
+  .paso.oficial .nodo{background:var(--carmin);border-color:var(--carmin)}
+  .paso b{font-size:16px;display:block}
+  .paso span{font-size:13.5px;color:#AFC0EE}
+  .paso .horas{font-size:13px;font-weight:600;color:#C9D4F2;background:rgba(255,255,255,.1);padding:6px 13px;border-radius:100px;white-space:nowrap}
+  .paso.oficial .horas{background:rgba(192,41,59,.4)}
+  .precios{padding:84px 0 30px}
+  .precio-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:44px}
+  .precio{border-radius:var(--radio);padding:36px 32px;display:flex;flex-direction:column;transition:transform .18s ease, box-shadow .18s ease;background:var(--neutro)}
+  .precio:hover{transform:translateY(-5px);box-shadow:var(--sombra)}
+  .precio.destacado{background:var(--azul);color:#fff}
+  .precio.matricula{background:var(--carmin-suave)}
+  .precio .nivel-tag{font-size:14px;font-weight:700;color:var(--carmin)}
+  .precio.destacado .nivel-tag{color:#F5B8C0}
+  .precio b.cifra{font-family:'Bree Serif',serif;font-weight:400;font-size:50px;color:var(--azul);display:block;margin:10px 0 2px;line-height:1}
+  .precio.destacado b.cifra{color:#fff}
+  .precio.matricula b.cifra{color:var(--carmin)}
+  .precio b.cifra small{font-size:18px;color:var(--gris);font-weight:500;font-family:'Figtree'}
+  .precio.destacado b.cifra small{color:#C9D4F2}
+  .precio > span{color:var(--gris);font-size:15.5px}
+  .precio.destacado > span{color:#C9D4F2}
+  .precio ul{list-style:none;margin-top:22px;display:grid;gap:11px;flex:1}
+  .precio li{display:flex;gap:11px;font-size:15px;align-items:flex-start}
+  .precio li::before{content:"\2713";color:var(--carmin);font-weight:700;flex-shrink:0}
+  .precio.destacado li::before{color:#F5B8C0}
+  .metodo{padding:84px 0 30px}
+  .metodo-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .metodo-fotos{position:relative;padding:0 0 34px 24px}
+  .mf-a{border-radius:var(--radio);overflow:hidden;aspect-ratio:4/3.4;box-shadow:var(--sombra);background:linear-gradient(135deg,#E9EDF9,#DCE3F5)}
+  .mf-a img,.mf-b img{width:100%;height:100%;object-fit:cover}
+  .mf-b{position:absolute;bottom:0;right:-20px;width:46%;aspect-ratio:1/1;border-radius:16px;overflow:hidden;border:6px solid #fff;box-shadow:var(--sombra);background:linear-gradient(135deg,#FBE9EB,#F2F1ED);transform:rotate(2deg)}
+  .metodo-lista{display:grid;gap:24px;margin-top:32px}
+  .m-item{display:flex;gap:18px;align-items:flex-start}
+  .m-item .num{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+  .m-item:nth-child(1) .num{background:var(--azul-suave)}
+  .m-item:nth-child(2) .num{background:var(--carmin-suave)}
+  .m-item:nth-child(3) .num{background:#FDF3E3}
+  .m-item b{font-family:'Bree Serif',serif;font-weight:400;font-size:19px;color:var(--azul);display:block;margin-bottom:3px}
+  .m-item p{font-size:15.5px;color:var(--gris)}
+  .horarios{padding:84px 0 30px}
+  .tabs{display:flex;gap:9px;flex-wrap:wrap;margin-top:38px;justify-content:center}
+  .tab{font-family:'Bree Serif',serif;font-size:17px;padding:12px 26px;border-radius:100px;border:1.5px solid var(--linea);background:#fff;color:var(--tinta);cursor:pointer;transition:all .16s ease}
+  .tab:hover{border-color:var(--azul);color:var(--azul)}
+  .tab[aria-selected="true"]{background:var(--azul);border-color:var(--azul);color:#fff;box-shadow:0 6px 16px rgba(33,64,154,.24)}
+  .tab:focus-visible{outline:2.5px solid var(--azul);outline-offset:2px}
+  .panel{margin-top:22px;background:var(--neutro);border-radius:var(--radio);padding:36px;display:none;animation:fadeIn .3s ease}
+  .panel.active{display:block}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;padding-bottom:24px;border-bottom:1px solid var(--linea)}
+  .panel-head h3{font-family:'Bree Serif',serif;font-weight:400;font-size:25px;color:var(--azul)}
+  .panel-head .meta{display:flex;gap:10px;flex-wrap:wrap}
+  .chip{font-size:13.5px;font-weight:600;padding:8px 15px;border-radius:100px;background:#fff;color:var(--azul)}
+  .chip.rojo{background:var(--carmin);color:#fff}
+  .turnos{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}
+  .turno{background:#fff;border-radius:16px;padding:22px 24px}
+  .turno b{font-size:15px;color:var(--azul);display:block;margin-bottom:10px}
+  .turno .hora{display:flex;align-items:center;gap:10px;font-family:'Bree Serif',serif;font-size:19px;padding:7px 0}
+  .turno .hora svg{flex-shrink:0}
+  .turno .vacio{color:var(--gris);font-size:15px;font-style:italic}
+  .panel-foot{margin-top:24px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  .panel-foot p{font-size:14.5px;color:var(--gris)}
+  .faq{padding:84px 0 40px}
+  .faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
+  .faq-list{display:grid;gap:12px}
+  details{background:var(--neutro);border-radius:var(--radio);overflow:hidden;transition:box-shadow .2s ease}
+  details[open]{box-shadow:var(--sombra);background:#fff;border:1px solid var(--linea)}
+  summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 26px;font-family:'Bree Serif',serif;font-size:18px;color:var(--azul)}
+  summary::-webkit-details-marker{display:none}
+  summary:focus-visible{outline:2.5px solid var(--azul);outline-offset:-3px;border-radius:var(--radio)}
+  summary .plus{width:30px;height:30px;border-radius:50%;background:#fff;color:var(--azul);display:flex;align-items:center;justify-content:center;font-size:19px;font-family:'Figtree';flex-shrink:0;transition:transform .25s ease, background .2s ease}
+  details[open] summary .plus{transform:rotate(45deg);background:var(--carmin);color:#fff}
+  details .faq-body{padding:0 26px 24px;color:var(--gris);font-size:16px;max-width:64ch}
+  .contacto-outer{padding:40px 0 60px}
+  .contacto{background:var(--azul);color:#fff;border-radius:28px;padding:64px;position:relative;overflow:hidden}
+  .contacto .w-deco{left:-5%;top:-18%;height:125%;opacity:.06}
+  .con-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative}
+  .contacto h2{font-family:'Bree Serif',serif;font-weight:400;font-size:clamp(26px,3.2vw,36px);line-height:1.2}
+  .contacto .sub{color:#C9D4F2}
+  .con-datos{display:grid;gap:14px;margin-top:32px}
+  .con-item{display:flex;gap:16px;align-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:16px 20px;text-decoration:none;transition:background .18s ease}
+  .con-item:hover{background:rgba(255,255,255,.14)}
+  .con-item .ico{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+  .con-item b{font-size:16.5px;display:block}
+  .con-item span{display:block;font-size:13.5px;color:#AFC0EE}
+  .mapa{border-radius:var(--radio);overflow:hidden;aspect-ratio:4/3.4;background:#152A66;display:flex;align-items:center;justify-content:center;color:#AFC0EE;font-style:italic;font-size:14.5px;text-align:center;padding:24px;border:1px solid rgba(255,255,255,.16)}
+  footer{background:#fff;border-top:1px solid var(--linea);color:var(--gris);padding:52px 0 34px;font-size:15px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:50px;padding-bottom:36px;border-bottom:1px solid var(--linea)}
+  .foot-logo img{width:230px;height:auto;margin-bottom:16px}
+  footer p{font-size:14.5px;max-width:34ch}
+  footer h4{font-family:'Bree Serif',serif;font-weight:400;font-size:16.5px;color:var(--azul);margin-bottom:14px}
+  footer ul{list-style:none;display:grid;gap:9px}
+  footer a{color:var(--gris);text-decoration:none;font-size:14.5px}
+  footer a:hover{color:var(--azul)}
+  .foot-bottom{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-top:26px;font-size:13.5px;align-items:center}
+  .foot-ig{display:inline-flex;align-items:center;gap:8px;color:var(--gris)}
+  .foot-ig svg{width:16px;height:16px}
+  /* Páginas de curso */
+  .crumbs{padding:22px 0 0;font-size:14px;color:var(--gris)}
+  .crumbs a{color:var(--gris);text-decoration:none}
+  .crumbs a:hover{color:var(--azul)}
+  .crumbs .sep{margin:0 8px;opacity:.5}
+  .page-hero{padding:44px 0 60px;overflow:hidden}
+  .ph-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
+  .page-hero h1{max-width:16ch}
+  .page-hero .lead{color:var(--gris);font-size:19px;max-width:46ch;margin-top:16px}
+  .facts{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+  .fact{font-size:14px;font-weight:600;padding:9px 16px;border-radius:100px;background:var(--neutro);color:var(--tinta)}
+  .fact.azul{background:var(--azul-suave);color:var(--azul)}
+  .fact.rojo{background:var(--carmin-suave);color:var(--carmin)}
+  .page-hero .cta-row{justify-content:flex-start}
+  .ph-foto{position:relative;padding:0 12px 26px 0}
+  .ph-img{border-radius:var(--radio);overflow:hidden;aspect-ratio:4/3.6;box-shadow:var(--sombra);background:linear-gradient(135deg,#E9EDF9,#DCE3F5)}
+  .ph-img img{width:100%;height:100%;object-fit:cover}
+  .ph-foto .sticker{top:auto;bottom:0;right:-8px}
+  .bloque{padding:70px 0 20px}
+  .acts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+  .act{border-radius:var(--radio);padding:28px 24px;text-align:center}
+  .act:nth-child(1){background:var(--carmin-suave)} .act:nth-child(2){background:var(--azul-suave)} .act:nth-child(3){background:#FDF3E3} .act:nth-child(4){background:var(--neutro)}
+  .act .em{font-size:34px;display:block;margin-bottom:12px}
+  .act b{font-family:'Bree Serif',serif;font-weight:400;font-size:18px;color:var(--azul);display:block;margin-bottom:5px}
+  .act p{font-size:14px;color:var(--gris)}
+  .dos-col{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .foto-suelta{border-radius:var(--radio);overflow:hidden;box-shadow:var(--sombra);aspect-ratio:4/3;background:linear-gradient(135deg,#E9EDF9,#F2F1ED)}
+  .foto-suelta img{width:100%;height:100%;object-fit:cover}
+  .lista-check{list-style:none;display:grid;gap:14px;margin-top:26px}
+  .lista-check li{display:flex;gap:13px;align-items:flex-start;font-size:16px}
+  .lista-check li::before{content:"\2713";width:24px;height:24px;border-radius:50%;background:var(--carmin);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;margin-top:2px}
+  .quote-band{margin:70px 0 0;padding:0}
+  .quote-inner{background:var(--carmin-suave);border-radius:28px;padding:52px 56px;text-align:center}
+  .quote-inner blockquote{font-family:'Bree Serif',serif;font-size:clamp(21px,2.6vw,28px);color:var(--carmin);line-height:1.35;max-width:26ch;margin:0 auto}
+  .quote-inner cite{display:block;font-family:'Figtree';font-style:normal;font-size:14px;color:var(--gris);margin-top:14px}
+  .pasos-num{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+  .pn{background:var(--neutro);border-radius:var(--radio);padding:30px 28px;position:relative}
+  .pn .n{font-family:'Bree Serif',serif;font-size:15px;color:#fff;background:var(--azul);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .pn b{font-family:'Bree Serif',serif;font-weight:400;font-size:19px;color:var(--azul);display:block;margin-bottom:6px}
+  .pn p{font-size:15px;color:var(--gris)}
+  .banda-cta{padding:70px 0 60px}
+  .banda-inner{background:var(--azul);border-radius:28px;padding:56px;text-align:center;color:#fff;position:relative;overflow:hidden}
+  .banda-inner .w-deco{right:-4%;top:-30%;height:160%;opacity:.07}
+  .banda-inner h2{font-family:'Bree Serif',serif;font-weight:400;font-size:clamp(24px,3vw,34px);position:relative}
+  .banda-inner p{color:#C9D4F2;margin-top:12px;position:relative}
+  .banda-inner .cta-row{position:relative}
+  .info-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+  .ic{border-radius:var(--radio);padding:28px;background:var(--neutro)}
+  .ic b{font-family:'Bree Serif',serif;font-weight:400;font-size:26px;color:var(--azul);display:block}
+  .ic span{font-size:14.5px;color:var(--gris)}
+  @media(max-width:960px){
+    .cam-grid,.metodo-grid,.con-grid,.faq-grid,.ph-grid,.dos-col{grid-template-columns:1fr}
+    .publico-grid{grid-template-columns:repeat(2,1fr)}
+    .precio-grid,.pasos-num,.info-cards{grid-template-columns:1fr}
+    .acts-grid,.trust-inner{grid-template-columns:repeat(2,1fr)}
+    .foot-grid{grid-template-columns:1fr}
+    .fotostrip{grid-template-columns:1fr 1fr;gap:12px}
+    .fs-2{display:none}
+    .cambridge,.contacto,.banda-inner{padding:44px 32px;border-radius:22px}
+    .quote-inner{padding:40px 28px}
+    .topbar .left span{display:none}
+  }
+  @media(max-width:640px){
+    .publico-grid,.acts-grid,.turnos,.trust-inner{grid-template-columns:1fr}
+    .panel{padding:26px 22px}
+  }
+
+  /* ====== CAPA PLAYFUL ====== */
+  @keyframes floaty{0%,100%{transform:translateY(0) rotate(var(--rot,0deg))}50%{transform:translateY(-14px) rotate(calc(var(--rot,0deg) + 4deg))}}
+  @keyframes wobble{0%,100%{transform:rotate(3deg)}50%{transform:rotate(-2deg) translateY(-3px)}}
+  @keyframes wpop{to{opacity:1;transform:none}}
+  @keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-9deg)}75%{transform:rotate(9deg)}}
+  @keyframes spin-slow{to{transform:rotate(360deg)}}
+  @keyframes marquee-x{to{transform:translateX(-50%)}}
+  @keyframes shine{0%{transform:translateX(-130%) skewX(-18deg)}100%{transform:translateX(230%) skewX(-18deg)}}
+
+  .logo img.logo-full{width:auto;height:46px;transition:height .25s ease}
+  header.main.scrolled .logo img.logo-full{height:38px}
+
+  /* Palabras del titular */
+  .word{display:inline-block;opacity:0;transform:translateY(.55em) rotate(3deg);animation:wpop .6s cubic-bezier(.2,.9,.3,1.25) forwards;animation-delay:var(--d,0s)}
+  .pg-empresas .word{transform:translateY(.25em);animation-timing-function:ease}
+
+  /* Formas flotantes */
+  .hero .wrap,.page-hero .wrap{position:relative}
+  .shape{position:absolute;pointer-events:none;animation:floaty var(--spd,6s) ease-in-out infinite;animation-delay:var(--del,0s);z-index:0}
+  .shape.dot{border-radius:50%}
+  .shape.ring{border-radius:50%;background:transparent !important;border:4px solid var(--c)}
+  .shape.sun{animation:spin-slow 26s linear infinite;font-size:44px;line-height:1}
+  .pg-empresas .shape{display:none}
+  .hero > .wrap > *:not(.shape){position:relative;z-index:1}
+  .page-hero .ph-grid > *{position:relative;z-index:1}
+
+  .sticker{animation:wobble 5.5s ease-in-out infinite}
+  .t-item .t-emoji,.mega-ico,.act .em,.m-item .num{display:inline-flex;align-items:center;justify-content:center}
+  .t-item:hover .t-emoji,.mega-list a:hover .mega-ico,.act:hover .em,.m-item:hover .num{animation:wiggle .45s ease}
+  .publico:hover{transform:translateY(-6px) rotate(-.6deg)}
+  .act{transition:transform .18s ease, box-shadow .18s ease}
+  .act:hover{transform:translateY(-6px) rotate(-1.2deg);box-shadow:var(--sombra)}
+  .pg-infantil .act:nth-child(even):hover{transform:translateY(-6px) rotate(1.2deg)}
+  .btn{position:relative;overflow:hidden}
+  .btn:active{transform:translateY(0) scale(.97)}
+  .fs{transition:transform .25s ease}
+  .fs-1:hover{transform:rotate(-3deg) translateY(-6px)}
+  .fs-3:hover{transform:rotate(3deg) translateY(-6px)}
+
+  /* Camino Cambridge: pasos en cascada + brillo en niveles de examen */
+  .camino.reveal .paso{opacity:0;transform:translateX(18px);transition:opacity .5s ease,transform .5s ease}
+  .camino.reveal.in .paso{opacity:1;transform:none}
+  .camino.reveal.in .paso:nth-child(1){transition-delay:.05s}
+  .camino.reveal.in .paso:nth-child(2){transition-delay:.13s}
+  .camino.reveal.in .paso:nth-child(3){transition-delay:.21s}
+  .camino.reveal.in .paso:nth-child(4){transition-delay:.29s}
+  .camino.reveal.in .paso:nth-child(5){transition-delay:.37s}
+  .camino.reveal.in .paso:nth-child(6){transition-delay:.45s}
+  .paso.oficial .nodo{position:relative;overflow:hidden}
+  .camino.in .paso.oficial .nodo::after{content:"";position:absolute;top:0;bottom:0;width:45%;background:rgba(255,255,255,.45);animation:shine 2.6s ease .8s infinite}
+
+  /* Franja de confianza en cascada */
+  .trust-inner .t-item{transition-delay:calc(var(--i,0)*.09s)}
+
+  /* Marquesina */
+  .band-marquee{background:var(--azul);color:#fff;overflow:hidden;padding:15px 0;position:relative}
+  .pg-verano .band-marquee{background:#E8A020}
+  .pg-infantil .band-marquee{background:var(--carmin)}
+  .band-track{display:inline-flex;align-items:center;gap:34px;white-space:nowrap;animation:marquee-x 26s linear infinite;font-family:'Bree Serif',serif;font-size:18px;padding-right:34px}
+  .band-track .w-sep{width:22px;height:20px;flex-shrink:0;opacity:.7}
+  .band-marquee:hover .band-track{animation-play-state:paused}
+
+  /* Bloque Instagram */
+  .insta{padding:84px 0 30px}
+  .insta-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  .btn-ig{background:linear-gradient(45deg,#F58529,#DD2A7B 55%,#8134AF);color:#fff;box-shadow:0 6px 16px rgba(221,42,123,.3)}
+  .btn-ig svg{width:18px;height:18px}
+  .ig-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:38px}
+  .ig-tile{aspect-ratio:1/1;border-radius:16px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:transform .18s ease, box-shadow .18s ease}
+  .ig-tile:hover{transform:translateY(-6px) rotate(-.8deg);box-shadow:var(--sombra)}
+  .ig-tile:nth-child(even):hover{transform:translateY(-6px) rotate(.8deg)}
+  .ig-tile img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+  .ig-tile:hover img{transform:scale(1.07)}
+  .ig-tile .ig-hover{position:absolute;inset:0;background:rgba(33,64,154,.72);color:#fff;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s ease}
+  .ig-tile:hover .ig-hover{opacity:1}
+  .ig-tile .ig-hover svg{width:30px;height:30px}
+  .ig-tile.color{font-family:'Bree Serif',serif;font-size:clamp(15px,1.6vw,20px);text-align:center;padding:14px;line-height:1.3}
+  .ig-t-azul{background:var(--azul);color:#fff}
+  .ig-t-rojo{background:var(--carmin-suave);color:var(--carmin)}
+  .ig-t-sol{background:#FDF3E3;color:#B87A10}
+  @media(max-width:960px){.ig-grid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:640px){.ig-grid{grid-template-columns:repeat(2,1fr)}}
+
+  @media (prefers-reduced-motion: reduce){
+    .word{opacity:1;transform:none}
+    .shape{display:none}
+    .camino.reveal .paso{opacity:1;transform:none}
+    .band-track{animation:none}
+  }
+
+
+  /* ====== HEADER v2: limpio y sinuoso ====== */
+  header.main{border-bottom:none}
+  header.main::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:8px;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='8' viewBox='0 0 26 8'%3E%3Cpath d='M0 4 Q6.5 0.5 13 4 T26 4' fill='none' stroke='%2321409A' stroke-opacity='0.25' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:repeat-x;background-size:26px 8px;
+    animation:waveSlide 8s linear infinite;pointer-events:none}
+  @keyframes waveSlide{to{background-position-x:-26px}}
+  @keyframes ribbonDraw{to{stroke-dashoffset:0}}
+
+  .logo svg.mark{height:46px;width:auto;transition:height .25s ease, transform .25s ease}
+  header.main.scrolled .logo svg.mark{height:38px}
+  .logo:hover svg.mark{transform:rotate(-3deg) scale(1.05)}
+  .mark .ribbon{stroke-dasharray:560;stroke-dashoffset:560;animation:ribbonDraw 1.1s ease .25s forwards}
+  .logo:hover .ribbon{animation:ribbonDraw .8s ease forwards}
+  .logo .logo-text{font-family:'Bree Serif',serif;font-size:19px;line-height:1.05;color:var(--azul)}
+
+  /* Subrayado ondulado en la navegación */
+  .menu > li > a, .menu > li > button{position:relative}
+  .menu > li > a::after, .menu > li > button::after{content:"";position:absolute;left:15px;right:15px;bottom:3px;height:8px;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='8' viewBox='0 0 26 8'%3E%3Cpath d='M0 4 Q6.5 0.5 13 4 T26 4' fill='none' stroke='%2321409A' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:repeat-x;background-size:26px 8px;
+    opacity:0;transition:opacity .18s ease;animation:waveSlide 1s linear infinite;pointer-events:none}
+  .menu > li > a:hover::after, .menu > li > button:hover::after, .menu > li.open > button::after{opacity:1}
+
+  /* Selector de idioma integrado */
+  .lang-pill{display:flex;border:1.5px solid var(--linea);border-radius:100px;overflow:hidden;font-size:13px;font-weight:700}
+  .lang-pill a{padding:9px 13px;text-decoration:none;color:var(--gris);transition:background .15s ease,color .15s ease}
+  .lang-pill a[aria-current]{background:var(--azul);color:#fff}
+  .lang-pill a:not([aria-current]):hover{background:var(--azul-suave);color:var(--azul)}
+  .m-lang{text-align:center;font-size:15px;color:var(--gris)}
+  .m-lang a{text-decoration:none;color:var(--gris)}
+  .m-lang a[aria-current]{color:var(--azul);font-weight:700}
+
+  /* Footer con el mismo lockup vectorial */
+  .foot-lockup{display:flex;align-items:center;gap:12px;margin-bottom:16px;text-decoration:none}
+  .foot-lockup svg.mark{height:52px;width:auto}
+  .foot-lockup .ribbon{stroke-dasharray:none;stroke-dashoffset:0;animation:none}
+
+  @media (prefers-reduced-motion: reduce){
+    .mark .ribbon{stroke-dashoffset:0;animation:none}
+    header.main::after, .menu > li > a::after, .menu > li > button::after{animation:none}
+  }
+
+  .publico-grid.tres{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:960px){.publico-grid.tres{grid-template-columns:1fr}}
+</style>
+</head>
+<body class="pg-home">
+
+<header class="main" id="mainHeader">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#">
+      <svg class="mark" viewBox="0 0 100 140" aria-hidden="true"><defs><clipPath id="mclipH"><rect x="2" y="2" width="96" height="136" rx="5"/></clipPath></defs><g clip-path="url(#mclipH)"><rect x="2" y="2" width="96" height="136" fill="#C0293B"/><path d="M-10 84 C16 62 26 68 34 98 C40 121 46 121 52 86 C58 51 64 51 70 84 C76 117 84 117 92 54 C96 31 101 22 112 10 L112 -10 L-12 -10 Z" fill="#21409A"/><path class="ribbon" d="M-10 84 C16 62 26 68 34 98 C40 121 46 121 52 86 C58 51 64 51 70 84 C76 117 84 117 92 54 C96 31 101 22 112 10" fill="none" stroke="#FFFFFF" stroke-width="13" stroke-linecap="round"/></g></svg>
+      <span class="logo-text">Academia<br>Well</span>
+    </a>
+    <ul class="menu">
+      <li><a href="cursos.html">El curso</a></li>
+      <li><a href="#cambridge">Cambridge</a></li>
+      <li><a href="#precios">Precios</a></li>
+      <li><a href="#horarios">Horarios</a></li>
+      <li class="has-drop">
+        <button type="button" aria-expanded="false" aria-haspopup="true">La academia <span class="caret"></span></button>
+        <div class="drop" role="menu">
+          <a href="#metodo" role="menuitem">Nuestro m&eacute;todo<span>Grupos reducidos, material propio, informes</span></a>
+          <a href="#faq" role="menuitem">Preguntas frecuentes<span>Matr&iacute;cula, niveles, pruebas de acceso</span></a>
+          <a href="#contacto" role="menuitem">D&oacute;nde estamos<span>C/ Lapurdi 36, Galdakao</span></a>
+        </div>
+      </li>
+    </ul>
+    <div class="nav-cta">
+      <div class="lang-pill" role="group" aria-label="Idioma"><a href="#" aria-current="page">ES</a><a href="#">EU</a></div>
+      <a class="btn btn-wa" href="https://wa.me/34652921203">WhatsApp</a>
+      <button class="burger" id="burger" aria-label="Abrir men&uacute;" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <nav>
+    <a href="cursos.html">El curso</a>
+    <a href="#cambridge">Cambridge</a>
+    <a href="#precios">Precios</a>
+    <a href="#horarios">Horarios</a>
+    <a href="#faq">Preguntas frecuentes</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+  <div class="m-foot">
+    <div class="m-lang"><a href="#" aria-current="page">Castellano</a> &middot; <a href="#">Euskara</a></div>
+    <a class="btn btn-wa" href="https://wa.me/34652921203">Escr&iacute;benos por WhatsApp</a>
+    <a class="btn btn-ghost" href="tel:652921203">Llamar: 652 92 12 03</a>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="badge stagger s1"><span class="cam-ico">C</span>Centro preparador oficial de Cambridge</span>
+    <h1 class="stagger s2">Tu academia de ingl&eacute;s de toda la vida en Galdakao</h1>
+    <p class="lead stagger s3">Grupos peque&ntilde;os, profes que te conocen por tu nombre y todos los niveles, de A1 a Proficiency. Empezamos la primera semana de octubre.</p>
+    <div class="trust-line stagger s4">
+      <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span>5,0 en Google &middot; m&aacute;s de 10 a&ntilde;os en Lapurdi Kalea 36</span>
+    </div>
+    <div class="cta-row stagger s5">
+      <a class="btn btn-azul" href="#contacto">Reserva tu prueba de nivel</a>
+      <a class="btn btn-wa" href="https://wa.me/34652921203">Escr&iacute;benos por WhatsApp</a>
+    </div>
+    <p class="cta-note stagger s5"><b>Matr&iacute;cula: 50&euro;, una sola por familia,</b> se apunten los hermanos que se apunten.</p>
+    <div class="fotostrip-box stagger s6">
+      <div class="sticker">Matr&iacute;cula abierta<small>curso 2026&ndash;27</small></div>
+      <div class="fotostrip">
+        <div class="fs fs-1"><img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=900&q=80" alt="Peques pintando en un taller en inglés" onerror="this.remove()"></div>
+        <div class="fs fs-2"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1100&q=80" alt="Alumnos escribiendo en clase" onerror="this.remove()"></div>
+        <div class="fs fs-3"><img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=900&q=80" alt="Grupo de adultos estudiando alrededor de una mesa" onerror="this.remove()"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="wrap trust-inner">
+    <div class="t-item reveal"><span class="t-emoji">&#127941;</span><div><b>Centro oficial</b><span>preparador de Cambridge</span></div></div>
+    <div class="t-item reveal"><span class="t-emoji">&#129489;&#8205;&#127979;</span><div><b>M&aacute;ximo 12 por clase</b><span>grupos homog&eacute;neos por nivel</span></div></div>
+    <div class="t-item reveal"><span class="t-emoji">&#128200;</span><div><b>3 informes al a&ntilde;o</b><span>diciembre, marzo y junio</span></div></div>
+    <div class="t-item reveal"><span class="t-emoji">&#11088;</span><div><b>5,0 en Google</b><span>familias que repiten cada curso</span></div></div>
+  </div>
+</section>
+
+<section class="cursos" id="cursos">
+  <div class="wrap">
+    <div class="centro reveal">
+      <span class="kicker">El curso</span>
+      <h2 class="section">Un solo curso: ingl&eacute;s, bien ense&ntilde;ado</h2>
+      <p class="sub">No hay men&uacute; de modalidades: hay un camino, de A1 a Proficiency, y una forma clara de entrar en &eacute;l seg&uacute;n tu edad.</p>
+    </div>
+    <div class="publico-grid tres">
+      <a class="publico p-infantil reveal" href="cursos.html">
+        <div class="foto"><img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=760&q=80" alt="Peques en clase" loading="lazy" onerror="this.remove()"><span class="edad-chip">hasta los 10 a&ntilde;os</span></div>
+        <h3>Peques: entrada por edad</h3>
+        <p>Sin prueba de nivel. Los grupos se forman por edad y crecen juntos, curso a curso, hacia su primer certificado.</p>
+        <span class="link">C&oacute;mo funciona <i>&rarr;</i></span>
+      </a>
+      <a class="publico p-jovenes reveal" href="cursos.html">
+        <div class="foto"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=760&q=80" alt="Alumnos en clase" loading="lazy" onerror="this.remove()"><span class="edad-chip">desde los 11 a&ntilde;os</span></div>
+        <h3>J&oacute;venes y adultos: por nivel</h3>
+        <p>Con prueba de nivel gratuita o certificado oficial, entras justo en el grupo que te corresponde, de A1 a C2.</p>
+        <span class="link">Ver niveles y horarios <i>&rarr;</i></span>
+      </a>
+      <a class="publico p-adultos reveal" href="cursos.html#cambridge">
+        <div class="foto"><img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=760&q=80" alt="Celebración de graduados" loading="lazy" onerror="this.remove()"><span class="edad-chip">B2 &middot; C1 &middot; C2</span></div>
+        <h3>Niveles de examen</h3>
+        <p>Tres horas semanales, simulacros en formato real y la preparaci&oacute;n espec&iacute;fica de un centro oficial.</p>
+        <span class="link">El camino Cambridge <i>&rarr;</i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="cambridge-outer">
+  <div class="wrap">
+    <section class="cambridge" id="cambridge">
+      <svg class="w-deco" viewBox="0 0 120 110" aria-hidden="true"><path d="M8 12 C22 98 36 98 48 54 C55 27 65 27 72 54 C84 98 98 98 112 12" fill="none" stroke="#fff" stroke-width="15" stroke-linecap="round"/></svg>
+      <div class="cam-grid">
+        <div class="reveal">
+          <span class="pill"><span class="dot"></span>Centro preparador oficial</span>
+          <h2>El camino Cambridge, entero, sin salir de Galdakao</h2>
+          <p>Somos centro preparador oficial de Cambridge: preparaci&oacute;n espec&iacute;fica para cada examen, material propio y profesores que conocen las pruebas al detalle. Los niveles de examen (B2, C1 y C2) tienen una hora semanal extra.</p>
+        </div>
+        <div class="camino reveal">
+          <div class="paso"><span class="nodo">A1</span><div><b>Iniciaci&oacute;n</b><span>primeros pasos, entrada por prueba de nivel</span></div><span class="horas">2 h/semana</span></div>
+          <div class="paso"><span class="nodo">A2</span><div><b>Key</b><span>base s&oacute;lida de gram&aacute;tica y conversaci&oacute;n</span></div><span class="horas">2 h/semana</span></div>
+          <div class="paso"><span class="nodo">B1</span><div><b>Preliminary</b><span>autonom&iacute;a en situaciones cotidianas</span></div><span class="horas">2 h/semana</span></div>
+          <div class="paso oficial"><span class="nodo">B2</span><div><b>First (FCE)</b><span>el t&iacute;tulo que piden trabajos y universidades</span></div><span class="horas">3 h/semana</span></div>
+          <div class="paso oficial"><span class="nodo">C1</span><div><b>Advanced (CAE)</b><span>dominio para entornos acad&eacute;micos y profesionales</span></div><span class="horas">3 h/semana</span></div>
+          <div class="paso oficial"><span class="nodo">C2</span><div><b>Proficiency (CPE)</b><span>el nivel m&aacute;s alto que certifica Cambridge</span></div><span class="horas">3 h/semana</span></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<section class="precios" id="precios">
+  <div class="wrap">
+    <div class="centro reveal">
+      <span class="kicker">Precios</span>
+      <h2 class="section">Claros, publicados y sin sorpresas</h2>
+      <p class="sub">La mensualidad depende de las horas semanales de tu nivel. Sin permanencias ni letra peque&ntilde;a.</p>
+    </div>
+    <div class="precio-grid">
+      <div class="precio reveal">
+        <span class="nivel-tag">A1 &middot; A2 &middot; B1</span>
+        <b class="cifra">69&euro;<small> /mes</small></b>
+        <span>2 horas semanales</span>
+        <ul><li>Grupos de m&aacute;ximo 12, por nivel</li><li>Material propio incluido en el curso</li><li>Informes en diciembre, marzo y junio</li></ul>
+      </div>
+      <div class="precio destacado reveal">
+        <span class="nivel-tag">B2 &middot; C1 &middot; C2 &middot; Niveles de examen</span>
+        <b class="cifra">99&euro;<small> /mes</small></b>
+        <span>3 horas semanales</span>
+        <ul><li>Preparaci&oacute;n espec&iacute;fica del examen oficial</li><li>Una hora semanal extra de pr&aacute;ctica</li><li>Simulacros con formato real de Cambridge</li></ul>
+      </div>
+      <div class="precio matricula reveal">
+        <span class="nivel-tag">Matr&iacute;cula</span>
+        <b class="cifra">50&euro;</b>
+        <span>una sola por familia</span>
+        <ul><li>Da igual cu&aacute;ntos hermanos se apunten</li><li>Curso desde la primera semana de octubre</li><li>Prueba de nivel sin compromiso</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="metodo" id="metodo">
+  <div class="wrap metodo-grid">
+    <div class="metodo-fotos reveal">
+      <div class="mf-a"><img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1000&q=80" alt="Profesora explicando en la pizarra" loading="lazy" onerror="this.remove()"></div>
+      <div class="mf-b"><img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=640&q=80" alt="Mano escribiendo con pluma" loading="lazy" onerror="this.remove()"></div>
+    </div>
+    <div class="reveal">
+      <span class="kicker">Nuestro m&eacute;todo</span>
+      <h2 class="section">Con el ingl&eacute;s no se juega. Bueno, un poco s&iacute;.</h2>
+      <div class="metodo-lista">
+        <div class="m-item"><span class="num">&#129517;</span><div><b>Entrada por edad o por nivel</b><p>Hasta los 10 a&ntilde;os, por edad. Despu&eacute;s, con prueba de nivel o certificado oficial, para que cada grupo avance junto.</p></div></div>
+        <div class="m-item"><span class="num">&#128218;</span><div><b>Material propio</b><p>Desarrollado por la academia, pensado para nuestros grupos y para el formato real de los ex&aacute;menes de Cambridge.</p></div></div>
+        <div class="m-item"><span class="num">&#128200;</span><div><b>Tres informes de evoluci&oacute;n</b><p>En diciembre, marzo y junio sabes exactamente en qu&eacute; punto est&aacute;s y qu&eacute; queda por trabajar.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="horarios" id="horarios">
+  <div class="wrap">
+    <div class="centro reveal">
+      <span class="kicker">Horarios 2026&ndash;27</span>
+      <h2 class="section">Elige tu nivel y mira tus turnos</h2>
+      <p class="sub">Todas las clases son de tarde, de lunes a jueves. Si dudas de tu nivel, la prueba de nivel te lo resuelve.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Horarios por nivel" id="tabsHorarios"></div>
+    <div id="panelesHorarios"></div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap faq-grid">
+    <div class="reveal">
+      <span class="kicker">Preguntas frecuentes</span>
+      <h2 class="section">Lo que nos preguntan las familias</h2>
+      <p class="sub">Y si tu duda no est&aacute; aqu&iacute;, ll&aacute;manos o escr&iacute;benos. Sin compromiso.</p>
+    </div>
+    <div class="faq-list reveal">
+      <details><summary>&iquest;Por qu&eacute; solo ense&ntilde;&aacute;is ingl&eacute;s?<span class="plus">+</span></summary><div class="faq-body">Porque ense&ntilde;ar ingl&eacute;s es lo que sabemos hacer. Cuando algo nos importa de verdad, acudimos a un especialista. &iquest;Por qu&eacute; el ingl&eacute;s iba a ser diferente? Es nuestra pasi&oacute;n y queremos contagiarla.</div></details>
+      <details><summary>&iquest;C&oacute;mo s&eacute; en qu&eacute; grupo entra mi hijo o entro yo?<span class="plus">+</span></summary><div class="faq-body">Hasta los 10 a&ntilde;os los alumnos entran por edad. A partir de ah&iacute;, por nivel: hacemos una prueba de nivel gratuita o aceptamos la acreditaci&oacute;n de un certificado oficial. As&iacute; los grupos son homog&eacute;neos y todo el mundo avanza.</div></details>
+      <details><summary>&iquest;Qu&eacute; incluye la matr&iacute;cula de 50&euro;?<span class="plus">+</span></summary><div class="faq-body">Es una &uacute;nica matr&iacute;cula por familia y curso: da igual cu&aacute;ntos hermanos se apunten, se paga una sola vez. El curso comienza la primera semana de octubre.</div></details>
+      <details><summary>&iquest;Por qu&eacute; los niveles de examen tienen 3 horas semanales?<span class="plus">+</span></summary><div class="faq-body">B2, C1 y C2 son ex&aacute;menes exigentes con partes muy espec&iacute;ficas (Use of English, Writing, Speaking cronometrado). La tercera hora semanal se dedica a practicar el formato real de la prueba para llegar al examen sin sorpresas.</div></details>
+      <details><summary>&iquest;C&oacute;mo sabr&eacute; si mi hijo progresa?<span class="plus">+</span></summary><div class="faq-body">Entregamos tres informes de evoluci&oacute;n durante el curso: en diciembre, marzo y junio. Adem&aacute;s, con grupos de m&aacute;ximo 12 alumnos, el profesor conoce los puntos fuertes y d&eacute;biles de cada uno.</div></details>
+      <details><summary>&iquest;Qu&eacute; material necesito comprar?<span class="plus">+</span></summary><div class="faq-body">Trabajamos con material propio desarrollado por la academia, pensado para nuestros grupos y para los ex&aacute;menes de Cambridge.</div></details>
+    </div>
+  </div>
+</section>
+
+<div class="contacto-outer">
+  <div class="wrap">
+    <section class="contacto" id="contacto">
+      <svg class="w-deco" viewBox="0 0 120 110" aria-hidden="true"><path d="M8 12 C22 98 36 98 48 54 C55 27 65 27 72 54 C84 98 98 98 112 12" fill="none" stroke="#fff" stroke-width="15" stroke-linecap="round"/></svg>
+      <div class="con-grid">
+        <div class="reveal">
+          <h2>Ven a conocernos</h2>
+          <p class="sub">Te orientamos sin compromiso y, si hace falta, te hacemos la prueba de nivel en la propia academia.</p>
+          <div class="con-datos">
+            <a class="con-item" href="https://wa.me/34652921203"><span class="ico">&#128172;</span><div><b>652 92 12 03</b><span>WhatsApp o llamada</span></div></a>
+            <a class="con-item" href="mailto:academia.well.galdakao@gmail.com"><span class="ico">&#9993;&#65039;</span><div><b>academia.well.galdakao@gmail.com</b><span>escr&iacute;benos cuando quieras</span></div></a>
+            <a class="con-item" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener"><span class="ico">&#128247;</span><div><b>@academia_well_galdakao</b><span>s&iacute;guenos en Instagram</span></div></a>
+            <div class="con-item"><span class="ico">&#128205;</span><div><b>C/ Lapurdi 36, entreplanta 5</b><span>48960 Galdakao, Bizkaia</span></div></div>
+          </div>
+        </div>
+        <div class="mapa reveal">Mapa embebido de Google Maps: C/ Lapurdi 36, Galdakao</div>
+      </div>
+    </section>
+  </div>
+</div>
+
+
+<section class="insta">
+  <div class="wrap">
+    <div class="insta-head reveal">
+      <div>
+        <span class="kicker">Instagram</span>
+        <h2 class="section">La academia, por dentro</h2>
+        <p class="sub">Avisos de matr&iacute;cula, fechas de ex&aacute;menes y la vida de las clases, en el d&iacute;a a d&iacute;a.</p>
+      </div>
+      <a class="btn btn-ig" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.9"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg> Seguir @academia_well_galdakao</a>
+    </div>
+    <div class="ig-grid reveal">
+      <a class="ig-tile" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=520&q=80" alt="Peques en clase" loading="lazy" onerror="this.remove()"><span class="ig-hover"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.9"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></span></a>
+      <a class="ig-tile color ig-t-azul" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener">Hello, Galdakao!</a>
+      <a class="ig-tile" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=520&q=80" alt="Clase de jóvenes" loading="lazy" onerror="this.remove()"><span class="ig-hover"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.9"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></span></a>
+      <a class="ig-tile color ig-t-rojo" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener">Well done! &#128079;</a>
+      <a class="ig-tile" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=520&q=80" alt="Celebración de aprobados" loading="lazy" onerror="this.remove()"><span class="ig-hover"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.9"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></span></a>
+      <a class="ig-tile color ig-t-sol" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener">See you in class &#9996;&#65039;</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo foot-lockup" href="index.html"><svg class="mark" viewBox="0 0 100 140" aria-hidden="true"><defs><clipPath id="mclipF"><rect x="2" y="2" width="96" height="136" rx="5"/></clipPath></defs><g clip-path="url(#mclipF)"><rect x="2" y="2" width="96" height="136" fill="#C0293B"/><path d="M-10 84 C16 62 26 68 34 98 C40 121 46 121 52 86 C58 51 64 51 70 84 C76 117 84 117 92 54 C96 31 101 22 112 10 L112 -10 L-12 -10 Z" fill="#21409A"/><path class="ribbon" d="M-10 84 C16 62 26 68 34 98 C40 121 46 121 52 86 C58 51 64 51 70 84 C76 117 84 117 92 54 C96 31 101 22 112 10" fill="none" stroke="#FFFFFF" stroke-width="13" stroke-linecap="round"/></g></svg><span class="logo-text">Academia<br>Well</span></a>
+        <p>M&aacute;s de diez a&ntilde;os ense&ntilde;ando ingl&eacute;s en Galdakao. Centro preparador oficial de ex&aacute;menes de Cambridge.</p>
+      </div>
+      <div>
+        <h4>El curso</h4>
+        <ul>
+          <li><a href="cursos.html">C&oacute;mo se entra</a></li>
+          <li><a href="cursos.html#cambridge">Niveles A1 a C2</a></li>
+          <li><a href="cursos.html#horarios">Horarios por nivel</a></li>
+          <li><a href="cursos.html#precios">Precios</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Academia</h4>
+        <ul>
+          <li><a href="index.html#cambridge">Ex&aacute;menes Cambridge</a></li>
+          <li><a href="index.html#precios">Precios</a></li>
+          <li><a href="index.html#horarios">Horarios</a></li>
+          <li><a href="index.html#faq">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; Academia Well &middot; C/ Lapurdi 36, entreplanta 5, 48960 Galdakao</span>
+      <a class="foot-ig" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.9"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg>@academia_well_galdakao</a>
+      <span>Euskarazko bertsioa laster</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const header = document.getElementById('mainHeader');
+addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 8), {passive:true});
+
+const drops = document.querySelectorAll('.menu > li.has-drop');
+function closeAll(except){
+  drops.forEach(li => { if(li !== except){ li.classList.remove('open'); li.querySelector('button').setAttribute('aria-expanded','false'); } });
+}
+drops.forEach(li => {
+  const btn = li.querySelector('button');
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    const open = li.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+    closeAll(li);
+  });
+  li.addEventListener('mouseenter', () => { li.classList.add('open'); btn.setAttribute('aria-expanded','true'); closeAll(li); });
+  li.addEventListener('mouseleave', () => { li.classList.remove('open'); btn.setAttribute('aria-expanded','false'); });
+});
+document.addEventListener('click', () => closeAll(null));
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeAll(null); });
+
+const burger = document.getElementById('burger');
+burger.addEventListener('click', () => {
+  const open = document.body.classList.toggle('menu-open');
+  burger.setAttribute('aria-expanded', open);
+});
+document.querySelectorAll('.mobile-menu a').forEach(a =>
+  a.addEventListener('click', () => { document.body.classList.remove('menu-open'); burger.setAttribute('aria-expanded','false'); })
+);
+document.querySelectorAll('.m-group > button').forEach(btn =>
+  btn.addEventListener('click', () => btn.parentElement.classList.toggle('open'))
+);
+
+/* Horarios: solo si la página tiene el contenedor */
+const tabsBox = document.getElementById('tabsHorarios');
+if(tabsBox){
+  const panelsBox = document.getElementById('panelesHorarios');
+  const horarios = [
+    { id:'A1', nombre:'A1 · Iniciación', horas:'2 h/semana', precio:'69€/mes', lx:['18.00 a 19.00'], mj:[] },
+    { id:'A2', nombre:'A2 · Key', horas:'2 h/semana', precio:'69€/mes', lx:['18.30 a 19.30'], mj:['16.00 a 17.00','18.00 a 19.00'] },
+    { id:'B1', nombre:'B1 · Preliminary', horas:'2 h/semana', precio:'69€/mes', lx:['16.00 a 17.00','17.00 a 18.00'], mj:['19.00 a 20.00'] },
+    { id:'B2', nombre:'B2 · First (FCE)', horas:'3 h/semana', precio:'99€/mes', examen:true, lx:['17.00 a 18.30','19.00 a 20.30'], mj:['17.00 a 18.30','19.30 a 21.00'] },
+    { id:'C1', nombre:'C1 · Advanced (CAE)', horas:'3 h/semana', precio:'99€/mes', examen:true, lx:['19.30 a 21.00'], mj:['16.30 a 18.00'] },
+    { id:'C2', nombre:'C2 · Proficiency (CPE)', horas:'3 h/semana', precio:'99€/mes', examen:true, lx:['19.30 a 21.00'], mj:[] }
+  ];
+  const reloj = '<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.2" stroke="#21409A" stroke-width="1.8"/><path d="M9 5.5 V9 L11.5 10.8" stroke="#C0293B" stroke-width="1.8" stroke-linecap="round"/></svg>';
+  horarios.forEach((h, i) => {
+    const tab = document.createElement('button');
+    tab.className = 'tab'; tab.textContent = h.id;
+    tab.setAttribute('role','tab');
+    tab.setAttribute('aria-selected', i === 3);
+    tab.setAttribute('aria-controls', 'panel-' + h.id);
+    tab.id = 'tab-' + h.id;
+    tab.addEventListener('click', () => selectTab(i));
+    tabsBox.appendChild(tab);
+    const turnos = (lista, titulo) => `
+      <div class="turno"><b>${titulo}</b>
+        ${lista.length ? lista.map(t => `<div class="hora">${reloj}${t}</div>`).join('')
+                       : '<div class="vacio">Sin turnos este curso en estos días</div>'}
+      </div>`;
+    const panel = document.createElement('div');
+    panel.className = 'panel' + (i === 3 ? ' active' : '');
+    panel.id = 'panel-' + h.id;
+    panel.setAttribute('role','tabpanel');
+    panel.setAttribute('aria-labelledby','tab-' + h.id);
+    panel.innerHTML = `
+      <div class="panel-head">
+        <h3>${h.nombre}</h3>
+        <div class="meta">
+          <span class="chip">${h.horas}</span>
+          <span class="chip">${h.precio}</span>
+          ${h.examen ? '<span class="chip rojo">Nivel de examen oficial</span>' : ''}
+        </div>
+      </div>
+      <div class="turnos">${turnos(h.lx,'Lunes y miércoles')}${turnos(h.mj,'Martes y jueves')}</div>
+      <div class="panel-foot">
+        <p>¿No te encaja ningún turno o dudas de tu nivel? Cuéntanoslo, buscamos hueco.</p>
+        <a class="btn btn-azul" href="index.html#contacto">Reserva tu prueba de nivel</a>
+      </div>`;
+    panelsBox.appendChild(panel);
+  });
+  function selectTab(idx){
+    tabsBox.querySelectorAll('.tab').forEach((t,i) => t.setAttribute('aria-selected', i === idx));
+    panelsBox.querySelectorAll('.panel').forEach((p,i) => p.classList.toggle('active', i === idx));
+  }
+  tabsBox.addEventListener('keydown', e => {
+    const tabs = [...tabsBox.querySelectorAll('.tab')];
+    const cur = tabs.findIndex(t => t.getAttribute('aria-selected') === 'true');
+    if(e.key === 'ArrowRight'){ const n = (cur+1) % tabs.length; selectTab(n); tabs[n].focus(); }
+    if(e.key === 'ArrowLeft'){ const n = (cur-1+tabs.length) % tabs.length; selectTab(n); tabs[n].focus(); }
+  });
+}
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+/* ====== Capa playful ====== */
+const PG = (document.body.className.match(/pg-[a-z]+/) || ['pg-home'])[0];
+
+/* Titulares palabra a palabra */
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  document.querySelectorAll('h1').forEach(h => {
+    const parts = h.innerHTML.split(/(<br\s*\/?>)/i);
+    let d = 0;
+    h.innerHTML = parts.map(p => {
+      if(/^<br/i.test(p)) return p;
+      return p.split(' ').filter(Boolean).map(w => {
+        const s = `<span class="word" style="--d:${(d*0.07).toFixed(2)}s">${w}</span>`;
+        d++; return s;
+      }).join(' ');
+    }).join('');
+  });
+}
+
+/* Formas flotantes por página */
+const SHAPES = {
+  'pg-home':    [['dot','#F5B8C0',18,'6%','12%'],['ring','#21409A',30,'88%','8%'],['dot','#F2B33D',12,'12%','78%'],['ring','#C0293B',22,'92%','70%']],
+  'pg-infantil':[['dot','#C0293B',16,'5%','16%'],['dot','#F2B33D',22,'90%','10%'],['ring','#21409A',28,'8%','74%'],['dot','#F5B8C0',13,'93%','66%'],['ring','#F2B33D',18,'50%','4%']],
+  'pg-jovenes': [['ring','#21409A',26,'90%','12%'],['dot','#AFC0EE',14,'6%','70%'],['ring','#C0293B',18,'94%','62%']],
+  'pg-verano':  [['sun','',0,'88%','6%'],['dot','#F2B33D',18,'6%','16%'],['dot','#FDF3E3',24,'10%','72%'],['ring','#E8A020',24,'93%','64%']],
+  'pg-empresas': []
+};
+const host = document.querySelector('.hero > .wrap, .page-hero > .wrap');
+if(host && SHAPES[PG]){
+  SHAPES[PG].forEach(([tipo,color,size,x,y],i) => {
+    const s = document.createElement('span');
+    s.className = 'shape ' + tipo;
+    if(tipo === 'sun'){ s.textContent = '☀️'; }
+    else { s.style.width = s.style.height = size + 'px'; s.style.background = color; s.style.setProperty('--c', color); }
+    s.style.left = x; s.style.top = y;
+    s.style.setProperty('--spd', (5 + i*0.9) + 's');
+    s.style.setProperty('--del', (i*0.6) + 's');
+    s.style.setProperty('--rot', (i%2 ? -6 : 6) + 'deg');
+    host.appendChild(s);
+  });
+}
+
+/* Marquesina tras el hero */
+const FRASES = {
+  'pg-home':    ['Hello!','Kaixo!','¿Empezamos?','Let’s go!','See you in class','Well done!'],
+  'pg-infantil':['Hello hello!','Sing it!','Paint it!','Play & learn','Say it in English!'],
+  'pg-jovenes': ['B2 First','C1 Advanced','C2 Proficiency','You’ve got this','Practice makes perfect'],
+  'pg-verano':  ['Summer mode ON','Speaking every day','June & July','Sunny English','Morning classes'],
+};
+const heroSec = document.querySelector('section.hero, section.page-hero');
+if(heroSec && FRASES[PG]){
+  const wsep = '<svg class="w-sep" viewBox="0 0 120 110" aria-hidden="true"><path d="M8 12 C22 98 36 98 48 54 C55 27 65 27 72 54 C84 98 98 98 112 12" fill="none" stroke="currentColor" stroke-width="15" stroke-linecap="round"/></svg>';
+  const items = FRASES[PG].map(f => `<span>${f}</span>${wsep}`).join('');
+  heroSec.insertAdjacentHTML('afterend',
+    `<div class="band-marquee" aria-hidden="true"><div class="band-track">${items}${items}</div></div>`);
+}
+
+/* Cascada en la franja de confianza */
+document.querySelectorAll('.trust-inner .t-item').forEach((el,i) => el.style.setProperty('--i', i));
+
+</script>
+</body>
+</html>
