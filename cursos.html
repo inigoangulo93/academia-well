@@ -194,17 +194,14 @@
   .cambridge h2{font-family:'Bree Serif',serif;font-weight:400;font-size:clamp(26px,3.2vw,36px);line-height:1.2}
   .cambridge p{color:#D3DCF7;margin-top:16px;font-size:17px;max-width:46ch}
   /* ---- Camino Cambridge: roadmap ----
-     El panel opaco aisla la lista de la W de fondo: sin el, el texto
-     secundario pierde contraste justo donde pasa el trazo blanco. */
+     Panel claro sobre el bloque azul, a juego con el sello: el rail
+     recorre los niveles y vira a carmin donde empiezan los de examen. */
   .camino{position:relative;display:grid;gap:4px;padding:20px 20px 20px 18px;border-radius:24px;
-    background:linear-gradient(165deg,rgba(8,20,62,.74),rgba(8,20,62,.52));
-    border:1px solid rgba(255,255,255,.17);
-    box-shadow:0 16px 40px rgba(3,10,36,.24), inset 0 1px 0 rgba(255,255,255,.09);
-    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
-  /* rail del recorrido: pista fija + relleno que se dibuja al entrar en pantalla */
+    background:var(--crema,#FDFCF9);border:1px solid rgba(255,255,255,.65);
+    box-shadow:0 22px 52px rgba(3,10,36,.35)}
   .camino::before,.camino::after{content:"";position:absolute;left:54px;top:46px;bottom:46px;width:2px;border-radius:2px}
-  .camino::before{background:rgba(255,255,255,.16)}
-  .camino::after{background:linear-gradient(180deg,#93A9EA 0%,#C9D4F2 44%,#E86B7E 56%,#C0293B 100%);
+  .camino::before{background:var(--linea)}
+  .camino::after{background:linear-gradient(180deg,#21409A 0%,#8FA3DE 44%,#E08693 56%,#C0293B 100%);
     transform:scaleY(0);transform-origin:top;transition:transform 1.5s cubic-bezier(.22,.7,.25,1) .3s}
   .camino.in::after{transform:scaleY(1)}
 
@@ -213,24 +210,25 @@
     transition:background .28s ease,transform .28s cubic-bezier(.22,.7,.25,1),box-shadow .28s ease}
   /* el halo del nodo tapa el rail por detras, para que la linea no lo cruce */
   .paso .nodo{width:46px;height:46px;border-radius:15px;display:flex;align-items:center;justify-content:center;
-    font-family:'Bree Serif',serif;font-size:16.5px;background:#1B3585;
-    border:1.5px solid rgba(255,255,255,.34);box-shadow:0 0 0 5px rgba(24,48,122,.92);
+    font-family:'Bree Serif',serif;font-size:16.5px;background:var(--azul-suave);color:var(--azul);
+    border:1.5px solid rgba(33,64,154,.28);box-shadow:0 0 0 5px var(--crema,#FDFCF9);
     transition:transform .3s cubic-bezier(.22,.7,.25,1),box-shadow .3s ease,border-color .3s ease}
-  .paso.oficial .nodo{background:var(--carmin);border-color:rgba(255,255,255,.44)}
-  .paso b{font-size:16.5px;display:block;letter-spacing:.1px}
-  .paso span{font-size:13.5px;color:#D3DDF8;transition:color .28s ease}
-  .paso .horas{font-size:12.5px;font-weight:700;color:#EAF0FF;background:rgba(9,22,66,.85);
-    border:1px solid rgba(255,255,255,.2);padding:7px 13px;border-radius:100px;white-space:nowrap;
+  .paso.oficial .nodo{background:var(--carmin);color:#fff;border-color:rgba(192,41,59,.45)}
+  .paso b{font-size:16.5px;display:block;letter-spacing:.1px;color:var(--tinta)}
+  .paso span{font-size:13.5px;color:var(--gris);transition:color .28s ease}
+  .paso .horas{font-size:12.5px;font-weight:700;color:var(--azul);background:var(--azul-suave);
+    border:1px solid rgba(33,64,154,.15);padding:7px 13px;border-radius:100px;white-space:nowrap;
     transition:background .28s ease,border-color .28s ease,color .28s ease}
-  .paso.oficial .horas{background:rgba(158,26,44,.94);border-color:rgba(255,255,255,.28);color:#fff}
+  .paso.oficial .horas{background:var(--carmin-suave);border-color:rgba(192,41,59,.22);color:var(--carmin)}
 
-  .paso:hover,.paso:focus-visible{background:rgba(255,255,255,.09);transform:translateX(6px);
-    box-shadow:inset 3px 0 0 #F5B8C0, 0 8px 20px rgba(3,10,36,.18);outline:none}
-  .paso:hover .nodo,.paso:focus-visible .nodo{transform:scale(1.06);
-    box-shadow:0 0 0 5px rgba(24,48,122,.92),0 0 0 10px rgba(255,255,255,.09)}
-  .paso:hover span,.paso:focus-visible span{color:#fff}
-  .paso:hover .horas{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.36);color:#fff}
-  .paso.oficial:hover .horas{background:var(--carmin)}
+  .paso:hover,.paso:focus-visible{background:var(--azul-suave);transform:translateX(6px);
+    box-shadow:inset 3px 0 0 var(--carmin), 0 8px 20px rgba(20,35,80,.12);outline:none}
+  .paso:hover .nodo,.paso:focus-visible .nodo{transform:scale(1.06);background:#fff;
+    box-shadow:0 0 0 5px var(--azul-suave),0 0 0 10px rgba(33,64,154,.08)}
+  .paso.oficial:hover .nodo,.paso.oficial:focus-visible .nodo{background:var(--carmin)}
+  .paso:hover span,.paso:focus-visible span{color:var(--tinta)}
+  .paso:hover .horas{background:#fff;border-color:rgba(33,64,154,.3)}
+  .paso.oficial:hover .horas{background:var(--carmin);border-color:var(--carmin);color:#fff}
 
   /* el bloque es accionable: cada paso lleva a su horario y hay CTA */
   a.paso{color:inherit;text-decoration:none}
