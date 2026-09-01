@@ -1,23 +1,32 @@
 # Academia Well · Web
 
-Sitio estático de Academia Well (Galdakao). Dos páginas autocontenidas, sin dependencias de build:
+Sitio estático de Academia Well (Galdakao). Sin build, sin dependencias: HTML autocontenido.
 
 - `index.html` — portada
-- `cursos.html` — el curso (niveles, precios, horarios)
+- `cursos.html` — el curso: entrada por edad/nivel, camino Cambridge, precios, horarios
+- `calendario.html` — calendario oficial 2026-27 (imprimible desde el navegador)
 - `404.html` — página de error
 - `.nojekyll` — desactiva el procesado Jekyll de GitHub Pages
 
 ## Publicación
 
-Servido con GitHub Pages desde la rama `main` (carpeta raíz).
+GitHub Pages desde la rama `main`, carpeta raíz.
 
 ## Iterar
 
-Los HTML son la fuente de verdad: editar y hacer commit publica en 1 o 2 minutos.
-Logo embebido como SVG inline; imágenes de stock servidas desde el CDN de Unsplash
-(sustituir por fotos reales del local antes del lanzamiento definitivo).
+Los HTML son la fuente de verdad: editar y commit publica en 1-2 minutos.
+- Festivos del calendario: array `FESTIVOS` en calendario.html
+- Horarios por nivel: array `horarios` en el script de index.html y cursos.html
+- Logo: SVG inline (hex #21409A / #C0293B), favicon en base64
+
+## Pendiente antes del lanzamiento
+
+- Confirmar festivos dudosos: 25 feb, 6 abr, 22 abr, 8 jun, y la vuelta de enero (Reyes añadido de oficio)
+- Sustituir fotos de Unsplash por fotos reales del local
+- Embeber el mapa real de Google Maps en la sección contacto
+- Versión en euskera
 
 ## Dominio
 
-Cuando haya visto bueno: crear `nueva.academiawell.com` como CNAME apuntando a
-`inigoangulo93.github.io`, y añadirlo en Settings → Pages → Custom domain.
+Con el visto bueno: CNAME `nueva.academiawell.com` → `inigoangulo93.github.io`,
+y añadirlo en Settings → Pages → Custom domain.

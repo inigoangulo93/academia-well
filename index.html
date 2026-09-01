@@ -465,6 +465,90 @@
 
   .publico-grid.tres{grid-template-columns:repeat(3,1fr)}
   @media(max-width:960px){.publico-grid.tres{grid-template-columns:1fr}}
+
+  /* ====== Calendario del curso ====== */
+  .calendario{padding:84px 0 30px}
+  .cal-chips{justify-content:center;margin-top:26px}
+  .cal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+  .mes{background:var(--neutro);border-radius:var(--radio);padding:22px 22px 24px;transition:transform .18s ease, box-shadow .18s ease}
+  .mes:hover{transform:translateY(-4px);box-shadow:var(--sombra)}
+  .mes-head{display:flex;justify-content:space-between;align-items:center}
+  .mes-head h3{font-family:'Bree Serif',serif;font-weight:400;font-size:20px;color:var(--azul)}
+  .badge-informe,.lg-informe{font-size:11px;background:var(--azul);color:#fff;border-radius:100px;padding:4px 11px;font-weight:700;letter-spacing:.02em}
+  .dias{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:14px}
+  .dias .dh{font-size:11.5px;font-weight:700;color:var(--gris);text-align:center;padding-bottom:2px}
+  .dia{aspect-ratio:1/0.82;display:flex;align-items:center;justify-content:center;border-radius:10px;background:#fff;font-weight:600;font-size:14.5px;color:var(--tinta)}
+  .dia.vacio{background:transparent}
+  .dia.festivo{background:var(--carmin);color:#fff;cursor:default}
+  .dia.festivo:hover{animation:wiggle .45s ease}
+  .dia.hoy{box-shadow:0 0 0 2.5px var(--azul);position:relative}
+  .cal-grid.reveal .mes{opacity:0;transform:translateY(16px);transition:opacity .5s ease, transform .5s ease;transition-delay:calc(var(--i,0)*.06s)}
+  .cal-grid.reveal.in .mes{opacity:1;transform:none}
+  .cal-legend{display:flex;gap:10px 26px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:30px;font-size:14px;color:var(--gris)}
+  .cal-legend .dotl{display:inline-block;width:15px;height:15px;border-radius:5px;vertical-align:-2px;margin-right:7px}
+  .dotl.lect{background:#fff;border:1.5px solid var(--linea)}
+  .dotl.fest{background:var(--carmin)}
+  .dotl.hoy{background:#fff;box-shadow:0 0 0 2px var(--azul)}
+  .cal-teaser{text-align:center;margin-top:26px;font-size:15.5px;color:var(--gris)}
+  .cal-teaser a{color:var(--carmin);font-weight:700;text-decoration:none}
+  @media(max-width:960px){.cal-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.cal-grid{grid-template-columns:1fr}}
+  @media (prefers-reduced-motion: reduce){.cal-grid.reveal .mes{opacity:1;transform:none}}
+
+
+  /* ====== Entrada al calendario + hover sereno ====== */
+  .cal-entry{display:flex;align-items:center;gap:26px;background:var(--azul-suave);border-radius:var(--radio);padding:26px 30px;margin-top:34px;text-decoration:none;color:var(--tinta);transition:transform .18s ease, box-shadow .18s ease}
+  .cal-entry:hover{transform:translateY(-4px);box-shadow:var(--sombra)}
+  .ce-mini{display:grid;grid-template-columns:repeat(4,14px);gap:5px;flex-shrink:0}
+  .ce-mini i{width:14px;height:12px;border-radius:4px;background:#fff;transition:transform .2s ease}
+  .ce-mini i.f{background:var(--carmin)}
+  .ce-mini i.h{background:#fff;box-shadow:0 0 0 2px var(--azul)}
+  .cal-entry:hover .ce-mini i{transform:translateY(-2px)}
+  .cal-entry:hover .ce-mini i:nth-child(odd){transition-delay:.05s}
+  .ce-txt{flex:1}
+  .ce-txt b{font-family:'Bree Serif',serif;font-weight:400;font-size:19px;color:var(--azul);display:block}
+  .ce-txt span{font-size:14.5px;color:var(--gris)}
+  .ce-btn{pointer-events:none}
+  @media(max-width:640px){.cal-entry{flex-direction:column;text-align:center}.ce-mini{display:none}}
+
+  .dia{transition:transform .16s ease, box-shadow .16s ease, background .16s ease}
+  .dia.festivo:hover{animation:none;transform:translateY(-2px) scale(1.06);box-shadow:0 8px 18px rgba(192,41,59,.35)}
+  .dia:not(.vacio):not(.festivo):hover{background:var(--azul-suave);transform:translateY(-2px) scale(1.05)}
+
+  @media print{
+    header.main,.crumbs,.banda-cta,.insta,footer,.band-marquee,.mobile-menu,.burger,.cta-row,.shape{display:none !important}
+    body{background:#fff}
+    .cal-grid{grid-template-columns:repeat(3,1fr);gap:10px}
+    .mes{break-inside:avoid;border:1px solid #ccc;background:#fff}
+    .dia.festivo{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .cal-grid.reveal .mes,.reveal{opacity:1 !important;transform:none !important}
+  }
+
+
+  /* ====== La gran W: cinta de fondo del hero ====== */
+  section.hero, section.page-hero{position:relative}
+  .hero > .wrap, .page-hero > .wrap{position:relative;z-index:1}
+  .w-hero{position:absolute;inset:-8% -5%;pointer-events:none;z-index:0;will-change:transform;
+    -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 14%,#000 82%,transparent 100%);
+    mask-image:linear-gradient(180deg,transparent 0,#000 14%,#000 82%,transparent 100%)}
+  .w-hero svg{width:100%;height:100%;animation:whFloat 16s ease-in-out infinite}
+  @keyframes whFloat{0%,100%{transform:translate(0,0) rotate(0deg)}50%{transform:translate(10px,-14px) rotate(.4deg)}}
+  .wh-base{fill:none;stroke:#21409A;stroke-opacity:.07;stroke-width:92;stroke-linecap:round;
+    stroke-dasharray:3400;stroke-dashoffset:3400;animation:whDraw 1.7s cubic-bezier(.4,0,.2,1) .15s forwards}
+  @keyframes whDraw{to{stroke-dashoffset:0}}
+  .wh-comet{fill:none;stroke:#C0293B;stroke-opacity:.12;stroke-width:92;stroke-linecap:round;
+    stroke-dasharray:300 3400;stroke-dashoffset:3700;animation:whComet 8.5s linear 2.2s infinite}
+  @keyframes whComet{to{stroke-dashoffset:0}}
+  .pg-calendario .wh-comet{display:none}
+  .pg-calendario .w-hero svg{animation:none}
+  .pg-calendario .wh-base{stroke-opacity:.05}
+  @media(max-width:640px){.wh-base{stroke-opacity:.055}.wh-comet{stroke-opacity:.09}}
+  @media (prefers-reduced-motion: reduce){
+    .wh-base{stroke-dashoffset:0;animation:none}
+    .wh-comet{display:none}
+    .w-hero svg{animation:none}
+  }
+
 </style>
 </head>
 <body class="pg-home">
@@ -480,6 +564,7 @@
       <li><a href="#cambridge">Cambridge</a></li>
       <li><a href="#precios">Precios</a></li>
       <li><a href="#horarios">Horarios</a></li>
+      <li><a href="calendario.html">Calendario</a></li>
       <li class="has-drop">
         <button type="button" aria-expanded="false" aria-haspopup="true">La academia <span class="caret"></span></button>
         <div class="drop" role="menu">
@@ -503,6 +588,7 @@
     <a href="#cambridge">Cambridge</a>
     <a href="#precios">Precios</a>
     <a href="#horarios">Horarios</a>
+    <a href="calendario.html">Calendario</a>
     <a href="#faq">Preguntas frecuentes</a>
     <a href="#contacto">Contacto</a>
   </nav>
@@ -657,6 +743,16 @@
     </div>
     <div class="tabs" role="tablist" aria-label="Horarios por nivel" id="tabsHorarios"></div>
     <div id="panelesHorarios"></div>
+    <a class="cal-entry reveal" href="calendario.html">
+      <span class="ce-mini" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i class="f"></i><i></i><i></i><i></i><i></i><i class="h"></i><i></i>
+      </span>
+      <span class="ce-txt">
+        <b>Calendario del curso 2026&ndash;27</b>
+        <span>Del jueves 1 de octubre al mi&eacute;rcoles 23 de junio, con todos los festivos.</span>
+      </span>
+      <span class="btn btn-azul ce-btn">Ver calendario</span>
+    </a>
   </div>
 </section>
 
@@ -733,7 +829,8 @@
         <ul>
           <li><a href="cursos.html">C&oacute;mo se entra</a></li>
           <li><a href="cursos.html#cambridge">Niveles A1 a C2</a></li>
-          <li><a href="cursos.html#horarios">Horarios por nivel</a></li>
+                    <li><a href="cursos.html#horarios">Horarios por nivel</a></li>
+          <li><a href="calendario.html">Calendario 2026&ndash;27</a></li>
           <li><a href="cursos.html#precios">Precios</a></li>
         </ul>
       </div>
@@ -749,6 +846,7 @@
     </div>
     <div class="foot-bottom">
       <span>&copy; Academia Well &middot; C/ Lapurdi 36, entreplanta 5, 48960 Galdakao</span>
+      <a href="mailto:academia.well.galdakao@gmail.com">academia.well.galdakao@gmail.com</a>
       <a class="foot-ig" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.9"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg>@academia_well_galdakao</a>
       <span>Euskarazko bertsioa laster</span>
     </div>
@@ -872,29 +970,6 @@ if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
   });
 }
 
-/* Formas flotantes por página */
-const SHAPES = {
-  'pg-home':    [['dot','#F5B8C0',18,'6%','12%'],['ring','#21409A',30,'88%','8%'],['dot','#F2B33D',12,'12%','78%'],['ring','#C0293B',22,'92%','70%']],
-  'pg-infantil':[['dot','#C0293B',16,'5%','16%'],['dot','#F2B33D',22,'90%','10%'],['ring','#21409A',28,'8%','74%'],['dot','#F5B8C0',13,'93%','66%'],['ring','#F2B33D',18,'50%','4%']],
-  'pg-jovenes': [['ring','#21409A',26,'90%','12%'],['dot','#AFC0EE',14,'6%','70%'],['ring','#C0293B',18,'94%','62%']],
-  'pg-verano':  [['sun','',0,'88%','6%'],['dot','#F2B33D',18,'6%','16%'],['dot','#FDF3E3',24,'10%','72%'],['ring','#E8A020',24,'93%','64%']],
-  'pg-empresas': []
-};
-const host = document.querySelector('.hero > .wrap, .page-hero > .wrap');
-if(host && SHAPES[PG]){
-  SHAPES[PG].forEach(([tipo,color,size,x,y],i) => {
-    const s = document.createElement('span');
-    s.className = 'shape ' + tipo;
-    if(tipo === 'sun'){ s.textContent = '☀️'; }
-    else { s.style.width = s.style.height = size + 'px'; s.style.background = color; s.style.setProperty('--c', color); }
-    s.style.left = x; s.style.top = y;
-    s.style.setProperty('--spd', (5 + i*0.9) + 's');
-    s.style.setProperty('--del', (i*0.6) + 's');
-    s.style.setProperty('--rot', (i%2 ? -6 : 6) + 'deg');
-    host.appendChild(s);
-  });
-}
-
 /* Marquesina tras el hero */
 const FRASES = {
   'pg-home':    ['Hello!','Kaixo!','¿Empezamos?','Let’s go!','See you in class','Well done!'],
@@ -912,6 +987,31 @@ if(heroSec && FRASES[PG]){
 
 /* Cascada en la franja de confianza */
 document.querySelectorAll('.trust-inner .t-item').forEach((el,i) => el.style.setProperty('--i', i));
+
+
+/* ====== La gran W de fondo ====== */
+(function(){
+  const sec = document.querySelector('section.hero, section.page-hero');
+  if(!sec) return;
+  const path = 'M -90 320 C 140 130, 265 165, 345 340 C 405 470, 475 470, 535 330 C 590 205, 660 205, 715 330 C 775 470, 845 470, 905 305 C 958 168, 1050 105, 1300 40';
+  sec.insertAdjacentHTML('afterbegin',
+    `<div class="w-hero" aria-hidden="true"><svg viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice">
+      <path class="wh-base" d="${path}"/>
+      <path class="wh-comet" d="${path}"/>
+    </svg></div>`);
+  /* Parallax sutil al hacer scroll */
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    const el = sec.querySelector('.w-hero');
+    let ticking = false;
+    addEventListener('scroll', () => {
+      if(ticking) return; ticking = true;
+      requestAnimationFrame(() => {
+        el.style.transform = `translateY(${scrollY * -0.07}px)`;
+        ticking = false;
+      });
+    }, {passive:true});
+  }
+})();
 
 </script>
 </body>
