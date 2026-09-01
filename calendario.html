@@ -75,8 +75,8 @@
   .menu > li > a:hover, .menu > li > button:hover, .menu > li.open > button{background:var(--azul-suave);color:var(--azul)}
   .menu > li > a:focus-visible, .menu > li > button:focus-visible{outline:2.5px solid var(--azul);outline-offset:2px}
   /* pagina activa: color y subrayado ondulado fijo */
-  .menu > li > a[aria-current="page"], .menu > li > a.activo{color:var(--azul)}
-  .menu > li > a[aria-current="page"]::after, .menu > li > a.activo::after{opacity:1;animation:none}
+  .menu > li > a[aria-current="page"], .menu > li > a.activo, .menu > li > button.activo{color:var(--azul)}
+  .menu > li > a[aria-current="page"]::after, .menu > li > a.activo::after, .menu > li > button.activo::after{opacity:1;animation:none}
   /* si hay una seccion activa, el item de pagina cede el resaltado */
   .menu > li > a[aria-current="page"].sin-actual:not(:hover){color:var(--tinta)}
   .menu > li > a[aria-current="page"].sin-actual:not(:hover)::after{opacity:0}
@@ -834,24 +834,34 @@ drops.forEach(li => {
 document.addEventListener('click', () => closeAll(null));
 document.addEventListener('keydown', e => { if(e.key === 'Escape') closeAll(null); });
 
-/* Scroll-spy: el resaltado del menu sigue la seccion visible */
+/* Scroll-spy pegajoso: marca la última parada del menú superada.
+   Cada tramo de página tiene dueño y el resaltado nunca salta atrás. */
 (function(){
-  const pares = [...document.querySelectorAll('.menu > li > a[href^="#"]')]
-    .map(a => { const sec = document.getElementById(a.getAttribute('href').slice(1));
-                return sec ? {a, sec} : null; })
-    .filter(Boolean);
-  if(!pares.length) return;
+  const porHref = {};
+  document.querySelectorAll('.menu > li > a').forEach(a => porHref[a.getAttribute('href')] = a);
   const base = document.querySelector('.menu > li > a[aria-current="page"]');
+  const drop = document.querySelector('.menu > li.has-drop > button');
+  const MAPA = [];  /* en orden documental */
+  const anade = (id, el) => { const sec = document.getElementById(id); if(sec && el) MAPA.push({sec, el}); };
+  anade('cursos', porHref['cursos.html']);
+  anade('cambridge', porHref['#cambridge']);
+  anade('niveles', porHref['#cambridge']);   /* los niveles son contenido Cambridge */
+  anade('precios', porHref['#precios']);
+  anade('horarios', porHref['#horarios']);
+  ['metodo','resenas','faq','contacto'].forEach(id => anade(id, drop));
+  if(!MAPA.length) return;
+  /* orden documental real: el orden de las secciones varia entre paginas */
+  MAPA.sort((x, y) => (x.sec.compareDocumentPosition(y.sec) & Node.DOCUMENT_POSITION_FOLLOWING) ? -1 : 1);
+  const todos = [...new Set(MAPA.map(m => m.el))];
   let ticking = false;
   const mira = () => {
     const linea = innerHeight * .35;
     let actual = null;
-    for(const {a, sec} of pares){
-      const r = sec.getBoundingClientRect();
-      if(r.top <= linea && r.bottom > linea) actual = a;
+    for(const {sec, el} of MAPA){
+      if(sec.getBoundingClientRect().top <= linea) actual = el;
     }
-    pares.forEach(({a}) => a.classList.toggle('activo', a === actual));
-    if(base) base.classList.toggle('sin-actual', !!actual);
+    todos.forEach(el => el.classList.toggle('activo', el === actual));
+    if(base) base.classList.toggle('sin-actual', !!actual && actual !== base);
   };
   addEventListener('scroll', () => {
     if(ticking) return; ticking = true;
