@@ -191,7 +191,7 @@
   .camino{position:relative;display:grid;gap:4px;padding:20px 20px 20px 18px;border-radius:24px;
     background:linear-gradient(165deg,rgba(8,20,62,.74),rgba(8,20,62,.52));
     border:1px solid rgba(255,255,255,.17);
-    box-shadow:0 26px 64px rgba(3,10,36,.42), inset 0 1px 0 rgba(255,255,255,.09);
+    box-shadow:0 16px 40px rgba(3,10,36,.24), inset 0 1px 0 rgba(255,255,255,.09);
     -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
   /* rail del recorrido: pista fija + relleno que se dibuja al entrar en pantalla */
   .camino::before,.camino::after{content:"";position:absolute;left:54px;top:46px;bottom:46px;width:2px;border-radius:2px}
@@ -203,8 +203,6 @@
   .paso{position:relative;z-index:1;display:grid;grid-template-columns:46px 1fr auto;gap:16px;
     align-items:center;padding:13px 14px;border-radius:16px;border-bottom:none;
     transition:background .28s ease,transform .28s cubic-bezier(.22,.7,.25,1),box-shadow .28s ease}
-  .paso::before{content:"";position:absolute;left:0;top:12px;bottom:12px;width:3px;border-radius:3px;
-    background:#F5B8C0;opacity:0;transform:scaleY(.35);transition:opacity .28s ease,transform .28s ease}
   /* el halo del nodo tapa el rail por detras, para que la linea no lo cruce */
   .paso .nodo{width:46px;height:46px;border-radius:15px;display:flex;align-items:center;justify-content:center;
     font-family:'Bree Serif',serif;font-size:16.5px;background:#1B3585;
@@ -218,20 +216,19 @@
     transition:background .28s ease,border-color .28s ease,color .28s ease}
   .paso.oficial .horas{background:rgba(158,26,44,.94);border-color:rgba(255,255,255,.28);color:#fff}
 
-  .paso:hover,.paso:focus-visible{background:rgba(255,255,255,.10);transform:translateX(7px);
-    box-shadow:0 12px 30px rgba(3,10,36,.34);outline:none}
-  .paso:hover::before,.paso:focus-visible::before{opacity:1;transform:scaleY(1)}
-  .paso:hover .nodo,.paso:focus-visible .nodo{transform:scale(1.09) rotate(-3deg);
-    box-shadow:0 0 0 5px rgba(24,48,122,.92),0 0 0 11px rgba(255,255,255,.12)}
+  .paso:hover,.paso:focus-visible{background:rgba(255,255,255,.09);transform:translateX(6px);
+    box-shadow:inset 3px 0 0 #F5B8C0, 0 8px 20px rgba(3,10,36,.18);outline:none}
+  .paso:hover .nodo,.paso:focus-visible .nodo{transform:scale(1.06);
+    box-shadow:0 0 0 5px rgba(24,48,122,.92),0 0 0 10px rgba(255,255,255,.09)}
   .paso:hover span,.paso:focus-visible span{color:#fff}
   .paso:hover .horas{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.36);color:#fff}
   .paso.oficial:hover .horas{background:var(--carmin)}
 
   /* Sello de centro autorizado: el logo va sobre tarjeta blanca (nunca recolorear un logo ajeno) */
   .sello{display:flex;align-items:center;gap:18px;margin-top:28px;background:#fff;color:var(--tinta);
-    border-radius:16px;padding:16px 20px;max-width:440px;box-shadow:0 14px 34px rgba(3,10,36,.3);
+    border-radius:16px;padding:16px 20px;max-width:440px;box-shadow:0 10px 24px rgba(3,10,36,.2);
     transition:transform .3s cubic-bezier(.22,.7,.25,1),box-shadow .3s ease}
-  .sello:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(3,10,36,.4)}
+  .sello:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(3,10,36,.26)}
   .sello img{height:46px;width:auto;flex:none}
   .sello b{display:block;font-size:14.5px;color:var(--azul)}
   .sello span{display:block;font-size:12.5px;color:var(--gris);margin-top:3px;line-height:1.5}
@@ -446,6 +443,8 @@
   .camino.reveal.in .paso:nth-child(6){transition-delay:.45s}
   .paso.oficial .nodo{position:relative;overflow:hidden}
   .camino.in .paso.oficial .nodo::after{content:"";position:absolute;top:0;bottom:0;width:45%;background:rgba(255,255,255,.45);animation:shine 2.6s ease .8s infinite}
+  /* al recorrer la lista, el resto de pasos cede protagonismo */
+  .camino.reveal.in:hover .paso:not(:hover){opacity:.7}
 
   /* Franja de confianza en cascada */
   .trust-inner .t-item{transition-delay:calc(var(--i,0)*.09s)}
