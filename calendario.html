@@ -537,10 +537,10 @@
   .menu > li > a:hover::after, .menu > li > button:hover::after, .menu > li.open > button::after{opacity:1}
 
   /* Selector de idioma integrado */
-  .lang-pill{display:flex;border:1.5px solid var(--linea);border-radius:100px;overflow:hidden;font-size:13px;font-weight:700}
-  .lang-pill a{padding:9px 13px;text-decoration:none;color:var(--gris);transition:background .15s ease,color .15s ease}
-  .lang-pill a[aria-current]{background:var(--azul);color:#fff}
-  .lang-pill a:not([aria-current]):hover{background:var(--azul-suave);color:var(--azul)}
+  .lang-pill{display:flex;align-items:center;gap:2px;font-size:13px;font-weight:700}
+  .lang-pill a{padding:7px 9px;border-radius:9px;text-decoration:none;color:var(--gris);transition:background .15s ease,color .15s ease}
+  .lang-pill a[aria-current]{color:var(--azul);background:var(--azul-suave)}
+  .lang-pill a:not([aria-current]):hover{color:var(--azul)}
   .m-lang{display:flex;border:1.5px solid var(--linea);border-radius:100px;overflow:hidden;font-size:15.5px;font-weight:700}
   .m-lang a{flex:1;text-align:center;padding:13px 0;text-decoration:none;color:var(--gris);transition:background .15s ease,color .15s ease}
   .m-lang a[aria-current]{background:var(--azul);color:#fff}
