@@ -619,7 +619,7 @@
   @keyframes whFloat{0%,100%{transform:translate(0,0) rotate(0deg)}50%{transform:translate(10px,-14px) rotate(.4deg)}}
   /* la W del logo, a escala uniforme y trazo proporcional (13 x 5.2) */
   .wh-base{fill:none;stroke:#21409A;stroke-opacity:.065;stroke-width:68;stroke-linecap:round}
-  .wh-comet{fill:none;stroke:#C0293B;stroke-opacity:0;stroke-width:68;stroke-linecap:round;transition:stroke-opacity .6s ease}
+  .wh-comet{fill:none;stroke:#21409A;stroke-opacity:0;stroke-width:68;stroke-linecap:round;transition:stroke-opacity .6s ease}
   .w-hero.lista .wh-comet{stroke-opacity:.14}
   .pg-calendario .wh-comet{display:none}
   .pg-calendario .w-hero svg{animation:none}
@@ -1030,7 +1030,7 @@ if(calGrid){
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   comet.style.strokeDasharray = `${COLA} ${L}`;
-  comet.style.strokeDashoffset = L + COLA;
+  comet.style.strokeDashoffset = COLA; /* justo antes del inicio */
 
   if(reduce){ wh.classList.add('lista'); return; }
 
@@ -1043,10 +1043,10 @@ if(calGrid){
   setTimeout(() => wh.classList.add('lista'), 2500);
 
   /* el cometa recorre la W al ritmo del scroll, con inercia; el parallax viaja en el mismo bucle */
-  let objetivo = L + COLA, actual = L + COLA;
+  let objetivo = COLA, actual = COLA;
   const medir = () => {
     const p = Math.min(1, Math.max(0, scrollY / Math.max(1, sec.offsetHeight)));
-    objetivo = (L + COLA) * (1 - p);
+    objetivo = COLA - p * (L + COLA); /* de antes del inicio a después del final */
   };
   addEventListener('scroll', medir, {passive:true}); medir();
   (function bucle(){
