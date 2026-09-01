@@ -210,7 +210,7 @@
     transition:transform .3s cubic-bezier(.22,.7,.25,1),box-shadow .3s ease,border-color .3s ease}
   .paso.oficial .nodo{background:var(--carmin);border-color:rgba(255,255,255,.44)}
   .paso b{font-size:16.5px;display:block;letter-spacing:.1px}
-  .paso span{font-size:13.5px;color:#C6D2F2;transition:color .28s ease}
+  .paso span{font-size:13.5px;color:#D3DDF8;transition:color .28s ease}
   .paso .horas{font-size:12.5px;font-weight:700;color:#EAF0FF;background:rgba(9,22,66,.85);
     border:1px solid rgba(255,255,255,.2);padding:7px 13px;border-radius:100px;white-space:nowrap;
     transition:background .28s ease,border-color .28s ease,color .28s ease}
@@ -223,6 +223,19 @@
   .paso:hover span,.paso:focus-visible span{color:#fff}
   .paso:hover .horas{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.36);color:#fff}
   .paso.oficial:hover .horas{background:var(--carmin)}
+
+  /* el bloque es accionable: cada paso lleva a su horario y hay CTA */
+  a.paso{color:inherit;text-decoration:none}
+  .paso b::after{content:"\2192";display:inline-block;margin-left:8px;color:#F5B8C0;
+    opacity:0;transform:translateX(-5px);transition:opacity .25s ease,transform .25s ease}
+  .paso:hover b::after,.paso:focus-visible b::after{opacity:1;transform:none}
+  .paso:active{transform:translateX(6px) scale(.985)}
+  .cam-cta{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+  .cam-cta .btn-blanco{box-shadow:0 10px 24px rgba(3,10,36,.28)}
+  .cam-cta .btn-blanco:hover{box-shadow:0 14px 30px rgba(3,10,36,.36)}
+  .cam-ghost{color:#fff;border:1.5px solid rgba(255,255,255,.55);background:transparent}
+  .cam-ghost:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.8)}
+  .cam-cta .btn:active{transform:translateY(0) scale(.97)}
 
   /* Sello de centro autorizado: el logo va sobre tarjeta blanca (nunca recolorear un logo ajeno) */
   .sello{display:flex;align-items:center;gap:18px;margin-top:28px;background:#fff;color:var(--tinta);
@@ -494,10 +507,6 @@
 
 
   /* ====== HEADER v2: limpio y sinuoso ====== */
-  header.main{border-bottom:none}
-  header.main::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:8px;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='8' viewBox='0 0 26 8'%3E%3Cpath d='M0 4 Q6.5 0.5 13 4 T26 4' fill='none' stroke='%2321409A' stroke-opacity='0.25' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:repeat-x;background-size:26px 8px;
-    animation:waveSlide 8s linear infinite;pointer-events:none}
   @keyframes waveSlide{to{background-position-x:-26px}}
   @keyframes ribbonDraw{to{stroke-dashoffset:0}}
 
@@ -944,14 +953,15 @@
           <h2>El camino Cambridge, nivel a nivel</h2>
           <p>Los niveles de examen (B2, C1 y C2) tienen una hora semanal extra dedicada al formato real de la prueba: Use of English, Writing y Speaking cronometrado.</p>
           <div class="sello"><img src="cambridge-english.png" alt="Cambridge English" loading="lazy" onerror="this.remove()"><div><b>Centro preparador autorizado</b><span>Acreditados por Cambridge University Press &amp; Assessment como centro de preparaci&oacute;n de los Cambridge English Qualifications.</span></div></div>
+          <div class="cam-cta"><a class="btn btn-blanco" href="index.html#contacto">Reserva tu prueba de nivel</a><a class="btn cam-ghost" href="#precios">Ver precios</a></div>
         </div>
         <div class="camino reveal">
-          <div class="paso"><span class="nodo">A1</span><div><b>Iniciaci&oacute;n</b><span>primeros pasos</span></div><span class="horas">2 h/semana</span></div>
-          <div class="paso"><span class="nodo">A2</span><div><b>Key</b><span>base s&oacute;lida</span></div><span class="horas">2 h/semana</span></div>
-          <div class="paso"><span class="nodo">B1</span><div><b>Preliminary</b><span>autonom&iacute;a cotidiana</span></div><span class="horas">2 h/semana</span></div>
-          <div class="paso oficial"><span class="nodo">B2</span><div><b>First (FCE)</b><span>el t&iacute;tulo m&aacute;s pedido</span></div><span class="horas">3 h/semana</span></div>
-          <div class="paso oficial"><span class="nodo">C1</span><div><b>Advanced (CAE)</b><span>nivel acad&eacute;mico y profesional</span></div><span class="horas">3 h/semana</span></div>
-          <div class="paso oficial"><span class="nodo">C2</span><div><b>Proficiency (CPE)</b><span>lo m&aacute;s alto de Cambridge</span></div><span class="horas">3 h/semana</span></div>
+          <a class="paso" href="#horarios-A1"><span class="nodo">A1</span><div><b>Iniciaci&oacute;n</b><span>primeros pasos</span></div><span class="horas">2 h/semana</span></a>
+          <a class="paso" href="#horarios-A2"><span class="nodo">A2</span><div><b>Key</b><span>base s&oacute;lida</span></div><span class="horas">2 h/semana</span></a>
+          <a class="paso" href="#horarios-B1"><span class="nodo">B1</span><div><b>Preliminary</b><span>autonom&iacute;a cotidiana</span></div><span class="horas">2 h/semana</span></a>
+          <a class="paso oficial" href="#horarios-B2"><span class="nodo">B2</span><div><b>First (FCE)</b><span>el t&iacute;tulo m&aacute;s pedido</span></div><span class="horas">3 h/semana</span></a>
+          <a class="paso oficial" href="#horarios-C1"><span class="nodo">C1</span><div><b>Advanced (CAE)</b><span>nivel acad&eacute;mico y profesional</span></div><span class="horas">3 h/semana</span></a>
+          <a class="paso oficial" href="#horarios-C2"><span class="nodo">C2</span><div><b>Proficiency (CPE)</b><span>lo m&aacute;s alto de Cambridge</span></div><span class="horas">3 h/semana</span></a>
         </div>
       </div>
     </section>
@@ -1196,6 +1206,20 @@ if(tabsBox){
     if(e.key === 'ArrowRight'){ const n = (cur+1) % tabs.length; selectTab(n); tabs[n].focus(); }
     if(e.key === 'ArrowLeft'){ const n = (cur-1+tabs.length) % tabs.length; selectTab(n); tabs[n].focus(); }
   });
+
+  /* Enlaces #horarios-<nivel>: seleccionan la pestaña y bajan a la sección */
+  const irNivel = () => {
+    const m = (location.hash || '').match(/^#horarios-(A1|A2|B1|B2|C1|C2)$/);
+    if(!m) return;
+    const i = horarios.findIndex(h => h.id === m[1]);
+    if(i > -1){
+      selectTab(i);
+      const sec = document.getElementById('horarios');
+      if(sec) sec.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+  };
+  addEventListener('hashchange', irNivel);
+  irNivel();
 }
 
 const obs = new IntersectionObserver(entries => {

@@ -485,10 +485,6 @@
 
 
   /* ====== HEADER v2: limpio y sinuoso ====== */
-  header.main{border-bottom:none}
-  header.main::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:8px;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='8' viewBox='0 0 26 8'%3E%3Cpath d='M0 4 Q6.5 0.5 13 4 T26 4' fill='none' stroke='%2321409A' stroke-opacity='0.25' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:repeat-x;background-size:26px 8px;
-    animation:waveSlide 8s linear infinite;pointer-events:none}
   @keyframes waveSlide{to{background-position-x:-26px}}
   @keyframes ribbonDraw{to{stroke-dashoffset:0}}
 
@@ -877,6 +873,20 @@ if(tabsBox){
     if(e.key === 'ArrowRight'){ const n = (cur+1) % tabs.length; selectTab(n); tabs[n].focus(); }
     if(e.key === 'ArrowLeft'){ const n = (cur-1+tabs.length) % tabs.length; selectTab(n); tabs[n].focus(); }
   });
+
+  /* Enlaces #horarios-<nivel>: seleccionan la pestaña y bajan a la sección */
+  const irNivel = () => {
+    const m = (location.hash || '').match(/^#horarios-(A1|A2|B1|B2|C1|C2)$/);
+    if(!m) return;
+    const i = horarios.findIndex(h => h.id === m[1]);
+    if(i > -1){
+      selectTab(i);
+      const sec = document.getElementById('horarios');
+      if(sec) sec.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+  };
+  addEventListener('hashchange', irNivel);
+  irNivel();
 }
 
 const obs = new IntersectionObserver(entries => {
