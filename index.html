@@ -351,7 +351,10 @@
   .con-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative}
   .contacto h2{font-family:'Bree Serif',serif;font-weight:400;font-size:clamp(26px,3.2vw,36px);line-height:1.2}
   .contacto .sub{color:#C9D4F2}
+  .con-grid > *{min-width:0}
   .con-datos{display:grid;gap:14px;margin-top:32px}
+  .con-item{min-width:0}
+  .con-item b{overflow-wrap:anywhere}
   .con-item{display:flex;gap:16px;align-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:16px 20px;text-decoration:none;transition:background .18s ease}
   .con-item:hover{background:rgba(255,255,255,.14)}
   .con-item .ico{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
@@ -886,7 +889,6 @@
       <svg class="w-deco" viewBox="0 0 120 110" aria-hidden="true"><path d="M8 12 C22 98 36 98 48 54 C55 27 65 27 72 54 C84 98 98 98 112 12" fill="none" stroke="#fff" stroke-width="15" stroke-linecap="round"/></svg>
       <div class="cam-grid">
         <div class="reveal">
-          <span class="pill"><span class="dot"></span>Centro preparador oficial</span>
           <h2>El camino Cambridge, entero, sin salir de Galdakao</h2>
           <p>Somos centro preparador oficial de Cambridge: preparaci&oacute;n espec&iacute;fica para cada examen, material propio y profesores que conocen las pruebas al detalle. Los niveles de examen (B2, C1 y C2) tienen una hora semanal extra.</p>
           <div class="sello"><img src="cambridge-english.png" alt="Cambridge English" loading="lazy" onerror="this.remove()"><div><b>Centro preparador oficial</b> <span>Acreditados por Cambridge University Press &amp; Assessment como centro de preparaci&oacute;n de los Cambridge English Qualifications.</span></div></div>
