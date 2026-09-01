@@ -351,7 +351,7 @@
   .g-badge > svg{width:20px;height:20px;flex:none}
   .estrellas{display:inline-flex;gap:2px;color:#F2A71B}
   .estrellas svg{width:15px;height:15px}
-  .res-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:38px}
+  .res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:38px}
   .resena{display:flex;flex-direction:column;gap:13px;background:#fff;border:1px solid var(--linea);
     border-radius:var(--radio);padding:24px;transition:transform .28s cubic-bezier(.22,.7,.25,1),box-shadow .28s ease}
   .resena:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(20,35,80,.10)}
@@ -699,6 +699,14 @@
     .w-hero svg{animation:none}
   }
 
+
+.buscas{padding:30px 0 4px}
+.buscas-inner{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.buscas-tit{font-family:'Bree Serif',serif;color:var(--azul);font-size:1.15rem;white-space:nowrap}
+.buscas-chips{display:flex;flex-wrap:wrap;gap:10px}
+.buscas-chips a{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border:1px solid var(--linea);border-radius:999px;background:#fff;color:var(--tinta);font-weight:600;font-size:.92rem;text-decoration:none;transition:border-color .18s,color .18s,transform .18s}
+.buscas-chips a:hover{border-color:var(--azul);color:var(--azul);transform:translateY(-1px)}
+.buscas-chips a i{font-style:normal;color:var(--carmin)}
 </style>
 <script type="application/ld+json">
 {
@@ -779,6 +787,22 @@
    "acceptedAnswer": {
     "@type": "Answer",
     "text": "Familiako eta ikasturteko matrikula bakarra da: berdin dio zenbat anai-arrebak ematen duten izena, behin bakarrik ordaintzen da. Ikastaroa urriaren lehen astean hasten da."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Iraupen-konpromisorik ba al dago?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Ez. Iraupen-konpromisorik eta letra txikirik gabe: hileko kuota hilez hil ordaintzen da, eta ez dago jarraitzeko inolako konpromisorik."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Noiz hasten da ikastaroa?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "2026–27 ikastaroa urriaren 1etik ekainaren 23ra doa, arratsaldeko eskolekin, astelehenetik ostegunera. Matrikula zabalik dago dagoeneko."
    }
   },
   {
@@ -876,8 +900,8 @@
 <section class="hero">
   <div class="wrap">
     <span class="badge stagger s1"><img src="../cambridge-escudo.png" alt="">Cambridgeko azterketak prestatzeko zentro ofiziala</span>
-    <h1 class="stagger s2">Galdakaoko betiko ingeles akademia</h1>
-    <p class="lead stagger s3">Gehienez 12 ikasle klaseko, zure izenez ezagutzen zaituzten irakasleak eta maila guztiak, A1etik Proficiency-ra. Urriaren lehen astean hasiko gara.</p>
+    <h1 class="stagger s2">Ingelesa, ondo irakatsita. Galdakaon.</h1>
+    <p class="lead stagger s3">Zure betiko ingeles akademia: gehienez 12 ikasle klaseko, zure izenez ezagutzen zaituzten irakasleak eta maila guztiak, A1etik Proficiency-ra. Urriaren lehen astean hasiko gara.</p>
     <div class="trust-line stagger s4">
       <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
       <span>5,0 Google-n &middot; 20 urte baino gehiago Lapurdi kalea 36an</span>
@@ -900,11 +924,23 @@
 <section class="trust">
   <div class="wrap">
   <div class="trust-inner reveal">
-    <div class="t-item"><div class="t-num" data-n="20" data-suf="+">20<small>+</small></div> <b>urte Galdakaon</b> <span>Cambridgeko zentro prestatzaile ofiziala</span></div>
-    <div class="t-item"><div class="t-num" data-n="12">12</div> <b>ikasle gehienez klaseko</b> <span>mailaz maila talde homogeneoak</span></div>
+    <div class="t-item"><div class="t-num" data-n="20" data-suf="+">20<small>+</small></div> <b>urte Galdakaon</b> <span>ingelesa, eta ingelesa bakarrik, irakasten Lapurdi kalean</span></div>
+    <div class="t-item"><div class="t-num" data-n="12">12</div> <b>ikasle gehienez klaseko</b> <span>irakasleak badaki bakoitza nola doan</span></div>
     <div class="t-item"><div class="t-num" data-n="3">3</div> <b>txosten urtean</b> <span>abendua, martxoa eta ekaina</span></div>
     <div class="t-item"><div class="t-num" data-n="5,0">5,0</div><div class="t-est" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div> <b>Google-n</b> <span>ikasturtez ikasturte errepikatzen duten familiak</span></div>
   </div>
+  </div>
+</section>
+
+<section class="buscas">
+  <div class="wrap buscas-inner reveal">
+    <span class="buscas-tit">Zeren bila zabiltza?</span>
+    <div class="buscas-chips">
+      <a href="#horarios-A1">Hutsetik hasi <i>&rarr;</i></a>
+      <a href="#cambridge">Cambridgeko azterketa bat prestatu <i>&rarr;</i></a>
+      <a href="#contacto">Ingelesa berreskuratu etenaldi baten ondoren <i>&rarr;</i></a>
+      <a href="#horarios">Mailaz igotzen jarraitu <i>&rarr;</i></a>
+    </div>
   </div>
 </section>
 
@@ -912,7 +948,7 @@
   <div class="wrap">
     <div class="centro reveal">
       <span class="kicker">Ikastaroa</span>
-      <h2 class="section">Ikastaro bakarra: ingelesa, ondo irakatsia</h2>
+      <h2 class="section">Ikastaro bakarra, sarrera bat maila bakoitzerako</h2>
       <p class="sub">Ez dago modalitate-zerrendarik: bide bakarra dago, A1etik Proficiency-ra, eta bertan sartzeko modu argi bat zure mailaren arabera.</p>
     </div>
     <div class="publico-grid dos">
@@ -939,16 +975,16 @@
       <div class="cam-grid">
         <div class="reveal">
           <h2>Cambridge bidea, osorik, Galdakaotik atera gabe</h2>
-          <p>Cambridgeko azterketak prestatzeko zentro ofiziala gara: azterketa bakoitzerako prestakuntza espezifikoa, material propioa eta probak zehatz-mehatz ezagutzen dituzten irakasleak. Azterketa-mailek (B2, C1 eta C2) astean ordu bat gehiago dute.</p>
+          <p>Hutsetik has zaitezke eta Proficiency-raino iritsi, akademiaz aldatu gabe. Cambridgeko azterketak prestatzeko zentro ofiziala gara: azterketa bakoitzerako prestakuntza espezifikoa, material propioa eta probak zehatz-mehatz ezagutzen dituzten irakasleak. Azterketa-mailek (B2, C1 eta C2) astean ordu bat gehiago dute.</p>
           <div class="sello"><img src="../cambridge-english.png" alt="Cambridge English" loading="lazy" onerror="this.remove()"><div><b>Prestatze-zentro ofiziala</b> <span>Cambridge University Press &amp; Assessment-ek egiaztatuta, Cambridge English Qualifications azterketak prestatzeko zentro gisa.</span></div></div>
           <div class="cam-cta"><a class="btn btn-blanco" href="#contacto">Eskatu zure maila-proba</a> <a class="btn cam-ghost" href="#precios">Ikusi prezioak</a></div>
         </div>
         <div class="camino reveal">
-          <a class="paso" href="#horarios-A1"><span class="nodo">A1</span> <div><b>Hastapena</b> <span>lehen urratsak, sarrera maila-probaren bidez</span></div> <span class="horas">2 ordu/aste</span></a>
-          <a class="paso" href="#horarios-A2"><span class="nodo">A2</span> <div><b>Key</b> <span>gramatika eta elkarrizketa oinarri sendoa</span></div> <span class="horas">2 ordu/aste</span></a>
-          <a class="paso" href="#horarios-B1"><span class="nodo">B1</span> <div><b>Preliminary</b> <span>autonomia eguneroko egoeretan</span></div> <span class="horas">2 ordu/aste</span></a>
-          <a class="paso oficial" href="#horarios-B2"><span class="nodo">B2</span> <div><b>First (FCE)</b> <span>lanpostuek eta unibertsitateek eskatzen duten titulua</span></div> <span class="horas">3 ordu/aste</span></a>
-          <a class="paso oficial" href="#horarios-C1"><span class="nodo">C1</span> <div><b>Advanced (CAE)</b> <span>maisutasuna ingurune akademiko eta profesionaletan</span></div> <span class="horas">3 ordu/aste</span></a>
+          <a class="paso" href="#horarios-A1"><span class="nodo">A1</span> <div><b>Hastapena</b> <span>Lehen urratsak komunikatzen hasteko</span></div> <span class="horas">2 ordu/aste</span></a>
+          <a class="paso" href="#horarios-A2"><span class="nodo">A2</span> <div><b>Key</b> <span>Gramatika eta elkarrizketa oinarri sendoa</span></div> <span class="horas">2 ordu/aste</span></a>
+          <a class="paso" href="#horarios-B1"><span class="nodo">B1</span> <div><b>Preliminary</b> <span>Autonomia eguneroko egoeretan</span></div> <span class="horas">2 ordu/aste</span></a>
+          <a class="paso oficial" href="#horarios-B2"><span class="nodo">B2</span> <div><b>First (FCE)</b> <span>Lanpostuek eta unibertsitateek eskatzen duten titulua</span></div> <span class="horas">3 ordu/aste</span></a>
+          <a class="paso oficial" href="#horarios-C1"><span class="nodo">C1</span> <div><b>Advanced (CAE)</b> <span>Maisutasuna ingurune akademiko eta profesionaletan</span></div> <span class="horas">3 ordu/aste</span></a>
           <a class="paso oficial" href="#horarios-C2"><span class="nodo">C2</span> <div><b>Proficiency (CPE)</b> <span>Cambridgek ziurtatzen duen mailarik altuena</span></div> <span class="horas">3 ordu/aste</span></a>
         </div>
       </div>
@@ -956,12 +992,32 @@
   </div>
 </div>
 
+<section class="metodo" id="metodo">
+  <div class="wrap metodo-grid">
+    <div class="metodo-fotos reveal">
+      <div class="mf-a"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="Helduen taldea mahai baten inguruan lanean" loading="lazy" onerror="this.remove()"></div>
+      <div class="mf-b"><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=640&q=80" alt="Ikaskideak elkarlanean" loading="lazy" onerror="this.remove()"></div>
+    </div>
+    <div class="reveal">
+      <span class="kicker">Gure metodoa</span>
+      <h2 class="section">Metodo serioa, solemnitaterik gabe.</h2>
+      <p class="sub">Hogei urte baino gehiago formula bera lantzen: taldeak mailaren arabera, material propioa eta azterketa-helburu argiak.</p>
+      <div class="metodo-lista">
+        <div class="m-item"><span class="num">&#129517;</span> <div><b>Sarrera mailaren arabera</b> <p>Doako maila-proba batekin edo ziurtagiri ofizial baten egiaztagiriarekin, dagokizun taldean sartuko zara, eta talde osoak elkarrekin egiten du aurrera.</p></div></div>
+        <div class="m-item"><span class="num">&#128483;&#65039;</span> <div><b>Zure bilakaera jarraitzen duten irakasleak</b> <p>Gehienez 12ko taldeetan ez zara aurpegi bat gehiago: zure irakasleak badaki nondik zatozen eta zer landu behar duzun.</p></div></div>
+        <div class="m-item"><span class="num">&#128218;</span> <div><b>Material propioa</b> <p>Akademiak berak garatua, gure taldeetarako eta Cambridgeko azterketen benetako formaturako pentsatua.</p></div></div>
+        <div class="m-item"><span class="num">&#128200;</span> <div><b>Bilakaeraren hiru txosten</b> <p>Abenduan, martxoan eta ekainean zehatz-mehatz jakingo duzu non zauden eta zer dagoen lantzeko.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="precios" id="precios">
   <div class="wrap">
     <div class="centro reveal">
       <span class="kicker">Prezioak</span>
       <h2 class="section">Argiak, argitaratuak eta ezustekorik gabe</h2>
-      <p class="sub">Hileko kuota zure mailaren asteko orduen araberakoa da. Iraupen-konpromisorik eta letra txikirik gabe.</p>
+      <p class="sub">Etorri aurretik esaten dizugu zenbat kostatzen den. Hileko kuota zure mailaren asteko orduen araberakoa da; iraupen-konpromisorik eta letra txikirik gabe.</p>
     </div>
     <div class="precio-grid">
       <div class="precio reveal">
@@ -986,24 +1042,7 @@
   </div>
 </section>
 
-<section class="metodo" id="metodo">
-  <div class="wrap metodo-grid">
-    <div class="metodo-fotos reveal">
-      <div class="mf-a"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="Helduen taldea mahai baten inguruan lanean" loading="lazy" onerror="this.remove()"></div>
-      <div class="mf-b"><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=640&q=80" alt="Ikaskideak elkarlanean" loading="lazy" onerror="this.remove()"></div>
-    </div>
-    <div class="reveal">
-      <span class="kicker">Gure metodoa</span>
-      <h2 class="section">Metodo serioa, solemnitaterik gabe.</h2>
-      <p class="sub">Hogei urte baino gehiago formula bera lantzen: taldeak mailaren arabera, material propioa eta azterketa-helburu argiak.</p>
-      <div class="metodo-lista">
-        <div class="m-item"><span class="num">&#129517;</span> <div><b>Sarrera mailaren arabera</b> <p>Doako maila-proba batekin edo ziurtagiri ofizial baten egiaztagiriarekin, dagokizun taldean sartuko zara, eta talde osoak elkarrekin egiten du aurrera.</p></div></div>
-        <div class="m-item"><span class="num">&#128218;</span> <div><b>Material propioa</b> <p>Akademiak berak garatua, gure taldeetarako eta Cambridgeko azterketen benetako formaturako pentsatua.</p></div></div>
-        <div class="m-item"><span class="num">&#128200;</span> <div><b>Bilakaeraren hiru txosten</b> <p>Abenduan, martxoan eta ekainean zehatz-mehatz jakingo duzu non zauden eta zer dagoen lantzeko.</p></div></div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <section class="horarios" id="horarios">
   <div class="wrap">
@@ -1053,11 +1092,7 @@
         <p>&laquo;Ha sido una experiencia positiva que me ha ayudado mucho a mejorar mi inglés y prepararme para el futuro.&raquo;</p>
         <div class="quien"><span class="avatar">Y</span> <div><b>Yeray Garc&iacute;a</b> <span>C1eko ikaslea</span></div></div>
       </article>
-      <article class="resena reveal">
-        <span class="estrellas" aria-label="5 de 5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg></span>
-        <p>&laquo;Itsatsi hemen zuen Googleko fitxako benetako iritzi bat, idatzi zuen bezala.&raquo;</p>
-        <div class="quien"><span class="avatar">D</span> <div><b>[Izena]</b> <span>[B2ko ikaslea, ikasle baten ama&hellip;]</span></div></div>
-      </article>
+      <!-- Laugarren iritzia jasotzeke: iristean, gehitu hemen txartela eta itzuli .res-grid repeat(4,1fr)-era -->
     </div>
   </div>
 </section>
@@ -1066,13 +1101,15 @@
   <div class="wrap faq-grid">
     <div class="reveal">
       <span class="kicker">Ohiko galderak</span>
-      <h2 class="section">Familiek galdetzen digutena</h2>
+      <h2 class="section">Gehien galdetzen digutena</h2>
       <p class="sub">Eta zure zalantza hemen ez badago, deitu edo idatzi iezaguzu. Konpromisorik gabe.</p>
     </div>
     <div class="faq-list reveal">
       <details><summary>Zergatik irakasten duzue ingelesa soilik?<span class="plus" aria-hidden="true">+</span></summary><div class="faq-body">Ingelesa irakastea baita guk egiten dakiguna. Zerbait benetan axola zaigunean, espezialista batengana jotzen dugu. Zergatik izan behar luke ingelesak desberdina? Gure pasioa da, eta kutsatu nahi dugu.</div></details>
       <details><summary>Nola jakin dezaket zein taldetan sartzen naizen?<span class="plus" aria-hidden="true">+</span></summary><div class="faq-body">Doako maila-proba bat egiten dugu akademian, edo ziurtagiri ofizial baten egiaztagiria onartzen dugu. Horrela taldeak homogeneoak dira eta denek erritmo berean egiten dute aurrera.</div></details>
       <details><summary>Zer sartzen da 50&euro;ko matrikulan?<span class="plus" aria-hidden="true">+</span></summary><div class="faq-body">Familiako eta ikasturteko matrikula bakarra da: berdin dio zenbat anai-arrebak ematen duten izena, behin bakarrik ordaintzen da. Ikastaroa urriaren lehen astean hasten da.</div></details>
+      <details><summary>Iraupen-konpromisorik ba al dago?<span class="plus" aria-hidden="true">+</span></summary><div class="faq-body">Ez. Iraupen-konpromisorik eta letra txikirik gabe: hileko kuota hilez hil ordaintzen da, eta ez dago jarraitzeko inolako konpromisorik.</div></details>
+      <details><summary>Noiz hasten da ikastaroa?<span class="plus" aria-hidden="true">+</span></summary><div class="faq-body">2026&ndash;27 ikastaroa urriaren 1etik ekainaren 23ra doa, arratsaldeko eskolekin, astelehenetik ostegunera. Matrikula zabalik dago dagoeneko.</div></details>
       <details><summary>Zergatik dituzte azterketa-mailek astean 3 ordu?<span class="plus" aria-hidden="true">+</span></summary><div class="faq-body">B2, C1 eta C2 azterketa zorrotzak dira, oso atal espezifikoekin (Use of English, Writing, Speaking kronometratua). Asteko hirugarren ordua probaren benetako formatua lantzeko erabiltzen da, azterketara ezustekorik gabe iristeko.</div></details>
       <details><summary>Nola jakingo dut aurrera egiten dudan?<span class="plus" aria-hidden="true">+</span></summary><div class="faq-body">Ikasturtean zehar bilakaeraren hiru txosten ematen ditugu: abenduan, martxoan eta ekainean. Gainera, gehienez 12 ikasleko taldeekin, irakasleak bakoitzaren indarguneak eta ahulguneak ezagutzen ditu.</div></details>
       <details><summary>Zer material erosi behar dut?<span class="plus" aria-hidden="true">+</span></summary><div class="faq-body">Akademiak berak garatutako material propioarekin lan egiten dugu, gure taldeetarako eta Cambridgeko azterketetarako pentsatua.</div></details>

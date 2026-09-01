@@ -351,7 +351,7 @@
   .g-badge > svg{width:20px;height:20px;flex:none}
   .estrellas{display:inline-flex;gap:2px;color:#F2A71B}
   .estrellas svg{width:15px;height:15px}
-  .res-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:38px}
+  .res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:38px}
   .resena{display:flex;flex-direction:column;gap:13px;background:#fff;border:1px solid var(--linea);
     border-radius:var(--radio);padding:24px;transition:transform .28s cubic-bezier(.22,.7,.25,1),box-shadow .28s ease}
   .resena:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(20,35,80,.10)}
@@ -699,6 +699,14 @@
     .w-hero svg{animation:none}
   }
 
+
+.buscas{padding:30px 0 4px}
+.buscas-inner{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.buscas-tit{font-family:'Bree Serif',serif;color:var(--azul);font-size:1.15rem;white-space:nowrap}
+.buscas-chips{display:flex;flex-wrap:wrap;gap:10px}
+.buscas-chips a{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border:1px solid var(--linea);border-radius:999px;background:#fff;color:var(--tinta);font-weight:600;font-size:.92rem;text-decoration:none;transition:border-color .18s,color .18s,transform .18s}
+.buscas-chips a:hover{border-color:var(--azul);color:var(--azul);transform:translateY(-1px)}
+.buscas-chips a i{font-style:normal;color:var(--carmin)}
 </style>
 <script type="application/ld+json">
 {
@@ -779,6 +787,22 @@
    "acceptedAnswer": {
     "@type": "Answer",
     "text": "Es una única matrícula por familia y curso: da igual cuántos hermanos se apunten, se paga una sola vez. El curso comienza la primera semana de octubre."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Hay permanencia?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Sin permanencias ni letra pequeña: la mensualidad se paga mes a mes y no hay ningún compromiso de continuidad."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Cuándo empieza el curso?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "El curso 2026–27 va del 1 de octubre al 23 de junio, con clases de tarde de lunes a jueves. La matrícula ya está abierta."
    }
   },
   {
@@ -876,8 +900,8 @@
 <section class="hero">
   <div class="wrap">
     <span class="badge stagger s1"><img src="cambridge-escudo.png" alt="">Centro preparador oficial de Cambridge</span>
-    <h1 class="stagger s2">Tu academia de ingl&eacute;s de toda la vida en Galdakao</h1>
-    <p class="lead stagger s3">Hasta 12 alumnos por clase, profes que te conocen por tu nombre y todos los niveles, de A1 a Proficiency. Empezamos la primera semana de octubre.</p>
+    <h1 class="stagger s2">Ingl&eacute;s, bien ense&ntilde;ado. En Galdakao.</h1>
+    <p class="lead stagger s3">Tu academia de ingl&eacute;s de toda la vida: m&aacute;ximo 12 alumnos por clase, profes que te conocen por tu nombre y todos los niveles, de A1 a Proficiency. Empezamos la primera semana de octubre.</p>
     <div class="trust-line stagger s4">
       <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
       <span>5,0 en Google &middot; m&aacute;s de 20 a&ntilde;os en la calle Lapurdi</span>
@@ -900,11 +924,23 @@
 <section class="trust">
   <div class="wrap">
   <div class="trust-inner reveal">
-    <div class="t-item"><div class="t-num" data-n="20" data-suf="+">20<small>+</small></div> <b>a&ntilde;os en Galdakao</b> <span>centro preparador oficial de Cambridge</span></div>
-    <div class="t-item"><div class="t-num" data-n="12">12</div> <b>alumnos m&aacute;ximo por clase</b> <span>grupos homog&eacute;neos por nivel</span></div>
+    <div class="t-item"><div class="t-num" data-n="20" data-suf="+">20<small>+</small></div> <b>a&ntilde;os en Galdakao</b> <span>ense&ntilde;ando ingl&eacute;s, y solo ingl&eacute;s, en la calle Lapurdi</span></div>
+    <div class="t-item"><div class="t-num" data-n="12">12</div> <b>alumnos m&aacute;ximo por clase</b> <span>el profesor sabe c&oacute;mo va cada uno</span></div>
     <div class="t-item"><div class="t-num" data-n="3">3</div> <b>informes al a&ntilde;o</b> <span>diciembre, marzo y junio</span></div>
     <div class="t-item"><div class="t-num" data-n="5,0">5,0</div><div class="t-est" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div> <b>en Google</b> <span>familias que repiten cada curso</span></div>
   </div>
+  </div>
+</section>
+
+<section class="buscas">
+  <div class="wrap buscas-inner reveal">
+    <span class="buscas-tit">&iquest;Qu&eacute; buscas?</span>
+    <div class="buscas-chips">
+      <a href="#horarios-A1">Empezar desde cero <i>&rarr;</i></a>
+      <a href="#cambridge">Preparar un examen de Cambridge <i>&rarr;</i></a>
+      <a href="#contacto">Retomar el ingl&eacute;s tras un par&oacute;n <i>&rarr;</i></a>
+      <a href="#horarios">Seguir subiendo de nivel <i>&rarr;</i></a>
+    </div>
   </div>
 </section>
 
@@ -912,7 +948,7 @@
   <div class="wrap">
     <div class="centro reveal">
       <span class="kicker">El curso</span>
-      <h2 class="section">Un solo curso: ingl&eacute;s, bien ense&ntilde;ado</h2>
+      <h2 class="section">Un solo curso, una entrada para cada nivel</h2>
       <p class="sub">No hay men&uacute; de modalidades: hay un camino, de A1 a Proficiency, y una forma clara de entrar en &eacute;l seg&uacute;n tu nivel.</p>
     </div>
     <div class="publico-grid dos">
@@ -939,29 +975,49 @@
       <div class="cam-grid">
         <div class="reveal">
           <h2>El camino Cambridge, entero, sin salir de Galdakao</h2>
-          <p>Somos centro preparador oficial de Cambridge: preparaci&oacute;n espec&iacute;fica para cada examen, material propio y profesores que conocen las pruebas al detalle. Los niveles de examen (B2, C1 y C2) tienen una hora semanal extra.</p>
+          <p>Puedes empezar desde cero y llegar hasta el Proficiency sin cambiar de academia. Somos centro preparador oficial de Cambridge: preparaci&oacute;n espec&iacute;fica para cada examen, material propio y profesores que conocen las pruebas al detalle. Los niveles de examen (B2, C1 y C2) tienen una hora semanal extra.</p>
           <div class="sello"><img src="cambridge-english.png" alt="Cambridge English" loading="lazy" onerror="this.remove()"><div><b>Centro preparador oficial</b> <span>Acreditados por Cambridge University Press &amp; Assessment como centro de preparaci&oacute;n de los Cambridge English Qualifications.</span></div></div>
           <div class="cam-cta"><a class="btn btn-blanco" href="#contacto">Reserva tu prueba de nivel</a> <a class="btn cam-ghost" href="#precios">Ver precios</a></div>
         </div>
         <div class="camino reveal">
-          <a class="paso" href="#horarios-A1"><span class="nodo">A1</span> <div><b>Iniciaci&oacute;n</b> <span>primeros pasos, entrada por prueba de nivel</span></div> <span class="horas">2 h/semana</span></a>
-          <a class="paso" href="#horarios-A2"><span class="nodo">A2</span> <div><b>Key</b> <span>base s&oacute;lida de gram&aacute;tica y conversaci&oacute;n</span></div> <span class="horas">2 h/semana</span></a>
-          <a class="paso" href="#horarios-B1"><span class="nodo">B1</span> <div><b>Preliminary</b> <span>autonom&iacute;a en situaciones cotidianas</span></div> <span class="horas">2 h/semana</span></a>
-          <a class="paso oficial" href="#horarios-B2"><span class="nodo">B2</span> <div><b>First (FCE)</b> <span>el t&iacute;tulo que piden empresas y universidades</span></div> <span class="horas">3 h/semana</span></a>
-          <a class="paso oficial" href="#horarios-C1"><span class="nodo">C1</span> <div><b>Advanced (CAE)</b> <span>dominio para entornos acad&eacute;micos y profesionales</span></div> <span class="horas">3 h/semana</span></a>
-          <a class="paso oficial" href="#horarios-C2"><span class="nodo">C2</span> <div><b>Proficiency (CPE)</b> <span>el nivel m&aacute;s alto que certifica Cambridge</span></div> <span class="horas">3 h/semana</span></a>
+          <a class="paso" href="#horarios-A1"><span class="nodo">A1</span> <div><b>Iniciaci&oacute;n</b> <span>Primeros pasos para empezar a comunicarte</span></div> <span class="horas">2 h/semana</span></a>
+          <a class="paso" href="#horarios-A2"><span class="nodo">A2</span> <div><b>Key</b> <span>Base s&oacute;lida de gram&aacute;tica y conversaci&oacute;n</span></div> <span class="horas">2 h/semana</span></a>
+          <a class="paso" href="#horarios-B1"><span class="nodo">B1</span> <div><b>Preliminary</b> <span>Autonom&iacute;a en situaciones cotidianas</span></div> <span class="horas">2 h/semana</span></a>
+          <a class="paso oficial" href="#horarios-B2"><span class="nodo">B2</span> <div><b>First (FCE)</b> <span>El t&iacute;tulo que piden empresas y universidades</span></div> <span class="horas">3 h/semana</span></a>
+          <a class="paso oficial" href="#horarios-C1"><span class="nodo">C1</span> <div><b>Advanced (CAE)</b> <span>Dominio para entornos acad&eacute;micos y profesionales</span></div> <span class="horas">3 h/semana</span></a>
+          <a class="paso oficial" href="#horarios-C2"><span class="nodo">C2</span> <div><b>Proficiency (CPE)</b> <span>El nivel m&aacute;s alto que certifica Cambridge</span></div> <span class="horas">3 h/semana</span></a>
         </div>
       </div>
     </section>
   </div>
 </div>
 
+<section class="metodo" id="metodo">
+  <div class="wrap metodo-grid">
+    <div class="metodo-fotos reveal">
+      <div class="mf-a"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="Grupo de adultos trabajando alrededor de una mesa" loading="lazy" onerror="this.remove()"></div>
+      <div class="mf-b"><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=640&q=80" alt="Compañeros de clase colaborando" loading="lazy" onerror="this.remove()"></div>
+    </div>
+    <div class="reveal">
+      <span class="kicker">Nuestro m&eacute;todo</span>
+      <h2 class="section">Un m&eacute;todo serio, sin solemnidad.</h2>
+      <p class="sub">M&aacute;s de veinte a&ntilde;os puliendo la misma f&oacute;rmula: grupos por nivel, material propio y objetivos de examen claros.</p>
+      <div class="metodo-lista">
+        <div class="m-item"><span class="num">&#129517;</span> <div><b>Entrada por nivel</b> <p>Con una prueba de nivel gratuita o la acreditaci&oacute;n de un certificado oficial, entras en el grupo que te corresponde y todo el grupo avanza junto.</p></div></div>
+        <div class="m-item"><span class="num">&#128483;&#65039;</span> <div><b>Profesores que siguen tu evoluci&oacute;n</b> <p>En grupos de m&aacute;ximo 12 no eres una cara m&aacute;s: tu profesor sabe de d&oacute;nde vienes y qu&eacute; necesitas trabajar.</p></div></div>
+        <div class="m-item"><span class="num">&#128218;</span> <div><b>Material propio</b> <p>Desarrollado por la academia, pensado para nuestros grupos y para el formato real de los ex&aacute;menes de Cambridge.</p></div></div>
+        <div class="m-item"><span class="num">&#128200;</span> <div><b>Tres informes de evoluci&oacute;n</b> <p>En diciembre, marzo y junio sabes exactamente en qu&eacute; punto est&aacute;s y qu&eacute; queda por trabajar.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="precios" id="precios">
   <div class="wrap">
     <div class="centro reveal">
       <span class="kicker">Precios</span>
       <h2 class="section">Claros, publicados y sin sorpresas</h2>
-      <p class="sub">La mensualidad depende de las horas semanales de tu nivel. Sin permanencias ni letra peque&ntilde;a.</p>
+      <p class="sub">Te decimos cu&aacute;nto cuesta antes de que vengas. La mensualidad depende de las horas semanales de tu nivel; sin permanencias ni letra peque&ntilde;a.</p>
     </div>
     <div class="precio-grid">
       <div class="precio reveal">
@@ -986,24 +1042,7 @@
   </div>
 </section>
 
-<section class="metodo" id="metodo">
-  <div class="wrap metodo-grid">
-    <div class="metodo-fotos reveal">
-      <div class="mf-a"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="Grupo de adultos trabajando alrededor de una mesa" loading="lazy" onerror="this.remove()"></div>
-      <div class="mf-b"><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=640&q=80" alt="Compañeros de clase colaborando" loading="lazy" onerror="this.remove()"></div>
-    </div>
-    <div class="reveal">
-      <span class="kicker">Nuestro m&eacute;todo</span>
-      <h2 class="section">Un m&eacute;todo serio, sin solemnidad.</h2>
-      <p class="sub">M&aacute;s de veinte a&ntilde;os puliendo la misma f&oacute;rmula: grupos por nivel, material propio y objetivos de examen claros.</p>
-      <div class="metodo-lista">
-        <div class="m-item"><span class="num">&#129517;</span> <div><b>Entrada por nivel</b> <p>Con una prueba de nivel gratuita o la acreditaci&oacute;n de un certificado oficial, entras en el grupo que te corresponde y todo el grupo avanza junto.</p></div></div>
-        <div class="m-item"><span class="num">&#128218;</span> <div><b>Material propio</b> <p>Desarrollado por la academia, pensado para nuestros grupos y para el formato real de los ex&aacute;menes de Cambridge.</p></div></div>
-        <div class="m-item"><span class="num">&#128200;</span> <div><b>Tres informes de evoluci&oacute;n</b> <p>En diciembre, marzo y junio sabes exactamente en qu&eacute; punto est&aacute;s y qu&eacute; queda por trabajar.</p></div></div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <section class="horarios" id="horarios">
   <div class="wrap">
@@ -1053,11 +1092,7 @@
         <p>&laquo;Ha sido una experiencia positiva que me ha ayudado mucho a mejorar mi inglés y prepararme para el futuro.&raquo;</p>
         <div class="quien"><span class="avatar">Y</span> <div><b>Yeray Garc&iacute;a</b> <span>alumno de C1</span></div></div>
       </article>
-      <article class="resena reveal">
-        <span class="estrellas" aria-label="5 de 5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg></span>
-        <p>&laquo;Pega aqu&iacute; una rese&ntilde;a real de vuestra ficha de Google, tal cual la escribi&oacute; quien la dej&oacute;.&raquo;</p>
-        <div class="quien"><span class="avatar">D</span> <div><b>[Nombre]</b> <span>[alumna de B2, madre de alumno&hellip;]</span></div></div>
-      </article>
+      <!-- Cuarta rese&ntilde;a pendiente: al recibirla, a&ntilde;adir aqu&iacute; la tarjeta y devolver .res-grid a repeat(4,1fr) -->
     </div>
   </div>
 </section>
@@ -1066,13 +1101,15 @@
   <div class="wrap faq-grid">
     <div class="reveal">
       <span class="kicker">Preguntas frecuentes</span>
-      <h2 class="section">Lo que nos preguntan las familias</h2>
+      <h2 class="section">Lo que m&aacute;s nos preguntan</h2>
       <p class="sub">Y si tu duda no est&aacute; aqu&iacute;, ll&aacute;manos o escr&iacute;benos. Sin compromiso.</p>
     </div>
     <div class="faq-list reveal">
       <details><summary>&iquest;Por qu&eacute; solo ense&ntilde;&aacute;is ingl&eacute;s?<span class="plus" aria-hidden="true">+</span></summary><div class="faq-body">Porque ense&ntilde;ar ingl&eacute;s es lo que sabemos hacer. Cuando algo nos importa de verdad, acudimos a un especialista. &iquest;Por qu&eacute; el ingl&eacute;s iba a ser diferente? Es nuestra pasi&oacute;n y queremos contagiarla.</div></details>
       <details><summary>&iquest;C&oacute;mo s&eacute; en qu&eacute; grupo entro?<span class="plus" aria-hidden="true">+</span></summary><div class="faq-body">Hacemos una prueba de nivel gratuita en la academia, o aceptamos la acreditaci&oacute;n de un certificado oficial. As&iacute; los grupos son homog&eacute;neos y todo el mundo avanza al mismo ritmo.</div></details>
       <details><summary>&iquest;Qu&eacute; incluye la matr&iacute;cula de 50&euro;?<span class="plus" aria-hidden="true">+</span></summary><div class="faq-body">Es una &uacute;nica matr&iacute;cula por familia y curso: da igual cu&aacute;ntos hermanos se apunten, se paga una sola vez. El curso comienza la primera semana de octubre.</div></details>
+      <details><summary>&iquest;Hay permanencia?<span class="plus" aria-hidden="true">+</span></summary><div class="faq-body">No. Sin permanencias ni letra peque&ntilde;a: la mensualidad se paga mes a mes y no hay ning&uacute;n compromiso de continuidad.</div></details>
+      <details><summary>&iquest;Cu&aacute;ndo empieza el curso?<span class="plus" aria-hidden="true">+</span></summary><div class="faq-body">El curso 2026&ndash;27 va del 1 de octubre al 23 de junio, con clases de tarde de lunes a jueves. La matr&iacute;cula ya est&aacute; abierta.</div></details>
       <details><summary>&iquest;Por qu&eacute; los niveles de examen tienen 3 horas semanales?<span class="plus" aria-hidden="true">+</span></summary><div class="faq-body">B2, C1 y C2 son ex&aacute;menes exigentes con partes muy espec&iacute;ficas (Use of English, Writing, Speaking cronometrado). La tercera hora semanal se dedica a practicar el formato real de la prueba para llegar al examen sin sorpresas.</div></details>
       <details><summary>&iquest;C&oacute;mo sabr&eacute; si progreso?<span class="plus" aria-hidden="true">+</span></summary><div class="faq-body">Entregamos tres informes de evoluci&oacute;n durante el curso: en diciembre, marzo y junio. Adem&aacute;s, con grupos de m&aacute;ximo 12 alumnos, el profesor conoce los puntos fuertes y d&eacute;biles de cada uno.</div></details>
       <details><summary>&iquest;Qu&eacute; material necesito comprar?<span class="plus" aria-hidden="true">+</span></summary><div class="faq-body">Trabajamos con material propio desarrollado por la academia, pensado para nuestros grupos y para los ex&aacute;menes de Cambridge.</div></details>

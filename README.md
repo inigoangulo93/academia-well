@@ -48,7 +48,13 @@ Las URL absolutas de `og:image`, `og:url`, `canonical`, `hreflang` y `sitemap.xm
 - Confirmar el horario de atención declarado en los datos estructurados (lunes a jueves,
   16.00–21.00, deducido de los turnos publicados)
 - Confirmar la vuelta de vacaciones de enero en el calendario
-- Sustituir las fotos de Unsplash por fotos reales del local
+- Sustituir las fotos de Unsplash por fotos reales, por orden de impacto:
+  1. Hero de la portada (3 fotos): el aula con alumnos, la fachada del local y una clase en marcha.
+  2. Tarjetas "Entrada por nivel" y "Niveles de examen": una clase real y una sesion de preparacion de examen.
+  3. Seccion "Nuestro metodo" (2 fotos): profesores dando clase, material propio sobre la mesa.
+  4. Mosaicos de Instagram (3 fotos por pagina): fotos reales del dia a dia (mejor si son las del propio Instagram).
+  5. Hero de la pagina de curso (2 fotos superpuestas).
+  No usar fotos generadas por IA de alumnos o profesores.
 
 ## Dominio
 
