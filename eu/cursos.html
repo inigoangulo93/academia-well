@@ -64,14 +64,14 @@
   .ig-link svg{width:15px;height:15px}
   header.main{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea);transition:box-shadow .25s ease}
   header.main.scrolled{box-shadow:0 6px 24px rgba(35,43,66,.09)}
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:13px 32px;transition:padding .25s ease}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:13px 32px;max-width:1320px;transition:padding .25s ease}
   header.main.scrolled .nav-inner{padding:8px 32px}
   .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--azul)}
   .logo img{width:34px;height:auto}
   .logo-text{font-family:'Bree Serif',serif;font-size:19px;line-height:1.05}
   .menu{display:flex;align-items:center;gap:4px;list-style:none}
   .menu > li{position:relative}
-  .menu > li > a, .menu > li > button{display:flex;align-items:center;gap:7px;padding:10px 15px;font-family:'Figtree',sans-serif;font-size:15.5px;font-weight:600;color:var(--tinta);text-decoration:none;background:none;border:none;cursor:pointer;border-radius:100px;transition:background .15s ease, color .15s ease}
+  .menu > li > a, .menu > li > button{display:flex;align-items:center;gap:7px;padding:10px 13px;white-space:nowrap;font-family:'Figtree',sans-serif;font-size:15.5px;font-weight:600;color:var(--tinta);text-decoration:none;background:none;border:none;cursor:pointer;border-radius:100px;transition:background .15s ease, color .15s ease}
   .menu > li > a:hover, .menu > li > button:hover, .menu > li.open > button{background:var(--azul-suave);color:var(--azul)}
   .menu > li > a:focus-visible, .menu > li > button:focus-visible{outline:2.5px solid var(--azul);outline-offset:2px}
   /* pagina activa: color y subrayado ondulado fijo */
@@ -111,6 +111,8 @@
   .btn-azul{background:var(--azul);color:#fff;box-shadow:0 6px 16px rgba(33,64,154,.24)}
   .btn-rojo{background:var(--carmin);color:#fff;box-shadow:0 6px 16px rgba(192,41,59,.26)}
   .btn-wa{background:var(--verde-wa);color:#fff;box-shadow:0 6px 16px rgba(18,140,75,.26)}
+  .nav-cta .btn-nav{padding:9px 16px;font-size:13.5px;white-space:nowrap}
+  @media(max-width:1240px){.nav-cta .btn-nav{display:none}}
   /* WhatsApp flotante: con texto en escritorio, solo icono en movil */
   .wa-flotante{position:fixed;right:22px;bottom:22px;z-index:80;display:inline-flex;align-items:center;gap:10px;
     background:var(--verde-wa);color:#fff;font-weight:700;font-size:14.5px;text-decoration:none;
@@ -127,6 +129,16 @@
     .wa-flotante svg{width:24px;height:24px}
   }
   @media (prefers-reduced-motion: reduce){.wa-flotante{animation:none}}
+  /* volver arriba: aparece tras bajar, en la esquina opuesta al WhatsApp */
+  .arriba{position:fixed;left:18px;bottom:18px;z-index:70;width:44px;height:44px;border-radius:50%;
+    background:#fff;border:1px solid var(--linea);color:var(--azul);cursor:pointer;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(20,35,80,.14);
+    opacity:0;visibility:hidden;transform:translateY(8px);
+    transition:opacity .25s ease,visibility .25s,transform .25s ease}
+  .arriba.visible{opacity:1;visibility:visible;transform:none}
+  .arriba:hover{color:#fff;background:var(--azul);border-color:var(--azul)}
+  .arriba svg{width:19px;height:19px}
+  .arriba:focus-visible{outline:2.5px solid var(--azul);outline-offset:2px}
   .btn-ghost{color:var(--azul);border:1.5px solid var(--azul);background:transparent}
   .btn-blanco{background:#fff;color:var(--azul)}
   .burger{display:none;background:none;border:none;cursor:pointer;padding:10px}
@@ -136,7 +148,7 @@
   body.menu-open .burger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
   .mobile-menu{display:none}
   @media(max-width:960px){
-    .menu, .nav-cta .btn-ghost{display:none}
+    .menu, .nav-cta .btn-ghost, .nav-cta .btn-nav{display:none}
     .nav-cta .lang-pill{display:none} /* en movil el idioma vive dentro del menu */
     .burger{display:block}
     .nav-inner{padding:10px 20px}
@@ -372,7 +384,7 @@
   .foot-ig svg{width:16px;height:16px}
   /* Páginas de curso */
   .crumbs{padding:22px 0 0;font-size:14px;color:var(--gris)}
-  .crumbs a{color:var(--gris);text-decoration:none}
+  .crumbs a{color:var(--azul);font-weight:600;text-decoration:none}
   .crumbs a:hover{color:var(--azul)}
   .crumbs .sep{margin:0 8px;opacity:.5}
   .page-hero{padding:44px 0 60px;overflow:hidden}
@@ -631,7 +643,7 @@
   .dia:not(.vacio):not(.festivo):hover{background:var(--azul-suave);transform:translateY(-2px) scale(1.05)}
 
   @media print{
-    header.main,.crumbs,.banda-cta,.insta,footer,.band-marquee,.mobile-menu,.burger,.cta-row,.shape,.wa-flotante{display:none !important}
+    header.main,.crumbs,.banda-cta,.insta,footer,.band-marquee,.mobile-menu,.burger,.cta-row,.shape,.wa-flotante,.arriba{display:none !important}
     body{background:#fff}
     .cal-grid{grid-template-columns:repeat(3,1fr);gap:10px}
     .mes{break-inside:avoid;border:1px solid #ccc;background:#fff}
@@ -900,6 +912,7 @@
       <span class="logo-text">Academia <br>Well</span>
     </a>
     <ul class="menu">
+      <li><a href="index.html">Hasiera</a></li>
       <li><a href="cursos.html" aria-current="page">Ikastaroa</a></li>
       <li><a href="#cambridge">Cambridge</a></li>
       <li><a href="#precios">Prezioak</a></li>
@@ -915,6 +928,7 @@
       </li>
     </ul>
     <div class="nav-cta">
+      <a class="btn btn-azul btn-nav" href="index.html#contacto">Eskatu maila-proba</a>
       <div class="lang-pill" role="group" aria-label="Hizkuntza"><a href="../cursos.html">ES</a><a href="#" aria-current="page">EU</a></div>
       <button class="burger" id="burger" aria-label="Menua ireki" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
@@ -923,6 +937,7 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <nav>
+    <a href="index.html">Hasiera</a>
     <a href="cursos.html" aria-current="page">Ikastaroa</a>
     <a href="#cambridge">Cambridge</a>
     <a href="#precios">Prezioak</a>
@@ -1203,6 +1218,23 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeAll(null
     requestAnimationFrame(() => { mira(); ticking = false; });
   }, {passive:true});
   mira();
+})();
+
+/* Boton volver arriba */
+(function(){
+  const btn = document.createElement('button');
+  btn.className = 'arriba'; btn.type = 'button';
+  btn.setAttribute('aria-label', document.documentElement.lang === 'eu' ? 'Itzuli gora' : 'Volver arriba');
+  btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>';
+  document.body.appendChild(btn);
+  btn.addEventListener('click', () => scrollTo({top:0, behavior:'smooth'}));
+  let t2 = false;
+  const ver = () => btn.classList.toggle('visible', scrollY > innerHeight * 1.2);
+  addEventListener('scroll', () => {
+    if(t2) return; t2 = true;
+    requestAnimationFrame(() => { ver(); t2 = false; });
+  }, {passive:true});
+  ver();
 })();
 
 const burger = document.getElementById('burger');
