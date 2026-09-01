@@ -622,18 +622,17 @@
     mask-image:linear-gradient(180deg,transparent 0,#000 14%,#000 82%,transparent 100%)}
   .w-hero svg{width:100%;height:100%;animation:whFloat 16s ease-in-out infinite}
   @keyframes whFloat{0%,100%{transform:translate(0,0) rotate(0deg)}50%{transform:translate(10px,-14px) rotate(.4deg)}}
-  .wh-base{fill:none;stroke:#21409A;stroke-opacity:.07;stroke-width:92;stroke-linecap:round;
-    stroke-dasharray:3400;stroke-dashoffset:3400;animation:whDraw 1.7s cubic-bezier(.4,0,.2,1) .15s forwards}
-  @keyframes whDraw{to{stroke-dashoffset:0}}
-  .wh-comet{fill:none;stroke:#C0293B;stroke-opacity:.12;stroke-width:92;stroke-linecap:round;
-    stroke-dasharray:300 3400;stroke-dashoffset:3700;animation:whComet 8.5s linear 2.2s infinite}
-  @keyframes whComet{to{stroke-dashoffset:0}}
+  /* la W del logo, a dos trazos: marcador ancho + perfil fino */
+  .wh-base{fill:none;stroke:#21409A;stroke-opacity:.065;stroke-width:78;stroke-linecap:round}
+  .wh-fina{fill:none;stroke:#21409A;stroke-opacity:.16;stroke-width:3.5;stroke-linecap:round}
+  .wh-comet{fill:none;stroke:#C0293B;stroke-opacity:0;stroke-width:78;stroke-linecap:round;transition:stroke-opacity .6s ease}
+  .w-hero.lista .wh-comet{stroke-opacity:.14}
   .pg-calendario .wh-comet{display:none}
   .pg-calendario .w-hero svg{animation:none}
   .pg-calendario .wh-base{stroke-opacity:.05}
-  @media(max-width:640px){.wh-base{stroke-opacity:.055}.wh-comet{stroke-opacity:.09}}
+  @media(max-width:640px){.wh-base{stroke-opacity:.05}.w-hero.lista .wh-comet{stroke-opacity:.11}}
   @media (prefers-reduced-motion: reduce){
-    .wh-base{stroke-dashoffset:0;animation:none}
+    .wh-base,.wh-fina{stroke-dashoffset:0!important}
     .wh-comet{display:none}
     .w-hero svg{animation:none}
   }
@@ -1332,24 +1331,48 @@ if(calGrid){
 (function(){
   const sec = document.querySelector('section.hero, section.page-hero');
   if(!sec) return;
-  const path = 'M -90 320 C 140 130, 265 165, 345 340 C 405 470, 475 470, 535 330 C 590 205, 660 205, 715 330 C 775 470, 845 470, 905 305 C 958 168, 1050 105, 1300 40';
+  /* La W del logo (viewBox 120x110), escalada al ancho del hero */
+  const path = 'M -52 45 C 102 441, 256 441, 388 238 C 465 114, 575 114, 652 238 C 784 441, 938 441, 1092 45';
   sec.insertAdjacentHTML('afterbegin',
     `<div class="w-hero" aria-hidden="true"><svg viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice">
       <path class="wh-base" d="${path}"/>
+      <path class="wh-fina" d="${path}"/>
       <path class="wh-comet" d="${path}"/>
     </svg></div>`);
-  /* Parallax sutil al hacer scroll */
-  if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
-    const el = sec.querySelector('.w-hero');
-    let ticking = false;
-    addEventListener('scroll', () => {
-      if(ticking) return; ticking = true;
-      requestAnimationFrame(() => {
-        el.style.transform = `translateY(${scrollY * -0.07}px)`;
-        ticking = false;
-      });
-    }, {passive:true});
-  }
+  const wh = sec.querySelector('.w-hero');
+  const base = wh.querySelector('.wh-base'), fina = wh.querySelector('.wh-fina'), comet = wh.querySelector('.wh-comet');
+  const L = Math.ceil(base.getTotalLength());
+  const COLA = Math.round(L * 0.16);
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  comet.style.strokeDasharray = `${COLA} ${L}`;
+  comet.style.strokeDashoffset = L + COLA;
+
+  if(reduce){ wh.classList.add('lista'); return; }
+
+  /* dibujado inicial escalonado: primero el marcador, después el perfil */
+  [[base,'2.2s',0],[fina,'2.4s',350]].forEach(([el,dur,delay]) => {
+    el.style.strokeDasharray = L; el.style.strokeDashoffset = L;
+    setTimeout(() => {
+      el.style.transition = `stroke-dashoffset ${dur} cubic-bezier(.65,0,.18,1)`;
+      el.style.strokeDashoffset = 0;
+    }, 150 + delay);
+  });
+  setTimeout(() => wh.classList.add('lista'), 2500);
+
+  /* el cometa recorre la W al ritmo del scroll, con inercia; el parallax viaja en el mismo bucle */
+  let objetivo = L + COLA, actual = L + COLA;
+  const medir = () => {
+    const p = Math.min(1, Math.max(0, scrollY / Math.max(1, sec.offsetHeight)));
+    objetivo = (L + COLA) * (1 - p);
+  };
+  addEventListener('scroll', medir, {passive:true}); medir();
+  (function bucle(){
+    actual += (objetivo - actual) * .08;
+    comet.style.strokeDashoffset = actual;
+    wh.style.transform = `translateY(${scrollY * -0.07}px)`;
+    requestAnimationFrame(bucle);
+  })();
 })();
 
 </script>
