@@ -480,6 +480,11 @@
   .pg-verano .band-marquee{background:#E8A020}
   .band-track{display:inline-flex;align-items:center;gap:34px;white-space:nowrap;animation:marquee-x 26s linear infinite;font-family:'Bree Serif',serif;font-size:18px;padding-right:34px}
   .band-track .w-sep{width:22px;height:20px;flex-shrink:0;opacity:.7}
+  .band-track .acento{color:#F5B8C0}
+  .band-track .w-sep.rojo{color:#F5B8C0;opacity:.9}
+  @supports (-webkit-text-stroke: 1px #fff){
+    .band-track .hueco{color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.95)}
+  }
   .band-marquee:hover .band-track{animation-play-state:paused}
 
   /* Bloque Instagram */
@@ -975,7 +980,11 @@ const FRASES = {
 const heroSec = document.querySelector('section.hero, section.page-hero');
 if(heroSec && FRASES[PG]){
   const wsep = '<svg class="w-sep" viewBox="0 0 120 110" aria-hidden="true"><path d="M8 12 C22 98 36 98 48 54 C55 27 65 27 72 54 C84 98 98 98 112 12" fill="none" stroke="currentColor" stroke-width="15" stroke-linecap="round"/></svg>';
-  const items = FRASES[PG].map(f => `<span>${f}</span>${wsep}`).join('');
+  /* tres voces tipograficas: lleno, hueco y acento; las W alternan color */
+  const items = FRASES[PG].map((f, i) =>
+    `<span${['',' class="hueco"',' class="acento"'][i % 3]}>${f}</span>` +
+    (i % 2 ? wsep.replace('class="w-sep"','class="w-sep rojo"') : wsep)
+  ).join('');
   heroSec.insertAdjacentHTML('afterend',
     `<div class="band-marquee" aria-hidden="true"><div class="band-track">${items}${items}</div></div>`);
 }
