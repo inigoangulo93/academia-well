@@ -75,8 +75,11 @@
   .menu > li > a:hover, .menu > li > button:hover, .menu > li.open > button{background:var(--azul-suave);color:var(--azul)}
   .menu > li > a:focus-visible, .menu > li > button:focus-visible{outline:2.5px solid var(--azul);outline-offset:2px}
   /* pagina activa: color y subrayado ondulado fijo */
-  .menu > li > a[aria-current="page"]{color:var(--azul)}
-  .menu > li > a[aria-current="page"]::after{opacity:1;animation:none}
+  .menu > li > a[aria-current="page"], .menu > li > a.activo{color:var(--azul)}
+  .menu > li > a[aria-current="page"]::after, .menu > li > a.activo::after{opacity:1;animation:none}
+  /* si hay una seccion activa, el item de pagina cede el resaltado */
+  .menu > li > a[aria-current="page"].sin-actual:not(:hover){color:var(--tinta)}
+  .menu > li > a[aria-current="page"].sin-actual:not(:hover)::after{opacity:0}
   .mobile-menu nav > a[aria-current="page"]{color:var(--carmin)}
   .caret{width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s ease;margin-top:-3px}
   .menu > li.open .caret{transform:rotate(225deg) translateY(-1px);margin-top:4px}
@@ -887,7 +890,7 @@
         <span class="link">Ver niveles y horarios <i>&rarr;</i></span>
       </a>
       <a class="publico p-adultos reveal" href="cursos.html#cambridge">
-        <div class="foto"><img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=760&q=80" alt="Celebración de graduados" loading="lazy" onerror="this.remove()"><span class="edad-chip">B2 &middot; C1 &middot; C2</span></div>
+        <div class="foto"><img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=760&q=80" alt="Grupo de adultos estudiando alrededor de una mesa" loading="lazy" onerror="this.remove()"><span class="edad-chip">B2 &middot; C1 &middot; C2</span></div>
         <h3>Niveles de examen</h3>
         <p>Tres horas semanales, simulacros en formato real y la preparaci&oacute;n espec&iacute;fica de un centro oficial.</p>
         <span class="link">El camino Cambridge <i>&rarr;</i></span>
@@ -1081,7 +1084,7 @@
       <a class="ig-tile color ig-t-azul" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener">Hello, Galdakao!</a>
       <a class="ig-tile" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=520&q=80" alt="Clase de jóvenes" loading="lazy" onerror="this.remove()"><span class="ig-hover"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.9"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></span></a>
       <a class="ig-tile color ig-t-rojo" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener">Well done! &#128079;</a>
-      <a class="ig-tile" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=520&q=80" alt="Celebración de aprobados" loading="lazy" onerror="this.remove()"><span class="ig-hover"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.9"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></span></a>
+      <a class="ig-tile" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=520&q=80" alt="Grupo de adultos estudiando alrededor de una mesa" loading="lazy" onerror="this.remove()"><span class="ig-hover"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.9"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></span></a>
       <a class="ig-tile color ig-t-sol" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener">See you in class &#9996;&#65039;</a>
     </div>
   </div>
@@ -1145,6 +1148,32 @@ drops.forEach(li => {
 });
 document.addEventListener('click', () => closeAll(null));
 document.addEventListener('keydown', e => { if(e.key === 'Escape') closeAll(null); });
+
+/* Scroll-spy: el resaltado del menu sigue la seccion visible */
+(function(){
+  const pares = [...document.querySelectorAll('.menu > li > a[href^="#"]')]
+    .map(a => { const sec = document.getElementById(a.getAttribute('href').slice(1));
+                return sec ? {a, sec} : null; })
+    .filter(Boolean);
+  if(!pares.length) return;
+  const base = document.querySelector('.menu > li > a[aria-current="page"]');
+  let ticking = false;
+  const mira = () => {
+    const linea = innerHeight * .35;
+    let actual = null;
+    for(const {a, sec} of pares){
+      const r = sec.getBoundingClientRect();
+      if(r.top <= linea && r.bottom > linea) actual = a;
+    }
+    pares.forEach(({a}) => a.classList.toggle('activo', a === actual));
+    if(base) base.classList.toggle('sin-actual', !!actual);
+  };
+  addEventListener('scroll', () => {
+    if(ticking) return; ticking = true;
+    requestAnimationFrame(() => { mira(); ticking = false; });
+  }, {passive:true});
+  mira();
+})();
 
 const burger = document.getElementById('burger');
 burger.addEventListener('click', () => {

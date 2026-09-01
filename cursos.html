@@ -75,8 +75,11 @@
   .menu > li > a:hover, .menu > li > button:hover, .menu > li.open > button{background:var(--azul-suave);color:var(--azul)}
   .menu > li > a:focus-visible, .menu > li > button:focus-visible{outline:2.5px solid var(--azul);outline-offset:2px}
   /* pagina activa: color y subrayado ondulado fijo */
-  .menu > li > a[aria-current="page"]{color:var(--azul)}
-  .menu > li > a[aria-current="page"]::after{opacity:1;animation:none}
+  .menu > li > a[aria-current="page"], .menu > li > a.activo{color:var(--azul)}
+  .menu > li > a[aria-current="page"]::after, .menu > li > a.activo::after{opacity:1;animation:none}
+  /* si hay una seccion activa, el item de pagina cede el resaltado */
+  .menu > li > a[aria-current="page"].sin-actual:not(:hover){color:var(--tinta)}
+  .menu > li > a[aria-current="page"].sin-actual:not(:hover)::after{opacity:0}
   .mobile-menu nav > a[aria-current="page"]{color:var(--carmin)}
   .caret{width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s ease;margin-top:-3px}
   .menu > li.open .caret{transform:rotate(225deg) translateY(-1px);margin-top:4px}
@@ -385,6 +388,9 @@
   .ph-img{border-radius:var(--radio);overflow:hidden;aspect-ratio:4/3.6;box-shadow:var(--sombra);background:linear-gradient(135deg,#E9EDF9,#DCE3F5)}
   .ph-img img{width:100%;height:100%;object-fit:cover}
   .ph-foto .sticker{top:auto;bottom:0;right:-8px}
+  .ph-img-b{position:absolute;left:-16px;bottom:2px;width:44%;border-radius:16px;overflow:hidden;
+    border:6px solid #fff;box-shadow:0 16px 34px rgba(20,35,80,.2);transform:rotate(-3.5deg)}
+  .ph-img-b img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover}
   .bloque{padding:70px 0 20px}
   .acts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
   .act{border-radius:var(--radio);padding:28px 24px;text-align:center}
@@ -947,7 +953,8 @@
       </div>
     </div>
     <div class="ph-foto reveal">
-      <div class="ph-img"><img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1000&q=80" alt="Graduados lanzando birretes al aire" onerror="this.remove()"></div>
+      <div class="ph-img"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80" alt="Grupo de jóvenes estudiando juntos" onerror="this.remove()"></div>
+      <div class="ph-img-b"><img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=520&q=80" alt="Apuntes y café en clase" loading="lazy" onerror="this.parentElement.remove()"></div>
       <div class="sticker">B2 &middot; C1 &middot; C2<small>3 h/semana</small></div>
     </div>
   </div>
@@ -1094,7 +1101,7 @@
       <a class="ig-tile color ig-t-azul" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener">Hello, Galdakao!</a>
       <a class="ig-tile" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=520&q=80" alt="Clase de jóvenes" loading="lazy" onerror="this.remove()"><span class="ig-hover"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.9"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></span></a>
       <a class="ig-tile color ig-t-rojo" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener">Well done! &#128079;</a>
-      <a class="ig-tile" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=520&q=80" alt="Celebración de aprobados" loading="lazy" onerror="this.remove()"><span class="ig-hover"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.9"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></span></a>
+      <a class="ig-tile" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=520&q=80" alt="Grupo de adultos estudiando alrededor de una mesa" loading="lazy" onerror="this.remove()"><span class="ig-hover"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.9"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></span></a>
       <a class="ig-tile color ig-t-sol" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener">See you in class &#9996;&#65039;</a>
     </div>
   </div>
@@ -1158,6 +1165,32 @@ drops.forEach(li => {
 });
 document.addEventListener('click', () => closeAll(null));
 document.addEventListener('keydown', e => { if(e.key === 'Escape') closeAll(null); });
+
+/* Scroll-spy: el resaltado del menu sigue la seccion visible */
+(function(){
+  const pares = [...document.querySelectorAll('.menu > li > a[href^="#"]')]
+    .map(a => { const sec = document.getElementById(a.getAttribute('href').slice(1));
+                return sec ? {a, sec} : null; })
+    .filter(Boolean);
+  if(!pares.length) return;
+  const base = document.querySelector('.menu > li > a[aria-current="page"]');
+  let ticking = false;
+  const mira = () => {
+    const linea = innerHeight * .35;
+    let actual = null;
+    for(const {a, sec} of pares){
+      const r = sec.getBoundingClientRect();
+      if(r.top <= linea && r.bottom > linea) actual = a;
+    }
+    pares.forEach(({a}) => a.classList.toggle('activo', a === actual));
+    if(base) base.classList.toggle('sin-actual', !!actual);
+  };
+  addEventListener('scroll', () => {
+    if(ticking) return; ticking = true;
+    requestAnimationFrame(() => { mira(); ticking = false; });
+  }, {passive:true});
+  mira();
+})();
 
 const burger = document.getElementById('burger');
 burger.addEventListener('click', () => {
