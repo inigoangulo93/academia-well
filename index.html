@@ -74,6 +74,10 @@
   .menu > li > a, .menu > li > button{display:flex;align-items:center;gap:7px;padding:10px 15px;font-family:'Figtree',sans-serif;font-size:15.5px;font-weight:600;color:var(--tinta);text-decoration:none;background:none;border:none;cursor:pointer;border-radius:100px;transition:background .15s ease, color .15s ease}
   .menu > li > a:hover, .menu > li > button:hover, .menu > li.open > button{background:var(--azul-suave);color:var(--azul)}
   .menu > li > a:focus-visible, .menu > li > button:focus-visible{outline:2.5px solid var(--azul);outline-offset:2px}
+  /* pagina activa: color y subrayado ondulado fijo */
+  .menu > li > a[aria-current="page"]{color:var(--azul)}
+  .menu > li > a[aria-current="page"]::after{opacity:1;animation:none}
+  .mobile-menu nav > a[aria-current="page"]{color:var(--carmin)}
   .caret{width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s ease;margin-top:-3px}
   .menu > li.open .caret{transform:rotate(225deg) translateY(-1px);margin-top:4px}
   .drop{position:absolute;top:calc(100% + 12px);left:0;min-width:260px;background:var(--crema);border:1px solid var(--linea);border-radius:var(--radio);box-shadow:var(--sombra);padding:12px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s ease, transform .2s ease, visibility .2s}
