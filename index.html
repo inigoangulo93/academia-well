@@ -312,6 +312,27 @@
   .turno .vacio{color:var(--gris);font-size:15px;font-style:italic}
   .panel-foot{margin-top:24px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
   .panel-foot p{font-size:14.5px;color:var(--gris)}
+  /* ---- Resenas ---- */
+  .resenas{padding:84px 0 10px}
+  .res-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .g-badge{display:inline-flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--linea);
+    border-radius:100px;padding:12px 22px;text-decoration:none;color:var(--tinta);font-weight:700;font-size:15px;
+    transition:transform .25s ease,box-shadow .25s ease}
+  .g-badge:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(20,35,80,.12)}
+  .g-badge > svg{width:20px;height:20px;flex:none}
+  .estrellas{display:inline-flex;gap:2px;color:#F2A71B}
+  .estrellas svg{width:15px;height:15px}
+  .res-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:38px}
+  .resena{display:flex;flex-direction:column;gap:13px;background:#fff;border:1px solid var(--linea);
+    border-radius:var(--radio);padding:24px;transition:transform .28s cubic-bezier(.22,.7,.25,1),box-shadow .28s ease}
+  .resena:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(20,35,80,.10)}
+  .resena p{font-size:14.5px;color:var(--gris);line-height:1.6;flex:1;margin:0}
+  .quien{display:flex;align-items:center;gap:11px}
+  .quien .avatar{width:38px;height:38px;border-radius:50%;flex:none;background:var(--azul-suave);color:var(--azul);
+    display:flex;align-items:center;justify-content:center;font-family:'Bree Serif',serif;font-size:16px}
+  .quien b{font-size:14px;color:var(--tinta);display:block;line-height:1.25}
+  .quien span{font-size:12.5px;color:var(--gris)}
+
   .faq{padding:84px 0 40px}
   .faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
   .faq-list{display:grid;gap:12px}
@@ -420,7 +441,7 @@
     .topbar .left span{display:none}
   }
   @media(max-width:640px){
-    .publico-grid,.acts-grid,.turnos,.trust-inner{grid-template-columns:1fr}
+    .publico-grid,.acts-grid,.turnos,.trust-inner,.res-grid{grid-template-columns:1fr}
     .panel{padding:26px 22px}
   }
 
@@ -951,6 +972,41 @@
       </span>
       <span class="btn btn-azul ce-btn">Ver calendario</span>
     </a>
+  </div>
+</section>
+
+<section class="resenas" id="resenas">
+  <div class="wrap">
+    <div class="res-head reveal">
+      <div>
+        <span class="kicker">Rese&ntilde;as</span>
+        <h2 class="section">Lo que dicen alumnos y familias</h2>
+        <p class="sub">Rese&ntilde;as reales de Google, tal cual las escribieron.</p>
+      </div>
+      <a class="g-badge" href="https://www.google.com/maps/search/Academia+Well+Galdakao" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.27c0-.85-.08-1.66-.22-2.45H12v4.64h6.45a5.52 5.52 0 0 1-2.4 3.62v3h3.88c2.27-2.09 3.57-5.17 3.57-8.81z"/><path fill="#34A853" d="M12 24c3.24 0 5.96-1.07 7.94-2.91l-3.88-3c-1.08.72-2.45 1.15-4.06 1.15-3.13 0-5.78-2.11-6.73-4.96H1.29v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.27 14.28A7.2 7.2 0 0 1 4.9 12c0-.79.14-1.56.37-2.28v-3.1H1.29a12 12 0 0 0 0 10.76l3.98-3.1z"/><path fill="#EA4335" d="M12 4.77c1.76 0 3.34.6 4.59 1.8l3.44-3.44C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.29 6.62l3.98 3.1C6.22 6.88 8.87 4.77 12 4.77z"/></svg> <span class="estrellas" aria-label="5 de 5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg></span> 5,0 en Google &middot; Ver las rese&ntilde;as</a>
+    </div>
+    <div class="res-grid">
+      <article class="resena reveal">
+        <span class="estrellas" aria-label="5 de 5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg></span>
+        <p>&laquo;Pega aqu&iacute; una rese&ntilde;a real de vuestra ficha de Google, tal cual la escribi&oacute; quien la dej&oacute;.&raquo;</p>
+        <div class="quien"><span class="avatar">A</span> <div><b>[Nombre]</b> <span>[alumna de B2, madre de alumno&hellip;]</span></div></div>
+      </article>
+      <article class="resena reveal">
+        <span class="estrellas" aria-label="5 de 5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg></span>
+        <p>&laquo;Pega aqu&iacute; una rese&ntilde;a real de vuestra ficha de Google, tal cual la escribi&oacute; quien la dej&oacute;.&raquo;</p>
+        <div class="quien"><span class="avatar">B</span> <div><b>[Nombre]</b> <span>[alumna de B2, madre de alumno&hellip;]</span></div></div>
+      </article>
+      <article class="resena reveal">
+        <span class="estrellas" aria-label="5 de 5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg></span>
+        <p>&laquo;Pega aqu&iacute; una rese&ntilde;a real de vuestra ficha de Google, tal cual la escribi&oacute; quien la dej&oacute;.&raquo;</p>
+        <div class="quien"><span class="avatar">C</span> <div><b>[Nombre]</b> <span>[alumna de B2, madre de alumno&hellip;]</span></div></div>
+      </article>
+      <article class="resena reveal">
+        <span class="estrellas" aria-label="5 de 5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg></span>
+        <p>&laquo;Pega aqu&iacute; una rese&ntilde;a real de vuestra ficha de Google, tal cual la escribi&oacute; quien la dej&oacute;.&raquo;</p>
+        <div class="quien"><span class="avatar">D</span> <div><b>[Nombre]</b> <span>[alumna de B2, madre de alumno&hellip;]</span></div></div>
+      </article>
+    </div>
   </div>
 </section>
 
