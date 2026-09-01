@@ -113,7 +113,13 @@
   .mobile-menu{display:none}
   @media(max-width:960px){
     .menu, .nav-cta .btn-ghost{display:none}
+    .nav-cta .lang-pill{display:none} /* en movil el idioma vive dentro del menu */
     .burger{display:block}
+    .nav-inner{padding:10px 0}
+    .nav-cta{gap:8px}
+    .nav-cta .btn-wa{padding:10px 18px;font-size:14.5px}
+    .logo svg.mark{height:40px}
+    .logo-text{font-size:17px}
     .mobile-menu{display:block;position:fixed;inset:0;background:#fff;z-index:90;padding:110px 32px 40px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .25s ease, transform .25s ease, visibility .25s}
     body.menu-open .mobile-menu{opacity:1;visibility:visible;transform:none}
     body.menu-open{overflow:hidden}
@@ -529,9 +535,9 @@
   .lang-pill a{padding:9px 13px;text-decoration:none;color:var(--gris);transition:background .15s ease,color .15s ease}
   .lang-pill a[aria-current]{background:var(--azul);color:#fff}
   .lang-pill a:not([aria-current]):hover{background:var(--azul-suave);color:var(--azul)}
-  .m-lang{text-align:center;font-size:15px;color:var(--gris)}
-  .m-lang a{text-decoration:none;color:var(--gris)}
-  .m-lang a[aria-current]{color:var(--azul);font-weight:700}
+  .m-lang{display:flex;border:1.5px solid var(--linea);border-radius:100px;overflow:hidden;font-size:15.5px;font-weight:700}
+  .m-lang a{flex:1;text-align:center;padding:13px 0;text-decoration:none;color:var(--gris);transition:background .15s ease,color .15s ease}
+  .m-lang a[aria-current]{background:var(--azul);color:#fff}
 
   /* Footer con el mismo lockup vectorial */
   .foot-lockup{display:flex;align-items:center;gap:12px;margin-bottom:16px;text-decoration:none}
@@ -898,7 +904,7 @@
     <a href="index.html#contacto">Contacto</a>
   </nav>
   <div class="m-foot">
-    <div class="m-lang"><a href="#" aria-current="page">Castellano</a> &middot; <a href="eu/cursos.html">Euskara</a></div>
+    <div class="m-lang"><a href="#" aria-current="page">Castellano</a><a href="eu/cursos.html">Euskara</a></div>
     <a class="btn btn-wa" href="https://wa.me/34652921203">Escr&iacute;benos por WhatsApp</a>
     <a class="btn btn-ghost" href="tel:652921203">Llamar: 652 92 12 03</a>
   </div>
