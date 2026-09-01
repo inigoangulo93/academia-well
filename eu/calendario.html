@@ -861,13 +861,15 @@ document.querySelectorAll('.trust-inner .t-item').forEach((el,i) => el.style.set
 const calGrid = document.getElementById('calGrid');
 if(calGrid){
   const FESTIVOS = new Set([
-    '2026-10-12',
-    '2026-12-07','2026-12-08','2026-12-24','2026-12-28','2026-12-29','2026-12-30','2026-12-31',
-    '2027-01-06',
-    '2027-02-09','2027-02-25',
-    '2027-03-22','2027-03-23','2027-03-24','2027-03-25','2027-03-29',
-    '2027-04-06','2027-04-22',
-    '2027-06-08'
+    /* Festivos oficiales de Bizkaia dentro del curso (BOPV) */
+    '2026-10-12',                                  /* Fiesta Nacional (lunes) */
+    '2026-12-08',                                  /* Inmaculada (martes) */
+    '2027-01-06',                                  /* Reyes (miercoles) */
+    '2027-03-25',                                  /* Jueves Santo */
+    '2027-03-29',                                  /* Lunes de Pascua */
+    /* Vacaciones de la academia (no son festivos oficiales) */
+    '2026-12-24','2026-12-28','2026-12-29','2026-12-30','2026-12-31',
+    '2027-03-22','2027-03-23','2027-03-24'
   ]);
   const INFORME = new Set(['2026-12','2027-03','2027-06']);
   const MESES = [
