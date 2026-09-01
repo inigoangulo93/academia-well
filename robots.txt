@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://inigoangulo93.github.io/academia-well/sitemap.xml

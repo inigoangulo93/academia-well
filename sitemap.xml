@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://inigoangulo93.github.io/academia-well/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://inigoangulo93.github.io/academia-well/index.html"/>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://inigoangulo93.github.io/academia-well/eu/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://inigoangulo93.github.io/academia-well/index.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://inigoangulo93.github.io/academia-well/eu/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://inigoangulo93.github.io/academia-well/index.html"/>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://inigoangulo93.github.io/academia-well/eu/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://inigoangulo93.github.io/academia-well/index.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://inigoangulo93.github.io/academia-well/cursos.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://inigoangulo93.github.io/academia-well/cursos.html"/>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://inigoangulo93.github.io/academia-well/eu/cursos.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://inigoangulo93.github.io/academia-well/cursos.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://inigoangulo93.github.io/academia-well/eu/cursos.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://inigoangulo93.github.io/academia-well/cursos.html"/>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://inigoangulo93.github.io/academia-well/eu/cursos.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://inigoangulo93.github.io/academia-well/cursos.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://inigoangulo93.github.io/academia-well/calendario.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://inigoangulo93.github.io/academia-well/calendario.html"/>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://inigoangulo93.github.io/academia-well/eu/calendario.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://inigoangulo93.github.io/academia-well/calendario.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://inigoangulo93.github.io/academia-well/eu/calendario.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://inigoangulo93.github.io/academia-well/calendario.html"/>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://inigoangulo93.github.io/academia-well/eu/calendario.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://inigoangulo93.github.io/academia-well/calendario.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+</urlset>
