@@ -157,20 +157,16 @@
   .sticker small{display:block;font-family:'Figtree';font-weight:500;font-size:12px;opacity:.85}
   .fotostrip-box{position:relative}
   .trust{padding:64px 0 20px}
-  .trust-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-  .t-item{position:relative;display:flex;flex-direction:column;gap:14px;align-items:flex-start;
-    background:#fff;border:1px solid var(--linea);border-radius:var(--radio);padding:24px;overflow:hidden;
-    transition:transform .28s cubic-bezier(.22,.7,.25,1),box-shadow .28s ease,border-color .28s ease}
-  .t-item::before{content:"";position:absolute;left:24px;right:24px;top:0;height:3px;border-radius:0 0 3px 3px;background:var(--t-acento)}
-  .t-item:nth-child(1){--t-acento:var(--carmin);--t-suave:var(--carmin-suave)}
-  .t-item:nth-child(2){--t-acento:var(--azul);--t-suave:var(--azul-suave)}
-  .t-item:nth-child(3){--t-acento:#1E7A54;--t-suave:#E7F3ED}
-  .t-item:nth-child(4){--t-acento:#B97E12;--t-suave:#FDF3E3}
-  .t-ico{width:44px;height:44px;border-radius:13px;flex:none;background:var(--t-suave);color:var(--t-acento)}
-  .t-ico svg{width:22px;height:22px}
-  .t-item b{font-family:'Bree Serif',serif;font-weight:400;font-size:18px;display:block;line-height:1.2;color:var(--tinta)}
-  .t-item span{font-size:13.5px;color:var(--gris);line-height:1.5;margin-top:4px}
-  .t-item:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(20,35,80,.10)}
+  .trust-inner{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;
+    border:1px solid var(--linea);border-radius:22px;overflow:hidden}
+  .t-item{position:relative;padding:30px 26px}
+  .t-item + .t-item{border-left:1px solid var(--linea)}
+  .t-num{font-family:'Bree Serif',serif;font-size:52px;line-height:1;color:var(--azul);font-variant-numeric:tabular-nums}
+  .t-num small{font-size:26px}
+  .t-item:nth-child(4) .t-num{color:var(--carmin)}
+  .t-est{color:#F2A71B;font-size:19px;letter-spacing:2px;margin-top:4px}
+  .t-item b{display:block;font-size:15px;font-weight:700;margin-top:10px;color:var(--tinta)}
+  .t-item span{display:block;font-size:13px;color:var(--gris);line-height:1.5;margin-top:2px}
   .cursos{padding:84px 0 30px}
   .centro{text-align:center}
   .centro .sub{margin-left:auto;margin-right:auto}
@@ -444,6 +440,8 @@
   }
   @media(max-width:640px){
     .publico-grid,.acts-grid,.turnos,.trust-inner,.res-grid{grid-template-columns:1fr}
+    .t-item:nth-child(even){border-left:none}
+    .t-item + .t-item{border-top:1px solid var(--linea)}
     .panel{padding:26px 22px}
   }
 
@@ -847,11 +845,13 @@
 </section>
 
 <section class="trust">
-  <div class="wrap trust-inner">
-    <div class="t-item reveal"><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="5.2"/><path d="M8.7 13.4 7.2 21l4.8-2.5L16.8 21l-1.5-7.6"/></svg></span> <div><b>Zentro ofiziala</b> <span>Cambridge prestatzailea</span></div></div>
-    <div class="t-item reveal"><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8.3" r="3.3"/><path d="M3.4 19.2c.6-3.3 2.9-5.2 5.6-5.2s5 1.9 5.6 5.2"/><path d="M15.4 5.4a3.3 3.3 0 0 1 0 5.9"/><path d="M17.3 14.3c2 .8 3.3 2.5 3.7 4.9"/></svg></span> <div><b>Gehienez 12 ikasle klaseko</b> <span>mailaz maila talde homogeneoak</span></div></div>
-    <div class="t-item reveal"><span class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 17.5l6-6 4 4 7-7"/><path d="M14.5 8.5h6v6"/></svg></span> <div><b>3 txosten urtean</b> <span>abendua, martxoa eta ekaina</span></div></div>
-    <div class="t-item reveal"><span class="t-ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6l2.6 5.2 5.8.9-4.2 4.1 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.2-4.1 5.8-.9z"/></svg></span> <div><b>5,0 Google-n</b> <span>ikasturtez ikasturte errepikatzen duten familiak</span></div></div>
+  <div class="wrap">
+  <div class="trust-inner reveal">
+    <div class="t-item"><div class="t-num" data-n="20" data-suf="+">20<small>+</small></div> <b>urte Galdakaon</b> <span>Cambridgeko zentro prestatzaile ofiziala</span></div>
+    <div class="t-item"><div class="t-num" data-n="12">12</div> <b>ikasle gehienez klaseko</b> <span>mailaz maila talde homogeneoak</span></div>
+    <div class="t-item"><div class="t-num" data-n="3">3</div> <b>txosten urtean</b> <span>abendua, martxoa eta ekaina</span></div>
+    <div class="t-item"><div class="t-num" data-n="5,0">5,0</div><div class="t-est" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div> <b>Google-n</b> <span>ikasturtez ikasturte errepikatzen duten familiak</span></div>
+  </div>
   </div>
 </section>
 
@@ -1254,6 +1254,33 @@ if(heroSec && FRASES[PG]){
 
 /* Cascada en la franja de confianza */
 document.querySelectorAll('.trust-inner .t-item').forEach((el,i) => el.style.setProperty('--i', i));
+
+/* Cifras de la franja: cuentan desde cero al entrar en pantalla */
+(function(){
+  const nums = document.querySelectorAll('.t-num[data-n]');
+  if(!nums.length) return;
+  const pinta = (el,v) => {
+    el.innerHTML = v + (el.dataset.suf ? '<small>'+el.dataset.suf+'</small>' : '');
+  };
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)){
+    nums.forEach(el => pinta(el, el.dataset.n)); return;
+  }
+  const anima = el => {
+    const fin = parseFloat(el.dataset.n.replace(',','.'));
+    const dec = el.dataset.n.includes(',') ? 1 : 0;
+    const t0 = performance.now(), dur = 1100;
+    const paso = t => {
+      const p = Math.min(1,(t-t0)/dur), e = 1-Math.pow(1-p,3);
+      pinta(el, (fin*e).toFixed(dec).replace('.',','));
+      if(p<1) requestAnimationFrame(paso);
+    };
+    requestAnimationFrame(paso);
+  };
+  const io = new IntersectionObserver(es => es.forEach(en => {
+    if(en.isIntersecting){ anima(en.target); io.unobserve(en.target); }
+  }),{threshold:.6});
+  nums.forEach(el => io.observe(el));
+})();
 
 
 /* ====== La gran W de fondo ====== */
