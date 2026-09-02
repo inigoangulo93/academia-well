@@ -7,7 +7,7 @@ Sitio estático de Academia Well (Galdakao). Sin build, sin dependencias: HTML a
 - `index.html` — portada
 - `cursos.html` — el curso: entrada por nivel, camino Cambridge, qué es cada nivel, precios, horarios
 - `calendario.html` — calendario oficial 2026-27 (imprimible desde el navegador)
-- `404.html` — página de error
+- `404.html` — página de error (única, GitHub Pages solo sirve la de la raíz; detecta el idioma por la URL)
 - `eu/` — las mismas cuatro páginas en euskera
 - `og.jpg` / `og-eu.jpg` — tarjetas de previsualización al compartir el enlace (1200×630)
 - `robots.txt`, `sitemap.xml` — indexación
