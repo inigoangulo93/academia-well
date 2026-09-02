@@ -34,8 +34,8 @@ ES/EU enlaza páginas equivalentes, así que si se añade una página hay que cr
 
 ### Al cambiar de dominio
 
-Las URL absolutas de `og:image`, `og:url`, `canonical`, `hreflang` y `sitemap.xml` apuntan a
-`inigoangulo93.github.io/academia-well`. Hay que reescribirlas al pasar a dominio propio.
+Todas las URL absolutas (canonicas, hreflang, sitemap, Open Graph, datos
+estructurados) apuntan a `https://academiawell.com/`.
 
 ## SEO
 
