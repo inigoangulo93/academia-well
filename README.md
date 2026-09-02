@@ -60,9 +60,8 @@ Las URL absolutas de `og:image`, `og:url`, `canonical`, `hreflang` y `sitemap.xm
 
 `test.html` y `eu/test.html` (interfaz), `test-app.js` (motor compartido) y
 `test-data.js` (las 100 preguntas del test presencial). La clave de respuestas,
-las bandas de nivel y las decisiones pendientes de validar estan en
-`test-clave.md`. Para recibir los leads por email en vez de por WhatsApp, pegar
-la URL de un formulario (p. ej. Formspree) en `leadEndpoint` de ambas paginas.
+los minimos de paso por bloque y las decisiones pendientes de validar estan
+en `test-clave.md`. Los leads llegan por WhatsApp con el nivel ya escrito.
 
 ## Dominio
 

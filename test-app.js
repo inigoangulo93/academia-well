@@ -10,8 +10,9 @@
   const TOTAL = DATA.preguntas.length;
   const REDUCIDO = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* Bloques mostrados al usuario: B1a + B1b se presentan como un unico B1 */
-  const GRUPOS = UI.grupos; // [{id, bloques:[...], nombre, desde, hasta}]
+  /* Bloques mostrados al usuario (B1a + B1b se presentan como un unico B1),
+     con el minimo de aciertos para pasar al siguiente. */
+  const GRUPOS = DATA.grupos.map(g => Object.assign({}, g, { nombre: UI.nombresGrupo[g.id] }));
   const grupoDe = n => GRUPOS.find(g => n >= g.desde && n <= g.hasta);
 
   /* ---------- estado ---------- */
@@ -49,14 +50,23 @@
     const v = normaliza(valor);
     return q.aceptadas.some(a => normaliza(a) === v);
   }
+  function aciertosGrupo(g) {
+    let ok = 0;
+    for (let n = g.desde; n <= g.hasta; n++) if (esCorrecta(DATA.preguntas[n - 1], st.respuestas[n])) ok++;
+    return ok;
+  }
+  const pasaGrupo = g => aciertosGrupo(g) >= g.minimo;
+  /* Nivel por bloques: el test se detiene en el primer bloque no superado.
+     Devuelve total de aciertos, preguntas respondidas y el grupo donde paro. */
   function puntuar() {
-    let total = 0; const porGrupo = {};
-    GRUPOS.forEach(g => porGrupo[g.id] = { ok: 0, de: g.hasta - g.desde + 1 });
-    DATA.preguntas.forEach(q => {
-      if (esCorrecta(q, st.respuestas[q.n])) { total++; porGrupo[grupoDe(q.n).id].ok++; }
-    });
-    const nivel = DATA.niveles.find(b => total >= b.min && total <= b.max) || DATA.niveles[0];
-    return { total, porGrupo, nivel: nivel.id };
+    let total = 0, respondidas = 0, nivel = GRUPOS[0].nivelSiNoPasa, paradoEn = GRUPOS[0].id;
+    for (const g of GRUPOS) {
+      const ok = aciertosGrupo(g);
+      total += ok; respondidas = g.hasta; paradoEn = g.id;
+      if (ok < g.minimo) { nivel = g.nivelSiNoPasa; break; }
+      nivel = g.nivelSiPasa || GRUPOS[GRUPOS.indexOf(g) + 1].nivelSiNoPasa;
+    }
+    return { total, respondidas, nivel, paradoEn, completo: paradoEn === GRUPOS[GRUPOS.length - 1].id };
   }
 
   /* ---------- DOM ---------- */
@@ -206,10 +216,13 @@
       return;
     }
     const g = grupoDe(n);
-    if (n === TOTAL) return terminar();
-    if (n === g.hasta && !st.bloquesVistos[g.id]) {
-      st.bloquesVistos[g.id] = true; st.actual = n + 1; guardar();
-      return pintarBloque(g);
+    if (n === g.hasta) {
+      // fin de bloque: si no se supera, el test termina aqui
+      if (!pasaGrupo(g) || n === TOTAL) return terminar();
+      if (!st.bloquesVistos[g.id]) {
+        st.bloquesVistos[g.id] = true; st.actual = n + 1; guardar();
+        return pintarBloque(g);
+      }
     }
     irPregunta(n + 1, 'adelante');
   }
@@ -230,10 +243,10 @@
 
   /* ---------- final ---------- */
   function terminar() {
-    st.terminado = Date.now(); st.actual = TOTAL; guardar();
+    st.terminado = Date.now(); guardar();
     const r = puntuar();
-    track('placement_test_completed', { puntuacion: r.total });
-    cab.fill.style.width = '100%'; cab.contador.textContent = TOTAL + ' / ' + TOTAL;
+    track('placement_test_completed', { puntuacion: r.total, respondidas: r.respondidas, parado_en: r.paradoEn });
+    cab.fill.style.width = '100%'; cab.contador.textContent = UI.resultado.completado;
     mostrar('s-analisis');
     setTimeout(() => irResultado(false), REDUCIDO ? 400 : 1700);
   }
@@ -246,8 +259,9 @@
     $('#r-nivel').textContent = nivel;
     $('#r-nombre').textContent = t.nombre;
     $('#r-desc').textContent = t.texto;
-    $('#r-punt').textContent = UI.resultado.puntuacion.replace('{p}', r.total).replace('{total}', TOTAL);
+    $('#r-punt').textContent = UI.resultado.puntuacion.replace('{p}', r.total).replace('{n}', r.respondidas);
     $('#r-tope').hidden = !t.tope;
+    $('#r-parada').hidden = r.completo;
     // escala
     const orden = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
     const base = nivel.replace('+', '');
@@ -257,48 +271,39 @@
       li.classList.toggle('tuyo', i === idx);
       li.classList.toggle('confirmar', t.tope && i > idx);
     });
-    // WhatsApp con nivel
-    const msg = UI.whatsapp.resultado.replace('{nivel}', nivel);
-    const wa = $('#r-wa'); wa.href = 'https://wa.me/' + UI.telefono + '?text=' + encodeURIComponent(msg);
-    wa.onclick = () => track('placement_test_whatsapp_clicked', { nivel: nivel });
     $('#lead-nivel').value = nivel; $('#lead-punt').value = r.total;
     $('#lead-form').hidden = false; $('#lead-ok').hidden = true;
-    pintarProgreso(TOTAL, true); cab.fill.style.width = '100%';
+    pintarProgreso(Math.min(TOTAL, r.respondidas + 1), true);
+    document.querySelectorAll('#t-bloques li').forEach(li => {
+      const gb = GRUPOS.find(x => x.id === li.dataset.grupo);
+      li.classList.toggle('hecho', gb.hasta <= r.respondidas); li.classList.remove('actual'); li.setAttribute('aria-current', 'false');
+    });
+    cab.fill.style.width = '100%'; cab.contador.textContent = UI.resultado.completado;
+    cab.nivel.textContent = UI.resultado.cabecera.replace('{nivel}', nivel);
     cab.head.classList.add('resultado');
     mostrar('s-resultado');
   }
 
-  /* ---------- lead ---------- */
+  /* ---------- lead: un solo boton, WhatsApp con nombre, nivel y mensaje ---------- */
   const form = $('#lead-form');
   let leadIniciado = false;
+  const urlLead = (nombre, nivel, mensaje) => {
+    const msg = UI.whatsapp.lead.replace('{nombre}', nombre).replace('{nivel}', nivel).replace('{mensaje}', mensaje ? '\n\n' + mensaje : '');
+    return 'https://wa.me/' + UI.telefono + '?text=' + encodeURIComponent(msg);
+  };
   form.addEventListener('focusin', () => { if (!leadIniciado) { leadIniciado = true; track('placement_test_lead_started', { nivel: $('#lead-nivel').value }); } });
-  form.addEventListener('submit', async e => {
+  form.addEventListener('submit', e => {
     e.preventDefault();
-    const datos = Object.fromEntries(new FormData(form).entries());
-    if (!datos.nombre.trim() || !(datos.email.trim() || datos.telefono.trim())) {
-      $('#lead-error').hidden = false; return;
-    }
+    const nombre = $('#lead-nombre').value.trim(), mensaje = $('#lead-msg').value.trim(), nivel = $('#lead-nivel').value;
+    if (!nombre) { $('#lead-error').hidden = false; $('#lead-nombre').focus(); return; }
     $('#lead-error').hidden = true;
-    const btn = $('#lead-enviar'); btn.disabled = true; btn.classList.add('cargando');
-    track('placement_test_lead_submitted', { nivel: datos.nivel, puntuacion: Number(datos.puntuacion), canal: UI.leadEndpoint ? 'formulario' : 'whatsapp' });
-    let ok = false;
-    if (UI.leadEndpoint) {
-      try {
-        const res = await fetch(UI.leadEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(Object.assign({ _subject: UI.lead.asunto }, datos)) });
-        ok = res.ok;
-      } catch (err) { ok = false; }
-    }
-    if (!ok) {
-      // Sin backend: el lead viaja por WhatsApp con todos los datos ya escritos
-      const msg = UI.whatsapp.lead.replace('{nombre}', datos.nombre.trim()).replace('{nivel}', datos.nivel)
-        .replace('{email}', datos.email.trim() || '—').replace('{telefono}', datos.telefono.trim() || '—');
-      window.open('https://wa.me/' + UI.telefono + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
-    }
-    btn.disabled = false; btn.classList.remove('cargando');
-    $('#lead-ok-nombre').textContent = datos.nombre.trim().split(' ')[0];
-    form.hidden = true; $('#lead-ok').hidden = false;
-    $('#lead-ok').focus();
+    const url = urlLead(nombre, nivel, mensaje);
+    track('placement_test_lead_submitted', { nivel: nivel, puntuacion: Number($('#lead-punt').value), con_mensaje: !!mensaje });
+    $('#lead-ok-wa').href = url;
+    window.open(url, '_blank', 'noopener');
+    form.hidden = true; $('#lead-ok').hidden = false; $('#lead-ok').focus();
   });
+  $('#lead-ok-wa').addEventListener('click', () => track('placement_test_whatsapp_clicked', { nivel: $('#lead-nivel').value }));
 
   /* ---------- salir / modal ---------- */
   const modal = $('#modal');
@@ -335,7 +340,7 @@
     certBtn.disabled = true;
     try {
       const r = puntuar();
-      const blob = await generarCertificado(nombre, r.nivel, r.total);
+      const blob = await generarCertificado(nombre, r.nivel, r.total, r.respondidas);
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
       a.download = UI.cert.archivo.replace('{nivel}', r.nivel.replace('+', 'plus'));
@@ -355,7 +360,7 @@
     while (s > 28) { x.font = plantilla.replace('{px}', s); if (x.measureText(texto).width <= maxW) break; s -= 4; }
   }
 
-  async function generarCertificado(nombre, nivel, punt) {
+  async function generarCertificado(nombre, nivel, punt, sobre) {
     try { await Promise.all([document.fonts.load('400 80px "Bree Serif"'), document.fonts.load('600 30px Figtree'), document.fonts.load('700 30px Figtree'), document.fonts.load('400 30px Figtree')]); } catch (e) {}
     const W = 1980, H = 1400;
     const c = document.createElement('canvas'); c.width = W; c.height = H;
@@ -409,7 +414,7 @@
     }
     // datos y firma
     const fecha = new Date().toLocaleDateString(UI.cert.locale, { day: 'numeric', month: 'long', year: 'numeric' });
-    x.textAlign = 'left'; x.fillStyle = TINTA; x.font = '600 26px Figtree'; x.fillText(UI.cert.puntuacion.replace('{p}', punt), 150, 1272);
+    x.textAlign = 'left'; x.fillStyle = TINTA; x.font = '600 26px Figtree'; x.fillText(UI.cert.puntuacion.replace('{p}', punt).replace('{n}', sobre), 150, 1272);
     x.fillStyle = GRIS; x.font = '400 26px Figtree'; x.fillText(UI.cert.fecha.replace('{f}', fecha), 150, 1310);
     x.textAlign = 'right'; x.strokeStyle = '#B9C1DB'; x.lineWidth = 2; x.beginPath(); x.moveTo(W - 600, 1265); x.lineTo(W - 150, 1265); x.stroke();
     x.fillStyle = TINTA; x.font = '600 24px Figtree'; x.fillText(UI.cert.firma, W - 150, 1305);

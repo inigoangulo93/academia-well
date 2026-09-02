@@ -69,8 +69,7 @@
   .t-bloques li.actual{border-color:var(--azul);color:var(--azul);background:var(--azul-suave)}
   .t-bloques li.hecho{color:var(--verde);border-color:rgba(30,142,90,.35);background:#F0F8F3}
   .t-bloques li.hecho::before{content:"✓";font-size:12px}
-  .resultado .t-bloques li{color:var(--verde);border-color:rgba(30,142,90,.35);background:#F0F8F3}
-  @media(max-width:480px){.t-bloques li small{display:none}.logo-text{display:none}}
+  @media(max-width:480px){.t-bloques li small{display:none}.logo-text{display:none}.t-bloques{gap:4px}.t-bloques li{font-size:11px;padding:6px 2px}}
 
   /* ---------- pantallas ---------- */
   main{flex:1;position:relative}
@@ -174,7 +173,7 @@
   .r-escala li.confirmar{color:#8C93A8}
   .r-escala li.confirmar::before{border-style:dashed}
   .r-punt{color:var(--gris);font-size:14.5px;margin-top:14px;animation:entra .4s var(--ease) .9s both}
-  .r-tope{margin:14px auto 0;max-width:46ch;font-size:14px;color:var(--tinta);background:var(--azul-suave);border-radius:12px;padding:10px 14px}
+  .r-tope{margin:14px auto 0;line-height:1.5;max-width:46ch;font-size:14px;color:var(--tinta);background:var(--azul-suave);border-radius:12px;padding:10px 14px}
   .r-bloque{background:#fff;border:1px solid var(--linea);border-radius:var(--radio);padding:24px;text-align:left;margin-bottom:16px}
   .r-bloque h3{font-size:21px;margin-bottom:8px}
   .r-bloque p{color:var(--gris)}
@@ -186,10 +185,11 @@
   .r-lead>p{color:rgba(255,255,255,.82);margin-bottom:18px}
   .r-lead label{display:block;font-size:13.5px;font-weight:600;margin-bottom:5px;color:rgba(255,255,255,.9)}
   .r-lead input{width:100%;font:inherit;font-size:16px;padding:13px 14px;border-radius:12px;border:1.5px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);color:#fff;outline:none;transition:border-color .15s,background .15s;min-height:48px}
-  .r-lead input::placeholder{color:rgba(255,255,255,.5)}
-  .r-lead input:focus{border-color:#fff;background:rgba(255,255,255,.16)}
+  .r-lead textarea{width:100%;font:inherit;font-size:16px;padding:13px 14px;border-radius:12px;border:1.5px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);color:#fff;outline:none;resize:vertical;min-height:64px;transition:border-color .15s,background .15s}
+  .r-lead input::placeholder,.r-lead textarea::placeholder{color:rgba(255,255,255,.5)}
+  .r-lead input:focus,.r-lead textarea:focus{border-color:#fff;background:rgba(255,255,255,.16)}
   .r-lead .campos{display:grid;gap:12px;margin-bottom:14px}
-  @media(min-width:560px){.r-lead .campos{grid-template-columns:1fr 1fr}.r-lead .campos .ancho{grid-column:1/-1}}
+  .lead-ok a{color:#fff;font-weight:600}
   .r-lead .btn-blanco{background:#fff;color:var(--azul);width:100%}
   .r-lead .btn-wa2{background:transparent;border:1.5px solid rgba(255,255,255,.55);color:#fff;width:100%;margin-top:10px}
   .r-lead .btn-wa2:hover{background:rgba(255,255,255,.1)}
@@ -248,7 +248,8 @@
       <ol class="t-bloques" id="t-bloques" aria-label="Testaren blokeak">
         <li data-grupo="A1">A1 <small>· 25</small></li>
         <li data-grupo="A2">A2 <small>· 25</small></li>
-        <li data-grupo="B1">B1 <small>· 40</small></li>
+        <li data-grupo="B1">B1 <small>· 25</small></li>
+        <li data-grupo="B1b">B1+ <small>· 15</small></li>
         <li data-grupo="FIN">Amaiera <small>· 10</small></li>
       </ol>
     </div>
@@ -312,6 +313,7 @@
         <li>A1</li><li>A2</li><li>B1</li><li>B2</li><li>C1</li><li>C2</li>
       </ol>
       <p class="r-punt" id="r-punt"></p>
+      <p class="r-tope" id="r-parada" hidden>Testa hemen gelditzen da: zure erantzunekin nahikoa informazio du dagoeneko zure maila estimatzeko.</p>
       <p class="r-tope" id="r-tope" hidden>Online testa honaino iristen da. Zure maila C1 edo C2 bada, akademian baieztatuko dugu proba osoarekin.</p>
     </div>
 
@@ -331,24 +333,21 @@
     <div class="r-lead">
       <form id="lead-form" novalidate>
         <h3>Jakin nahi duzu zein talde dagokizun?</h3>
-        <p>Emaitza hau orientagarria da. Utzi zure datuak eta esango dizugu zein taldetan sartzen zaren, konpromisorik gabe.</p>
-        <div class="lead-error" id="lead-error" role="alert" hidden>Zure izena eta gutxienez email bat edo telefono bat behar ditugu zuri idazteko.</div>
+        <p>Emaitza hau orientagarria da. Esaiguzu nola deitzen zaren eta WhatsApp bidez esango dizugu zein taldetan sartzen zaren, konpromisorik gabe.</p>
+        <div class="lead-error" id="lead-error" role="alert" hidden>Idatzi zure izena mezua prestatzeko.</div>
         <div class="campos">
-          <div class="ancho"><label for="lead-nombre">Izena</label><input id="lead-nombre" name="nombre" type="text" autocomplete="name" placeholder="Zure izena" required></div>
-          <div><label for="lead-email">Email</label><input id="lead-email" name="email" type="email" autocomplete="email" placeholder="zure@email.com"></div>
-          <div><label for="lead-tel">Telefonoa / WhatsApp</label><input id="lead-tel" name="telefono" type="tel" autocomplete="tel" placeholder="6XX XX XX XX"></div>
+          <div><label for="lead-nombre">Izena</label><input id="lead-nombre" name="nombre" type="text" autocomplete="name" placeholder="Zure izena" required></div>
+          <div><label for="lead-msg">Mezua (aukerakoa)</label><textarea id="lead-msg" name="mensaje" rows="2" placeholder="Adib.: arratsaldeko ordutegia nahiago dut"></textarea></div>
         </div>
-        <input type="hidden" name="nivel" id="lead-nivel"><input type="hidden" name="puntuacion" id="lead-punt"><input type="hidden" name="origen" value="test-nivel-online"><input type="hidden" name="idioma" value="eu">
-        <button type="submit" class="btn btn-blanco" id="lead-enviar">Nire taldea ezagutu nahi dut</button>
-        <a class="btn btn-wa2" id="r-wa" href="https://wa.me/34652921203" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51-.17 0-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45c6.56 0 11.89-5.34 11.9-11.9 0-3.18-1.24-6.16-3.48-8.41z"/></svg>Idatzi WhatsAppez</a>
-        <p class="privacidad">Nahiago baduzu, deitu <a id="r-tel" href="tel:652921203">652 92 12 03</a> zenbakira. Zure datuak zure taldeari buruz harremanetan jartzeko bakarrik erabiliko ditugu.</p>
+        <input type="hidden" name="nivel" id="lead-nivel"><input type="hidden" name="puntuacion" id="lead-punt">
+        <button type="submit" class="btn btn-blanco" id="lead-enviar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51-.17 0-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45c6.56 0 11.89-5.34 11.9-11.9 0-3.18-1.24-6.16-3.48-8.41z"/></svg>Nire taldea ezagutu nahi dut</button>
+        <p class="privacidad">Nahiago baduzu, deitu <a id="r-tel" href="tel:652921203">652 92 12 03</a> zenbakira.</p>
       </form>
       <div class="lead-ok" id="lead-ok" hidden tabindex="-1">
-        <h3>Eskerrik asko, <span id="lead-ok-nombre"></span>!</h3>
-        <p>Laster idatziko dizugu zure maila baieztatzeko eta talde bat proposatzeko.</p>
+        <h3>Mezua prest dago</h3>
+        <p>WhatsApp ireki dizugu zure mailarekin idatzitako mezuarekin. Ireki ez bada, <a id="lead-ok-wa" href="https://wa.me/34652921203" target="_blank" rel="noopener">sakatu hemen</a>.</p>
       </div>
     </div>
-
     <p class="r-pie">Gogoratu: online testa estimazio bat da. Akademian zure maila baieztatu eta taldea esleitzen dugu. <a href="index.html">Webgunera itzuli</a></p>
   </section>
 </main>
@@ -366,15 +365,7 @@
 window.WELL_UI = {
   telefono: '34652921203',
   urlInicio: 'index.html',
-  /* Leadak emailez jasotzeko endpointa (adib. Formspree: 'https://formspree.io/f/XXXX').
-     Hutsik = leada WhatsApp bidez bidaltzen da, datuak idatzita. */
-  leadEndpoint: '',
-  grupos: [
-    { id: 'A1',  nombre: 'A1 · Hastapena',   desde: 1,  hasta: 25 },
-    { id: 'A2',  nombre: 'A2 · Oinarrizkoa', desde: 26, hasta: 50 },
-    { id: 'B1',  nombre: 'B1 · Tartekoa',    desde: 51, hasta: 90 },
-    { id: 'FIN', nombre: 'Amaiera · Eraldatu esaldiak', desde: 91, hasta: 100 }
-  ],
+  nombresGrupo: { A1: 'A1 · Hastapena', A2: 'A2 · Oinarrizkoa', B1: 'B1 · Tartekoa', B1b: 'B1+ · Tarteko altua', FIN: 'Amaiera · Eraldatu esaldiak' },
   intro: {
     aMedias: 'Testa erdibidean utzi duzu.', vasPor: '{total}tik {n}. galderan zaude.',
     continuar: 'Testarekin jarraitu', empezarDeNuevo: 'Berriz hasi',
@@ -390,11 +381,12 @@ window.WELL_UI = {
   bloques: {
     A1:  { titulo: '✓ A1 osatuta', texto: 'Lan ona. Goazen hurrengo mailara.' },
     A2:  { titulo: '✓ A2 osatuta', texto: 'Orain hasten da zatirik zorrotzena.' },
-    B1:  { titulo: '✓ B1 osatuta', texto: 'Azken zatia: hamar esaldi eraldatzeko. Presarik gabe.' },
+    B1:  { titulo: '✓ B1 osatuta', texto: 'Oso ondo. Orain hamabost galdera zorrotzago.' },
+    B1b: { titulo: '✓ B1+ osatuta', texto: 'Azken zatia: hamar esaldi eraldatzeko. Presarik gabe.' },
     FIN: { titulo: '✓ Testa osatuta', texto: '' }
   },
   bloque: { ahora: 'Hurrengoa: {nombre}.' },
-  resultado: { puntuacion: 'Puntuazioa: {p} / {total}' },
+  resultado: { puntuacion: 'Puntuazioa: {p} / {n}', completado: 'Testa osatuta', cabecera: 'Maila estimatua · {nivel}' },
   niveles: {
     'A1':  { nombre: 'Hastapena', texto: 'Hasten ari zara. Oinarrizko hitz eta esaldi batzuk ezagutzen dituzu, eta hurrengo urratsa gramatika eta hiztegi oinarri argi bat eraikitzea da, seguru komunikatzen hasteko.' },
     'A2':  { nombre: 'Oinarrizkoa', texto: 'Hasierako oinarri bat duzu eta ohiko egoeretan komunika zaitezke. Hurrengo urratsa hiztegia eta segurtasuna irabaztea da, autonomia handiagoz moldatzeko.' },
@@ -406,14 +398,13 @@ window.WELL_UI = {
   },
   whatsapp: {
     resultado: 'Kaixo, WELLen maila-testa egin dut eta nire emaitza {nivel} izan da. Jakin nahiko nuke zein talde dagokidan.',
-    lead: 'Kaixo, {nombre} naiz. WELLen online maila-testa egin dut eta nire emaitza {nivel} izan da. Nire taldea ezagutu nahiko nuke. Nire datuak: email {email} · telefonoa {telefono}.'
+    lead: 'Kaixo, {nombre} naiz. WELLen online maila-testa egin dut eta nire emaitza {nivel} izan da. Nire taldea ezagutu nahiko nuke.{mensaje}'
   },
-  lead: { asunto: 'Online maila-testaren lead berria' },
   cert: {
     archivo: 'Academia-Well-ingeles-maila-{nivel}.pdf', lugar: 'Galdakao · Cambridge azterketen prestatze-zentro ofiziala',
     titulo: 'Ingeles mailaren ziurtagiria', sub: 'Online maila-testa · Academia Well',
     acredita: 'Dokumentu honek egiaztatzen du', completado: 'maila-testa osatu duela, emaitza estimatu honekin:',
-    puntuacion: 'Puntuazioa: {p} / 100', fecha: 'Data: {f}', firma: 'Academia Well · Lapurdi kalea 36, Galdakao',
+    puntuacion: 'Puntuazioa: {p} / {n}', fecha: 'Data: {f}', firma: 'Academia Well · Lapurdi kalea 36, Galdakao',
     nota: 'Online maila-test baten emaitza orientagarria. Ez da Cambridge English-en ziurtagiri ofiziala.', locale: 'eu-ES'
   },
   modal: {

@@ -1,6 +1,6 @@
 /* Banco de preguntas del test de nivel de Academia Well.
    Transcrito de ONLINE PLACEMENT.docx sin cambios de contenido. La clave de
-   respuestas y las bandas de nivel estan documentadas en test-clave.md y deben
+   respuestas y los minimos de paso por bloque estan documentados en test-clave.md y deben
    validarse por la academia antes de darlas por definitivas. */
 window.WELL_TEST = {
  "version": 1,
@@ -32,31 +32,42 @@ window.WELL_TEST = {
    "hasta": 100
   }
  ],
- "niveles": [
+ "grupos": [
   {
    "id": "A1",
-   "min": 0,
-   "max": 24
+   "desde": 1,
+   "hasta": 25,
+   "minimo": 16,
+   "nivelSiNoPasa": "A1"
   },
   {
    "id": "A2",
-   "min": 25,
-   "max": 44
+   "desde": 26,
+   "hasta": 50,
+   "minimo": 16,
+   "nivelSiNoPasa": "A2"
   },
   {
    "id": "B1",
-   "min": 45,
-   "max": 64
+   "desde": 51,
+   "hasta": 75,
+   "minimo": 17,
+   "nivelSiNoPasa": "B1"
   },
   {
-   "id": "B2",
-   "min": 65,
-   "max": 84
+   "id": "B1b",
+   "desde": 76,
+   "hasta": 90,
+   "minimo": 10,
+   "nivelSiNoPasa": "B2"
   },
   {
-   "id": "B2+",
-   "min": 85,
-   "max": 100
+   "id": "FIN",
+   "desde": 91,
+   "hasta": 100,
+   "minimo": 6,
+   "nivelSiNoPasa": "B2",
+   "nivelSiPasa": "B2+"
   }
  ],
  "preguntas": [

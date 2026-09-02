@@ -15,25 +15,36 @@ de esa pregunta en `test-data.js`.
 |---|---|---|
 | A1 · Iniciación | 1–25 | «A1» |
 | A2 · Básico | 26–50 | «A2» |
-| B1 · Intermedio | 51–90 | «B1» (25) + «B1 (2)» (15) |
+| B1 · Intermedio | 51–75 | «B1» |
+| B1+ · Intermedio alto | 76–90 | «B1 (2)» |
 | Final · Transforma las frases | 91–100 | «For each question, complete the second sentence…» |
 
 ## Cómo se calcula el nivel (provisional — validar)
 
-Un punto por acierto, 100 máximo. Bandas por puntuación total, editables en
-`test-data.js` → `niveles`:
+El test es **por bloques con criterio de paso**: al terminar cada bloque se cuentan
+los aciertos y, si no llegan al mínimo, el test termina ahí y se muestra el
+resultado. Así nadie responde 75 preguntas de más. Mínimos en `test-data.js` →
+`grupos[].minimo`. Los mínimos de los bloques tipo test están algo por encima del 60 %
+(64–68 %) para compensar lo que se acierta por azar con 3–4 opciones; se han
+afinado simulando miles de alumnos por perfil (≈90 % de colocación correcta):
 
-| Puntos | Nivel estimado |
-|---|---|
-| 0–24 | A1 |
-| 25–44 | A2 |
-| 45–64 | B1 |
-| 65–84 | B2 |
-| 85–100 | B2+ («por encima de B2»: el test no distingue C1 de C2, se remite a la prueba presencial) |
+| Bloque | Preguntas | Mínimo para pasar | Si no se supera → nivel |
+|---|---|---|---|
+| A1 | 1–25 | 16 | A1 |
+| A2 | 26–50 | 16 | A2 |
+| B1 | 51–75 | 17 | B1 |
+| B1+ («B1 (2)» del papel) | 76–90 | 10 | B2 |
+| Final (transformaciones) | 91–100 | 6 | B2 |
+| Final superado | | | B2+ («por encima de B2»: el test no distingue C1 de C2) |
 
-El test en papel llega hasta B1+/B2, así que el resultado máximo honesto es "por
-encima de B2". Si la academia prefiere otras bandas (por ejemplo, exigir un mínimo
-en el bloque Final para dar B2), es un cambio de datos, no de código.
+Lógica: superar el bloque X significa dominar sus contenidos, así que el grupo
+que corresponde es el siguiente. La puntuación se muestra sobre las preguntas
+respondidas (p. ej. «14 / 25» si el test paró tras A1).
+
+## Cómo se calcula el nivel — decisiones a validar
+
+1. Que el 60 % sea el umbral adecuado (se puede fijar bloque a bloque).
+2. Que «superar A1 pero no A2» se presente como nivel **A2** (grupo A2) y no como A1.
 
 ## Correcciones tipográficas respecto al papel (sin cambiar el contenido)
 
@@ -158,9 +169,7 @@ apóstrofo. Para añadir variantes: campo `aceptadas` en `test-data.js`.
 ## Decisiones que necesita validar la academia
 
 1. **La clave completa** (tabla de arriba).
-2. **Las bandas de nivel** (0–24 A1 … 85–100 B2+).
-3. **Recepción de leads.** Sin servidor, el formulario «Quiero conocer mi grupo» envía los
-   datos por WhatsApp (mensaje ya escrito con nombre, email, teléfono y nivel). Si se
-   prefiere recibirlos por email, basta crear un formulario gratuito en Formspree y
-   pegar su URL en `leadEndpoint` (en `test.html` y `eu/test.html`).
+2. **Los mínimos de paso por bloque** (tabla de arriba).
+3. **Recepción de leads.** El botón «Quiero conocer mi grupo» abre WhatsApp con un
+   mensaje ya escrito (nombre, nivel estimado y mensaje opcional del alumno).
 4. **Textos por nivel** de la pantalla de resultado (breves y sin promesas académicas).
