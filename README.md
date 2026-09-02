@@ -56,6 +56,14 @@ Las URL absolutas de `og:image`, `og:url`, `canonical`, `hreflang` y `sitemap.xm
   5. Hero de la pagina de curso (2 fotos superpuestas).
   No usar fotos generadas por IA de alumnos o profesores.
 
+## Test de nivel online
+
+`test.html` y `eu/test.html` (interfaz), `test-app.js` (motor compartido) y
+`test-data.js` (las 100 preguntas del test presencial). La clave de respuestas,
+las bandas de nivel y las decisiones pendientes de validar estan en
+`test-clave.md`. Para recibir los leads por email en vez de por WhatsApp, pegar
+la URL de un formulario (p. ej. Formspree) en `leadEndpoint` de ambas paginas.
+
 ## Dominio
 
 Con el visto bueno: CNAME `nueva.academiawell.com` → `inigoangulo93.github.io`,
