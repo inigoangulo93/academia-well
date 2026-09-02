@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://inigoangulo93.github.io/academia-well/sitemap.xml
+Sitemap: https://academiawell.com/sitemap.xml

@@ -65,5 +65,7 @@ en `test-clave.md`. Los leads llegan por WhatsApp con el nivel ya escrito.
 
 ## Dominio
 
-Con el visto bueno: CNAME `nueva.academiawell.com` → `inigoangulo93.github.io`,
-y añadirlo en Settings → Pages → Custom domain.
+El sitio se sirve en https://academiawell.com (fichero `CNAME` en la raiz, DNS del
+apex apuntando a las IP de GitHub Pages). Todas las URL absolutas del sitio
+(canonicas, hreflang, sitemap, Open Graph, datos estructurados) usan ese dominio.
+En Settings → Pages conviene tener marcado "Enforce HTTPS".
