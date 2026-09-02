@@ -41,7 +41,7 @@
   .btn-ghost{color:var(--azul);border:1.5px solid var(--azul);background:transparent}
   .btn-ghost:hover{background:var(--azul-suave)}
   .btn-wa{background:var(--verde-wa);color:#fff;box-shadow:0 6px 16px rgba(18,140,75,.26)}
-  .btn-wa svg,.btn-ghost svg{width:20px;height:20px}
+  .btn svg{width:20px;height:20px;flex:none}
   .btn:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
   .btn.cargando{opacity:.7;pointer-events:none}
 
@@ -161,14 +161,18 @@
   .r-nivel{font-family:'Bree Serif',serif;font-size:clamp(76px,20vw,120px);line-height:1;color:var(--azul);letter-spacing:-.02em;display:block;animation:revela .55s var(--ease) .35s both}
   @keyframes revela{from{opacity:0;transform:scale(.82)}to{opacity:1;transform:none}}
   .r-nombre{font-family:'Bree Serif',serif;font-size:24px;color:var(--carmin);display:block;margin:2px 0 18px;animation:entra .4s var(--ease) .6s both}
-  .r-escala{list-style:none;display:grid;grid-template-columns:repeat(6,1fr);gap:4px;max-width:440px;margin:0 auto 10px;position:relative;padding-top:6px;animation:entra .4s var(--ease) .75s both}
-  .r-escala::before{content:"";position:absolute;left:8%;right:8%;top:22px;height:3px;background:var(--azul-suave);z-index:0;border-radius:2px}
-  .r-escala::after{content:"";position:absolute;left:8%;top:22px;height:3px;background:var(--azul);z-index:0;border-radius:2px;width:calc(84% * var(--pos) / 5);transition:width .9s var(--ease) .9s}
-  .r-escala li{position:relative;z-index:1;font-weight:700;font-size:13px;color:var(--gris);display:flex;flex-direction:column;align-items:center;gap:6px}
-  .r-escala li::before{content:"";width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--azul-suave);transition:all .3s}
-  .r-escala li.pasado{color:var(--azul)}.r-escala li.pasado::before{background:var(--azul);border-color:var(--azul)}
-  .r-escala li.tuyo{color:var(--carmin)}.r-escala li.tuyo::before{background:var(--carmin);border-color:var(--carmin);box-shadow:0 0 0 5px var(--carmin-suave);transform:scale(1.25)}
-  .r-escala li.confirmar{opacity:.55}
+  .r-escala{list-style:none;display:flex;max-width:460px;margin:0 auto 12px;padding:0;animation:entra .4s var(--ease) .75s both}
+  .r-escala li{position:relative;flex:1;display:flex;flex-direction:column;align-items:center;gap:9px;font-weight:700;font-size:13.5px;color:var(--gris)}
+  .r-escala li::before{content:"";box-sizing:border-box;width:18px;height:18px;border-radius:50%;background:#fff;border:2.5px solid #B9C1DB;position:relative;z-index:1;transition:background .3s,border-color .3s}
+  .r-escala li::after{content:"";position:absolute;top:7.5px;left:50%;width:100%;height:3px;background:#DDE2F0;z-index:0}
+  .r-escala li:last-child::after{display:none}
+  .r-escala li.pasado{color:var(--azul)}
+  .r-escala li.pasado::before{background:var(--azul);border-color:var(--azul)}
+  .r-escala li.pasado::after{background:var(--azul)}
+  .r-escala li.tuyo{color:var(--carmin)}
+  .r-escala li.tuyo::before{background:var(--carmin);border-color:var(--carmin);box-shadow:0 0 0 5px var(--carmin-suave)}
+  .r-escala li.confirmar{color:#8C93A8}
+  .r-escala li.confirmar::before{border-style:dashed}
   .r-punt{color:var(--gris);font-size:14.5px;margin-top:14px;animation:entra .4s var(--ease) .9s both}
   .r-tope{margin:14px auto 0;max-width:46ch;font-size:14px;color:var(--tinta);background:var(--azul-suave);border-radius:12px;padding:10px 14px}
   .r-bloque{background:#fff;border:1px solid var(--linea);border-radius:var(--radio);padding:24px;text-align:left;margin-bottom:16px}
@@ -196,6 +200,15 @@
   .lead-ok p{color:rgba(255,255,255,.85)}
   .r-pie{color:var(--gris);font-size:14px;margin-top:22px}
   .r-pie a{color:var(--azul)}
+
+  /* certificado */
+  .cert-row{display:grid;gap:10px;margin-top:14px}
+  @media(min-width:560px){.cert-row{grid-template-columns:1fr auto}}
+  .cert-row input{width:100%;font:inherit;font-size:16px;padding:13px 14px;border-radius:12px;border:1.5px solid var(--linea);background:#fff;color:var(--tinta);outline:none;min-height:48px;transition:border-color .15s}
+  .cert-row input:focus{border-color:var(--azul)}
+  .cert-err{color:var(--carmin);font-weight:600;font-size:14.5px;margin-top:10px}
+  .cert-ok{color:var(--verde);font-weight:600;font-size:14.5px;margin-top:10px}
+  .r-lead .privacidad a{color:#fff;font-weight:600}
 
   /* modal */
   .modal{position:fixed;inset:0;z-index:100;background:rgba(35,43,66,.5);display:grid;place-items:center;padding:20px;opacity:0;transition:opacity .22s}
@@ -308,18 +321,17 @@
     </div>
 
     <div class="r-bloque">
-      <h3>Eta orain, zer?</h3>
-      <p>Emaitza hau orientagarria da. WELLen zure maila baieztatu eta zein talde datorkizun ondoen esan diezazukegu.</p>
-      <div class="r-ctas">
-        <a class="btn btn-azul" id="r-reserva" href="index.html#contacto">Nire maila-proba erreserbatu &rarr;</a>
-        <a class="btn btn-ghost" id="r-wa" href="https://wa.me/34652921203" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51-.17 0-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45c6.56 0 11.89-5.34 11.9-11.9 0-3.18-1.24-6.16-3.48-8.41z"/></svg>Idatzi WhatsAppez</a>
-      </div>
+      <h3>Deskargatu zure ziurtagiria</h3>
+      <p>PDF bat zure maila estimatuarekin eta datarekin, gordetzeko edo akademian erakusteko.</p>
+      <div class="cert-row"><input id="cert-nombre" type="text" autocomplete="name" placeholder="Zure izen-abizenak" aria-label="Ziurtagirirako izena"><button type="button" class="btn btn-azul" id="cert-btn">Deskargatu PDFa</button></div>
+      <p class="cert-err" id="cert-err" role="alert" hidden>Idatzi zure izena ziurtagiria sortzeko.</p>
+      <p class="cert-ok" id="cert-ok" hidden>Ziurtagiria deskargatuta.</p>
     </div>
-
+    
     <div class="r-lead">
       <form id="lead-form" novalidate>
         <h3>Jakin nahi duzu zein talde dagokizun?</h3>
-        <p>Utzi zure datuak eta guk deituko dizugu.</p>
+        <p>Emaitza hau orientagarria da. Utzi zure datuak eta esango dizugu zein taldetan sartzen zaren, konpromisorik gabe.</p>
         <div class="lead-error" id="lead-error" role="alert" hidden>Zure izena eta gutxienez email bat edo telefono bat behar ditugu zuri idazteko.</div>
         <div class="campos">
           <div class="ancho"><label for="lead-nombre">Izena</label><input id="lead-nombre" name="nombre" type="text" autocomplete="name" placeholder="Zure izena" required></div>
@@ -328,7 +340,8 @@
         </div>
         <input type="hidden" name="nivel" id="lead-nivel"><input type="hidden" name="puntuacion" id="lead-punt"><input type="hidden" name="origen" value="test-nivel-online"><input type="hidden" name="idioma" value="eu">
         <button type="submit" class="btn btn-blanco" id="lead-enviar">Nire taldea ezagutu nahi dut</button>
-        <p class="privacidad">Zure datuak zure taldeari buruz harremanetan jartzeko bakarrik erabiliko ditugu. Zerrendarik eta publizitaterik gabe.</p>
+        <a class="btn btn-wa2" id="r-wa" href="https://wa.me/34652921203" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51-.17 0-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45c6.56 0 11.89-5.34 11.9-11.9 0-3.18-1.24-6.16-3.48-8.41z"/></svg>Idatzi WhatsAppez</a>
+        <p class="privacidad">Nahiago baduzu, deitu <a id="r-tel" href="tel:652921203">652 92 12 03</a> zenbakira. Zure datuak zure taldeari buruz harremanetan jartzeko bakarrik erabiliko ditugu.</p>
       </form>
       <div class="lead-ok" id="lead-ok" hidden tabindex="-1">
         <h3>Eskerrik asko, <span id="lead-ok-nombre"></span>!</h3>
@@ -336,7 +349,7 @@
       </div>
     </div>
 
-    <p class="r-pie">Gogoratu: online testa estimazio bat da. WELLen maila-proba, akademian, taldea esleitzeko erabiltzen dugun ebaluazio osoa da. <a href="index.html">Webgunera itzuli</a></p>
+    <p class="r-pie">Gogoratu: online testa estimazio bat da. Akademian zure maila baieztatu eta taldea esleitzen dugu. <a href="index.html">Webgunera itzuli</a></p>
   </section>
 </main>
 
@@ -396,6 +409,13 @@ window.WELL_UI = {
     lead: 'Kaixo, {nombre} naiz. WELLen online maila-testa egin dut eta nire emaitza {nivel} izan da. Nire taldea ezagutu nahiko nuke. Nire datuak: email {email} · telefonoa {telefono}.'
   },
   lead: { asunto: 'Online maila-testaren lead berria' },
+  cert: {
+    archivo: 'Academia-Well-ingeles-maila-{nivel}.pdf', lugar: 'Galdakao · Cambridge azterketen prestatze-zentro ofiziala',
+    titulo: 'Ingeles mailaren ziurtagiria', sub: 'Online maila-testa · Academia Well',
+    acredita: 'Dokumentu honek egiaztatzen du', completado: 'maila-testa osatu duela, emaitza estimatu honekin:',
+    puntuacion: 'Puntuazioa: {p} / 100', fecha: 'Data: {f}', firma: 'Academia Well · Lapurdi kalea 36, Galdakao',
+    nota: 'Online maila-test baten emaitza orientagarria. Ez da Cambridge English-en ziurtagiri ofiziala.', locale: 'eu-ES'
+  },
   modal: {
     salir: 'Irten nahi duzu?', salirTexto: 'Zure aurrerapena gordeta dago eta geroago jarraitu ahal izango duzu.', salirSi: 'Testetik irten', seguir: 'Testarekin jarraitu',
     reiniciar: 'Berriz hasi?', reiniciarTexto: 'Zure aurrerapena ezabatuko da ({total}etik {n}. galderan zinen). Ekintza hau ezin da desegin.', borrarSi: 'Bai, ezabatu eta hasi', cancelar: 'Utzi'

@@ -257,12 +257,10 @@
       li.classList.toggle('tuyo', i === idx);
       li.classList.toggle('confirmar', t.tope && i > idx);
     });
-    $('#r-escala').style.setProperty('--pos', idx);
     // WhatsApp con nivel
     const msg = UI.whatsapp.resultado.replace('{nivel}', nivel);
     const wa = $('#r-wa'); wa.href = 'https://wa.me/' + UI.telefono + '?text=' + encodeURIComponent(msg);
     wa.onclick = () => track('placement_test_whatsapp_clicked', { nivel: nivel });
-    $('#r-reserva').onclick = () => track('placement_test_booking_clicked', { nivel: nivel });
     $('#lead-nivel').value = nivel; $('#lead-punt').value = r.total;
     $('#lead-form').hidden = false; $('#lead-ok').hidden = true;
     pintarProgreso(TOTAL, true); cab.fill.style.width = '100%';
@@ -321,6 +319,125 @@
   });
 
   function escapa(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+
+  /* ---------- telefono ---------- */
+  const tel = $('#r-tel');
+  if (tel) tel.addEventListener('click', () => track('placement_test_call_clicked', { nivel: $('#lead-nivel').value }));
+
+  /* ---------- certificado PDF (canvas → JPEG → PDF, sin dependencias) ---------- */
+  const certBtn = $('#cert-btn'), certNombre = $('#cert-nombre');
+  $('#lead-nombre').addEventListener('input', e => { if (!certNombre.value) certNombre.value = e.target.value; });
+  certNombre.addEventListener('input', () => { $('#cert-err').hidden = true; $('#cert-ok').hidden = true; });
+  certNombre.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); certBtn.click(); } });
+  certBtn.addEventListener('click', async () => {
+    const nombre = certNombre.value.trim();
+    if (!nombre) { $('#cert-err').hidden = false; certNombre.focus(); return; }
+    certBtn.disabled = true;
+    try {
+      const r = puntuar();
+      const blob = await generarCertificado(nombre, r.nivel, r.total);
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = UI.cert.archivo.replace('{nivel}', r.nivel.replace('+', 'plus'));
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+      $('#cert-ok').hidden = false;
+      track('placement_test_certificate_downloaded', { nivel: r.nivel, puntuacion: r.total });
+    } finally { certBtn.disabled = false; }
+  });
+
+  function rrect(x, px, py, w, h, r) {
+    x.beginPath(); x.moveTo(px + r, py); x.arcTo(px + w, py, px + w, py + h, r); x.arcTo(px + w, py + h, px, py + h, r);
+    x.arcTo(px, py + h, px, py, r); x.arcTo(px, py, px + w, py, r); x.closePath();
+  }
+  function ajustaFuente(x, texto, plantilla, px, maxW) {
+    let s = px;
+    while (s > 28) { x.font = plantilla.replace('{px}', s); if (x.measureText(texto).width <= maxW) break; s -= 4; }
+  }
+
+  async function generarCertificado(nombre, nivel, punt) {
+    try { await Promise.all([document.fonts.load('400 80px "Bree Serif"'), document.fonts.load('600 30px Figtree'), document.fonts.load('700 30px Figtree'), document.fonts.load('400 30px Figtree')]); } catch (e) {}
+    const W = 1980, H = 1400;
+    const c = document.createElement('canvas'); c.width = W; c.height = H;
+    const x = c.getContext('2d');
+    const AZUL = '#21409A', CARMIN = '#C0293B', TINTA = '#232B42', GRIS = '#5E6575';
+    x.fillStyle = '#F2F1ED'; x.fillRect(0, 0, W, H);
+    x.save(); x.shadowColor = 'rgba(35,43,66,.16)'; x.shadowBlur = 44; x.shadowOffsetY = 18;
+    rrect(x, 70, 70, W - 140, H - 140, 28); x.fillStyle = '#FFFFFF'; x.fill(); x.restore();
+    x.save(); rrect(x, 70, 70, W - 140, H - 140, 28); x.clip();
+    const g = x.createLinearGradient(70, 0, W - 70, 0); g.addColorStop(0, AZUL); g.addColorStop(1, CARMIN);
+    x.fillStyle = g; x.fillRect(70, 70, W - 140, 16);
+    x.save(); x.translate(1160, 300); x.scale(9.5, 9.5);
+    x.strokeStyle = 'rgba(33,64,154,.055)'; x.lineWidth = 13; x.lineCap = 'round';
+    x.stroke(new Path2D('M8 12 C22 98 36 98 48 54 C55 27 65 27 72 54 C84 98 98 98 112 12'));
+    x.restore(); x.restore();
+    // logo
+    x.save(); x.translate(150, 135); x.scale(1.05, 1.05);
+    rrect(x, 2, 2, 96, 136, 5); x.clip(); x.fillStyle = CARMIN; x.fillRect(2, 2, 96, 136);
+    x.fillStyle = AZUL; x.fill(new Path2D('M-10 84 C16 62 26 68 34 98 C40 121 46 121 52 86 C58 51 64 51 70 84 C76 117 84 117 92 54 C96 31 101 22 112 10 L112 -10 L-12 -10 Z'));
+    x.strokeStyle = '#fff'; x.lineWidth = 13; x.lineCap = 'round';
+    x.stroke(new Path2D('M-10 84 C16 62 26 68 34 98 C40 121 46 121 52 86 C58 51 64 51 70 84 C76 117 84 117 92 54 C96 31 101 22 112 10'));
+    x.restore();
+    x.textBaseline = 'alphabetic'; x.textAlign = 'left';
+    x.fillStyle = AZUL; x.font = '400 52px "Bree Serif"'; x.fillText('Academia', 280, 205); x.fillText('Well', 280, 262);
+    x.textAlign = 'right'; x.fillStyle = GRIS; x.font = '600 23px Figtree'; x.fillText(UI.cert.lugar.toUpperCase(), W - 150, 215);
+    // titulo y nombre
+    x.textAlign = 'center';
+    x.fillStyle = AZUL; x.font = '400 84px "Bree Serif"'; x.fillText(UI.cert.titulo, W / 2, 470);
+    x.fillStyle = GRIS; x.font = '400 28px Figtree'; x.fillText(UI.cert.sub, W / 2, 520);
+    x.font = '400 30px Figtree'; x.fillText(UI.cert.acredita, W / 2, 630);
+    x.fillStyle = TINTA; ajustaFuente(x, nombre, '400 {px}px "Bree Serif"', 76, W - 400); x.fillText(nombre, W / 2, 725);
+    x.fillStyle = GRIS; x.font = '400 30px Figtree'; x.fillText(UI.cert.completado, W / 2, 800);
+    // nivel
+    x.fillStyle = AZUL; x.font = '400 250px "Bree Serif"'; x.fillText(nivel, W / 2, 1010);
+    x.fillStyle = CARMIN; x.font = '400 54px "Bree Serif"'; x.fillText(UI.niveles[nivel].nombre, W / 2, 1085);
+    // escala
+    const orden = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'], idx = orden.indexOf(nivel.replace('+', ''));
+    const x0 = W / 2 - 375, paso = 150, y = 1165;
+    for (let i = 0; i < 5; i++) {
+      const cx = x0 + i * paso;
+      x.strokeStyle = i < idx ? AZUL : '#DDE2F0'; x.lineWidth = 5; x.beginPath(); x.moveTo(cx + 16, y); x.lineTo(cx + paso - 16, y); x.stroke();
+    }
+    x.font = '700 24px Figtree';
+    for (let i = 0; i < 6; i++) {
+      const cx = x0 + i * paso;
+      x.beginPath(); x.arc(cx, y, i === idx ? 16 : 12, 0, Math.PI * 2);
+      if (i === idx) { x.fillStyle = CARMIN; x.fill(); x.lineWidth = 8; x.strokeStyle = '#FBE9EB'; x.stroke(); }
+      else if (i < idx) { x.fillStyle = AZUL; x.fill(); }
+      else { x.fillStyle = '#fff'; x.fill(); x.lineWidth = 3; x.strokeStyle = '#B9C1DB'; x.stroke(); }
+      x.fillStyle = i === idx ? CARMIN : (i < idx ? AZUL : '#8C93A8'); x.fillText(orden[i], cx, y + 50);
+    }
+    // datos y firma
+    const fecha = new Date().toLocaleDateString(UI.cert.locale, { day: 'numeric', month: 'long', year: 'numeric' });
+    x.textAlign = 'left'; x.fillStyle = TINTA; x.font = '600 26px Figtree'; x.fillText(UI.cert.puntuacion.replace('{p}', punt), 150, 1272);
+    x.fillStyle = GRIS; x.font = '400 26px Figtree'; x.fillText(UI.cert.fecha.replace('{f}', fecha), 150, 1310);
+    x.textAlign = 'right'; x.strokeStyle = '#B9C1DB'; x.lineWidth = 2; x.beginPath(); x.moveTo(W - 600, 1265); x.lineTo(W - 150, 1265); x.stroke();
+    x.fillStyle = TINTA; x.font = '600 24px Figtree'; x.fillText(UI.cert.firma, W - 150, 1305);
+    x.textAlign = 'center'; x.fillStyle = GRIS; x.font = '400 20px Figtree'; x.fillText(UI.cert.nota, W / 2, H - 38);
+    const jpeg = await new Promise(res => c.toBlob(res, 'image/jpeg', 0.9));
+    return pdfDeImagen(new Uint8Array(await jpeg.arrayBuffer()), W, H);
+  }
+
+  function pdfDeImagen(jpeg, wPx, hPx) {
+    const W = 841.89, H = 595.28, enc = s => new TextEncoder().encode(s);
+    const partes = [], offsets = []; let len = 0;
+    const push = b => { partes.push(b); len += b.length; };
+    const obj = (n, cuerpo) => { offsets[n] = len; push(enc(n + ' 0 obj\n')); (Array.isArray(cuerpo) ? cuerpo : [cuerpo]).forEach(b => push(typeof b === 'string' ? enc(b) : b)); push(enc('\nendobj\n')); };
+    push(enc('%PDF-1.4\n')); push(new Uint8Array([0x25, 0xE2, 0xE3, 0xCF, 0xD3, 0x0A]));
+    obj(1, '<< /Type /Catalog /Pages 2 0 R >>');
+    obj(2, '<< /Type /Pages /Kids [3 0 R] /Count 1 >>');
+    obj(3, '<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ' + W + ' ' + H + '] /Resources << /XObject << /Im1 5 0 R >> >> /Contents 4 0 R >>');
+    const cont = 'q ' + W + ' 0 0 ' + H + ' 0 0 cm /Im1 Do Q';
+    obj(4, '<< /Length ' + cont.length + ' >>\nstream\n' + cont + '\nendstream');
+    obj(5, ['<< /Type /XObject /Subtype /Image /Width ' + wPx + ' /Height ' + hPx + ' /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ' + jpeg.length + ' >>\nstream\n', jpeg, '\nendstream']);
+    obj(6, '<< /Title (Academia Well - Test de nivel) /Producer (Academia Well) >>');
+    const xref = len;
+    let t = 'xref\n0 7\n0000000000 65535 f \n';
+    for (let i = 1; i <= 6; i++) t += String(offsets[i]).padStart(10, '0') + ' 00000 n \n';
+    t += 'trailer\n<< /Size 7 /Root 1 0 R /Info 6 0 R >>\nstartxref\n' + xref + '\n%%EOF\n';
+    push(enc(t));
+    return new Blob(partes, { type: 'application/pdf' });
+  }
 
   /* ---------- arranque ---------- */
   pintarIntro();
