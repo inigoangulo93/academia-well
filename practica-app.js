@@ -439,7 +439,7 @@
       var etiqueta = T.tramo.replace('{a}', tr.base + 1).replace('{b}', tr.base + tr.etapas.length);
       var marca = st.hecho ? '<span class="tramo-marca hecho">' + esc(T.completada) + '</span>'
                 : st.items ? '<span class="tramo-marca viva">' + st.ok + '/' + st.items + '</span>'
-                : '<span class="tramo-marca pronto">' + esc(T.pronto) + '</span>';
+                : '';
 
       h += '<section class="tramo' + (st.hecho ? ' hecho' : '') + (tieneAqui ? ' aqui' : '') +
            (abierto ? ' abierto' : '') + '">';
@@ -509,11 +509,11 @@
       sub = etapa.resumen;
     }
 
-    var marca;
+    // Ni "pronto" ni el candado necesitan chapa: el nodo ya lo dice, y veinte
+    // chapas grises iguales solo hacen ruido. Solo lleva chapa lo que cuenta.
+    var marca = '';
     if (e === 'completa') marca = '<span class="paso-marca hecho">' + esc(T.completada) + '</span>';
-    else if (e === 'pronto') marca = '<span class="paso-marca pronto">' + esc(T.pronto) + '</span>';
-    else if (e === 'bloqueada') marca = '';
-    else marca = '<span class="paso-marca viva">' + d0.ok + '/' + d0.items + '</span>';
+    else if (e === 'abierta') marca = '<span class="paso-marca viva">' + d0.ok + '/' + d0.items + '</span>';
 
     var h = '<li class="paso ' + e + (aqui ? ' aqui' : '') + '">';
     h += '<button type="button" class="paso-btn" data-etapa="' + esc(etapa.id) + '"' + (cerrada ? ' disabled' : '') + '>';

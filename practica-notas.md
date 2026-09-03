@@ -152,9 +152,14 @@ Lo primero es lo que hay que hacer, no lo ya conseguido:
    Asi el camino entero cabe en una pantalla y hay un hito cerca al que llegar,
    en vez de veinticuatro filas iguales.
 
-   Los pasos lejanos van comprimidos y sin subtitulo, porque en Use of English
-   ese subtitulo es la misma frase repetida; en gramatica si lo llevan, porque
-   ahi el subtitulo son los temas de verdad.
+   Los pasos lejanos van comprimidos, sin subtitulo y **sin chapa**: veinte
+   etiquetas grises de "pronto" iguales solo hacen ruido, y el nodo de trazo
+   discontinuo ya lo dice. Solo lleva chapa lo que cuenta algo: el marcador de
+   la etapa en curso y el visto de las hechas. Por que faltan esas etapas se
+   explica una vez, al pie de la ruta.
+
+   En gramatica los pasos si llevan subtitulo, porque ahi son los temas de
+   verdad.
 4. A la derecha, en columna fija: **anillo de dominio** con perfectos, etapas y
    lo que queda; **racha** con la tira de siete dias; e **insignias en
    pequeno**: la cuenta, seis fichas y la proxima con su barra.
