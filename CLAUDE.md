@@ -23,6 +23,14 @@ encima. La fuente de verdad es siempre `origin/main`.
 
 ---
 
+## Regla número dos: nunca se hace commit directo a `main`
+
+Todo cambio va en una rama, se mira en su URL de previa y solo se mezcla en
+`main` cuando la dueña del sitio lo aprueba. El detalle del flujo y lo que la
+previa no puede comprobar está en **Entorno de pruebas (staging)**, más abajo.
+
+---
+
 ## Qué tiene el sitio (no debe desaparecer nada de esto)
 
 **Páginas, en dos idiomas.** Cada cambio de contenido se aplica a las dos
@@ -100,15 +108,32 @@ Además, **Cloudflare Pages** está conectado al mismo repositorio (proyecto
 Sin build: preset "None", comando de compilación vacío, directorio de salida la
 raíz. Es el mismo HTML que sirve GitHub Pages.
 
-**Flujo de trabajo cuando el cambio hay que enseñarlo antes de publicar:**
+### Regla: nada entra en producción sin pasar antes por la previa
 
-1. `git checkout -b nombre-de-la-rama`
-2. Commit y `git push -u origin nombre-de-la-rama`
-3. Cloudflare despliega solo. Se enseña el enlace de la previa.
-4. Con el visto bueno: `git checkout main`, `git merge`, `git push`. Ahí va a
-   producción.
+**No se hace commit directo a `main`. Nunca.** Da igual que el cambio sea una
+coma. Todo cambio nace en una rama, se mira en su URL de previa y solo entra en
+`main` cuando la persona dueña del sitio da el visto bueno. Quien valida es
+ella, no la sesión de Claude que hizo el cambio.
 
-Los arreglos pequeños y ya verificados pueden seguir yendo directos a `main`.
+1. `git pull origin main` y `git checkout -b nombre-de-la-rama`
+2. Trabajar, verificar en local con Chromium, commit
+3. `git push -u origin nombre-de-la-rama`
+4. Cloudflare despliega sola. Se pasa el enlace de la previa y se espera.
+5. Con el visto bueno explícito: `git checkout main`, `git merge`, `git push`.
+   Eso, y solo eso, es publicar.
+
+Si hay que arreglar algo urgente en producción, también va por rama: el ciclo
+completo son un par de minutos.
+
+**Lo que la previa no cubre**, y hay que tener en cuenta al validar:
+
+- `_headers` solo lo lee Cloudflare, y `CNAME` solo lo lee GitHub Pages. El
+  comportamiento de cabeceras y dominio no se puede probar en la previa.
+- La previa va con `noindex`: lo de Google (indexación, `robots.txt`, sitemap,
+  datos estructurados en vivo) solo se comprueba de verdad en producción.
+- Las URL absolutas de la web apuntan siempre a `academiawell.com`, así que en
+  la previa los canonical, hreflang y Open Graph señalan a producción. Es lo
+  correcto; no hay que "arreglarlo".
 
 **`_headers`.** Manda `X-Robots-Tag: noindex, nofollow` en todo lo que sirve
 Cloudflare para que ese espejo no compita en Google con la web buena. GitHub
