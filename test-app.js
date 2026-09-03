@@ -255,6 +255,14 @@
     const r = puntuar();
     const nivel = r.nivel;
     const t = UI.niveles[nivel];
+    // El nivel queda anotado aparte para que otras paginas (la practica de
+    // Well Online) puedan saludar al alumno con su nivel sin repetir el test.
+    try {
+      localStorage.setItem('well_nivel', JSON.stringify({
+        nivel: nivel, puntuacion: r.total, sobre: r.respondidas,
+        fecha: new Date().toISOString().slice(0, 10)
+      }));
+    } catch (e) {}
     if (!desdeIntro) track('placement_test_result', { nivel: nivel, puntuacion: r.total });
     $('#r-nivel').textContent = nivel;
     $('#r-nombre').textContent = t.nombre;

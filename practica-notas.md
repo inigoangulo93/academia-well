@@ -54,6 +54,30 @@ Segun la respuesta:
   el mismo objetivo gramatical. Esto ademas protege el negocio: lo que esta en
   abierto no se puede raspar y montar la competencia.
 
+## Como esta organizado
+
+La pagina de entrada es un **panel del alumno**, no una lista de ejercicios:
+
+- **Su nivel**, leido del test de nivel. Al terminar el test, `test-app.js`
+  guarda `well_nivel` en el navegador y la practica lo recoge. Si no ha hecho
+  el test, le ofrece hacerlo.
+- **Racha de dias seguidos** y **aciertos acumulados**.
+- **Continua por aqui**: el siguiente ejercicio pendiente, a un clic.
+- **El camino entero**, en dos rutas:
+  - *Use of English*, 24 series (las del VOCABULARY FOLDER).
+  - *Gramatica*, 8 etapas que agrupan los 31 temas del GRAMMAR FOLDER.
+- **Insignias**: primer ejercicio, ejercicio perfecto, racha de 3 y de 7 dias,
+  100 aciertos, etapa entera.
+
+**Los desbloqueos.** Una etapa se abre cuando se domina el 70 % de la anterior
+(`dominioParaAbrir` en `practica-data.js`). El criterio es el mismo que ya usa
+el test de nivel: no se avanza hasta dominar lo de atras. Las etapas cuyo
+material aun no esta volcado salen como "pronto", no como bloqueadas: se ve el
+tamano real del camino sin prometer lo que todavia no existe.
+
+Hay **dos series cargadas** (52 huecos), suficientes para ver el bloqueo, el
+desbloqueo y la insignia de etapa completa funcionando de verdad.
+
 ## Que hace ya el prototipo
 
 - Cuatro ejercicios de los cuatro formatos, con correccion al momento.
@@ -63,7 +87,9 @@ Segun la respuesta:
 - Boton para repetir **solo los fallos**, sin perder los aciertos.
 - Guarda el progreso en el navegador: mejor marca por ejercicio y ultimo intento.
 - Enter salta al hueco siguiente; en el ultimo, corrige.
-- Eventos de seguimiento (`practica_ejercicio_abierto`, `..._corregido`).
+- Eventos de seguimiento (`practica_ejercicio_abierto`, `..._corregido`,
+  `practica_etapa_abierta`, `practica_insignia`).
+- Aviso flotante cuando se gana una insignia o se abre una etapa.
 
 ## Que le falta para ser un producto
 

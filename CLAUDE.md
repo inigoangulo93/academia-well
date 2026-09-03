@@ -43,7 +43,7 @@ versiones: castellano en la raíz, euskera en `eu/`.
 | `calendario.html` · `eu/calendario.html` | Calendario 2026-27, imprimible |
 | `test.html` · `eu/test.html` | Test de nivel online (funnel principal) |
 | `404.html` | Error, **única y en la raíz**: Pages solo sirve esa. Detecta el idioma por la URL |
-| `practica.html` | **Prototipo** de Well Online (banco de ejercicios). `noindex`, sin enlazar desde ninguna página. Ver `practica-notas.md` |
+| `practica.html` | **Prototipo** de Well Online: panel del alumno, camino con desbloqueos y banco de ejercicios. `noindex`, sin enlazar desde ninguna página. Ver `practica-notas.md` |
 
 **Test de nivel.** `test-app.js` (motor, compartido por los dos idiomas) y
 `test-data.js` (las 100 preguntas transcritas del test en papel de la academia).
@@ -52,7 +52,8 @@ están en `test-clave.md`. **No inventes preguntas ni cambies respuestas** sin
 anotarlo ahí.
 
 **Práctica de Well Online (prototipo).** `practica.html`, `practica-app.js` y
-`practica-data.js`. Los ejercicios de `practica-data.js` **no son el material de
+`practica-data.js`. El **mapa** (24 series y los 31 temas de gramática) sí sale
+del material real. Los ejercicios de `practica-data.js` **no son el material de
 la academia**: los escribí yo imitando sus formatos, porque este repositorio es
 público y la procedencia del material de Elena está sin aclarar. No metas aquí
 sus fotocopias hasta que eso se responda. Todo el contexto, en
