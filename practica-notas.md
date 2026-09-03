@@ -54,120 +54,66 @@ Segun la respuesta:
   el mismo objetivo gramatical. Esto ademas protege el negocio: lo que esta en
   abierto no se puede raspar y montar la competencia.
 
-## Como esta organizado
+## Como esta organizado: el curso de Elena, tal cual
 
-La pagina de entrada es un **panel del alumno**, no una lista de ejercicios.
+La unidad **no es una lista de ejercicios: es el test completo**. Elena da la
+clase asi, y la plataforma lo replica:
 
-**Quien es.** Saluda por su nombre y por la hora del dia ("Buenas tardes,
-Juan"). El nombre sale del test de nivel: al escribirlo para el certificado o
-para el WhatsApp, `test-app.js` lo guarda en `well_nombre`. Si llega sin
-nombre, el panel se lo pregunta en una linea. El nivel viene por el mismo
-camino, en `well_nivel`, y se ensena como chapa junto al saludo. Sin test, le
-ofrece hacerlo.
+| Sesion | Receta |
+|---|---|
+| **A** | 2 vocabulario · 2 gramatica · 1 parte de Use of English · 1 parte de Listening |
+| **B** | 2 vocabulario · 2 gramatica · 1 parte de Reading · Speaking |
+| ... | alternando A y B hasta agotar las 4 partes de cada destreza = **8 sesiones** |
+| **W** | los dos writings |
+| | → **informe del test** con el porcentaje por destreza → empieza el test 2 |
 
-**Que lleva hecho.** Un anillo con el porcentaje dominado del material
-cargado, con el detalle en huecos ("16 de 52"). Debajo: ejercicios perfectos,
-etapas completas y cuantos ejercicios le quedan ahora mismo en lo que tiene
-abierto.
+Las cinco notas del informe son **las mismas cinco que informa Cambridge**:
+Reading, Use of English, Listening, Writing y Speaking. Vocabulario y gramatica
+se hacen todas las sesiones y no dan nota: son entrenamiento.
 
-**Que ha hecho estos dias.** Una tira de siete casillas, una por dia, con los
-dias practicados en carmin y el de hoy marcado. Al lado, la racha en numero.
+### Cuanto da de si el material de Elena
 
-**Que va a conseguir a continuacion.** La insignia mas cercana, con su barra y
-lo que le falta ("Cinco redondos · 2/5"). Es el gancho para la siguiente
-sesion.
+Midiendo las carpetas contra su propio ciclo (16 de vocabulario y 16 de
+gramatica por test):
 
-**Por donde sigue.** Tarjeta "Continua por aqui" con el siguiente ejercicio
-pendiente, a un clic, para que nadie tenga que decidir por donde va.
+| | Tiene | Da para |
+|---|---|---|
+| Vocabulario (caja de palabras) | 72 | **4,5 tests** |
+| Gramatica | 144 | **9 tests** |
+| Use of English partes 2, 3 y 4 | 72 | 23 tests |
+| Use of English parte 1 (multiple-choice cloze) | 0 | — |
+| Reading, Listening, Writing | 0 | — |
 
-**El camino entero**, en dos rutas:
+O sea: **el cuello de botella es el vocabulario, y da para un curso entero de
+4-5 tests**. Lo que falta por completo es la parte 1 de Use of English, todo
+Reading, todo Listening y los writings.
 
-- *Use of English*, 24 series (las del VOCABULARY FOLDER).
-- *Gramatica*, 8 etapas que agrupan los 31 temas del GRAMMAR FOLDER.
+### Como esta en los datos
 
-La etapa en curso lleva la marca "estas aqui". Una etapa se abre al dominar el
-70 % de la anterior (`dominioParaAbrir` en `practica-data.js`), el mismo
-criterio que ya usa el test de nivel: no se avanza sin dominar lo de atras. Y
-la etapa bloqueada **dice exactamente lo que falta**: "Termina la Serie 1: te
-faltan 5 aciertos". Un candado que no explica como abrirse no motiva a nadie.
+`practica-data.js` declara el examen, las destrezas, los tests con sus sesiones
+y, dentro de cada sesion, los bloques por destreza. Los ejercicios viven en un
+unico saco (`ejercicios`) y las sesiones los referencian por id, asi que un
+ejercicio se puede reutilizar sin duplicarlo.
 
-Las etapas cuyo material aun no esta volcado salen como "pronto", no como
-bloqueadas: se ve el tamano real del camino sin prometer lo que todavia no
-existe.
+Un bloque sin `ejercicios` sale igualmente en la receta de la sesion, marcado
+como pendiente. Se ve la clase entera aunque falte material, que es justo lo
+que hay que enseñar a Elena.
 
-**Once insignias**, con barra de progreso las que llevan cuenta: primer
-ejercicio, uno perfecto, cinco perfectos, rachas de 3, 7 y 30 dias, 50, 100 y
-500 aciertos, una etapa completa y cinco. Las pendientes se ven en gris con lo
-que falta, para que se sepa a que se aspira.
+**Anadir el B2 First es escribir datos, no codigo**: otra lista de destrezas y
+otro reparto de partes.
 
-**La celebracion.** Cada insignia y cada etapa desbloqueada abre una ventana
-con el icono grande y un rebote. Si caen varias a la vez se encolan. Respeta
-`prefers-reduced-motion`.
+### Los desbloqueos
 
-Hay **dos series cargadas** (52 huecos), suficientes para ver el bloqueo, el
-desbloqueo, las insignias y la celebracion funcionando de verdad.
+Una sesion se abre al dominar el 70 % de la anterior (`dominioParaAbrir`), el
+mismo criterio del test de nivel. Las sesiones sin material salen como
+"pronto" y no bloquean a la siguiente.
 
-## Navegacion e interfaz
+### El informe
 
-**La cabecera es la de la web**, no una propia: mismo logotipo (la ficha
-carmin con la W blanca, no el trazo suelto), mismo fondo, misma sombra al
-bajar, mismos tamanos. Al lado del logo, "Well Online" como marca del
-producto.
-
-**A la derecha, el usuario.** Chapa con inicial y nombre que abre un menu con
-lo que hay ("Cambiar nombre", "Repetir el test de nivel", "Volver a la web") y
-lo que habra, marcado como *pronto*: **Ajustes** y **Mis informes**. Estan
-desactivados a proposito: se ve donde van a vivir sin fingir que existen.
-
-Tres pantallas y una sola jerarquia: **panel → etapa → ejercicio**.
-
-- **Migas clicables** arriba de cada pantalla ("Tu camino / Serie 1").
-- **La cabecera dice a donde vuelve**: "‹ Serie 1" desde un ejercicio, "‹ Tu
-  camino" desde una etapa, y el titulo del centro cambia con la pantalla.
-- El **boton del navegador** hace lo mismo que las migas: cada pantalla tiene
-  su URL con almohadilla, asi que se puede compartir el enlace de un ejercicio.
-- **Las etapas son botones de verdad**, no divs con un click encima: se llega a
-  ellas con el tabulador y las cerradas van `disabled`. Foco visible en todo.
-  El menu y las ventanas se cierran con Escape.
-- **Los botones miden lo que miden.** A ancho completo solo en movil. En
-  escritorio, ancho natural, el secundario a la izquierda y el principal a la
-  derecha.
-
-## Composicion del panel
-
-Lo primero es lo que hay que hacer, no lo ya conseguido:
-
-1. Saludo, nivel y en que punto del camino esta.
-2. **Continua por aqui**: la accion, en azul, arriba del todo.
-3. **El camino**, dibujado como un mapa: un rail vertical con un nodo por
-   etapa. Verde con el visto las hechas, azul con halo la que toca ahora,
-   candado la bloqueada y nodo de trazo discontinuo las que estan por volcar.
-   El rail se colorea hasta donde has llegado.
-
-   **Se recorre por bloques.** Las 24 series de Use of English van en cuatro
-   tramos de seis (`porTramo` en `practica-data.js`) y solo se abre el tramo en
-   el que estas; los demas son una linea que se despliega al tocarla, y lo que
-   abras o cierres se recuerda. Cada tramo termina en un **nodo de meta**: 🏁
-   mientras falta alguna etapa, 🏆 y en verde cuando estan las seis al 100 %.
-   Asi el camino entero cabe en una pantalla y hay un hito cerca al que llegar,
-   en vez de veinticuatro filas iguales.
-
-   Los pasos lejanos van comprimidos, sin subtitulo y **sin chapa**: veinte
-   etiquetas grises de "pronto" iguales solo hacen ruido, y el nodo de trazo
-   discontinuo ya lo dice. Solo lleva chapa lo que cuenta algo: el marcador de
-   la etapa en curso y el visto de las hechas. Por que faltan esas etapas se
-   explica una vez, al pie de la ruta.
-
-   En gramatica los pasos si llevan subtitulo, porque ahi son los temas de
-   verdad.
-4. A la derecha, en columna fija: **anillo de dominio** con perfectos, etapas y
-   lo que queda; **racha** con la tira de siete dias; e **insignias en
-   pequeno**: la cuenta, seis fichas y la proxima con su barra.
-
-Las insignias completas viven en su propia ventana ("Ver todas"). Motivan,
-pero no son lo que el alumno viene a hacer, asi que no ocupan medio panel.
-
-En movil el orden es el mismo, en una columna: saludo, seguir, cifras, camino.
+Porcentaje por destreza sobre lo hecho, con barra y el detalle en huecos.
+Writing y Speaking salen como "En la academia": son las dos que corrige una
+persona. **No se inventa una nota de la escala de Cambridge**, y el informe lo
+dice: esa conversion no es publica.
 
 ## Que hace ya el prototipo
 

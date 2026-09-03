@@ -16,15 +16,34 @@
 
   /* ---------- indice ---------- */
 
-  var ETAPAS = [], EJERCICIOS = [];
-  DATA.rutas.forEach(function (ruta) {
-    ruta.etapas.forEach(function (etapa, i) {
-      etapa._ruta = ruta; etapa._i = i;
-      etapa._anterior = i > 0 ? ruta.etapas[i - 1] : null;
-      ETAPAS.push(etapa);
-      (etapa.ejercicios || []).forEach(function (ej) {
-        ej._etapa = etapa; ej._ruta = ruta; EJERCICIOS.push(ej);
+  // El curso es una lista de tests; cada test, una lista de sesiones; cada
+  // sesion, una receta de bloques por destreza. Los ejercicios viven en un
+  // unico saco y las sesiones los referencian por id.
+  var SESIONES = [], EJERCICIOS = [], BLOQUES = [];
+  var DESTREZA = {};
+  DATA.destrezas.forEach(function (x) { DESTREZA[x.id] = x; });
+
+  DATA.tests.forEach(function (test) {
+    test.sesiones = test.sesiones || [];
+    test.sesiones.forEach(function (ses, i) {
+      ses._test = test; ses._i = i;
+      ses._anterior = i > 0 ? test.sesiones[i - 1] : null;
+      ses.bloques = ses.bloques || [];
+      ses._ejercicios = [];
+      ses.bloques.forEach(function (bl) {
+        bl._sesion = ses;
+        bl._destreza = DESTREZA[bl.destreza] || { id: bl.destreza, nombre: bl.destreza };
+        bl._ejercicios = (bl.ejercicios || []).map(function (id) {
+          var ej = DATA.ejercicios[id];
+          if (!ej) return null;
+          ej.id = id; ej._bloque = bl; ej._sesion = ses; ej._test = test;
+          if (EJERCICIOS.indexOf(ej) === -1) EJERCICIOS.push(ej);
+          ses._ejercicios.push(ej);
+          return ej;
+        }).filter(Boolean);
+        BLOQUES.push(bl);
       });
+      SESIONES.push(ses);
     });
   });
   var porId = function (lista, id) { return lista.filter(function (x) { return x.id === id; })[0]; };
@@ -169,7 +188,7 @@
       ok += p.mejor; empezados++;
       if (p.mejor === e.items.length) perfectos++;
     });
-    ETAPAS.forEach(function (e) {
+    SESIONES.forEach(function (e) {
       if (estado(e) !== 'abierta') return;
       (e.ejercicios || []).forEach(function (ej) {
         var p = P.ejercicios[ej.id];
@@ -179,36 +198,68 @@
     return {
       items: items, ok: ok, perfectos: perfectos, empezados: empezados, pendientes: pendientes,
       ejercicios: EJERCICIOS.length,
-      etapasCompletas: ETAPAS.filter(function (e) { return estado(e) === 'completa'; }).length,
-      etapasConMaterial: ETAPAS.filter(function (e) { return e.ejercicios; }).length,
+      etapasCompletas: SESIONES.filter(function (e) { return estado(e) === 'completa'; }).length,
+      etapasConMaterial: SESIONES.filter(function (e) { return e._ejercicios.length; }).length,
       pct: items ? ok / items : 0
     };
   }
 
-  /* ---------- estado de las etapas ---------- */
+  /* ---------- estado de las sesiones ---------- */
 
-  function dominio(etapa) {
-    var ejs = etapa.ejercicios || [];
+  function dominioLista(ejs) {
     var items = ejs.reduce(function (a, e) { return a + e.items.length; }, 0);
     var ok = ejs.reduce(function (a, e) { return a + ((P.ejercicios[e.id] || {}).mejor || 0); }, 0);
     return { ok: ok, items: items, pct: items ? ok / items : 0 };
   }
+  function dominio(ses) { return dominioLista(ses._ejercicios); }
 
-  function estado(etapa) {
-    if (!etapa.ejercicios) return 'pronto';
-    var d = dominio(etapa);
-    if (d.items && d.ok === d.items) return 'completa';
-    var ant = etapa._anterior;
-    if (!ant) return 'abierta';
-    if (!ant.ejercicios) return 'abierta';           // la anterior aun no existe: no bloquea
+  function estado(ses) {
+    if (!ses._ejercicios.length) return 'pronto';
+    var d0 = dominio(ses);
+    if (d0.items && d0.ok === d0.items) return 'completa';
+    var ant = ses._anterior;
+    if (!ant || !ant._ejercicios.length) return 'abierta';
     return dominio(ant).pct >= UMBRAL ? 'abierta' : 'bloqueada';
   }
 
+  // Nota por destreza dentro de un test: solo cuentan las que informa
+  // Cambridge y solo con lo que ya tiene material.
+  function notasTest(test) {
+    var salida = [];
+    DATA.destrezas.filter(function (x) { return x.puntua; }).forEach(function (dz) {
+      var ejs = [];
+      (test.sesiones || []).forEach(function (s) {
+        s.bloques.forEach(function (b) {
+          if (b.destreza === dz.id) ejs = ejs.concat(b._ejercicios);
+        });
+      });
+      var hechos = ejs.filter(function (e) { return P.ejercicios[e.id]; });
+      salida.push({
+        destreza: dz, ejercicios: ejs.length, hechos: hechos.length,
+        dominio: dominioLista(ejs), humana: !!dz.humana
+      });
+    });
+    return salida;
+  }
+
+  function estadoTest(test) {
+    var ses = test.sesiones || [];
+    var conMaterial = ses.filter(function (s) { return s._ejercicios.length; });
+    var completas = ses.filter(function (s) { return estado(s) === 'completa'; }).length;
+    var d0 = dominioLista(conMaterial.reduce(function (a, s) { return a.concat(s._ejercicios); }, []));
+    return {
+      sesiones: ses.length, conMaterial: conMaterial.length, completas: completas,
+      ok: d0.ok, items: d0.items, pct: d0.pct,
+      hecho: ses.length > 0 && completas === ses.length,
+      vivo: ses.some(function (s) { return estado(s) === 'abierta'; })
+    };
+  }
+
   function siguienteEjercicio() {
-    for (var i = 0; i < ETAPAS.length; i++) {
-      var e = ETAPAS[i];
-      if (estado(e) !== 'abierta') continue;
-      var pendiente = (e.ejercicios || []).filter(function (ej) {
+    for (var i = 0; i < SESIONES.length; i++) {
+      var s = SESIONES[i];
+      if (estado(s) !== 'abierta') continue;
+      var pendiente = s._ejercicios.filter(function (ej) {
         var p = P.ejercicios[ej.id];
         return !p || p.mejor < ej.items.length;
       })[0];
@@ -313,7 +364,7 @@
 
     var sig = siguienteEjercicio();
     $('#situacion').textContent = sig
-      ? T.vasPor.replace('{etapa}', sig._etapa.titulo).replace('{ruta}', sig._ruta.titulo)
+      ? T.vasPor.replace('{etapa}', tituloSesion(sig._sesion)).replace('{ruta}', sig._test.titulo)
       : T.alDia;
 
     // anillo
@@ -368,105 +419,69 @@
       cont.hidden = false;
       cont.innerHTML =
         '<div><p class="cont-eti">' + esc(T.continuar) + '</p>' +
-        '<p class="cont-tit">' + esc(sig._etapa.titulo) + ' · ' + esc(sig.titulo) + '</p>' +
+        '<p class="cont-tit">' + esc(tituloSesion(sig._sesion)) + ' · ' + esc(sig.titulo) + '</p>' +
         '<p class="cont-sub">' + esc(T.tipos[sig.tipo] || sig.tipo) + ' · ' + sig.items.length + ' ' + esc(T.items) + '</p></div>' +
         '<button class="btn btn-azul" data-ej="' + esc(sig.id) + '">' + esc(T.empezar) + '</button>';
     } else { cont.hidden = true; }
 
-    // rutas
+    // el curso: un test detras de otro
     var cont2 = $('#rutas');
-    cont2.innerHTML = '';
-    DATA.rutas.forEach(function (ruta) {
-      var s = document.createElement('section');
-      s.className = 'ruta';
-      s.innerHTML = pintaRuta(ruta, sig);
-      cont2.appendChild(s);
-    });
+    var conMaterial = SESIONES.filter(function (s) { return s._ejercicios.length; }).length;
+    cont2.innerHTML =
+      '<div class="ruta-cab"><div><h2>' + esc(T.cursoTitulo.replace('{examen}', DATA.examen.nombre)) + '</h2>' +
+      '<p class="ruta-sub">' + esc(T.cursoSub) + '</p></div>' +
+      '<span class="nivel-chip">' + esc(DATA.examen.sigla) + '</span></div>' +
+      DATA.tests.map(function (t) { return pintaTest(t, sig); }).join('') +
+      '<p class="ruta-pie">' + T.sesionesCargadas.replace('{n}', conMaterial).replace('{t}', SESIONES.length) + '</p>';
   }
 
-  /* ---------- el camino ---------- */
+  /* ---------- el camino: un test, sus sesiones ---------- */
 
-  // Las rutas largas se parten en tramos de `porTramo` etapas. Solo se abre el
-  // tramo en el que esta el alumno: un camino de 24 filas iguales no invita a
-  // nada, y en tramos se ve donde estas y cuanto falta para el siguiente hito.
-  function trocea(ruta) {
-    if (!ruta.porTramo) return [{ id: ruta.id + '-todo', base: 0, etapas: ruta.etapas, suelto: true }];
-    var out = [];
-    for (var i = 0; i < ruta.etapas.length; i += ruta.porTramo) {
-      out.push({
-        id: ruta.id + '-t' + (out.length + 1),
-        base: i,
-        etapas: ruta.etapas.slice(i, i + ruta.porTramo)
-      });
-    }
-    return out;
-  }
+  function pintaTest(test, sig) {
+    var st = estadoTest(test);
+    var tieneAqui = sig && (test.sesiones || []).indexOf(sig._sesion) > -1;
+    var abierto = P.tramos[test.id] !== undefined ? !!P.tramos[test.id] : (tieneAqui || st.vivo || st.conMaterial > 0);
 
-  function estadoTramo(tr) {
-    var conMaterial = tr.etapas.filter(function (e) { return e.ejercicios; });
-    var items = conMaterial.reduce(function (a, e) { return a + dominio(e).items; }, 0);
-    var ok = conMaterial.reduce(function (a, e) { return a + dominio(e).ok; }, 0);
-    var completas = tr.etapas.filter(function (e) { return estado(e) === 'completa'; }).length;
-    var vivo = tr.etapas.some(function (e) { return estado(e) === 'abierta'; });
-    return {
-      items: items, ok: ok, completas: completas, total: tr.etapas.length,
-      conMaterial: conMaterial.length, vivo: vivo,
-      hecho: completas === tr.etapas.length,
-      pct: items ? ok / items : 0
-    };
-  }
+    var marca = st.hecho ? '<span class="tramo-marca hecho">' + esc(T.completada) + '</span>'
+              : st.items ? '<span class="tramo-marca viva">' + st.ok + '/' + st.items + '</span>'
+              : '';
 
-  function pintaRuta(ruta, sig) {
-    var tramos = trocea(ruta);
-    var conMaterial = ruta.etapas.filter(function (e) { return e.ejercicios; }).length;
-
-    var h = '<div class="ruta-cab"><div><h2>' + esc(ruta.titulo) + '</h2>' +
-            '<p class="ruta-sub">' + esc(ruta.subtitulo) + '</p></div>' +
-            '<span class="nivel-chip">' + esc(ruta.nivel) + '</span></div>';
-
-    tramos.forEach(function (tr) {
-      var st = estadoTramo(tr);
-      var tieneAqui = sig && tr.etapas.indexOf(sig._etapa) > -1;
-      var abierto = P.tramos[tr.id] !== undefined ? !!P.tramos[tr.id] : (tr.suelto || tieneAqui || st.vivo);
-
-      if (tr.suelto) {
-        h += '<ol class="mapa">' +
-             tr.etapas.map(function (e, j) { return tarjetaEtapa(e, tr.base + j, sig); }).join('') +
-             '</ol>';
-        return;
-      }
-
-      var etiqueta = T.tramo.replace('{a}', tr.base + 1).replace('{b}', tr.base + tr.etapas.length);
-      var marca = st.hecho ? '<span class="tramo-marca hecho">' + esc(T.completada) + '</span>'
-                : st.items ? '<span class="tramo-marca viva">' + st.ok + '/' + st.items + '</span>'
-                : '';
-
-      h += '<section class="tramo' + (st.hecho ? ' hecho' : '') + (tieneAqui ? ' aqui' : '') +
-           (abierto ? ' abierto' : '') + '">';
-      h += '<button type="button" class="tramo-cab" data-tramo="' + esc(tr.id) + '" aria-expanded="' +
-           (abierto ? 'true' : 'false') + '">' +
-           '<span class="chevron" aria-hidden="true"></span>' +
-           '<span class="tramo-tit">' + esc(etiqueta) + '</span>' +
-           '<span class="tramo-cuenta">' + T.etapasN.replace('{n}', tr.etapas.length) + '</span>' +
-           marca + '</button>';
-      h += '<div class="tramo-cuerpo"' + (abierto ? '' : ' hidden') + '><ol class="mapa">';
-      h += tr.etapas.map(function (e, j) { return tarjetaEtapa(e, tr.base + j, sig); }).join('');
-      h += metaTramo(tr, st);
-      h += '</ol></div></section>';
-    });
-
-    h += '<p class="ruta-pie">' + T.deLasCuales.replace('{n}', conMaterial).replace('{t}', ruta.etapas.length) + '</p>';
+    var h = '<section class="tramo' + (st.hecho ? ' hecho' : '') + (tieneAqui ? ' aqui' : '') +
+            (abierto ? ' abierto' : '') + '">';
+    h += '<button type="button" class="tramo-cab" data-tramo="' + esc(test.id) + '" aria-expanded="' +
+         (abierto ? 'true' : 'false') + '">' +
+         '<span class="chevron" aria-hidden="true"></span>' +
+         '<span class="tramo-tit">' + esc(test.titulo) + '</span>' +
+         '<span class="tramo-cuenta">' + (st.sesiones ? T.sesionesN.replace('{n}', st.sesiones) : esc(T.pronto)) + '</span>' +
+         marca + '</button>';
+    h += '<div class="tramo-cuerpo"' + (abierto ? '' : ' hidden') + '><ol class="mapa">';
+    h += (test.sesiones || []).map(function (s, i) { return tarjetaSesion(s, i, sig); }).join('');
+    h += metaTest(test, st);
+    h += '</ol></div></section>';
     return h;
   }
 
-  function metaTramo(tr, st) {
+  function metaTest(test, st) {
+    if (!st.sesiones) return '';
     var h = '<li class="paso meta' + (st.hecho ? ' hecho' : '') + '">';
-    h += '<span class="nodo meta-nodo" aria-hidden="true">' + (st.hecho ? '🏆' : '🏁') + '</span>';
+    h += '<button type="button" class="paso-btn" data-informe="' + esc(test.id) + '">';
+    h += '<span class="nodo meta-nodo" aria-hidden="true">' + (st.hecho ? '🏆' : '📊') + '</span>';
     h += '<span class="paso-cuerpo"><span class="paso-tit">' +
-         esc(st.hecho ? T.metaHecha : T.metaTitulo) + '</span>' +
-         '<span class="paso-sub">' + esc(T.metaSub.replace('{n}', tr.etapas.length)) + '</span></span>';
-    h += '<span class="paso-marca ' + (st.hecho ? 'hecho' : 'gris') + '">' + st.completas + '/' + st.total + '</span>';
-    return h + '</li>';
+         esc(st.hecho ? T.informeListo : T.informeTest) + '</span>' +
+         '<span class="paso-sub">' + esc(T.informeSub) + '</span></span>';
+    h += '<span class="paso-marca ' + (st.hecho ? 'hecho' : 'gris') + '">' +
+         st.completas + '/' + st.sesiones + '</span>';
+    return h + '</button></li>';
+  }
+
+  // Un renglon de la receta: "2 vocabulario", "Use of English · Parte 2"...
+  function resumenReceta(ses) {
+    return ses.bloques.map(function (b) {
+      // "Use of English 2" se lee solo; "2 vocabulario" necesita el numero
+      if (b.parte) return b._destreza.nombre + ' ' + b.parte;
+      var n = b._ejercicios.length;
+      return n > 1 ? n + ' ' + b._destreza.nombre.toLowerCase() : b._destreza.nombre;
+    }).join(' · ');
   }
 
   function pintaInsignias() {
@@ -484,46 +499,46 @@
     }).join('');
   }
 
-  function tarjetaEtapa(etapa, i, sig) {
-    var e = estado(etapa);
-    var d0 = dominio(etapa);
-    var aqui = sig && sig._etapa === etapa;
+  function tarjetaSesion(ses, i, sig) {
+    var e = estado(ses);
+    var d0 = dominio(ses);
+    var aqui = sig && sig._sesion === ses;
     var cerrada = e === 'bloqueada' || e === 'pronto';
-    var pct = Math.round(d0.pct * 100);
 
     var nodo;
     if (e === 'completa') nodo = '<span class="nodo" aria-hidden="true">✓</span>';
     else if (e === 'bloqueada') nodo = '<span class="nodo">' + candado() + '</span>';
-    else nodo = '<span class="nodo">' + (i + 1) + '</span>';
+    else nodo = '<span class="nodo">' + (ses.n || i + 1) + '</span>';
 
-    var sub = '';
+    var sub;
     if (e === 'bloqueada') {
-      var ant = etapa._anterior, da = dominio(ant);
+      var ant = ses._anterior, da = dominio(ant);
       var faltan = Math.max(1, Math.ceil(UMBRAL * da.items) - da.ok);
-      sub = T.paraAbrir.replace('{n}', faltan).replace('{etapa}', ant.titulo);
-    } else if (etapa.temas) {
-      sub = etapa.temas.slice(0, 3).join(' · ') + (etapa.temas.length > 3 ? ' · +' + (etapa.temas.length - 3) : '');
-    } else if (etapa.resumen && e !== 'pronto') {
-      // en las etapas lejanas el resumen generico se repite 20 veces y solo
-      // hace ruido; los temas de gramatica, en cambio, si dicen algo
-      sub = etapa.resumen;
+      sub = T.paraAbrir.replace('{n}', faltan).replace('{etapa}', tituloSesion(ant));
+    } else {
+      sub = resumenReceta(ses);
     }
 
-    // Ni "pronto" ni el candado necesitan chapa: el nodo ya lo dice, y veinte
-    // chapas grises iguales solo hacen ruido. Solo lleva chapa lo que cuenta.
     var marca = '';
     if (e === 'completa') marca = '<span class="paso-marca hecho">' + esc(T.completada) + '</span>';
     else if (e === 'abierta') marca = '<span class="paso-marca viva">' + d0.ok + '/' + d0.items + '</span>';
 
     var h = '<li class="paso ' + e + (aqui ? ' aqui' : '') + '">';
-    h += '<button type="button" class="paso-btn" data-etapa="' + esc(etapa.id) + '"' + (cerrada ? ' disabled' : '') + '>';
+    h += '<button type="button" class="paso-btn" data-sesion="' + esc(ses.id) + '"' + (cerrada ? ' disabled' : '') + '>';
     h += nodo;
-    h += '<span class="paso-cuerpo"><span class="paso-tit">' + esc(etapa.titulo) +
+    h += '<span class="paso-cuerpo"><span class="paso-tit">' + esc(tituloSesion(ses)) +
          (aqui ? '<em class="et-aqui">' + esc(T.estasAqui) + '</em>' : '') + '</span>';
     if (sub) h += '<span class="paso-sub">' + esc(sub) + '</span>';
-    if (e === 'abierta' && d0.ok > 0) h += '<span class="paso-barra"><i style="width:' + pct + '%"></i></span>';
+    if (e === 'abierta' && d0.ok > 0) {
+      h += '<span class="paso-barra"><i style="width:' + Math.round(d0.pct * 100) + '%"></i></span>';
+    }
     h += '</span>' + marca + '</button></li>';
     return h;
+  }
+
+  function tituloSesion(ses) {
+    var base = T.sesion.replace('{n}', ses.n || '');
+    return ses.tipo === 'W' ? T.sesionWriting : base;
   }
 
   function candado() {
@@ -534,34 +549,79 @@
 
   /* ---------- pantalla de etapa ---------- */
 
-  var etapaActual = null;
+  var etapaActual = null, testActual = null;
 
-  function pintaEtapa(etapa) {
-    etapaActual = etapa;
+  function pintaSesion(ses) {
+    etapaActual = ses;
     $('#et-ruta').innerHTML = '<button type="button" class="miga-atras" data-ir="panel">' +
-      esc(T.tuCamino) + '</button><span aria-hidden="true">/</span> ' + esc(etapa._ruta.titulo);
-    $('#et-titulo').textContent = etapa.titulo;
+      esc(T.tuCamino) + '</button><span aria-hidden="true">/</span> ' + esc(ses._test.titulo);
+    $('#et-titulo').textContent = tituloSesion(ses);
+
     var chips = $('#et-temas');
-    if (etapa.temas) {
-      chips.hidden = false;
-      chips.innerHTML = etapa.temas.map(function (t) { return '<span>' + esc(t) + '</span>'; }).join('');
-    } else { chips.hidden = true; }
+    chips.hidden = false;
+    chips.innerHTML = '<span class="chip-tipo">' + esc(T.tipoSesion[ses.tipo] || '') + '</span>';
 
-    var d = dominio(etapa);
-    $('#et-dominio').textContent = T.dominio.replace('{ok}', d.ok).replace('{n}', d.items);
-    $('#et-fill').style.width = Math.round(d.pct * 100) + '%';
+    var d0 = dominio(ses);
+    $('#et-dominio').textContent = d0.items
+      ? T.dominio.replace('{ok}', d0.ok).replace('{n}', d0.items)
+      : T.sesionSinMaterial;
+    $('#et-fill').style.width = Math.round(d0.pct * 100) + '%';
 
-    var lista = $('#et-lista');
-    lista.innerHTML = (etapa.ejercicios || []).map(function (ej) {
-      var p = P.ejercicios[ej.id];
-      var n = ej.items.length, marca, clase = '';
-      if (p && p.mejor === n) { clase = ' perfecto'; marca = '<span class="pill ok">' + T.perfecto + '</span>'; }
-      else if (p) { clase = ' empezado'; marca = '<span class="pill">' + p.mejor + '/' + n + '</span>'; }
-      else { marca = '<span class="pill vacia">' + n + ' ' + T.items + '</span>'; }
-      return '<li><button class="tarjeta' + clase + '" data-ej="' + esc(ej.id) + '">' +
-             '<span class="t-tipo">' + esc(T.tipos[ej.tipo] || ej.tipo) + '</span>' +
-             '<span class="t-tit">' + esc(ej.titulo) + '</span>' + marca + '</button></li>';
+    // La receta entera, tenga material o no: asi se ve la clase de verdad
+    $('#et-lista').innerHTML = ses.bloques.map(function (bl) {
+      var h = '<li class="bloque-ses"><div class="bs-cab">' +
+              '<span class="bs-destreza">' + esc(bl._destreza.nombre) +
+              (bl.parte ? ' · ' + T.parteN.replace('{n}', bl.parte) : '') + '</span>' +
+              (bl.tarea ? '<span class="bs-tarea">' + esc(bl.tarea) + '</span>' : '') +
+              '</div>';
+      if (!bl._ejercicios.length) {
+        h += '<p class="bs-pendiente">' + esc(bl._destreza.humana ? T.bloqueHumano : T.bloquePendiente) + '</p>';
+      } else {
+        h += '<ul class="tarjetas">' + bl._ejercicios.map(function (ej) {
+          var p = P.ejercicios[ej.id];
+          var n = ej.items.length, marca, clase = '';
+          if (p && p.mejor === n) { clase = ' perfecto'; marca = '<span class="pill ok">' + T.perfecto + '</span>'; }
+          else if (p) { clase = ' empezado'; marca = '<span class="pill">' + p.mejor + '/' + n + '</span>'; }
+          else { marca = '<span class="pill vacia">' + n + ' ' + T.items + '</span>'; }
+          return '<li><button class="tarjeta' + clase + '" data-ej="' + esc(ej.id) + '">' +
+                 '<span class="t-tipo">' + esc(T.tipos[ej.tipo] || ej.tipo) + '</span>' +
+                 '<span class="t-tit">' + esc(ej.titulo) + '</span>' + marca + '</button></li>';
+        }).join('') + '</ul>';
+      }
+      return h + '</li>';
     }).join('');
+  }
+
+  /* ---------- informe del test ---------- */
+
+  function pintaInforme(test) {
+    testActual = test;
+    var st = estadoTest(test);
+    $('#in-miga').innerHTML = '<button type="button" class="miga-atras" data-ir="panel">' +
+      esc(T.tuCamino) + '</button><span aria-hidden="true">/</span> ' + esc(test.titulo);
+    $('#in-titulo').textContent = T.informeDe.replace('{test}', test.titulo);
+    $('#in-sub').textContent = st.hecho ? T.informeCompleto
+      : T.informeParcial.replace('{n}', st.completas).replace('{t}', st.sesiones);
+
+    $('#in-notas').innerHTML = notasTest(test).map(function (n) {
+      var pct = Math.round(n.dominio.pct * 100);
+      var estado, valor;
+      var pie;
+      if (n.humana) { estado = 'humana'; valor = T.correccionHumana; pie = T.humanaPie; }
+      else if (!n.ejercicios) { estado = 'sin'; valor = T.sinMaterial; pie = T.sinMaterialPie; }
+      else if (!n.hechos) { estado = 'sin'; valor = T.sinHacer; pie = T.sinHacerPie; }
+      else { estado = pct >= 60 ? 'bien' : 'flojo'; valor = pct + '%'; }
+      return '<div class="nota ' + estado + '">' +
+             '<span class="nota-dz">' + esc(n.destreza.nombre) + '</span>' +
+             '<span class="nota-val">' + esc(valor) + '</span>' +
+             (estado === 'bien' || estado === 'flojo'
+               ? '<span class="nota-barra"><i style="width:' + pct + '%"></i></span>' +
+                 '<span class="nota-pie">' + n.dominio.ok + ' de ' + n.dominio.items + ' ' + esc(T.items) + '</span>'
+               : '<span class="nota-pie">' + esc(pie) + '</span>') +
+             '</div>';
+    }).join('');
+
+    $('#in-aviso').textContent = T.informeAviso;
   }
 
   /* ---------- ejercicio ---------- */
@@ -589,8 +649,8 @@
     $('#ej-instruccion').innerHTML = ej.instruccion;
     $('#ej-etapa').innerHTML = '<button type="button" class="miga-atras" data-ir="panel">' +
       esc(T.tuCamino) + '</button><span aria-hidden="true">/</span> ' +
-      '<button type="button" class="miga-atras" data-etapa="' + esc(ej._etapa.id) + '">' +
-      esc(ej._etapa.titulo) + '</button>';
+      '<button type="button" class="miga-atras" data-sesion="' + esc(ej._sesion.id) + '">' +
+      esc(tituloSesion(ej._sesion)) + '</button>';
 
     var caja = $('#ej-caja');
     if (ej.tipo === 'caja' && ej.caja) {
@@ -667,7 +727,7 @@
       }
     });
 
-    var abiertasAntes = ETAPAS.filter(function (e) { return estado(e) === 'abierta' || estado(e) === 'completa'; }).length;
+    var abiertasAntes = SESIONES.filter(function (e) { return estado(e) === 'abierta' || estado(e) === 'completa'; }).length;
     anota(ej, ok, respuestas);
 
     var n = ej.items.length;
@@ -689,11 +749,11 @@
     var premios = nuevas.map(function (b) {
       return { icono: b.icono, eti: T.insigniaNueva, titulo: T.insignias[b.id].titulo, texto: T.insignias[b.id].texto };
     });
-    var abiertasDespues = ETAPAS.filter(function (e) { return estado(e) === 'abierta' || estado(e) === 'completa'; }).length;
+    var abiertasDespues = SESIONES.filter(function (e) { return estado(e) === 'abierta' || estado(e) === 'completa'; }).length;
     if (abiertasDespues > abiertasAntes) {
-      var nueva = ETAPAS.filter(function (e) { return estado(e) === 'abierta'; })
+      var nueva = SESIONES.filter(function (e) { return estado(e) === 'abierta'; })
         .filter(function (e) { return dominio(e).ok === 0; })[0];
-      premios.unshift({ icono: '🔓', eti: T.desbloqueada, titulo: nueva ? nueva.titulo : '', texto: T.desbloqueadaSub });
+      premios.unshift({ icono: '🔓', eti: T.desbloqueada, titulo: nueva ? tituloSesion(nueva) : '', texto: T.desbloqueadaSub });
     }
     if (premios.length) celebra(premios);
   }
@@ -721,21 +781,31 @@
     $$('.pantalla').forEach(function (p) { p.classList.toggle('activa', p.id === id); });
     window.scrollTo({ top: 0, behavior: 'auto' });
     document.body.classList.toggle('dentro', id !== 's-panel');
-    var destino = id === 's-ejercicio' && actual ? actual._etapa.titulo : T.tuCamino;
+    var destino = id === 's-ejercicio' && actual ? tituloSesion(actual._sesion) : T.tuCamino;
     $('#volver-txt').textContent = destino;
     $('#btn-volver').setAttribute('aria-label', T.volverA.replace('{destino}', destino));
     $('#t-titulo').textContent = id === 's-panel' ? 'Well Online'
-      : id === 's-etapa' && etapaActual ? etapaActual.titulo
+      : id === 's-etapa' && etapaActual ? tituloSesion(etapaActual)
+      : id === 's-informe' && testActual ? testActual.titulo
       : actual ? actual.titulo : 'Well Online';
   }
 
-  function abreEtapa(id, empujar) {
-    var e = porId(ETAPAS, id);
-    if (!e || estado(e) === 'pronto' || estado(e) === 'bloqueada') return;
-    pintaEtapa(e);
+  function abreSesion(id, empujar) {
+    var s = porId(SESIONES, id);
+    if (!s || estado(s) === 'pronto' || estado(s) === 'bloqueada') return;
+    pintaSesion(s);
     muestra('s-etapa');
     if (empujar !== false) history.pushState({}, '', '#' + id);
-    track('practica_etapa_abierta', { etapa: id });
+    track('practica_sesion_abierta', { sesion: id });
+  }
+
+  function abreInforme(id, empujar) {
+    var t = porId(DATA.tests, id);
+    if (!t || !(t.sesiones || []).length) return;
+    pintaInforme(t);
+    muestra('s-informe');
+    if (empujar !== false) history.pushState({}, '', '#informe-' + id);
+    track('practica_informe_abierto', { test: id });
   }
 
   function abreEjercicio(id, empujar) {
@@ -753,21 +823,22 @@
   }
 
   function atras() {
-    if ($('#s-ejercicio').classList.contains('activa') && actual) abreEtapa(actual._etapa.id);
+    if ($('#s-ejercicio').classList.contains('activa') && actual) abreSesion(actual._sesion.id);
     else alPanel();
   }
 
   function siguiente() {
-    var lista = actual._etapa.ejercicios;
+    var lista = actual._sesion._ejercicios;
     var i = lista.indexOf(actual);
     if (i > -1 && i + 1 < lista.length) abreEjercicio(lista[i + 1].id);
-    else { pintaEtapa(actual._etapa); muestra('s-etapa'); history.pushState({}, '', '#' + actual._etapa.id); }
+    else abreSesion(actual._sesion.id);
   }
 
   function pinta(hash) {
     var id = (hash || '').replace('#', '');
+    if (id.indexOf('informe-') === 0) { abreInforme(id.slice(8), false); return; }
     if (id && porId(EJERCICIOS, id)) { abreEjercicio(id, false); return; }
-    if (id && porId(ETAPAS, id)) { abreEtapa(id, false); return; }
+    if (id && porId(SESIONES, id)) { abreSesion(id, false); return; }
     pintaPanel(); muestra('s-panel');
   }
 
@@ -776,8 +847,10 @@
   document.addEventListener('click', function (e) {
     var ej = e.target.closest('[data-ej]');
     if (ej) { abreEjercicio(ej.getAttribute('data-ej')); return; }
-    var et = e.target.closest('[data-etapa]');
-    if (et) { abreEtapa(et.getAttribute('data-etapa')); return; }
+    var et = e.target.closest('[data-sesion]');
+    if (et) { abreSesion(et.getAttribute('data-sesion')); return; }
+    var inf = e.target.closest('[data-informe]');
+    if (inf) { abreInforme(inf.getAttribute('data-informe')); return; }
     var tr = e.target.closest('[data-tramo]');
     if (tr) {
       var id = tr.getAttribute('data-tramo');
