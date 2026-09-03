@@ -82,6 +82,43 @@ a Google**: así el enlace se cambia editando `resena.html` sin reimprimir nada.
   repite dentro de la misma página. Nunca generar fotos falsas de alumnos o
   profesores.
 
+---
+
+## Entorno de pruebas (staging)
+
+Producción sigue siendo **GitHub Pages** sobre `main` → https://academiawell.com.
+Nada de esto cambia.
+
+Además, **Cloudflare Pages** está conectado al mismo repositorio (proyecto
+`academia-well`) y publica una copia por rama:
+
+| Rama | URL |
+|---|---|
+| `main` (espejo de producción, solo para comparar) | https://academia-well.pages.dev |
+| cualquier otra rama | `https://<rama>.academia-well.pages.dev` |
+
+Sin build: preset "None", comando de compilación vacío, directorio de salida la
+raíz. Es el mismo HTML que sirve GitHub Pages.
+
+**Flujo de trabajo cuando el cambio hay que enseñarlo antes de publicar:**
+
+1. `git checkout -b nombre-de-la-rama`
+2. Commit y `git push -u origin nombre-de-la-rama`
+3. Cloudflare despliega solo. Se enseña el enlace de la previa.
+4. Con el visto bueno: `git checkout main`, `git merge`, `git push`. Ahí va a
+   producción.
+
+Los arreglos pequeños y ya verificados pueden seguir yendo directos a `main`.
+
+**`_headers`.** Manda `X-Robots-Tag: noindex, nofollow` en todo lo que sirve
+Cloudflare para que ese espejo no compita en Google con la web buena. GitHub
+Pages ignora ese fichero por completo, así que producción no se entera. Si algún
+día producción se mudara a Cloudflare, hay que borrar esa regla.
+
+Cloudflare **solo** hace de servidor de previas: el DNS del dominio sigue en
+gris (DNS-only) apuntando a GitHub Pages y el certificado lo emite GitHub. No
+tocar eso.
+
 ## Marca
 
 Azul `#21409A` · carmín `#C0293B` · crema `#FDFCF9` · tinta `#232B42` ·

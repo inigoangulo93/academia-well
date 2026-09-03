@@ -1,0 +1,13 @@
+# Cabeceras para Cloudflare Pages (entorno de pruebas).
+#
+# GitHub Pages IGNORA por completo este fichero, asi que produccion
+# (https://academiawell.com) no se ve afectada. Solo aplica a la copia que
+# Cloudflare publica en academia-well.pages.dev y a las previas por rama.
+#
+# El noindex evita que esa copia entera compita en Google con la web buena.
+#
+# AVISO: si algun dia produccion se mueve a Cloudflare Pages, hay que quitar
+# esta regla o el sitio real desaparecera de Google.
+
+/*
+  X-Robots-Tag: noindex, nofollow
