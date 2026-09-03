@@ -16,7 +16,7 @@
  *
  * OJO: los ejercicios con contenido los he escrito yo (Claude) imitando los
  * formatos del material de la academia. NO son el material de Elena. Ver
- * practica-notas.md.
+ * well-online.md.
  *
  * Un bloque sin `ejercicios` esta pendiente de volcar: se ensena en la receta
  * de la sesion para que se vea la forma real de la clase.

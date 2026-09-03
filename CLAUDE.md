@@ -43,7 +43,7 @@ versiones: castellano en la raíz, euskera en `eu/`.
 | `calendario.html` · `eu/calendario.html` | Calendario 2026-27, imprimible |
 | `test.html` · `eu/test.html` | Test de nivel online (funnel principal) |
 | `404.html` | Error, **única y en la raíz**: Pages solo sirve esa. Detecta el idioma por la URL |
-| `practica.html` | **Prototipo** de Well Online: panel del alumno, el curso por tests y sesiones, y el informe por destreza. `noindex`, sin enlazar desde ninguna página. Ver `practica-notas.md` |
+| `practica.html` | **Prototipo** de Well Online: panel del alumno, el curso por tests y sesiones, y el informe por destreza. `noindex`, sin enlazar desde ninguna página. Ver `well-online.md` |
 
 **Test de nivel.** `test-app.js` (motor, compartido por los dos idiomas) y
 `test-data.js` (las 100 preguntas transcritas del test en papel de la academia).
@@ -51,13 +51,20 @@ La clave de respuestas, los mínimos de paso por bloque y lo que falta validar
 están en `test-clave.md`. **No inventes preguntas ni cambies respuestas** sin
 anotarlo ahí.
 
-**Práctica de Well Online (prototipo).** `practica.html`, `practica-app.js` y
-`practica-data.js`. El **mapa** (24 series y los 31 temas de gramática) sí sale
-del material real. Los ejercicios de `practica-data.js` **no son el material de
-la academia**: los escribí yo imitando sus formatos, porque este repositorio es
-público y la procedencia del material de Elena está sin aclarar. No metas aquí
-sus fotocopias hasta que eso se responda. Todo el contexto, en
-`practica-notas.md`.
+**Well Online (prototipo).** `practica.html`, `practica-app.js` y
+`practica-data.js`. Es la vertical de negocio nueva: preparación del C1
+Advanced **100 % online**, con el curso organizado en tests y sesiones como los
+da la academia.
+
+**Todo el plan está en `well-online.md`**: qué material hay y cuánto da de sí,
+la estructura del examen, cómo se produce el listening y el speaking, cómo se
+puntúa sin mentir, y qué falta. Léelo antes de tocar nada de esta parte.
+
+La **estructura** sale del material real. Los **ejercicios** de
+`practica-data.js` **no son el material de Elena**: los escribí yo imitando sus
+formatos, porque este repositorio es público y la procedencia de sus fotocopias
+está sin aclarar. **No metas aquí su material hasta que eso se responda**, y
+nunca los audios de sus CD: son grabaciones publicadas de una editorial.
 
 **Redirecciones de la web antigua** — en la raíz (`contacto.html`,
 `academia.html`, `jovenes-y-adultos.html`, `empresas.html`,
@@ -180,6 +187,9 @@ Esto es el negocio real de una persona. Nunca inventes:
 
 ## Pendiente de la academia
 
+- **Well Online**: de dónde salen las frases de su material, si confirma el
+  reparto de puntos del CAE y a partir de qué porcentaje considera que un
+  alumno va aprobado. Detalle en `well-online.md`.
 - **Validar la clave de respuestas y los mínimos de paso** (`test-clave.md`).
   Es lo más urgente: al no existir prueba presencial, este test decide en qué
   grupo entra cada alumno, y la clave todavía no la ha revisado la academia.
