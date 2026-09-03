@@ -13,7 +13,6 @@ from playwright.sync_api import sync_playwright
 URL = 'https://academiawell.com/resena'
 FUENTES = os.environ.get('WELL_FUENTES', '.')   # carpeta con los .woff2
 SALIDA_PDF = 'cartel-resena-google.pdf'
-SALIDA_HTML = 'cartel-resena-google.html'
 
 qr = qrcode.QRCode(error_correction=ERROR_CORRECT_H, box_size=24, border=0)
 qr.add_data(URL); qr.make(fit=True)
@@ -87,7 +86,8 @@ body{{font-family:Figtree,sans-serif;background:#FDFCF9;color:#232B42;position:r
 <div class="pie"><b>Academia Well</b> · C/ Lapurdi 36, entreplanta 5 · 652 92 12 03 · @academia_well_galdakao</div>
 </body></html>'''
 
-open(SALIDA_HTML, 'w').write(html)
+# El HTML es solo el paso intermedio para imprimir: va a un temporal y no al
+# repositorio, porque lleva rutas absolutas a las tipografias de esta maquina.
 tmp = pathlib.Path(os.environ.get('WELL_TMP', '.')) / '_cartel_render.html'
 tmp.write_text(html)
 with sync_playwright() as p:

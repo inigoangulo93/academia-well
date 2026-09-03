@@ -100,6 +100,9 @@ a Google**: así el enlace se cambia editando `resena.html` sin reimprimir nada.
   Playwright disponibles. Comprueba escritorio y móvil (360, 390 y 1440 px):
   sin desbordes horizontales, sin palabras pegadas, consola limpia, y los
   bloques JSON-LD parseando.
+- **Pasa el QA**: `qa/qa-estatico.py` y `qa/qa-navegador.py` antes de cualquier
+  publicación, y `qa/qa-test-nivel.py` si has tocado el test de nivel. Las
+  instrucciones están en `qa/README.md`.
 - **CTA**: un solo botón relleno por grupo, y si hace falta uno secundario en
   contorno. Ningún botón debe partirse en dos líneas. El CTA principal del
   sitio es el test de nivel.
