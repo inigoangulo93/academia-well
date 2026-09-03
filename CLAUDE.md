@@ -45,6 +45,10 @@ versiones: castellano en la raíz, euskera en `eu/`.
 | `404.html` | Error, **única y en la raíz**: Pages solo sirve esa. Detecta el idioma por la URL |
 | `practica.html` | **Prototipo** de Well Online: panel del alumno, el curso por tests y sesiones, y el informe por destreza. `noindex`, sin enlazar desde ninguna página. Ver `well-online.md` |
 | `gen-listening.py` · `listening/` · `audio/` | Guiones y generación del audio de listening. El audio que hay es **de relleno**, no voz |
+| `well-config.js` | Las dos claves de Supabase. **Vacías = sin servidor**, y entonces nada de lo de abajo se carga siquiera |
+| `well-datos.js` | Capa de datos. El navegador manda: `localStorage` siempre; si hay sesión, se sube y se funde |
+| `entrar.html` | Entrada con enlace mágico por correo. `noindex` |
+| `supabase/` · `vendor/supabase-*.js` | Esquema, permisos por fila y cliente vendorizado. Ver `supabase/LEEME.md` |
 
 **Test de nivel.** `test-app.js` (motor, compartido por los dos idiomas) y
 `test-data.js` (las 100 preguntas transcritas del test en papel de la academia).
@@ -66,6 +70,24 @@ La **estructura** sale del material real. Los **ejercicios** de
 formatos, porque este repositorio es público y la procedencia de sus fotocopias
 está sin aclarar. **No metas aquí su material hasta que eso se responda**, y
 nunca los audios de sus CD: son grabaciones publicadas de una editorial.
+
+**Cuentas y servidor.** El progreso vive en el navegador del alumno. Supabase
+está montado y probado pero **desconectado**: mientras `well-config.js` esté
+vacío no se descarga ni el cliente, y la plataforma funciona exactamente igual.
+La regla de la capa de datos es una y no se negocia: **el navegador manda**. Se
+guarda siempre en `localStorage`, de forma síncrona; el servidor es un espejo
+que se sube cuando hay sesión. Si Supabase se cae, la clase sigue.
+
+Al entrar desde otro dispositivo **no se elige una versión y se tira la otra**:
+se funden. Gana la mejor nota de cada ejercicio y la racha suma los días de los
+dos sitios. La instalación paso a paso y lo que falta están en
+`supabase/LEEME.md`.
+
+La clave `anon` es pública por diseño y no pasa nada porque esté en el
+repositorio. Lo único que separa los datos de un alumno de los de otro es el
+Row Level Security de `supabase/01-esquema.sql`: **ninguna tabla nueva sin su
+política**, y se comprueba con `./supabase/probar-permisos.sh`. La clave
+`service_role` no entra en el repositorio nunca.
 
 **Redirecciones de la web antigua** — en la raíz (`contacto.html`,
 `academia.html`, `jovenes-y-adultos.html`, `empresas.html`,

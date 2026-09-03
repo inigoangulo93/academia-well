@@ -90,6 +90,7 @@
   .usuario-menu em{font-style:normal;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
                    color:var(--gris);background:var(--neutro);border-radius:100px;padding:3px 8px}
   .um-sep{height:1px;background:var(--linea);margin:6px 0}
+  .um-correo{margin:0;padding:4px 12px 6px;font-size:12px;color:var(--gris);word-break:break-all}
 
   @media(max-width:820px){
     .nav-inner{padding:10px 18px;gap:10px}
@@ -677,6 +678,12 @@
         <button type="button" data-accion="test" id="um-test">Repetir el test de nivel</button>
         <button type="button" disabled>Ajustes <em>pronto</em></button>
         <button type="button" disabled>Mis informes <em>pronto</em></button>
+        <div class="um-cuenta" id="um-cuenta" hidden>
+          <div class="um-sep"></div>
+          <p class="um-correo" id="um-correo" hidden></p>
+          <button type="button" data-accion="entrar" id="um-entrar">Guardar mi progreso</button>
+          <button type="button" data-accion="salir" id="um-salir" hidden>Cerrar sesión</button>
+        </div>
         <div class="um-sep"></div>
         <a href="/index.html">Volver a la web</a>
       </div>
@@ -1058,6 +1065,12 @@ window.WELL_UI_P = {
   msgFlojo: 'Este toca repetirlo. Mira las soluciones y vuelve a intentarlo.'
 };
 </script>
+<!-- La configuracion del servidor va antes que la aplicacion. Con
+     well-config.js vacio no se descarga nada mas y la practica funciona
+     igual, guardando el progreso solo en este navegador; el cliente de
+     Supabase (210 KB) solo se pide si hay servidor configurado. -->
+<script src="well-config.js"></script>
+<script src="well-datos.js"></script>
 <script src="practica-data.js"></script>
 <script src="practica-app.js"></script>
 </body>

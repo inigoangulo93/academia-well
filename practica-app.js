@@ -123,7 +123,13 @@
     } catch (e) {}
     return vacio;
   })();
-  function guarda() { try { localStorage.setItem(CLAVE, JSON.stringify(P)); } catch (e) {} }
+  // El navegador manda: se guarda siempre aqui, con cuenta o sin ella. Si hay
+  // sesion, well-datos.js sube los cambios despues, agrupados y en segundo
+  // plano. Si el servidor falla o no esta configurado, esto no se entera.
+  function guarda() {
+    try { localStorage.setItem(CLAVE, JSON.stringify(P)); } catch (e) {}
+    try { if (window.WellDatos) window.WellDatos.empuja(P); } catch (e) {}
+  }
 
   function nombreAlumno() {
     try { return (localStorage.getItem('well_nombre') || '').trim(); } catch (e) { return ''; }
@@ -137,6 +143,12 @@
 
   function guardaNombre(n) {
     try { localStorage.setItem('well_nombre', bonito(n)); } catch (e) {}
+    subePerfil();
+  }
+
+  function subePerfil() {
+    if (!window.WellDatos || !window.WellDatos.sesion()) return;
+    window.WellDatos.guardaPerfil({ nombre: bonito(nombreAlumno()), nivel: nivelAlumno() });
   }
 
   function nivelAlumno() {
@@ -1499,6 +1511,14 @@
         $('#nombre-campo').value = nombreAlumno();
         $('#nombre-campo').focus();
       } else if (q === 'test') { location.href = '/test.html'; }
+      else if (q === 'entrar') { location.href = '/entrar.html'; }
+      else if (q === 'salir') {
+        // Se vacia la cola antes de salir: si no, lo ultimo que hizo se
+        // quedaria solo en este navegador.
+        var fin = function () { location.reload(); };
+        if (D) D.vaciaCola().then(function () { return D.salir(); }).then(fin, fin);
+        else fin();
+      }
       return;
     }
     if (e.target.closest('#ver-insignias')) { hoja(true); return; }
@@ -1573,7 +1593,73 @@
     pinta(location.hash);
   });
 
+  /* ---------- cuenta ---------- */
+
+  // Sin cuenta la practica funciona entera: el progreso vive en este
+  // navegador. Al entrar, lo que hubiera aqui se sube y lo que haya en la
+  // cuenta se baja; se quedan las dos mitades. Nadie pierde nada por
+  // registrarse tarde, ni por probar la plataforma sin registrarse.
+  var D = window.WellDatos;
+
+  function pintaCuenta() {
+    var fila = $('#um-cuenta');
+    if (!fila) return;
+    if (!D || !D.activo()) { fila.hidden = true; return; }   // servidor sin configurar
+    fila.hidden = false;
+    var ses = D.sesion();
+    $('#um-correo').textContent = ses ? ses.correo : '';
+    $('#um-correo').hidden = !ses;
+    $('#um-entrar').hidden = !!ses;
+    $('#um-salir').hidden = !ses;
+  }
+
+  function sincroniza() {
+    if (!D || !D.sesion()) { pintaCuenta(); return; }
+    pintaCuenta();
+    D.baja().then(function (remoto) {
+      if (remoto) {
+        var F = D.funde(P, remoto);
+        Object.keys(F).forEach(function (k) { P[k] = F[k]; });
+        try { localStorage.setItem(CLAVE, JSON.stringify(P)); } catch (e) {}
+      }
+      return D.perfil();
+    }).then(function (perfil) {
+      // Si el alumno puso su nombre en otro dispositivo, aqui aparece solo.
+      if (perfil && perfil.nombre && !nombreAlumno()) {
+        try { localStorage.setItem('well_nombre', perfil.nombre); } catch (e) {}
+      }
+      if (perfil && perfil.nivel && !nivelAlumno()) {
+        try {
+          localStorage.setItem(CLAVE_NIVEL, JSON.stringify({
+            nivel: perfil.nivel, puntuacion: perfil.nivel_puntos,
+            sobre: perfil.nivel_sobre, fecha: perfil.nivel_fecha
+          }));
+        } catch (e) {}
+      }
+      subePerfil();
+      return D.empuja(P, true);      // sube de una lo que el servidor no tenga
+    }).then(function () {
+      revisaInsignias();
+      // Solo se repinta el panel: si esta a mitad de un ejercicio o de un
+      // simulacro, repintar le borraria lo que lleva escrito.
+      if ($('#s-panel').classList.contains('activa')) pintaPanel();
+      else pintaUsuario();
+      pintaCuenta();
+    }).catch(function (e) { try { console.warn(e); } catch (_) {} });
+  }
+
+  if (D) {
+    D.alListo(function () { sincroniza(); });
+    D.alCambiar(function () { sincroniza(); });
+    // Al cerrar la pestana se manda lo que quede en la cola.
+    window.addEventListener('pagehide', function () { try { D.vaciaCola(); } catch (e) {} });
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState === 'hidden') { try { D.vaciaCola(); } catch (e) {} }
+    });
+  }
+
   revisaInsignias();
   pintaUsuario();
+  pintaCuenta();
   if (!recuperaSimulacro()) pinta(location.hash);
 })();
