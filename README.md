@@ -13,8 +13,9 @@ Sitio estático de Academia Well (Galdakao). Sin build, sin dependencias: HTML a
   `gen-iconos.py` a partir de la W de la marca. **Deben ser ficheros con URL propia**:
   un `data:` URI no lo puede indexar Google y por eso no salía el logo en los resultados.
 - `contacto.html`, `academia.html`, `jovenes-y-adultos.html`, `empresas.html`,
-  `talleres-de-verano.html`, `mapa-del-sitio.html` — redirecciones de las URL de la
-  web antigua que Google todavía enseña. No van en el sitemap.
+  `talleres-de-verano.html`, `mapa-del-sitio.html` y las mismas bajo `es/` —
+  redirecciones de las URL de la web antigua, que colgaba el castellano de
+  `/es/`. Google todavía las enseña. No van en el sitemap.
 - `eu/` — las mismas cuatro páginas en euskera
 - `og.jpg` / `og-eu.jpg` — tarjetas de previsualización al compartir el enlace (1200×630)
 - `robots.txt`, `sitemap.xml` — indexación

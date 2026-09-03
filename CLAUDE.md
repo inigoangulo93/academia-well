@@ -42,9 +42,13 @@ La clave de respuestas, los mínimos de paso por bloque y lo que falta validar
 están en `test-clave.md`. **No inventes preguntas ni cambies respuestas** sin
 anotarlo ahí.
 
-**Redirecciones de la web antigua** — `contacto.html`, `academia.html`,
-`jovenes-y-adultos.html`, `empresas.html`, `talleres-de-verano.html`,
-`mapa-del-sitio.html`. Google todavía enseña esas URL. No van en el sitemap.
+**Redirecciones de la web antigua** — en la raíz (`contacto.html`,
+`academia.html`, `jovenes-y-adultos.html`, `empresas.html`,
+`talleres-de-verano.html`, `mapa-del-sitio.html`) y las mismas bajo `es/`, que
+es donde la web antigua colgaba el castellano (`academiawell.com/es/...`).
+Google todavía enseña esas URL. No van en el sitemap. El resolutor de `404.html`
+ignora además el prefijo `/es` y manda a la portada cualquier ruta suelta de ese
+árbol, así que ninguna URL vieja acaba en un callejón sin salida.
 
 **Iconos** — `favicon.ico`, `favicon.svg`, `favicon-96.png`, `icon-192.png`,
 `icon-512.png`, `apple-touch-icon.png`, `site.webmanifest`. Se regeneran con

@@ -164,8 +164,14 @@
     [/mapa|sitio|gune/i, 'index.html', T ? T.inicio : 'Inicio']
   ];
   function resolver(p) {
-    var c = contexto(p), resto = p.replace(/^\/academia-well/, '').replace(/^\/eu/, '');
+    var c = contexto(p);
+    var resto = p.replace(/^\/academia-well/, '');
+    /* La web antigua colgaba el castellano de /es/ ; se ignora ese prefijo */
+    var eraEs = /^\/es(\/|$)/.test(resto);
+    resto = resto.replace(/^\/(es|eu)/, '');
     for (var i = 0; i < REGLAS.length; i++) if (REGLAS[i][0].test(resto)) return { href: c.pref + REGLAS[i][1], txt: REGLAS[i][2] };
+    /* cualquier otra ruta del arbol antiguo /es/ al menos lleva a la portada */
+    if (eraEs) return { href: c.pref + 'index.html', txt: T ? T.inicio : 'Inicio' };
     return null;
   }
   window.__resolver404 = resolver;
