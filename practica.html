@@ -354,6 +354,29 @@
   .bloque-ses .tarjetas{gap:8px}
   .bloque-ses .tarjeta{border-radius:12px;padding:12px 14px}
 
+  /* ---------- writing ---------- */
+  .wr-tarea{background:#fff;border:1px solid var(--linea);border-radius:16px;padding:20px 22px;margin-bottom:22px}
+  .wr-enunciado{font-weight:600;margin-bottom:12px}
+  .wr-contexto{background:var(--neutro);border-radius:12px;padding:14px 16px;margin-bottom:14px}
+  .wr-contexto p{font-size:16px;line-height:1.65}
+  .wr-contexto p:first-child{font-weight:600;margin-bottom:6px}
+  .wr-cierre{font-weight:600;color:var(--azul)}
+  .wr-minutos{margin-top:14px;padding-top:12px;border-top:1px dashed var(--linea);color:var(--gris);font-size:13.5px}
+  .wr-etiqueta{display:block;font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+               color:var(--gris);margin-bottom:8px}
+  #wr-texto{width:100%;font:inherit;font-size:16.5px;line-height:1.75;color:var(--tinta);background:#fff;
+            border:1px solid var(--linea);border-radius:16px;padding:18px 20px;resize:vertical;min-height:280px}
+  #wr-texto:focus{outline:none;border-color:var(--azul);box-shadow:0 0 0 3px rgba(33,64,154,.14)}
+  .wr-pie{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:14px 0 24px}
+  .wr-cuenta{font-size:15px;font-weight:700;font-variant-numeric:tabular-nums;border-radius:100px;
+             padding:6px 14px;background:var(--neutro);color:var(--gris)}
+  .wr-cuenta.corto{background:var(--azul-suave);color:var(--azul)}
+  .wr-cuenta.bien{background:var(--verde-suave);color:var(--verde)}
+  .wr-cuenta.largo{background:var(--carmin-suave);color:var(--carmin)}
+  .wr-guardado{font-size:14px;color:var(--gris)}
+  .wr-pie .btn{margin-left:auto}
+  @media(max-width:520px){.wr-pie .btn{margin-left:0;width:100%}}
+
   /* ---------- speaking ---------- */
   .sp-tarea{background:#fff;border:1px solid var(--linea);border-radius:16px;padding:20px 22px;margin-bottom:24px}
   .sp-pregunta{font-family:'Bree Serif',serif;color:var(--azul);font-size:21px;line-height:1.3;margin-bottom:14px}
@@ -720,6 +743,33 @@
     <ul class="tarjetas" id="et-lista"></ul>
   </section>
 
+  <!-- ============ writing ============ -->
+  <section class="pantalla" id="s-writing">
+    <p class="miga" id="wr-miga"></p>
+    <span class="kicker">Writing</span>
+    <h1 id="wr-titulo"></h1>
+    <p class="instruccion" id="wr-instruccion"></p>
+
+    <div class="wr-tarea">
+      <p class="wr-enunciado" id="wr-enunciado"></p>
+      <div class="wr-contexto" id="wr-contexto"></div>
+      <p class="wr-cierre" id="wr-cierre" hidden></p>
+      <p class="wr-minutos" id="wr-minutos"></p>
+    </div>
+
+    <label class="wr-etiqueta" for="wr-texto">Tu texto</label>
+    <textarea id="wr-texto" rows="14" spellcheck="false"
+              placeholder="Escribe aquí. Se va guardando solo."></textarea>
+    <div class="wr-pie">
+      <span class="wr-cuenta" id="wr-cuenta"></span>
+      <span class="wr-guardado" id="wr-guardado"></span>
+      <button class="btn btn-ghost" id="wr-descargar" type="button" hidden>Descargar</button>
+    </div>
+
+    <p class="in-aviso">Se guarda en tu navegador. La corrección con inteligencia artificial
+      llegará más adelante; de momento puedes descargarlo y mandárselo a tu profesora.</p>
+  </section>
+
   <!-- ============ speaking ============ -->
   <section class="pantalla" id="s-speaking">
     <p class="miga" id="sp-miga"></p>
@@ -861,7 +911,8 @@ window.WELL_UI_P = {
     formacion: 'Formación de palabras',
     transformacion: 'Transformaciones',
     opcion: 'Multiple-choice cloze',
-    speaking: 'Speaking'
+    speaking: 'Speaking',
+    writing: 'Writing'
   },
   items: 'huecos',
   hueco: 'Hueco',
@@ -919,6 +970,9 @@ window.WELL_UI_P = {
   simAbandonar: '¿Seguro que quieres salir? El simulacro se pierde entero.',
   parteDe: 'Parte {n} de {t}',
   segundos: '{n} segundos',
+  palabrasDe: '{n} palabras · el objetivo son {min}-{max}',
+  minutosSugeridos: 'En el examen tendrías unos {n} minutos para esta tarea.',
+  guardado: 'Guardado',
   spSinPermiso: 'No hemos podido usar el micrófono. Dale permiso al navegador y vuelve a intentarlo.',
   spSinSoporte: 'Este navegador no permite grabar. Prueba con Chrome, Edge o Safari actualizados.',
   simSiguiente: 'Siguiente',

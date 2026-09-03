@@ -102,8 +102,8 @@ window.WELL_PRACTICA = {
           { destreza: 'speaking', tarea: 'Repaso' }
         ]},
         { id: 't1-s9', n: 9, tipo: 'W', bloques: [
-          { destreza: 'writing', parte: 1, tarea: 'Essay (obligatorio)' },
-          { destreza: 'writing', parte: 2, tarea: 'A elegir' }
+          { destreza: 'writing', parte: 1, tarea: 'Essay (obligatorio)', ejercicios: ['v1-writing1'] },
+          { destreza: 'writing', parte: 2, tarea: 'A elegir', ejercicios: ['v1-writing2'] }
         ]}
       ]
     },
@@ -113,6 +113,37 @@ window.WELL_PRACTICA = {
   ],
 
   ejercicios: {
+    "v1-writing1": {
+      "tipo": "writing",
+      "titulo": "Essay: ¿merece la pena aprender idiomas?",
+      "instruccion": "Escribe entre <b>220 y 260 palabras</b>. Usa tus propias palabras: no copies frases del enunciado.",
+      "minutos": 45,
+      "palabras": [220, 260],
+      "enunciado": "Your class has watched a documentary about language learning. You have made the notes below.",
+      "contexto": [
+        "Reasons why fewer young people study foreign languages:",
+        "· translation apps are good enough for everyday situations",
+        "· English is already spoken almost everywhere",
+        "· learning a language takes years of effort"
+      ],
+      "cierre": "Write an essay discussing two of the reasons in your notes. You should explain which reason you think is more important, giving reasons for your opinion.",
+      "items": [{ "escrito": true }]
+    },
+    "v1-writing2": {
+      "tipo": "writing",
+      "titulo": "Review: una app para aprender idiomas",
+      "instruccion": "Escribe entre <b>220 y 260 palabras</b>. Una review no es solo describir: hay que valorar y recomendar o no.",
+      "minutos": 45,
+      "palabras": [220, 260],
+      "enunciado": "An international website is looking for reviews of language-learning apps.",
+      "contexto": [
+        "Write a review of an app you have used to learn a language.",
+        "· explain what it does well and what it does badly",
+        "· say what kind of learner it suits",
+        "· decide whether you would recommend it"
+      ],
+      "items": [{ "escrito": true }]
+    },
     "v1-speaking": {
       "tipo": "speaking",
       "titulo": "Long turn: aprender fuera de clase",

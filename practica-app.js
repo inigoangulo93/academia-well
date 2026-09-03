@@ -616,6 +616,81 @@
     }).join('');
   }
 
+  /* ---------- writing ---------- */
+
+  // El texto se guarda en el navegador segun se escribe. La correccion con IA
+  // llegara cuando haya servidor; hasta entonces, el alumno se lo descarga.
+  var ESCRITO = { ej: null, guarda: null };
+
+  function pintaWriting(ej) {
+    actual = ej;
+    ESCRITO.ej = ej;
+    $('#wr-miga').innerHTML = '<button type="button" class="miga-atras" data-ir="panel">' +
+      esc(T.tuCamino) + '</button><span aria-hidden="true">/</span> ' +
+      '<button type="button" class="miga-atras" data-sesion="' + esc(ej._sesion.id) + '">' +
+      esc(tituloSesion(ej._sesion)) + '</button>';
+    $('#wr-titulo').textContent = ej.titulo;
+    $('#wr-instruccion').innerHTML = ej.instruccion;
+    $('#wr-enunciado').textContent = ej.enunciado || '';
+    $('#wr-contexto').innerHTML = (ej.contexto || []).map(function (l) {
+      return '<p>' + esc(l) + '</p>';
+    }).join('');
+    var cierre = $('#wr-cierre');
+    cierre.hidden = !ej.cierre;
+    cierre.textContent = ej.cierre || '';
+    $('#wr-minutos').textContent = T.minutosSugeridos.replace('{n}', ej.minutos || 45);
+
+    var caja = $('#wr-texto');
+    caja.value = ((P.ejercicios[ej.id] || {}).texto) || '';
+    cuentaPalabras();
+    $('#wr-descargar').hidden = !caja.value.trim();
+    track('writing_abierto', { ejercicio: ej.id });
+  }
+
+  function palabrasDe(t) {
+    var s = String(t || '').trim();
+    return s ? s.split(/\s+/).length : 0;
+  }
+
+  function cuentaPalabras() {
+    var ej = ESCRITO.ej;
+    if (!ej) return;
+    var n = palabrasDe($('#wr-texto').value);
+    var min = (ej.palabras || [220, 260])[0], max = (ej.palabras || [220, 260])[1];
+    var caja = $('#wr-cuenta');
+    caja.textContent = T.palabrasDe.replace('{n}', n).replace('{min}', min).replace('{max}', max);
+    caja.className = 'wr-cuenta ' + (n === 0 ? '' : n < min ? 'corto' : n > max ? 'largo' : 'bien');
+  }
+
+  function guardaEscrito() {
+    var ej = ESCRITO.ej;
+    if (!ej) return;
+    var texto = $('#wr-texto').value;
+    var n = palabrasDe(texto);
+    var p = P.ejercicios[ej.id] || { mejor: 0, intentos: 0, total: 1 };
+    p.texto = texto;
+    p.palabras = n;
+    p.fecha = hoy();
+    p.total = 1;
+    p.mejor = n >= (ej.palabras || [220])[0] ? 1 : 0;
+    P.ejercicios[ej.id] = p;
+    if (P.dias.indexOf(hoy()) === -1) P.dias.push(hoy());
+    guarda();
+    $('#wr-descargar').hidden = !texto.trim();
+    $('#wr-guardado').textContent = T.guardado;
+  }
+
+  function descargaEscrito() {
+    var ej = ESCRITO.ej;
+    var blob = new Blob([ej.titulo + '\n\n' + $('#wr-texto').value], { type: 'text/plain' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'well-' + ej.id + '-' + hoy() + '.txt';
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000);
+    track('writing_descargado', { ejercicio: ej.id, palabras: palabrasDe($('#wr-texto').value) });
+  }
+
   /* ---------- speaking: grabas tu solo ---------- */
 
   // Todo pasa en el navegador: se graba, se escucha y, si quiere, se descarga.
@@ -1217,7 +1292,7 @@
     $('#t-titulo').textContent = id === 's-panel' ? 'Well Online'
       : id === 's-etapa' && etapaActual ? tituloSesion(etapaActual)
       : id === 's-informe' && testActual ? testActual.titulo
-      : id === 's-speaking' && actual ? actual.titulo
+      : (id === 's-speaking' || id === 's-writing') && actual ? actual.titulo
       : actual ? actual.titulo : 'Well Online';
   }
 
@@ -1243,6 +1318,7 @@
     var ej = porId(EJERCICIOS, id);
     if (!ej) return;
     if (ej.tipo === 'speaking') { pintaSpeaking(ej); muestra('s-speaking'); }
+    else if (ej.tipo === 'writing') { pintaWriting(ej); muestra('s-writing'); }
     else { pintaEjercicio(ej); muestra('s-ejercicio'); }
     if (empujar !== false) history.pushState({}, '', '#' + id);
   }
@@ -1309,6 +1385,7 @@
     if (e.target.closest('#sp-grabar')) { empiezaGrabacion(); return; }
     if (e.target.closest('#sp-parar')) { paraYGuarda(); return; }
     if (e.target.closest('#sp-repetir')) { reseteaSpeaking(); return; }
+    if (e.target.closest('#wr-descargar')) { descargaEscrito(); return; }
     var tr = e.target.closest('[data-tramo]');
     if (tr) {
       var id = tr.getAttribute('data-tramo');
@@ -1405,6 +1482,14 @@
     var i = inputs.indexOf(inp);
     if (i > -1 && i + 1 < inputs.length) inputs[i + 1].focus();
     else if (!$('#btn-corregir').hidden) corrige();
+  });
+
+  document.addEventListener('input', function (e) {
+    if (e.target.id !== 'wr-texto') return;
+    cuentaPalabras();
+    $('#wr-guardado').textContent = '';
+    clearTimeout(ESCRITO.guarda);
+    ESCRITO.guarda = setTimeout(guardaEscrito, 700);
   });
 
   window.addEventListener('popstate', function () {
