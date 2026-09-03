@@ -354,6 +354,50 @@
   .bloque-ses .tarjetas{gap:8px}
   .bloque-ses .tarjeta{border-radius:12px;padding:12px 14px}
 
+  /* ---------- simulacro ---------- */
+  .sim-barra{position:sticky;top:70px;z-index:40;background:var(--crema);display:flex;align-items:center;
+             gap:14px;padding:12px 0 14px;margin-bottom:6px;border-bottom:1px solid var(--linea)}
+  .sim-eti{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--carmin)}
+  .sim-parte{display:block;font-family:'Bree Serif',serif;color:var(--azul);font-size:19px;line-height:1.2}
+  .sim-reloj{margin-left:auto;font-family:'Bree Serif',serif;font-size:27px;color:var(--azul);
+             font-variant-numeric:tabular-nums;background:var(--azul-suave);border-radius:12px;padding:4px 15px}
+  .sim-reloj.poco{color:var(--carmin);background:var(--carmin-suave);animation:latido 1.6s ease-in-out infinite}
+  @keyframes latido{0%,100%{opacity:1}50%{opacity:.6}}
+  .sim-salir{background:none;border:1.5px solid var(--linea);border-radius:100px;padding:8px 15px;font-size:14px;
+             font-weight:600;color:var(--gris);cursor:pointer;min-height:40px;transition:border-color .15s,color .15s}
+  .sim-salir:hover{border-color:var(--carmin);color:var(--carmin)}
+  #sim-pie{position:sticky;bottom:0;background:linear-gradient(to top,var(--crema) 62%,rgba(253,252,249,0));
+           padding:22px 0 18px;margin-top:26px;display:flex;gap:14px;align-items:center;justify-content:space-between}
+  .sim-paso{font-size:14.5px;font-weight:600;color:var(--gris);font-variant-numeric:tabular-nums}
+  #sim-pie .btn{min-width:190px}
+
+  .sr-cabeza{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin:6px 0 26px}
+  .sr-pct{font-family:'Bree Serif',serif;font-size:clamp(46px,9vw,64px);line-height:1;font-variant-numeric:tabular-nums}
+  .sr-pct.bien{color:var(--verde)}
+  .sr-pct.flojo{color:var(--carmin)}
+  .sr-banda{font-family:'Bree Serif',serif;color:var(--azul);font-size:21px;line-height:1.25}
+  .sr-detalle{color:var(--gris);font-size:15px;margin-top:2px}
+  #sr-partes{display:grid;gap:10px;margin-bottom:24px}
+  .sr-parte{background:#fff;border:1px solid var(--linea);border-radius:14px;padding:13px 16px;
+            display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:baseline}
+  .srp-tit{font-weight:600}
+  .srp-num{font-family:'Bree Serif',serif;color:var(--azul);font-size:19px;font-variant-numeric:tabular-nums}
+  .srp-barra{grid-column:1/-1;height:6px;background:var(--neutro);border-radius:100px;overflow:hidden;margin-top:4px}
+  .srp-barra i{display:block;height:100%;background:var(--azul);border-radius:100px}
+  .sr-pie{margin-top:22px}
+  .sim-nodo{background:var(--carmin-suave);border-color:var(--carmin);color:var(--carmin);font-size:19px}
+  .paso.simulacro.hecho .sim-nodo{background:var(--verde-suave);border-color:var(--verde);color:var(--verde)}
+  .paso-marca.flojo{color:var(--carmin);background:var(--carmin-suave)}
+
+  @media(max-width:520px){
+    .sim-barra{top:62px;gap:10px}
+    .sim-reloj{font-size:23px;padding:3px 12px}
+    .sim-salir{padding:8px 12px}
+    #sim-pie{flex-direction:column;align-items:stretch}
+    #sim-pie .btn{width:100%}
+    .sim-paso{text-align:center}
+  }
+
   /* ---------- informe del test ---------- */
   .in-sub{color:var(--gris);margin-bottom:24px;max-width:56ch}
   #in-notas{display:grid;gap:11px;margin-bottom:26px}
@@ -395,6 +439,37 @@
   .texto p{line-height:2.35;margin-bottom:14px}
   .texto p:last-child{margin-bottom:0}
   .conhueco{white-space:nowrap}
+
+  /* multiple-choice cloze: el texto solo marca donde estan los huecos */
+  .texto.sin-huecos p{line-height:1.75}
+  .marca-hueco{display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;
+               border-radius:8px;background:var(--azul-suave);color:var(--azul);font-size:13.5px;
+               font-weight:700;padding:0 6px;vertical-align:-2px;font-variant-numeric:tabular-nums}
+  .grupos{list-style:none;counter-reset:g;display:grid;gap:11px;margin-top:20px}
+  .grupos>li{counter-increment:g;background:#fff;border:1px solid var(--linea);border-radius:14px;
+             padding:12px 14px 12px 46px;position:relative}
+  .grupos>li::before{content:counter(g);position:absolute;left:14px;top:50%;transform:translateY(-50%);
+                     font-weight:700;font-size:14px;color:var(--gris);font-variant-numeric:tabular-nums}
+  .grupo-op{display:flex;flex-wrap:wrap;gap:8px}
+  .op{display:inline-flex;align-items:center;gap:8px;background:var(--neutro);border:1.5px solid transparent;
+      border-radius:100px;padding:8px 15px 8px 8px;font-size:15.5px;font-weight:600;color:var(--tinta);
+      cursor:pointer;transition:border-color .13s,background .13s;min-height:42px}
+  .op:hover:not(:disabled){border-color:var(--azul)}
+  .op-letra{width:24px;height:24px;border-radius:50%;background:#fff;color:var(--gris);font-size:12px;
+            font-weight:700;display:flex;align-items:center;justify-content:center;flex:none}
+  .op.elegida{background:var(--azul-suave);border-color:var(--azul);color:var(--azul)}
+  .op.elegida .op-letra{background:var(--azul);color:#fff}
+  .op:disabled{cursor:default}
+  .op.buena{background:var(--verde-suave);border-color:var(--verde);color:var(--verde)}
+  .op.buena .op-letra{background:var(--verde);color:#fff}
+  .op.fallada{background:var(--carmin-suave);border-color:var(--carmin);color:var(--carmin);
+              text-decoration:line-through;text-decoration-thickness:1px}
+  .op.fallada .op-letra{background:var(--carmin);color:#fff;text-decoration:none}
+  @media(max-width:520px){
+    .grupos>li{padding-left:14px;padding-top:32px}
+    .grupos>li::before{top:11px;transform:none}
+    .op{font-size:15px;padding:7px 13px 7px 7px}
+  }
   .num{position:relative;top:-.55em;font-size:11.5px;font-weight:700;color:var(--carmin);font-style:normal;margin-right:1px}
 
   /* el hueco fija su propia altura de linea: si hereda la del parrafo (2.1 o
@@ -614,6 +689,47 @@
     <ul class="tarjetas" id="et-lista"></ul>
   </section>
 
+  <!-- ============ simulacro ============ -->
+  <section class="pantalla" id="s-simulacro">
+    <div class="sim-barra">
+      <div>
+        <span class="sim-eti" id="sim-destreza"></span>
+        <span class="sim-parte" id="sim-parte"></span>
+      </div>
+      <span class="sim-reloj" id="sim-reloj">--:--</span>
+      <button class="sim-salir" id="sim-salir" type="button">Salir</button>
+    </div>
+    <div class="ej-cab">
+      <h1 id="sim-titulo"></h1>
+      <p class="instruccion" id="sim-instruccion"></p>
+    </div>
+    <div id="sim-caja" hidden></div>
+    <div id="sim-cuerpo"></div>
+    <div id="sim-pie">
+      <span class="sim-paso" id="sim-paso"></span>
+      <button class="btn btn-azul" id="sim-siguiente" type="button">Siguiente</button>
+    </div>
+  </section>
+
+  <!-- ============ resultado del simulacro ============ -->
+  <section class="pantalla" id="s-simresultado">
+    <p class="miga" id="sr-miga"></p>
+    <span class="kicker">Simulacro</span>
+    <h1 id="sr-titulo"></h1>
+    <div class="sr-cabeza">
+      <b class="sr-pct" id="sr-pct">0%</b>
+      <div>
+        <p class="sr-banda" id="sr-banda"></p>
+        <p class="sr-detalle" id="sr-detalle"></p>
+      </div>
+    </div>
+    <div id="sr-partes"></div>
+    <p class="in-aviso" id="sr-aviso"></p>
+    <div class="sr-pie">
+      <button class="btn btn-ghost" id="sr-volver" type="button">Volver a tu camino</button>
+    </div>
+  </section>
+
   <!-- ============ informe del test ============ -->
   <section class="pantalla" id="s-informe">
     <p class="miga" id="in-miga"></p>
@@ -673,7 +789,8 @@ window.WELL_UI_P = {
     caja: 'Vocabulario',
     cloze: 'Open cloze',
     formacion: 'Formación de palabras',
-    transformacion: 'Transformaciones'
+    transformacion: 'Transformaciones',
+    opcion: 'Multiple-choice cloze'
   },
   items: 'huecos',
   hueco: 'Hueco',
@@ -723,6 +840,23 @@ window.WELL_UI_P = {
     video: 'Se hace por videollamada, no con ejercicios.'
   },
 
+  simulacroDe: 'Simulacro · {destreza}',
+  simulacroSub: '{p} partes · {n} preguntas · {min} minutos',
+  simSinHacer: 'Sin hacer',
+  simConfirmar: 'Vas a empezar el simulacro.\n\n{n} preguntas y {min} minutos de reloj, sin ver ninguna solución hasta el final. Si sales, se pierde.\n\n¿Empezamos?',
+  simRepetir: 'Ya lo hiciste una vez. Si lo repites, se guarda el intento nuevo.',
+  simAbandonar: '¿Seguro que quieres salir? El simulacro se pierde entero.',
+  parteDe: 'Parte {n} de {t}',
+  simSiguiente: 'Siguiente',
+  simTerminar: 'Terminar y ver el resultado',
+  simResultado: 'Simulacro de {destreza}',
+  simDetalle: '{ok} de {n} respuestas correctas',
+  simPorTiempo: 'se acabó el tiempo',
+  bandaComoda: 'Vas cómodo',
+  bandaJusta: 'Justo para aprobar',
+  bandaFloja: 'Por debajo del aprobado',
+  enSimulacro: 'en simulacro, el {fecha}',
+  enEntrenamiento: 'en entrenamiento',
   informeTest: 'Informe del test',
   informeListo: '¡Test completo!',
   informeSub: 'El porcentaje por destreza',

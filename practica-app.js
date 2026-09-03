@@ -59,6 +59,7 @@
 
   function correcto(item, valor) {
     if (valor === undefined || valor === null || String(valor).trim() === '') return false;
+    if (item.opciones) return Number(valor) === item.correcta;
     var v = normaliza(valor);
     return item.aceptadas.some(function (a) { return normaliza(a) === v; });
   }
@@ -93,6 +94,11 @@
       if (!repetida) { vistas.push(e); salida.push(a); }
     });
     return salida;
+  }
+
+  function fechaCorta(iso) {
+    var p = String(iso || '').split('-');
+    return p.length === 3 ? Number(p[2]) + '/' + Number(p[1]) + '/' + p[0] : iso;
   }
 
   function esc(s) {
@@ -456,9 +462,27 @@
          marca + '</button>';
     h += '<div class="tramo-cuerpo"' + (abierto ? '' : ' hidden') + '><ol class="mapa">';
     h += (test.sesiones || []).map(function (s, i) { return tarjetaSesion(s, i, sig); }).join('');
+    h += simulacrosDe(test).map(function (sm) { return filaSimulacro(sm); }).join('');
     h += metaTest(test, st);
     h += '</ol></div></section>';
     return h;
+  }
+
+  function filaSimulacro(sm) {
+    var hist = (P.simulacros || {})[sm.id] || [];
+    var ultimo = hist[hist.length - 1];
+    var pct = ultimo && ultimo.items ? Math.round(ultimo.ok / ultimo.items * 100) : null;
+    var h = '<li class="paso simulacro' + (ultimo ? ' hecho' : '') + '">';
+    h += '<button type="button" class="paso-btn" data-simulacro="' + esc(sm.id) + '">';
+    h += '<span class="nodo sim-nodo" aria-hidden="true">⏱</span>';
+    h += '<span class="paso-cuerpo"><span class="paso-tit">' +
+         esc(T.simulacroDe.replace('{destreza}', sm.destreza.nombre)) + '</span>' +
+         '<span class="paso-sub">' + esc(T.simulacroSub
+           .replace('{min}', sm.minutos).replace('{n}', sm.items)
+           .replace('{p}', sm.partes.length)) + '</span></span>';
+    h += '<span class="paso-marca ' + (pct === null ? 'gris' : pct >= 60 ? 'hecho' : 'flojo') + '">' +
+         (pct === null ? esc(T.simSinHacer) : pct + '%') + '</span>';
+    return h + '</button></li>';
   }
 
   function metaTest(test, st) {
@@ -592,6 +616,216 @@
     }).join('');
   }
 
+  /* ---------- simulacro ---------- */
+
+  // Un simulacro es la destreza entera de un test, en orden de parte y de una
+  // sentada: con reloj y sin ver ninguna solucion hasta el final. El modo
+  // entrenamiento y este miden cosas distintas y no deben mezclarse.
+  function simulacroDe(test, dzId) {
+    var partes = [];
+    (test.sesiones || []).forEach(function (s) {
+      s.bloques.forEach(function (b) {
+        if (b.destreza === dzId && b._ejercicios.length) {
+          partes.push({ parte: b.parte || 0, tarea: b.tarea || '', ejercicios: b._ejercicios });
+        }
+      });
+    });
+    partes.sort(function (a, b) { return a.parte - b.parte; });
+    if (!partes.length) return null;
+    return {
+      id: test.id + '-' + dzId,
+      test: test, destreza: DESTREZA[dzId], partes: partes,
+      minutos: (DATA.minutos || {})[dzId] || 45,
+      items: partes.reduce(function (a, p) {
+        return a + p.ejercicios.reduce(function (x, e) { return x + e.items.length; }, 0);
+      }, 0)
+    };
+  }
+
+  function simulacrosDe(test) {
+    return DATA.destrezas.filter(function (dz) { return dz.puntua && !dz.correccion; })
+      .map(function (dz) { return simulacroDe(test, dz.id); })
+      .filter(Boolean);
+  }
+
+  var SIM = null, relojSim = null;
+
+  function simulacroPorId(id) {
+    var sim = null;
+    DATA.tests.forEach(function (t) {
+      simulacrosDe(t).forEach(function (s) { if (s.id === id) sim = s; });
+    });
+    return sim;
+  }
+
+  // Si se recarga la pagina en mitad de un simulacro, se recupera con el reloj
+  // donde estaba. Si ya se habia acabado el tiempo, se cierra y se puntua.
+  function recuperaSimulacro() {
+    var g = P.simulacroEnCurso;
+    if (!g) return false;
+    var sim = simulacroPorId(g.id);
+    if (!sim) { delete P.simulacroEnCurso; guarda(); return false; }
+    SIM = { sim: sim, i: g.i || 0, respuestas: g.respuestas || {}, fin: g.fin };
+    if (Date.now() >= SIM.fin) { terminaSimulacro(true); return true; }
+    pintaSimulacro();
+    muestra('s-simulacro');
+    arrancaReloj();
+    return true;
+  }
+
+  function empiezaSimulacro(id) {
+    var sim = simulacroPorId(id);
+    if (!sim) return;
+    SIM = {
+      sim: sim, i: 0,
+      respuestas: {},
+      fin: Date.now() + sim.minutos * 60000
+    };
+    guardaSim();
+    pintaSimulacro();
+    muestra('s-simulacro');
+    history.pushState({}, '', '#sim-' + id);
+    arrancaReloj();
+    track('simulacro_empezado', { simulacro: id, minutos: sim.minutos });
+  }
+
+  function guardaSim() {
+    if (!SIM) { delete P.simulacroEnCurso; }
+    else P.simulacroEnCurso = { id: SIM.sim.id, i: SIM.i, respuestas: SIM.respuestas, fin: SIM.fin };
+    guarda();
+  }
+
+  function todosLosEjercicios(sim) {
+    return sim.partes.reduce(function (a, p) { return a.concat(p.ejercicios); }, []);
+  }
+
+  function pintaSimulacro() {
+    var sim = SIM.sim;
+    var lista = todosLosEjercicios(sim);
+    var ej = lista[SIM.i];
+    var parte = sim.partes.filter(function (p) { return p.ejercicios.indexOf(ej) > -1; })[0];
+
+    $('#sim-destreza').textContent = sim.destreza.nombre;
+    $('#sim-parte').textContent = T.parteDe
+      .replace('{n}', parte.parte || SIM.i + 1)
+      .replace('{t}', sim.partes.length);
+    $('#sim-titulo').textContent = ej.titulo;
+    $('#sim-instruccion').innerHTML = ej.instruccion;
+    $('#sim-paso').textContent = (SIM.i + 1) + '/' + lista.length;
+
+    var caja = $('#sim-caja');
+    if (ej.tipo === 'caja' && ej.caja) {
+      caja.hidden = false;
+      caja.innerHTML = ej.caja.map(function (w) { return '<span>' + esc(w) + '</span>'; }).join('');
+    } else { caja.hidden = true; }
+
+    var cuerpo = $('#sim-cuerpo');
+    cuerpo.innerHTML = cuerpoEjercicio(ej);
+    var guardado = SIM.respuestas[ej.id];
+    if (guardado) {
+      campos(cuerpo, ej).forEach(function (c, i) {
+        var v = guardado[i];
+        if (v === undefined || v === null || v === '') return;
+        if (c.classList.contains('grupo-op')) {
+          var b0 = c.querySelector('.op[data-op="' + v + '"]');
+          if (b0) b0.classList.add('elegida');
+        } else { c.value = v; }
+      });
+    }
+    $('#sim-siguiente').textContent = SIM.i + 1 < lista.length ? T.simSiguiente : T.simTerminar;
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }
+
+  function guardaRespuestasActuales() {
+    var lista = todosLosEjercicios(SIM.sim);
+    var ej = lista[SIM.i];
+    SIM.respuestas[ej.id] = campos($('#sim-cuerpo'), ej).map(valorDe);
+    guardaSim();
+  }
+
+  function avanzaSimulacro() {
+    guardaRespuestasActuales();
+    var lista = todosLosEjercicios(SIM.sim);
+    if (SIM.i + 1 < lista.length) { SIM.i++; guardaSim(); pintaSimulacro(); }
+    else terminaSimulacro(false);
+  }
+
+  function arrancaReloj() {
+    clearInterval(relojSim);
+    var pinta = function () {
+      if (!SIM) { clearInterval(relojSim); return; }
+      var queda = Math.max(0, SIM.fin - Date.now());
+      var m = Math.floor(queda / 60000), s = Math.floor(queda % 60000 / 1000);
+      $('#sim-reloj').textContent = m + ':' + (s < 10 ? '0' : '') + s;
+      $('#sim-reloj').classList.toggle('poco', queda < 5 * 60000);
+      if (queda <= 0) { clearInterval(relojSim); terminaSimulacro(true); }
+    };
+    pinta();
+    relojSim = setInterval(pinta, 1000);
+  }
+
+  function terminaSimulacro(porTiempo) {
+    if (!SIM) return;
+    if (!porTiempo) guardaRespuestasActuales();
+    clearInterval(relojSim);
+    var sim = SIM.sim;
+
+    var partes = sim.partes.map(function (p) {
+      var ok = 0, items = 0;
+      p.ejercicios.forEach(function (ej) {
+        var r = SIM.respuestas[ej.id] || [];
+        ej.items.forEach(function (it, i) { items++; if (correcto(it, r[i])) ok++; });
+      });
+      return { parte: p.parte, tarea: p.tarea, ok: ok, items: items };
+    });
+    var ok = partes.reduce(function (a, p) { return a + p.ok; }, 0);
+    var items = partes.reduce(function (a, p) { return a + p.items; }, 0);
+
+    var intento = {
+      fecha: new Date().toISOString().slice(0, 10),
+      ok: ok, items: items, partes: partes, porTiempo: !!porTiempo,
+      minutos: sim.minutos
+    };
+    P.simulacros = P.simulacros || {};
+    P.simulacros[sim.id] = (P.simulacros[sim.id] || []).concat([intento]);
+    SIM = null;
+    guardaSim();
+
+    pintaResultadoSim(sim, intento);
+    muestra('s-simresultado');
+    history.pushState({}, '', '#simres-' + sim.id);
+    track('simulacro_terminado', { simulacro: sim.id, aciertos: ok, sobre: items, por_tiempo: !!porTiempo });
+  }
+
+  function banda(pct) {
+    if (pct >= 0.75) return { clase: 'bien', texto: T.bandaComoda };
+    if (pct >= 0.6) return { clase: 'bien', texto: T.bandaJusta };
+    return { clase: 'flojo', texto: T.bandaFloja };
+  }
+
+  function pintaResultadoSim(sim, intento) {
+    testActual = sim.test;
+    var pct = intento.items ? intento.ok / intento.items : 0;
+    var bn = banda(pct);
+    $('#sr-miga').innerHTML = '<button type="button" class="miga-atras" data-ir="panel">' +
+      esc(T.tuCamino) + '</button><span aria-hidden="true">/</span> ' + esc(sim.test.titulo);
+    $('#sr-titulo').textContent = T.simResultado.replace('{destreza}', sim.destreza.nombre);
+    $('#sr-pct').textContent = Math.round(pct * 100) + '%';
+    $('#sr-pct').className = 'sr-pct ' + bn.clase;
+    $('#sr-banda').textContent = bn.texto;
+    $('#sr-detalle').textContent = T.simDetalle
+      .replace('{ok}', intento.ok).replace('{n}', intento.items) +
+      (intento.porTiempo ? ' · ' + T.simPorTiempo : '');
+    $('#sr-partes').innerHTML = intento.partes.map(function (p) {
+      var pp = p.items ? Math.round(p.ok / p.items * 100) : 0;
+      return '<div class="sr-parte"><span class="srp-tit">' + T.parteN.replace('{n}', p.parte) +
+             (p.tarea ? ' · ' + esc(p.tarea) : '') + '</span>' +
+             '<span class="srp-num">' + p.ok + '/' + p.items + '</span>' +
+             '<span class="srp-barra"><i style="width:' + pp + '%"></i></span></div>';
+    }).join('');
+    $('#sr-aviso').textContent = T.informeAviso;
+  }
+
   /* ---------- informe del test ---------- */
 
   function pintaInforme(test) {
@@ -607,16 +841,28 @@
       var pct = Math.round(n.dominio.pct * 100);
       var estado, valor;
       var pie;
+      var hist = (P.simulacros || {})[test.id + '-' + n.destreza.id] || [];
+      var ultimo = hist[hist.length - 1];
       if (n.correccion) { estado = 'humana'; valor = T.correccion[n.correccion].valor; pie = T.correccion[n.correccion].pie; }
       else if (!n.ejercicios) { estado = 'sin'; valor = T.sinMaterial; pie = T.sinMaterialPie; }
+      else if (ultimo) {
+        // La nota buena es la del simulacro: en entrenamiento se repite hasta
+        // clavarlo, asi que ese porcentaje no mide lo mismo.
+        pct = ultimo.items ? Math.round(ultimo.ok / ultimo.items * 100) : 0;
+        estado = pct >= 60 ? 'bien' : 'flojo';
+        valor = pct + '%';
+        n = Object.assign({}, n, { dominio: { ok: ultimo.ok, items: ultimo.items, pct: pct / 100 } });
+        pie = T.enSimulacro.replace('{fecha}', fechaCorta(ultimo.fecha));
+      }
       else if (!n.hechos) { estado = 'sin'; valor = T.sinHacer; pie = T.sinHacerPie; }
-      else { estado = pct >= 60 ? 'bien' : 'flojo'; valor = pct + '%'; }
+      else { estado = pct >= 60 ? 'bien' : 'flojo'; valor = pct + '%'; pie = T.enEntrenamiento; }
       return '<div class="nota ' + estado + '">' +
              '<span class="nota-dz">' + esc(n.destreza.nombre) + '</span>' +
              '<span class="nota-val">' + esc(valor) + '</span>' +
              (estado === 'bien' || estado === 'flojo'
                ? '<span class="nota-barra"><i style="width:' + pct + '%"></i></span>' +
-                 '<span class="nota-pie">' + n.dominio.ok + ' de ' + n.dominio.items + ' ' + esc(T.items) + '</span>'
+                 '<span class="nota-pie">' + n.dominio.ok + ' de ' + n.dominio.items + ' ' +
+                 esc(T.items) + ' · ' + esc(pie) + '</span>'
                : '<span class="nota-pie">' + esc(pie) + '</span>') +
              '</div>';
     }).join('');
@@ -642,25 +888,26 @@
 
   var ANCHO = { caja: 'corto', cloze: 'corto', formacion: 'medio', transformacion: 'largo' };
 
-  function pintaEjercicio(ej) {
-    actual = ej;
-    $('#ej-tipo').textContent = T.tipos[ej.tipo] || ej.tipo;
-    $('#ej-titulo').textContent = ej.titulo;
-    $('#ej-instruccion').innerHTML = ej.instruccion;
-    $('#ej-etapa').innerHTML = '<button type="button" class="miga-atras" data-ir="panel">' +
-      esc(T.tuCamino) + '</button><span aria-hidden="true">/</span> ' +
-      '<button type="button" class="miga-atras" data-sesion="' + esc(ej._sesion.id) + '">' +
-      esc(tituloSesion(ej._sesion)) + '</button>';
-
-    var caja = $('#ej-caja');
-    if (ej.tipo === 'caja' && ej.caja) {
-      caja.hidden = false;
-      caja.innerHTML = ej.caja.map(function (w) { return '<span>' + esc(w) + '</span>'; }).join('');
-    } else { caja.hidden = true; }
-
-    var cuerpo = $('#ej-cuerpo');
+  function cuerpoEjercicio(ej) {
     var h = '';
-    if (ej.tipo === 'cloze') {
+    if (ej.tipo === 'opcion') {
+      // El texto solo enseña donde estan los huecos; se responde abajo,
+      // eligiendo una de las cuatro opciones, como en el examen
+      h += '<div class="texto sin-huecos">' + ej.texto.map(function (p) {
+        return '<p>' + esc(p).replace(/\{(\d+)\}/g, '<span class="marca-hueco">$1</span>') + '</p>';
+      }).join('') + '</div>';
+      h += '<ol class="grupos">';
+      ej.items.forEach(function (it, i) {
+        h += '<li><div class="grupo-op" data-i="' + i + '" role="radiogroup" aria-label="' +
+             T.hueco + ' ' + (i + 1) + '">';
+        it.opciones.forEach(function (op, k) {
+          h += '<button type="button" class="op" data-op="' + k + '">' +
+               '<span class="op-letra">' + 'ABCD'.charAt(k) + '</span>' + esc(op) + '</button>';
+        });
+        h += '</div></li>';
+      });
+      h += '</ol>';
+    } else if (ej.tipo === 'cloze') {
       h += '<div class="texto">' + ej.texto.map(function (p) {
         return '<p>' + conMarcadores(esc(p)) + '</p>';
       }).join('') + '</div>';
@@ -678,10 +925,39 @@
       });
       h += '</ol>';
     }
-    cuerpo.innerHTML = h;
+    return h;
+  }
+
+  function pintaEjercicio(ej) {
+    actual = ej;
+    $('#ej-tipo').textContent = T.tipos[ej.tipo] || ej.tipo;
+    $('#ej-titulo').textContent = ej.titulo;
+    $('#ej-instruccion').innerHTML = ej.instruccion;
+    $('#ej-etapa').innerHTML = '<button type="button" class="miga-atras" data-ir="panel">' +
+      esc(T.tuCamino) + '</button><span aria-hidden="true">/</span> ' +
+      '<button type="button" class="miga-atras" data-sesion="' + esc(ej._sesion.id) + '">' +
+      esc(tituloSesion(ej._sesion)) + '</button>';
+
+    var caja = $('#ej-caja');
+    if (ej.tipo === 'caja' && ej.caja) {
+      caja.hidden = false;
+      caja.innerHTML = ej.caja.map(function (w) { return '<span>' + esc(w) + '</span>'; }).join('');
+    } else { caja.hidden = true; }
+
+    var cuerpo = $('#ej-cuerpo');
+    cuerpo.innerHTML = cuerpoEjercicio(ej);
 
     var guardado = (P.ejercicios[ej.id] || {}).respuestas;
-    if (guardado) $$('.hueco', cuerpo).forEach(function (inp, i) { inp.value = guardado[i] || ''; });
+    if (guardado) {
+      campos().forEach(function (c, i) {
+        var v = guardado[i];
+        if (v === undefined || v === null || v === '') return;
+        if (c.classList.contains('grupo-op')) {
+          var b0 = c.querySelector('.op[data-op="' + v + '"]');
+          if (b0) b0.classList.add('elegida');
+        } else { c.value = v; }
+      });
+    }
 
     $('#ej-resultado').hidden = true;
     $('#btn-corregir').hidden = false;
@@ -692,7 +968,21 @@
     track('practica_ejercicio_abierto', { ejercicio: ej.id, tipo: ej.tipo });
   }
 
+  // Un "campo" es un hueco de texto o un grupo de opciones: el resto del motor
+  // no necesita saber cual de los dos es.
+  function campos(cont, ej) {
+    cont = cont || $('#ej-cuerpo');
+    ej = ej || actual;
+    return ej && ej.tipo === 'opcion' ? $$('.grupo-op', cont) : $$('.hueco', cont);
+  }
+  function valorDe(c) {
+    if (!c.classList.contains('grupo-op')) return c.value;
+    var sel = c.querySelector('.op.elegida');
+    return sel ? sel.getAttribute('data-op') : '';
+  }
+
   function enfoca() {
+    if (actual && actual.tipo === 'opcion') return;
     if (!window.matchMedia('(min-width:700px)').matches) return;
     var libres = $$('.hueco').filter(function (i) { return !i.value; });
     (libres[0] || $('.hueco') || {}).focus && (libres[0] || $('.hueco')).focus();
@@ -700,19 +990,29 @@
 
   function corrige() {
     var ej = actual;
-    var inputs = $$('.hueco', $('#ej-cuerpo'));
     var ok = 0, respuestas = [];
 
-    inputs.forEach(function (inp, i) {
+    campos().forEach(function (c, i) {
       var it = ej.items[i];
-      var bien = correcto(it, inp.value);
-      respuestas.push(inp.value);
+      var valor = valorDe(c);
+      var bien = correcto(it, valor);
+      respuestas.push(valor);
       if (bien) ok++;
-      inp.classList.remove('ok', 'mal');
-      inp.classList.add(bien ? 'ok' : 'mal');
-      inp.readOnly = true;
 
-      var destino = inp.closest('.frase') || inp.parentNode;
+      if (c.classList.contains('grupo-op')) {
+        $$('.op', c).forEach(function (b0, k) {
+          b0.disabled = true;
+          if (k === it.correcta) b0.classList.add('buena');
+          else if (String(k) === String(valor)) b0.classList.add('fallada');
+        });
+        return;
+      }
+
+      c.classList.remove('ok', 'mal');
+      c.classList.add(bien ? 'ok' : 'mal');
+      c.readOnly = true;
+
+      var destino = c.closest('.frase') || c.parentNode;
       var vieja = destino.querySelector('.sol[data-i="' + i + '"]');
       if (vieja) vieja.remove();
       if (!bien) {
@@ -723,7 +1023,7 @@
         // en una frase suelta va al final, para no partir la lectura;
         // en un texto con muchos huecos va pegada al hueco que corresponde
         if (destino.classList.contains('frase')) destino.appendChild(s);
-        else inp.insertAdjacentElement('afterend', s);
+        else c.insertAdjacentElement('afterend', s);
       }
     });
 
@@ -759,7 +1059,18 @@
   }
 
   function repite() {
-    $$('.hueco', $('#ej-cuerpo')).forEach(function (inp, i) {
+    campos().forEach(function (inp, i) {
+      if (inp.classList.contains('grupo-op')) {
+        var it = actual.items[i];
+        var eleg = inp.querySelector('.op.elegida');
+        var fallo = !eleg || Number(eleg.getAttribute('data-op')) !== it.correcta;
+        $$('.op', inp).forEach(function (b0) {
+          b0.disabled = false;
+          b0.classList.remove('buena', 'fallada');
+          if (fallo) b0.classList.remove('elegida');
+        });
+        return;
+      }
       inp.readOnly = false;
       var d0 = inp.closest('.frase') || inp.parentNode;
       var s = d0.querySelector('.sol[data-i="' + i + '"]');
@@ -816,6 +1127,24 @@
     if (empujar !== false) history.pushState({}, '', '#' + id);
   }
 
+  function confirmaSimulacro(id) {
+    var sim = simulacroPorId(id);
+    if (!sim) return;
+    var hist = (P.simulacros || {})[id] || [];
+    var aviso = T.simConfirmar.replace('{min}', sim.minutos).replace('{n}', sim.items);
+    if (hist.length) aviso += '\n\n' + T.simRepetir;
+    if (window.confirm(aviso)) empiezaSimulacro(id);
+  }
+
+  function abandonaSimulacro() {
+    if (!window.confirm(T.simAbandonar)) return;
+    clearInterval(relojSim);
+    SIM = null;
+    guardaSim();
+    alPanel();
+    track('simulacro_abandonado', {});
+  }
+
   function alPanel() {
     pintaPanel();
     muestra('s-panel');
@@ -837,6 +1166,7 @@
   function pinta(hash) {
     var id = (hash || '').replace('#', '');
     if (id.indexOf('informe-') === 0) { abreInforme(id.slice(8), false); return; }
+    if (id.indexOf('sim-') === 0 || id.indexOf('simres-') === 0) { pintaPanel(); muestra('s-panel'); return; }
     if (id && porId(EJERCICIOS, id)) { abreEjercicio(id, false); return; }
     if (id && porId(SESIONES, id)) { abreSesion(id, false); return; }
     pintaPanel(); muestra('s-panel');
@@ -851,6 +1181,11 @@
     if (et) { abreSesion(et.getAttribute('data-sesion')); return; }
     var inf = e.target.closest('[data-informe]');
     if (inf) { abreInforme(inf.getAttribute('data-informe')); return; }
+    var sm = e.target.closest('[data-simulacro]');
+    if (sm) { confirmaSimulacro(sm.getAttribute('data-simulacro')); return; }
+    if (e.target.closest('#sim-siguiente')) { avanzaSimulacro(); return; }
+    if (e.target.closest('#sim-salir')) { abandonaSimulacro(); return; }
+    if (e.target.closest('#sr-volver')) { alPanel(); return; }
     var tr = e.target.closest('[data-tramo]');
     if (tr) {
       var id = tr.getAttribute('data-tramo');
@@ -860,6 +1195,12 @@
       tr.setAttribute('aria-expanded', abierto ? 'false' : 'true');
       tr.parentNode.classList.toggle('abierto', !abierto);
       tr.nextElementSibling.hidden = abierto;
+      return;
+    }
+    var op = e.target.closest('.op');
+    if (op && !op.disabled) {
+      $$('.op', op.parentNode).forEach(function (b0) { b0.classList.remove('elegida'); });
+      op.classList.add('elegida');
       return;
     }
     if (e.target.closest('#btn-corregir')) { corrige(); return; }
@@ -943,9 +1284,12 @@
     else if (!$('#btn-corregir').hidden) corrige();
   });
 
-  window.addEventListener('popstate', function () { pinta(location.hash); });
+  window.addEventListener('popstate', function () {
+    if (SIM) { history.pushState({}, '', '#sim-' + SIM.sim.id); return; }
+    pinta(location.hash);
+  });
 
   revisaInsignias();
   pintaUsuario();
-  pinta(location.hash);
+  if (!recuperaSimulacro()) pinta(location.hash);
 })();

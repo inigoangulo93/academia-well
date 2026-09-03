@@ -27,6 +27,12 @@ window.WELL_PRACTICA = {
 
   examen: { id: 'cae', nombre: 'C1 Advanced', sigla: 'CAE' },
 
+  /* Minutos de cada simulacro. OJO: en el examen real, Reading y Use of
+     English son UN SOLO papel de 90 minutos; este reparto es una estimacion de
+     la academia para poder cronometrar cada mitad por separado.
+     Elena tiene que confirmarlo. */
+  minutos: { use: 45, reading: 45, listening: 40 },
+
   /* Las cinco que puntuan son las que informa Cambridge. Vocabulario y
      gramatica son entrenamiento: se hacen todas las sesiones y no dan nota.
      `correccion` dice quien corrige lo que no es de respuesta cerrada: la IA
@@ -50,7 +56,7 @@ window.WELL_PRACTICA = {
         { id: 't1-s1', n: 1, tipo: 'A', bloques: [
           { destreza: 'vocabulario', ejercicios: ['v1-caja', 'v2-caja'] },
           { destreza: 'gramatica' },
-          { destreza: 'use', parte: 1, tarea: 'Multiple-choice cloze' },
+          { destreza: 'use', parte: 1, tarea: 'Multiple-choice cloze', ejercicios: ['v1-opcion'] },
           { destreza: 'listening', parte: 1, tarea: 'Tres extractos' }
         ]},
         { id: 't1-s2', n: 2, tipo: 'B', bloques: [
@@ -107,6 +113,26 @@ window.WELL_PRACTICA = {
   ],
 
   ejercicios: {
+    "v1-opcion": {
+      "tipo": "opcion",
+      "titulo": "Por qué recordamos las caras",
+      "instruccion": "Lee el texto y elige la mejor opción para cada hueco.",
+      "texto": [
+        "Almost everyone has {1} the experience of recognising a face in the street and being completely unable to {2} the person's name. This is not a sign of a poor memory; it is simply how the brain is {3} up.",
+        "A face is a rich image that connects to dozens of other memories, {4} a name is an arbitrary label with nothing behind it. Researchers have long been {5} in this asymmetry.",
+        "In one well-known study, participants were given a set of photographs and, for each one, a name and a job to {6} by heart. They remembered the job far more often than the name. {7} both pieces of information were equally unfamiliar, only one of them meant anything, and meaning is precisely what a name {8}."
+      ],
+      "items": [
+        { "opciones": ["made", "taken", "had", "done"], "correcta": 2 },
+        { "opciones": ["recall", "remind", "memorise", "revise"], "correcta": 0 },
+        { "opciones": ["put", "laid", "brought", "set"], "correcta": 3 },
+        { "opciones": ["despite", "whereas", "instead", "besides"], "correcta": 1 },
+        { "opciones": ["fascinated", "curious", "keen", "interested"], "correcta": 3 },
+        { "opciones": ["know", "take", "learn", "hold"], "correcta": 2 },
+        { "opciones": ["As though", "Even though", "So that", "Now that"], "correcta": 1 },
+        { "opciones": ["lacks", "misses", "fails", "wants"], "correcta": 0 }
+      ]
+    },
     "v1-caja": {
       "tipo": "caja",
       "titulo": "Adjetivos y verbos con preposición",
