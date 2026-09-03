@@ -1,0 +1,22 @@
+{
+  "id": "t1-lis2",
+  "examen": "cae",
+  "parte": 2,
+  "tarea": "Sentence completion",
+  "titulo": "Una cartógrafa",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    { "id": "ruth", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-GB", "descripcion": "mujer, 40s, britanica, ritmo pausado" }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    { "voz": "ruth", "pausa": 0, "texto": "Hello. My name's Ruth Okonjo, and I'm a cartographer. That's a fancy word for someone who makes maps." },
+    { "voz": "ruth", "pausa": 0.4, "texto": "People imagine me out on a hillside with a measuring instrument, but the truth is far less romantic: most of my working day is spent in front of a screen." },
+    { "voz": "ruth", "pausa": 0.6, "texto": "I studied geography at university, though what really pushed me towards this career was a module in statistics. I'd expected to hate it, and instead it turned out to be the thing I was best at." },
+    { "voz": "ruth", "pausa": 0.6, "texto": "My first job after graduating was with a small publisher that produced walking guides. The pay was terrible. What it gave me, though, was patience." },
+    { "voz": "ruth", "pausa": 0.6, "texto": "The hardest part of the job isn't the drawing. It's deciding what to leave out. A map that shows everything is useless, so every map is really an argument about what matters." },
+    { "voz": "ruth", "pausa": 0.6, "texto": "These days most of my commissions come from local councils, and increasingly from hospitals, who want maps that a frightened visitor can read in ten seconds." },
+    { "voz": "ruth", "pausa": 0.6, "texto": "The mistake beginners make is using too many colours. Three is usually plenty." },
+    { "voz": "ruth", "pausa": 0.6, "texto": "If you're thinking of doing this, my advice is simple: learn to draw badly and quickly. The sketch is where the thinking happens." }
+  ]
+}

@@ -914,6 +914,7 @@
 
     var cuerpo = $('#sim-cuerpo');
     cuerpo.innerHTML = cuerpoEjercicio(ej);
+    if (ej.tipo === 'listening') preparaReproductor(ej);
     var guardado = SIM.respuestas[ej.id];
     if (guardado) {
       campos(cuerpo, ej).forEach(function (c, i) {
@@ -1081,9 +1082,81 @@
 
   var ANCHO = { caja: 'corto', cloze: 'corto', formacion: 'medio', transformacion: 'largo' };
 
+  /* ---------- reproductor con reglas de examen ---------- */
+
+  // Dos escuchas, sin rebobinar y sin barra de progreso manipulable. Si se
+  // puede repetir el trozo dificil, la nota deja de medir nada.
+  function reproductor(ej) {
+    var n = ej.escuchas || 2;
+    return '<div class="repro" data-escuchas="' + n + '">' +
+      '<audio id="au" src="' + esc(ej.audio) + '" preload="metadata"></audio>' +
+      '<button type="button" class="repro-play" id="au-play">' +
+        '<svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">' +
+        '<path d="M8 5v14l11-7z"/></svg><span id="au-txt"></span></button>' +
+      '<div class="repro-info">' +
+        '<span class="repro-cuenta" id="au-cuenta"></span>' +
+        '<span class="repro-barra"><i id="au-fill"></i></span>' +
+        '<span class="repro-aviso">' + esc(T.reproAviso) + '</span>' +
+      '</div>' +
+      (ej.demo ? '<p class="repro-demo">' + esc(T.reproDemo) + '</p>' : '') +
+      '</div>';
+  }
+
+  var AUDIO = { escuchas: 0 };
+
+  function preparaReproductor(ej) {
+    var au = $('#au');
+    if (!au) return;
+    AUDIO.escuchas = 0;
+    var total = ej.escuchas || 2;
+    var pinta = function () {
+      var quedan = total - AUDIO.escuchas;
+      $('#au-cuenta').textContent = T.reproEscucha
+        .replace('{n}', Math.min(AUDIO.escuchas + 1, total)).replace('{t}', total);
+      $('#au-txt').textContent = AUDIO.escuchas === 0 ? T.reproEmpezar
+        : quedan > 0 ? T.reproOtra : T.reproFin;
+      $('#au-play').disabled = quedan <= 0 || !au.paused;
+    };
+    pinta();
+
+    au.addEventListener('timeupdate', function () {
+      if (au.duration) $('#au-fill').style.width = (au.currentTime / au.duration * 100) + '%';
+    });
+    // Sin rebobinar: cualquier salto hacia atras se deshace
+    var tope = 0;
+    au.addEventListener('timeupdate', function () { if (au.currentTime > tope) tope = au.currentTime; });
+    au.addEventListener('seeking', function () {
+      if (Math.abs(au.currentTime - tope) > 0.6) au.currentTime = tope;
+    });
+    au.addEventListener('ended', function () {
+      AUDIO.escuchas++;
+      tope = 0;
+      $('#au-fill').style.width = '0%';
+      pinta();
+      track('listening_escucha', { ejercicio: ej.id, escucha: AUDIO.escuchas });
+    });
+    au.addEventListener('play', pinta);
+    au.addEventListener('pause', pinta);
+    $('#au-play').addEventListener('click', function () {
+      if (AUDIO.escuchas >= total) return;
+      au.play();
+    });
+  }
+
+
   function cuerpoEjercicio(ej) {
     var h = '';
-    if (ej.tipo === 'opcion') {
+    if (ej.tipo === 'listening') {
+      // El reproductor impone las reglas del examen; las preguntas son frases
+      // incompletas, que se corrigen como cualquier hueco.
+      h += reproductor(ej);
+      h += '<ol class="frases">';
+      ej.items.forEach(function (it, i) {
+        h += '<li><p class="frase">' + esc(it.antes || '') + ' ' + campo(i, 'medio') + ' ' +
+             esc(it.despues || '') + '</p></li>';
+      });
+      h += '</ol>';
+    } else if (ej.tipo === 'opcion') {
       // El texto solo enseña donde estan los huecos; se responde abajo,
       // eligiendo una de las cuatro opciones, como en el examen
       h += '<div class="texto sin-huecos">' + ej.texto.map(function (p) {
@@ -1139,6 +1212,7 @@
 
     var cuerpo = $('#ej-cuerpo');
     cuerpo.innerHTML = cuerpoEjercicio(ej);
+    if (ej.tipo === 'listening') preparaReproductor(ej);
 
     var guardado = (P.ejercicios[ej.id] || {}).respuestas;
     if (guardado) {
@@ -1283,6 +1357,8 @@
 
   function muestra(id) {
     if (id !== 's-speaking') { clearInterval(GRAB.reloj); paraGrabacion(); }
+    var au = $('#au');
+    if (au && id !== 's-ejercicio' && id !== 's-simulacro') { try { au.pause(); } catch (e) {} }
     $$('.pantalla').forEach(function (p) { p.classList.toggle('activa', p.id === id); });
     window.scrollTo({ top: 0, behavior: 'auto' });
     document.body.classList.toggle('dentro', id !== 's-panel');

@@ -69,7 +69,7 @@ window.WELL_PRACTICA = {
           { destreza: 'vocabulario' },
           { destreza: 'gramatica' },
           { destreza: 'use', parte: 2, tarea: 'Open cloze', ejercicios: ['v1-cloze', 'v2-cloze'] },
-          { destreza: 'listening', parte: 2, tarea: 'Frases incompletas' }
+          { destreza: 'listening', parte: 2, tarea: 'Frases incompletas', ejercicios: ['t1-lis2'] }
         ]},
         { id: 't1-s4', n: 4, tipo: 'B', bloques: [
           { destreza: 'vocabulario' },
@@ -113,6 +113,24 @@ window.WELL_PRACTICA = {
   ],
 
   ejercicios: {
+    "t1-lis2": {
+      "tipo": "listening",
+      "titulo": "Una cartógrafa",
+      "instruccion": "Vas a oír a una cartógrafa hablando de su trabajo. Completa cada frase con <b>una palabra o expresión corta</b>. Lo oirás <b>dos veces</b>.",
+      "audio": "audio/t1-lis2-demo.wav",
+      "demo": true,
+      "escuchas": 2,
+      "items": [
+        { "antes": "Ruth explains that most of her working day is spent in front of a", "despues": ".", "aceptadas": ["screen", "computer screen"] },
+        { "antes": "The subject that pushed her towards this career was a module in", "despues": ".", "aceptadas": ["statistics"] },
+        { "antes": "Her first employer published", "despues": "guides.", "aceptadas": ["walking"] },
+        { "antes": "She says that job taught her", "despues": ".", "aceptadas": ["patience"] },
+        { "antes": "According to Ruth, the hardest part of the job is deciding what to", "despues": ".", "aceptadas": ["leave out", "omit"] },
+        { "antes": "Besides local councils, most of her recent commissions come from", "despues": ".", "aceptadas": ["hospitals"] },
+        { "antes": "The mistake beginners make is using too many", "despues": ".", "aceptadas": ["colours", "colors"] },
+        { "antes": "Her advice to newcomers is to learn to draw badly and", "despues": ".", "aceptadas": ["quickly", "fast"] }
+      ]
+    },
     "v1-writing1": {
       "tipo": "writing",
       "titulo": "Essay: ¿merece la pena aprender idiomas?",

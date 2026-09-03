@@ -306,19 +306,81 @@ con almohadilla, las sesiones son botones de verdad (teclado, `disabled` las
 cerradas), foco visible y Escape cierra menus y ventanas. Los botones solo
 ocupan el ancho completo en movil. Probado a 360, 390, 820 y 1440 px.
 
+## Que hay montado y funcionando
+
+| Pieza | Estado |
+|---|---|
+| Vocabulario, gramatica y Use of English partes 2, 3 y 4 | ✅ con ejercicios de muestra |
+| **Use of English parte 1** (multiple-choice cloze) | ✅ tipo nuevo: texto con huecos marcados y cuatro opciones debajo |
+| **Modo simulacro** | ✅ las 4 partes de una sentada, reloj, sin soluciones hasta el final, banda y desglose por parte |
+| **Listening** | ✅ reproductor con reglas de examen; audio **de relleno**, falta el de verdad |
+| **Speaking** | ✅ long turn con cronometro y grabacion en el navegador |
+| **Writing** | ✅ enunciado, contador de palabras y guardado; **sin correccion de IA** |
+| Reading | ❌ nada |
+
+### El simulacro
+
+Es lo que hace que el porcentaje signifique algo. Entrenamiento y simulacro
+miden cosas distintas y **no se mezclan**: en entrenamiento repites hasta
+clavarlo, asi que ese porcentaje no vale como nota. El informe del test da la
+nota del simulacro cuando existe, con su fecha.
+
+Detalles que lo hacen creible: si recargas en mitad del examen se recupera con
+el reloj donde estaba, el boton de atras del navegador no te saca, y si se
+acaba el tiempo se cierra solo y puntua lo que haya.
+
+Los minutos van en `minutos` dentro de los datos. **Aviso**: en el examen real
+Reading y Use of English son un solo papel de 90 minutos; partirlo en dos
+mitades de 45 es una estimacion de la academia que Elena tiene que confirmar.
+
+### El reproductor de listening
+
+Dos escuchas, contador a la vista, y **ni rebobinar ni adelantar**: cualquier
+salto se deshace. Casi todas las webs de practica ponen una barra de audio
+normal y con eso el simulacro deja de medir nada.
+
+`gen-listening.py` genera el audio desde un guion (`listening/*.json`):
+
+    python3 gen-listening.py listening/t1-p2.json --demo          # relleno, sin API
+    python3 gen-listening.py listening/t1-p2.json --proveedor elevenlabs
+
+El modo `--demo` escribe tonos, no voz: sirve para probar el reproductor sin
+gastar creditos. **El audio que hay ahora en el repositorio es ese relleno**, y
+la propia pagina lo dice en rojo. Para generar de verdad hacen falta
+`ELEVENLABS_API_KEY` o `AZURE_SPEECH_KEY`, y elegir las voces en el guion.
+
+### El speaking
+
+Todo pasa en el navegador: se graba, te escuchas y te lo descargas. **No se
+sube nada**, que es lo unico honesto sin servidor y sin haber pedido permiso
+para guardar la voz de nadie, y la pagina lo dice. El microfono se suelta
+siempre, tambien al salir de la pantalla.
+
+Pendiente de probar en un aparato de verdad: el contenedor donde se desarrolla
+no tiene microfono, asi que el camino real de `getUserMedia` esta verificado
+con un aparato simulado.
+
+### El writing
+
+Contador de palabras con los tres estados (corto, en rango 220-260, pasado),
+guardado automatico en el navegador y descarga en `.txt` para mandarselo a la
+profesora mientras no haya correccion automatica.
+
 ## Que le falta para ser un producto
 
 1. **El material de verdad**, con la procedencia resuelta.
 2. **Una pantalla de revision para Elena**: ejercicio + respuesta volcada, para
    que marque desacuerdos. Sin esto no se publica.
 3. **Parte 1 de Use of English, Reading, Listening y Writing.**
-4. **Modo simulacro**: con reloj, sin feedback hasta el final, papel entero de
-   una sentada. Hoy solo existe el modo entrenamiento, y mezclarlos arruina los
-   dos.
-5. **Cuentas y progreso en servidor.** Hoy vive en el navegador.
-6. **Speaking y correccion de writings.**
-7. **Cobro.**
-8. **Version en euskera.** El prototipo esta solo en castellano.
+4. **El audio de verdad del listening**, y con el la decision de proveedor y la
+   cuenta de pago.
+5. **Reading**, las cuatro partes: es lo unico que no tiene nada.
+6. **Cuentas y progreso en servidor.** Hoy vive en el navegador.
+7. **Correccion de writings con IA** y **nota de speaking**: las dos necesitan
+   servidor.
+8. **Emparejar alumnos para el speaking** y la agenda de videollamadas.
+9. **Cobro.**
+10. **Version en euskera.** El prototipo esta solo en castellano.
 
 ## Preguntas para Elena
 

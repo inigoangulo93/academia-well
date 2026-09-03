@@ -354,6 +354,28 @@
   .bloque-ses .tarjetas{gap:8px}
   .bloque-ses .tarjeta{border-radius:12px;padding:12px 14px}
 
+  /* ---------- reproductor de listening ---------- */
+  .repro{background:#fff;border:1px solid var(--linea);border-radius:16px;padding:18px 20px;margin-bottom:22px;
+         display:grid;grid-template-columns:auto 1fr;gap:14px 16px;align-items:center}
+  .repro-play{display:inline-flex;align-items:center;gap:9px;background:var(--azul);color:#fff;border:none;
+              border-radius:100px;padding:13px 22px 13px 18px;font-family:'Figtree',sans-serif;font-size:15.5px;
+              font-weight:600;cursor:pointer;min-height:50px;white-space:nowrap;
+              box-shadow:0 6px 16px rgba(33,64,154,.24);transition:transform .15s,box-shadow .15s}
+  .repro-play:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 10px 22px rgba(33,64,154,.3)}
+  .repro-play:disabled{background:var(--neutro);color:var(--gris);box-shadow:none;cursor:default}
+  .repro-info{min-width:0}
+  .repro-cuenta{display:block;font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+                color:var(--carmin);margin-bottom:7px}
+  .repro-barra{display:block;height:7px;background:var(--azul-suave);border-radius:100px;overflow:hidden}
+  .repro-barra i{display:block;height:100%;width:0;background:var(--azul);border-radius:100px}
+  .repro-aviso{display:block;font-size:13px;color:var(--gris);margin-top:7px}
+  .repro-demo{grid-column:1/-1;background:var(--carmin-suave);border-radius:12px;padding:11px 15px;
+              font-size:13.5px;color:var(--tinta);margin:0}
+  @media(max-width:520px){
+    .repro{grid-template-columns:1fr}
+    .repro-play{width:100%;justify-content:center}
+  }
+
   /* ---------- writing ---------- */
   .wr-tarea{background:#fff;border:1px solid var(--linea);border-radius:16px;padding:20px 22px;margin-bottom:22px}
   .wr-enunciado{font-weight:600;margin-bottom:12px}
@@ -912,7 +934,8 @@ window.WELL_UI_P = {
     transformacion: 'Transformaciones',
     opcion: 'Multiple-choice cloze',
     speaking: 'Speaking',
-    writing: 'Writing'
+    writing: 'Writing',
+    listening: 'Listening'
   },
   items: 'huecos',
   hueco: 'Hueco',
@@ -970,6 +993,12 @@ window.WELL_UI_P = {
   simAbandonar: '¿Seguro que quieres salir? El simulacro se pierde entero.',
   parteDe: 'Parte {n} de {t}',
   segundos: '{n} segundos',
+  reproEmpezar: 'Escuchar',
+  reproOtra: 'Escuchar otra vez',
+  reproFin: 'Ya no quedan escuchas',
+  reproEscucha: 'Escucha {n} de {t}',
+  reproAviso: 'Como en el examen: no se puede rebobinar ni adelantar.',
+  reproDemo: 'Este audio es de relleno, no es voz: sirve para probar el reproductor mientras la academia decide las voces.',
   palabrasDe: '{n} palabras · el objetivo son {min}-{max}',
   minutosSugeridos: 'En el examen tendrías unos {n} minutos para esta tarea.',
   guardado: 'Guardado',
