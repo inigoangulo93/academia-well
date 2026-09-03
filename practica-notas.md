@@ -111,9 +111,18 @@ mismo criterio del test de nivel. Las sesiones sin material salen como
 ### El informe
 
 Porcentaje por destreza sobre lo hecho, con barra y el detalle en huecos.
-Writing y Speaking salen como "En la academia": son las dos que corrige una
-persona. **No se inventa una nota de la escala de Cambridge**, y el informe lo
-dice: esa conversion no es publica.
+
+**Este producto es 100 % online: el alumno no pisa la academia.** Por eso las
+dos destrezas que no son de respuesta cerrada no se mandan a clase:
+
+- **Writing** lo corrige la IA dentro de la plataforma.
+- **Speaking** se practica y se evalua **por videollamada**.
+
+Quien corrige cada una va en los datos (`correccion: 'ia' | 'video'`), no en el
+codigo.
+
+**No se inventa una nota de la escala de Cambridge**, y el informe lo dice: esa
+conversion no es publica.
 
 ## Que hace ya el prototipo
 

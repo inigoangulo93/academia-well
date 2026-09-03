@@ -236,7 +236,7 @@
       var hechos = ejs.filter(function (e) { return P.ejercicios[e.id]; });
       salida.push({
         destreza: dz, ejercicios: ejs.length, hechos: hechos.length,
-        dominio: dominioLista(ejs), humana: !!dz.humana
+        dominio: dominioLista(ejs), correccion: dz.correccion || null
       });
     });
     return salida;
@@ -575,7 +575,7 @@
               (bl.tarea ? '<span class="bs-tarea">' + esc(bl.tarea) + '</span>' : '') +
               '</div>';
       if (!bl._ejercicios.length) {
-        h += '<p class="bs-pendiente">' + esc(bl._destreza.humana ? T.bloqueHumano : T.bloquePendiente) + '</p>';
+        h += '<p class="bs-pendiente">' + esc(bl._destreza.correccion ? T.bloqueCorreccion[bl._destreza.correccion] : T.bloquePendiente) + '</p>';
       } else {
         h += '<ul class="tarjetas">' + bl._ejercicios.map(function (ej) {
           var p = P.ejercicios[ej.id];
@@ -607,7 +607,7 @@
       var pct = Math.round(n.dominio.pct * 100);
       var estado, valor;
       var pie;
-      if (n.humana) { estado = 'humana'; valor = T.correccionHumana; pie = T.humanaPie; }
+      if (n.correccion) { estado = 'humana'; valor = T.correccion[n.correccion].valor; pie = T.correccion[n.correccion].pie; }
       else if (!n.ejercicios) { estado = 'sin'; valor = T.sinMaterial; pie = T.sinMaterialPie; }
       else if (!n.hechos) { estado = 'sin'; valor = T.sinHacer; pie = T.sinHacerPie; }
       else { estado = pct >= 60 ? 'bien' : 'flojo'; valor = pct + '%'; }

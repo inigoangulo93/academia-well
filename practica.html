@@ -718,7 +718,10 @@ window.WELL_UI_P = {
   dominio: '{ok} de {n} huecos dominados',
   sesionSinMaterial: 'Esta sesión aún no tiene material cargado.',
   bloquePendiente: 'Pendiente de volcar del material de la academia.',
-  bloqueHumano: 'Esto se corrige en la academia, no aquí.',
+  bloqueCorreccion: {
+    ia: 'Escribes aquí y la IA te lo corrige al momento.',
+    video: 'Se hace por videollamada, no con ejercicios.'
+  },
 
   informeTest: 'Informe del test',
   informeListo: '¡Test completo!',
@@ -726,8 +729,10 @@ window.WELL_UI_P = {
   informeDe: 'Informe del {test}',
   informeCompleto: 'Test terminado. Estas son tus notas por destreza.',
   informeParcial: 'Vas por {n} de {t} sesiones. Las notas se van completando según avanzas.',
-  correccionHumana: 'En la academia',
-  humanaPie: 'La corrige tu profesora',
+  correccion: {
+    ia:    { valor: 'Corrige la IA', pie: 'Corrección al momento, revisada por tu profesora' },
+    video: { valor: 'Sesión en vídeo', pie: 'Se practica y se evalúa por videollamada' }
+  },
   sinMaterial: '—',
   sinMaterialPie: 'Sin material cargado todavía',
   sinHacer: 'Sin empezar',

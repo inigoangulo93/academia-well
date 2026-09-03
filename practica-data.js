@@ -28,13 +28,16 @@ window.WELL_PRACTICA = {
   examen: { id: 'cae', nombre: 'C1 Advanced', sigla: 'CAE' },
 
   /* Las cinco que puntuan son las que informa Cambridge. Vocabulario y
-     gramatica son entrenamiento: se hacen todas las sesiones y no dan nota. */
+     gramatica son entrenamiento: se hacen todas las sesiones y no dan nota.
+     `correccion` dice quien corrige lo que no es de respuesta cerrada: la IA
+     dentro de la plataforma, o una sesion de video. Este producto es 100 %
+     online: el alumno no pisa la academia. */
   destrezas: [
     { id: 'use',         nombre: 'Use of English', puntua: true },
     { id: 'reading',     nombre: 'Reading',        puntua: true },
     { id: 'listening',   nombre: 'Listening',      puntua: true },
-    { id: 'writing',     nombre: 'Writing',        puntua: true, humana: true },
-    { id: 'speaking',    nombre: 'Speaking',       puntua: true, humana: true },
+    { id: 'writing',     nombre: 'Writing',        puntua: true, correccion: 'ia' },
+    { id: 'speaking',    nombre: 'Speaking',       puntua: true, correccion: 'video' },
     { id: 'vocabulario', nombre: 'Vocabulario',    puntua: false },
     { id: 'gramatica',   nombre: 'Gramática',      puntua: false }
   ],
