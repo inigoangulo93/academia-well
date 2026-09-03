@@ -100,6 +100,13 @@
   })();
   function guarda() { try { localStorage.setItem(CLAVE, JSON.stringify(P)); } catch (e) {} }
 
+  function nombreAlumno() {
+    try { return (localStorage.getItem('well_nombre') || '').trim(); } catch (e) { return ''; }
+  }
+  function guardaNombre(n) {
+    try { localStorage.setItem('well_nombre', String(n || '').trim()); } catch (e) {}
+  }
+
   function nivelAlumno() {
     try {
       var n = JSON.parse(localStorage.getItem(CLAVE_NIVEL));
@@ -132,6 +139,43 @@
 
   function aciertosTotales() {
     return Object.keys(P.ejercicios).reduce(function (a, k) { return a + (P.ejercicios[k].mejor || 0); }, 0);
+  }
+
+  // Los siete ultimos dias, de hace seis a hoy, para la tira de la racha.
+  function ultimosDias() {
+    var set = {}; P.dias.forEach(function (x) { set[x] = 1; });
+    var salida = [];
+    for (var i = 6; i >= 0; i--) {
+      var f = new Date(); f.setDate(f.getDate() - i);
+      var iso = f.toISOString().slice(0, 10);
+      salida.push({ iso: iso, inicial: T.diasSemana[f.getDay()], hecho: !!set[iso], hoy: i === 0 });
+    }
+    return salida;
+  }
+
+  function totales() {
+    var items = 0, ok = 0, perfectos = 0, empezados = 0, pendientes = 0;
+    EJERCICIOS.forEach(function (e) {
+      items += e.items.length;
+      var p = P.ejercicios[e.id];
+      if (!p) return;
+      ok += p.mejor; empezados++;
+      if (p.mejor === e.items.length) perfectos++;
+    });
+    ETAPAS.forEach(function (e) {
+      if (estado(e) !== 'abierta') return;
+      (e.ejercicios || []).forEach(function (ej) {
+        var p = P.ejercicios[ej.id];
+        if (!p || p.mejor < ej.items.length) pendientes++;
+      });
+    });
+    return {
+      items: items, ok: ok, perfectos: perfectos, empezados: empezados, pendientes: pendientes,
+      ejercicios: EJERCICIOS.length,
+      etapasCompletas: ETAPAS.filter(function (e) { return estado(e) === 'completa'; }).length,
+      etapasConMaterial: ETAPAS.filter(function (e) { return e.ejercicios; }).length,
+      pct: items ? ok / items : 0
+    };
   }
 
   /* ---------- estado de las etapas ---------- */
@@ -169,46 +213,134 @@
   /* ---------- insignias ---------- */
 
   var INSIGNIAS = [
-    { id: 'primer-paso', icono: '🎯', cumple: function () { return Object.keys(P.ejercicios).length >= 1; } },
-    { id: 'perfecto', icono: '✨', cumple: function () {
-        return Object.keys(P.ejercicios).some(function (k) {
-          var p = P.ejercicios[k]; return p.total && p.mejor === p.total; }); } },
-    { id: 'racha3', icono: '🔥', cumple: function () { return racha() >= 3; } },
-    { id: 'racha7', icono: '🏅', cumple: function () { return racha() >= 7; } },
-    { id: 'cien', icono: '💯', cumple: function () { return aciertosTotales() >= 100; } },
-    { id: 'etapa', icono: '🏆', cumple: function () {
-        return ETAPAS.some(function (e) { return estado(e) === 'completa'; }); } }
+    { id: 'primer-paso',     icono: '🎯', meta: 1,   valor: function () { return totales().empezados; } },
+    { id: 'perfecto',        icono: '✨', meta: 1,   valor: function () { return totales().perfectos; } },
+    { id: 'cinco-perfectos', icono: '🌟', meta: 5,   valor: function () { return totales().perfectos; } },
+    { id: 'racha3',          icono: '🔥', meta: 3,   valor: racha },
+    { id: 'racha7',          icono: '🏅', meta: 7,   valor: racha },
+    { id: 'racha30',         icono: '👑', meta: 30,  valor: racha },
+    { id: 'cincuenta',       icono: '🧩', meta: 50,  valor: function () { return totales().ok; } },
+    { id: 'cien',            icono: '💯', meta: 100, valor: function () { return totales().ok; } },
+    { id: 'quinientos',      icono: '🚀', meta: 500, valor: function () { return totales().ok; } },
+    { id: 'etapa',           icono: '🏆', meta: 1,   valor: function () { return totales().etapasCompletas; } },
+    { id: 'cinco-etapas',    icono: '🗺️', meta: 5,   valor: function () { return totales().etapasCompletas; } }
   ];
+  var porInsignia = function (id) { return INSIGNIAS.filter(function (b) { return b.id === id; })[0]; };
+  var ganada = function (b) { return P.insignias.indexOf(b.id) > -1; };
 
   function revisaInsignias() {
     var nuevas = [];
     INSIGNIAS.forEach(function (b) {
-      if (P.insignias.indexOf(b.id) === -1 && b.cumple()) { P.insignias.push(b.id); nuevas.push(b); }
+      if (!ganada(b) && b.valor() >= b.meta) { P.insignias.push(b.id); nuevas.push(b); }
     });
-    if (nuevas.length) { guarda(); track('practica_insignia', { insignias: nuevas.map(function (b) { return b.id; }).join(',') }); }
+    if (nuevas.length) {
+      guarda();
+      track('practica_insignia', { insignias: nuevas.map(function (b) { return b.id; }).join(',') });
+    }
     return nuevas;
   }
 
-  function aviso(texto) {
-    var t = $('#toast');
-    t.innerHTML = texto;
-    t.classList.add('visible');
-    clearTimeout(aviso._t);
-    aviso._t = setTimeout(function () { t.classList.remove('visible'); }, 4200);
+  // El hito mas cercano de los que quedan: el que mas porcentaje lleva hecho.
+  function proximoHito() {
+    var candidatos = INSIGNIAS.filter(function (b) { return !ganada(b); });
+    if (!candidatos.length) return null;
+    candidatos.sort(function (a, b) {
+      var ra = a.valor() / a.meta, rb = b.valor() / b.meta;
+      if (rb !== ra) return rb - ra;
+      return (a.meta - a.valor()) - (b.meta - b.valor());
+    });
+    var h = candidatos[0];
+    return { insignia: h, valor: Math.min(h.valor(), h.meta), meta: h.meta, falta: Math.max(0, h.meta - h.valor()) };
+  }
+
+  /* ---------- celebracion ---------- */
+
+  var cola = [];
+  function celebra(lista) {
+    cola = cola.concat(lista);
+    if (cola.length && $('#premio').hidden) siguientePremio();
+  }
+  function siguientePremio() {
+    var p = cola.shift();
+    if (!p) { $('#premio').hidden = true; return; }
+    $('#premio-icono').textContent = p.icono;
+    $('#premio-eti').textContent = p.eti;
+    $('#premio-tit').textContent = p.titulo;
+    $('#premio-sub').textContent = p.texto;
+    $('#premio').hidden = false;
+    requestAnimationFrame(function () { $('#premio').classList.add('visible'); });
+  }
+  function cierraPremio() {
+    $('#premio').classList.remove('visible');
+    setTimeout(function () { $('#premio').hidden = true; if (cola.length) siguientePremio(); }, 260);
   }
 
   /* ---------- panel ---------- */
 
   function pintaPanel() {
+    var t = totales();
     var n = nivelAlumno();
-    $('#st-nivel').textContent = n ? n.nivel : '—';
-    $('#st-nivel-pie').textContent = n ? T.tuNivel : T.sinNivel;
+    var nombre = nombreAlumno();
+
+    // saludo
+    var hora = new Date().getHours();
+    var franja = hora < 13 ? 'manana' : hora < 21 ? 'tarde' : 'noche';
+    $('#saludo').textContent = nombre
+      ? T.saludo[franja].replace('{nombre}', nombre)
+      : T.saludoSinNombre;
+    $('#pide-nombre').hidden = !!nombre;
+    $('#cambia-nombre').hidden = !nombre;
+
+    var chip = $('#nivel-alumno');
+    if (n) { chip.hidden = false; chip.textContent = n.nivel; } else { chip.hidden = true; }
     $('#sin-test').hidden = !!n;
-    $('#st-racha').textContent = racha();
-    $('#st-puntos').textContent = aciertosTotales();
+
+    // donde esta
+    var sig = siguienteEjercicio();
+    $('#situacion').textContent = sig
+      ? T.vasPor.replace('{etapa}', sig._etapa.titulo).replace('{ruta}', sig._ruta.titulo)
+      : T.alDia;
+
+    // anillo
+    var pct = Math.round(t.pct * 100);
+    var circ = 2 * Math.PI * 52;
+    var aro = $('#aro');
+    aro.style.strokeDasharray = circ.toFixed(1);
+    aro.style.strokeDashoffset = (circ * (1 - t.pct)).toFixed(1);
+    $('#aro-pct').textContent = pct + '%';
+    $('#aro-pie').textContent = T.dominado;
+    $('#aro-detalle').textContent = T.huecosDe.replace('{ok}', t.ok).replace('{n}', t.items);
+
+    // racha
+    $('#racha-n').textContent = racha();
+    $('#racha-pie').textContent = racha() === 1 ? T.diaSeguido : T.diasSeguidos;
+    $('#tira').innerHTML = ultimosDias().map(function (d0) {
+      return '<span class="dia' + (d0.hecho ? ' hecho' : '') + (d0.hoy ? ' hoy' : '') + '">' +
+             '<i>' + esc(d0.inicial) + '</i></span>';
+    }).join('');
+
+    // cifras
+    $('#cf-perfectos').textContent = t.perfectos;
+    $('#cf-etapas').textContent = t.etapasCompletas;
+    $('#cf-pendientes').textContent = t.pendientes;
+
+    // proximo hito
+    var h = proximoHito();
+    var caja = $('#hito');
+    if (h) {
+      caja.hidden = false;
+      var ins = T.insignias[h.insignia.id];
+      caja.innerHTML =
+        '<span class="hito-icono">' + h.insignia.icono + '</span>' +
+        '<span class="hito-cuerpo">' +
+          '<span class="hito-eti">' + esc(T.proximoHito) + '</span>' +
+          '<span class="hito-tit">' + esc(ins.titulo) + '</span>' +
+          '<span class="hito-barra"><i style="width:' + Math.round(h.valor / h.meta * 100) + '%"></i></span>' +
+        '</span>' +
+        '<span class="hito-num">' + h.valor + '<em>/' + h.meta + '</em></span>';
+    } else { caja.hidden = true; }
 
     // continuar
-    var sig = siguienteEjercicio();
     var cont = $('#continuar');
     if (sig) {
       cont.hidden = false;
@@ -223,59 +355,73 @@
     var cont2 = $('#rutas');
     cont2.innerHTML = '';
     DATA.rutas.forEach(function (ruta) {
-      var conContenido = ruta.etapas.filter(function (e) { return e.ejercicios; }).length;
+      var conMaterial = ruta.etapas.filter(function (e) { return e.ejercicios; }).length;
       var s = document.createElement('section');
       s.className = 'ruta';
-      var h = '<div class="ruta-cab"><div><h2>' + esc(ruta.titulo) + '</h2>' +
-              '<p class="ruta-sub">' + esc(ruta.subtitulo) + '</p></div>' +
-              '<span class="nivel-chip">' + esc(ruta.nivel) + '</span></div>';
-      h += '<ol class="etapas" data-ruta="' + esc(ruta.id) + '">';
-      ruta.etapas.forEach(function (etapa, i) {
-        h += tarjetaEtapa(etapa, i);
-      });
-      h += '</ol>';
+      var h2 = '<div class="ruta-cab"><div><h2>' + esc(ruta.titulo) + '</h2>' +
+               '<p class="ruta-sub">' + esc(ruta.subtitulo) + '</p></div>' +
+               '<span class="nivel-chip">' + esc(ruta.nivel) + '</span></div>';
+      h2 += '<ol class="etapas" data-ruta="' + esc(ruta.id) + '">';
+      ruta.etapas.forEach(function (etapa, i) { h2 += tarjetaEtapa(etapa, i, sig); });
+      h2 += '</ol>';
       if (ruta.etapas.length > 6) {
-        h += '<button class="ver-mas" data-ruta="' + esc(ruta.id) + '">' +
-             T.verTodas.replace('{n}', ruta.etapas.length) + '</button>';
+        h2 += '<button class="ver-mas" data-ruta="' + esc(ruta.id) + '">' +
+              T.verTodas.replace('{n}', ruta.etapas.length) + '</button>';
       }
-      h += '<p class="ruta-pie">' + T.deLasCuales.replace('{n}', conContenido).replace('{t}', ruta.etapas.length) + '</p>';
-      s.innerHTML = h;
+      h2 += '<p class="ruta-pie">' + T.deLasCuales.replace('{n}', conMaterial).replace('{t}', ruta.etapas.length) + '</p>';
+      s.innerHTML = h2;
       cont2.appendChild(s);
     });
 
     // insignias
-    var ins = $('#insignias');
-    ins.innerHTML = INSIGNIAS.map(function (b) {
-      var tiene = P.insignias.indexOf(b.id) > -1;
-      var t = T.insignias[b.id];
-      return '<div class="insignia' + (tiene ? '' : ' pendiente') + '">' +
-             '<span class="ins-icono">' + b.icono + '</span>' +
-             '<span class="ins-tit">' + esc(t.titulo) + '</span>' +
-             '<span class="ins-sub">' + esc(t.texto) + '</span></div>';
+    var g = INSIGNIAS.filter(ganada).length;
+    $('#ins-cuenta').textContent = T.insigniasDe.replace('{g}', g).replace('{t}', INSIGNIAS.length);
+    $('#insignias').innerHTML = INSIGNIAS.map(function (b) {
+      var tiene = ganada(b), txt = T.insignias[b.id];
+      var v = Math.min(b.valor(), b.meta);
+      var h3 = '<div class="insignia' + (tiene ? ' lograda' : '') + '">' +
+               '<span class="ins-icono">' + b.icono + '</span>' +
+               '<span class="ins-tit">' + esc(txt.titulo) + '</span>' +
+               '<span class="ins-sub">' + esc(txt.texto) + '</span>';
+      if (tiene) h3 += '<span class="ins-check">✓</span>';
+      else if (b.meta > 1) h3 += '<span class="ins-barra"><i style="width:' + Math.round(v / b.meta * 100) + '%"></i></span>' +
+                                 '<span class="ins-num">' + v + '/' + b.meta + '</span>';
+      return h3 + '</div>';
     }).join('');
   }
 
-  function tarjetaEtapa(etapa, i) {
+  function tarjetaEtapa(etapa, i, sig) {
     var e = estado(etapa);
-    var d = dominio(etapa);
-    var oculta = i >= 6 ? ' oculta' : '';
-    var pct = Math.round(d.pct * 100);
-    var h = '<li class="etapa ' + e + oculta + '" data-etapa="' + esc(etapa.id) + '">';
+    var d0 = dominio(etapa);
+    var aqui = sig && sig._etapa === etapa;
+    var cerrada = e === 'bloqueada' || e === 'pronto';
+    var pct = Math.round(d0.pct * 100);
+
+    var h = '<li' + (i >= 6 ? ' class="oculta"' : '') + '>';
+    h += '<button type="button" class="etapa ' + e + (aqui ? ' aqui' : '') + '" data-etapa="' +
+         esc(etapa.id) + '"' + (cerrada ? ' disabled' : '') + '>';
     h += '<span class="et-num">' + (i + 1) + '</span>';
-    h += '<span class="et-cuerpo"><span class="et-tit">' + esc(etapa.titulo) + '</span>';
-    if (etapa.temas) h += '<span class="et-sub">' + esc(etapa.temas.slice(0, 3).join(' · ')) +
-                          (etapa.temas.length > 3 ? ' · +' + (etapa.temas.length - 3) : '') + '</span>';
-    else if (etapa.resumen) h += '<span class="et-sub">' + esc(etapa.resumen) + '</span>';
-    if (e === 'abierta' && d.ok > 0) {
-      h += '<span class="et-barra"><i style="width:' + pct + '%"></i></span>';
-    }
+    h += '<span class="et-cuerpo"><span class="et-tit">' + esc(etapa.titulo) +
+         (aqui ? '<em class="et-aqui">' + esc(T.estasAqui) + '</em>' : '') + '</span>';
+
+    var sub = '';
+    if (e === 'bloqueada') {
+      var ant = etapa._anterior, da = dominio(ant);
+      var faltan = Math.max(1, Math.ceil(UMBRAL * da.items) - da.ok);
+      sub = T.paraAbrir.replace('{n}', faltan).replace('{etapa}', ant.titulo);
+    } else if (etapa.temas) {
+      sub = etapa.temas.slice(0, 3).join(' · ') + (etapa.temas.length > 3 ? ' · +' + (etapa.temas.length - 3) : '');
+    } else if (etapa.resumen) { sub = etapa.resumen; }
+    if (sub) h += '<span class="et-sub">' + esc(sub) + '</span>';
+
+    if (e === 'abierta' && d0.ok > 0) h += '<span class="et-barra"><i style="width:' + pct + '%"></i></span>';
     h += '</span>';
-    if (e === 'completa') h += '<span class="et-marca ok">✓</span>';
+
+    if (e === 'completa') h += '<span class="et-marca ok" aria-label="' + esc(T.completada) + '">✓</span>';
     else if (e === 'bloqueada') h += '<span class="et-marca">' + candado() + '</span>';
     else if (e === 'pronto') h += '<span class="et-marca pronto">' + esc(T.pronto) + '</span>';
-    else h += '<span class="et-marca abierta">' + d.ok + '/' + d.items + '</span>';
-    h += '</li>';
-    return h;
+    else h += '<span class="et-marca abierta">' + d0.ok + '/' + d0.items + '</span>';
+    return h + '</button></li>';
   }
 
   function candado() {
@@ -290,7 +436,8 @@
 
   function pintaEtapa(etapa) {
     etapaActual = etapa;
-    $('#et-ruta').textContent = etapa._ruta.titulo;
+    $('#et-ruta').innerHTML = '<button type="button" class="miga-atras" data-ir="panel">' +
+      esc(T.tuCamino) + '</button><span aria-hidden="true">/</span> ' + esc(etapa._ruta.titulo);
     $('#et-titulo').textContent = etapa.titulo;
     var chips = $('#et-temas');
     if (etapa.temas) {
@@ -338,7 +485,10 @@
     $('#ej-tipo').textContent = T.tipos[ej.tipo] || ej.tipo;
     $('#ej-titulo').textContent = ej.titulo;
     $('#ej-instruccion').innerHTML = ej.instruccion;
-    $('#ej-etapa').textContent = ej._ruta.titulo + ' · ' + ej._etapa.titulo;
+    $('#ej-etapa').innerHTML = '<button type="button" class="miga-atras" data-ir="panel">' +
+      esc(T.tuCamino) + '</button><span aria-hidden="true">/</span> ' +
+      '<button type="button" class="miga-atras" data-etapa="' + esc(ej._etapa.id) + '">' +
+      esc(ej._etapa.titulo) + '</button>';
 
     var caja = $('#ej-caja');
     if (ej.tipo === 'caja' && ej.caja) {
@@ -434,9 +584,16 @@
     track('practica_ejercicio_corregido', { ejercicio: ej.id, tipo: ej.tipo, aciertos: ok, sobre: n });
 
     var nuevas = revisaInsignias();
+    var premios = nuevas.map(function (b) {
+      return { icono: b.icono, eti: T.insigniaNueva, titulo: T.insignias[b.id].titulo, texto: T.insignias[b.id].texto };
+    });
     var abiertasDespues = ETAPAS.filter(function (e) { return estado(e) === 'abierta' || estado(e) === 'completa'; }).length;
-    if (abiertasDespues > abiertasAntes) aviso('🔓 <b>' + esc(T.desbloqueada) + '</b>');
-    else if (nuevas.length) aviso(nuevas[0].icono + ' <b>' + esc(T.insignias[nuevas[0].id].titulo) + '</b> · ' + esc(T.insignias[nuevas[0].id].texto));
+    if (abiertasDespues > abiertasAntes) {
+      var nueva = ETAPAS.filter(function (e) { return estado(e) === 'abierta'; })
+        .filter(function (e) { return dominio(e).ok === 0; })[0];
+      premios.unshift({ icono: '🔓', eti: T.desbloqueada, titulo: nueva ? nueva.titulo : '', texto: T.desbloqueadaSub });
+    }
+    if (premios.length) celebra(premios);
   }
 
   function repite() {
@@ -462,6 +619,12 @@
     $$('.pantalla').forEach(function (p) { p.classList.toggle('activa', p.id === id); });
     window.scrollTo({ top: 0, behavior: 'auto' });
     document.body.classList.toggle('dentro', id !== 's-panel');
+    var destino = id === 's-ejercicio' && actual ? actual._etapa.titulo : T.tuCamino;
+    $('#volver-txt').textContent = destino;
+    $('#btn-volver').setAttribute('aria-label', T.volverA.replace('{destino}', destino));
+    $('#t-titulo').textContent = id === 's-panel' ? 'Well Online'
+      : id === 's-etapa' && etapaActual ? etapaActual.titulo
+      : actual ? actual.titulo : 'Well Online';
   }
 
   function abreEtapa(id, empujar) {
@@ -481,9 +644,15 @@
     if (empujar !== false) history.pushState({}, '', '#' + id);
   }
 
+  function alPanel() {
+    pintaPanel();
+    muestra('s-panel');
+    history.pushState({}, '', location.pathname);
+  }
+
   function atras() {
     if ($('#s-ejercicio').classList.contains('activa') && actual) abreEtapa(actual._etapa.id);
-    else { pintaPanel(); muestra('s-panel'); history.pushState({}, '', location.pathname); }
+    else alPanel();
   }
 
   function siguiente() {
@@ -518,7 +687,29 @@
     if (e.target.closest('#btn-repetir')) { repite(); return; }
     if (e.target.closest('#btn-volver')) { atras(); return; }
     if (e.target.closest('#btn-siguiente')) { siguiente(); return; }
-    if (e.target.closest('#et-volver')) { pintaPanel(); muestra('s-panel'); history.pushState({}, '', location.pathname); return; }
+    if (e.target.closest('[data-ir="panel"]')) { alPanel(); return; }
+    if (e.target.closest('#premio-ok') || e.target.id === 'premio') { cierraPremio(); return; }
+    if (e.target.closest('#cambia-nombre')) {
+      $('#pide-nombre').hidden = false;
+      $('#nombre-campo').value = nombreAlumno();
+      $('#nombre-campo').focus();
+      return;
+    }
+    if (e.target.closest('#nombre-ok')) { aplicaNombre(); return; }
+  });
+
+  function aplicaNombre() {
+    var v = $('#nombre-campo').value.trim();
+    if (!v) { $('#nombre-campo').focus(); return; }
+    guardaNombre(v);
+    $('#pide-nombre').hidden = true;
+    pintaPanel();
+    track('practica_nombre_guardado', {});
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && e.target.id === 'nombre-campo') { e.preventDefault(); aplicaNombre(); }
+    if (e.key === 'Escape' && !$('#premio').hidden) cierraPremio();
   });
 
   document.addEventListener('keydown', function (e) {

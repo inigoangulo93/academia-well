@@ -56,27 +56,75 @@ Segun la respuesta:
 
 ## Como esta organizado
 
-La pagina de entrada es un **panel del alumno**, no una lista de ejercicios:
+La pagina de entrada es un **panel del alumno**, no una lista de ejercicios.
 
-- **Su nivel**, leido del test de nivel. Al terminar el test, `test-app.js`
-  guarda `well_nivel` en el navegador y la practica lo recoge. Si no ha hecho
-  el test, le ofrece hacerlo.
-- **Racha de dias seguidos** y **aciertos acumulados**.
-- **Continua por aqui**: el siguiente ejercicio pendiente, a un clic.
-- **El camino entero**, en dos rutas:
-  - *Use of English*, 24 series (las del VOCABULARY FOLDER).
-  - *Gramatica*, 8 etapas que agrupan los 31 temas del GRAMMAR FOLDER.
-- **Insignias**: primer ejercicio, ejercicio perfecto, racha de 3 y de 7 dias,
-  100 aciertos, etapa entera.
+**Quien es.** Saluda por su nombre y por la hora del dia ("Buenas tardes,
+Juan"). El nombre sale del test de nivel: al escribirlo para el certificado o
+para el WhatsApp, `test-app.js` lo guarda en `well_nombre`. Si llega sin
+nombre, el panel se lo pregunta en una linea. El nivel viene por el mismo
+camino, en `well_nivel`, y se ensena como chapa junto al saludo. Sin test, le
+ofrece hacerlo.
 
-**Los desbloqueos.** Una etapa se abre cuando se domina el 70 % de la anterior
-(`dominioParaAbrir` en `practica-data.js`). El criterio es el mismo que ya usa
-el test de nivel: no se avanza hasta dominar lo de atras. Las etapas cuyo
-material aun no esta volcado salen como "pronto", no como bloqueadas: se ve el
-tamano real del camino sin prometer lo que todavia no existe.
+**Que lleva hecho.** Un anillo con el porcentaje dominado del material
+cargado, con el detalle en huecos ("16 de 52"). Debajo: ejercicios perfectos,
+etapas completas y cuantos ejercicios le quedan ahora mismo en lo que tiene
+abierto.
+
+**Que ha hecho estos dias.** Una tira de siete casillas, una por dia, con los
+dias practicados en carmin y el de hoy marcado. Al lado, la racha en numero.
+
+**Que va a conseguir a continuacion.** La insignia mas cercana, con su barra y
+lo que le falta ("Cinco redondos · 2/5"). Es el gancho para la siguiente
+sesion.
+
+**Por donde sigue.** Tarjeta "Continua por aqui" con el siguiente ejercicio
+pendiente, a un clic, para que nadie tenga que decidir por donde va.
+
+**El camino entero**, en dos rutas:
+
+- *Use of English*, 24 series (las del VOCABULARY FOLDER).
+- *Gramatica*, 8 etapas que agrupan los 31 temas del GRAMMAR FOLDER.
+
+La etapa en curso lleva la marca "estas aqui". Una etapa se abre al dominar el
+70 % de la anterior (`dominioParaAbrir` en `practica-data.js`), el mismo
+criterio que ya usa el test de nivel: no se avanza sin dominar lo de atras. Y
+la etapa bloqueada **dice exactamente lo que falta**: "Termina la Serie 1: te
+faltan 5 aciertos". Un candado que no explica como abrirse no motiva a nadie.
+
+Las etapas cuyo material aun no esta volcado salen como "pronto", no como
+bloqueadas: se ve el tamano real del camino sin prometer lo que todavia no
+existe.
+
+**Once insignias**, con barra de progreso las que llevan cuenta: primer
+ejercicio, uno perfecto, cinco perfectos, rachas de 3, 7 y 30 dias, 50, 100 y
+500 aciertos, una etapa completa y cinco. Las pendientes se ven en gris con lo
+que falta, para que se sepa a que se aspira.
+
+**La celebracion.** Cada insignia y cada etapa desbloqueada abre una ventana
+con el icono grande y un rebote. Si caen varias a la vez se encolan. Respeta
+`prefers-reduced-motion`.
 
 Hay **dos series cargadas** (52 huecos), suficientes para ver el bloqueo, el
-desbloqueo y la insignia de etapa completa funcionando de verdad.
+desbloqueo, las insignias y la celebracion funcionando de verdad.
+
+## Navegacion e interfaz
+
+Tres pantallas y una sola jerarquia: **panel → etapa → ejercicio**.
+
+- **Migas clicables** arriba de cada pantalla ("Tu camino / Serie 1"), no solo
+  un boton de atras.
+- **La cabecera dice a donde vuelve**: "‹ Serie 1" desde un ejercicio, "‹ Tu
+  camino" desde una etapa. El titulo del centro cambia con la pantalla.
+- El **boton del navegador** funciona igual que las migas: cada pantalla tiene
+  su URL con almohadilla, asi que se puede compartir el enlace de un ejercicio.
+- **Las etapas son botones de verdad**, no divs con un click encima: se llega a
+  ellas con el tabulador y las cerradas van `disabled`. Foco visible en todo.
+- **Los botones miden lo que miden.** A ancho completo solo en movil, donde el
+  pulgar lo agradece. En escritorio, ancho natural, el secundario a la
+  izquierda y el principal a la derecha, que es donde se busca para avanzar.
+- **En escritorio el panel es de dos columnas** (camino a la izquierda,
+  insignias fijas a la derecha); por debajo de 920 px pasa a una.
+- Probado a 360, 390 y 1440 px.
 
 ## Que hace ya el prototipo
 

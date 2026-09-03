@@ -340,6 +340,14 @@
   /* ---------- certificado PDF (canvas → JPEG → PDF, sin dependencias) ---------- */
   const certBtn = $('#cert-btn'), certNombre = $('#cert-nombre');
   $('#lead-nombre').addEventListener('input', e => { if (!certNombre.value) certNombre.value = e.target.value; });
+  // El nombre queda anotado para que la practica de Well Online pueda saludar
+  // por el nombre sin volver a pedirlo.
+  const recuerdaNombre = n => {
+    n = String(n || '').trim();
+    if (n.length > 1) { try { localStorage.setItem('well_nombre', n); } catch (e) {} }
+  };
+  $('#lead-nombre').addEventListener('change', e => recuerdaNombre(e.target.value));
+  certNombre.addEventListener('change', e => recuerdaNombre(e.target.value));
   certNombre.addEventListener('input', () => { $('#cert-err').hidden = true; $('#cert-ok').hidden = true; });
   certNombre.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); certBtn.click(); } });
   certBtn.addEventListener('click', async () => {
