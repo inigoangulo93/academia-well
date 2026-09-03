@@ -383,7 +383,7 @@
       var h2 = '<div class="ruta-cab"><div><h2>' + esc(ruta.titulo) + '</h2>' +
                '<p class="ruta-sub">' + esc(ruta.subtitulo) + '</p></div>' +
                '<span class="nivel-chip">' + esc(ruta.nivel) + '</span></div>';
-      h2 += '<ol class="etapas" data-ruta="' + esc(ruta.id) + '">';
+      h2 += '<ol class="mapa" data-ruta="' + esc(ruta.id) + '">';
       ruta.etapas.forEach(function (etapa, i) { h2 += tarjetaEtapa(etapa, i, sig); });
       h2 += '</ol>';
       if (ruta.etapas.length > 6) {
@@ -418,12 +418,10 @@
     var cerrada = e === 'bloqueada' || e === 'pronto';
     var pct = Math.round(d0.pct * 100);
 
-    var h = '<li' + (i >= 6 ? ' class="oculta"' : '') + '>';
-    h += '<button type="button" class="etapa ' + e + (aqui ? ' aqui' : '') + '" data-etapa="' +
-         esc(etapa.id) + '"' + (cerrada ? ' disabled' : '') + '>';
-    h += '<span class="et-num">' + (i + 1) + '</span>';
-    h += '<span class="et-cuerpo"><span class="et-tit">' + esc(etapa.titulo) +
-         (aqui ? '<em class="et-aqui">' + esc(T.estasAqui) + '</em>' : '') + '</span>';
+    var nodo;
+    if (e === 'completa') nodo = '<span class="nodo" aria-hidden="true">✓</span>';
+    else if (e === 'bloqueada') nodo = '<span class="nodo">' + candado() + '</span>';
+    else nodo = '<span class="nodo">' + (i + 1) + '</span>';
 
     var sub = '';
     if (e === 'bloqueada') {
@@ -432,17 +430,27 @@
       sub = T.paraAbrir.replace('{n}', faltan).replace('{etapa}', ant.titulo);
     } else if (etapa.temas) {
       sub = etapa.temas.slice(0, 3).join(' · ') + (etapa.temas.length > 3 ? ' · +' + (etapa.temas.length - 3) : '');
-    } else if (etapa.resumen) { sub = etapa.resumen; }
-    if (sub) h += '<span class="et-sub">' + esc(sub) + '</span>';
+    } else if (etapa.resumen && e !== 'pronto') {
+      // en las etapas lejanas el resumen generico se repite 20 veces y solo
+      // hace ruido; los temas de gramatica, en cambio, si dicen algo
+      sub = etapa.resumen;
+    }
 
-    if (e === 'abierta' && d0.ok > 0) h += '<span class="et-barra"><i style="width:' + pct + '%"></i></span>';
-    h += '</span>';
+    var marca;
+    if (e === 'completa') marca = '<span class="paso-marca hecho">' + esc(T.completada) + '</span>';
+    else if (e === 'pronto') marca = '<span class="paso-marca pronto">' + esc(T.pronto) + '</span>';
+    else if (e === 'bloqueada') marca = '';
+    else marca = '<span class="paso-marca viva">' + d0.ok + '/' + d0.items + '</span>';
 
-    if (e === 'completa') h += '<span class="et-marca ok" aria-label="' + esc(T.completada) + '">✓</span>';
-    else if (e === 'bloqueada') h += '<span class="et-marca">' + candado() + '</span>';
-    else if (e === 'pronto') h += '<span class="et-marca pronto">' + esc(T.pronto) + '</span>';
-    else h += '<span class="et-marca abierta">' + d0.ok + '/' + d0.items + '</span>';
-    return h + '</button></li>';
+    var h = '<li class="paso ' + e + (aqui ? ' aqui' : '') + (i >= 6 ? ' oculta' : '') + '">';
+    h += '<button type="button" class="paso-btn" data-etapa="' + esc(etapa.id) + '"' + (cerrada ? ' disabled' : '') + '>';
+    h += nodo;
+    h += '<span class="paso-cuerpo"><span class="paso-tit">' + esc(etapa.titulo) +
+         (aqui ? '<em class="et-aqui">' + esc(T.estasAqui) + '</em>' : '') + '</span>';
+    if (sub) h += '<span class="paso-sub">' + esc(sub) + '</span>';
+    if (e === 'abierta' && d0.ok > 0) h += '<span class="paso-barra"><i style="width:' + pct + '%"></i></span>';
+    h += '</span>' + marca + '</button></li>';
+    return h;
   }
 
   function candado() {
@@ -699,7 +707,7 @@
     if (et) { abreEtapa(et.getAttribute('data-etapa')); return; }
     var vm = e.target.closest('.ver-mas');
     if (vm) {
-      var ol = $('.etapas[data-ruta="' + vm.getAttribute('data-ruta') + '"]');
+      var ol = $('.mapa[data-ruta="' + vm.getAttribute('data-ruta') + '"]');
       $$('.oculta', ol).forEach(function (li) { li.classList.remove('oculta'); });
       vm.remove();
       return;

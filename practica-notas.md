@@ -139,7 +139,12 @@ Lo primero es lo que hay que hacer, no lo ya conseguido:
 
 1. Saludo, nivel y en que punto del camino esta.
 2. **Continua por aqui**: la accion, en azul, arriba del todo.
-3. **El camino** (las dos rutas con sus etapas), que es el grueso.
+3. **El camino**, dibujado como un mapa: un rail vertical con un nodo por
+   etapa. Verde con el visto las hechas, azul con halo la que toca ahora,
+   candado la bloqueada y nodo de trazo discontinuo las que estan por volcar.
+   Los pasos lejanos van comprimidos y sin subtitulo, para que 24 filas
+   iguales no tapen lo que toca hoy; en gramatica si lo llevan, porque ahi el
+   subtitulo son los temas de verdad.
 4. A la derecha, en columna fija: **anillo de dominio** con perfectos, etapas y
    lo que queda; **racha** con la tira de siete dias; e **insignias en
    pequeno**: la cuenta, seis fichas y la proxima con su barra.
