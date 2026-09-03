@@ -142,9 +142,19 @@ Lo primero es lo que hay que hacer, no lo ya conseguido:
 3. **El camino**, dibujado como un mapa: un rail vertical con un nodo por
    etapa. Verde con el visto las hechas, azul con halo la que toca ahora,
    candado la bloqueada y nodo de trazo discontinuo las que estan por volcar.
-   Los pasos lejanos van comprimidos y sin subtitulo, para que 24 filas
-   iguales no tapen lo que toca hoy; en gramatica si lo llevan, porque ahi el
-   subtitulo son los temas de verdad.
+   El rail se colorea hasta donde has llegado.
+
+   **Se recorre por bloques.** Las 24 series de Use of English van en cuatro
+   tramos de seis (`porTramo` en `practica-data.js`) y solo se abre el tramo en
+   el que estas; los demas son una linea que se despliega al tocarla, y lo que
+   abras o cierres se recuerda. Cada tramo termina en un **nodo de meta**: 🏁
+   mientras falta alguna etapa, 🏆 y en verde cuando estan las seis al 100 %.
+   Asi el camino entero cabe en una pantalla y hay un hito cerca al que llegar,
+   en vez de veinticuatro filas iguales.
+
+   Los pasos lejanos van comprimidos y sin subtitulo, porque en Use of English
+   ese subtitulo es la misma frase repetida; en gramatica si lo llevan, porque
+   ahi el subtitulo son los temas de verdad.
 4. A la derecha, en columna fija: **anillo de dominio** con perfectos, etapas y
    lo que queda; **racha** con la tira de siete dias; e **insignias en
    pequeno**: la cuenta, seis fichas y la proxima con su barra.

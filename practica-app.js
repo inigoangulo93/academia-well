@@ -91,7 +91,7 @@
   /* ---------- progreso ---------- */
 
   var P = (function () {
-    var vacio = { ejercicios: {}, dias: [], insignias: [] };
+    var vacio = { ejercicios: {}, dias: [], insignias: [], tramos: {} };
     try {
       var raw = JSON.parse(localStorage.getItem(CLAVE));
       if (raw && raw.ejercicios) return Object.assign(vacio, raw);
@@ -377,23 +377,96 @@
     var cont2 = $('#rutas');
     cont2.innerHTML = '';
     DATA.rutas.forEach(function (ruta) {
-      var conMaterial = ruta.etapas.filter(function (e) { return e.ejercicios; }).length;
       var s = document.createElement('section');
       s.className = 'ruta';
-      var h2 = '<div class="ruta-cab"><div><h2>' + esc(ruta.titulo) + '</h2>' +
-               '<p class="ruta-sub">' + esc(ruta.subtitulo) + '</p></div>' +
-               '<span class="nivel-chip">' + esc(ruta.nivel) + '</span></div>';
-      h2 += '<ol class="mapa" data-ruta="' + esc(ruta.id) + '">';
-      ruta.etapas.forEach(function (etapa, i) { h2 += tarjetaEtapa(etapa, i, sig); });
-      h2 += '</ol>';
-      if (ruta.etapas.length > 6) {
-        h2 += '<button class="ver-mas" data-ruta="' + esc(ruta.id) + '">' +
-              T.verTodas.replace('{n}', ruta.etapas.length) + '</button>';
-      }
-      h2 += '<p class="ruta-pie">' + T.deLasCuales.replace('{n}', conMaterial).replace('{t}', ruta.etapas.length) + '</p>';
-      s.innerHTML = h2;
+      s.innerHTML = pintaRuta(ruta, sig);
       cont2.appendChild(s);
     });
+  }
+
+  /* ---------- el camino ---------- */
+
+  // Las rutas largas se parten en tramos de `porTramo` etapas. Solo se abre el
+  // tramo en el que esta el alumno: un camino de 24 filas iguales no invita a
+  // nada, y en tramos se ve donde estas y cuanto falta para el siguiente hito.
+  function trocea(ruta) {
+    if (!ruta.porTramo) return [{ id: ruta.id + '-todo', base: 0, etapas: ruta.etapas, suelto: true }];
+    var out = [];
+    for (var i = 0; i < ruta.etapas.length; i += ruta.porTramo) {
+      out.push({
+        id: ruta.id + '-t' + (out.length + 1),
+        base: i,
+        etapas: ruta.etapas.slice(i, i + ruta.porTramo)
+      });
+    }
+    return out;
+  }
+
+  function estadoTramo(tr) {
+    var conMaterial = tr.etapas.filter(function (e) { return e.ejercicios; });
+    var items = conMaterial.reduce(function (a, e) { return a + dominio(e).items; }, 0);
+    var ok = conMaterial.reduce(function (a, e) { return a + dominio(e).ok; }, 0);
+    var completas = tr.etapas.filter(function (e) { return estado(e) === 'completa'; }).length;
+    var vivo = tr.etapas.some(function (e) { return estado(e) === 'abierta'; });
+    return {
+      items: items, ok: ok, completas: completas, total: tr.etapas.length,
+      conMaterial: conMaterial.length, vivo: vivo,
+      hecho: completas === tr.etapas.length,
+      pct: items ? ok / items : 0
+    };
+  }
+
+  function pintaRuta(ruta, sig) {
+    var tramos = trocea(ruta);
+    var conMaterial = ruta.etapas.filter(function (e) { return e.ejercicios; }).length;
+
+    var h = '<div class="ruta-cab"><div><h2>' + esc(ruta.titulo) + '</h2>' +
+            '<p class="ruta-sub">' + esc(ruta.subtitulo) + '</p></div>' +
+            '<span class="nivel-chip">' + esc(ruta.nivel) + '</span></div>';
+
+    tramos.forEach(function (tr) {
+      var st = estadoTramo(tr);
+      var tieneAqui = sig && tr.etapas.indexOf(sig._etapa) > -1;
+      var abierto = P.tramos[tr.id] !== undefined ? !!P.tramos[tr.id] : (tr.suelto || tieneAqui || st.vivo);
+
+      if (tr.suelto) {
+        h += '<ol class="mapa">' +
+             tr.etapas.map(function (e, j) { return tarjetaEtapa(e, tr.base + j, sig); }).join('') +
+             '</ol>';
+        return;
+      }
+
+      var etiqueta = T.tramo.replace('{a}', tr.base + 1).replace('{b}', tr.base + tr.etapas.length);
+      var marca = st.hecho ? '<span class="tramo-marca hecho">' + esc(T.completada) + '</span>'
+                : st.items ? '<span class="tramo-marca viva">' + st.ok + '/' + st.items + '</span>'
+                : '<span class="tramo-marca pronto">' + esc(T.pronto) + '</span>';
+
+      h += '<section class="tramo' + (st.hecho ? ' hecho' : '') + (tieneAqui ? ' aqui' : '') +
+           (abierto ? ' abierto' : '') + '">';
+      h += '<button type="button" class="tramo-cab" data-tramo="' + esc(tr.id) + '" aria-expanded="' +
+           (abierto ? 'true' : 'false') + '">' +
+           '<span class="chevron" aria-hidden="true"></span>' +
+           '<span class="tramo-tit">' + esc(etiqueta) + '</span>' +
+           '<span class="tramo-cuenta">' + T.etapasN.replace('{n}', tr.etapas.length) + '</span>' +
+           marca + '</button>';
+      h += '<div class="tramo-cuerpo"' + (abierto ? '' : ' hidden') + '><ol class="mapa">';
+      h += tr.etapas.map(function (e, j) { return tarjetaEtapa(e, tr.base + j, sig); }).join('');
+      h += metaTramo(tr, st);
+      h += '</ol></div></section>';
+    });
+
+    h += '<p class="ruta-pie">' + T.deLasCuales.replace('{n}', conMaterial).replace('{t}', ruta.etapas.length) + '</p>';
+    return h;
+  }
+
+  function metaTramo(tr, st) {
+    var h = '<li class="paso meta' + (st.hecho ? ' hecho' : '') + '">';
+    h += '<span class="nodo meta-nodo" aria-hidden="true">' + (st.hecho ? '🏆' : '🏁') + '</span>';
+    h += '<span class="paso-cuerpo"><span class="paso-tit">' +
+         esc(st.hecho ? T.metaHecha : T.metaTitulo) + '</span>' +
+         '<span class="paso-sub">' + esc(T.metaSub.replace('{n}', tr.etapas.length)) + '</span></span>';
+    h += '<span class="paso-marca ' + (st.hecho ? 'hecho' : 'gris') + '">' + st.completas + '/' + st.total + '</span>';
+    return h + '</li>';
   }
 
   function pintaInsignias() {
@@ -442,7 +515,7 @@
     else if (e === 'bloqueada') marca = '';
     else marca = '<span class="paso-marca viva">' + d0.ok + '/' + d0.items + '</span>';
 
-    var h = '<li class="paso ' + e + (aqui ? ' aqui' : '') + (i >= 6 ? ' oculta' : '') + '">';
+    var h = '<li class="paso ' + e + (aqui ? ' aqui' : '') + '">';
     h += '<button type="button" class="paso-btn" data-etapa="' + esc(etapa.id) + '"' + (cerrada ? ' disabled' : '') + '>';
     h += nodo;
     h += '<span class="paso-cuerpo"><span class="paso-tit">' + esc(etapa.titulo) +
@@ -705,11 +778,15 @@
     if (ej) { abreEjercicio(ej.getAttribute('data-ej')); return; }
     var et = e.target.closest('[data-etapa]');
     if (et) { abreEtapa(et.getAttribute('data-etapa')); return; }
-    var vm = e.target.closest('.ver-mas');
-    if (vm) {
-      var ol = $('.mapa[data-ruta="' + vm.getAttribute('data-ruta') + '"]');
-      $$('.oculta', ol).forEach(function (li) { li.classList.remove('oculta'); });
-      vm.remove();
+    var tr = e.target.closest('[data-tramo]');
+    if (tr) {
+      var id = tr.getAttribute('data-tramo');
+      var abierto = tr.getAttribute('aria-expanded') === 'true';
+      P.tramos[id] = !abierto;
+      guarda();
+      tr.setAttribute('aria-expanded', abierto ? 'false' : 'true');
+      tr.parentNode.classList.toggle('abierto', !abierto);
+      tr.nextElementSibling.hidden = abierto;
       return;
     }
     if (e.target.closest('#btn-corregir')) { corrige(); return; }

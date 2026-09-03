@@ -27,6 +27,7 @@ window.WELL_PRACTICA = {
       titulo: 'Use of English',
       subtitulo: 'Las cuatro pruebas de la parte de uso del inglés de Cambridge, serie a serie.',
       nivel: 'B2 · C1',
+      porTramo: 6,
       etapas: [
         {
           id: 'ue-1',
