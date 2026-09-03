@@ -97,6 +97,31 @@
   .rean-sub{color:var(--gris);margin-bottom:18px}
   .rean-cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 
+  /* contenido de apoyo bajo la intro: lo ve quien llega de Google,
+     desaparece en cuanto empieza el test porque vive dentro de #s-intro */
+  .info{max-width:640px;margin:52px auto 0;text-align:left;border-top:1px solid var(--linea);padding-top:34px}
+  .info h2{font-size:22px;margin:32px 0 10px}
+  .info h2:first-child{margin-top:0}
+  .info p{color:var(--gris);margin-bottom:12px}
+  .info p:last-child{margin-bottom:0}
+  .info p b{color:var(--tinta);font-weight:600}
+  .niveles{margin:18px 0 0;display:grid;gap:13px}
+  .niveles > div{display:grid;grid-template-columns:74px 1fr;gap:14px;align-items:baseline}
+  .niveles dt{font-family:'Bree Serif',serif;color:var(--azul);font-size:17px}
+  .niveles dd{margin:0;color:var(--gris);font-size:16px;line-height:1.55}
+  .niveles dd b{color:var(--tinta);font-weight:600}
+  .info details{border-bottom:1px solid var(--linea);padding:13px 0}
+  .info details:first-of-type{border-top:1px solid var(--linea)}
+  .info summary{cursor:pointer;font-weight:600;color:var(--tinta);list-style:none;display:flex;
+                justify-content:space-between;align-items:center;gap:14px}
+  .info summary::-webkit-details-marker{display:none}
+  .info summary::after{content:"+";color:var(--carmin);font-weight:700;font-size:21px;line-height:1;flex:none}
+  .info details[open] summary::after{content:"\2212"}
+  .info details p{margin:9px 0 0;font-size:16px}
+  .info .mas{margin-top:24px;font-size:16px}
+  .info .mas a{color:var(--azul);font-weight:600}
+  @media(max-width:480px){.niveles > div{grid-template-columns:62px 1fr;gap:10px}}
+
   /* pregunta */
   .q-meta{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:14px}
   .q-bloque{color:var(--azul);font-weight:700;font-size:13px;letter-spacing:.05em;text-transform:uppercase}
@@ -273,6 +298,38 @@
     </div>
     <div class="reanudar" id="intro-reanudar" hidden></div>
     <p class="aviso"><b>Amaitzean</b> zure maila jakingo duzu, eta WELLekin zuzenean harremanetan jarri ahal izango zara zure taldea eta ordutegia ezagutzeko. Academia Well-en maila esleitzeko erabiltzen dugun testa da; zure erantzunak gailu honetan gordetzen dira, geroago jarraitu nahi baduzu.</p>
+    <section class="info">
+      <h2>Zer neurtzen du test honek</h2>
+      <p>Ingelesaren gramatikari eta erabilerari buruzko 100 galdera dira, A1etik C2ra. <b>Hau da Academia Well-en maila esleitzeko erabiltzen dugun testa</b>, denontzat berbera.</p>
+      <p>Blokeka doa: bakoitza amaitzean asmatutakoak zenbatzen ditu eta, non zauden argi badu, gelditu egiten da. Ez da beharrezkoa 100. galderara iristea emaitza izateko, eta horregatik gehienek hogei minutu baino gutxiagotan amaitzen dute.</p>
+      <p>Gramatika eta hizkuntzaren erabilera neurtzen ditu, hori baita idatziz maila modu fidagarrian kokatzen duena.</p>
+
+      <h2>Mailak, A1etik C2ra</h2>
+      <p>Erreferentziazko Europako Marko Bateratuaren sei mailak dira, Cambridgeko azterketek erabiltzen dituzten berberak:</p>
+      <dl class="niveles">
+        <div><dt>A1</dt><dd><b>Hastapena.</b> Zeure burua aurkeztu, oinarrizko datuak eman eta esaldi errazak ulertzen dituzu astiro hitz egiten badizute.</dd></div>
+        <div><dt>A2</dt><dd><b>Oinarrizkoa.</b> Eguneroko egoeretan moldatzen zara: erosketak, bidaiak, zure errutinaz hitz egin. A2 Key azterketari dagokio.</dd></div>
+        <div><dt>B1</dt><dd><b>Tartekoa.</b> Ohiko elkarrizketa bat jarraitzen duzu, esperientziak kontatzen dituzu eta bidaietan moldatzen zara. B1 Preliminary da.</dd></div>
+        <div><dt>B2</dt><dd><b>Tarteko altua.</b> Testu konplexuak ulertzen dituzu eta erraztasunez adierazten zara. B2 First da, enpresek eta unibertsitateek eskatzen duten titulua.</dd></div>
+        <div><dt>C1</dt><dd><b>Aurreratua.</b> Ingelesa naturaltasunez erabiltzen duzu ingurune akademiko eta profesionaletan. C1 Advanced da.</dd></div>
+        <div><dt>C2</dt><dd><b>Maisutasuna.</b> Ia dena ulertzen duzu eta hiztun natibo baten moduan adierazten zara. C2 Proficiency da.</dd></div>
+      </dl>
+
+      <h2>Zer gertatzen da amaitzean</h2>
+      <p>Zure maila berehala ikusiko duzu, eskala osoarekin eta zure puntuazioarekin, eta <b>PDF ziurtagiri bat</b> deskarga dezakezu zure izenarekin, mailarekin eta datarekin.</p>
+      <p>Handik, nahi baduzu, WhatsApp bidez idatziko diguzu botoi bakar batekin: mezuak zure maila idatzita darama, eta esango dizugu zein taldetan sartzen zaren eta zein ordutegi dagoen libre.</p>
+
+      <h2>Ohiko galderak</h2>
+      <details><summary>Erregistratu behar da?</summary><p>Ez. Ez dugu emailik ez telefonorik eskatzen hasteko, eta zure erantzunak zure nabigatzailean bakarrik gordetzen dira. Amaieran zerbait konta diezazugun nahi baduzu, zuk erabakiko duzu.</p></details>
+      <details><summary>Zenbat denbora behar da?</summary><p>15 eta 20 minutu artean. Erdibidean uzten baduzu, itzultzean zeunden lekuan jarraituko duzu, gailu berean.</p></details>
+      <details><summary>Errepika dezaket?</summary><p>Bai, nahi adina aldiz.</p></details>
+      <details><summary>Eta nire maila C1 edo C2 bada?</summary><p>Testa &laquo;B2tik gora&raquo; arte iristen da eta ez du C1 eta C2 bereizten. Hori bada zure kasua, idatzi eta zurekin zehaztuko dugu.</p></details>
+      <details><summary>Esaten dit zein Cambridge azterketa egin?</summary><p>Zure maila esaten dizu, hori baita abiapuntua. Deialdia eta azterketa noiz aurkeztu nahi duzunaren araberakoak dira ere, eta hori hitz egingo dugu.</p></details>
+      <details><summary>Well-eko ikaslea izan behar da?</summary><p>Ez. Testa irekia eta doakoa da edonorentzat.</p></details>
+
+      <p class="mas"><a href="cursos.html">Ikusi ikastaroaren mailak, ordutegiak eta prezioak &rarr;</a></p>
+    </section>
+
   </section>
 
   <!-- 2. Pregunta -->

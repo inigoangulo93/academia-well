@@ -101,12 +101,17 @@ Esto es el negocio real de una persona. Nunca inventes:
   centro preparador oficial. Ni una palabra más.
 - **Datos, precios, horarios, festivos.** Si algo no está confirmado, se
   pregunta; no se rellena.
-- El **test online** es siempre una estimación orientativa. La prueba de nivel
-  en la academia es la que asigna grupo. El certificado en PDF lo dice al pie.
+- **No hay ninguna prueba de nivel presencial.** El test online es *el* test con
+  el que se asigna nivel. Nunca escribir que la academia "confirma" el nivel con
+  otra prueba: lo que queda por concretar es el grupo, el horario y las plazas.
+  El certificado en PDF sí debe seguir diciendo que no es una certificación
+  oficial de Cambridge English.
 
 ## Pendiente de la academia
 
-- Validar la clave de respuestas y los mínimos de paso (`test-clave.md`).
+- **Validar la clave de respuestas y los mínimos de paso** (`test-clave.md`).
+  Es lo más urgente: al no existir prueba presencial, este test decide en qué
+  grupo entra cada alumno, y la clave todavía no la ha revisado la academia.
 - La cuarta reseña real.
 - Confirmar horario de apertura declarado en los datos estructurados
   (L–J 16:00–21:00) y las fechas de vuelta de enero del calendario.

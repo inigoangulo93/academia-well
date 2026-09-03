@@ -97,6 +97,31 @@
   .rean-sub{color:var(--gris);margin-bottom:18px}
   .rean-cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 
+  /* contenido de apoyo bajo la intro: lo ve quien llega de Google,
+     desaparece en cuanto empieza el test porque vive dentro de #s-intro */
+  .info{max-width:640px;margin:52px auto 0;text-align:left;border-top:1px solid var(--linea);padding-top:34px}
+  .info h2{font-size:22px;margin:32px 0 10px}
+  .info h2:first-child{margin-top:0}
+  .info p{color:var(--gris);margin-bottom:12px}
+  .info p:last-child{margin-bottom:0}
+  .info p b{color:var(--tinta);font-weight:600}
+  .niveles{margin:18px 0 0;display:grid;gap:13px}
+  .niveles > div{display:grid;grid-template-columns:74px 1fr;gap:14px;align-items:baseline}
+  .niveles dt{font-family:'Bree Serif',serif;color:var(--azul);font-size:17px}
+  .niveles dd{margin:0;color:var(--gris);font-size:16px;line-height:1.55}
+  .niveles dd b{color:var(--tinta);font-weight:600}
+  .info details{border-bottom:1px solid var(--linea);padding:13px 0}
+  .info details:first-of-type{border-top:1px solid var(--linea)}
+  .info summary{cursor:pointer;font-weight:600;color:var(--tinta);list-style:none;display:flex;
+                justify-content:space-between;align-items:center;gap:14px}
+  .info summary::-webkit-details-marker{display:none}
+  .info summary::after{content:"+";color:var(--carmin);font-weight:700;font-size:21px;line-height:1;flex:none}
+  .info details[open] summary::after{content:"\2212"}
+  .info details p{margin:9px 0 0;font-size:16px}
+  .info .mas{margin-top:24px;font-size:16px}
+  .info .mas a{color:var(--azul);font-weight:600}
+  @media(max-width:480px){.niveles > div{grid-template-columns:62px 1fr;gap:10px}}
+
   /* pregunta */
   .q-meta{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:14px}
   .q-bloque{color:var(--azul);font-weight:700;font-size:13px;letter-spacing:.05em;text-transform:uppercase}
@@ -273,6 +298,38 @@
     </div>
     <div class="reanudar" id="intro-reanudar" hidden></div>
     <p class="aviso"><b>Al finalizar</b> sabr&aacute;s tu nivel y podr&aacute;s contactar directamente con WELL para conocer tu grupo y tu horario. Es el test con el que asignamos nivel en Academia Well; tus respuestas se guardan en este dispositivo por si quieres continuar m&aacute;s tarde.</p>
+    <section class="info">
+      <h2>Qu&eacute; mide este test</h2>
+      <p>Son 100 preguntas de gram&aacute;tica y uso del ingl&eacute;s, de A1 a C2. <b>Es el test con el que asignamos nivel en Academia Well</b>, el mismo para todo el mundo.</p>
+      <p>Va por bloques: al terminar cada uno cuenta tus aciertos y, si ya tiene claro d&oacute;nde est&aacute;s, se detiene. No hace falta llegar a la pregunta 100 para tener un resultado, y por eso la mayor&iacute;a lo termina en menos de veinte minutos.</p>
+      <p>Mide gram&aacute;tica y uso del idioma, que es lo que sit&uacute;a el nivel de forma fiable por escrito.</p>
+
+      <h2>Los niveles, del A1 al C2</h2>
+      <p>Son los seis niveles del Marco Com&uacute;n Europeo de Referencia, los mismos que usan los ex&aacute;menes de Cambridge:</p>
+      <dl class="niveles">
+        <div><dt>A1</dt><dd><b>Iniciaci&oacute;n.</b> Te presentas, das datos b&aacute;sicos y entiendes frases sencillas si te hablan despacio.</dd></div>
+        <div><dt>A2</dt><dd><b>B&aacute;sico.</b> Te manejas en situaciones cotidianas: compras, viajes, hablar de tu rutina. Corresponde al A2 Key.</dd></div>
+        <div><dt>B1</dt><dd><b>Intermedio.</b> Sigues una conversaci&oacute;n normal, cuentas experiencias y te defiendes viajando. Es el B1 Preliminary.</dd></div>
+        <div><dt>B2</dt><dd><b>Intermedio alto.</b> Entiendes textos complejos y te expresas con soltura. Es el B2 First, el t&iacute;tulo que piden empresas y universidades.</dd></div>
+        <div><dt>C1</dt><dd><b>Avanzado.</b> Usas el ingl&eacute;s con naturalidad en entornos acad&eacute;micos y profesionales. Es el C1 Advanced.</dd></div>
+        <div><dt>C2</dt><dd><b>Maestr&iacute;a.</b> Comprendes pr&aacute;cticamente todo y te expresas como un hablante nativo. Es el C2 Proficiency.</dd></div>
+      </dl>
+
+      <h2>Qu&eacute; pasa cuando terminas</h2>
+      <p>Ves tu nivel al momento, con la escala completa y tu puntuaci&oacute;n, y puedes descargarte un <b>certificado en PDF</b> con tu nombre, tu nivel y la fecha.</p>
+      <p>Desde ah&iacute;, si quieres, nos escribes por WhatsApp con un solo bot&oacute;n: el mensaje va ya con tu nivel puesto, y te decimos en qu&eacute; grupo entras y qu&eacute; horarios quedan libres.</p>
+
+      <h2>Preguntas frecuentes</h2>
+      <details><summary>&iquest;Hay que registrarse?</summary><p>No. No pedimos email ni tel&eacute;fono para empezar, y tus respuestas se guardan solo en tu navegador. Si al final quieres que te contemos algo, lo decides t&uacute;.</p></details>
+      <details><summary>&iquest;Cu&aacute;nto se tarda?</summary><p>Entre 15 y 20 minutos. Si lo dejas a medias, al volver lo retomas donde estabas, en el mismo dispositivo.</p></details>
+      <details><summary>&iquest;Puedo repetirlo?</summary><p>S&iacute;, las veces que quieras.</p></details>
+      <details><summary>&iquest;Y si mi nivel es C1 o C2?</summary><p>El test llega hasta &laquo;por encima de B2&raquo; y no distingue entre C1 y C2. Si es tu caso, escr&iacute;benos y lo concretamos contigo.</p></details>
+      <details><summary>&iquest;Me dice a qu&eacute; examen de Cambridge presentarme?</summary><p>Te dice tu nivel, que es el punto de partida. La convocatoria y el examen dependen tambi&eacute;n de cu&aacute;ndo quieras presentarte, y eso lo hablamos.</p></details>
+      <details><summary>&iquest;Hace falta ser alumno de Well?</summary><p>No. El test es abierto y gratuito para cualquiera.</p></details>
+
+      <p class="mas"><a href="cursos.html">Ver los niveles, los horarios y los precios del curso &rarr;</a></p>
+    </section>
+
   </section>
 
   <!-- 2. Pregunta -->

@@ -1,15 +1,20 @@
 # Test de nivel online — clave de respuestas y decisiones a validar
 
-Fuente: `ONLINE PLACEMENT.docx` (el test que se hace en papel en la academia).
-Las 100 preguntas se han transcrito sin cambiar contenido a `test-data.js`.
+Fuente: `ONLINE PLACEMENT.docx`, el documento con el que la academia tiene
+definido el test. Las 100 preguntas se han transcrito sin cambiar contenido a
+`test-data.js`.
 
-**El documento original no incluye clave de respuestas** (la corrigen los profes a
-mano). La clave de abajo la he derivado yo y **debe revisarla la academia** antes de
-darla por definitiva: basta con leer la columna "respuesta" y marcar cualquier
+> **Importante:** no existe ninguna prueba de nivel presencial. Este test online
+> es el que determina el nivel del alumno y, con él, el grupo en el que entra.
+> Eso convierte la clave de abajo y los mínimos de paso en decisiones reales
+> sobre personas reales: **hay que validarlos antes de darles difusión.**
+
+**El documento original no incluye clave de respuestas.** La clave de abajo la he
+derivado yo y **debe revisarla la academia** antes de darla por definitiva: basta con leer la columna "respuesta" y marcar cualquier
 desacuerdo. Cambiar una respuesta es editar el campo `correcta` (índice 0–3 → a–d)
 de esa pregunta en `test-data.js`.
 
-## Estructura (idéntica al papel)
+## Estructura (idéntica al documento original)
 
 | Bloque en pantalla | Preguntas | Origen en el documento |
 |---|---|---|
@@ -46,11 +51,17 @@ respondidas (p. ej. «14 / 25» si el test paró tras A1).
 1. Que el 60 % sea el umbral adecuado (se puede fijar bloque a bloque).
 2. Que «superar A1 pero no A2» se presente como nivel **A2** (grupo A2) y no como A1.
 
-## Correcciones tipográficas respecto al papel (sin cambiar el contenido)
+## Correcciones tipográficas respecto al original (sin cambiar el contenido)
 
 - Pregunta 79: «I'd more exercise if I ___ time» → «I'd **do** more exercise…» (errata evidente del original).
 - Las opciones «-----» del papel (sin palabra) se muestran como «— (nada)».
 - Mayúscula inicial de la opción *a* (Word la ponía automáticamente): en minúscula salvo cuando el hueco abre la frase o es nombre propio.
+
+## Pregunta abierta
+
+El test no distingue entre C1 y C2: por encima de B2 devuelve «B2+». **¿Cómo se
+asigna grupo a quien está en C1 o C2?** Hoy el copy dice que se habla con la
+persona; si hay otro criterio, hay que reflejarlo.
 
 ## Clave — opción múltiple (1–90)
 
