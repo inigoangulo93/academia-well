@@ -616,6 +616,124 @@
     }).join('');
   }
 
+  /* ---------- speaking: grabas tu solo ---------- */
+
+  // Todo pasa en el navegador: se graba, se escucha y, si quiere, se descarga.
+  // No se sube nada a ningun sitio, que es lo unico honesto sin servidor y sin
+  // haber pedido consentimiento para guardar la voz de nadie.
+  var GRAB = { rec: null, trozos: [], url: null, reloj: null, ej: null };
+
+  function pintaSpeaking(ej) {
+    actual = ej;
+    GRAB.ej = ej;
+    paraGrabacion();
+    $('#sp-miga').innerHTML = '<button type="button" class="miga-atras" data-ir="panel">' +
+      esc(T.tuCamino) + '</button><span aria-hidden="true">/</span> ' +
+      '<button type="button" class="miga-atras" data-sesion="' + esc(ej._sesion.id) + '">' +
+      esc(tituloSesion(ej._sesion)) + '</button>';
+    $('#sp-titulo').textContent = ej.titulo;
+    $('#sp-instruccion').innerHTML = ej.instruccion;
+    $('#sp-pregunta').textContent = ej.pregunta || '';
+    $('#sp-puntos').innerHTML = (ej.puntos || []).map(function (p) {
+      return '<li>' + esc(p) + '</li>';
+    }).join('');
+    var nota = $('#sp-nota');
+    nota.hidden = !ej.nota;
+    nota.textContent = ej.nota || '';
+    $('#sp-segundos').textContent = T.segundos.replace('{n}', ej.segundos || 60);
+    reseteaSpeaking();
+    track('speaking_abierto', { ejercicio: ej.id });
+  }
+
+  function reseteaSpeaking() {
+    $('#sp-estado').className = 'sp-estado';
+    $('#sp-reloj').textContent = '0:00';
+    $('#sp-aro').style.strokeDashoffset = 314;
+    $('#sp-grabar').hidden = false;
+    $('#sp-parar').hidden = true;
+    $('#sp-repetir').hidden = true;
+    $('#sp-audio').hidden = true;
+    $('#sp-descargar').hidden = true;
+    $('#sp-error').hidden = true;
+  }
+
+  function paraGrabacion() {
+    clearInterval(GRAB.reloj);
+    if (GRAB.rec && GRAB.rec.state === 'recording') { try { GRAB.rec.stop(); } catch (e) {} }
+    if (GRAB.rec && GRAB.rec.stream) GRAB.rec.stream.getTracks().forEach(function (t) { t.stop(); });
+    GRAB.rec = null;
+  }
+
+  async function empiezaGrabacion() {
+    var ej = GRAB.ej;
+    $('#sp-error').hidden = true;
+    if (!navigator.mediaDevices || !window.MediaRecorder) { fallaMicro(T.spSinSoporte); return; }
+    var stream;
+    try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); }
+    catch (e) { fallaMicro(T.spSinPermiso); return; }
+
+    GRAB.trozos = [];
+    try { GRAB.rec = new MediaRecorder(stream); }
+    catch (e) { fallaMicro(T.spSinSoporte); return; }
+    GRAB.rec.stream = stream;
+    GRAB.rec.ondataavailable = function (e) { if (e.data && e.data.size) GRAB.trozos.push(e.data); };
+    GRAB.rec.onstop = function () {
+      stream.getTracks().forEach(function (t) { t.stop(); });
+      if (GRAB.url) URL.revokeObjectURL(GRAB.url);
+      var blob = new Blob(GRAB.trozos, { type: GRAB.trozos[0] ? GRAB.trozos[0].type : 'audio/webm' });
+      GRAB.url = URL.createObjectURL(blob);
+      var a = $('#sp-audio');
+      a.src = GRAB.url; a.hidden = false;
+      var dl = $('#sp-descargar');
+      dl.href = GRAB.url;
+      dl.download = 'well-' + ej.id + '-' + hoy() + '.webm';
+      dl.hidden = false;
+      $('#sp-repetir').hidden = false;
+      $('#sp-estado').className = 'sp-estado hecha';
+      anota(ej, 1, ['grabado']);
+      pintaPanel();
+      var nuevas = revisaInsignias();
+      if (nuevas.length) celebra(nuevas.map(function (b) {
+        return { icono: b.icono, eti: T.insigniaNueva, titulo: T.insignias[b.id].titulo, texto: T.insignias[b.id].texto };
+      }));
+      track('speaking_grabado', { ejercicio: ej.id });
+    };
+
+    GRAB.rec.start();
+    $('#sp-grabar').hidden = true;
+    $('#sp-parar').hidden = false;
+    $('#sp-repetir').hidden = true;
+    $('#sp-audio').hidden = true;
+    $('#sp-descargar').hidden = true;
+    $('#sp-estado').className = 'sp-estado grabando';
+
+    var total = ej.segundos || 60, t0 = Date.now();
+    var tic = function () {
+      var s = Math.min(total, Math.round((Date.now() - t0) / 1000));
+      $('#sp-reloj').textContent = Math.floor(s / 60) + ':' + (s % 60 < 10 ? '0' : '') + (s % 60);
+      $('#sp-aro').style.strokeDashoffset = (314 * (1 - s / total)).toFixed(1);
+      if (s >= total) { clearInterval(GRAB.reloj); paraGrabacion(); $('#sp-grabar').hidden = true; $('#sp-parar').hidden = true; }
+    };
+    tic();
+    GRAB.reloj = setInterval(tic, 250);
+  }
+
+  function fallaMicro(texto) {
+    var e = $('#sp-error');
+    e.textContent = texto;
+    e.hidden = false;
+    $('#sp-estado').className = 'sp-estado';
+    $('#sp-grabar').hidden = false;
+    $('#sp-parar').hidden = true;
+  }
+
+  function paraYGuarda() {
+    clearInterval(GRAB.reloj);
+    paraGrabacion();
+    $('#sp-parar').hidden = true;
+    $('#sp-grabar').hidden = true;
+  }
+
   /* ---------- simulacro ---------- */
 
   // Un simulacro es la destreza entera de un test, en orden de parte y de una
@@ -1089,6 +1207,7 @@
   /* ---------- navegacion ---------- */
 
   function muestra(id) {
+    if (id !== 's-speaking') { clearInterval(GRAB.reloj); paraGrabacion(); }
     $$('.pantalla').forEach(function (p) { p.classList.toggle('activa', p.id === id); });
     window.scrollTo({ top: 0, behavior: 'auto' });
     document.body.classList.toggle('dentro', id !== 's-panel');
@@ -1098,6 +1217,7 @@
     $('#t-titulo').textContent = id === 's-panel' ? 'Well Online'
       : id === 's-etapa' && etapaActual ? tituloSesion(etapaActual)
       : id === 's-informe' && testActual ? testActual.titulo
+      : id === 's-speaking' && actual ? actual.titulo
       : actual ? actual.titulo : 'Well Online';
   }
 
@@ -1122,8 +1242,8 @@
   function abreEjercicio(id, empujar) {
     var ej = porId(EJERCICIOS, id);
     if (!ej) return;
-    pintaEjercicio(ej);
-    muestra('s-ejercicio');
+    if (ej.tipo === 'speaking') { pintaSpeaking(ej); muestra('s-speaking'); }
+    else { pintaEjercicio(ej); muestra('s-ejercicio'); }
     if (empujar !== false) history.pushState({}, '', '#' + id);
   }
 
@@ -1186,6 +1306,9 @@
     if (e.target.closest('#sim-siguiente')) { avanzaSimulacro(); return; }
     if (e.target.closest('#sim-salir')) { abandonaSimulacro(); return; }
     if (e.target.closest('#sr-volver')) { alPanel(); return; }
+    if (e.target.closest('#sp-grabar')) { empiezaGrabacion(); return; }
+    if (e.target.closest('#sp-parar')) { paraYGuarda(); return; }
+    if (e.target.closest('#sp-repetir')) { reseteaSpeaking(); return; }
     var tr = e.target.closest('[data-tramo]');
     if (tr) {
       var id = tr.getAttribute('data-tramo');

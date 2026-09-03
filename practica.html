@@ -354,6 +354,37 @@
   .bloque-ses .tarjetas{gap:8px}
   .bloque-ses .tarjeta{border-radius:12px;padding:12px 14px}
 
+  /* ---------- speaking ---------- */
+  .sp-tarea{background:#fff;border:1px solid var(--linea);border-radius:16px;padding:20px 22px;margin-bottom:24px}
+  .sp-pregunta{font-family:'Bree Serif',serif;color:var(--azul);font-size:21px;line-height:1.3;margin-bottom:14px}
+  .sp-puntos{list-style:none;display:grid;gap:9px}
+  .sp-puntos li{position:relative;padding-left:24px;font-size:16.5px}
+  .sp-puntos li::before{content:"";position:absolute;left:4px;top:.62em;width:8px;height:8px;border-radius:50%;
+                        background:var(--carmin)}
+  .sp-nota{margin-top:16px;padding-top:13px;border-top:1px dashed var(--linea);color:var(--gris);font-size:13.5px}
+
+  .sp-estado{display:flex;flex-direction:column;align-items:center;gap:18px;margin-bottom:26px}
+  .sp-aro{position:relative;width:150px;height:150px}
+  .sp-aro svg{width:100%;height:100%;transform:rotate(-90deg)}
+  .sp-aro circle{fill:none;stroke-width:9;stroke-linecap:round}
+  .sp-pista{stroke:var(--azul-suave)}
+  .sp-avance{stroke:var(--carmin);transition:stroke-dashoffset .25s linear}
+  .sp-centro{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .sp-centro b{font-family:'Bree Serif',serif;font-size:33px;color:var(--tinta);line-height:1;font-variant-numeric:tabular-nums}
+  .sp-centro span{font-size:12.5px;font-weight:600;color:var(--gris);margin-top:3px}
+  .sp-estado.grabando .sp-centro b{color:var(--carmin)}
+  .sp-estado.grabando .sp-aro::after{content:"";position:absolute;inset:-6px;border-radius:50%;
+                                     border:2px solid rgba(192,41,59,.35);animation:pulso 1.6s ease-out infinite}
+  @keyframes pulso{0%{transform:scale(.96);opacity:.9}100%{transform:scale(1.12);opacity:0}}
+  .sp-estado.hecha .sp-avance{stroke:var(--verde)}
+  .sp-botones{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+  #sp-audio{width:100%;max-width:420px}
+  .sp-descargar{color:var(--azul);font-weight:600;font-size:15px;text-decoration:underline;
+                text-underline-offset:3px}
+  .sp-error{background:var(--carmin-suave);color:var(--tinta);border-radius:12px;padding:12px 16px;
+            font-size:14.5px;max-width:44ch;text-align:center}
+  @media(prefers-reduced-motion:reduce){.sp-estado.grabando .sp-aro::after{animation:none}}
+
   /* ---------- simulacro ---------- */
   .sim-barra{position:sticky;top:70px;z-index:40;background:var(--crema);display:flex;align-items:center;
              gap:14px;padding:12px 0 14px;margin-bottom:6px;border-bottom:1px solid var(--linea)}
@@ -689,6 +720,45 @@
     <ul class="tarjetas" id="et-lista"></ul>
   </section>
 
+  <!-- ============ speaking ============ -->
+  <section class="pantalla" id="s-speaking">
+    <p class="miga" id="sp-miga"></p>
+    <span class="kicker">Speaking · long turn</span>
+    <h1 id="sp-titulo"></h1>
+    <p class="instruccion" id="sp-instruccion"></p>
+
+    <div class="sp-tarea">
+      <p class="sp-pregunta" id="sp-pregunta"></p>
+      <ul class="sp-puntos" id="sp-puntos"></ul>
+      <p class="sp-nota" id="sp-nota" hidden></p>
+    </div>
+
+    <div class="sp-estado" id="sp-estado">
+      <div class="sp-aro">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="sp-pista" cx="60" cy="60" r="50"></circle>
+          <circle class="sp-avance" id="sp-aro" cx="60" cy="60" r="50" stroke-dasharray="314" stroke-dashoffset="314"></circle>
+        </svg>
+        <div class="sp-centro"><b id="sp-reloj">0:00</b><span id="sp-segundos"></span></div>
+      </div>
+      <div class="sp-botones">
+        <button class="btn btn-azul" id="sp-grabar" type="button">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg>
+          Empezar a hablar
+        </button>
+        <button class="btn btn-azul" id="sp-parar" type="button" hidden>Parar</button>
+        <button class="btn btn-ghost" id="sp-repetir" type="button" hidden>Volver a grabar</button>
+      </div>
+      <audio id="sp-audio" controls hidden></audio>
+      <a class="sp-descargar" id="sp-descargar" hidden download>Descargar la grabación</a>
+      <p class="sp-error" id="sp-error" hidden></p>
+    </div>
+
+    <p class="in-aviso">Esto se queda en tu navegador: no se sube a ningún sitio. Cuando la plataforma
+      pueda darte nota de pronunciación y vocabulario, se te pedirá permiso antes de guardar nada.</p>
+  </section>
+
   <!-- ============ simulacro ============ -->
   <section class="pantalla" id="s-simulacro">
     <div class="sim-barra">
@@ -790,7 +860,8 @@ window.WELL_UI_P = {
     cloze: 'Open cloze',
     formacion: 'Formación de palabras',
     transformacion: 'Transformaciones',
-    opcion: 'Multiple-choice cloze'
+    opcion: 'Multiple-choice cloze',
+    speaking: 'Speaking'
   },
   items: 'huecos',
   hueco: 'Hueco',
@@ -847,6 +918,9 @@ window.WELL_UI_P = {
   simRepetir: 'Ya lo hiciste una vez. Si lo repites, se guarda el intento nuevo.',
   simAbandonar: '¿Seguro que quieres salir? El simulacro se pierde entero.',
   parteDe: 'Parte {n} de {t}',
+  segundos: '{n} segundos',
+  spSinPermiso: 'No hemos podido usar el micrófono. Dale permiso al navegador y vuelve a intentarlo.',
+  spSinSoporte: 'Este navegador no permite grabar. Prueba con Chrome, Edge o Safari actualizados.',
   simSiguiente: 'Siguiente',
   simTerminar: 'Terminar y ver el resultado',
   simResultado: 'Simulacro de {destreza}',

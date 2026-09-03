@@ -63,7 +63,7 @@ window.WELL_PRACTICA = {
           { destreza: 'vocabulario' },
           { destreza: 'gramatica' },
           { destreza: 'reading', parte: 5, tarea: 'Multiple choice' },
-          { destreza: 'speaking', tarea: 'Partes 1 y 2' }
+          { destreza: 'speaking', tarea: 'Partes 1 y 2', ejercicios: ['v1-speaking'] }
         ]},
         { id: 't1-s3', n: 3, tipo: 'A', bloques: [
           { destreza: 'vocabulario' },
@@ -113,6 +113,20 @@ window.WELL_PRACTICA = {
   ],
 
   ejercicios: {
+    "v1-speaking": {
+      "tipo": "speaking",
+      "titulo": "Long turn: aprender fuera de clase",
+      "instruccion": "Habla durante <b>un minuto seguido</b>. No hace falta contestar a todo: elige y compara.",
+      "segundos": 60,
+      "pregunta": "Why might people choose these ways of learning a language, and how effective is each one?",
+      "puntos": [
+        "watching series with subtitles at home",
+        "a conversation exchange in a cafe",
+        "an intensive course abroad"
+      ],
+      "nota": "En el examen real esto se hace con tres fotografías. Aquí van descritas mientras la academia no aporte las suyas.",
+      "items": [{ "grabacion": true }]
+    },
     "v1-opcion": {
       "tipo": "opcion",
       "titulo": "Por qué recordamos las caras",
