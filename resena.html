@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, follow">
+<title>Deja tu reseña · Academia Well</title>
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<!--
+  Destino del QR del cartel de la puerta (cartel-resena-google.pdf).
+  El codigo impreso apunta a academiawell.com/resena, NO directamente a Google:
+  asi el enlace se puede cambiar aqui sin reimprimir ni un solo cartel.
+
+  Para usar el enlace corto del Perfil de Empresa ("Pide resenas" ->
+  https://g.page/r/XXXXXXXX/review), basta con sustituir DESTINO abajo.
+-->
+<script>
+  var DESTINO = 'https://www.google.com/maps/search/Academia+Well+Galdakao';
+  location.replace(DESTINO);
+</script>
+<meta http-equiv="refresh" content="0; url=https://www.google.com/maps/search/Academia+Well+Galdakao">
+<style>
+  :root{--azul:#21409A;--carmin:#C0293B;--crema:#FDFCF9;--gris:#5E6575;--linea:rgba(35,43,66,.12)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--crema);color:#232B42;font-family:'Figtree',sans-serif;display:grid;place-items:center;min-height:100dvh;padding:24px;text-align:center}
+  svg.mark{height:56px;width:auto;margin-bottom:20px}
+  h1{font-family:'Bree Serif',serif;font-weight:400;color:var(--azul);font-size:clamp(24px,5vw,32px);margin-bottom:10px}
+  p{color:var(--gris);max-width:38ch;margin:0 auto 22px}
+  .estrellas{color:#F2B01E;font-size:24px;letter-spacing:.16em;margin-bottom:18px}
+  a{display:inline-flex;align-items:center;justify-content:center;background:var(--azul);color:#fff;font-weight:600;text-decoration:none;padding:14px 26px;border-radius:100px;min-height:48px;box-shadow:0 6px 16px rgba(33,64,154,.24)}
+</style>
+</head>
+<body>
+  <div>
+    <svg class="mark" viewBox="0 0 100 140" aria-hidden="true"><defs><clipPath id="m"><rect x="2" y="2" width="96" height="136" rx="5"/></clipPath></defs><g clip-path="url(#m)"><rect x="2" y="2" width="96" height="136" fill="#C0293B"/><path d="M-10 84 C16 62 26 68 34 98 C40 121 46 121 52 86 C58 51 64 51 70 84 C76 117 84 117 92 54 C96 31 101 22 112 10 L112 -10 L-12 -10 Z" fill="#21409A"/><path d="M-10 84 C16 62 26 68 34 98 C40 121 46 121 52 86 C58 51 64 51 70 84 C76 117 84 117 92 54 C96 31 101 22 112 10" fill="none" stroke="#FFFFFF" stroke-width="13" stroke-linecap="round"/></g></svg>
+    <div class="estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <h1>Gracias por dejarnos tu rese&ntilde;a</h1>
+    <p>Te llevamos a Google en un segundo. Si no se abre solo, pulsa el bot&oacute;n.</p>
+    <a href="https://www.google.com/maps/search/Academia+Well+Galdakao">Escribir mi rese&ntilde;a en Google</a>
+  </div>
+</body>
+</html>
