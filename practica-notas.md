@@ -109,22 +109,45 @@ desbloqueo, las insignias y la celebracion funcionando de verdad.
 
 ## Navegacion e interfaz
 
+**La cabecera es la de la web**, no una propia: mismo logotipo (la ficha
+carmin con la W blanca, no el trazo suelto), mismo fondo, misma sombra al
+bajar, mismos tamanos. Al lado del logo, "Well Online" como marca del
+producto.
+
+**A la derecha, el usuario.** Chapa con inicial y nombre que abre un menu con
+lo que hay ("Cambiar nombre", "Repetir el test de nivel", "Volver a la web") y
+lo que habra, marcado como *pronto*: **Ajustes** y **Mis informes**. Estan
+desactivados a proposito: se ve donde van a vivir sin fingir que existen.
+
 Tres pantallas y una sola jerarquia: **panel → etapa → ejercicio**.
 
-- **Migas clicables** arriba de cada pantalla ("Tu camino / Serie 1"), no solo
-  un boton de atras.
+- **Migas clicables** arriba de cada pantalla ("Tu camino / Serie 1").
 - **La cabecera dice a donde vuelve**: "‹ Serie 1" desde un ejercicio, "‹ Tu
-  camino" desde una etapa. El titulo del centro cambia con la pantalla.
-- El **boton del navegador** funciona igual que las migas: cada pantalla tiene
+  camino" desde una etapa, y el titulo del centro cambia con la pantalla.
+- El **boton del navegador** hace lo mismo que las migas: cada pantalla tiene
   su URL con almohadilla, asi que se puede compartir el enlace de un ejercicio.
 - **Las etapas son botones de verdad**, no divs con un click encima: se llega a
   ellas con el tabulador y las cerradas van `disabled`. Foco visible en todo.
-- **Los botones miden lo que miden.** A ancho completo solo en movil, donde el
-  pulgar lo agradece. En escritorio, ancho natural, el secundario a la
-  izquierda y el principal a la derecha, que es donde se busca para avanzar.
-- **En escritorio el panel es de dos columnas** (camino a la izquierda,
-  insignias fijas a la derecha); por debajo de 920 px pasa a una.
-- Probado a 360, 390 y 1440 px.
+  El menu y las ventanas se cierran con Escape.
+- **Los botones miden lo que miden.** A ancho completo solo en movil. En
+  escritorio, ancho natural, el secundario a la izquierda y el principal a la
+  derecha.
+
+## Composicion del panel
+
+Lo primero es lo que hay que hacer, no lo ya conseguido:
+
+1. Saludo, nivel y en que punto del camino esta.
+2. **Continua por aqui**: la accion, en azul, arriba del todo.
+3. **El camino** (las dos rutas con sus etapas), que es el grueso.
+4. A la derecha, en columna fija: **anillo de dominio** con perfectos, etapas y
+   lo que queda; **racha** con la tira de siete dias; e **insignias en
+   pequeno**: la cuenta, seis fichas y la proxima con su barra.
+
+Las insignias completas viven en su propia ventana ("Ver todas"). Motivan,
+pero no son lo que el alumno viene a hacer, asi que no ocupan medio panel.
+
+En movil el orden es el mismo, en una columna: saludo, seguir, cifras, camino.
 
 ## Que hace ya el prototipo
 

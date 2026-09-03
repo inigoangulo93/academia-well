@@ -103,8 +103,15 @@
   function nombreAlumno() {
     try { return (localStorage.getItem('well_nombre') || '').trim(); } catch (e) { return ''; }
   }
+  // "juan carlos" -> "Juan Carlos", sin tocar lo que ya venga en mayusculas
+  function bonito(n) {
+    return String(n || '').trim().replace(/(^|[\s'-])(\S)/g, function (_, sep, letra) {
+      return sep + letra.toUpperCase();
+    });
+  }
+
   function guardaNombre(n) {
-    try { localStorage.setItem('well_nombre', String(n || '').trim()); } catch (e) {}
+    try { localStorage.setItem('well_nombre', bonito(n)); } catch (e) {}
   }
 
   function nivelAlumno() {
@@ -277,37 +284,44 @@
 
   /* ---------- panel ---------- */
 
+  // La chapa de usuario vive en la cabecera, asi que se pinta siempre, tambien
+  // si se entra directo a un ejercicio por su enlace.
+  function pintaUsuario() {
+    var nombre = bonito(nombreAlumno());
+    var niv = nivelAlumno();
+    $('#user-inicial').textContent = nombre ? nombre.charAt(0) : '?';
+    $('#user-nombre').textContent = nombre || T.tuPerfil;
+    $('#um-nombre').textContent = nombre || T.tuPerfil;
+    $('#um-nivel').textContent = niv ? T.nivelEs.replace('{n}', niv.nivel) : T.sinNivelMenu;
+    $('#um-nombre-btn').textContent = nombre ? T.cambiarNombre : T.ponerNombre;
+  }
+
   function pintaPanel() {
     var t = totales();
-    var n = nivelAlumno();
-    var nombre = nombreAlumno();
+    var niv = nivelAlumno();
+    var nombre = bonito(nombreAlumno());
+    pintaUsuario();
 
     // saludo
     var hora = new Date().getHours();
     var franja = hora < 13 ? 'manana' : hora < 21 ? 'tarde' : 'noche';
-    $('#saludo').textContent = nombre
-      ? T.saludo[franja].replace('{nombre}', nombre)
-      : T.saludoSinNombre;
-    $('#pide-nombre').hidden = !!nombre;
-    $('#cambia-nombre').hidden = !nombre;
+    $('#saludo').textContent = nombre ? T.saludo[franja].replace('{nombre}', nombre) : T.saludoSinNombre;
 
     var chip = $('#nivel-alumno');
-    if (n) { chip.hidden = false; chip.textContent = n.nivel; } else { chip.hidden = true; }
-    $('#sin-test').hidden = !!n;
+    if (niv) { chip.hidden = false; chip.textContent = niv.nivel; } else { chip.hidden = true; }
+    $('#sin-test').hidden = !!niv;
 
-    // donde esta
     var sig = siguienteEjercicio();
     $('#situacion').textContent = sig
       ? T.vasPor.replace('{etapa}', sig._etapa.titulo).replace('{ruta}', sig._ruta.titulo)
       : T.alDia;
 
     // anillo
-    var pct = Math.round(t.pct * 100);
     var circ = 2 * Math.PI * 52;
     var aro = $('#aro');
     aro.style.strokeDasharray = circ.toFixed(1);
     aro.style.strokeDashoffset = (circ * (1 - t.pct)).toFixed(1);
-    $('#aro-pct').textContent = pct + '%';
+    $('#aro-pct').textContent = Math.round(t.pct * 100) + '%';
     $('#aro-pie').textContent = T.dominado;
     $('#aro-detalle').textContent = T.huecosDe.replace('{ok}', t.ok).replace('{n}', t.items);
 
@@ -315,30 +329,38 @@
     $('#racha-n').textContent = racha();
     $('#racha-pie').textContent = racha() === 1 ? T.diaSeguido : T.diasSeguidos;
     $('#tira').innerHTML = ultimosDias().map(function (d0) {
-      return '<span class="dia' + (d0.hecho ? ' hecho' : '') + (d0.hoy ? ' hoy' : '') + '">' +
-             '<i>' + esc(d0.inicial) + '</i></span>';
+      return '<span class="dia' + (d0.hecho ? ' hecho' : '') + (d0.hoy ? ' hoy' : '') +
+             '" title="' + esc(d0.iso) + '"><i>' + esc(d0.inicial) + '</i></span>';
     }).join('');
 
-    // cifras
     $('#cf-perfectos').textContent = t.perfectos;
     $('#cf-etapas').textContent = t.etapasCompletas;
     $('#cf-pendientes').textContent = t.pendientes;
 
-    // proximo hito
+    // insignias: solo la tira y el hito; el detalle vive en su hoja
+    var logradas = INSIGNIAS.filter(ganada);
+    $('#ins-cuenta').textContent = logradas.length + '/' + INSIGNIAS.length;
+    var tira = logradas.slice(0, 5).map(function (b) {
+      return '<span class="ins-ficha lograda" title="' + esc(T.insignias[b.id].titulo) + '">' + b.icono + '</span>';
+    });
+    if (logradas.length > 5) tira.push('<span class="ins-ficha mas">+' + (logradas.length - 5) + '</span>');
+    INSIGNIAS.filter(function (b) { return !ganada(b); }).slice(0, Math.max(0, 6 - tira.length)).forEach(function (b) {
+      tira.push('<span class="ins-ficha pendiente" title="' + esc(T.insignias[b.id].titulo) + '">' + b.icono + '</span>');
+    });
+    $('#ins-tira').innerHTML = tira.join('');
+
     var h = proximoHito();
     var caja = $('#hito');
     if (h) {
       caja.hidden = false;
-      var ins = T.insignias[h.insignia.id];
       caja.innerHTML =
-        '<span class="hito-icono">' + h.insignia.icono + '</span>' +
-        '<span class="hito-cuerpo">' +
-          '<span class="hito-eti">' + esc(T.proximoHito) + '</span>' +
-          '<span class="hito-tit">' + esc(ins.titulo) + '</span>' +
-          '<span class="hito-barra"><i style="width:' + Math.round(h.valor / h.meta * 100) + '%"></i></span>' +
-        '</span>' +
-        '<span class="hito-num">' + h.valor + '<em>/' + h.meta + '</em></span>';
+        '<span class="hito-eti">' + esc(T.proximoHito) + '</span>' +
+        '<span class="hito-fila"><span class="hito-tit">' + esc(T.insignias[h.insignia.id].titulo) + '</span>' +
+        '<span class="hito-num">' + h.valor + '/' + h.meta + '</span></span>' +
+        '<span class="hito-barra"><i style="width:' + Math.round(h.valor / h.meta * 100) + '%"></i></span>';
     } else { caja.hidden = true; }
+
+    pintaInsignias();
 
     // continuar
     var cont = $('#continuar');
@@ -372,21 +394,20 @@
       s.innerHTML = h2;
       cont2.appendChild(s);
     });
+  }
 
-    // insignias
-    var g = INSIGNIAS.filter(ganada).length;
-    $('#ins-cuenta').textContent = T.insigniasDe.replace('{g}', g).replace('{t}', INSIGNIAS.length);
+  function pintaInsignias() {
     $('#insignias').innerHTML = INSIGNIAS.map(function (b) {
       var tiene = ganada(b), txt = T.insignias[b.id];
       var v = Math.min(b.valor(), b.meta);
-      var h3 = '<div class="insignia' + (tiene ? ' lograda' : '') + '">' +
-               '<span class="ins-icono">' + b.icono + '</span>' +
-               '<span class="ins-tit">' + esc(txt.titulo) + '</span>' +
-               '<span class="ins-sub">' + esc(txt.texto) + '</span>';
-      if (tiene) h3 += '<span class="ins-check">✓</span>';
-      else if (b.meta > 1) h3 += '<span class="ins-barra"><i style="width:' + Math.round(v / b.meta * 100) + '%"></i></span>' +
-                                 '<span class="ins-num">' + v + '/' + b.meta + '</span>';
-      return h3 + '</div>';
+      var h = '<div class="insignia' + (tiene ? ' lograda' : '') + '">' +
+              '<span class="ins-icono">' + b.icono + '</span>' +
+              '<span class="ins-tit">' + esc(txt.titulo) + '</span>' +
+              '<span class="ins-sub">' + esc(txt.texto) + '</span>';
+      if (tiene) h += '<span class="ins-check">✓</span>';
+      else if (b.meta > 1) h += '<span class="ins-barra"><i style="width:' + Math.round(v / b.meta * 100) + '%"></i></span>' +
+                                '<span class="ins-num">' + v + '/' + b.meta + '</span>';
+      return h + '</div>';
     }).join('');
   }
 
@@ -689,12 +710,24 @@
     if (e.target.closest('#btn-siguiente')) { siguiente(); return; }
     if (e.target.closest('[data-ir="panel"]')) { alPanel(); return; }
     if (e.target.closest('#premio-ok') || e.target.id === 'premio') { cierraPremio(); return; }
-    if (e.target.closest('#cambia-nombre')) {
-      $('#pide-nombre').hidden = false;
-      $('#nombre-campo').value = nombreAlumno();
-      $('#nombre-campo').focus();
+    var u = e.target.closest('#user-btn');
+    if (u) { menuUsuario(!abiertoUsuario()); return; }
+    if (abiertoUsuario() && !e.target.closest('.usuario')) menuUsuario(false);
+
+    var acc = e.target.closest('.usuario-menu [data-accion]');
+    if (acc) {
+      var q = acc.getAttribute('data-accion');
+      menuUsuario(false);
+      if (q === 'nombre') {
+        alPanel();
+        $('#pide-nombre').hidden = false;
+        $('#nombre-campo').value = nombreAlumno();
+        $('#nombre-campo').focus();
+      } else if (q === 'test') { location.href = '/test.html'; }
       return;
     }
+    if (e.target.closest('#ver-insignias')) { hoja(true); return; }
+    if (e.target.closest('#cierra-insignias') || e.target.id === 'hoja-insignias') { hoja(false); return; }
     if (e.target.closest('#nombre-ok')) { aplicaNombre(); return; }
   });
 
@@ -707,10 +740,39 @@
     track('practica_nombre_guardado', {});
   }
 
+  function abiertoUsuario() { return $('#user-btn').getAttribute('aria-expanded') === 'true'; }
+  function menuUsuario(abrir) {
+    $('#user-btn').setAttribute('aria-expanded', abrir ? 'true' : 'false');
+    $('#user-menu').hidden = !abrir;
+    $('#user-btn').closest('.usuario').setAttribute('data-abierto', abrir ? '1' : '0');
+  }
+  function hoja(abrir) {
+    var el = $('#hoja-insignias');
+    if (abrir) {
+      pintaInsignias();
+      el.hidden = false;
+      requestAnimationFrame(function () { el.classList.add('visible'); });
+      $('#cierra-insignias').focus();
+      track('practica_insignias_abiertas', {});
+    } else {
+      el.classList.remove('visible');
+      setTimeout(function () { el.hidden = true; }, 240);
+    }
+  }
+
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Enter' && e.target.id === 'nombre-campo') { e.preventDefault(); aplicaNombre(); }
-    if (e.key === 'Escape' && !$('#premio').hidden) cierraPremio();
+    if (e.key !== 'Escape') return;
+    if (!$('#premio').hidden) cierraPremio();
+    else if (!$('#hoja-insignias').hidden) hoja(false);
+    else if (abiertoUsuario()) { menuUsuario(false); $('#user-btn').focus(); }
   });
+
+  // la cabecera gana sombra al bajar, igual que en la web
+  var cabecera = $('#cabecera');
+  var alScroll = function () { cabecera.classList.toggle('scrolled', window.scrollY > 6); };
+  window.addEventListener('scroll', alScroll, { passive: true });
+  alScroll();
 
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Enter') return;
@@ -726,5 +788,6 @@
   window.addEventListener('popstate', function () { pinta(location.hash); });
 
   revisaInsignias();
+  pintaUsuario();
   pinta(location.hash);
 })();
