@@ -5100,7 +5100,7 @@ window.WELL_PRACTICA = {
   'b2t1-lis1': {
     tipo: 'listening', parte: 1, titulo: 'Listening · Part 1',
     instruccion: 'You will hear people talking in eight different situations. Choose the answer (A, B or C) which fits best according to what you hear. <b>You will hear the recording twice.</b>',
-    audio: 'audio/b2t1-lis1-espeak.mp3', escuchas: 2, demo: true,
+    audio: 'audio/b2t1-lis1.mp3', escuchas: 2,
     contexto: 'Eight short extracts, one question each.',
     items: [
       { pregunta: '1  What does the woman say about the cookery course?',
@@ -5125,7 +5125,7 @@ window.WELL_PRACTICA = {
   'b2t1-lis2': {
     tipo: 'listening', parte: 2, titulo: 'Listening · Part 2',
     instruccion: 'Complete the sentences with <b>a word or short phrase</b> from what you hear. <b>You will hear the recording twice.</b>',
-    audio: 'audio/b2t1-lis2-espeak.mp3', escuchas: 2, demo: true,
+    audio: 'audio/b2t1-lis2.mp3', escuchas: 2,
     contexto: 'Ruth Ellery talks about the travelling cinema she runs.',
     items: [
       { antes: 'Before starting the business, Ruth spent eleven years working as a', despues: 'in Leeds.', aceptadas: ['projectionist'] },
@@ -5144,7 +5144,7 @@ window.WELL_PRACTICA = {
   'b2t1-lis3': {
     tipo: 'listening', parte: 3, titulo: 'Listening · Part 3',
     instruccion: 'You will hear five short extracts in which people talk about a job they had while they were students. Choose from the list A–H what each speaker says. Use each letter once. There are three extra letters. <b>You will hear the recording twice.</b>',
-    audio: 'audio/b2t1-lis3-espeak.mp3', escuchas: 2, demo: true,
+    audio: 'audio/b2t1-lis3.mp3', escuchas: 2,
     opcionesCortas: true,
     listas: [
       { titulo: 'What does each speaker say about the job?', opciones: [
@@ -5170,7 +5170,7 @@ window.WELL_PRACTICA = {
   'b2t1-lis4': {
     tipo: 'listening', parte: 4, titulo: 'Listening · Part 4',
     instruccion: 'You will hear an interview. Choose the answer (A, B, C or D) which fits best according to what you hear. <b>You will hear the recording twice.</b>',
-    audio: 'audio/b2t1-lis4-espeak.mp3', escuchas: 2, demo: true,
+    audio: 'audio/b2t1-lis4.mp3', escuchas: 2,
     contexto: 'A journalist interviews the biologist Ander Goikoetxea, who studies urban foxes.',
     items: [
       { pregunta: '1  Why did Ander begin studying foxes?',
@@ -5831,7 +5831,7 @@ window.WELL_PRACTICA = {
   'b2t2-lis1': {
     tipo: 'listening', parte: 1, titulo: 'Listening · Part 1',
     instruccion: 'You will hear people talking in eight different situations. Choose the answer (A, B or C) which fits best according to what you hear. <b>You will hear the recording twice.</b>',
-    audio: 'audio/b2t2-lis1-espeak.mp3', escuchas: 2, demo: true,
+    audio: 'audio/b2t2-lis1.mp3', escuchas: 2,
     contexto: 'Eight short extracts, one question each.',
     items: [
       { pregunta: '1  What is the woman’s main complaint about the holiday?',
@@ -5856,7 +5856,7 @@ window.WELL_PRACTICA = {
   'b2t2-lis2': {
     tipo: 'listening', parte: 2, titulo: 'Listening · Part 2',
     instruccion: 'Complete the sentences with <b>a word or short phrase</b> from what you hear. <b>You will hear the recording twice.</b>',
-    audio: 'audio/b2t2-lis2-espeak.mp3', escuchas: 2, demo: true,
+    audio: 'audio/b2t2-lis2.mp3', escuchas: 2,
     contexto: 'Sile Donovan talks about the small ferry she runs to an island.',
     items: [
       { antes: 'Before this job Sile spent fourteen years working as a', despues: '.', aceptadas: ['fisheries officer', 'fisheries'] },
@@ -5875,7 +5875,7 @@ window.WELL_PRACTICA = {
   'b2t2-lis3': {
     tipo: 'listening', parte: 3, titulo: 'Listening · Part 3',
     instruccion: 'You will hear five short extracts in which people talk about moving to a different town. Choose from the list A–H what each speaker says. Use each letter once. There are three extra letters. <b>You will hear the recording twice.</b>',
-    audio: 'audio/b2t2-lis3-espeak.mp3', escuchas: 2, demo: true,
+    audio: 'audio/b2t2-lis3.mp3', escuchas: 2,
     opcionesCortas: true,
     listas: [
       { titulo: 'What does each speaker say about the move?', opciones: [
@@ -5901,7 +5901,7 @@ window.WELL_PRACTICA = {
   'b2t2-lis4': {
     tipo: 'listening', parte: 4, titulo: 'Listening · Part 4',
     instruccion: 'You will hear an interview. Choose the answer (A, B, C or D) which fits best according to what you hear. <b>You will hear the recording twice.</b>',
-    audio: 'audio/b2t2-lis4-espeak.mp3', escuchas: 2, demo: true,
+    audio: 'audio/b2t2-lis4.mp3', escuchas: 2,
     contexto: 'A journalist interviews Marta Zabaleta, who designs playgrounds.',
     items: [
       { pregunta: '1  How did Marta come to design playgrounds?',
@@ -6545,7 +6545,7 @@ window.WELL_PRACTICA = {
   'b2t3-lis1': {
     tipo: 'listening', parte: 1, titulo: 'Listening · Part 1',
     instruccion: 'You will hear people talking in eight different situations. Choose the answer (A, B or C) which fits best according to what you hear. <b>You will hear the recording twice.</b>',
-    audio: 'audio/b2t3-lis1-espeak.mp3', escuchas: 2, demo: true,
+    audio: 'audio/b2t3-lis1.mp3', escuchas: 2,
     contexto: 'Eight short extracts, one question each.',
     items: [
       { pregunta: '1  What did the man value most about the course?',
@@ -6570,7 +6570,7 @@ window.WELL_PRACTICA = {
   'b2t3-lis2': {
     tipo: 'listening', parte: 2, titulo: 'Listening · Part 2',
     instruccion: 'Complete the sentences with <b>a word or short phrase</b> from what you hear. <b>You will hear the recording twice.</b>',
-    audio: 'audio/b2t3-lis2-espeak.mp3', escuchas: 2, demo: true,
+    audio: 'audio/b2t3-lis2.mp3', escuchas: 2,
     contexto: 'Will Amory talks about his work looking after public clocks.',
     items: [
       { antes: 'For nine years before this, Will worked as a', despues: '.', aceptadas: ['piano tuner', 'tuner'] },
@@ -6589,7 +6589,7 @@ window.WELL_PRACTICA = {
   'b2t3-lis3': {
     tipo: 'listening', parte: 3, titulo: 'Listening · Part 3',
     instruccion: 'You will hear five short extracts in which people talk about a journey that went wrong. Choose from the list A–H what each speaker says. Use each letter once. There are three extra letters. <b>You will hear the recording twice.</b>',
-    audio: 'audio/b2t3-lis3-espeak.mp3', escuchas: 2, demo: true,
+    audio: 'audio/b2t3-lis3.mp3', escuchas: 2,
     opcionesCortas: true,
     listas: [
       { titulo: 'What does each speaker say about the journey?', opciones: [
@@ -6615,7 +6615,7 @@ window.WELL_PRACTICA = {
   'b2t3-lis4': {
     tipo: 'listening', parte: 4, titulo: 'Listening · Part 4',
     instruccion: 'You will hear an interview. Choose the answer (A, B, C or D) which fits best according to what you hear. <b>You will hear the recording twice.</b>',
-    audio: 'audio/b2t3-lis4-espeak.mp3', escuchas: 2, demo: true,
+    audio: 'audio/b2t3-lis4.mp3', escuchas: 2,
     contexto: 'A journalist interviews Elin Vaughan, who draws maps by hand.',
     items: [
       { pregunta: '1  Why does Elin say a satellite photograph is not a map?',
@@ -7276,7 +7276,7 @@ window.WELL_PRACTICA = {
   'b2t4-lis1': {
     tipo: 'listening', parte: 1, titulo: 'Listening · Part 1',
     instruccion: 'You will hear people talking in eight different situations. Choose the answer (A, B or C) which fits best according to what you hear. <b>You will hear the recording twice.</b>',
-    audio: 'audio/b2t4-lis1-espeak.mp3', escuchas: 2, demo: true,
+    audio: 'audio/b2t4-lis1.mp3', escuchas: 2,
     contexto: 'Eight short extracts, one question each.',
     items: [
       { pregunta: '1  How does the woman feel about her own reaction?',
@@ -7301,7 +7301,7 @@ window.WELL_PRACTICA = {
   'b2t4-lis2': {
     tipo: 'listening', parte: 2, titulo: 'Listening · Part 2',
     instruccion: 'Complete the sentences with <b>a word or short phrase</b> from what you hear. <b>You will hear the recording twice.</b>',
-    audio: 'audio/b2t4-lis2-espeak.mp3', escuchas: 2, demo: true,
+    audio: 'audio/b2t4-lis2.mp3', escuchas: 2,
     contexto: 'Cara Nolan talks about her work training guide dogs.',
     items: [
       { antes: 'Before this work, Cara spent six years in a', despues: '.', aceptadas: ['veterinary practice', 'vets', 'vet practice'] },
@@ -7320,7 +7320,7 @@ window.WELL_PRACTICA = {
   'b2t4-lis3': {
     tipo: 'listening', parte: 3, titulo: 'Listening · Part 3',
     instruccion: 'You will hear five short extracts in which people talk about a piece of advice they were given. Choose from the list A–H what each speaker says. Use each letter once. There are three extra letters. <b>You will hear the recording twice.</b>',
-    audio: 'audio/b2t4-lis3-espeak.mp3', escuchas: 2, demo: true,
+    audio: 'audio/b2t4-lis3.mp3', escuchas: 2,
     opcionesCortas: true,
     listas: [
       { titulo: 'What does each speaker say about the advice?', opciones: [
@@ -7346,7 +7346,7 @@ window.WELL_PRACTICA = {
   'b2t4-lis4': {
     tipo: 'listening', parte: 4, titulo: 'Listening · Part 4',
     instruccion: 'You will hear an interview. Choose the answer (A, B, C or D) which fits best according to what you hear. <b>You will hear the recording twice.</b>',
-    audio: 'audio/b2t4-lis4-espeak.mp3', escuchas: 2, demo: true,
+    audio: 'audio/b2t4-lis4.mp3', escuchas: 2,
     contexto: 'A journalist interviews Daniel Okoro, who interprets in criminal courts.',
     items: [
       { pregunta: '1  What had Daniel assumed before he applied?',
