@@ -1,0 +1,114 @@
+{
+  "id": "b2t1-lis4",
+  "examen": "fce",
+  "parte": 4,
+  "tarea": "Multiple choice, entrevista",
+  "titulo": "Los zorros de la ciudad",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    {
+      "id": "narrador",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro",
+      "papel": "narrador"
+    },
+    {
+      "id": "ent",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-rp",
+      "descripcion": "mujer, 40s",
+      "papel": "gb-m-medio"
+    },
+    {
+      "id": "inv",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbclan",
+      "descripcion": "hombre, 40s",
+      "papel": "gb-h-medio"
+    }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    {
+      "voz": "narrador",
+      "pausa": 1.0,
+      "texto": "Part Four. You will hear an interview with a biologist called Ander Goikoetxea, who studies urban foxes. For questions one to seven, choose the best answer — A, B, C or D."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "Ander Goikoetxea has been studying urban foxes for fifteen years. Ander, let us begin with the obvious question. Why foxes?"
+    },
+    {
+      "voz": "inv",
+      "pausa": 0.3,
+      "texto": "Honestly? Because nobody else wanted them. I went into the department intending to work on seabirds, and every seabird post was taken. Somebody mentioned there was money for a two-year study of foxes in Sheffield, and I took it because it was a job. I am still doing it fifteen years later, so clearly something happened in those two years."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "The popular belief is that they moved into our cities because we destroyed the countryside."
+    },
+    {
+      "voz": "inv",
+      "pausa": 0.3,
+      "texto": "That is the story, and it is more or less the wrong way round. They were living in towns well before the war. What changed was not where they were but how much we noticed them, and how much food we began leaving outside. A city, from a fox’s point of view, is a warm place with very poor waste management."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "You are known for disagreeing with the idea that they are becoming tame."
+    },
+    {
+      "voz": "inv",
+      "pausa": 0.3,
+      "texto": "I would put it differently. They are becoming used to us, which is not the same thing at all. A fox that walks past you at two in the morning has learned that you are not worth running away from. It has not learned to like you, and it will not come when you call it. People read the first as the second, and then feel hurt when the animal behaves like an animal."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "What is the commonest mistake people make?"
+    },
+    {
+      "voz": "inv",
+      "pausa": 0.3,
+      "texto": "Feeding them. And I want to be careful here, because I am not going to tell anybody they are wicked for putting out a sausage. But a fed fox stays in a very small area, has more cubs than that area can hold, and passes disease around a larger group. Everything people complain to me about — the mange, the noise, the digging in gardens — gets worse when we feed them and better when we stop. It is one of the very few pieces of advice in my field that is genuinely simple."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "Has anything in fifteen years genuinely surprised you?"
+    },
+    {
+      "voz": "inv",
+      "pausa": 0.3,
+      "texto": "The territories. We had assumed the ranges would be pushed further apart as the numbers rose, the way they are in the countryside. In fact, in some streets they overlap almost completely and the animals appear to tolerate it. We still cannot explain that properly, and it is the thing I would most like to have sorted out before I stop."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "You spend a great deal of time talking to residents. Is that part of the job, or a distraction from it?"
+    },
+    {
+      "voz": "inv",
+      "pausa": 0.3,
+      "texto": "It is the job now. I used to think of it as something I did on Thursdays to keep the funders happy. Then I noticed that half of my best data came from people who had rung up to complain, and that a street where I had spent one evening explaining things had far fewer calls to the council the following year. I get less written up than I would like. I have made my peace with that."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "Finally. Should we be pleased that they are here?"
+    },
+    {
+      "voz": "inv",
+      "pausa": 1.5,
+      "texto": "I am not sure that is a question science can answer, and I have stopped pretending otherwise. What I will say is that they are here, that they are not leaving, that culling has been tried repeatedly and the numbers come back within two years, and that the only real choice in front of us is what sort of neighbours we intend to be. People want me to say that they are wonderful. They are not wonderful. They are foxes."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "That is the end of Part Four."
+    }
+  ]
+}

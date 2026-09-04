@@ -3,12 +3,12 @@
 # Todo el proceso de la voz de ElevenLabs, en un comando.
 #
 #   ./voz.sh          comprueba, genera la audicion de 802 caracteres y para
-#   ./voz.sh --todo   genera los 16, engancha el audio, commit y push
+#   ./voz.sh --todo   genera los que falten, engancha el audio, commit y push
 #
 # Para en cuanto algo no cuadra, y comprueba lo que puede antes de gastar un
 # solo credito. La audicion va aparte a proposito: nadie ha escuchado estas
 # voces todavia, y descubrir que dos suenan igual cuesta 802 caracteres si se
-# mira antes y 35.069 si se mira despues.
+# mira antes y 46.585 si se mira despues.
 
 set -euo pipefail
 cd "$(dirname "$0")"
@@ -117,7 +117,7 @@ TXT
   exit 0
 fi
 
-paso "2 · los dieciseis guiones"
+paso "2 · todos los guiones"
 python3 gen-listening.py --todos --proveedor elevenlabs
 
 paso "3 · enganchar el audio de verdad y jubilar el provisional"

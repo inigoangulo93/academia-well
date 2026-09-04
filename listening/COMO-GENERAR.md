@@ -1,14 +1,18 @@
 # Generar el audio de los listenings
 
-Cuatro tests, cuatro partes cada uno: **16 guiones, 35.069 caracteres**. Con el
-plan Creator de ElevenLabs (121.000 creditos al mes) cabe entero y sobra para
-dos pasadas mas.
+Cinco tests (cuatro de C1 y el primero de B2), cuatro partes cada uno:
+**20 guiones, 46.585 caracteres**. Con el plan Creator de ElevenLabs (121.000
+creditos al mes) cabe entero y sobra para una pasada mas.
+
+Lo que ya esta pagado queda en la cache de `audio/.cache/`: anadir un test
+nuevo solo cuesta lo que ese test ocupa. El primer test de B2 son 11.516
+caracteres.
 
 ## El camino corto
 
     export ELEVENLABS_API_KEY=<pegar la clave>
     ./voz.sh            comprueba, genera la audicion de 802 caracteres y para
-    ./voz.sh --todo     genera los 16, engancha el audio, commit y push
+    ./voz.sh --todo     genera los que falten, engancha el audio, commit y push
 
 `voz.sh` hace todo lo de abajo en orden y se planta en cuanto algo no cuadra.
 Lo que sigue explica que hace cada paso y por que.

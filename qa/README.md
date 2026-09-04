@@ -12,6 +12,8 @@ python3 qa/qa-reading.py         # las cuatro partes del Reading: se pintan, se 
 python3 qa/qa-ejercicios.py      # TODOS los ejercicios: se pintan, aceptan lo bueno y rechazan lo malo
 node    qa/qa-contenido.js       # el contenido: claves, cajas, repartos y forma del simulacro (no abre navegador)
 python3 qa/qa-listening.py       # el audio: que carga, que suena y que no enseña controles nativos
+python3 qa/qa-simulacro.py       # el simulacro de cada nivel: forma del examen, modal y recorrido entero
+python3 qa/qa-niveles.py         # cada nivel ve su curso y solo el suyo; el desplegable de admin lo cambia
 ```
 
 **Lo que no se puede comprobar aquí: la regla de no rebobinar.** El Chromium
@@ -20,6 +22,13 @@ hacia delante, ni en pausa, ni antes de empezar—, y eso se comprueba con un
 `new Audio()` limpio, sin nuestro código de por medio. `qa-listening.py` lo dice
 al terminar en vez de dar un falso verde. Hay que probarlo a mano: escucha medio
 minuto, arrastra hacia atrás y comprueba que vuelve a donde ibas.
+
+**`qa-niveles.py` es el que hay que correr al añadir un nivel.** Existe porque
+al escribir el primer test de B2 los tests pasaron de cuatro a cinco y la página
+los pintaba los cinco juntos: un alumno de C1 veía el Test 1 de B2 metido en su
+curso y su barra contaba 34 ejercicios que no le tocaban. Comprueba lo
+contrario: que cada nivel ve lo suyo, que quien no tiene curso ve el sustituto
+*y se le dice*, y que el desplegable de admin cambia de verdad lo que se pinta.
 
 **`qa-contenido.js` es el que hay que correr al escribir material.** No abre
 navegador y tarda un segundo. Cada regla que tiene está porque me equivoqué en

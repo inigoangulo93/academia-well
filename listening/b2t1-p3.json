@@ -1,0 +1,115 @@
+{
+  "id": "b2t1-lis3",
+  "examen": "fce",
+  "parte": 3,
+  "tarea": "Multiple matching, cinco hablantes",
+  "titulo": "El trabajo que tuve de estudiante",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    {
+      "id": "narrador",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro",
+      "papel": "narrador"
+    },
+    {
+      "id": "m1",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "mujer, 20-30",
+      "papel": "gb-m-joven"
+    },
+    {
+      "id": "h1",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbcwmd",
+      "descripcion": "hombre, 30s",
+      "papel": "gb-h-joven"
+    },
+    {
+      "id": "m2",
+      "acento": "en-GB",
+      "espeak": "en-gb-scotland",
+      "descripcion": "mujer escocesa, 30s",
+      "papel": "gb-m-escocesa"
+    },
+    {
+      "id": "h2",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbclan",
+      "descripcion": "hombre, 40s",
+      "papel": "gb-h-medio"
+    },
+    {
+      "id": "m3",
+      "acento": "en-US",
+      "espeak": "en-us",
+      "descripcion": "mujer estadounidense",
+      "papel": "us-m"
+    }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    {
+      "voz": "narrador",
+      "pausa": 1.0,
+      "texto": "Part Three. You will hear five short extracts in which people talk about a job they had while they were students. For questions one to five, choose from the list A to H what each speaker says about the job. Use each letter only once. There are three extra letters which you do not need to use."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Speaker one."
+    },
+    {
+      "voz": "m1",
+      "pausa": 1.2,
+      "texto": "I took it because it was the only thing going in August. Packing boxes in a warehouse from six in the morning. I had played sport all my life and I honestly thought I would find it easy. By the fourth day I could not lift my arms above my head. Nobody warns you what eight hours of exactly the same movement does to you. The money was fine, the people were kind, and my body simply was not ready for any of it."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Speaker two."
+    },
+    {
+      "voz": "h1",
+      "pausa": 1.2,
+      "texto": "It was supposed to be two evenings a week answering the telephone. Within a month I was doing the rota, then the ordering, and by Christmas I was the one locking up at night. I was twenty and nobody had ever checked whether I could do any of it. It went fine, mostly, and I learned more in six months than in the first two years of my degree, but looking back I am astonished they let me."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Speaker three."
+    },
+    {
+      "voz": "m2",
+      "pausa": 1.2,
+      "texto": "Three summers in a hotel kitchen. I loved the work itself, and I still cook the way they taught me. What I could not live with was everything around it: the shouting, the hours, the fact that the good chefs were all exhausted and the exhausted ones were all angry. I had gone in half planning to make a career of it. I came out completely certain that I did not want that life, and I have never once regretted deciding that."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Speaker four."
+    },
+    {
+      "voz": "h2",
+      "pausa": 1.2,
+      "texto": "The shop opened at seven in the morning and closed at eleven at night, so there was always a shift that fitted round lectures, and that is the entire reason I stayed for three years. I could do a Tuesday morning one week and a Sunday evening the next. Everything else about it was ordinary. The pay was the minimum and the customers were the customers. But I never missed a single class because of it."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Speaker five."
+    },
+    {
+      "voz": "m3",
+      "pausa": 1.5,
+      "texto": "I was on the tills, which I disliked from the first hour to the last. But there was a woman on the same shift, twenty years older than me, who decided on day one that I needed feeding and talking to. We are still in touch. She came to my wedding. I would not do that job again for any money, and I would not have missed it for anything either."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "That is the end of Part Three."
+    }
+  ]
+}

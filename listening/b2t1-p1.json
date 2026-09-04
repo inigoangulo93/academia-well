@@ -1,0 +1,223 @@
+{
+  "id": "b2t1-lis1",
+  "examen": "fce",
+  "parte": 1,
+  "tarea": "Multiple choice, ocho extractos",
+  "titulo": "Ocho extractos breves",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    {
+      "id": "narrador",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro",
+      "papel": "narrador"
+    },
+    {
+      "id": "h1",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbclan",
+      "descripcion": "hombre, 40s",
+      "papel": "gb-h-medio"
+    },
+    {
+      "id": "h2",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbcwmd",
+      "descripcion": "hombre, 30s",
+      "papel": "gb-h-joven"
+    },
+    {
+      "id": "h3",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-rp",
+      "descripcion": "hombre, 55-60",
+      "papel": "gb-h-mayor"
+    },
+    {
+      "id": "h4",
+      "acento": "en-US",
+      "espeak": "en-us",
+      "descripcion": "hombre estadounidense",
+      "papel": "us-h"
+    },
+    {
+      "id": "m1",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "mujer, 20-30",
+      "papel": "gb-m-joven"
+    },
+    {
+      "id": "m2",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-rp",
+      "descripcion": "mujer, 40s",
+      "papel": "gb-m-medio"
+    },
+    {
+      "id": "m3",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbcwmd",
+      "descripcion": "mujer, 55-60",
+      "papel": "gb-m-mayor"
+    },
+    {
+      "id": "m4",
+      "acento": "en-GB",
+      "espeak": "en-gb-scotland",
+      "descripcion": "mujer escocesa, 30s",
+      "papel": "gb-m-escocesa"
+    },
+    {
+      "id": "m5",
+      "acento": "en-US",
+      "espeak": "en-us",
+      "descripcion": "mujer estadounidense",
+      "papel": "us-m"
+    }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    {
+      "voz": "narrador",
+      "pausa": 1.0,
+      "texto": "Part One. You will hear people talking in eight different situations. For questions one to eight, choose the best answer — A, B or C."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract one. You hear a woman talking about a cookery course she took."
+    },
+    {
+      "voz": "m1",
+      "pausa": 1.2,
+      "texto": "I signed up mainly to learn how to make bread, and I can now, more or less. But that is not the part I would tell anyone about. There were nine of us, every Thursday, and by the third week we were bringing each other things we had made at home. I still see four of them. The recipes I could have found anywhere."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract two. You hear two passengers talking about a delayed train."
+    },
+    {
+      "voz": "m2",
+      "pausa": 0.3,
+      "texto": "Ninety minutes. And they have not even said why."
+    },
+    {
+      "voz": "h1",
+      "pausa": 0.3,
+      "texto": "There will be a reason. There usually is."
+    },
+    {
+      "voz": "m2",
+      "pausa": 0.3,
+      "texto": "You are being remarkably calm about it."
+    },
+    {
+      "voz": "h1",
+      "pausa": 1.2,
+      "texto": "I have got a book and nowhere to be until seven, so honestly it makes almost no difference to me. Ask me again on a Friday."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract three. You hear a man leaving a message about a football match."
+    },
+    {
+      "voz": "h2",
+      "pausa": 1.2,
+      "texto": "Hi, it is Dani. Look, about Saturday. The pitch is booked until half past eleven, so we cannot start at ten the way we said. I have put us down for twelve instead, and everybody else knows. Just do not turn up at ten and stand there in the rain wondering where we all are."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract four. You hear a woman on the radio talking about a village library."
+    },
+    {
+      "voz": "m3",
+      "pausa": 1.2,
+      "texto": "What people find strange about it is the lending. You can borrow a drill, a sewing machine, a tent, a pasta maker — the sort of thing you use twice and then store for a decade. The books are still there, obviously, and they are still the busiest part of the building. But the tool shelves have brought back about four hundred people who had not been through the door in years."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract five. You hear two colleagues talking about their new manager."
+    },
+    {
+      "voz": "m4",
+      "pausa": 0.3,
+      "texto": "So. Three weeks in. What do you make of her?"
+    },
+    {
+      "voz": "h3",
+      "pausa": 0.3,
+      "texto": "She asks. That is the difference. Whatever she has already decided, she comes and asks first."
+    },
+    {
+      "voz": "m4",
+      "pausa": 0.3,
+      "texto": "The last one asked."
+    },
+    {
+      "voz": "h3",
+      "pausa": 1.2,
+      "texto": "The last one announced things in the form of a question. It is not at all the same thing."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract six. You hear a man talking about running a marathon."
+    },
+    {
+      "voz": "h4",
+      "pausa": 1.2,
+      "texto": "Everybody told me the wall comes at thirty kilometres and that is where the race would be decided. For me the thirty was fine. What I was not ready for was the fortnight afterwards, when there was suddenly nothing at all in the diary and I felt completely flat. Nobody mentions that part, and it turns out that almost everyone gets it."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract seven. You hear a woman talking about the flat she rents."
+    },
+    {
+      "voz": "m5",
+      "pausa": 1.2,
+      "texto": "It is bright, it is cheap for the area, and the landlord fixed the boiler the same day I asked him. I would stay another year without thinking twice, except for one thing. It is above a bar with a live band on Thursdays. Everything else about the place is better than anything else I could afford."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract eight. You hear two friends talking about a film."
+    },
+    {
+      "voz": "m1",
+      "pausa": 0.3,
+      "texto": "I was completely with it for an hour and a half."
+    },
+    {
+      "voz": "h1",
+      "pausa": 0.3,
+      "texto": "And then?"
+    },
+    {
+      "voz": "m1",
+      "pausa": 0.3,
+      "texto": "And then they explained everything. Every single thing. There was nothing left for me to do."
+    },
+    {
+      "voz": "h1",
+      "pausa": 0.3,
+      "texto": "I quite liked knowing."
+    },
+    {
+      "voz": "m1",
+      "pausa": 1.5,
+      "texto": "I would have liked not knowing. I would have thought about it for a week."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "That is the end of Part One."
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "id": "b2t1-lis2",
+  "examen": "fce",
+  "parte": 2,
+  "tarea": "Sentence completion",
+  "titulo": "El cine que va en furgoneta",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    {
+      "id": "narrador",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro",
+      "papel": "narrador"
+    },
+    {
+      "id": "ruth",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-rp",
+      "descripcion": "mujer, 40s",
+      "papel": "gb-m-medio"
+    }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    {
+      "voz": "narrador",
+      "pausa": 1.0,
+      "texto": "Part Two. You will hear a woman called Ruth Ellery talking about the travelling cinema she runs. For questions one to ten, complete the sentences with a word or short phrase."
+    },
+    {
+      "voz": "ruth",
+      "pausa": 0.8,
+      "texto": "Good evening. My name is Ruth Ellery, and for nine years now I have run what everybody insists on calling a cinema in a van, which is accurate enough. We take films to villages that lost their own cinema thirty or forty years ago, and we do about a hundred and forty screenings a year."
+    },
+    {
+      "voz": "ruth",
+      "pausa": 0.8,
+      "texto": "People assume I came to this from farming, because of the van, or from acting, because of the films. In fact I spent eleven years as a projectionist in Leeds, in a building that is now a gym, and when it closed I had a skill nobody wanted and enough money to be reckless with."
+    },
+    {
+      "voz": "ruth",
+      "pausa": 0.8,
+      "texto": "The van itself had spent most of its life delivering bread for a bakery in Skipton. I bought it for very little because it smelled, and it took me four months and a great deal of vinegar to get that out. The seats came from a theatre in Halifax that was being refitted."
+    },
+    {
+      "voz": "ruth",
+      "pausa": 0.8,
+      "texto": "Our very first screening was in a church, which had not been the plan at all. We had booked the village hall and the roof had come down in January. Sixty people came, which is still slightly above our average, and the vicar has never let me forget it."
+    },
+    {
+      "voz": "ruth",
+      "pausa": 0.8,
+      "texto": "Everybody asks what the hardest part is. It is not the equipment and it is not the weather. It is the parking. You arrive in the dark, in a vehicle nine metres long, in a place that was built for horses, and you have about twenty minutes."
+    },
+    {
+      "voz": "ruth",
+      "pausa": 0.8,
+      "texto": "If you told me tomorrow that I could keep one piece of equipment and lose the rest, I would keep the sound system. The projector matters far less than people think; you can hire a projector anywhere. Bad sound in a stone building is the one thing an audience will not forgive."
+    },
+    {
+      "voz": "ruth",
+      "pausa": 0.8,
+      "texto": "Our busiest month is February, which surprises everyone. Not December, because nobody wants to leave the house in December, and certainly not August. February is simply when a village hall is the warmest thing on offer."
+    },
+    {
+      "voz": "ruth",
+      "pausa": 0.8,
+      "texto": "There are two rules I have never broken. Nothing over two hours, because in most of these places there is a last bus. And nothing that has been on television in the previous six months."
+    },
+    {
+      "voz": "ruth",
+      "pausa": 0.8,
+      "texto": "Requests are mostly for comedies, but the film we were actually asked for most often last year was a western, which I had not expected and still cannot explain."
+    },
+    {
+      "voz": "ruth",
+      "pausa": 0.8,
+      "texto": "And there is one small thing I am rather proud of. Anybody who arrives by bicycle pays two pounds less. We started it as a joke about the parking, and it now accounts for roughly one ticket in six."
+    },
+    {
+      "voz": "ruth",
+      "pausa": 1.5,
+      "texto": "What keeps me awake is not the audiences, who are loyal, and it is not the films, which are easy enough to get hold of. It is fuel. A tank costs what it costs, and the villages that need us most are always the ones furthest away."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "That is the end of Part Two."
+    }
+  ]
+}

@@ -13,32 +13,39 @@ fichero que no esta seria peor que el robot.
     python3 usa-voz-real.py            dice que haria
     python3 usa-voz-real.py --hazlo    lo hace
 """
-import io, os, re, sys, subprocess
+import glob, io, json, os, re, sys, subprocess
 
 RAIZ = os.path.dirname(os.path.abspath(__file__))
 DATOS = os.path.join(RAIZ, 'practica-data.js')
-IDS = ['t%d-lis%d' % (t, p) for t in (1, 2, 3, 4) for p in (1, 2, 3, 4)]
+# Antes eran los dieciseis de C1 escritos a mano. Con el primer test de B2 esa
+# lista se quedo corta y habria dicho "ya estaba hecho" con cuatro listenings en
+# voz de robot. Ahora sale de los guiones que hay en listening/.
+IDS = sorted(json.load(io.open(g, encoding='utf-8'))['id']
+             for g in glob.glob(os.path.join(RAIZ, 'listening', '*-p[1-4].json')))
 
 
 def main():
     hazlo = '--hazlo' in sys.argv
 
-    faltan = [i for i in IDS if not os.path.exists(os.path.join(RAIZ, 'audio', i + '.mp3'))]
+    s = io.open(DATOS, encoding='utf-8').read()
+    antes = s
+
+    # Solo interesan los que HOY siguen en espeak. Exigir los veinte a la vez
+    # obligaria a repagar los dieciseis de C1 cada vez que se anade un test.
+    pendientes = [i for i in IDS if ('audio/%s-espeak.mp3' % i) in s]
+    if not pendientes:
+        print('Ya estaba hecho: los %d listenings apuntan al audio de verdad.' % len(IDS))
+        return
+
+    faltan = [i for i in pendientes
+              if not os.path.exists(os.path.join(RAIZ, 'audio', i + '.mp3'))]
     if faltan:
         sys.exit('Todavia no estan estos audios: %s\n'
                  'Genera primero:  python3 gen-listening.py --todos --proveedor elevenlabs'
                  % ', '.join(faltan))
 
-    s = io.open(DATOS, encoding='utf-8').read()
-    antes = s
-    # Si ya esta hecho, no es un fallo: es que se relanza el proceso. Antes se
-    # plantaba con "esperaba 16 y he encontrado 0" y tumbaba voz.sh --todo justo
-    # despues de haber generado y pagado los dieciseis.
-    if not any(('audio/%s-espeak.mp3' % i) in s for i in IDS):
-        print('Ya estaba hecho: los 16 apuntan al audio de verdad.')
-        return
     n = 0
-    for i in IDS:
+    for i in pendientes:
         # El fichero esta escrito en dos estilos, con comillas simples y con
         # dobles. Ya nos mordio una vez: aqui se contemplan los dos y se cuenta.
         for c in ("'", '"'):
@@ -46,8 +53,9 @@ def main():
             nuevo = '%saudio/%s.mp3%s' % (c, i, c)
             if viejo in s:
                 s = s.replace(viejo, nuevo); n += 1
-    if n != len(IDS):
-        sys.exit('Esperaba cambiar %d rutas y he encontrado %d. No toco nada.' % (len(IDS), n))
+    if n != len(pendientes):
+        sys.exit('Esperaba cambiar %d rutas y he encontrado %d. No toco nada.'
+                 % (len(pendientes), n))
 
     # Fuera el aviso de voz provisional, en sus dos estilos.
     d = len(re.findall(r'demo: true, ', s)) + len(re.findall(r'"demo": true,\s*', s))

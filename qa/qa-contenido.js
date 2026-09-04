@@ -157,12 +157,21 @@ for (const id of IDS) {
     });
   });
 
-  // Gapped text: un parrafo por hueco, sin repetir, y con un distractor que no
-  // sea siempre la ultima letra.
-  const conHuecos = (e.texto || []).filter(t => /^\{\d+\}$/.test(String(t))).length;
+  // Gapped text: un hueco por pregunta, sin repetir seccion, y con un
+  // distractor que no sea siempre la ultima letra.
+  //
+  // Se cuentan los {n} esten donde esten: en el C1 falta un parrafo entero y el
+  // {n} ocupa el parrafo el solo; en el B2 falta UNA FRASE y el {n} va dentro
+  // del parrafo. Contando solo los parrafos completos, el gapped text de B2 no
+  // pasaba por ninguna de estas reglas.
+  const huecos = (String((e.texto || []).join(' ')).match(/\{(\d+)\}/g) || []);
+  const conHuecos = huecos.length;
   if (conHuecos) {
     if (conHuecos !== e.items.length)
-      mal(id, 'hay ' + conHuecos + ' huecos de parrafo y ' + e.items.length + ' items');
+      mal(id, 'hay ' + conHuecos + ' huecos y ' + e.items.length + ' items');
+    const nums = huecos.map(m => Number(m.replace(/[{}]/g, ''))).sort((a, b) => a - b);
+    if (nums.join(',') !== e.items.map((_, i) => i + 1).join(','))
+      mal(id, 'los huecos no van numerados de 1 a ' + e.items.length + ': ' + nums.join(','));
     const usados = e.items.map(it => it.correcta);
     if (new Set(usados).size !== usados.length)
       mal(id, 'un mismo parrafo se usa en dos huecos');

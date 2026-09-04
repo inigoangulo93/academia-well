@@ -121,7 +121,11 @@ async def main():
         # El fallo que se colo hasta produccion: al volver de un simulacro
         # quedaban dos id="au" en el DOM, $('#au') cogia el viejo escondido, y
         # el reproductor de delante se quedaba sin rotulo y con el boton muerto.
-        await pg.evaluate("()=>localStorage.clear()")
+        # El nivel se pone a mano: sin nivel guardado el curso que se sirve es
+        # el de B2, y entonces 't1-listening' (que es de C1) no esta en pantalla.
+        await pg.evaluate("()=>{localStorage.clear();"
+                          "localStorage.setItem('well_nivel',"
+                          "JSON.stringify({nivel:'C1',origen:'admin'}));}")
         await pg.goto(B + 'practica.html', wait_until='domcontentloaded')
         await pg.wait_for_timeout(700)
         await pg.click('[data-simulacro="t1-listening"]')

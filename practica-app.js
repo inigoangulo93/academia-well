@@ -37,16 +37,38 @@
           var ej = DATA.ejercicios[id];
           if (!ej) return null;
           ej.id = id; ej._bloque = bl; ej._sesion = ses; ej._test = test;
+          ej._nivel = test.nivel;
           if (EJERCICIOS.indexOf(ej) === -1) EJERCICIOS.push(ej);
           ses._ejercicios.push(ej);
           return ej;
         }).filter(Boolean);
         BLOQUES.push(bl);
       });
+      ses._nivel = test.nivel;
       SESIONES.push(ses);
     });
   });
   var porId = function (lista, id) { return lista.filter(function (x) { return x.id === id; })[0]; };
+
+  /* El saco de ejercicios es uno solo para toda la aplicacion, porque la URL
+     puede pedir cualquier id y hay que saber encontrarlo. Pero el curso que se
+     ve, el progreso que se cuenta y la sesion que se desbloquea son SOLO los
+     del nivel activo. Sin este filtro, meter el primer test de B2 le habria
+     anadido ocho sesiones y 34 ejercicios a la barra de un alumno de C1. */
+  function esDeNivel(x, id) { return (x.nivel || x._nivel) === id; }
+  function delNivel(lista) {
+    var n = nivelActivo().nivel;
+    if (!n) return lista;
+    return lista.filter(function (x) { return esDeNivel(x, n.id); });
+  }
+  function testsActivos() { return delNivel(DATA.tests); }
+  function sesionesActivas() { return delNivel(SESIONES); }
+  function ejerciciosActivos() { return delNivel(EJERCICIOS); }
+  function cuentaNivel(id) {
+    var t = DATA.tests.filter(function (x) { return esDeNivel(x, id); }).length;
+    var e = EJERCICIOS.filter(function (x) { return esDeNivel(x, id); }).length;
+    return { tests: t, ejercicios: e };
+  }
 
   /* ---------- utilidades ---------- */
 
@@ -199,14 +221,15 @@
 
   function totales() {
     var items = 0, ok = 0, perfectos = 0, empezados = 0, pendientes = 0;
-    EJERCICIOS.forEach(function (e) {
+    var ejs = ejerciciosActivos(), ses = sesionesActivas();
+    ejs.forEach(function (e) {
       items += e.items.length;
       var p = P.ejercicios[e.id];
       if (!p) return;
       ok += p.mejor; empezados++;
       if (p.mejor === e.items.length) perfectos++;
     });
-    SESIONES.forEach(function (e) {
+    ses.forEach(function (e) {
       if (estado(e) !== 'abierta') return;
       (e.ejercicios || []).forEach(function (ej) {
         var p = P.ejercicios[ej.id];
@@ -215,9 +238,9 @@
     });
     return {
       items: items, ok: ok, perfectos: perfectos, empezados: empezados, pendientes: pendientes,
-      ejercicios: EJERCICIOS.length,
-      etapasCompletas: SESIONES.filter(function (e) { return estado(e) === 'completa'; }).length,
-      etapasConMaterial: SESIONES.filter(function (e) { return e._ejercicios.length; }).length,
+      ejercicios: ejs.length,
+      etapasCompletas: ses.filter(function (e) { return estado(e) === 'completa'; }).length,
+      etapasConMaterial: ses.filter(function (e) { return e._ejercicios.length; }).length,
       pct: items ? ok / items : 0
     };
   }
@@ -274,8 +297,9 @@
   }
 
   function siguienteEjercicio() {
-    for (var i = 0; i < SESIONES.length; i++) {
-      var s = SESIONES[i];
+    var lista = sesionesActivas();
+    for (var i = 0; i < lista.length; i++) {
+      var s = lista[i];
       if (estado(s) !== 'abierta') continue;
       var pendiente = s._ejercicios.filter(function (ej) {
         var p = P.ejercicios[ej.id];
@@ -444,7 +468,8 @@
 
     // el curso: un test detras de otro
     var cont2 = $('#rutas');
-    var conMaterial = SESIONES.filter(function (s) { return s._ejercicios.length; }).length;
+    var misSesiones = sesionesActivas();
+    var conMaterial = misSesiones.filter(function (s) { return s._ejercicios.length; }).length;
     var act = nivelActivo();
     cont2.innerHTML =
       '<div class="ruta-cab"><div><h2>' +
@@ -456,8 +481,8 @@
       (act.sustituto ? '<p class="ruta-sustituto">' +
         esc(T.cursoOtroNivel.replace('{suyo}', (nivelAlumno() || {}).nivel || '')
                             .replace('{este}', act.nivel.mcer)) + '</p>' : '') +
-      DATA.tests.map(function (t) { return pintaTest(t, sig); }).join('') +
-      '<p class="ruta-pie">' + T.sesionesCargadas.replace('{n}', conMaterial).replace('{t}', SESIONES.length) + '</p>';
+      testsActivos().map(function (t) { return pintaTest(t, sig); }).join('') +
+      '<p class="ruta-pie">' + T.sesionesCargadas.replace('{n}', conMaterial).replace('{t}', misSesiones.length) + '</p>';
   }
 
   /* ---------- el camino: un test, sus sesiones ---------- */
@@ -965,6 +990,13 @@
     } else { caja.hidden = true; }
 
     var cuerpo = $('#sim-cuerpo');
+    // De que ejercicio es lo que hay en pantalla. El titulo no vale para
+    // saberlo: 'Use of English · Part 1' lo llevan los cinco tests.
+    //
+    // Se llama 'data-sim-ej' y no 'data-ej' a proposito: el delegado de clicks
+    // abre el ejercicio de cualquier '[data-ej]', y poniendoselo al contenedor
+    // del simulacro, marcar una opcion te sacaba del simulacro entero.
+    cuerpo.setAttribute('data-sim-ej', ej.id);
     cuerpo.innerHTML = cuerpoEjercicio(ej);
     if (ej.tipo === 'listening') preparaReproductor(ej);
     var guardado = SIM.respuestas[ej.id];
@@ -1140,10 +1172,15 @@
       h += '<div class="lectura-texto">';
       if (ej.tituloTexto) h += '<h3 class="lectura-tit">' + esc(ej.tituloTexto) + '</h3>';
       ej.texto.forEach(function (par) {
-        // {n} es el hueco de un parrafo entero (parte 7)
+        // Dos formas de hueco, porque son dos tareas distintas. Si el parrafo
+        // ES el {n}, falta un parrafo entero: el gapped text del C1. Si el {n}
+        // esta dentro de un parrafo, falta UNA FRASE: el gapped text del B2, y
+        // ahi solo se marca el sitio, como en el multiple-choice cloze. Sin
+        // esto el B2 pintaba "{1}" en crudo en mitad del texto.
         var m = String(par).match(/^\{(\d+)\}$/);
         if (m) h += '<p class="lectura-hueco">' + T.huecoNumero.replace('{n}', m[1]) + '</p>';
-        else h += '<p>' + esc(par) + '</p>';
+        else h += '<p>' + esc(par).replace(/\{(\d+)\}/g,
+                       '<span class="marca-hueco">$1</span>') + '</p>';
       });
       h += '</div>';
     }
@@ -1678,7 +1715,7 @@
       }
     });
 
-    var abiertasAntes = SESIONES.filter(function (e) { return estado(e) === 'abierta' || estado(e) === 'completa'; }).length;
+    var abiertasAntes = sesionesActivas().filter(function (e) { return estado(e) === 'abierta' || estado(e) === 'completa'; }).length;
     anota(ej, ok, respuestas);
 
     var n = ej.items.length;
@@ -1700,9 +1737,9 @@
     var premios = nuevas.map(function (b) {
       return { icono: b.icono, eti: T.insigniaNueva, titulo: T.insignias[b.id].titulo, texto: T.insignias[b.id].texto };
     });
-    var abiertasDespues = SESIONES.filter(function (e) { return estado(e) === 'abierta' || estado(e) === 'completa'; }).length;
+    var abiertasDespues = sesionesActivas().filter(function (e) { return estado(e) === 'abierta' || estado(e) === 'completa'; }).length;
     if (abiertasDespues > abiertasAntes) {
-      var nueva = SESIONES.filter(function (e) { return estado(e) === 'abierta'; })
+      var nueva = sesionesActivas().filter(function (e) { return estado(e) === 'abierta'; })
         .filter(function (e) { return dominio(e).ok === 0; })[0];
       premios.unshift({ icono: '🔓', eti: T.desbloqueada, titulo: nueva ? tituloSesion(nueva) : '', texto: T.desbloqueadaSub });
     }
@@ -1901,7 +1938,8 @@
     $('#ad-cursos').innerHTML = (DATA.niveles || []).map(function (n) {
       return '<li><span class="' + (n.curso ? 'ad-si' : 'ad-no') + '">' +
              (n.curso ? '✓' : '·') + '</span> <b>' + esc(n.mcer) + '</b> ' + esc(n.nombre) +
-             ' — ' + (n.curso ? esc(DATA.tests.length + ' tests, ' + EJERCICIOS.length + ' ejercicios')
+             ' — ' + (n.curso ? esc(cuentaNivel(n.id).tests + ' tests, ' +
+                                     cuentaNivel(n.id).ejercicios + ' ejercicios')
                               : 'sin escribir') + '</li>';
     }).join('');
 
@@ -1909,17 +1947,19 @@
   }
 
   // Si el nivel elegido no tiene curso, se dice antes de guardar. Poner B1 a un
-  // alumno no le da un curso de B1: hoy solo existe el de C1.
+  // alumno no le da un curso de B1: hoy hay escritos el de B2 y el de C1.
   function avisaAdmin() {
     var v = $('#ad-nivel').value, n = v ? nivelDe(v) : null;
     var p = $('#ad-pista');
     if (!v) { p.className = 'ad-pista'; p.textContent = 'Sin nivel, el panel no ensena ninguna recomendacion.'; return; }
     if (n && !n.curso) {
       p.className = 'ad-pista aviso';
-      p.textContent = 'Ojo: ' + n.mcer + ' todavia no tiene curso escrito. El alumno vera el de C1, que no es el suyo.';
+      var sust = (DATA.niveles || []).filter(function (x) { return x.curso; })[0];
+      p.textContent = 'Ojo: ' + n.mcer + ' todavia no tiene curso escrito. El alumno vera el de ' +
+                      (sust ? sust.mcer : '—') + ', que no es el suyo.';
     } else {
       p.className = 'ad-pista';
-      p.textContent = 'Hay curso de ' + v + ': ' + DATA.tests.length + ' tests.';
+      p.textContent = 'Hay curso de ' + v + ': ' + cuentaNivel(n.id).tests + ' tests.';
     }
   }
 

@@ -342,7 +342,10 @@ def espeak(guion, destino):
 
 def guiones_de(args):
     if args.todos:
-        return sorted(glob.glob(os.path.join(RAIZ, 'listening', 't*-p*.json')))
+        # 't*-p*' dejaba fuera 'b2t1-p1.json' en silencio: --todos generaba
+        # dieciseis de veinte. El patron pide parte 1-4 al final, que descarta
+        # '00-prueba-voces.json' sin nombrar tests uno a uno.
+        return sorted(glob.glob(os.path.join(RAIZ, 'listening', '*-p[1-4].json')))
     if not args.guion:
         sys.exit('Dime un guion, o pon --todos.')
     return [args.guion]
