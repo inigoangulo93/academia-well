@@ -107,6 +107,36 @@ async def main():
         prueba(chip == 'FCE', 'A2 cae en el curso mas cercano que existe, no en el mas duro')
         await ctx.close()
 
+        # Los resultados del test de nivel que NO son uno de los cuatro niveles.
+        # El test reparte A1, A2, B1, B2 y B2+; el curso declara A2, B1, B2 y
+        # C1. Antes A1 y B2+ no casaban con nada, caian en el curso por defecto
+        # y no se le decia al alumno: un B2+ no podia llegar al curso de C1
+        # haciendo la prueba, que es exactamente para lo que se hace.
+        for etiqueta, sigla, aviso in [
+                ('B2+', 'CAE', 'redondeado'),   # sube al mas cercano por arriba
+                ('C2',  'CAE', 'tope'),         # por encima de todo: el mas alto
+                ('A1',  'FCE', 'sustituto')]:   # por debajo: A2, que no tiene curso
+            ctx = await b.new_context(viewport={'width': 1280, 'height': 900})
+            pg = await con_nivel(ctx, etiqueta)
+            chip = (await pg.locator('.nivel-chip').inner_text()).strip()
+            prueba(chip == sigla, '%s se sirve con el curso %s' % (etiqueta, chip))
+            texto = ''
+            if await pg.locator('.ruta-sustituto').count():
+                texto = (await pg.locator('.ruta-sustituto').inner_text()).strip()
+            prueba(bool(texto), '%s: se le dice por que ve ese curso' % etiqueta)
+            prueba(etiqueta in texto,
+                   '%s: el aviso nombra su resultado tal cual salio ("%s")' % (etiqueta, texto))
+            if aviso == 'redondeado':
+                prueba('no es uno de los niveles' in texto,
+                       '%s: se le dice que su resultado no es un nivel del curso' % etiqueta)
+            elif aviso == 'tope':
+                prueba('más alto que tenemos' in texto,
+                       '%s: no se le dice que ha subido, porque no ha subido' % etiqueta)
+            else:
+                prueba('Todavía no hay curso' in texto,
+                       '%s: se le dice que su nivel aun no tiene curso' % etiqueta)
+            await ctx.close()
+
         # El desplegable de admin cambia lo que se pinta. Sin add_init_script:
         # ese guion se ejecuta en CADA carga y volvia a poner el nivel de antes
         # justo despues de guardarlo, de modo que la prueba medía su propio

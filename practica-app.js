@@ -479,8 +479,12 @@
       // Si el curso que se sirve no es el del nivel del alumno, se dice aqui y
       // no en letra pequena.
       (act.sustituto ? '<p class="ruta-sustituto">' +
-        esc(T.cursoOtroNivel.replace('{suyo}', (nivelAlumno() || {}).nivel || '')
-                            .replace('{este}', act.nivel.mcer)) + '</p>' : '') +
+        esc(T.cursoOtroNivel.replace('{suyo}', act.etiqueta)
+                            .replace('{este}', act.nivel.mcer)) + '</p>'
+       : act.redondeado ? '<p class="ruta-sustituto">' +
+        esc((act.arriba ? T.cursoRedondeado : T.cursoTope)
+              .replace('{suyo}', act.etiqueta)
+              .replace('{este}', act.nivel.mcer)) + '</p>' : '') +
       testsActivos().map(function (t) { return pintaTest(t, sig); }).join('') +
       '<p class="ruta-pie">' + (conMaterial === misSesiones.length
         ? T.sesionesTodas.replace('{t}', misSesiones.length)
@@ -1904,11 +1908,24 @@
 
   function nivelActivo() {
     var a = nivelAlumno();
-    var pedido = a && a.nivel ? nivelDe(a.nivel) : null;
-    if (pedido && pedido.curso) return { nivel: pedido, sustituto: false };
+    var etiqueta = a && a.nivel ? a.nivel : '';
+    var pedido = nivelPara(etiqueta);
+    // 'redondeado' no es lo mismo que 'sustituto'. Sustituto: tu nivel existe
+    // y todavia no tiene curso escrito. Redondeado: tu resultado no es
+    // ninguno de los cuatro niveles y se te ha puesto en el mas cercano por
+    // arriba. Los dos se dicen, y con palabras distintas.
+    var redondeado = !!pedido && pedido.mcer !== etiqueta;
+    // Hacia donde se ha redondeado. Casi siempre hacia arriba, pero un C2 cae
+    // en C1 porque es lo mas alto que existe, y decirle que le hemos puesto
+    // "el mas cercano por arriba" seria mentirle sobre su propio resultado.
+    var arriba = redondeado && valorMcer(pedido.mcer) > valorMcer(etiqueta);
+    if (pedido && pedido.curso)
+      return { nivel: pedido, sustituto: false, redondeado: redondeado,
+               arriba: arriba, etiqueta: etiqueta };
     var conCurso = (DATA.niveles || []).filter(function (n) { return n.curso; });
-    if (!conCurso.length) return { nivel: null, sustituto: false };
-    return { nivel: conCurso[0], sustituto: !!pedido };
+    if (!conCurso.length)
+      return { nivel: null, sustituto: false, redondeado: false, etiqueta: etiqueta };
+    return { nivel: conCurso[0], sustituto: !!pedido, redondeado: false, etiqueta: etiqueta };
   }
 
   function papelesActivos() {
@@ -1922,11 +1939,56 @@
     return n;
   }
 
+  /* El test de nivel y la plataforma no hablan el mismo idioma.
+
+     El test reparte A1, A2, B1, B2 y B2+; la plataforma declara A2, B1, B2 y
+     C1. Dos de los cinco resultados --A1 y B2+-- no casaban con ningun nivel,
+     nivelDe devolvia null, y el alumno caia en el curso por defecto SIN que se
+     le dijera nada: un B2+ no podia llegar al curso de C1 haciendo la prueba,
+     que es justo para lo que se hace la prueba.
+
+     Se resuelve en la escala del MCER, no por tabla: cada etiqueta vale un
+     numero, el '+' suma medio punto, y se coge el nivel declarado mas bajo que
+     llegue a ese numero. Redondear HACIA ARRIBA es lo correcto aqui: el test
+     se corta en B2+ y dice explicitamente que por encima de eso hay que
+     hablarlo, asi que a quien lo termina entero se le sirve lo mas exigente
+     que existe, no lo que acaba de demostrar que ya domina.
+
+       A1  -> el curso mas bajo que haya      B2+ -> C1
+       C2  -> el mas alto que haya            B2  -> B2 (exacto) */
+  var ESCALA = { A1: 1, A2: 2, B1: 3, B2: 4, C1: 5, C2: 6 };
+
+  function valorMcer(etiqueta) {
+    var m = String(etiqueta || '').toUpperCase().match(/^([ABC][12])(\+?)$/);
+    if (!m || !ESCALA[m[1]]) return null;
+    return ESCALA[m[1]] + (m[2] ? 0.5 : 0);
+  }
+
+  // El nivel declarado que le toca a una etiqueta del test, exista curso o no.
+  function nivelPara(etiqueta) {
+    var exacto = nivelDe(etiqueta);
+    if (exacto) return exacto;
+    var v = valorMcer(etiqueta);
+    if (v === null) return null;
+    var orden = (DATA.niveles || []).slice().sort(function (a, b) {
+      return valorMcer(a.mcer) - valorMcer(b.mcer);
+    });
+    if (!orden.length) return null;
+    var arriba = orden.filter(function (n) { return valorMcer(n.mcer) >= v; })[0];
+    return arriba || orden[orden.length - 1];
+  }
+
   function pintaAdmin() {
     var actual = nivelAlumno();
+    var act = nivelActivo();
+    // Que nivel tiene guardado Y que curso esta viendo. No siempre coinciden:
+    // el test puede devolver B2+, que no es ninguno de los cuatro, y entonces
+    // el desplegable de abajo sale en blanco. Sin esta linea Elena no tendria
+    // manera de saber que ese alumno esta viendo el de C1.
     $('#ad-actual').textContent = actual
       ? 'Ahora mismo: ' + actual.nivel + (actual.puntuacion !== undefined && actual.sobre
-          ? ' · ' + actual.puntuacion + '/' + actual.sobre + ' en la prueba' : ' · puesto a mano')
+          ? ' · ' + actual.puntuacion + '/' + actual.sobre + ' en la prueba' : ' · puesto a mano') +
+        (act.nivel ? ' · ve el curso de ' + act.nivel.mcer : '')
       : 'Ahora mismo no hay ningun nivel guardado.';
 
     var sel = $('#ad-nivel');
@@ -1953,7 +2015,20 @@
   function avisaAdmin() {
     var v = $('#ad-nivel').value, n = v ? nivelDe(v) : null;
     var p = $('#ad-pista');
-    if (!v) { p.className = 'ad-pista'; p.textContent = 'Sin nivel, el panel no ensena ninguna recomendacion.'; return; }
+    if (!v) {
+      p.className = 'ad-pista';
+      // El desplegable en blanco significa dos cosas distintas. Una es que no
+      // hay nivel. La otra es que el test devolvio algo que no esta en la
+      // lista --B2+ o A1-- y entonces decir "sin nivel" seria falso.
+      var guardado = nivelAlumno();
+      var act = nivelActivo();
+      p.textContent = guardado
+        ? 'El alumno tiene ' + guardado.nivel + ', que no es ninguno de los cuatro. ' +
+          'Se le sirve el curso de ' + (act.nivel ? act.nivel.mcer : '—') +
+          '. Guardar ahora asi le deja sin nivel.'
+        : 'Sin nivel, el panel no ensena ninguna recomendacion.';
+      return;
+    }
     if (n && !n.curso) {
       p.className = 'ad-pista aviso';
       var sust = (DATA.niveles || []).filter(function (x) { return x.curso; })[0];
