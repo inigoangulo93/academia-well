@@ -191,7 +191,37 @@ create trigger al_editar_perfil
   for each row execute function public.protege_es_profesora();
 
 -- ---------------------------------------------------------------------
--- 8. Vista para el panel de la profesora
+-- 8. Quien puede llamar a las funciones
+--
+-- Supabase publica automaticamente como API cualquier funcion de este
+-- esquema: /rest/v1/rpc/<nombre>. Las tres de aqui son "security definer",
+-- o sea que corren con los permisos de quien las creo y no con los de quien
+-- llama, asi que conviene mirar una por una quien deberia poder invocarlas.
+--
+-- crea_perfil y protege_es_profesora son funciones de disparador. Postgres
+-- ya rechaza llamarlas a mano ("trigger functions can only be called as
+-- triggers"), pero se les quita el permiso igualmente: no cuesta nada y
+-- deja el panel de avisos limpio, que es lo que hace que el dia que salte
+-- un aviso de verdad se vea.
+--
+-- Comprobado en PostgreSQL antes de escribirlo: con estos permisos
+-- revocados, el perfil se sigue creando solo al registrarse y el alumno
+-- sigue sin poder hacerse profesora.
+revoke execute on function public.crea_perfil()          from public, anon, authenticated;
+revoke execute on function public.protege_es_profesora() from public, anon, authenticated;
+
+-- es_profesora() NO se toca, y esto es importante: se la llama dentro de las
+-- politicas de arriba, y las politicas se evaluan con los permisos de quien
+-- pregunta. Al revocarla, cualquier consulta a cualquier tabla revienta con
+-- "permission denied for function es_profesora", tanto para un alumno
+-- identificado como para un anonimo. Tambien comprobado.
+--
+-- Dejarla abierta es seguro: no acepta parametros y solo responde si TU eres
+-- profesora, asi que no dice nada de nadie mas. Supabase seguira sacando dos
+-- avisos por ella; son deliberados.
+
+-- ---------------------------------------------------------------------
+-- 9. Vista para el panel de la profesora
 -- ---------------------------------------------------------------------
 create or replace view public.resumen_alumnos
 with (security_invoker = true) as

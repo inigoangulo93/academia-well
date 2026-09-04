@@ -54,7 +54,17 @@ disparador_profesora as (
   where tgrelid = 'public.perfiles'::regclass and not tgisinternal and tgname = 'al_editar_perfil'
 ),
 
--- 7. La vista respeta el RLS de quien pregunta. Sin security_invoker, un
+-- 7. Las funciones de disparador no se pueden invocar por la API.
+--    es_profesora() sí, y debe poder: las políticas la llaman por dentro.
+rpc as (
+  select count(*) n from pg_proc p
+  where p.pronamespace = 'public'::regnamespace
+    and p.proname in ('crea_perfil','protege_es_profesora')
+    and (has_function_privilege('anon', p.oid, 'execute')
+      or has_function_privilege('authenticated', p.oid, 'execute'))
+),
+
+-- 8. La vista respeta el RLS de quien pregunta. Sin security_invoker, un
 --    alumno vería por la vista lo que las políticas le niegan por la tabla.
 vista as (
   select coalesce(array_to_string(reloptions, ','), '') opts
@@ -83,7 +93,11 @@ select * from (
          case when n = 1 then 'al_editar_perfil' else 'falta' end,
          case when n = 1 then 'BIEN' else 'MAL' end from disparador_profesora
   union all
-  select 7, 'La vista de la profesora respeta el RLS',
+  select 7, 'Los disparadores no son invocables por API',
+         case when n = 0 then 'ninguno expuesto' else n::text || ' expuesto(s)' end,
+         case when n = 0 then 'BIEN' else 'MAL' end from rpc
+  union all
+  select 8, 'La vista de la profesora respeta el RLS',
          case when opts = '' then 'sin opciones' else opts end,
          case when opts like '%security_invoker=true%' then 'BIEN' else 'MAL' end from vista
 ) t order by orden;

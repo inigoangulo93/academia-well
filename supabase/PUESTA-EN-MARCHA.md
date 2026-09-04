@@ -97,19 +97,27 @@ Debe terminar sin ningún error.
 de personas reales.
 
 Pega `supabase/02-verificar.sql` igual que antes y ejecútalo. No cambia nada:
-solo mira. Tiene que devolver exactamente esto, siete filas y las siete `BIEN`:
+solo mira. Tiene que devolver exactamente esto, ocho filas y las ocho `BIEN`:
 
 ```
- orden |              comprobacion               |        detalle        | veredicto
--------+-----------------------------------------+-----------------------+-----------
-     1 | Las cinco tablas existen                | 5 de 5                | BIEN
-     2 | Todas tienen Row Level Security         | ninguna sin RLS       | BIEN
-     3 | Las políticas por fila                  | 19 de 19              | BIEN
-     4 | Las funciones auxiliares                | 3 de 3                | BIEN
-     5 | Se crea el perfil al registrarse        | al_crear_usuario      | BIEN
-     6 | Nadie se nombra profesora a sí mismo    | al_editar_perfil      | BIEN
-     7 | La vista de la profesora respeta el RLS | security_invoker=true | BIEN
+ orden |                comprobacion                |        detalle        | veredicto
+-------+--------------------------------------------+-----------------------+-----------
+     1 | Las cinco tablas existen                   | 5 de 5                | BIEN
+     2 | Todas tienen Row Level Security            | ninguna sin RLS       | BIEN
+     3 | Las políticas por fila                     | 19 de 19              | BIEN
+     4 | Las funciones auxiliares                   | 3 de 3                | BIEN
+     5 | Se crea el perfil al registrarse           | al_crear_usuario      | BIEN
+     6 | Nadie se nombra profesora a sí mismo       | al_editar_perfil      | BIEN
+     7 | Los disparadores no son invocables por API | ninguno expuesto      | BIEN
+     8 | La vista de la profesora respeta el RLS    | security_invoker=true | BIEN
 ```
+
+**Los dos avisos que quedan en el panel de Supabase son deliberados.** Los dos
+son sobre `es_profesora()`, y esa función tiene que seguir siendo llamable: las
+políticas la invocan por dentro, y las políticas se evalúan con los permisos de
+quien pregunta. Revocarla hace que *cualquier* consulta a *cualquier* tabla
+reviente con `permission denied for function es_profesora`. Está probado. No la
+revoques.
 
 **Si alguna fila dice `MAL`, párate ahí y dilo.** No sigas al paso siguiente ni
 intentes arreglarlo cambiando el esquema.
@@ -222,7 +230,7 @@ excepción.
 
 - [ ] El proyecto existe, en Irlanda o Fráncfort, y la contraseña está guardada
       en el gestor de contraseñas de Iñigo
-- [ ] `02-verificar.sql` devuelve las siete filas en `BIEN`
+- [ ] `02-verificar.sql` devuelve las ocho filas en `BIEN`
 - [ ] Las tres *Redirect URLs* están puestas
 - [ ] `well-config.js` tiene la URL y la clave **pública**, y está subido a
       `well-online-practica` — no a `main`

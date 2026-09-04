@@ -55,8 +55,8 @@ En orden:
 
 2. **Crear las tablas.** *SQL Editor* → *New query* → pegar entero
    `supabase/01-esquema.sql` → *Run*. Debe terminar sin errores.
-   Después, pegar y ejecutar `supabase/02-verificar.sql`: devuelve siete filas
-   y las siete tienen que decir `BIEN`. **Si alguna dice `MAL`, parar y
+   Después, pegar y ejecutar `supabase/02-verificar.sql`: devuelve ocho filas
+   y las ocho tienen que decir `BIEN`. **Si alguna dice `MAL`, parar y
    avisar**: sin RLS, cualquiera con la clave pública lee la tabla entera.
 
 3. **Copiar las claves.** *Project Settings* → *API Keys*:
