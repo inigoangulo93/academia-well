@@ -26,7 +26,19 @@
        mal', y el manual no trae ninguno. */
     --navy-deep:#071F62; --navy:#04287A; --blue:#0252D0;
     --blue-bright:#0391FD; --cyan:#08C0FE; --ink:#12309B;
-    --azul:#04287A; --tinta:#232B42; --carmin:#C0293B;
+    /* Degradados. El de marca es el del simbolo y solo vale de adorno: acaba
+       en cyan, que sobre blanco da 2,1:1 y no sostiene ni un texto grande.
+       El de accion y el de campo estan cortados a proposito antes de llegar
+       ahi: sus dos extremos pasan de 5,2:1, asi que el texto blanco encima
+       cumple en cualquier punto del degradado. */
+    --grad-marca:linear-gradient(36deg,#071F62 0%,#08C0FE 100%);
+    --grad-accion:linear-gradient(140deg,#0A3EA8 0%,#0252D0 100%);
+    --grad-campo:linear-gradient(146deg,#071F62 0%,#0B45BE 58%,#0F63E8 100%);
+    --grad-alerta:linear-gradient(140deg,#A81C31 0%,#CE2440 100%);
+    /* El rojo se queda como color de accion negativa, pero retocado: el
+       #C0293B viejo era apagado y al lado de estos azules se veia sucio.
+       #CE2440 es el mismo rojo limpio, y mantiene 5,3:1 sobre blanco. */
+    --azul:#04287A; --tinta:#232B42; --carmin:#CE2440;
     --carmin-suave:#FBE9EB; --azul-suave:#E7EFFC; --neutro:#F2F1ED;
     --crema:#FDFCF9; --verde-wa:#128C4B; --gris:#5E6575;
     --linea:rgba(35,43,66,.12); --sombra:0 16px 44px rgba(35,43,66,.12); --radio:20px;
@@ -63,7 +75,6 @@
   .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:13px 32px;max-width:1320px;transition:padding .25s ease}
   header.main.scrolled .nav-inner{padding:8px 32px}
   .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--azul)}
-  .logo img{width:34px;height:auto}
   .logo-text{font-family:'Bree Serif',serif;font-size:19px;line-height:1.05}
   .menu{display:flex;align-items:center;gap:4px;list-style:none}
   .menu > li{position:relative}
@@ -94,7 +105,7 @@
   .mega-list b{font-size:15.5px;color:var(--tinta);display:block}
   .mega-list a:hover b{color:var(--azul)}
   .mega-list span{font-size:13.5px;color:var(--gris);line-height:1.45;display:block;margin-top:1px}
-  .mega-promo{background:var(--azul);border-radius:14px;padding:22px 20px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;text-decoration:none}
+  .mega-promo{background:var(--grad-accion);border-radius:14px;padding:22px 20px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;text-decoration:none}
   .mega-promo svg{position:absolute;right:-14px;top:-10px;width:110px;opacity:.16}
   .mega-promo em{font-style:normal;font-size:12.5px;font-weight:700;color:#F5B8C0}
   .mega-promo b{font-family:'Bree Serif',serif;font-weight:400;font-size:19px;line-height:1.28;margin-top:6px;display:block}
@@ -104,8 +115,8 @@
   .btn:hover{transform:translateY(-2px)}
   .btn:focus-visible{outline:2.5px solid var(--azul);outline-offset:2px}
   .btn svg{width:17px;height:17px;flex:none}
-  .btn-azul{background:var(--azul);color:#fff;box-shadow:0 6px 16px rgba(33,64,154,.24)}
-  .btn-rojo{background:var(--carmin);color:#fff;box-shadow:0 6px 16px rgba(192,41,59,.26)}
+  .btn-azul{background:var(--grad-accion);color:#fff;box-shadow:0 6px 16px rgba(4,40,122,.26)}
+  .btn-rojo{background:var(--grad-alerta);color:#fff;box-shadow:0 6px 16px rgba(206,36,64,.28)}
   .btn-wa{background:var(--verde-wa);color:#fff;box-shadow:0 6px 16px rgba(18,140,75,.26)}
   .nav-cta .btn-nav{padding:9px 16px;font-size:13.5px;white-space:nowrap}
   @media(max-width:1100px){.nav-cta .btn-nav{display:none}}
@@ -149,7 +160,6 @@
     .burger{display:block}
     .nav-inner{padding:10px 20px}
     .nav-cta{gap:8px}
-    .logo img.mark{height:40px}
     .logo-text{font-size:17px}
     .mobile-menu{display:block;position:fixed;inset:0;background:#fff;z-index:90;padding:110px 32px 40px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .25s ease, transform .25s ease, visibility .25s}
     body.menu-open .mobile-menu{opacity:1;visibility:visible;transform:none}
@@ -215,7 +225,7 @@
   .publico .link i{font-style:normal;transition:transform .18s ease}
   .publico:hover .link i{transform:translateX(4px)}
   .cambridge-outer{padding:84px 0 30px}
-  .cambridge{background:var(--azul);color:#fff;border-radius:28px;padding:64px;position:relative;overflow:hidden}
+  .cambridge{background:var(--grad-campo);color:#fff;border-radius:28px;padding:64px;position:relative;overflow:hidden}
   .w-deco{position:absolute;pointer-events:none;opacity:.07}
   .cambridge .w-deco{right:-3%;bottom:-16%;height:115%}
   .cam-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:60px;align-items:center;position:relative}
@@ -285,7 +295,7 @@
   .precio-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:44px}
   .precio{border-radius:var(--radio);padding:36px 32px;display:flex;flex-direction:column;transition:transform .18s ease, box-shadow .18s ease;background:var(--neutro)}
   .precio:hover{transform:translateY(-5px);box-shadow:var(--sombra)}
-  .precio.destacado{background:var(--azul);color:#fff}
+  .precio.destacado{background:var(--grad-campo);color:#fff}
   .precio.matricula{background:var(--carmin-suave)}
   .precio .nivel-tag{font-size:14px;font-weight:700;color:var(--carmin)}
   .precio.destacado .nivel-tag{color:#F5B8C0}
@@ -348,7 +358,7 @@
   details[open] summary .plus{transform:rotate(45deg);background:var(--carmin);color:#fff}
   details .faq-body{padding:0 26px 24px;color:var(--gris);font-size:16px;max-width:64ch}
   .contacto-outer{padding:40px 0 60px}
-  .contacto{background:var(--azul);color:#fff;border-radius:28px;padding:64px;position:relative;overflow:hidden}
+  .contacto{background:var(--grad-campo);color:#fff;border-radius:28px;padding:64px;position:relative;overflow:hidden}
   .contacto .w-deco{left:-5%;top:-18%;height:125%;opacity:.06}
   .con-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative}
   .contacto h2{font-family:'Bree Serif',serif;font-weight:400;font-size:clamp(26px,3.2vw,36px);line-height:1.2}
@@ -462,9 +472,7 @@
   @keyframes marquee-x{to{transform:translateX(-50%)}}
   @keyframes shine{0%{transform:translateX(-130%) skewX(-18deg)}100%{transform:translateX(230%) skewX(-18deg)}}
 
-  .logo img.logo-full{width:auto;height:46px;transition:height .25s ease}
-  header.main.scrolled .logo img.logo-full{height:38px}
-
+  header.main.scrolled
   /* Palabras del titular */
   .word{display:inline-block;opacity:0;transform:translateY(.55em) rotate(3deg);animation:wpop .6s cubic-bezier(.2,.9,.3,1.25) forwards;animation-delay:var(--d,0s)}
   .pg-empresas .word{transform:translateY(.25em);animation-timing-function:ease}
@@ -554,10 +562,7 @@
   /* ====== HEADER v2: limpio y sinuoso ====== */
   @keyframes waveSlide{to{background-position-x:-26px}}}
 
-  .logo img.mark{height:46px;width:auto;transition:height .25s ease, transform .25s ease}
-  header.main.scrolled .logo img.mark{height:38px}
-  .logo:hover img.mark{transform:scale(1.04)}
-  .logo .logo-text{font-family:'Bree Serif',serif;font-size:19px;line-height:1.05;color:var(--azul)}
+  header.main.scrolled  .logo .logo-text{font-family:'Bree Serif',serif;font-size:19px;line-height:1.05;color:var(--azul)}
 
   /* Subrayado ondulado en la navegación */
   .menu > li > a, .menu > li > button{position:relative}
@@ -665,6 +670,13 @@
   }
 
   @media(max-width:400px){.btn{padding:13px 18px;font-size:15px}.cta-row .btn,.cam-cta .btn,.m-foot .btn,.panel-foot .btn{width:100%}}
+  /* El logo, igual en todas las paginas. El manual pide 24 px de alto como
+     minimo para el lockup completo; aqui va a 46, a 38 con la cabecera
+     encogida y a 36 en movil, todos por encima del limite. */
+  header .logo img.mark{height:46px;width:auto;transition:height .25s ease,transform .25s ease}
+  header.main.scrolled .logo img.mark{height:38px}
+  .logo:hover img.mark{transform:scale(1.04)}
+  @media(max-width:720px){header .logo img.mark{height:36px}}
 </style>
 <style>
   .legal{max-width:760px;margin:0 auto;padding:56px 24px 76px}

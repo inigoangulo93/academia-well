@@ -23,7 +23,19 @@
        mal', y el manual no trae ninguno. */
     --navy-deep:#071F62; --navy:#04287A; --blue:#0252D0;
     --blue-bright:#0391FD; --cyan:#08C0FE; --ink:#12309B;
-    --azul:#04287A; --tinta:#232B42; --carmin:#C0293B;
+    /* Degradados. El de marca es el del simbolo y solo vale de adorno: acaba
+       en cyan, que sobre blanco da 2,1:1 y no sostiene ni un texto grande.
+       El de accion y el de campo estan cortados a proposito antes de llegar
+       ahi: sus dos extremos pasan de 5,2:1, asi que el texto blanco encima
+       cumple en cualquier punto del degradado. */
+    --grad-marca:linear-gradient(36deg,#071F62 0%,#08C0FE 100%);
+    --grad-accion:linear-gradient(140deg,#0A3EA8 0%,#0252D0 100%);
+    --grad-campo:linear-gradient(146deg,#071F62 0%,#0B45BE 58%,#0F63E8 100%);
+    --grad-alerta:linear-gradient(140deg,#A81C31 0%,#CE2440 100%);
+    /* El rojo se queda como color de accion negativa, pero retocado: el
+       #C0293B viejo era apagado y al lado de estos azules se veia sucio.
+       #CE2440 es el mismo rojo limpio, y mantiene 5,3:1 sobre blanco. */
+    --azul:#04287A; --tinta:#232B42; --carmin:#CE2440;
     --carmin-suave:#FBE9EB; --azul-suave:#E7EFFC; --neutro:#F2F1ED;
     --crema:#FDFCF9; --verde:#1E8E5A; --verde-suave:#EAF6F0; --gris:#5E6575;
     --linea:rgba(35,43,66,.12); --sombra:0 16px 44px rgba(35,43,66,.12); --radio:20px;
@@ -38,8 +50,8 @@
   :focus-visible{outline:2.5px solid var(--azul);outline-offset:3px;border-radius:4px}
   .btn{font-weight:600;font-size:16px;padding:14px 26px;border-radius:100px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:9px;border:none;cursor:pointer;font-family:'Figtree',sans-serif;transition:transform .15s var(--ease),box-shadow .15s var(--ease),background .15s;min-height:48px}
   .btn:active{transform:scale(.98)}
-  .btn-azul{background:var(--azul);color:#fff;box-shadow:0 6px 16px rgba(33,64,154,.24)}
-  .btn-azul:hover{box-shadow:0 10px 22px rgba(33,64,154,.3);transform:translateY(-1px)}
+  .btn-azul{background:var(--grad-accion);color:#fff;box-shadow:0 6px 16px rgba(4,40,122,.26)}
+  .btn-azul:hover{box-shadow:0 12px 26px rgba(4,40,122,.34);transform:translateY(-1px);filter:saturate(1.08) brightness(1.06)}
   .btn-ghost{color:var(--azul);border:1.5px solid var(--azul);background:transparent}
   .btn-ghost:hover{background:var(--azul-suave)}
 
@@ -51,10 +63,7 @@
              transition:padding .25s ease}
   header.main.scrolled .nav-inner{padding:8px 32px}
   .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--azul);flex:none}
-  .logo img.mark{height:46px;width:auto;transition:height .25s ease,transform .25s ease}
-  header.main.scrolled .logo img.mark{height:38px}
-  .logo:hover img.mark{transform:scale(1.04)}
-  .logo-text{font-family:'Bree Serif',serif;font-size:19px;line-height:1.05;color:var(--azul)}
+  header.main.scrolled  .logo-text{font-family:'Bree Serif',serif;font-size:19px;line-height:1.05;color:var(--azul)}
   .producto{font-family:'Bree Serif',serif;color:var(--azul);font-size:17px;flex:none;padding-left:16px;
             border-left:1px solid var(--linea);line-height:1.2;align-self:center}
   .t-titulo{font-family:'Bree Serif',serif;color:var(--gris);font-size:16px;flex:1;text-align:center;
@@ -76,7 +85,7 @@
                border-radius:100px;padding:5px 14px 5px 5px;cursor:pointer;min-height:44px;
                transition:border-color .15s,background .15s}
   .usuario-btn:hover,.usuario[data-abierto="1"] .usuario-btn{border-color:var(--azul);background:var(--azul-suave)}
-  .avatar{width:32px;height:32px;border-radius:50%;background:var(--azul);color:#fff;flex:none;
+  .avatar{width:32px;height:32px;border-radius:50%;background:var(--grad-accion);color:#fff;flex:none;
           font-family:'Bree Serif',serif;font-size:16px;display:flex;align-items:center;justify-content:center}
   .usuario-nombre{font-size:15px;font-weight:600;color:var(--tinta);max-width:130px;overflow:hidden;
                   text-overflow:ellipsis;white-space:nowrap}
@@ -115,7 +124,7 @@
                  font:inherit;background:var(--crema)}
   .dialogo input:focus{border-color:var(--carmin);outline:none}
   .dialogo .botones{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;margin-top:4px}
-  .btn-peligro{background:var(--carmin);color:#fff}
+  .btn-peligro{background:var(--grad-alerta);color:#fff}
   .btn-peligro:disabled{opacity:.45;cursor:default}
   .dialogo .error{color:var(--carmin);font-size:14.5px;font-weight:600}
 
@@ -123,7 +132,6 @@
     .nav-inner{padding:10px 18px;gap:10px}
     header.main.scrolled .nav-inner{padding:8px 18px}
     .logo-text{display:none}
-    .logo img.mark{height:38px}
     .producto{display:none}
     .usuario-nombre{display:none}
     .usuario-btn{padding:5px}
@@ -136,7 +144,7 @@
   .pantalla{max-width:760px;margin:0 auto;padding:26px 18px 110px;display:none}
   .pantalla.activa{display:block;animation:entra var(--dur) var(--ease)}
   @keyframes entra{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-  .kicker{display:inline-block;color:var(--carmin);font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+  .kicker{display:inline-block;color:var(--blue);font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
   .miga{color:var(--gris);font-size:14px;margin-bottom:6px;display:flex;gap:7px;align-items:center;flex-wrap:wrap}
   .miga span{opacity:.5}
   .miga-atras{background:none;border:none;padding:0;color:var(--azul);font-size:14px;font-weight:600;
@@ -148,7 +156,7 @@
   .hola{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:20px}
   .hola h1{font-size:clamp(28px,4.6vw,42px);margin-bottom:4px}
   .situacion{display:flex;align-items:center;gap:10px;flex-wrap:wrap;color:var(--gris);font-size:17.5px}
-  #nivel-alumno{flex:none;background:var(--azul);color:#fff;font-family:'Bree Serif',serif;font-size:15px;
+  #nivel-alumno{flex:none;background:var(--grad-accion);color:#fff;font-family:'Bree Serif',serif;font-size:15px;
                 border-radius:100px;padding:3px 14px;line-height:1.4}
   .nombre-fila{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:0 0 22px}
   .nombre-fila input{font:inherit;font-size:16px;border:1.5px solid var(--linea);border-radius:100px;
@@ -159,14 +167,33 @@
   #sin-test a{color:var(--azul);font-weight:700}
 
   /* continuar: la accion principal, arriba del todo */
-  .continuar{background:var(--azul);color:#fff;border-radius:var(--radio);padding:24px 26px;margin-bottom:32px;
-             display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;
-             box-shadow:0 16px 38px rgba(33,64,154,.26)}
-  .cont-eti{font-size:12.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;opacity:.75}
-  .cont-tit{font-family:'Bree Serif',serif;font-size:25px;line-height:1.2;margin:3px 0}
-  .cont-sub{font-size:14.5px;opacity:.8}
-  .continuar .btn-azul{background:#fff;color:var(--azul);box-shadow:none}
-  .continuar .btn-azul:hover{background:#fff;box-shadow:0 8px 18px rgba(0,0,0,.18)}
+  /* La tarjeta de continuar. Tres filas: donde estas, que toca, y cuanto
+     llevas de esta sesion. Es lo primero que se ve al entrar y es lo unico
+     de la pagina que tiene que poder leerse de un vistazo. */
+  .continuar{background:var(--grad-campo);color:#fff;border-radius:var(--radio);
+             padding:20px 24px 18px;margin-bottom:32px;display:grid;gap:14px;
+             box-shadow:0 16px 38px rgba(4,40,122,.28);position:relative;overflow:hidden}
+  /* Un brillo muy suave en la esquina, del cyan de marca. Da profundidad al
+     degradado sin meter otro color. */
+  .continuar::after{content:'';position:absolute;top:-60%;right:-12%;width:52%;height:200%;
+                    background:radial-gradient(closest-side,rgba(8,192,254,.30),transparent);
+                    pointer-events:none}
+  .continuar>*{position:relative;z-index:1}
+  .cont-cab{display:flex;align-items:baseline;gap:14px;justify-content:space-between}
+  .cont-eti{font-size:12.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;opacity:.8}
+  .cont-donde{font-size:13px;font-weight:600;opacity:.72;white-space:nowrap;
+              background:rgba(255,255,255,.14);border-radius:100px;padding:4px 12px}
+  .cont-medio{display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  .cont-info{min-width:0}
+  .cont-tit{font-family:'Bree Serif',serif;font-size:26px;line-height:1.2}
+  .cont-sub{font-size:14.5px;opacity:.82;margin-top:3px}
+  .continuar .btn-azul{background:#fff;color:var(--azul);box-shadow:0 6px 18px rgba(0,0,0,.16);flex:none}
+  .continuar .btn-azul:hover{background:#fff;filter:none;box-shadow:0 12px 26px rgba(0,0,0,.24)}
+  .cont-avance{display:flex;align-items:center;gap:13px}
+  .cont-barra{flex:1;height:6px;border-radius:100px;background:rgba(255,255,255,.22);overflow:hidden}
+  .cont-barra i{display:block;height:100%;border-radius:100px;background:#fff;
+                width:0;transition:width .8s var(--ease)}
+  .cont-avance-txt{font-size:13px;opacity:.78;white-space:nowrap;font-variant-numeric:tabular-nums}
 
   /* tarjetas de la columna derecha */
   .tarjeta-p{background:#fff;border:1px solid var(--linea);border-radius:18px;padding:20px;margin-bottom:14px}
@@ -186,13 +213,13 @@
 
   .racha{text-align:center}
   .racha-num{display:flex;align-items:baseline;justify-content:center;gap:7px;margin-bottom:14px}
-  .racha-num b{font-family:'Bree Serif',serif;font-size:38px;color:var(--carmin);line-height:1;font-variant-numeric:tabular-nums}
+  .racha-num b{font-family:'Bree Serif',serif;font-size:38px;color:var(--blue);line-height:1;font-variant-numeric:tabular-nums}
   .racha-num span{font-size:13.5px;font-weight:600;color:var(--gris)}
   #tira{display:flex;gap:5px;justify-content:center}
   .dia{flex:1;max-width:38px;height:36px;border-radius:10px;background:var(--neutro);display:flex;align-items:center;
        justify-content:center;font-size:12px;font-weight:700;color:var(--gris)}
   .dia i{font-style:normal}
-  .dia.hecho{background:var(--carmin);color:#fff}
+  .dia.hecho{background:var(--grad-accion);color:#fff}
   .dia.hoy{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--azul)}
 
   /* insignias: presencia justa, el detalle en su propia hoja */
@@ -206,12 +233,12 @@
   .ins-ficha.pendiente{opacity:.32;filter:grayscale(1)}
   .ins-ficha.mas{font-size:13px;font-weight:700;color:var(--gris);font-family:'Figtree',sans-serif}
   #hito{border-top:1px solid var(--linea);padding-top:14px;margin-bottom:14px}
-  .hito-eti{display:block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--carmin)}
+  .hito-eti{display:block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
   .hito-fila{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:2px}
   .hito-tit{font-family:'Bree Serif',serif;color:var(--azul);font-size:17px;line-height:1.2}
   .hito-num{font-size:14px;font-weight:700;color:var(--gris);font-variant-numeric:tabular-nums;white-space:nowrap}
   .hito-barra{display:block;height:6px;background:var(--neutro);border-radius:100px;margin-top:8px;overflow:hidden}
-  .hito-barra i{display:block;height:100%;background:var(--carmin);border-radius:100px;transition:width .7s var(--ease)}
+  .hito-barra i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan));border-radius:100px;transition:width .7s var(--ease)}
   .ver-todas{width:100%;background:none;border:1.5px solid var(--linea);border-radius:100px;padding:10px;
              font-size:14.5px;font-weight:600;color:var(--azul);cursor:pointer;transition:border-color .15s}
   .ver-todas:hover{border-color:var(--azul)}
@@ -281,7 +308,7 @@
         font-variant-numeric:tabular-nums;transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
   .paso.abierta .nodo{border-color:var(--azul);color:var(--azul)}
   .paso.completa .nodo{background:var(--verde);border-color:var(--verde);color:#fff;font-size:19px}
-  .paso.aqui .nodo{background:var(--azul);border-color:var(--azul);color:#fff;
+  .paso.aqui .nodo{background:var(--grad-accion);border-color:var(--blue);color:#fff;
                    box-shadow:0 7px 16px rgba(33,64,154,.3)}
   .paso.pronto .nodo{border-style:dashed;background:var(--crema)}
   .paso.bloqueada .nodo{background:var(--neutro)}
@@ -293,7 +320,7 @@
             overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .paso-barra{display:block;height:6px;background:var(--neutro);border-radius:100px;margin-top:10px;
               max-width:300px;overflow:hidden}
-  .paso-barra i{display:block;height:100%;background:var(--azul);border-radius:100px;transition:width .55s var(--ease)}
+  .paso-barra i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--blue-bright));border-radius:100px;transition:width .55s var(--ease)}
   .paso.bloqueada .paso-tit,.paso.pronto .paso-tit{color:var(--gris)}
   /* Gris, no carmin. Una sesion cerrada no es un error: es que todavia no
      toca. El carmin se guarda para cuando algo va mal de verdad. */
@@ -306,7 +333,7 @@
   .paso.pronto .paso-cuerpo{padding-top:7px}
   .paso.pronto .paso-tit{font-size:17px}
   .paso.bloqueada .paso-btn{padding-bottom:10px}
-  .et-aqui{display:inline-block;font-style:normal;background:var(--azul);color:#fff;font-family:'Figtree',sans-serif;
+  .et-aqui{display:inline-block;font-style:normal;background:var(--grad-accion);color:#fff;font-family:'Figtree',sans-serif;
            font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:100px;
            padding:3px 9px;margin-left:9px;vertical-align:middle}
 
@@ -353,7 +380,7 @@
   .ins-tit{display:block;font-weight:700;font-size:14.5px;margin-top:5px;color:var(--gris)}
   .ins-sub{display:block;color:var(--gris);font-size:12.5px;line-height:1.4;margin-top:2px}
   .ins-barra{display:block;height:5px;background:var(--neutro);border-radius:100px;margin-top:10px;overflow:hidden}
-  .ins-barra i{display:block;height:100%;background:var(--azul);border-radius:100px}
+  .ins-barra i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--blue-bright));border-radius:100px}
   .ins-num{display:block;font-size:12px;font-weight:700;color:var(--gris);margin-top:4px;font-variant-numeric:tabular-nums}
   .insignia.lograda{background:#fff;border-style:solid;border-color:rgba(30,142,90,.35);box-shadow:0 6px 16px rgba(35,43,66,.07)}
   .insignia.lograda .ins-icono{filter:none;opacity:1}
@@ -368,7 +395,7 @@
   .et-progreso{margin-bottom:22px}
   .et-progreso p{font-size:14px;color:var(--gris);margin-bottom:6px}
   .barra{height:8px;background:var(--azul-suave);border-radius:100px;overflow:hidden}
-  .barra i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--azul),#3A5BC7);border-radius:100px;transition:width .55s var(--ease)}
+  .barra i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--blue-bright));border-radius:100px;transition:width .55s var(--ease)}
   .tarjetas{list-style:none;display:grid;gap:10px}
   .tarjeta{width:100%;text-align:left;background:#fff;border:1px solid var(--linea);border-radius:14px;padding:15px 17px;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:2px 12px;align-items:center;transition:border-color .15s,box-shadow .15s,transform .15s}
   .tarjeta:hover{border-color:var(--azul);box-shadow:0 8px 20px rgba(35,43,66,.09);transform:translateY(-1px)}
@@ -394,7 +421,7 @@
   /* ---------- reproductor de listening ----------
      Tarjeta oscura a proposito: el audio es lo unico de la pantalla que no se
      lee, y merece leerse como un aparato y no como un parrafo mas. */
-  .repro{background:linear-gradient(155deg,#232B42 0%,#1A2F63 100%);border-radius:20px;
+  .repro{background:linear-gradient(155deg,#071F62 0%,#0B3A96 100%);border-radius:20px;
          padding:20px 22px 18px;margin-bottom:22px;color:#fff;display:grid;gap:16px;
          box-shadow:0 14px 34px rgba(35,43,66,.22)}
   .repro-cab{display:flex;align-items:center;gap:15px;min-width:0}
@@ -447,7 +474,7 @@
   /* Las dos tareas de la parte 4 se distinguen a simple vista: si se ven
      iguales, no sabes de que lista es la pregunta que estas contestando. */
   .lis-tarea.t1{border-left:3px solid var(--azul)}
-  .lis-tarea.t2{border-left:3px solid var(--carmin)}
+  .lis-tarea.t2{border-left:3px solid var(--blue-bright)}
   .lis-tarea.t2 h4{color:var(--carmin)}
 
   /* ---------- admin ---------- */
@@ -610,36 +637,83 @@
      por el que se veia pasar el contenido, y al no encoger de altura la barra
      tapaba el reproductor por la mitad. Ahora el desplazamiento es la altura
      real de la cabecera, que mide el JS, y la barra se encoge con ella. */
-  .sim-barra{position:sticky;top:var(--alto-cab,70px);z-index:40;background:var(--crema);
-             display:flex;align-items:center;gap:14px;padding:12px 0 14px;margin-bottom:6px;
-             border-bottom:1px solid var(--linea);
-             transition:padding .24s var(--ease),box-shadow .24s ease,border-color .24s ease}
+  /* Opaca y con borde, el contenido que pasaba por debajo se cortaba en seco y
+     la barra parecia un pegote pegado encima. Ahora es translucida y con
+     desenfoque --como la cabecera-- y en lugar de un borde tiene una banda de
+     degradado por debajo: lo que entra se desvanece en vez de cortarse.
+     El borde deja de existir como linea. */
+  .sim-barra{position:sticky;top:var(--alto-cab,70px);z-index:40;
+             background:rgba(253,252,249,.88);backdrop-filter:blur(16px) saturate(1.5);
+             -webkit-backdrop-filter:blur(14px) saturate(1.4);
+             display:flex;align-items:center;gap:14px;padding:12px 0 13px;margin-bottom:6px;
+             transition:padding .3s var(--ease),background .3s ease}
+  /* La banda que difumina lo que pasa por debajo. Cuelga del borde inferior,
+     no ocupa sitio y no se puede pulsar. */
+  .sim-barra::before{content:'';position:absolute;left:0;right:0;top:100%;height:22px;
+                     background:linear-gradient(rgba(253,252,249,.88),rgba(253,252,249,0));
+                     pointer-events:none;opacity:0;transition:opacity .3s ease}
+  .sim-barra.min::before{opacity:1}
   /* Encogida: la misma informacion en una sola linea. No se esconde nada
      --que parte es, cuanto queda y como salir siguen ahi-- solo ocupa la
      mitad. En movil eso es la diferencia entre ver una pregunta o media. */
-  .sim-barra.min{padding:6px 0 7px;box-shadow:0 10px 22px -16px rgba(7,31,98,.55);
-                 border-color:transparent}
+  .sim-barra.min{padding:7px 0 8px}
   .sim-id{display:grid;gap:1px;min-width:0}
   .sim-barra.min .sim-id{display:flex;align-items:baseline;gap:8px}
   .sim-eti{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
-           color:var(--blue);transition:font-size .24s var(--ease)}
-  .sim-barra.min .sim-eti{font-size:11px}
+           color:var(--blue);transition:font-size .3s var(--ease)}
+  .sim-barra.min .sim-eti{font-size:11.5px}
   .sim-parte{display:block;font-family:'Bree Serif',serif;color:var(--azul);font-size:19px;line-height:1.2;
-             transition:font-size .24s var(--ease)}
-  .sim-barra.min .sim-parte{font-size:15px}
+             transition:font-size .3s var(--ease)}
+  .sim-barra.min .sim-parte{font-size:16.5px}
   .sim-barra.min .sim-parte::before{content:'·';margin-right:8px;color:var(--linea)}
   .sim-reloj{margin-left:auto;font-family:'Bree Serif',serif;font-size:27px;color:var(--azul);
              font-variant-numeric:tabular-nums;background:var(--azul-suave);border-radius:12px;padding:4px 15px;
-             transition:font-size .24s var(--ease),padding .24s var(--ease)}
-  .sim-barra.min .sim-reloj{font-size:20px;padding:2px 11px;border-radius:9px}
-  .sim-barra.min .sim-salir{min-height:33px;padding:5px 12px;font-size:13.5px}
-  /* Hilo de progreso del audio, pegado al borde de abajo. Solo aparece con la
-     barra encogida: es entonces cuando el reproductor ya no se ve. */
+             transition:font-size .3s var(--ease),padding .3s var(--ease)}
+  .sim-barra.min .sim-reloj{font-size:22px;padding:3px 13px;border-radius:10px}
+  .sim-barra.min .sim-salir{min-height:35px;padding:6px 13px;font-size:13.5px}
+  /* El estado del audio, dentro de la barra encogida. Cuando el reproductor se
+     ha ido por arriba esto es lo unico que dice cuanto queda de la grabacion,
+     que en un listening es la informacion mas util de la pantalla. Se muestra
+     el tiempo QUE QUEDA, no el transcurrido: es lo que se quiere saber.
+     Solo existe con la barra encogida; arriba esta el reproductor entero. */
+  .sim-mini{display:none;align-items:center;gap:9px;margin-left:14px;
+            background:var(--azul-suave);border-radius:100px;padding:4px 13px 4px 10px;
+            font-size:13.5px;font-weight:600;color:var(--azul);white-space:nowrap;flex:none}
+  .sim-barra.min .sim-mini:not([hidden]){display:inline-flex}
+  .sim-mini-t{font-variant-numeric:tabular-nums}
+  .sim-mini-barra{width:76px;height:4px;border-radius:100px;background:rgba(4,40,122,.16);overflow:hidden}
+  .sim-mini-barra i{display:block;height:100%;width:0;border-radius:100px;
+                    background:linear-gradient(90deg,var(--blue),var(--cyan));transition:width .25s linear}
+  /* Tres barritas que se mueven solo mientras suena. Sin animacion infinita
+     cuando esta parado: un icono que se agita en pausa miente. */
+  .sim-ecu{display:inline-flex;align-items:flex-end;gap:2px;height:13px}
+  .sim-ecu i{width:3px;height:4px;border-radius:2px;background:var(--blue)}
+  .sim-mini.sonando .sim-ecu i{animation:simEcu .85s ease-in-out infinite}
+  .sim-mini.sonando .sim-ecu i:nth-child(2){animation-delay:.18s}
+  .sim-mini.sonando .sim-ecu i:nth-child(3){animation-delay:.36s}
+  @keyframes simEcu{0%,100%{height:4px}50%{height:13px}}
+  /* Hilo de progreso pegado al borde de abajo. En pantalla ancha sobra --la
+     pastilla ya lleva su barra-- asi que se reserva para movil, donde la
+     pastilla se queda solo con el tiempo. */
   .sim-audio{position:absolute;left:0;right:0;bottom:-1px;height:2px;border-radius:2px;
              background:var(--azul-suave);opacity:0;transition:opacity .24s ease}
-  .sim-barra.min .sim-audio{opacity:1}
   .sim-audio i{display:block;height:100%;width:0;border-radius:2px;
                background:linear-gradient(90deg,var(--blue),var(--cyan))}
+  @media(max-width:640px){
+    .sim-barra.min .sim-audio{opacity:1}
+    .sim-mini-barra{display:none}
+    .sim-mini{margin-left:8px;padding:4px 11px 4px 9px;font-size:13px}
+    /* Encogida y en movil no cabe todo en una linea: "Parte 1 de 4" partia en
+       dos y la barra crecia en vez de encoger. Se va la etiqueta de destreza,
+       que es lo unico prescindible: el titulo grande de debajo ya dice que es
+       un listening. */
+    .sim-barra{gap:10px}
+    .sim-barra.min .sim-eti{display:none}
+    .sim-barra.min .sim-parte{font-size:15.5px;white-space:nowrap}
+    .sim-barra.min .sim-parte::before{content:none}
+    .sim-barra.min .sim-reloj{font-size:19px;padding:2px 10px}
+    .sim-barra.min .sim-salir{min-height:32px;padding:5px 11px;font-size:13px}
+  }
   .sim-reloj.poco{color:var(--carmin);background:var(--carmin-suave);animation:latido 1.6s ease-in-out infinite}
   @keyframes latido{0%,100%{opacity:1}50%{opacity:.6}}
   .sim-salir{background:none;border:1.5px solid var(--linea);border-radius:100px;padding:8px 15px;font-size:14px;
@@ -870,8 +944,14 @@
     .hueco.medio{width:8em}
     .hueco.largo{width:100%;display:block;margin:4px 0}
     .sol{display:block;margin:6px 0 0}
-    .continuar{flex-direction:column;align-items:stretch}
     .continuar .btn{width:100%}
+    .cont-medio{flex-direction:column;align-items:stretch;gap:14px}
+    .cont-tit{font-size:22px}
+    .cont-avance{flex-direction:column;align-items:stretch;gap:7px}
+    /* En columna, flex:1 le da base 0 y la barra se queda sin altura: en movil
+       desaparecia entera y solo quedaba el texto. */
+    .cont-barra{flex:none;height:6px}
+    .cont-avance-txt{white-space:normal}
     #ej-pie{flex-direction:column}
     #ej-pie .btn{width:100%}
     #ej-pie #btn-siguiente{order:-1}
@@ -911,6 +991,13 @@
   }
 
   @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+  /* El logo, igual en todas las paginas. El manual pide 24 px de alto como
+     minimo para el lockup completo; aqui va a 46, a 38 con la cabecera
+     encogida y a 36 en movil, todos por encima del limite. */
+  header .logo img.mark{height:46px;width:auto;transition:height .25s ease,transform .25s ease}
+  header.main.scrolled .logo img.mark{height:38px}
+  .logo:hover img.mark{transform:scale(1.04)}
+  @media(max-width:720px){header .logo img.mark{height:36px}}
 </style>
 </head>
 <body>
@@ -1110,6 +1197,11 @@
         <span class="sim-eti" id="sim-destreza"></span>
         <span class="sim-parte" id="sim-parte"></span>
       </div>
+      <span class="sim-mini" id="sim-mini" hidden>
+        <span class="sim-ecu" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="sim-mini-t" id="sim-mini-t">0:00</span>
+        <span class="sim-mini-barra"><i id="sim-mini-fill"></i></span>
+      </span>
       <span class="sim-reloj" id="sim-reloj">--:--</span>
       <button class="sim-salir" id="sim-salir" type="button">Salir</button>
       <span class="sim-audio" id="sim-audio" hidden><i id="sim-audio-fill"></i></span>
@@ -1290,6 +1382,10 @@ window.WELL_UI_P = {
   cursoTope: 'Tu test dio {suyo}. El curso más alto que tenemos escrito es el de {este}, así que es el que ves.',
   continuar: 'Continúa por aquí',
   empezar: 'Empezar',
+  contSeguir: 'Seguir donde lo dejaste',
+  contContinuar: 'Continuar',
+  contAvance: '{n} de {t} ejercicios de esta sesión',
+  contMin: '≈ {n} min',
 
   cursoTitulo: 'Tu curso de {examen}',
   cursoSub: 'Un test completo por ciclo, con las mismas sesiones que se dan en clase.',

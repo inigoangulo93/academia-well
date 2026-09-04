@@ -296,6 +296,16 @@
     };
   }
 
+  /* Cuanto cuesta un ejercicio, en minutos. Speaking y writing lo dicen ellos;
+     el resto se estima a medio minuto por hueco, que es lo que sale de medir
+     los tiempos de la propia plataforma. Se redondea hacia arriba y nunca baja
+     de dos: prometer "1 min" y que sean tres es peor que no decir nada. */
+  function minutosDe(ej) {
+    if (ej.minutos) return ej.minutos;
+    if (ej.segundos) return Math.max(1, Math.round(ej.segundos / 60));
+    return Math.max(2, Math.ceil(ej.items.length * 0.5));
+  }
+
   function siguienteEjercicio() {
     var lista = sesionesActivas();
     for (var i = 0; i < lista.length; i++) {
@@ -455,15 +465,52 @@
 
     pintaInsignias();
 
-    // continuar
+    /* Continuar. Es lo primero que ve el alumno al entrar y tiene que
+       contestar dos preguntas de un vistazo: DONDE me quede y QUE toca
+       ahora. Antes solo decia lo segundo, y ni siquiera del todo: el titulo
+       mezclaba la sesion con el ejercicio en una linea sola.
+
+       Ahora: el sitio arriba a la derecha (test y sesion), el ejercicio en
+       grande, cuanto cuesta, y una barra con lo que llevas de la sesion.
+       El boton cambia de palabra segun donde estes, porque "Empezar" a mitad
+       de una sesion es mentira. */
     var cont = $('#continuar');
     if (sig) {
+      var ses = sig._sesion;
+      var listaSes = ses._ejercicios || [];
+      var hechos = listaSes.filter(function (e) {
+        var q = P.ejercicios[e.id];
+        return q && q.mejor === e.items.length;
+      }).length;
+      var empezado = !!P.ejercicios[sig.id];
+      var pct = listaSes.length ? Math.round(hechos / listaSes.length * 100) : 0;
+
       cont.hidden = false;
       cont.innerHTML =
-        '<div><p class="cont-eti">' + esc(T.continuar) + '</p>' +
-        '<p class="cont-tit">' + esc(tituloSesion(sig._sesion)) + ' · ' + esc(sig.titulo) + '</p>' +
-        '<p class="cont-sub">' + esc(T.tipos[sig.tipo] || sig.tipo) + ' · ' + sig.items.length + ' ' + esc(T.items) + '</p></div>' +
-        '<button class="btn btn-azul" data-ej="' + esc(sig.id) + '">' + esc(T.empezar) + '</button>';
+        '<div class="cont-cab">' +
+          '<p class="cont-eti">' + esc(T.continuar) + '</p>' +
+          '<p class="cont-donde">' + esc(ses._test.titulo) + ' · ' +
+            esc(tituloSesion(ses)) + '</p>' +
+        '</div>' +
+        '<div class="cont-medio">' +
+          '<div class="cont-info">' +
+            '<p class="cont-tit">' + esc(sig.titulo) + '</p>' +
+            '<p class="cont-sub">' + esc(T.tipos[sig.tipo] || sig.tipo) + ' · ' +
+              sig.items.length + ' ' + esc(T.items) +
+              ' · ' + esc(T.contMin.replace('{n}', minutosDe(sig))) + '</p>' +
+          '</div>' +
+          '<button class="btn btn-azul" data-ej="' + esc(sig.id) + '">' +
+            esc(empezado ? T.contSeguir : hechos ? T.contContinuar : T.empezar) +
+            '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" ' +
+            'stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+            '<path d="M5 12h13M12 5l7 7-7 7"/></svg></button>' +
+        '</div>' +
+        '<div class="cont-avance">' +
+          '<div class="cont-barra"><i style="width:' + pct + '%"></i></div>' +
+          '<p class="cont-avance-txt">' +
+            esc(T.contAvance.replace('{n}', hechos).replace('{t}', listaSes.length)) +
+          '</p>' +
+        '</div>';
     } else { cont.hidden = true; }
 
     // el curso: un test detras de otro
@@ -934,11 +981,28 @@
     return sim;
   }
 
-  // Si se recarga la pagina en mitad de un simulacro, se recupera con el reloj
-  // donde estaba. Si ya se habia acabado el tiempo, se cierra y se puntua.
+  /* Si se RECARGA la pagina en mitad de un simulacro, se recupera con el reloj
+     donde estaba: un F5 sin querer no puede costarte el examen.
+
+     Lo que no puede pasar es lo que pasaba: como no habia forma de distinguir
+     un F5 de "vuelvo mañana", al abrir la pagina te metia otra vez en un
+     simulacro que habias dejado, con el reloj corriendo desde entonces. Se
+     entraba a un examen que no habias pedido y con veinte minutos gastados
+     por la cara. Y ademas contradecia lo que promete el propio aviso al
+     empezar: que si te sales, se pierde entero.
+
+     La marca de tiempo lo resuelve. Mientras la pagina esta abierta se
+     refresca cada quince segundos; una recarga tarda uno o dos, asi que si
+     han pasado mas de noventa no era una recarga: era una vuelta, y el
+     intento se descarta sin puntuarlo. */
+  var GRACIA = 90000;
+
   function recuperaSimulacro() {
     var g = P.simulacroEnCurso;
     if (!g) return false;
+    if (!g.visto || Date.now() - g.visto > GRACIA) {
+      delete P.simulacroEnCurso; guarda(); return false;
+    }
     var sim = simulacroPorId(g.id);
     if (!sim) { delete P.simulacroEnCurso; guarda(); return false; }
     SIM = { sim: sim, i: g.i || 0, respuestas: g.respuestas || {}, fin: g.fin };
@@ -967,7 +1031,8 @@
 
   function guardaSim() {
     if (!SIM) { delete P.simulacroEnCurso; }
-    else P.simulacroEnCurso = { id: SIM.sim.id, i: SIM.i, respuestas: SIM.respuestas, fin: SIM.fin };
+    else P.simulacroEnCurso = { id: SIM.sim.id, i: SIM.i, respuestas: SIM.respuestas,
+                                fin: SIM.fin, visto: Date.now() };
     guarda();
   }
 
@@ -1008,6 +1073,11 @@
     // parte se apaga: si no, se quedaria lleno el de la parte anterior.
     var hiloAudio = $('#sim-audio');
     if (hiloAudio) { hiloAudio.hidden = true; $('#sim-audio-fill').style.width = '0'; }
+    var miniAudio = $('#sim-mini');
+    if (miniAudio) {
+      miniAudio.hidden = true; miniAudio.classList.remove('sonando');
+      $('#sim-mini-fill').style.width = '0';
+    }
     if (ej.tipo === 'listening') preparaReproductor(ej);
     var guardado = SIM.respuestas[ej.id];
     if (guardado) {
@@ -1046,6 +1116,9 @@
       var m = Math.floor(queda / 60000), s = Math.floor(queda % 60000 / 1000);
       $('#sim-reloj').textContent = m + ':' + (s < 10 ? '0' : '') + s;
       $('#sim-reloj').classList.toggle('poco', queda < 5 * 60000);
+      // La marca de "sigo aqui", cada quince segundos. Escribirla en cada
+      // tic seria un guardado por segundo para nada.
+      if (Math.floor(queda / 1000) % 15 === 0) guardaSim();
       if (queda <= 0) { clearInterval(relojSim); terminaSimulacro(true); }
     };
     pinta();
@@ -1445,8 +1518,16 @@
       if (isFinite(au.duration) && au.duration)
         var pct = au.currentTime / au.duration * 100;
         $('#au-fill').style.width = pct + '%';
-        // El mismo porcentaje en el hilo de la barra encogida: cuando el
-        // reproductor se ha ido por arriba, es lo unico que dice por donde va.
+        // Lo mismo en la barra encogida del simulacro: el tiempo que QUEDA de
+        // grabacion y por donde va. Cuando el reproductor se ha ido por arriba
+        // es lo unico que lo dice.
+        var mini = $('#sim-mini');
+        if (mini) {
+          mini.hidden = false;
+          mini.classList.toggle('sonando', !au.paused);
+          $('#sim-mini-t').textContent = reloj(Math.max(0, au.duration - au.currentTime));
+          $('#sim-mini-fill').style.width = pct + '%';
+        }
         var hilo = $('#sim-audio-fill');
         if (hilo) { hilo.style.width = pct + '%'; $('#sim-audio').hidden = false; }
     });

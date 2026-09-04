@@ -216,6 +216,54 @@ async def main():
         comprueba(not nativos, 'ningun dialogo nativo del navegador: %s' % (nativos or 'ninguno'))
         comprueba(not errores, 'sin errores de consola: %s' % (errores or 'ninguno'))
 
+        # --- el reloj no sigue corriendo entre visitas ---
+        # Un simulacro a medias se recupera si ha sido una RECARGA, y se tira
+        # si ha sido una vuelta. Antes no se distinguia: al abrir la pagina te
+        # metia en un examen que dejaste ayer, con el reloj ya gastado.
+        print('\nEl reloj de un simulacro dejado a medias')
+        await pg.evaluate("(m)=>{localStorage.clear();"
+                          "localStorage.setItem('well_nivel',JSON.stringify({nivel:m,origen:'admin'}));}", 'B2')
+        await pg.goto(B + 'practica.html', wait_until='domcontentloaded')
+        await pg.wait_for_timeout(700)
+        await pg.click('[data-simulacro="b2t1-ruoe"]')
+        await pg.wait_for_timeout(300)
+        await pg.click('.modal [data-si]')
+        await pg.wait_for_timeout(700)
+        CLAVE = "'well_practica_v' + window.WELL_PRACTICA.version"
+        guardado = await pg.evaluate(
+            "()=>JSON.parse(localStorage.getItem(%s)).simulacroEnCurso" % CLAVE)
+        comprueba(bool(guardado) and 'visto' in guardado,
+                  'el simulacro en curso se guarda con su marca de tiempo')
+
+        await pg.reload(wait_until='domcontentloaded')
+        await pg.wait_for_timeout(700)
+        comprueba(await pg.evaluate(
+            "()=>document.querySelector('#s-simulacro').classList.contains('activa')"),
+            'una recarga recupera el simulacro donde estaba')
+
+        # se envejece la marca: como si se volviera diez minutos despues
+        await pg.evaluate(
+            "()=>{const k=%s;const p=JSON.parse(localStorage.getItem(k));"
+            "p.simulacroEnCurso.visto=Date.now()-600000;"
+            "localStorage.setItem(k,JSON.stringify(p));}" % CLAVE)
+        await pg.goto(B + 'practica.html', wait_until='domcontentloaded')
+        await pg.wait_for_timeout(800)
+        estado = await pg.evaluate(
+            "()=>({sim:document.querySelector('#s-simulacro').classList.contains('activa'),"
+            "res:document.querySelector('#s-simresultado').classList.contains('activa'),"
+            "guardado:!!JSON.parse(localStorage.getItem(%s)).simulacroEnCurso})" % CLAVE)
+        comprueba(not estado['sim'], 'volver mas tarde NO te mete otra vez en el simulacro')
+        comprueba(not estado['res'], 'y tampoco lo puntua a tus espaldas')
+        comprueba(not estado['guardado'], 'el intento abandonado se descarta')
+
+        await pg.click('[data-simulacro="b2t1-ruoe"]')
+        await pg.wait_for_timeout(300)
+        await pg.click('.modal [data-si]')
+        await pg.wait_for_timeout(700)
+        reloj = (await pg.evaluate("()=>document.querySelector('#sim-reloj').textContent")).strip()
+        comprueba(reloj.startswith('74:') or reloj.startswith('75:'),
+                  'al volver a empezar, el reloj esta entero (%s de 75:00)' % reloj)
+
         # --- el panel no se abre entero ---
         print('\nEl panel al entrar')
         await pg.evaluate("() => localStorage.clear()")

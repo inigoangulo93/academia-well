@@ -31,6 +31,13 @@
   p{color:var(--gris);max-width:38ch;margin:0 auto 22px}
   .estrellas{color:#F2B01E;font-size:24px;letter-spacing:.16em;margin-bottom:18px}
   a{display:inline-flex;align-items:center;justify-content:center;background:var(--azul);color:#fff;font-weight:600;text-decoration:none;padding:14px 26px;border-radius:100px;min-height:48px;box-shadow:0 6px 16px rgba(33,64,154,.24)}
+  /* El logo, igual en todas las paginas. El manual pide 24 px de alto como
+     minimo para el lockup completo; aqui va a 46, a 38 con la cabecera
+     encogida y a 36 en movil, todos por encima del limite. */
+  header .logo img.mark{height:46px;width:auto;transition:height .25s ease,transform .25s ease}
+  header.main.scrolled .logo img.mark{height:38px}
+  .logo:hover img.mark{transform:scale(1.04)}
+  @media(max-width:720px){header .logo img.mark{height:36px}}
 </style>
 </head>
 <body>
