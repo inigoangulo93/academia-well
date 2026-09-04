@@ -17,6 +17,8 @@ siquiera y la plataforma se comporta exactamente igual que antes.
 | `pruebas-shim.sql` | Imita lo justo de Supabase (`auth.users`, `auth.uid()`, los roles) para poder probar el esquema en un PostgreSQL normal. |
 | `pruebas-seguridad.sql` | Siete pruebas: que un alumno no puede leer ni escribir los datos de otro, que nadie se nombra profesora a sí mismo, que la profesora lee pero no escribe. |
 | `probar-permisos.sh` | Levanta un PostgreSQL de usar y tirar, aplica el esquema dos veces y ejecuta las pruebas. |
+| `02-verificar.sql` | Se pega en Supabase después del esquema. No cambia nada: comprueba en siete filas que las tablas, el RLS, las políticas y los disparadores están donde deben. |
+| `PUESTA-EN-MARCHA.md` | El encargo completo para hacer los clics con el navegador, paso a paso. |
 
 Y fuera de esta carpeta:
 
@@ -39,7 +41,11 @@ mágico y la latencia. Eso se verifica el día que se rellene la configuración.
 
 ## Los quince minutos de clics
 
-Esto es lo único que no puedo hacer yo. En orden:
+Esto es lo único que no puedo hacer yo. Si se van a dar con una sesión que
+controle el navegador, el guion detallado está en **`PUESTA-EN-MARCHA.md`**;
+lo de aquí abajo es el mismo camino en corto.
+
+En orden:
 
 1. **Crear el proyecto.** [supabase.com](https://supabase.com) → *New project*.
    Región **West EU (Ireland)** o **Frankfurt**: los datos de alumnos se quedan
@@ -49,14 +55,15 @@ Esto es lo único que no puedo hacer yo. En orden:
 
 2. **Crear las tablas.** *SQL Editor* → *New query* → pegar entero
    `supabase/01-esquema.sql` → *Run*. Debe terminar sin errores.
-   Comprobación rápida: *Table editor* debe mostrar `perfiles`, `progreso`,
-   `dias_activos`, `insignias` y `simulacros`, y las cinco con el candado de
-   *RLS enabled*. **Si alguna sale sin candado, parar y avisar**: sin RLS,
-   cualquiera con la clave pública lee la tabla entera.
+   Después, pegar y ejecutar `supabase/02-verificar.sql`: devuelve siete filas
+   y las siete tienen que decir `BIEN`. **Si alguna dice `MAL`, parar y
+   avisar**: sin RLS, cualquiera con la clave pública lee la tabla entera.
 
-3. **Copiar las claves.** *Project Settings* → *API*:
+3. **Copiar las claves.** *Project Settings* → *API Keys*:
    - *Project URL* → `supabaseUrl` en `well-config.js`
-   - *anon public* → `supabaseAnonKey` en `well-config.js`
+   - la clave pública → `supabaseAnonKey` en `well-config.js`. Se llama
+     *anon public* en los proyectos antiguos y *publishable*
+     (`sb_publishable_...`) en los nuevos; sirve cualquiera de las dos.
 
    La clave `anon` es pública por diseño: viaja en el navegador de todo el
    mundo. No es un secreto y no pasa nada porque esté en el repositorio.

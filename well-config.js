@@ -5,11 +5,15 @@
  * cuentas ni login. En cuanto se rellenan, la pagina ofrece entrar con el
  * correo y sincroniza el progreso.
  *
- * Los valores se copian de Supabase: Project Settings -> API.
+ * Los valores se copian de Supabase: Project Settings -> API Keys.
  *
- * La clave "anon" es PUBLICA por diseno: viaja en el navegador de todo el
- * mundo y no es un secreto. Lo que protege los datos de un alumno de otro es
- * el Row Level Security de supabase/01-esquema.sql, no esta clave.
+ * La clave publica se llama "anon" en los proyectos antiguos y "publishable"
+ * (sb_publishable_...) en los nuevos. Sirve cualquiera de las dos y van en el
+ * mismo sitio, aqui abajo.
+ *
+ * Esa clave es PUBLICA por diseno: viaja en el navegador de todo el mundo y no
+ * es un secreto. Lo que protege los datos de un alumno de otro es el Row Level
+ * Security de supabase/01-esquema.sql, no esta clave.
  *
  * La que NO se pone aqui nunca, ni en ningun fichero del repositorio, es la
  * clave "service_role": esa se salta todos los permisos.

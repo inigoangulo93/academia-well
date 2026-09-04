@@ -30,4 +30,10 @@ echo
 su postgres -c "PATH=$PATH psql -h $DIR -p 5433 -U postgres -q -f $DIR/pruebas-seguridad.sql" 2>&1 \
   | grep -v '^SET$\|^RESET$\|^ set_config\|^-*$\|^(1 row)\|^$' || true
 echo
+
+# La misma comprobacion que se pega en el editor SQL de Supabase despues de
+# aplicar el esquema: si aqui no sale todo BIEN, alli tampoco saldra.
+echo "--- 02-verificar.sql, el que se pega en Supabase ---"
+su postgres -c "PATH=$PATH psql -h $DIR -p 5433 -U postgres -v ON_ERROR_STOP=1 -q -f $DIR/02-verificar.sql"
+echo
 su postgres -c "PATH=$PATH pg_ctl -D $DIR/data stop" >/dev/null 2>&1 || true
