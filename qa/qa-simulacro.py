@@ -54,16 +54,37 @@ async def main():
         await pg.wait_for_timeout(700)
 
         print('Forma de los papeles')
-        papeles = await pg.evaluate("() => window.WELL_PRACTICA.papeles.map(p => p.id)")
-        comprueba(papeles == ['ruoe', 'listening'],
-                  'dos papeles y no tres destrezas sueltas: %s' % papeles)
+        # Los papeles viven dentro de cada nivel: B2 First y C1 Advanced no
+        # tienen la misma forma, y el simulacro se arma con la del nivel que
+        # se este sirviendo.
+        niveles = await pg.evaluate("""() => window.WELL_PRACTICA.niveles.map(n => ({
+          mcer: n.mcer, curso: !!n.curso,
+          papeles: (n.papeles || []).map(p => p.id),
+          forma: n.forma || null }))""")
+        conCurso = [n for n in niveles if n['curso']]
+        comprueba(len(conCurso) >= 1, 'hay al menos un nivel con curso: %s' % [n['mcer'] for n in conCurso])
+        for n in conCurso:
+            comprueba(n['papeles'] == ['ruoe', 'listening'],
+                      '%s arma dos papeles y no tres destrezas sueltas: %s' % (n['mcer'], n['papeles']))
+        # Un nivel PUEDE declarar su forma antes de tener curso: es donde se
+        # guarda la investigacion de como es ese examen, para escribirlo
+        # contra ella. Lo que no puede es tener forma y no papeles, o al reves,
+        # porque entonces no se sabe cual de las dos manda.
+        for n in niveles:
+            comprueba(bool(n['papeles']) == bool(n['forma']),
+                      '%s declara papeles y forma a la vez, o ninguna de las dos' % n['mcer'])
+        # Y si declara forma, tiene que cuadrar con las partes que declara.
+        for n in [x for x in niveles if x['forma']]:
+            comprueba(sorted(n['forma'].keys()) == sorted(n['papeles']),
+                      '%s: la forma cubre los mismos papeles que declara' % n['mcer'])
 
         for test in ('t1', 't2', 't3', 't4'):
             for pid, (npartes, npreg, mins) in ESPERADO.items():
                 sim = await pg.evaluate("""([t, p]) => {
                   const D = window.WELL_PRACTICA;
                   const test = D.tests.filter(x => x.id === t)[0];
-                  const pa = D.papeles.filter(x => x.id === p)[0];
+                  const niv = D.niveles.filter(n => n.id === (test.nivel || 'c1'))[0];
+                  const pa = niv.papeles.filter(x => x.id === p)[0];
                   const vistas = {}; const partes = [];
                   (test.sesiones || []).forEach(s => s.bloques.forEach(b => {
                     if (pa.destrezas.indexOf(b.destreza) < 0) return;

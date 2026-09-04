@@ -212,40 +212,44 @@ for (const id of IDS) {
 // le vende al alumno.
 //   Reading & Use of English: un papel, 8 partes, 56 preguntas (8+8+8+6+6+4+6+10)
 //   Listening:                un papel, 4 partes, 30 preguntas (6+8+6+10)
-const PAPELES = (D.papeles || []).length ? D.papeles : [];
-const FORMA = { ruoe: { partes: 8, preguntas: 56 }, listening: { partes: 4, preguntas: 30 } };
-if (!PAPELES.length) fallos.push('datos: no hay papeles definidos, el simulacro no se puede armar');
-for (const t of D.tests) {
-  if (!(t.sesiones || []).length) continue;
-  for (const pa of PAPELES) {
-    const esperado = FORMA[pa.id];
-    if (!esperado) { ojo('datos', 'el papel "' + pa.id + '" no tiene forma esperada'); continue; }
-    const vistas = {}; let preguntas = 0, partes = 0, faltan = false;
-    (t.sesiones || []).forEach(s => (s.bloques || []).forEach(b => {
-      if (pa.destrezas.indexOf(b.destreza) < 0 || !(b.ejercicios || []).length) return;
-      const n = b.parte || 0;
-      if (vistas[n]) return;
-      vistas[n] = true; partes++;
-      // Puede apuntar a un ejercicio que aun no existe: eso ya lo denuncia la
-      // comprobacion de integridad, aqui no se revienta por ello.
-      var primero = D.ejercicios[b.ejercicios[0]];
-      if (primero) preguntas += (primero.items || []).length; else faltan = true;
-    }));
-    // Un test a medio escribir todavia no tiene simulacro que medir. Se avisa,
-    // para que no se olvide, pero no es un fallo hasta que este entero.
-    if (faltan || partes === 0) { ojo(t.id, 'el simulacro de ' + pa.id + ' aun no esta completo'); continue; }
-    if (partes !== esperado.partes)
-      mal(t.id, 'el simulacro de ' + pa.id + ' tiene ' + partes + ' partes y el examen tiene ' + esperado.partes);
-    else if (preguntas !== esperado.preguntas)
-      mal(t.id, 'el simulacro de ' + pa.id + ' suma ' + preguntas + ' preguntas; el examen tiene ' + esperado.preguntas);
+// Cada nivel con curso declara su forma; el validador comprueba contra la
+// suya, no contra una forma unica. B2 First y C1 Advanced no tienen el mismo
+// numero de partes ni de preguntas, y confundirlos seria justo el fallo que
+// nadie ve mirando la pantalla.
+const CONCURSO = (D.niveles || []).filter(n => n.curso);
+if (!CONCURSO.length) fallos.push('datos: ningun nivel tiene curso, el simulacro no se puede armar');
+for (const niv of CONCURSO) {
+  if (!niv.papeles || !niv.forma) { mal('datos', 'el nivel ' + niv.mcer + ' dice tener curso y no declara papeles ni forma'); continue; }
+  const suyos = D.tests.filter(t => (t.nivel || 'c1') === niv.id && (t.sesiones || []).length);
+  if (!suyos.length) { ojo('datos', 'el nivel ' + niv.mcer + ' dice tener curso y no tiene ningun test'); continue; }
+  for (const t of suyos) {
+    for (const pa of niv.papeles) {
+      const esperado = niv.forma[pa.id];
+      if (!esperado) { ojo('datos', niv.mcer + ': el papel "' + pa.id + '" no tiene forma esperada'); continue; }
+      const vistas = {}; let preguntas = 0, partes = 0, faltan = false;
+      (t.sesiones || []).forEach(s => (s.bloques || []).forEach(b => {
+        if (pa.destrezas.indexOf(b.destreza) < 0 || !(b.ejercicios || []).length) return;
+        const n = b.parte || 0;
+        if (vistas[n]) return;
+        vistas[n] = true; partes++;
+        var primero = D.ejercicios[b.ejercicios[0]];
+        if (primero) preguntas += (primero.items || []).length; else faltan = true;
+      }));
+      if (faltan || partes === 0) { ojo(t.id, 'el simulacro de ' + pa.id + ' aun no esta completo'); continue; }
+      if (partes !== esperado.partes)
+        mal(t.id, niv.mcer + ': el simulacro de ' + pa.id + ' tiene ' + partes +
+            ' partes y el examen tiene ' + esperado.partes);
+      else if (preguntas !== esperado.preguntas)
+        mal(t.id, niv.mcer + ': el simulacro de ' + pa.id + ' suma ' + preguntas +
+            ' preguntas; el examen tiene ' + esperado.preguntas);
+    }
   }
-  // Y los minutos del papel tienen que ser los del examen, no la suma de dos
-  // medias sesiones de curso.
-}
-for (const pa of PAPELES) {
-  const min = { ruoe: 90, listening: 40 }[pa.id];
-  if (min && pa.minutos !== min)
-    mal('datos', 'el papel ' + pa.id + ' dura ' + pa.minutos + ' minutos y en el examen dura ' + min);
+  const min = { b2: { ruoe: 75, listening: 40 }, c1: { ruoe: 90, listening: 40 } }[niv.id];
+  if (min) niv.papeles.forEach(pa => {
+    if (min[pa.id] && pa.minutos !== min[pa.id])
+      mal('datos', niv.mcer + ': el papel ' + pa.id + ' dura ' + pa.minutos +
+          ' minutos y en el examen dura ' + min[pa.id]);
+  });
 }
 
 /* ---------- integridad del curso ---------- */

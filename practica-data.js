@@ -37,8 +37,31 @@ window.WELL_PRACTICA = {
   niveles: [
     { id: 'a2', nombre: 'A2 Key', sigla: 'KET', mcer: 'A2', curso: false },
     { id: 'b1', nombre: 'B1 Preliminary', sigla: 'PET', mcer: 'B1', curso: false },
-    { id: 'b2', nombre: 'B2 First', sigla: 'FCE', mcer: 'B2', curso: false },
-    { id: 'c1', nombre: 'C1 Advanced', sigla: 'CAE', mcer: 'C1', curso: true }
+
+    /* B2 First. La diferencia con el C1 no es que las frases sean mas faciles:
+       es otro examen. Su Reading & Use of English tiene SIETE partes y 52
+       preguntas en hora y cuarto, no ocho y 56 en hora y media.
+
+         partes 1-4, Use of English   8+8+8+6 = 30   iguales que en el C1
+         partes 5-7, Reading          6+6+10  = 22
+
+       El C1 mete ademas una parte 6 de cross-text matching, 4 preguntas, que
+       en el B2 no existe: por eso el suyo suma 26 de Reading y no 22. */
+    { id: 'b2', nombre: 'B2 First', sigla: 'FCE', mcer: 'B2', curso: false,
+      papeles: [
+        { id: 'ruoe', nombre: 'Reading & Use of English', destrezas: ['use', 'reading'], minutos: 75 },
+        { id: 'listening', nombre: 'Listening', destrezas: ['listening'], minutos: 40 }
+      ],
+      forma: { ruoe: { partes: 7, preguntas: 52 }, listening: { partes: 4, preguntas: 30 } },
+      palabras: [140, 190] },
+
+    { id: 'c1', nombre: 'C1 Advanced', sigla: 'CAE', mcer: 'C1', curso: true,
+      papeles: [
+        { id: 'ruoe', nombre: 'Reading & Use of English', destrezas: ['use', 'reading'], minutos: 90 },
+        { id: 'listening', nombre: 'Listening', destrezas: ['listening'], minutos: 40 }
+      ],
+      forma: { ruoe: { partes: 8, preguntas: 56 }, listening: { partes: 4, preguntas: 30 } },
+      palabras: [220, 260] },
   ],
 
   /* El curso que existe hoy. Su estructura es la del C1 Advanced, medida:
@@ -49,16 +72,7 @@ window.WELL_PRACTICA = {
      English son UN SOLO papel de 90 minutos; este reparto es una estimacion de
      la academia para poder cronometrar cada mitad por separado.
      Elena tiene que confirmarlo. */
-  /* Los PAPELES del examen, que no son las destrezas. En el CAE, Reading y Use
-     of English son un solo papel de hora y media y 56 preguntas: repartir ese
-     tiempo entre sus ocho partes es parte de lo que se examina. Partirlo en dos
-     simulacros de 45 minutos le regalaba al alumno la decision mas dificil del
-     papel. Las destrezas siguen existiendo para el curso y para las notas por
-     separado; el simulacro va por papel. */
-  papeles: [
-    { id: 'ruoe', nombre: 'Reading & Use of English', destrezas: ['use', 'reading'], minutos: 90 },
-    { id: 'listening', nombre: 'Listening', destrezas: ['listening'], minutos: 40 }
-  ],
+
 
   /* Las cinco que puntuan son las que informa Cambridge. Vocabulario y
      gramatica son entrenamiento: se hacen todas las sesiones y no dan nota.
@@ -77,7 +91,7 @@ window.WELL_PRACTICA = {
 
   tests: [
     {
-      id: 't1',
+      id: 't1', nivel: 'c1',
       titulo: 'Test 1',
       sesiones: [
         { id: 't1-s1', n: 1, tipo: 'A', bloques: [
@@ -135,7 +149,7 @@ window.WELL_PRACTICA = {
       ]
     },
     {
-      id: 't2', titulo: 'Test 2',
+      id: 't2', nivel: 'c1', titulo: 'Test 2',
       sesiones: [
         { id: 't2-s1', n: 1, tipo: 'A', bloques: [
           { destreza: 'vocabulario', ejercicios: ['t2-voc1', 't2-voc2'] },
@@ -192,7 +206,7 @@ window.WELL_PRACTICA = {
       ]
     },
     {
-      id: 't3', titulo: 'Test 3',
+      id: 't3', nivel: 'c1', titulo: 'Test 3',
       sesiones: [
         { id: 't3-s1', n: 1, tipo: 'A', bloques: [
           { destreza: 'vocabulario', ejercicios: ['t3-voc1', 't3-voc2'] },
@@ -249,7 +263,7 @@ window.WELL_PRACTICA = {
       ]
     },
     {
-      id: 't4', titulo: 'Test 4',
+      id: 't4', nivel: 'c1', titulo: 'Test 4',
       sesiones: [
         { id: 't4-s1', n: 1, tipo: 'A', bloques: [
           { destreza: 'vocabulario', ejercicios: ['t4-voc1', 't4-voc2'] },

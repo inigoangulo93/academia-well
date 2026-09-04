@@ -445,10 +445,17 @@
     // el curso: un test detras de otro
     var cont2 = $('#rutas');
     var conMaterial = SESIONES.filter(function (s) { return s._ejercicios.length; }).length;
+    var act = nivelActivo();
     cont2.innerHTML =
-      '<div class="ruta-cab"><div><h2>' + esc(T.cursoTitulo.replace('{examen}', DATA.examen.nombre)) + '</h2>' +
+      '<div class="ruta-cab"><div><h2>' +
+      esc(T.cursoTitulo.replace('{examen}', act.nivel ? act.nivel.nombre : '')) + '</h2>' +
       '<p class="ruta-sub">' + esc(T.cursoSub) + '</p></div>' +
-      '<span class="nivel-chip">' + esc(DATA.examen.sigla) + '</span></div>' +
+      '<span class="nivel-chip">' + esc(act.nivel ? act.nivel.sigla : '') + '</span></div>' +
+      // Si el curso que se sirve no es el del nivel del alumno, se dice aqui y
+      // no en letra pequena.
+      (act.sustituto ? '<p class="ruta-sustituto">' +
+        esc(T.cursoOtroNivel.replace('{suyo}', (nivelAlumno() || {}).nivel || '')
+                            .replace('{este}', act.nivel.mcer)) + '</p>' : '') +
       DATA.tests.map(function (t) { return pintaTest(t, sig); }).join('') +
       '<p class="ruta-pie">' + T.sesionesCargadas.replace('{n}', conMaterial).replace('{t}', SESIONES.length) + '</p>';
   }
@@ -882,7 +889,7 @@
   }
 
   function simulacrosDe(test) {
-    return (DATA.papeles || []).map(function (pa) { return simulacroDe(test, pa); })
+    return papelesActivos().map(function (pa) { return simulacroDe(test, pa); })
       .filter(Boolean);
   }
 
@@ -1848,6 +1855,27 @@
      conoce no tiene por que hacer la prueba-- y que durante el desarrollo
      hacia falta constantemente, obligando a repetir el test de nivel entero
      cada vez. */
+
+  /* El nivel activo, y el curso que se sirve.
+
+     No son lo mismo y separarlos importa: un alumno puede tener nivel B1 y
+     hoy no existe curso de B1. En ese caso se le sirve el unico que hay y se
+     le DICE, en vez de dejarle creer que ese es su curso. Mentir aqui es
+     venderle un examen que no es el suyo. */
+
+  function nivelActivo() {
+    var a = nivelAlumno();
+    var pedido = a && a.nivel ? nivelDe(a.nivel) : null;
+    if (pedido && pedido.curso) return { nivel: pedido, sustituto: false };
+    var conCurso = (DATA.niveles || []).filter(function (n) { return n.curso; });
+    if (!conCurso.length) return { nivel: null, sustituto: false };
+    return { nivel: conCurso[0], sustituto: !!pedido };
+  }
+
+  function papelesActivos() {
+    var n = nivelActivo().nivel;
+    return (n && n.papeles) || [];
+  }
 
   function nivelDe(mcer) {
     var n = null;

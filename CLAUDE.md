@@ -80,6 +80,14 @@ con que formato—, extraido en `well-online-temario.md` sin una sola frase
 copiada. Todo el vocabulario y la gramatica se escriben nuevos contra ese
 fichero.
 
+**Cuatro niveles, un curso.** La plataforma declara A2, B1, B2 y C1, y cada uno
+es un examen distinto de Cambridge con su propia estructura: el B2 First tiene
+7 partes y 52 preguntas en 75 minutos, el C1 Advanced 8 y 56 en 90. **No son el
+mismo curso con las frases mas faciles.** Hoy solo esta escrito el de C1. El
+temario de Elena es de B2 y el curso de B2 esta por escribir; el de C1 se
+revisara cuando ella pase sus apuntes de C1. El nivel se puede poner a mano en
+`practica.html#admin`, sin hacer la prueba.
+
 **Estado del curso: los cuatro tests completos** (34 de 34 bloques cada uno,
 208 ejercicios, 1.196 preguntas). Cada test da un simulacro con 30 preguntas de
 Use of English, 26 de Reading y 30 de Listening, igual que el examen. Falta
