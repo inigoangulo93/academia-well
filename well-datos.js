@@ -333,6 +333,25 @@
       return cliente.auth.signOut().catch(function (e) { log(e); });
     },
 
+    // Borrar la cuenta de verdad, no marcarla como inactiva. Lo hace una
+    // funcion en el servidor porque borrar de auth.users necesita la clave de
+    // administrador, que no puede viajar al navegador. Al desaparecer el
+    // usuario, el borrado en cascada se lleva sus cinco tablas por delante.
+    borraCuenta: function () {
+      if (!cliente || !uid()) return Promise.reject(new Error('sin sesion'));
+      // Lo que quede sin subir se descarta: se va a borrar todo igualmente.
+      pendiente = null; clearTimeout(temporizador); temporizador = null;
+      return cliente.functions.invoke('borrar-cuenta', { method: 'POST' })
+        .then(function (r) {
+          if (r.error) throw r.error;
+          if (!r.data || !r.data.ok) throw new Error((r.data && r.data.error) || 'respuesta inesperada');
+          // Solo despues de que el servidor confirme se borra lo de aqui: si
+          // fallara, el alumno se quedaria sin datos en el navegador y con la
+          // cuenta viva, que es el peor de los dos mundos.
+          return cliente.auth.signOut().catch(function () {});
+        });
+    },
+
     baja: baja,
     funde: funde,
     perfil: leePerfil,

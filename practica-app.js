@@ -1512,6 +1512,7 @@
         $('#nombre-campo').focus();
       } else if (q === 'test') { location.href = '/test.html'; }
       else if (q === 'entrar') { location.href = '/entrar.html'; }
+      else if (q === 'borrar') { abreBorrado(true); }
       else if (q === 'salir') {
         // Se vacia la cola antes de salir: si no, lo ultimo que hizo se
         // quedaria solo en este navegador.
@@ -1524,6 +1525,12 @@
     if (e.target.closest('#ver-insignias')) { hoja(true); return; }
     if (e.target.closest('#cierra-insignias') || e.target.id === 'hoja-insignias') { hoja(false); return; }
     if (e.target.closest('#nombre-ok')) { aplicaNombre(); return; }
+    if (e.target.closest('#bc-cancelar') || e.target.id === 'borrar-cuenta') { abreBorrado(false); return; }
+    if (e.target.closest('#bc-confirmar')) { confirmaBorrado(); return; }
+  });
+
+  document.addEventListener('input', function (e) {
+    if (e.target.id === 'bc-correo') compruebaCorreoBorrado();
   });
 
   function aplicaNombre() {
@@ -1558,6 +1565,7 @@
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Enter' && e.target.id === 'nombre-campo') { e.preventDefault(); aplicaNombre(); }
     if (e.key !== 'Escape') return;
+    if (!$('#borrar-cuenta').hidden) { abreBorrado(false); return; }
     if (!$('#premio').hidden) cierraPremio();
     else if (!$('#hoja-insignias').hidden) hoja(false);
     else if (abiertoUsuario()) { menuUsuario(false); $('#user-btn').focus(); }
@@ -1611,6 +1619,53 @@
     $('#um-correo').hidden = !ses;
     $('#um-entrar').hidden = !!ses;
     $('#um-salir').hidden = !ses;
+    $('#um-borrar').hidden = !ses;
+  }
+
+  /* ---------- borrar la cuenta ---------- */
+
+  // Se pide escribir el correo a mano. Es irreversible, y un clic de mas es
+  // barato comparado con perder todo el curso por una pulsacion despistada.
+  function abreBorrado(abrir) {
+    var el = $('#borrar-cuenta');
+    el.hidden = !abrir;
+    if (!abrir) return;
+    $('#bc-correo').value = '';
+    $('#bc-error').hidden = true;
+    $('#bc-confirmar').disabled = true;
+    $('#bc-confirmar').textContent = T.borrarCuenta || 'Borrar mi cuenta';
+    $('#bc-correo').focus();
+  }
+
+  function compruebaCorreoBorrado() {
+    var ses = D && D.sesion();
+    var escrito = $('#bc-correo').value.trim().toLowerCase();
+    $('#bc-confirmar').disabled = !ses || escrito !== String(ses.correo).toLowerCase();
+  }
+
+  function confirmaBorrado() {
+    var btn = $('#bc-confirmar');
+    btn.disabled = true;
+    btn.textContent = T.borrando || 'Borrando…';
+    $('#bc-error').hidden = true;
+
+    D.borraCuenta().then(function () {
+      // El servidor ha confirmado. Ahora si se limpia el navegador: hacerlo
+      // antes dejaria al alumno sin datos aqui y con la cuenta viva alli.
+      try {
+        localStorage.removeItem(CLAVE);
+        localStorage.removeItem(CLAVE_NIVEL);
+        localStorage.removeItem('well_nombre');
+      } catch (e) {}
+      track('cuenta_borrada', {});
+      location.href = '/index.html';
+    }).catch(function (err) {
+      $('#bc-error').textContent = (T.borradoFallo || 'No se ha podido borrar la cuenta: ') +
+        ((err && err.message) || 'error desconocido');
+      $('#bc-error').hidden = false;
+      btn.textContent = T.borrarCuenta || 'Borrar mi cuenta';
+      compruebaCorreoBorrado();
+    });
   }
 
   function sincroniza() {

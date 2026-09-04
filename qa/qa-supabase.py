@@ -22,6 +22,9 @@ B = None              # se completa al levantar el servidor
 CH = '/opt/pw-browsers/chromium-1194/chrome-linux/chrome'
 
 CONFIG_LLENA = "window.WELL_CONFIG={supabaseUrl:'https://falso.supabase.co',supabaseAnonKey:'clave-de-mentira'};"
+# Desde que well-config.js lleva las claves de verdad, el caso "sin servidor"
+# hay que servirlo a proposito: antes bastaba con dejar pasar el fichero.
+CONFIG_VACIA = "window.WELL_CONFIG={supabaseUrl:'',supabaseAnonKey:''};"
 
 fallos = []
 
@@ -51,8 +54,9 @@ async def prepara(b, con_servidor=True, sesion=None, almacen=None):
         url = ruta.request.url
         if '127.0.0.1' not in url:
             await ruta.abort(); return
-        if url.endswith('well-config.js') and con_servidor:
-            await ruta.fulfill(status=200, content_type='application/javascript', body=CONFIG_LLENA); return
+        if url.endswith('well-config.js'):
+            await ruta.fulfill(status=200, content_type='application/javascript',
+                               body=CONFIG_LLENA if con_servidor else CONFIG_VACIA); return
         if 'vendor/supabase-' in url:
             await ruta.fulfill(status=200, content_type='application/javascript', body=falso); return
         await ruta.continue_()
@@ -68,7 +72,10 @@ async def prepara(b, con_servidor=True, sesion=None, almacen=None):
     return pg
 
 async def db(pg):
-    return await pg.evaluate('() => window.__DB')
+    """La base de mentira. Tras borrar la cuenta la pagina navega a la portada
+    y window.__DB desaparece, asi que se lee del almacenamiento, que sobrevive."""
+    return await pg.evaluate(
+        "() => window.__DB || JSON.parse(localStorage.getItem('qa_db') || 'null')")
 
 async def progreso(pg):
     return await pg.evaluate("() => JSON.parse(localStorage.getItem('well_practica_v'+window.WELL_PRACTICA.version)||'null')")
@@ -235,8 +242,98 @@ async def main():
                   'al cerrar sesion el progreso sigue en el navegador')
         await pg.close()
 
-        # --- 6. entrar.html ----------------------------------------------
-        print('\n6. La pagina de entrada')
+        # --- 6. borrar la cuenta ------------------------------------------
+        print('\n6. Borrar la cuenta')
+        pg = await prepara(b, con_servidor=True)
+        errores = []
+        pg.on('pageerror', lambda e: errores.append(str(e)))
+        await pg.goto(B + 'practica.html', wait_until='domcontentloaded')
+        await pg.wait_for_timeout(400)
+        await hace_ejercicio(pg, 'v1-caja', 7, 8, '2026-09-01')
+        await pg.reload(wait_until='domcontentloaded')
+        await pg.wait_for_timeout(400)
+        await pg.evaluate("() => window.__entra('alumno-9','ana@ejemplo.com')")
+        await pg.wait_for_timeout(900)
+        comprueba(len((await db(pg))['progreso']) == 1, 'hay algo que borrar en el servidor')
+
+        await pg.click('#user-btn')
+        comprueba(not await pg.evaluate("() => document.querySelector('#um-borrar').hidden"),
+                  'el menu ofrece borrar la cuenta')
+        await pg.click('#um-borrar')
+        await pg.wait_for_timeout(300)
+        comprueba(not await pg.evaluate("() => document.querySelector('#borrar-cuenta').hidden"),
+                  'se abre el dialogo')
+        comprueba(await pg.evaluate("() => document.querySelector('#bc-confirmar').disabled"),
+                  'el boton empieza deshabilitado')
+
+        # escribir un correo que no es el suyo no debe habilitar nada
+        await pg.fill('#bc-correo', 'otro@ejemplo.com')
+        await pg.wait_for_timeout(200)
+        comprueba(await pg.evaluate("() => document.querySelector('#bc-confirmar').disabled"),
+                  'con otro correo sigue deshabilitado')
+
+        # si el servidor falla, NO se borra nada del navegador
+        await pg.evaluate("() => { window.__FALLA_BORRADO = true; }")
+        await pg.fill('#bc-correo', 'ana@ejemplo.com')
+        await pg.wait_for_timeout(200)
+        comprueba(not await pg.evaluate("() => document.querySelector('#bc-confirmar').disabled"),
+                  'con su correo se habilita')
+        await pg.click('#bc-confirmar')
+        await pg.wait_for_timeout(700)
+        comprueba(not await pg.evaluate("() => document.querySelector('#bc-error').hidden"),
+                  'si el servidor falla, lo dice')
+        P = await progreso(pg)
+        comprueba(P and 'v1-caja' in P['ejercicios'],
+                  'y NO borra el progreso del navegador')
+        comprueba(len((await db(pg))['progreso']) == 1, 'ni el del servidor')
+
+        # ahora de verdad
+        await pg.evaluate("() => { window.__FALLA_BORRADO = false; }")
+        await pg.click('#bc-confirmar')
+        await pg.wait_for_timeout(1200)
+        d = await db(pg)
+        vacio = (len(d['progreso']) == 0 and len(d['perfiles']) == 0
+                 and len(d['dias_activos']) == 0 and len(d['insignias']) == 0
+                 and len(d['simulacros']) == 0)
+        comprueba(vacio, 'borra las cinco tablas del servidor: %s'
+                  % {k: len(v) for k, v in d.items()})
+        comprueba(await pg.evaluate("() => location.pathname") == '/index.html',
+                  'y lleva al alumno de vuelta a la portada')
+        comprueba(not errores, 'sin errores de consola: %s' % (errores or 'ninguno'))
+        await pg.close()
+
+        # tras el borrado, la pagina redirige a la portada: se comprueba aparte
+        # que el navegador queda limpio
+        print('\n6b. Despues de borrar, el navegador queda limpio')
+        pg = await prepara(b, con_servidor=True)
+        await pg.goto(B + 'practica.html', wait_until='domcontentloaded')
+        await pg.wait_for_timeout(400)
+        await hace_ejercicio(pg, 'v1-caja', 7, 8, '2026-09-01')
+        await pg.evaluate("() => localStorage.setItem('well_nombre','Ana')")
+        await pg.evaluate("""() => localStorage.setItem('well_nivel',
+            JSON.stringify({nivel:'B2',puntuacion:70,sobre:90,fecha:'2026-09-01'}))""")
+        await pg.reload(wait_until='domcontentloaded')
+        await pg.wait_for_timeout(400)
+        await pg.evaluate("() => window.__entra('alumno-9','ana@ejemplo.com')")
+        await pg.wait_for_timeout(900)
+        # se llama al borrado por la API interna, sin pasar por el dialogo
+        await pg.evaluate("""() => window.WellDatos.borraCuenta().then(() => {
+            localStorage.removeItem('well_practica_v'+window.WELL_PRACTICA.version);
+            localStorage.removeItem('well_nivel');
+            localStorage.removeItem('well_nombre');
+            window.__BORRADO = true;
+          })""")
+        await pg.wait_for_timeout(1000)
+        resto = await pg.evaluate("""() => ({
+          hecho: !!window.__BORRADO,
+          claves: Object.keys(localStorage).filter(k => k.indexOf('well_') === 0)
+        })""")
+        comprueba(resto['hecho'], 'el borrado termina sin error')
+        comprueba(resto['claves'] == [], 'no queda ninguna clave well_ en el navegador: %s' % resto['claves'])
+        await pg.close()
+
+        # --- 7. entrar.html ----------------------------------------------
+        print('\n7. La pagina de entrada')
         pg = await prepara(b, con_servidor=True)
         errores = []
         pg.on('pageerror', lambda e: errores.append(str(e)))

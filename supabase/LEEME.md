@@ -19,6 +19,7 @@ siquiera y la plataforma se comporta exactamente igual que antes.
 | `probar-permisos.sh` | Levanta un PostgreSQL de usar y tirar, aplica el esquema dos veces y ejecuta las pruebas. |
 | `02-verificar.sql` | Se pega en Supabase después del esquema. No cambia nada: comprueba en siete filas que las tablas, el RLS, las políticas y los disparadores están donde deben. |
 | `PUESTA-EN-MARCHA.md` | El encargo completo para hacer los clics con el navegador, paso a paso. |
+| `functions/borrar-cuenta/` | La función que borra una cuenta de verdad. Es el único sitio donde vive la clave de administrador, y la pone Supabase, no el repositorio. |
 
 Y fuera de esta carpeta:
 
@@ -105,6 +106,25 @@ En orden:
    producción. Con la configuración puesta aparece «Guardar mi progreso» en el
    menú de usuario.
 
+## Borrar la cuenta
+
+El alumno puede borrarse él solo, desde el menú de usuario. Se borra de verdad:
+no se marca como inactiva.
+
+Funciona así: `functions/borrar-cuenta` recibe la petición, saca **del token
+verificado** quién la hace —nunca del cuerpo, o cualquiera podría borrar a
+cualquiera— y llama a `auth.admin.deleteUser`. Las cinco tablas cuelgan de
+`auth.users(id)` con `on delete cascade`, así que al desaparecer el usuario
+desaparece todo lo suyo, incluidos los textos de sus writings. Comprobado
+contra PostgreSQL.
+
+El orden importa y está probado: **primero confirma el servidor, después se
+limpia el navegador**. Al revés, un fallo dejaría al alumno sin datos aquí y
+con la cuenta viva allí, que es el peor de los dos mundos.
+
+La clave `service_role` vive solo dentro de esa función, inyectada por Supabase.
+No está en el repositorio y no puede estarlo.
+
 ## Qué pasa cuando falla
 
 Está pensado para que un servidor caído no pare una clase:
@@ -123,8 +143,9 @@ Está pensado para que un servidor caído no pare una clase:
 - **Panel de la profesora.** La vista `resumen_alumnos` existe y Elena puede
   consultarla desde el propio panel de Supabase, pero no hay una página bonita
   que la enseñe.
-- **Borrar la cuenta.** El RGPD lo exige. Las tablas ya borran en cascada al
-  borrar el usuario, pero falta el botón.
+- **La razón social y el NIF** en `privacidad.html` y `eu/pribatutasuna.html`.
+  Están como huecos marcados a propósito: no me los invento. Y un gestor tiene
+  que revisar las dos páginas antes de publicarlas.
 - **Corrección del writing y puntuación del speaking.** Necesitan llamadas a la
   API de Claude y a Azure desde un servidor, no desde el navegador: la clave no
   puede viajar al alumno. Eso son funciones *edge* de Supabase, y es el trabajo

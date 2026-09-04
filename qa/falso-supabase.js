@@ -83,10 +83,31 @@
     return api;
   }
 
+  // Imita la funcion edge borrar-cuenta: borra las filas del alumno de las
+  // cinco tablas, que es lo que hace el borrado en cascada de PostgreSQL.
+  function invocaFuncion(nombre) {
+    if (nombre !== 'borrar-cuenta') {
+      return Promise.resolve({ data: null, error: new Error('funcion desconocida: ' + nombre) });
+    }
+    if (!sesion) return Promise.resolve({ data: null, error: new Error('sin sesion') });
+    if (window.__FALLA_BORRADO) {
+      return Promise.resolve({ data: { error: 'fallo simulado' }, error: null });
+    }
+    var yo = sesion.user.id;
+    DB.perfiles = DB.perfiles.filter(function (f) { return f.id !== yo; });
+    ['progreso', 'dias_activos', 'insignias', 'simulacros'].forEach(function (t) {
+      DB[t] = DB[t].filter(function (f) { return f.alumno !== yo; });
+    });
+    persiste();
+    LLAMADAS.push({ tabla: '(funcion)', op: 'borrar-cuenta' });
+    return Promise.resolve({ data: { ok: true }, error: null });
+  }
+
   window.supabase = {
     createClient: function () {
       return {
         from: consulta,
+        functions: { invoke: invocaFuncion },
         auth: {
           getSession: function () { return Promise.resolve({ data: { session: sesion }, error: null }); },
           onAuthStateChange: function (cb) { oyentes.push(cb); return { data: { subscription: { unsubscribe: function () {} } } }; },

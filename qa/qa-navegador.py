@@ -5,7 +5,9 @@ R='/home/user/academia-well-src'; B='http://127.0.0.1:8140/'
 CH='/opt/pw-browsers/chromium-1194/chrome-linux/chrome'
 
 PAGS=['index.html','cursos.html','calendario.html','test.html','practica.html',
+      'entrar.html','privacidad.html',
       'eu/index.html','eu/cursos.html','eu/calendario.html','eu/test.html',
+      'eu/pribatutasuna.html',
       '404.html','resena.html']
 ANCHOS=[(360,'360'),(390,'390'),(820,'820'),(1440,'1440')]
 

@@ -48,6 +48,7 @@ versiones: castellano en la raíz, euskera en `eu/`.
 | `well-config.js` | Las dos claves de Supabase. **Vacías = sin servidor**, y entonces nada de lo de abajo se carga siquiera |
 | `well-datos.js` | Capa de datos. El navegador manda: `localStorage` siempre; si hay sesión, se sube y se funde |
 | `entrar.html` | Entrada con enlace mágico por correo. `noindex` |
+| `privacidad.html` · `eu/pribatutasuna.html` | Política de privacidad. **Borrador**: falta razón social y NIF, y la tiene que revisar un gestor |
 | `supabase/` · `vendor/supabase-*.js` | Esquema, permisos por fila y cliente vendorizado. Ver `supabase/LEEME.md` |
 
 **Test de nivel.** `test-app.js` (motor, compartido por los dos idiomas) y
@@ -82,6 +83,15 @@ Al entrar desde otro dispositivo **no se elige una versión y se tira la otra**:
 se funden. Gana la mejor nota de cada ejercicio y la racha suma los días de los
 dos sitios. La instalación paso a paso y lo que falta están en
 `supabase/LEEME.md`.
+
+**Datos personales.** Desde que hay cuentas se guarda el correo, el nombre, las
+respuestas y los textos de los writings de personas identificadas. De ahí tres
+reglas: el alumno puede borrarse él solo desde el menú (`functions/borrar-cuenta`,
+borrado real y en cascada, no un marcado de inactivo); **no hay analítica ni
+cookies de terceros** en ninguna página, y por eso no hace falta banner —si
+algún día se añade Google Analytics, hará falta, y hay que decirlo en la
+política antes; y cualquier proveedor nuevo que toque datos (IA, pagos, correo)
+se anota en `privacidad.html` **antes** de conectarlo, no después.
 
 La clave `anon` es pública por diseño y no pasa nada porque esté en el
 repositorio. Lo único que separa los datos de un alumno de los de otro es el

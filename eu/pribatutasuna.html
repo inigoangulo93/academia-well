@@ -1,35 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="eu">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calendario del curso 2026–27 · Academia Well Galdakao</title>
-<link rel="canonical" href="https://academiawell.com/calendario.html">
-<link rel="alternate" hreflang="es" href="https://academiawell.com/calendario.html">
-<link rel="alternate" hreflang="eu" href="https://academiawell.com/eu/calendario.html">
-<link rel="alternate" hreflang="x-default" href="https://academiawell.com/calendario.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Academia Well">
-<meta property="og:locale" content="es_ES">
-<meta property="og:locale:alternate" content="eu_ES">
-<meta property="og:title" content="Calendario del curso 2026–27 · Academia Well Galdakao">
-<meta property="og:description" content="Calendario oficial del curso 2026-27: días de clase de octubre a junio, festivos y meses con informe de evolución.">
-<meta property="og:url" content="https://academiawell.com/calendario.html">
-<meta property="og:image" content="https://academiawell.com/og.jpg">
-<meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Academia Well · Inglés en Galdakao · Centro preparador oficial de Cambridge">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Calendario del curso 2026–27 · Academia Well Galdakao">
-<meta name="twitter:description" content="Calendario oficial del curso 2026-27: días de clase de octubre a junio, festivos y meses con informe de evolución.">
-<meta name="twitter:image" content="https://academiawell.com/og.jpg">
-<meta name="description" content="Calendario oficial del curso 2026-27 de Academia Well Galdakao: días de clase de octubre a junio, festivos y meses con informe de evolución.">
+<title>Pribatutasun-politika · Academia Well</title>
+<link rel="canonical" href="https://academiawell.com/eu/pribatutasuna.html">
+<link rel="alternate" hreflang="es" href="https://academiawell.com/privacidad.html">
+<link rel="alternate" hreflang="eu" href="https://academiawell.com/eu/pribatutasuna.html">
+<link rel="alternate" hreflang="x-default" href="https://academiawell.com/privacidad.html">
+<meta name="description" content="Academia Well-ek Well Online-ko ikasleen zein datu gordetzen dituen, zertarako, zenbat denboraz eta nola ezabatu.">
+<meta name="theme-color" content="#21409A">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -194,15 +179,16 @@
   .sticker small{display:block;font-family:'Figtree';font-weight:500;font-size:12px;opacity:.85}
   .fotostrip-box{position:relative}
   .trust{padding:64px 0 20px}
-  .trust-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-  .t-item{display:flex;gap:14px;align-items:center;border-radius:var(--radio);padding:22px 24px}
-  .t-item:nth-child(1){background:var(--carmin-suave)}
-  .t-item:nth-child(2){background:var(--azul-suave)}
-  .t-item:nth-child(3){background:var(--neutro)}
-  .t-item:nth-child(4){background:#FDF3E3}
-  .t-emoji{font-size:26px}
-  .t-item b{font-family:'Bree Serif',serif;font-weight:400;font-size:18px;display:block;line-height:1.2;color:var(--tinta)}
-  .t-item span{font-size:13.5px;color:var(--gris)}
+  .trust-inner{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;
+    border:1px solid var(--linea);border-radius:22px;overflow:hidden}
+  .t-item{position:relative;padding:30px 26px}
+  .t-item + .t-item{border-left:1px solid var(--linea)}
+  .t-num{font-family:'Bree Serif',serif;font-size:52px;line-height:1;color:var(--azul);font-variant-numeric:tabular-nums}
+  .t-num small{font-size:26px}
+  .t-item:nth-child(4) .t-num{color:var(--carmin)}
+  .t-est{color:#F2A71B;font-size:19px;letter-spacing:2px;margin-top:4px}
+  .t-item b{display:block;font-size:15px;font-weight:700;margin-top:10px;color:var(--tinta)}
+  .t-item span{display:block;font-size:13px;color:var(--gris);line-height:1.5;margin-top:2px}
   .cursos{padding:84px 0 30px}
   .centro{text-align:center}
   .centro .sub{margin-left:auto;margin-right:auto}
@@ -266,6 +252,28 @@
   .paso:hover span,.paso:focus-visible span{color:var(--tinta)}
   .paso:hover .horas{background:#fff;border-color:rgba(33,64,154,.3)}
   .paso.oficial:hover .horas{background:var(--carmin);border-color:var(--carmin);color:#fff}
+
+  /* el bloque es accionable: cada paso lleva a su horario y hay CTA */
+  a.paso{color:inherit;text-decoration:none}
+  .paso b::after{content:"\2192";display:inline-block;margin-left:8px;color:#F5B8C0;
+    opacity:0;transform:translateX(-5px);transition:opacity .25s ease,transform .25s ease}
+  .paso:hover b::after,.paso:focus-visible b::after{opacity:1;transform:none}
+  .paso:active{transform:translateX(6px) scale(.985)}
+  .cam-cta{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+  .cam-cta .btn-blanco{box-shadow:0 10px 24px rgba(3,10,36,.28)}
+  .cam-cta .btn-blanco:hover{box-shadow:0 14px 30px rgba(3,10,36,.36)}
+  .cam-ghost{color:#fff;border:1.5px solid rgba(255,255,255,.55);background:transparent}
+  .cam-ghost:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.8)}
+  .cam-cta .btn:active{transform:translateY(0) scale(.97)}
+
+  /* Sello de centro autorizado: el logo va sobre tarjeta blanca (nunca recolorear un logo ajeno) */
+  .sello{display:flex;align-items:center;gap:18px;margin-top:28px;background:#fff;color:var(--tinta);
+    border-radius:16px;padding:16px 20px;max-width:440px;box-shadow:0 10px 24px rgba(3,10,36,.2);
+    transition:transform .3s cubic-bezier(.22,.7,.25,1),box-shadow .3s ease}
+  .sello:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(3,10,36,.26)}
+  .sello img{height:88px;width:auto;flex:none}
+  .sello b{display:block;font-size:14.5px;color:var(--azul)}
+  .sello span{display:block;font-size:12.5px;color:var(--gris);margin-top:3px;line-height:1.5}
   .precios{padding:84px 0 30px}
   .precio-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:44px}
   .precio{border-radius:var(--radio);padding:36px 32px;display:flex;flex-direction:column;transition:transform .18s ease, box-shadow .18s ease;background:var(--neutro)}
@@ -321,6 +329,27 @@
   .turno .vacio{color:var(--gris);font-size:15px;font-style:italic}
   .panel-foot{margin-top:24px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
   .panel-foot p{font-size:14.5px;color:var(--gris)}
+  /* ---- Resenas ---- */
+  .resenas{padding:84px 0 10px}
+  .res-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .g-badge{display:inline-flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--linea);
+    border-radius:100px;padding:12px 22px;text-decoration:none;color:var(--tinta);font-weight:700;font-size:15px;
+    transition:transform .25s ease,box-shadow .25s ease}
+  .g-badge:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(20,35,80,.12)}
+  .g-badge > svg{width:20px;height:20px;flex:none}
+  .estrellas{display:inline-flex;gap:2px;color:#F2A71B}
+  .estrellas svg{width:15px;height:15px}
+  .res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:38px}
+  .resena{display:flex;flex-direction:column;gap:13px;background:#fff;border:1px solid var(--linea);
+    border-radius:var(--radio);padding:24px;transition:transform .28s cubic-bezier(.22,.7,.25,1),box-shadow .28s ease}
+  .resena:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(20,35,80,.10)}
+  .resena p{font-size:14.5px;color:var(--gris);line-height:1.6;flex:1;margin:0}
+  .quien{display:flex;align-items:center;gap:11px}
+  .quien .avatar{width:38px;height:38px;border-radius:50%;flex:none;background:var(--azul-suave);color:var(--azul);
+    display:flex;align-items:center;justify-content:center;font-family:'Bree Serif',serif;font-size:16px}
+  .quien b{font-size:14px;color:var(--tinta);display:block;line-height:1.25}
+  .quien span{font-size:12.5px;color:var(--gris)}
+
   .faq{padding:84px 0 40px}
   .faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
   .faq-list{display:grid;gap:12px}
@@ -347,6 +376,7 @@
   .con-item .ico{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
   .con-item b{font-size:16.5px;display:block}
   .con-item span{display:block;font-size:13.5px;color:#AFC0EE}
+  .mapa iframe{width:100%;height:100%;border:0;display:block}
   .mapa{border-radius:var(--radio);overflow:hidden;aspect-ratio:4/3.4;background:#152A66;display:flex;align-items:center;justify-content:center;color:#AFC0EE;font-style:italic;font-size:14.5px;text-align:center;padding:24px;border:1px solid rgba(255,255,255,.16)}
   footer{background:#fff;border-top:1px solid var(--linea);color:var(--gris);padding:52px 0 34px;font-size:15px}
   .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:50px;padding-bottom:36px;border-bottom:1px solid var(--linea)}
@@ -431,7 +461,9 @@
     .topbar .left span{display:none}
   }
   @media(max-width:640px){
-    .publico-grid,.acts-grid,.turnos,.trust-inner{grid-template-columns:1fr}
+    .publico-grid,.acts-grid,.turnos,.trust-inner,.res-grid{grid-template-columns:1fr}
+    .t-item:nth-child(even){border-left:none}
+    .t-item + .t-item{border-top:1px solid var(--linea)}
     .panel{padding:26px 22px}
   }
 
@@ -462,8 +494,8 @@
   .page-hero .ph-grid > *{position:relative;z-index:1}
 
   .sticker{animation:wobble 5.5s ease-in-out infinite}
-  .t-item .t-emoji,.mega-ico,.act .em,.m-item .num{display:inline-flex;align-items:center;justify-content:center}
-  .t-item:hover .t-emoji,.mega-list a:hover .mega-ico,.act:hover .em,.m-item:hover .num{animation:wiggle .45s ease}
+  .t-item .t-ico,.mega-ico,.act .em,.m-item .num{display:inline-flex;align-items:center;justify-content:center}
+  .t-item:hover .t-ico,.mega-list a:hover .mega-ico,.act:hover .em,.m-item:hover .num{animation:wiggle .45s ease}
   .publico:hover{transform:translateY(-6px) rotate(-.6deg)}
   .act{transition:transform .18s ease, box-shadow .18s ease}
   .act:hover{transform:translateY(-6px) rotate(-1.2deg);box-shadow:var(--sombra)}
@@ -569,6 +601,9 @@
     header.main::after, .menu > li > a::after, .menu > li > button::after{animation:none}
   }
 
+  .publico-grid.tres{grid-template-columns:repeat(3,1fr)}
+  .publico-grid.dos{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:960px){.publico-grid.tres,.publico-grid.dos{grid-template-columns:1fr}}
 
   /* ====== Calendario del curso ====== */
   .calendario{padding:84px 0 30px}
@@ -651,498 +686,231 @@
     .w-hero svg{animation:none}
   }
 
-  .pg-calendario .page-hero .cta-row{justify-content:center}
-  .pg-calendario .page-hero .facts{justify-content:center}
-  .cam-ghost{color:#fff;border:1.5px solid rgba(255,255,255,.55);background:transparent}
-  .cam-ghost:hover{background:rgba(255,255,255,.1)}
+
+.buscas{padding:30px 0 4px}
+.buscas-inner{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.buscas-tit{font-family:'Bree Serif',serif;color:var(--azul);font-size:1.15rem;white-space:nowrap}
+.buscas-chips{display:flex;flex-wrap:wrap;gap:10px}
+.buscas-chips a{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border:1px solid var(--linea);border-radius:999px;background:#fff;color:var(--tinta);font-weight:600;font-size:.92rem;text-decoration:none;transition:border-color .18s,color .18s,transform .18s}
+.buscas-chips a:hover{border-color:var(--azul);color:var(--azul);transform:translateY(-1px)}
+.buscas-chips a i{font-style:normal;color:var(--carmin)}
   @media(max-width:400px){.btn{padding:13px 18px;font-size:15px}.cta-row .btn,.cam-cta .btn,.m-foot .btn,.panel-foot .btn{width:100%}}
-</style>
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@type": "BreadcrumbList",
- "itemListElement": [
-  {
-   "@type": "ListItem",
-   "position": 1,
-   "name": "Inicio",
-   "item": "https://academiawell.com/"
-  },
-  {
-   "@type": "ListItem",
-   "position": 2,
-   "name": "Calendario 2026-27",
-   "item": "https://academiawell.com/calendario.html"
+</style><style>
+  .legal{max-width:760px;margin:0 auto;padding:56px 24px 76px}
+  .legal .eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+                  color:var(--carmin);margin-bottom:10px}
+  .legal h1{font-size:clamp(30px,5vw,44px);line-height:1.1;margin-bottom:14px}
+  .legal .entradilla{font-size:19px;color:var(--gris);margin-bottom:14px;max-width:58ch}
+  .legal .fecha{font-size:14px;color:var(--gris);margin-bottom:26px}
+  .legal h2{font-size:24px;margin:38px 0 10px}
+  .legal h3{font-family:'Bree Serif',serif;font-weight:400;color:var(--tinta);font-size:18px;margin:22px 0 6px}
+  .legal p{margin-bottom:13px;line-height:1.68}
+  .legal ul{margin:0 0 13px 0;padding-left:22px;display:grid;gap:7px;line-height:1.6}
+  .legal a{color:var(--azul)}
+  .legal .nota{font-size:15px;color:var(--gris)}
+  .legal .datos{width:100%;border-collapse:collapse;margin:6px 0 16px;font-size:15.5px}
+  .legal .datos th{text-align:left;font-size:12.5px;font-weight:700;letter-spacing:.07em;
+                   text-transform:uppercase;color:var(--gris);padding:9px 12px;background:var(--neutro)}
+  .legal .datos td{padding:11px 12px;border-bottom:1px solid var(--linea);vertical-align:top;line-height:1.5}
+  .legal .datos tr:last-child td{border-bottom:none}
+  .aviso-borrador{background:var(--carmin-suave);border-radius:14px;padding:15px 18px;
+                  font-size:15.5px;line-height:1.55;margin-bottom:12px}
+  @media (max-width:560px){
+    .legal{padding:36px 18px 56px}
+    .legal .datos{font-size:14.5px}
+    .legal .datos th,.legal .datos td{padding:9px 9px}
   }
- ]
-}
-</script>
+</style>
 </head>
-<body class="pg-calendario">
+<body>
 
 <header class="main" id="mainHeader">
   <div class="wrap nav-inner">
-    <a class="logo" href="index.html">
+    <a class="logo" href="#">
       <svg class="mark" viewBox="0 0 100 140" aria-hidden="true"><defs><clipPath id="mclipH"><rect x="2" y="2" width="96" height="136" rx="5"/></clipPath></defs><g clip-path="url(#mclipH)"><rect x="2" y="2" width="96" height="136" fill="#C0293B"/><path d="M-10 84 C16 62 26 68 34 98 C40 121 46 121 52 86 C58 51 64 51 70 84 C76 117 84 117 92 54 C96 31 101 22 112 10 L112 -10 L-12 -10 Z" fill="#21409A"/><path class="ribbon" d="M-10 84 C16 62 26 68 34 98 C40 121 46 121 52 86 C58 51 64 51 70 84 C76 117 84 117 92 54 C96 31 101 22 112 10" fill="none" stroke="#FFFFFF" stroke-width="13" stroke-linecap="round"/></g></svg>
       <span class="logo-text">Academia <br>Well</span>
     </a>
     <ul class="menu">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="cursos.html">El curso</a></li>
-      <li><a href="index.html#cambridge">Cambridge</a></li>
-      <li><a href="index.html#precios">Precios</a></li>
-      <li><a href="index.html#horarios">Horarios</a></li>
-      <li><a href="calendario.html" aria-current="page">Calendario</a></li>
+      <li><a href="index.html" aria-current="page">Hasiera</a></li>
+      <li><a href="cursos.html">Ikastaroa</a></li>
+      <li><a href="#cambridge">Cambridge</a></li>
+      <li><a href="#precios">Prezioak</a></li>
+      <li><a href="#horarios">Ordutegiak</a></li>
+      <li><a href="calendario.html">Egutegia</a></li>
       <li class="has-drop">
-        <button type="button" aria-expanded="false" aria-haspopup="true">La academia <span class="caret"></span></button>
+        <button type="button" aria-expanded="false" aria-haspopup="true">Akademia <span class="caret"></span></button>
         <div class="drop" role="menu">
-          <a href="index.html#metodo" role="menuitem">Nuestro m&eacute;todo <span>Hasta 12 por clase, material propio, informes</span></a>
-          <a href="index.html#faq" role="menuitem">Preguntas frecuentes <span>Matr&iacute;cula, niveles, test de nivel</span></a>
-          <a href="index.html#contacto" role="menuitem">D&oacute;nde estamos <span>C/ Lapurdi 36, Galdakao</span></a>
+          <a href="#metodo" role="menuitem">Gure metodoa <span>Gehienez 12 klaseko, material propioa, txostenak</span></a>
+          <a href="#faq" role="menuitem">Ohiko galderak <span>Matrikula, mailak, maila-testa</span></a>
+          <a href="#contacto" role="menuitem">Non gauden <span>Lapurdi kalea 36, Galdakao</span></a>
         </div>
       </li>
     </ul>
     <div class="nav-cta">
-      <a class="btn btn-azul btn-nav" href="test.html">Haz el test de nivel</a>
-      <div class="lang-pill" role="group" aria-label="Idioma"><span aria-current="page" lang="es" title="Castellano">ES</span><a href="eu/calendario.html" hreflang="eu" lang="eu" aria-label="Versi&oacute;n en euskera">EU</a></div>
-      <button class="burger" id="burger" aria-label="Abrir men&uacute;" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a class="btn btn-azul btn-nav" href="test.html">Egin maila-testa</a>
+      <div class="lang-pill" role="group" aria-label="Hizkuntza"><a href="../index.html" hreflang="es" lang="es" aria-label="Gaztelaniazko bertsioa">ES</a><span aria-current="page" lang="eu" title="Euskara">EU</span></div>
+      <button class="burger" id="burger" aria-label="Menua ireki" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
-<div class="mobile-menu" id="mobileMenu">
-  <nav>
-    <a href="index.html">Inicio</a>
-    <a href="cursos.html">El curso</a>
-    <a href="index.html#cambridge">Cambridge</a>
-    <a href="index.html#precios">Precios</a>
-    <a href="index.html#horarios">Horarios</a>
-    <a href="calendario.html" aria-current="page">Calendario</a>
-    <a href="index.html#faq">Preguntas frecuentes</a>
-    <a href="index.html#contacto">Contacto</a>
-  </nav>
-  <div class="m-foot">
-    <a class="btn btn-azul" href="test.html">Haz el test de nivel</a>
-    <a class="btn btn-ghost" href="https://wa.me/34652921203"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51-.17 0-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45c6.56 0 11.89-5.34 11.9-11.9 0-3.18-1.24-6.16-3.48-8.41z"/></svg>Escr&iacute;benos por WhatsApp</a>
-    <div class="lang-pill" role="group" aria-label="Idioma"><span aria-current="page" lang="es" title="Castellano">ES</span><a href="eu/calendario.html" hreflang="eu" lang="eu" aria-label="Versi&oacute;n en euskera">EU</a></div>
-  </div>
-</div>
+<main>
+  <section class="legal">
+    <p class="eyebrow">Well Online</p>
+    <h1>Pribatutasun-politika</h1>
+    <p class="entradilla">Zure zein datu gordetzen ditugun, zertarako, zenbat denboraz eta
+      nola ezabarazi. Ulertzeko idatzita dago, ez gure burua estaltzeko.</p>
+    <p class="fecha">Azken eguneratzea: 2026ko irailaren 4a</p>
 
-<div class="wrap crumbs"><a href="index.html">Inicio</a><span class="sep">/</span>Calendario</div>
+    <div class="aviso-borrador">
+      <b>Zirriborroa, berrikusteke.</b> Arduradunaren sozietate-izena eta IFZ falta dira, eta
+      aholkulari batek berrikusi behar du argitaratu aurretik. Ez jarri ekoizpenean honela.
+    </div>
 
-<section class="page-hero">
-  <div class="wrap centro">
-    <span class="kicker">Calendario 2026&ndash;27</span>
-    <h1 style="margin-left:auto;margin-right:auto">Todos los d&iacute;as de clase, en una p&aacute;gina</h1>
-    <p class="lead" style="margin-left:auto;margin-right:auto">De octubre a junio, de lunes a jueves. Los festivos, en rojo. Gu&aacute;rdala en favoritos: este es el calendario oficial del curso.</p>
-    <div class="facts cal-chips">
-      <span class="fact azul">Comienzo: jueves 1 de octubre</span>
-      <span class="fact azul">&Uacute;ltimo d&iacute;a: mi&eacute;rcoles 23 de junio</span>
-      <span class="fact">Clases de lunes a jueves</span>
-      <span class="fact rojo">Informes: dic &middot; mar &middot; jun</span>
-    </div>
-    <div class="cta-row">
-      <button class="btn btn-azul" type="button" onclick="window.print()">Imprimir o guardar en PDF</button>
-      <a class="btn btn-ghost" href="cursos.html#horarios">Ver horarios por nivel</a>
-    </div>
-  </div>
-</section>
+    <h2>1. Nork gordetzen ditu zure datuak</h2>
+    <p>Arduraduna <b>[SOZIETATE-IZENA FALTA DA]</b> da, IFZ <b>[IFZ FALTA DA]</b>, helbidea
+      Lapurdi kalea 36, 5. entresolairua, 48960 Galdakao (Bizkaia), eta harremanetarako
+      helbide elektronikoa
+      <a href="mailto:academia.well.galdakao@gmail.com">academia.well.galdakao@gmail.com</a>.
+      Beti izan den akademia bera da: ez dago atzean ezagutzen ez duzun enpresarik.</p>
 
-<section class="calendario" id="calendario">
-  <div class="wrap">
-    <div class="cal-grid reveal" id="calGrid" aria-label="Calendario del curso por meses"></div>
-    <div class="cal-legend reveal">
-      <span><i class="dotl lect"></i> D&iacute;a de clase</span>
-      <span><i class="dotl fest"></i> Festivo / no lectivo</span>
-      <span><i class="dotl hoy"></i> Hoy</span>
-      <span class="lg-informe">informe</span> mes con informe de evoluci&oacute;n
-    </div>
-  </div>
-</section>
+    <h2>2. Zer gordetzen dugun, eta besterik ez</h2>
+    <p>Zer egiten duzun araberakoa da. Webgunea begiratu besterik egiten ez baduzu,
+      <b>ezer ez</b>: ez dago jarraipen-cookierik, ez Google Analytics, ez sare sozialen
+      pixelik. Ez dakigu sartu zarenik ere.</p>
 
-<div class="banda-cta">
-  <div class="wrap">
-    <div class="banda-inner reveal">
-      <svg class="w-deco" viewBox="0 0 120 110" aria-hidden="true"><path d="M8 12 C22 98 36 98 48 54 C55 27 65 27 72 54 C84 98 98 98 112 12" fill="none" stroke="#fff" stroke-width="15" stroke-linecap="round"/></svg>
-      <h2>&iquest;Te baila alguna fecha?</h2>
-      <p>Escr&iacute;benos y te la confirmamos al momento. Sin misterios con el calendario.</p>
-      <div class="cta-row">
-        <a class="btn btn-wa" href="https://wa.me/34652921203"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51-.17 0-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45c6.56 0 11.89-5.34 11.9-11.9 0-3.18-1.24-6.16-3.48-8.41z"/></svg>Hablar por WhatsApp</a>
-        <a class="btn cam-ghost" href="tel:652921203"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Llamar: 652 92 12 03</a>
-      </div>
-    </div>
-  </div>
-</div>
+    <h3>Maila-testa egiten baduzu</h3>
+    <p>Zure erantzunak eta emaitza <b>zure nabigatzailean bertan</b> geratzen dira. Ez zaizkigu
+      iristen. Amaieran ziurtagiria eskatu eta zure izena eta helbide elektronikoa uzten
+      badizkiguzu, orduan bai jasotzen ditugu, eta erantzuteko soilik.</p>
 
-<section class="insta">
-  <div class="wrap">
-    <div class="insta-head reveal">
-      <div>
-        <span class="kicker">Instagram</span>
-        <h2 class="section">La academia, por dentro</h2>
-        <p class="sub">Avisos de matr&iacute;cula, fechas de ex&aacute;menes y el d&iacute;a a d&iacute;a de las clases.</p>
-      </div>
-      <a class="btn btn-ig" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.9"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg> Seguir en Instagram</a>
-    </div>
-    <div class="ig-grid reveal">
-      <a class="ig-tile" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=520&q=80" alt="Estudiantes riendo al salir de clase" loading="lazy" onerror="this.remove()"><span class="ig-hover"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.9"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></span></a>
-      <a class="ig-tile color ig-t-azul" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener">Hello, Galdakao!</a>
-      <a class="ig-tile" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=520&q=80" alt="Apuntes de estudio en un cuaderno" loading="lazy" onerror="this.remove()"><span class="ig-hover"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.9"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></span></a>
-      <a class="ig-tile color ig-t-rojo" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener">Well done! &#128079;</a>
-      <a class="ig-tile" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=520&q=80" alt="Trabajo en equipo frente a una pizarra" loading="lazy" onerror="this.remove()"><span class="ig-hover"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.9"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></span></a>
-      <a class="ig-tile color ig-t-sol" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener">See you in class &#9996;&#65039;</a>
-    </div>
-  </div>
-</section>
+    <h3>Well Online-n konturik sortu gabe praktikatzen baduzu</h3>
+    <p>Zure aurrerapen guztia <b>zure nabigatzailean</b> gordetzen da, ez gure zerbitzarietan.
+      Nabigatzaileko datuak ezabatzen badituzu, galdu egiten da. Ez daukagu kopiarik.</p>
+
+    <h3>Kontu bat sortzen baduzu</h3>
+    <table class="datos">
+      <thead><tr><th>Zer</th><th>Zertarako</th></tr></thead>
+      <tbody>
+        <tr><td>Zure helbide elektronikoa</td><td>Sartzeko modua da: esteka bat bidaltzen dizugu eta horrekin sartzen zara. Ez dago galdu dezakezun pasahitzik.</td></tr>
+        <tr><td>Zure izena, jartzen baduzu</td><td>Agurtzeko soilik. Aukerakoa da eta hutsik utz dezakezu.</td></tr>
+        <tr><td>Testeko zure maila</td><td>Dagokizun materiala irekitzeko.</td></tr>
+        <tr><td>Ariketetako zure erantzunak</td><td>Zure ehunekoa emateko eta irakasleak nola zoazen ikus dezan.</td></tr>
+        <tr><td>Zure writing-en testuak</td><td>Zuzentzeko eta berriro irakurri ahal izateko.</td></tr>
+        <tr><td>Zure speaking grabazioak</td><td>Ahoskera-nota emateko. <b>Oraindik ez dago martxan</b>; martxan jartzen denean, orri hau lehenago eguneratuko dugu.</td></tr>
+        <tr><td>Praktikatzen duzun egunak</td><td>Horrek egiten du bolada.</td></tr>
+      </tbody>
+    </table>
+    <p class="nota">Ez dugu eskatzen ez gordetzen zure NANik, helbiderik, jaiotze-datarik ez
+      telefonorik. Ingelesa internet bidez emateko ez dira beharrezkoak.</p>
+
+    <h2>3. Zergatik gorde ditzakegun</h2>
+    <ul>
+      <li><b>Eskatu duzun zerbitzua emateko</b> (EDBOren 6.1.b artikulua): zure kontua, zure
+        aurrerapena eta zure zuzenketak. Hori gabe ez dago produkturik.</li>
+      <li><b>Zuk eskatu diguzulako</b> (6.1.a artikulua): maila-testaren ziurtagiria, bidaltzeko
+        zure helbide elektronikoa uzten badiguzu.</li>
+    </ul>
+    <p>Ez dugu publizitate-profilik egiten, ez dugu legez eragiten dizun erabaki automatizaturik
+      hartzen, eta <b>ez dizkiogu zure datuak inori saltzen ez lagatzen</b> ezer sal diezazun.</p>
+
+    <h2>4. Nork ukitzen dituen gainera</h2>
+    <p>Hau funtziona dadin, gure kontura datuak tratatzen dituzten hornitzaileak daude. Hauek:</p>
+    <table class="datos">
+      <thead><tr><th>Nor</th><th>Zertarako</th><th>Non</th></tr></thead>
+      <tbody>
+        <tr><td>Supabase</td><td>Datu-basea eta sartzeko sistema</td><td>Irlanda (EB)</td></tr>
+        <tr><td>GitHub Pages eta Cloudflare</td><td>Orriak zerbitzatzea</td><td>EB / AEB bermeekin</td></tr>
+      </tbody>
+    </table>
+    <p class="nota">Writing-aren zuzenketa automatikoa eta speaking-aren nota martxan jartzen
+      direnean, adimen artifizialeko hornitzaileak gehituko zaizkio zerrenda honi.
+      <b>Hemen esango dugu gertatu aurretik</b>, ez ondoren.</p>
+
+    <h2>5. Zer gordetzen duen zure nabigatzaileak</h2>
+    <p>Nabigatzailearen biltegiratze lokala bi gauzatarako erabiltzen dugu, biak plataformak
+      funtziona dezan beharrezkoak:</p>
+    <ul>
+      <li><b>Zure aurrerapena</b>, internet joaten bazaizu edo fitxa ixten baduzu gal ez dadin.</li>
+      <li><b>Zure saioa</b>, sartzen zaren bakoitzean helbide elektronikoa ez eskatzeko.</li>
+    </ul>
+    <p>Ez dago publizitate- ez estatistika-cookierik, beraz ez duzu baimena eskatzen dizun
+      bannerrik ikusiko: ez dago zer onartu. Hor gordetzen dugun guztia eskatu duzun
+      zerbitzurako ezinbestekoa da, eta nabigatzaileko datuak ezabatzean ezabatzen da.</p>
+
+    <h2>6. Zenbat denboraz</h2>
+    <ul>
+      <li><b>Kontua duzun bitartean.</b> Zuk erabakitzen duzu noiz amaitzen den.</li>
+      <li><b>Bi urte igarotzen badira</b> sartu gabe, kontua ezabatzen dugu eta aurretik
+        posta elektronikoz abisatzen dizugu.</li>
+      <li>Fakturak, zerga-legeak dioena, gaur egun lau urte. Horiek fakturazio-datuak dira,
+        ez zure ariketak.</li>
+    </ul>
+
+    <h2>7. Zure eskubideak, eta nola erabili inori idatzi gabe</h2>
+    <p><b>Zeuk ezaba dezakezu zure kontua, edonoiz eta baimenik eskatu gabe.</b>
+      Plataformaren erabiltzaile-menuan dago, «Borrar mi cuenta» atalean. Benetan ezabatzen
+      da: zure helbide elektronikoa, zure izena, zure aurrerapena, zure erantzunak eta zure
+      writing-en testuak gure zerbitzarietatik desagertzen dira. Ez da inaktibo gisa markatzen,
+      ezabatu egiten da. Eta ezin da desegin.</p>
+    <p>Horrez gain, zure datuak eskuratzeko, zuzentzeko, beste toki batera eramateko, haien
+      erabilera mugatzeko edo hari aurka egiteko eskubidea duzu. Horietako edozeinetarako,
+      idatzi <a href="mailto:academia.well.galdakao@gmail.com">academia.well.galdakao@gmail.com</a>
+      helbidera eta hilabete baino lehen erantzungo dizugu, normalean pare bat egunetan.</p>
+    <p>Ondo egin ez dugula uste baduzu,
+      <a href="https://www.aepd.es" rel="noopener">Datuak Babesteko Espainiako Agentziara</a>
+      jo dezakezu. Baina esaguzu guri lehenengo: ia beti azkarragoa da.</p>
+
+    <h2>8. Adingabeak</h2>
+    <p>Well Online-k C1 Advanced prestatzen du eta 14 urtetik gorakoentzat pentsatuta dago.
+      14 urte baino gutxiago badituzu, zure amak, aitak edo tutoreak sortu behar du kontua.
+      Akademiako aurrez aurreko ikastaroetarako, adingabeen paperak matrikulan egiten dira,
+      ez hemen.</p>
+
+    <h2>9. Hau aldatzen bada</h2>
+    <p>Zuri eragiten dizun zerbait aldatzen badugu —hornitzaile berri bat, datu berri bat—
+      posta elektronikoz esango dizugu gertatu aurretik, ez ondoren. Goiko datak esaten du
+      noiz ukitu zen orri hau azken aldiz.</p>
+  </section>
+</main>
 
 <footer>
   <div class="wrap">
     <div class="foot-grid">
       <div>
         <a class="logo foot-lockup" href="index.html"><svg class="mark" viewBox="0 0 100 140" aria-hidden="true"><defs><clipPath id="mclipF"><rect x="2" y="2" width="96" height="136" rx="5"/></clipPath></defs><g clip-path="url(#mclipF)"><rect x="2" y="2" width="96" height="136" fill="#C0293B"/><path d="M-10 84 C16 62 26 68 34 98 C40 121 46 121 52 86 C58 51 64 51 70 84 C76 117 84 117 92 54 C96 31 101 22 112 10 L112 -10 L-12 -10 Z" fill="#21409A"/><path class="ribbon" d="M-10 84 C16 62 26 68 34 98 C40 121 46 121 52 86 C58 51 64 51 70 84 C76 117 84 117 92 54 C96 31 101 22 112 10" fill="none" stroke="#FFFFFF" stroke-width="13" stroke-linecap="round"/></g></svg><span class="logo-text">Academia <br>Well</span></a>
-        <p>M&aacute;s de veinte a&ntilde;os ense&ntilde;ando ingl&eacute;s en Galdakao. Centro preparador oficial de ex&aacute;menes de Cambridge.</p>
-        <a class="foot-cambridge" href="cursos.html#cambridge"><img src="cambridge-english.png" alt="Cambridge English" loading="lazy" onerror="this.remove()"><span>Centro preparador oficial</span></a>
+        <p>Hogei urte baino gehiago Galdakaon ingelesa irakasten. Cambridgeko azterketak prestatzeko zentro ofiziala.</p>
+        <a class="foot-cambridge" href="cursos.html#cambridge"><img src="../cambridge-english.png" alt="Cambridge English" loading="lazy" onerror="this.remove()"><span>Prestatze-zentro ofiziala</span></a>
       </div>
       <div>
-        <h4>El curso</h4>
+        <h4>Ikastaroa</h4>
         <ul>
-          <li><a href="cursos.html">C&oacute;mo se entra</a></li>
-          <li><a href="cursos.html#cambridge">Niveles A1 a C2</a></li>
-                    <li><a href="cursos.html#horarios">Horarios por nivel</a></li>
-          <li><a href="calendario.html">Calendario 2026&ndash;27</a></li>
-          <li><a href="cursos.html#precios">Precios</a></li>
+          <li><a href="cursos.html">Nola sartzen den</a></li>
+          <li><a href="cursos.html#cambridge">A1etik C2rako mailak</a></li>
+                    <li><a href="cursos.html#horarios">Ordutegiak mailaka</a></li>
+          <li><a href="calendario.html">2026&ndash;27 egutegia</a></li>
+          <li><a href="cursos.html#precios">Prezioak</a></li>
         </ul>
       </div>
       <div>
-        <h4>La academia</h4>
+        <h4>Academia</h4>
         <ul>
-          <li><a href="index.html#cambridge">Ex&aacute;menes Cambridge</a></li>
-          <li><a href="index.html#precios">Precios</a></li>
-          <li><a href="index.html#horarios">Horarios</a></li>
-          <li><a href="index.html#faq">Preguntas frecuentes</a></li>
+          <li><a href="index.html#cambridge">Cambridgeko azterketak</a></li>
+          <li><a href="index.html#precios">Prezioak</a></li>
+          <li><a href="index.html#horarios">Ordutegiak</a></li>
+          <li><a href="index.html#faq">Ohiko galderak</a></li>
         </ul>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>&copy; Academia Well &middot; C/ Lapurdi 36, entreplanta 5, 48960 Galdakao</span>
-      <a href="privacidad.html">Privacidad</a>
+      <span>&copy; Academia Well &middot; Lapurdi kalea 36, 5. entresolairua, 48960 Galdakao</span>
+      <a href="pribatutasuna.html">Pribatutasuna</a>
       <a href="mailto:academia.well.galdakao@gmail.com">academia.well.galdakao@gmail.com</a>
       <a class="foot-ig" href="https://instagram.com/academia_well_galdakao" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.9"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg>@academia_well_galdakao</a>
-      <a href="eu/calendario.html">Euskarazko bertsioa</a>
+      <a href="../index.html">Gaztelaniazko bertsioa</a>
     </div>
   </div>
 </footer>
 
-<script>
-const header = document.getElementById('mainHeader');
-addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 8), {passive:true});
-
-const drops = document.querySelectorAll('.menu > li.has-drop');
-function closeAll(except){
-  drops.forEach(li => { if(li !== except){ li.classList.remove('open'); li.querySelector('button').setAttribute('aria-expanded','false'); } });
-}
-drops.forEach(li => {
-  const btn = li.querySelector('button');
-  btn.addEventListener('click', e => {
-    e.stopPropagation();
-    const open = li.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open);
-    closeAll(li);
-  });
-  li.addEventListener('mouseenter', () => { li.classList.add('open'); btn.setAttribute('aria-expanded','true'); closeAll(li); });
-  li.addEventListener('mouseleave', () => { li.classList.remove('open'); btn.setAttribute('aria-expanded','false'); });
-});
-document.addEventListener('click', () => closeAll(null));
-document.addEventListener('keydown', e => { if(e.key === 'Escape') closeAll(null); });
-
-/* Scroll-spy pegajoso: marca la última parada del menú superada.
-   Cada tramo de página tiene dueño y el resaltado nunca salta atrás. */
-(function(){
-  const porHref = {};
-  document.querySelectorAll('.menu > li > a').forEach(a => porHref[a.getAttribute('href')] = a);
-  const base = document.querySelector('.menu > li > a[aria-current="page"]');
-  const drop = document.querySelector('.menu > li.has-drop > button');
-  const MAPA = [];  /* en orden documental */
-  const anade = (id, el) => { const sec = document.getElementById(id); if(sec && el) MAPA.push({sec, el}); };
-  anade('cursos', porHref['cursos.html']);
-  anade('cambridge', porHref['#cambridge']);
-  anade('niveles', porHref['#cambridge']);   /* los niveles son contenido Cambridge */
-  anade('precios', porHref['#precios']);
-  anade('horarios', porHref['#horarios']);
-  ['metodo','resenas','faq','contacto'].forEach(id => anade(id, drop));
-  if(!MAPA.length) return;
-  /* orden documental real: el orden de las secciones varia entre paginas */
-  MAPA.sort((x, y) => (x.sec.compareDocumentPosition(y.sec) & Node.DOCUMENT_POSITION_FOLLOWING) ? -1 : 1);
-  const todos = [...new Set(MAPA.map(m => m.el))];
-  let ticking = false;
-  const mira = () => {
-    const linea = innerHeight * .35;
-    let actual = null;
-    for(const {sec, el} of MAPA){
-      if(sec.getBoundingClientRect().top <= linea) actual = el;
-    }
-    todos.forEach(el => el.classList.toggle('activo', el === actual));
-    if(base) base.classList.toggle('sin-actual', !!actual && actual !== base);
-  };
-  addEventListener('scroll', () => {
-    if(ticking) return; ticking = true;
-    requestAnimationFrame(() => { mira(); ticking = false; });
-  }, {passive:true});
-  mira();
-})();
-
-/* Boton volver arriba */
-(function(){
-  const btn = document.createElement('button');
-  btn.className = 'arriba'; btn.type = 'button';
-  btn.setAttribute('aria-label', document.documentElement.lang === 'eu' ? 'Itzuli gora' : 'Volver arriba');
-  btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>';
-  document.body.appendChild(btn);
-  btn.addEventListener('click', () => scrollTo({top:0, behavior:'smooth'}));
-  let t2 = false;
-  const ver = () => btn.classList.toggle('visible', scrollY > innerHeight * 1.2);
-  addEventListener('scroll', () => {
-    if(t2) return; t2 = true;
-    requestAnimationFrame(() => { ver(); t2 = false; });
-  }, {passive:true});
-  ver();
-})();
-
-const burger = document.getElementById('burger');
-burger.addEventListener('click', () => {
-  const open = document.body.classList.toggle('menu-open');
-  burger.setAttribute('aria-expanded', open);
-});
-document.querySelectorAll('.mobile-menu a').forEach(a =>
-  a.addEventListener('click', () => { document.body.classList.remove('menu-open'); burger.setAttribute('aria-expanded','false'); })
-);
-document.querySelectorAll('.m-group > button').forEach(btn =>
-  btn.addEventListener('click', () => btn.parentElement.classList.toggle('open'))
-);
-
-/* Horarios: solo si la página tiene el contenedor */
-const tabsBox = document.getElementById('tabsHorarios');
-if(tabsBox){
-  const panelsBox = document.getElementById('panelesHorarios');
-  const horarios = [
-    { id:'A1', nombre:'A1 · Iniciación', horas:'2 h/semana', precio:'69€/mes', lx:['18.00 a 19.00'], mj:[] },
-    { id:'A2', nombre:'A2 · Key', horas:'2 h/semana', precio:'69€/mes', lx:['18.30 a 19.30'], mj:['16.00 a 17.00','18.00 a 19.00'] },
-    { id:'B1', nombre:'B1 · Preliminary', horas:'2 h/semana', precio:'69€/mes', lx:['16.00 a 17.00','17.00 a 18.00'], mj:['19.00 a 20.00'] },
-    { id:'B2', nombre:'B2 · First (FCE)', horas:'3 h/semana', precio:'99€/mes', examen:true, lx:['17.00 a 18.30','19.00 a 20.30'], mj:['17.00 a 18.30','19.30 a 21.00'] },
-    { id:'C1', nombre:'C1 · Advanced (CAE)', horas:'3 h/semana', precio:'99€/mes', examen:true, lx:['19.30 a 21.00'], mj:['16.30 a 18.00'] },
-    { id:'C2', nombre:'C2 · Proficiency (CPE)', horas:'3 h/semana', precio:'99€/mes', examen:true, lx:['19.30 a 21.00'], mj:[] }
-  ];
-  const reloj = '<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.2" stroke="#21409A" stroke-width="1.8"/><path d="M9 5.5 V9 L11.5 10.8" stroke="#C0293B" stroke-width="1.8" stroke-linecap="round"/></svg>';
-  horarios.forEach((h, i) => {
-    const tab = document.createElement('button');
-    tab.className = 'tab'; tab.textContent = h.id;
-    tab.setAttribute('role','tab');
-    tab.setAttribute('aria-selected', i === 3);
-    tab.setAttribute('aria-controls', 'panel-' + h.id);
-    tab.id = 'tab-' + h.id;
-    tab.addEventListener('click', () => selectTab(i));
-    tabsBox.appendChild(tab);
-    const turnos = (lista, titulo) => `
-      <div class="turno"><b>${titulo}</b>
-        ${lista.length ? lista.map(t => `<div class="hora">${reloj}${t}</div>`).join('')
-                       : '<div class="vacio">Sin turnos este curso en estos días</div>'}
-      </div>`;
-    const panel = document.createElement('div');
-    panel.className = 'panel' + (i === 3 ? ' active' : '');
-    panel.id = 'panel-' + h.id;
-    panel.setAttribute('role','tabpanel');
-    panel.setAttribute('aria-labelledby','tab-' + h.id);
-    panel.innerHTML = `
-      <div class="panel-head">
-        <h3>${h.nombre}</h3>
-        <div class="meta">
-          <span class="chip">${h.horas}</span>
-          <span class="chip">${h.precio}</span>
-          ${h.examen ? '<span class="chip rojo">Nivel de examen oficial</span>' : ''}
-        </div>
-      </div>
-      <div class="turnos">${turnos(h.lx,'Lunes y miércoles')}${turnos(h.mj,'Martes y jueves')}</div>
-      <div class="panel-foot">
-        <p>¿No te encaja ningún turno o dudas de tu nivel? Cuéntanoslo, buscamos hueco.</p>
-        <a class="btn btn-azul" href="test.html">Haz el test de nivel</a>
-      </div>`;
-    panelsBox.appendChild(panel);
-  });
-  function selectTab(idx){
-    tabsBox.querySelectorAll('.tab').forEach((t,i) => t.setAttribute('aria-selected', i === idx));
-    panelsBox.querySelectorAll('.panel').forEach((p,i) => p.classList.toggle('active', i === idx));
-  }
-  tabsBox.addEventListener('keydown', e => {
-    const tabs = [...tabsBox.querySelectorAll('.tab')];
-    const cur = tabs.findIndex(t => t.getAttribute('aria-selected') === 'true');
-    if(e.key === 'ArrowRight'){ const n = (cur+1) % tabs.length; selectTab(n); tabs[n].focus(); }
-    if(e.key === 'ArrowLeft'){ const n = (cur-1+tabs.length) % tabs.length; selectTab(n); tabs[n].focus(); }
-  });
-
-  /* Enlaces #horarios-<nivel>: seleccionan la pestaña y bajan a la sección */
-  const irNivel = () => {
-    const m = (location.hash || '').match(/^#horarios-(A1|A2|B1|B2|C1|C2)$/);
-    if(!m) return;
-    const i = horarios.findIndex(h => h.id === m[1]);
-    if(i > -1){
-      selectTab(i);
-      const sec = document.getElementById('horarios');
-      if(sec) sec.scrollIntoView({behavior:'smooth', block:'start'});
-    }
-  };
-  addEventListener('hashchange', irNivel);
-  irNivel();
-}
-
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
-},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-/* ====== Capa playful ====== */
-const PG = (document.body.className.match(/pg-[a-z]+/) || ['pg-home'])[0];
-
-/* Titulares palabra a palabra */
-if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
-  document.querySelectorAll('h1').forEach(h => {
-    const parts = h.innerHTML.split(/(<br\s*\/?>)/i);
-    let d = 0;
-    h.innerHTML = parts.map(p => {
-      if(/^<br/i.test(p)) return p;
-      return p.split(' ').filter(Boolean).map(w => {
-        const s = `<span class="word" style="--d:${(d*0.07).toFixed(2)}s">${w}</span>`;
-        d++; return s;
-      }).join(' ');
-    }).join('');
-  });
-}
-
-/* Marquesina tras el hero */
-const FRASES = {
-  'pg-home':    ['Hello!','Kaixo!','¿Empezamos?','Let’s go!','See you in class','Well done!'],
-  'pg-jovenes': ['B2 First','C1 Advanced','C2 Proficiency','You’ve got this','Practice makes perfect'],
-  'pg-verano':  ['Summer mode ON','Speaking every day','June & July','Sunny English','Morning classes'],
-};
-const heroSec = document.querySelector('section.hero, section.page-hero');
-if(heroSec && FRASES[PG]){
-  const wsep = '<svg class="w-sep" viewBox="0 0 120 110" aria-hidden="true"><path d="M8 12 C22 98 36 98 48 54 C55 27 65 27 72 54 C84 98 98 98 112 12" fill="none" stroke="currentColor" stroke-width="15" stroke-linecap="round"/></svg>';
-  /* tres voces tipograficas: lleno, hueco y acento; las W alternan color */
-  const items = FRASES[PG].map((f, i) =>
-    `<span${['',' class="suave"',' class="acento"'][i % 3]}>${f}</span>` +
-    (i % 2 ? wsep.replace('class="w-sep"','class="w-sep rojo"') : wsep)
-  ).join('');
-  heroSec.insertAdjacentHTML('afterend',
-    `<div class="band-marquee" aria-hidden="true"><div class="band-track">${items}${items}</div></div>`);
-}
-
-/* Cascada en la franja de confianza */
-document.querySelectorAll('.trust-inner .t-item').forEach((el,i) => el.style.setProperty('--i', i));
-
-
-/* ====== Calendario del curso 2026-27 ====== */
-const calGrid = document.getElementById('calGrid');
-if(calGrid){
-  const FESTIVOS = new Set([
-    /* Festivos oficiales de Bizkaia dentro del curso (BOPV) */
-    '2026-10-12',                                  /* Fiesta Nacional (lunes) */
-    '2026-12-08',                                  /* Inmaculada (martes) */
-    '2027-01-06',                                  /* Reyes (miercoles) */
-    '2027-03-25',                                  /* Jueves Santo */
-    '2027-03-29',                                  /* Lunes de Pascua */
-    /* Vacaciones de la academia (no son festivos oficiales) */
-    '2026-12-24','2026-12-28','2026-12-29','2026-12-30','2026-12-31',
-    '2027-03-22','2027-03-23','2027-03-24'
-  ]);
-  const INFORME = new Set(['2026-12','2027-03','2027-06']);
-  const MESES = [
-    [2026,10,'Octubre'],[2026,11,'Noviembre'],[2026,12,'Diciembre'],
-    [2027,1,'Enero'],[2027,2,'Febrero'],[2027,3,'Marzo'],
-    [2027,4,'Abril'],[2027,5,'Mayo'],[2027,6,'Junio']
-  ];
-  const INI = new Date(2026,9,1), FIN = new Date(2027,5,23);
-  const hoy = new Date();
-  const iso = (y,m,d) => `${y}-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
-
-  MESES.forEach(([y,m,nombre],mi) => {
-    const nDias = new Date(y,m,0).getDate();
-    /* semanas de lunes(1) a jueves(4) */
-    const semanas = [];
-    let semana = [null,null,null,null];
-    for(let d=1; d<=nDias; d++){
-      const dow = new Date(y,m-1,d).getDay();      /* 0=dom */
-      if(dow>=1 && dow<=4) semana[dow-1] = d;
-      if(dow===4 || d===nDias){
-        if(semana.some(v=>v!==null)) semanas.push(semana);
-        semana = [null,null,null,null];
-      }
-    }
-    let celdas = ['L','M','X','J'].map(x=>`<span class="dh">${x}</span>`).join('');
-    semanas.forEach(s => s.forEach(d => {
-      if(d===null){ celdas += '<span class="dia vacio"></span>'; return; }
-      const fecha = new Date(y,m-1,d);
-      if(fecha < INI || fecha > FIN){ celdas += '<span class="dia vacio"></span>'; return; }
-      const clave = iso(y,m,d);
-      const esFest = FESTIVOS.has(clave);
-      const esHoy = hoy.getFullYear()===y && hoy.getMonth()===m-1 && hoy.getDate()===d;
-      celdas += `<span class="dia${esFest?' festivo':''}${esHoy?' hoy':''}"${esFest?' title="Festivo / no lectivo"':''}>${d}</span>`;
-    }));
-    const badge = INFORME.has(`${y}-${String(m).padStart(2,'0')}`) ? '<span class="badge-informe">informe</span>' : '';
-    const mes = document.createElement('div');
-    mes.className = 'mes';
-    mes.style.setProperty('--i', mi);
-    mes.innerHTML = `<div class="mes-head"><h3>${nombre}</h3>${badge}</div><div class="dias">${celdas}</div>`;
-    calGrid.appendChild(mes);
-  });
-}
-
-
-/* ====== La gran W de fondo ====== */
-(function(){
-  const sec = document.querySelector('section.hero, section.page-hero');
-  if(!sec) return;
-  /* La W del logo, escalada uniforme (x5.2) y centrada: misma forma que la marca */
-  const path = 'M 330 36 C 403 483, 476 483, 538 254 C 574 114, 626 114, 663 254 C 725 483, 798 483, 871 36';
-  sec.insertAdjacentHTML('afterbegin',
-    `<div class="w-hero" aria-hidden="true"><svg viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice">
-      <path class="wh-base" d="${path}"/>
-      <path class="wh-comet" d="${path}"/>
-    </svg></div>`);
-  const wh = sec.querySelector('.w-hero');
-  const base = wh.querySelector('.wh-base'), comet = wh.querySelector('.wh-comet');
-  const L = Math.ceil(base.getTotalLength());
-  const COLA = Math.round(L * 0.16);
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  comet.style.strokeDasharray = `${COLA} ${L}`;
-  comet.style.strokeDashoffset = COLA; /* justo antes del inicio */
-
-  if(reduce){ wh.classList.add('lista'); return; }
-
-  /* dibujado inicial */
-  base.style.strokeDasharray = L; base.style.strokeDashoffset = L;
-  setTimeout(() => {
-    base.style.transition = 'stroke-dashoffset 2.2s cubic-bezier(.65,0,.18,1)';
-    base.style.strokeDashoffset = 0;
-  }, 150);
-  setTimeout(() => wh.classList.add('lista'), 2500);
-
-  /* el cometa recorre la W al ritmo del scroll, con inercia; el parallax viaja en el mismo bucle */
-  let objetivo = COLA, actual = COLA;
-  const medir = () => {
-    const p = Math.min(1, Math.max(0, scrollY / Math.max(1, sec.offsetHeight)));
-    objetivo = COLA - p * (L + COLA); /* de antes del inicio a después del final */
-  };
-  addEventListener('scroll', medir, {passive:true}); medir();
-  (function bucle(){
-    actual += (objetivo - actual) * .08;
-    comet.style.strokeDashoffset = actual;
-    wh.style.transform = `translateY(${scrollY * -0.07}px)`;
-    requestAnimationFrame(bucle);
-  })();
-})();
-
-</script>
-
-<a class="wa-flotante" href="https://wa.me/34652921203" aria-label="Escríbenos por WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51-.17 0-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45c6.56 0 11.89-5.34 11.9-11.9 0-3.18-1.24-6.16-3.48-8.41z"/></svg><span>Escr&iacute;benos por WhatsApp</span></a>
 </body>
 </html>

@@ -91,6 +91,25 @@
                    color:var(--gris);background:var(--neutro);border-radius:100px;padding:3px 8px}
   .um-sep{height:1px;background:var(--linea);margin:6px 0}
   .um-correo{margin:0;padding:4px 12px 6px;font-size:12px;color:var(--gris);word-break:break-all}
+  .usuario-menu button.peligro{color:var(--carmin)}
+  .usuario-menu button.peligro:hover:not(:disabled){background:var(--carmin-suave);color:var(--carmin)}
+
+  /* ---------- borrar la cuenta ---------- */
+  .velo{position:fixed;inset:0;z-index:300;background:rgba(35,43,66,.5);backdrop-filter:blur(3px);
+        display:flex;align-items:center;justify-content:center;padding:20px}
+  .dialogo{background:#fff;border-radius:var(--radio);max-width:440px;width:100%;padding:28px 26px 24px;
+           box-shadow:0 24px 60px rgba(35,43,66,.3);display:grid;gap:14px}
+  .dialogo h2{font-size:22px;color:var(--carmin)}
+  .dialogo p{font-size:15.5px;color:var(--gris);line-height:1.55}
+  .dialogo ul{margin:0;padding-left:20px;font-size:15px;color:var(--tinta);display:grid;gap:5px}
+  .dialogo label{font-size:14.5px;font-weight:600;display:block;margin-bottom:6px;color:var(--tinta)}
+  .dialogo input{width:100%;padding:11px 13px;border:1.5px solid var(--linea);border-radius:11px;
+                 font:inherit;background:var(--crema)}
+  .dialogo input:focus{border-color:var(--carmin);outline:none}
+  .dialogo .botones{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;margin-top:4px}
+  .btn-peligro{background:var(--carmin);color:#fff}
+  .btn-peligro:disabled{opacity:.45;cursor:default}
+  .dialogo .error{color:var(--carmin);font-size:14.5px;font-weight:600}
 
   @media(max-width:820px){
     .nav-inner{padding:10px 18px;gap:10px}
@@ -683,8 +702,10 @@
           <p class="um-correo" id="um-correo" hidden></p>
           <button type="button" data-accion="entrar" id="um-entrar">Guardar mi progreso</button>
           <button type="button" data-accion="salir" id="um-salir" hidden>Cerrar sesión</button>
+          <button type="button" data-accion="borrar" id="um-borrar" class="peligro" hidden>Borrar mi cuenta</button>
         </div>
         <div class="um-sep"></div>
+        <a href="/privacidad.html">Privacidad</a>
         <a href="/index.html">Volver a la web</a>
       </div>
     </div>
@@ -909,6 +930,30 @@
 
 </main>
 
+<!-- Borrar la cuenta. Se pide escribir el correo a mano a proposito: es
+     irreversible y un clic de mas es barato comparado con perderlo todo. -->
+<div class="velo" id="borrar-cuenta" hidden>
+  <div class="dialogo" role="dialog" aria-modal="true" aria-labelledby="bc-titulo">
+    <h2 id="bc-titulo">Borrar mi cuenta</h2>
+    <p>Esto no se puede deshacer. Se borra de nuestros servidores:</p>
+    <ul>
+      <li>Tu correo y tu nombre</li>
+      <li>Todo tu progreso y tus respuestas</li>
+      <li>Los textos de tus writings</li>
+      <li>Tus simulacros y tus insignias</li>
+    </ul>
+    <div>
+      <label for="bc-correo">Escribe tu correo para confirmar</label>
+      <input type="email" id="bc-correo" autocomplete="off" spellcheck="false" placeholder="nombre@correo.com">
+    </div>
+    <p class="error" id="bc-error" hidden></p>
+    <div class="botones">
+      <button type="button" class="btn btn-ghost" id="bc-cancelar">Cancelar</button>
+      <button type="button" class="btn btn-peligro" id="bc-confirmar" disabled>Borrar mi cuenta</button>
+    </div>
+  </div>
+</div>
+
 <div class="hoja" id="hoja-insignias" role="dialog" aria-modal="true" aria-labelledby="hoja-tit" hidden>
   <div class="hoja-caja">
     <div class="hoja-cab">
@@ -1043,6 +1088,9 @@ window.WELL_UI_P = {
   nivelEs: 'Nivel {n}',
   sinNivelMenu: 'Sin test de nivel',
   cambiarNombre: 'Cambiar nombre',
+  borrarCuenta: 'Borrar mi cuenta',
+  borrando: 'Borrando\u2026',
+  borradoFallo: 'No se ha podido borrar la cuenta: ',
   ponerNombre: 'Poner tu nombre',
   tuCamino: 'Tu camino',
   volverA: 'Volver a {destino}',
