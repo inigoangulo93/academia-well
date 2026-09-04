@@ -488,7 +488,7 @@
     h += '<button type="button" class="paso-btn" data-simulacro="' + esc(sm.id) + '">';
     h += '<span class="nodo sim-nodo" aria-hidden="true">⏱</span>';
     h += '<span class="paso-cuerpo"><span class="paso-tit">' +
-         esc(T.simulacroDe.replace('{destreza}', sm.destreza.nombre)) + '</span>' +
+         esc(T.simulacroDe.replace('{papel}', sm.papel.nombre)) + '</span>' +
          '<span class="paso-sub">' + esc(T.simulacroSub
            .replace('{min}', sm.minutos).replace('{n}', sm.items)
            .replace('{p}', sm.partes.length)
@@ -834,11 +834,11 @@
   // en el examen sale una. Si se metieran todas, el porcentaje dejaria de ser
   // comparable con el examen real, que es justo lo que se le vende al alumno.
   // Se coge la primera aparicion de cada parte.
-  function simulacroDe(test, dzId) {
+  function simulacroDe(test, papel) {
     var partes = [], vistas = {};
     (test.sesiones || []).forEach(function (s) {
       s.bloques.forEach(function (b) {
-        if (b.destreza !== dzId || !b._ejercicios.length) return;
+        if (papel.destrezas.indexOf(b.destreza) < 0 || !b._ejercicios.length) return;
         var parte = b.parte || 0;
         if (vistas[parte]) return;
         vistas[parte] = true;
@@ -851,9 +851,9 @@
     partes.sort(function (a, b) { return a.parte - b.parte; });
     if (!partes.length) return null;
     return {
-      id: test.id + '-' + dzId,
-      test: test, destreza: DESTREZA[dzId], partes: partes,
-      minutos: (DATA.minutos || {})[dzId] || 45,
+      id: test.id + '-' + papel.id,
+      test: test, papel: papel, partes: partes,
+      minutos: papel.minutos || 45,
       items: partes.reduce(function (a, p) {
         return a + p.ejercicios.reduce(function (x, e) { return x + e.items.length; }, 0);
       }, 0)
@@ -861,8 +861,7 @@
   }
 
   function simulacrosDe(test) {
-    return DATA.destrezas.filter(function (dz) { return dz.puntua && !dz.correccion; })
-      .map(function (dz) { return simulacroDe(test, dz.id); })
+    return (DATA.papeles || []).map(function (pa) { return simulacroDe(test, pa); })
       .filter(Boolean);
   }
 
@@ -923,7 +922,7 @@
     var ej = lista[SIM.i];
     var parte = sim.partes.filter(function (p) { return p.ejercicios.indexOf(ej) > -1; })[0];
 
-    $('#sim-destreza').textContent = sim.destreza.nombre;
+    $('#sim-destreza').textContent = sim.papel.nombre;
     $('#sim-parte').textContent = T.parteDe
       .replace('{n}', parte.parte || SIM.i + 1)
       .replace('{t}', sim.partes.length);
@@ -1028,7 +1027,7 @@
     var bn = banda(pct);
     $('#sr-miga').innerHTML = '<button type="button" class="miga-atras" data-ir="panel">' +
       esc(T.tuCamino) + '</button><span aria-hidden="true">/</span> ' + esc(sim.test.titulo);
-    $('#sr-titulo').textContent = T.simResultado.replace('{destreza}', sim.destreza.nombre);
+    $('#sr-titulo').textContent = T.simResultado.replace('{papel}', sim.papel.nombre);
     $('#sr-pct').textContent = Math.round(pct * 100) + '%';
     $('#sr-pct').className = 'sr-pct ' + bn.clase;
     $('#sr-banda').textContent = bn.texto;

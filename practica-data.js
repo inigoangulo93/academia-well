@@ -31,7 +31,16 @@ window.WELL_PRACTICA = {
      English son UN SOLO papel de 90 minutos; este reparto es una estimacion de
      la academia para poder cronometrar cada mitad por separado.
      Elena tiene que confirmarlo. */
-  minutos: { use: 45, reading: 45, listening: 40 },
+  /* Los PAPELES del examen, que no son las destrezas. En el CAE, Reading y Use
+     of English son un solo papel de hora y media y 56 preguntas: repartir ese
+     tiempo entre sus ocho partes es parte de lo que se examina. Partirlo en dos
+     simulacros de 45 minutos le regalaba al alumno la decision mas dificil del
+     papel. Las destrezas siguen existiendo para el curso y para las notas por
+     separado; el simulacro va por papel. */
+  papeles: [
+    { id: 'ruoe', nombre: 'Reading & Use of English', destrezas: ['use', 'reading'], minutos: 90 },
+    { id: 'listening', nombre: 'Listening', destrezas: ['listening'], minutos: 40 }
+  ],
 
   /* Las cinco que puntuan son las que informa Cambridge. Vocabulario y
      gramatica son entrenamiento: se hacen todas las sesiones y no dan nota.

@@ -1,7 +1,21 @@
 # -*- coding: utf-8 -*-
-import asyncio, os, sys
+import asyncio, os, sys, http.server, socketserver, threading, functools
 from playwright.async_api import async_playwright
-R='/home/user/academia-well-src'; B='http://127.0.0.1:8140/'
+R=os.path.dirname(os.path.dirname(os.path.abspath(__file__))); B=None
+
+# Antes daba por hecho que ya habia un servidor en el 8140. Cuando no lo habia,
+# fallaba con ERR_CONNECTION_REFUSED y parecia un fallo de la web. Ahora se
+# levanta el suyo en un puerto libre.
+class _Silencioso(http.server.SimpleHTTPRequestHandler):
+    def log_message(self, *a, **k): pass
+
+def _servidor():
+    global B
+    socketserver.TCPServer.allow_reuse_address = True
+    s = socketserver.TCPServer(('127.0.0.1', 0), functools.partial(_Silencioso, directory=R))
+    B = 'http://127.0.0.1:%d/' % s.server_address[1]
+    threading.Thread(target=s.serve_forever, daemon=True).start()
+    return s
 CH='/opt/pw-browsers/chromium-1194/chrome-linux/chrome'
 
 PAGS=['index.html','cursos.html','calendario.html','test.html','practica.html',
@@ -12,6 +26,7 @@ PAGS=['index.html','cursos.html','calendario.html','test.html','practica.html',
 ANCHOS=[(360,'360'),(390,'390'),(820,'820'),(1440,'1440')]
 
 async def main():
+    _servidor()
     fallos=[]
     async with async_playwright() as pw:
         b=await pw.chromium.launch(executable_path=CH,args=['--no-sandbox'])

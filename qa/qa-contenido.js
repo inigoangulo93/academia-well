@@ -196,19 +196,26 @@ for (const id of IDS) {
 }
 
 /* ---------- el simulacro tiene que tener la forma del examen ---------- */
-// Se replica lo que hace simulacroDe: la primera aparicion de cada parte y su
-// primer ejercicio. Si esto se desvia, el porcentaje deja de ser comparable con
-// el examen real, que es justo lo que se le vende al alumno.
-const FORMA = { use: 30, reading: 26 };   // Cambridge: 8+8+8+6 y 6+4+6+10
+// Se replica lo que hace simulacroDe: por PAPEL, no por destreza, la primera
+// aparicion de cada parte y su primer ejercicio. Si esto se desvia, el
+// porcentaje deja de ser comparable con el examen real, que es justo lo que se
+// le vende al alumno.
+//   Reading & Use of English: un papel, 8 partes, 56 preguntas (8+8+8+6+6+4+6+10)
+//   Listening:                un papel, 4 partes, 30 preguntas (6+8+6+10)
+const PAPELES = (D.papeles || []).length ? D.papeles : [];
+const FORMA = { ruoe: { partes: 8, preguntas: 56 }, listening: { partes: 4, preguntas: 30 } };
+if (!PAPELES.length) fallos.push('datos: no hay papeles definidos, el simulacro no se puede armar');
 for (const t of D.tests) {
   if (!(t.sesiones || []).length) continue;
-  for (const dz of Object.keys(FORMA)) {
+  for (const pa of PAPELES) {
+    const esperado = FORMA[pa.id];
+    if (!esperado) { ojo('datos', 'el papel "' + pa.id + '" no tiene forma esperada'); continue; }
     const vistas = {}; let preguntas = 0, partes = 0, faltan = false;
     (t.sesiones || []).forEach(s => (s.bloques || []).forEach(b => {
-      if (b.destreza !== dz || !(b.ejercicios || []).length) return;
-      const p = b.parte || 0;
-      if (vistas[p]) return;
-      vistas[p] = true; partes++;
+      if (pa.destrezas.indexOf(b.destreza) < 0 || !(b.ejercicios || []).length) return;
+      const n = b.parte || 0;
+      if (vistas[n]) return;
+      vistas[n] = true; partes++;
       // Puede apuntar a un ejercicio que aun no existe: eso ya lo denuncia la
       // comprobacion de integridad, aqui no se revienta por ello.
       var primero = D.ejercicios[b.ejercicios[0]];
@@ -216,11 +223,19 @@ for (const t of D.tests) {
     }));
     // Un test a medio escribir todavia no tiene simulacro que medir. Se avisa,
     // para que no se olvide, pero no es un fallo hasta que este entero.
-    if (faltan || partes === 0) { ojo(t.id, 'el simulacro de ' + dz + ' aun no esta completo'); continue; }
-    if (partes !== 4) mal(t.id, 'el simulacro de ' + dz + ' tiene ' + partes + ' partes y el examen tiene 4');
-    else if (preguntas !== FORMA[dz])
-      mal(t.id, 'el simulacro de ' + dz + ' suma ' + preguntas + ' preguntas; el examen tiene ' + FORMA[dz]);
+    if (faltan || partes === 0) { ojo(t.id, 'el simulacro de ' + pa.id + ' aun no esta completo'); continue; }
+    if (partes !== esperado.partes)
+      mal(t.id, 'el simulacro de ' + pa.id + ' tiene ' + partes + ' partes y el examen tiene ' + esperado.partes);
+    else if (preguntas !== esperado.preguntas)
+      mal(t.id, 'el simulacro de ' + pa.id + ' suma ' + preguntas + ' preguntas; el examen tiene ' + esperado.preguntas);
   }
+  // Y los minutos del papel tienen que ser los del examen, no la suma de dos
+  // medias sesiones de curso.
+}
+for (const pa of PAPELES) {
+  const min = { ruoe: 90, listening: 40 }[pa.id];
+  if (min && pa.minutos !== min)
+    mal('datos', 'el papel ' + pa.id + ' dura ' + pa.minutos + ' minutos y en el examen dura ' + min);
 }
 
 /* ---------- integridad del curso ---------- */

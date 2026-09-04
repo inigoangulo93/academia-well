@@ -54,11 +54,11 @@
       "como_suena": "43 anos, Derbyshire suave con tonos de Londres; articulada y conversacional."
     },
     "gb-m-mayor": {
-      "voz": "PENDIENTE",
+      "voz": "nHIe7B3HzjldgtM8jZ3S",
       "acento": "en-GB",
       "descripcion": "Mujer britanica, 55-60.",
-      "nombre": null,
-      "como_suena": "SIN CUBRIR. En toda la libreria, el filtro mujer + britanica + mayor devuelve cuatro voces y ninguna es conversacional: todas son de audiolibro. Candidata recomendada: 'Cora - Clear, British Podcast' (registro de podcast, edad sin especificar, ronda los 45). Falta su voice_id."
+      "nombre": "Cora - Clear, British Podcast",
+      "como_suena": "Britanica madura y profesional, calida pero contenida, registro de presentadora de podcast. Contraste con Grace verificado de oido."
     },
     "gb-m-escocesa": {
       "voz": "iePvrB4HtMcAormXZou7",
