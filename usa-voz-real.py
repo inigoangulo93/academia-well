@@ -23,6 +23,18 @@ DATOS = os.path.join(RAIZ, 'practica-data.js')
 IDS = sorted(json.load(io.open(g, encoding='utf-8'))['id']
              for g in glob.glob(os.path.join(RAIZ, 'listening', '*-p[1-4].json')))
 
+# La marca de voz provisional aparece de dos maneras, porque el fichero se ha
+# escrito en dos momentos y en dos estilos:
+#
+#   audio: '...-espeak.mp3', demo: true, escuchas: 2,   <- C1, en medio
+#   audio: '...-espeak.mp3', escuchas: 2, demo: true,   <- B2, al final
+#
+# Antes esto era un replace de la cadena 'demo: true, ' CON espacio final, que
+# solo pilla el primer caso. Los dieciseis de B2 se quedaban marcados, la
+# comprobacion de despues lo cazaba y revertia el fichero entero: el audio
+# quedaba generado y pagado y sin enganchar. Un regex, y los dos casos.
+DEMO = re.compile(r'[ \t]*(?:"demo"|\bdemo\b)\s*:\s*true\s*,')
+
 
 def main():
     hazlo = '--hazlo' in sys.argv
@@ -33,7 +45,12 @@ def main():
     # Solo interesan los que HOY siguen en espeak. Exigir los veinte a la vez
     # obligaria a repagar los dieciseis de C1 cada vez que se anade un test.
     pendientes = [i for i in IDS if ('audio/%s-espeak.mp3' % i) in s]
-    if not pendientes:
+    marcas = len(DEMO.findall(s))
+    # Son dos trabajos y se comprueban por separado: cambiar la ruta y quitar
+    # el aviso. Si solo se mirara la ruta, un fichero a medias --rutas ya
+    # cambiadas y avisos sin quitar-- diria 'ya estaba hecho' y dejaria a los
+    # alumnos con el cartel de voz de robot encima de una voz real.
+    if not pendientes and not marcas:
         print('Ya estaba hecho: los %d listenings apuntan al audio de verdad.' % len(IDS))
         return
 
@@ -58,9 +75,19 @@ def main():
                  % (len(pendientes), n))
 
     # Fuera el aviso de voz provisional, en sus dos estilos.
-    d = len(re.findall(r'demo: true, ', s)) + len(re.findall(r'"demo": true,\s*', s))
-    s = s.replace('demo: true, ', '')
-    s = re.sub(r'\s*"demo": true,', '', s)
+    d = marcas
+    s = DEMO.sub('', s)
+
+    # Comprobar ANTES de escribir. La comprobacion de despues existe igual, con
+    # node, pero llegar hasta ahi significa haber escrito el fichero y tener que
+    # revertirlo, que es justo lo que paso la primera vez.
+    quedan = DEMO.findall(s)
+    if quedan:
+        sys.exit('Quedan %d avisos de voz provisional que no se han sabido quitar.\n'
+                 'Primero: %r\nNo escribo nada.' % (len(quedan), quedan[0]))
+    sigue = [i for i in pendientes if ('audio/%s-espeak.mp3' % i) in s]
+    if sigue:
+        sys.exit('Estos siguen apuntando a espeak: %s\nNo escribo nada.' % ', '.join(sigue))
 
     if not hazlo:
         print('Cambiaria %d rutas y quitaria %d avisos de voz provisional.' % (n, d))
@@ -79,7 +106,8 @@ def main():
         if(!fs.existsSync(e.audio)) mal.push(k+' apunta a '+e.audio+', que no existe');
       });
       if(mal.length){ console.error(mal.join('\\n')); process.exit(1); }
-      console.log('los 16 listenings apuntan a audio real');
+      console.log(Object.keys(E).filter(function(k){return E[k].tipo==='listening';}).length
+                  + ' listenings apuntan a audio real');
     ''' % DATOS], cwd=RAIZ, capture_output=True, text=True)
     if comp.returncode:
         io.open(DATOS, 'w', encoding='utf-8').write(antes)
