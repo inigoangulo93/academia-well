@@ -1004,6 +1004,10 @@
     // del simulacro, marcar una opcion te sacaba del simulacro entero.
     cuerpo.setAttribute('data-sim-ej', ej.id);
     cuerpo.innerHTML = cuerpoEjercicio(ej);
+    // El hilo de progreso solo tiene sentido mientras haya audio. Al pasar de
+    // parte se apaga: si no, se quedaria lleno el de la parte anterior.
+    var hiloAudio = $('#sim-audio');
+    if (hiloAudio) { hiloAudio.hidden = true; $('#sim-audio-fill').style.width = '0'; }
     if (ej.tipo === 'listening') preparaReproductor(ej);
     var guardado = SIM.respuestas[ej.id];
     if (guardado) {
@@ -1439,7 +1443,12 @@
       // Infinity. Sin este isFinite, la barra se queda clavada en cero y
       // parece que el audio no avanza.
       if (isFinite(au.duration) && au.duration)
-        $('#au-fill').style.width = (au.currentTime / au.duration * 100) + '%';
+        var pct = au.currentTime / au.duration * 100;
+        $('#au-fill').style.width = pct + '%';
+        // El mismo porcentaje en el hilo de la barra encogida: cuando el
+        // reproductor se ha ido por arriba, es lo unico que dice por donde va.
+        var hilo = $('#sim-audio-fill');
+        if (hilo) { hilo.style.width = pct + '%'; $('#sim-audio').hidden = false; }
     });
     // Sin rebobinar: cualquier salto se deshace y se vuelve a donde iba. Si se
     // puede repetir el trozo dificil, la nota deja de medir nada.
@@ -1813,11 +1822,15 @@
     var destino = id === 's-ejercicio' && actual ? tituloSesion(actual._sesion) : T.tuCamino;
     $('#volver-txt').textContent = destino;
     $('#btn-volver').setAttribute('aria-label', T.volverA.replace('{destino}', destino));
-    $('#t-titulo').textContent = id === 's-panel' ? 'Well Online'
-      : id === 's-etapa' && etapaActual ? tituloSesion(etapaActual)
+    // El centro de la cabecera dice DONDE estas, no como se llama esto: el
+    // logo ya lo dice. Cuando no hay un donde --el panel, el simulacro-- se
+    // queda vacio, que es mejor que repetir la marca a dos centimetros de si
+    // misma.
+    $('#t-titulo').textContent =
+        id === 's-etapa' && etapaActual ? tituloSesion(etapaActual)
       : id === 's-informe' && testActual ? testActual.titulo
       : (id === 's-speaking' || id === 's-writing') && actual ? actual.titulo
-      : actual ? actual.titulo : 'Well Online';
+      : id === 's-ejercicio' && actual ? actual.titulo : '';
   }
 
   function abreSesion(id, empujar) {
@@ -2193,10 +2206,40 @@
     else if (abiertoUsuario()) { menuUsuario(false); $('#user-btn').focus(); }
   });
 
-  // la cabecera gana sombra al bajar, igual que en la web
+  /* La cabecera gana sombra al bajar, igual que en la web, y encoge. Como
+     encoge, todo lo que se pega DEBAJO de ella tiene que saber cuanto mide
+     ahora mismo: la barra del simulacro, la columna de preguntas del reading
+     y la lateral del panel. Antes eran tres numeros escritos a mano (70, 78,
+     96) que no cuadraban con ninguno de los dos estados, asi que o sobraba un
+     hueco o la barra se comia el reproductor. Se mide y se publica en una
+     variable CSS. */
   var cabecera = $('#cabecera');
-  var alScroll = function () { cabecera.classList.toggle('scrolled', window.scrollY > 6); };
+  var simBarra = $('#sim-barra');
+  var altoCab = -1;
+
+  function publicaAlto() {
+    var h = Math.round(cabecera.getBoundingClientRect().height);
+    if (h === altoCab) return;
+    altoCab = h;
+    document.documentElement.style.setProperty('--alto-cab', h + 'px');
+  }
+
+  var alScroll = function () {
+    var y = window.scrollY;
+    cabecera.classList.toggle('scrolled', y > 6);
+    // La barra del simulacro se encoge un poco despues que la cabecera, para
+    // que las dos transiciones no arranquen a la vez y se pisen.
+    if (simBarra) simBarra.classList.toggle('min', y > 48);
+    // La cabecera esta en mitad de su transicion de altura durante 250 ms:
+    // se vuelve a medir al acabar, si no la variable se queda en el valor
+    // intermedio del primer frame.
+    publicaAlto();
+    clearTimeout(alScroll._t);
+    alScroll._t = setTimeout(publicaAlto, 300);
+  };
   window.addEventListener('scroll', alScroll, { passive: true });
+  window.addEventListener('resize', publicaAlto, { passive: true });
+  if (window.ResizeObserver) new ResizeObserver(publicaAlto).observe(cabecera);
   alScroll();
 
   document.addEventListener('keydown', function (e) {

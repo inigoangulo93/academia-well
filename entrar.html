@@ -15,8 +15,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --azul:#21409A; --tinta:#232B42; --carmin:#C0293B;
-    --carmin-suave:#FBE9EB; --azul-suave:#E9EDF9; --neutro:#F2F1ED;
+    /* Paleta Well Online. Los seis valores salen del manual de marca; el
+       azul principal es 'navy' y el de enlaces y acentos es 'blue'.
+       El carmin se queda, pero deja de ser decorativo: a partir de aqui
+       significa SOLO error, fallo o tiempo agotandose. Un producto que
+       corrige respuestas necesita un color que quiera decir 'esto esta
+       mal', y el manual no trae ninguno. */
+    --navy-deep:#071F62; --navy:#04287A; --blue:#0252D0;
+    --blue-bright:#0391FD; --cyan:#08C0FE; --ink:#12309B;
+    --azul:#04287A; --tinta:#232B42; --carmin:#C0293B;
+    --carmin-suave:#FBE9EB; --azul-suave:#E7EFFC; --neutro:#F2F1ED;
     --crema:#FDFCF9; --verde:#1E8E5A; --verde-suave:#EAF6F0; --gris:#5E6575;
     --linea:rgba(35,43,66,.12); --sombra:0 16px 44px rgba(35,43,66,.12); --radio:20px;
     --dur:.28s; --ease:cubic-bezier(.2,.7,.2,1);
@@ -74,9 +82,8 @@
 
 <header class="main">
   <div class="nav-inner">
-    <a class="logo" href="/index.html" aria-label="Academia Well">
-      <svg class="mark" viewBox="0 0 100 140" aria-hidden="true"><defs><clipPath id="mclipH"><rect x="2" y="2" width="96" height="136" rx="5"/></clipPath></defs><g clip-path="url(#mclipH)"><rect x="2" y="2" width="96" height="136" fill="#C0293B"/><path d="M-10 84 C16 62 26 68 34 98 C40 121 46 121 52 86 C58 51 64 51 70 84 C76 117 84 117 92 54 C96 31 101 22 112 10 L112 -10 L-12 -10 Z" fill="#21409A"/><path d="M-10 84 C16 62 26 68 34 98 C40 121 46 121 52 86 C58 51 64 51 70 84 C76 117 84 117 92 54 C96 31 101 22 112 10" fill="none" stroke="#FFFFFF" stroke-width="13" stroke-linecap="round"/></g></svg>
-      <span class="logo-text">Academia <br>Well</span>
+    <a class="logo" href="/index.html" aria-label="Well Online">
+      <img class="mark" src="/marca/well-online.svg" alt="Well Online" width="637" height="251" decoding="async">
     </a>
     <span class="producto">Well Online</span>
   </div>

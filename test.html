@@ -25,8 +25,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --azul:#21409A; --tinta:#232B42; --carmin:#C0293B;
-    --carmin-suave:#FBE9EB; --azul-suave:#E9EDF9; --neutro:#F2F1ED;
+    /* Paleta Well Online. Los seis valores salen del manual de marca; el
+       azul principal es 'navy' y el de enlaces y acentos es 'blue'.
+       El carmin se queda, pero deja de ser decorativo: a partir de aqui
+       significa SOLO error, fallo o tiempo agotandose. Un producto que
+       corrige respuestas necesita un color que quiera decir 'esto esta
+       mal', y el manual no trae ninguno. */
+    --navy-deep:#071F62; --navy:#04287A; --blue:#0252D0;
+    --blue-bright:#0391FD; --cyan:#08C0FE; --ink:#12309B;
+    --azul:#04287A; --tinta:#232B42; --carmin:#C0293B;
+    --carmin-suave:#FBE9EB; --azul-suave:#E7EFFC; --neutro:#F2F1ED;
     --crema:#FDFCF9; --verde-wa:#128C4B; --verde:#1E8E5A; --gris:#5E6575;
     --linea:rgba(35,43,66,.12); --sombra:0 16px 44px rgba(35,43,66,.12); --radio:20px;
     --dur:.28s; --ease:cubic-bezier(.2,.7,.2,1);
@@ -52,7 +60,7 @@
   .t-head{position:sticky;top:0;z-index:50;background:rgba(253,252,249,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--linea)}
   .t-inner{max-width:760px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;gap:12px}
   .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--azul);flex:none}
-  .logo svg.mark{height:38px;width:auto}
+  .logo img.mark{height:38px;width:auto}
   .logo-text{font-family:'Bree Serif',serif;font-size:16px;line-height:1.05}
   .t-titulo{font-family:'Bree Serif',serif;color:var(--azul);font-size:17px;flex:1;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .t-contador{font-variant-numeric:tabular-nums;font-weight:700;font-size:14px;color:var(--gris);display:none}
@@ -262,8 +270,7 @@
 <header class="t-head" id="t-head">
   <div class="t-inner">
     <a class="logo" href="index.html">
-      <svg class="mark" viewBox="0 0 100 140" aria-hidden="true"><defs><clipPath id="mclipH"><rect x="2" y="2" width="96" height="136" rx="5"/></clipPath></defs><g clip-path="url(#mclipH)"><rect x="2" y="2" width="96" height="136" fill="#C0293B"/><path d="M-10 84 C16 62 26 68 34 98 C40 121 46 121 52 86 C58 51 64 51 70 84 C76 117 84 117 92 54 C96 31 101 22 112 10 L112 -10 L-12 -10 Z" fill="#21409A"/><path class="ribbon" d="M-10 84 C16 62 26 68 34 98 C40 121 46 121 52 86 C58 51 64 51 70 84 C76 117 84 117 92 54 C96 31 101 22 112 10" fill="none" stroke="#FFFFFF" stroke-width="13" stroke-linecap="round"/></g></svg>
-      <span class="logo-text">Academia <br>Well</span>
+      <img class="mark" src="/marca/well-online.svg" alt="Well Online" width="637" height="251" decoding="async">
     </a>
     <span class="t-titulo">Test de nivel</span>
     <span class="t-contador" id="t-contador" aria-live="polite">1 / 100</span>

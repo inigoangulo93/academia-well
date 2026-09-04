@@ -15,8 +15,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --azul:#21409A; --tinta:#232B42; --carmin:#C0293B;
-    --carmin-suave:#FBE9EB; --azul-suave:#E9EDF9; --neutro:#F2F1ED;
+    /* Paleta Well Online. Los seis valores salen del manual de marca; el
+       azul principal es 'navy' y el de enlaces y acentos es 'blue'.
+       El carmin se queda, pero deja de ser decorativo: a partir de aqui
+       significa SOLO error, fallo o tiempo agotandose. Un producto que
+       corrige respuestas necesita un color que quiera decir 'esto esta
+       mal', y el manual no trae ninguno. */
+    --navy-deep:#071F62; --navy:#04287A; --blue:#0252D0;
+    --blue-bright:#0391FD; --cyan:#08C0FE; --ink:#12309B;
+    --azul:#04287A; --tinta:#232B42; --carmin:#C0293B;
+    --carmin-suave:#FBE9EB; --azul-suave:#E7EFFC; --neutro:#F2F1ED;
     --crema:#FDFCF9; --verde:#1E8E5A; --verde-suave:#EAF6F0; --gris:#5E6575;
     --linea:rgba(35,43,66,.12); --sombra:0 16px 44px rgba(35,43,66,.12); --radio:20px;
     --dur:.28s; --ease:cubic-bezier(.2,.7,.2,1);
@@ -43,9 +51,9 @@
              transition:padding .25s ease}
   header.main.scrolled .nav-inner{padding:8px 32px}
   .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--azul);flex:none}
-  .logo svg.mark{height:46px;width:auto;transition:height .25s ease,transform .25s ease}
-  header.main.scrolled .logo svg.mark{height:38px}
-  .logo:hover svg.mark{transform:rotate(-3deg) scale(1.05)}
+  .logo img.mark{height:46px;width:auto;transition:height .25s ease,transform .25s ease}
+  header.main.scrolled .logo img.mark{height:38px}
+  .logo:hover img.mark{transform:scale(1.04)}
   .logo-text{font-family:'Bree Serif',serif;font-size:19px;line-height:1.05;color:var(--azul)}
   .producto{font-family:'Bree Serif',serif;color:var(--azul);font-size:17px;flex:none;padding-left:16px;
             border-left:1px solid var(--linea);line-height:1.2;align-self:center}
@@ -115,7 +123,7 @@
     .nav-inner{padding:10px 18px;gap:10px}
     header.main.scrolled .nav-inner{padding:8px 18px}
     .logo-text{display:none}
-    .logo svg.mark{height:38px}
+    .logo img.mark{height:38px}
     .producto{display:none}
     .usuario-nombre{display:none}
     .usuario-btn{padding:5px}
@@ -597,16 +605,46 @@
   @media(prefers-reduced-motion:reduce){.sp-estado.grabando .sp-aro::after{animation:none}}
 
   /* ---------- simulacro ---------- */
-  .sim-barra{position:sticky;top:70px;z-index:40;background:var(--crema);display:flex;align-items:center;
-             gap:14px;padding:12px 0 14px;margin-bottom:6px;border-bottom:1px solid var(--linea)}
-  .sim-eti{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--carmin)}
-  .sim-parte{display:block;font-family:'Bree Serif',serif;color:var(--azul);font-size:19px;line-height:1.2}
+  /* La barra del simulacro se pega DEBAJO de la cabecera. El desplazamiento
+     era 70px a pelo, y la cabecera encoge al hacer scroll: sobraba un hueco
+     por el que se veia pasar el contenido, y al no encoger de altura la barra
+     tapaba el reproductor por la mitad. Ahora el desplazamiento es la altura
+     real de la cabecera, que mide el JS, y la barra se encoge con ella. */
+  .sim-barra{position:sticky;top:var(--alto-cab,70px);z-index:40;background:var(--crema);
+             display:flex;align-items:center;gap:14px;padding:12px 0 14px;margin-bottom:6px;
+             border-bottom:1px solid var(--linea);
+             transition:padding .24s var(--ease),box-shadow .24s ease,border-color .24s ease}
+  /* Encogida: la misma informacion en una sola linea. No se esconde nada
+     --que parte es, cuanto queda y como salir siguen ahi-- solo ocupa la
+     mitad. En movil eso es la diferencia entre ver una pregunta o media. */
+  .sim-barra.min{padding:6px 0 7px;box-shadow:0 10px 22px -16px rgba(7,31,98,.55);
+                 border-color:transparent}
+  .sim-id{display:grid;gap:1px;min-width:0}
+  .sim-barra.min .sim-id{display:flex;align-items:baseline;gap:8px}
+  .sim-eti{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+           color:var(--blue);transition:font-size .24s var(--ease)}
+  .sim-barra.min .sim-eti{font-size:11px}
+  .sim-parte{display:block;font-family:'Bree Serif',serif;color:var(--azul);font-size:19px;line-height:1.2;
+             transition:font-size .24s var(--ease)}
+  .sim-barra.min .sim-parte{font-size:15px}
+  .sim-barra.min .sim-parte::before{content:'·';margin-right:8px;color:var(--linea)}
   .sim-reloj{margin-left:auto;font-family:'Bree Serif',serif;font-size:27px;color:var(--azul);
-             font-variant-numeric:tabular-nums;background:var(--azul-suave);border-radius:12px;padding:4px 15px}
+             font-variant-numeric:tabular-nums;background:var(--azul-suave);border-radius:12px;padding:4px 15px;
+             transition:font-size .24s var(--ease),padding .24s var(--ease)}
+  .sim-barra.min .sim-reloj{font-size:20px;padding:2px 11px;border-radius:9px}
+  .sim-barra.min .sim-salir{min-height:33px;padding:5px 12px;font-size:13.5px}
+  /* Hilo de progreso del audio, pegado al borde de abajo. Solo aparece con la
+     barra encogida: es entonces cuando el reproductor ya no se ve. */
+  .sim-audio{position:absolute;left:0;right:0;bottom:-1px;height:2px;border-radius:2px;
+             background:var(--azul-suave);opacity:0;transition:opacity .24s ease}
+  .sim-barra.min .sim-audio{opacity:1}
+  .sim-audio i{display:block;height:100%;width:0;border-radius:2px;
+               background:linear-gradient(90deg,var(--blue),var(--cyan))}
   .sim-reloj.poco{color:var(--carmin);background:var(--carmin-suave);animation:latido 1.6s ease-in-out infinite}
   @keyframes latido{0%,100%{opacity:1}50%{opacity:.6}}
   .sim-salir{background:none;border:1.5px solid var(--linea);border-radius:100px;padding:8px 15px;font-size:14px;
-             font-weight:600;color:var(--gris);cursor:pointer;min-height:40px;transition:border-color .15s,color .15s}
+             font-weight:600;color:var(--gris);cursor:pointer;min-height:40px;flex:none;
+             transition:border-color .15s,color .15s,min-height .24s var(--ease),padding .24s var(--ease),font-size .24s var(--ease)}
   .sim-salir:hover{border-color:var(--carmin);color:var(--carmin)}
   #sim-pie{position:sticky;bottom:0;background:linear-gradient(to top,var(--crema) 62%,rgba(253,252,249,0));
            padding:22px 0 18px;margin-top:26px;display:flex;gap:14px;align-items:center;justify-content:space-between}
@@ -731,7 +769,7 @@
   .lectura .grupos{margin-top:0}
   @media(min-width:1040px){
     .lectura{grid-template-columns:1fr 1fr;gap:22px;align-items:start}
-    .lectura .grupos{position:sticky;top:78px;max-height:calc(100dvh - 108px);overflow-y:auto;
+    .lectura .grupos{position:sticky;top:calc(var(--alto-cab,70px) + 8px);max-height:calc(100dvh - 108px);overflow-y:auto;
                      padding-right:4px}
   }
   /* El texto se lee, no se rellena: mas ancho de linea y mas aire que en los
@@ -846,7 +884,7 @@
     .panel-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:0 40px;align-items:start}
     #continuar{grid-column:1;grid-row:1}
     .col-principal{grid-column:1;grid-row:2;min-width:0}
-    .col-lateral{grid-column:2;grid-row:1/span 2;position:sticky;top:96px}
+    .col-lateral{grid-column:2;grid-row:1/span 2;position:sticky;top:calc(var(--alto-cab,70px) + 26px)}
   }
   /* en pantalla estrecha el orden es el del DOM: seguir, cifras, camino */
   @media(max-width:899px){
@@ -879,9 +917,8 @@
 
 <header class="main" id="cabecera">
   <div class="nav-inner">
-    <a class="logo" href="/index.html" aria-label="Academia Well">
-      <svg class="mark" viewBox="0 0 100 140" aria-hidden="true"><defs><clipPath id="mclipH"><rect x="2" y="2" width="96" height="136" rx="5"/></clipPath></defs><g clip-path="url(#mclipH)"><rect x="2" y="2" width="96" height="136" fill="#C0293B"/><path d="M-10 84 C16 62 26 68 34 98 C40 121 46 121 52 86 C58 51 64 51 70 84 C76 117 84 117 92 54 C96 31 101 22 112 10 L112 -10 L-12 -10 Z" fill="#21409A"/><path class="ribbon" d="M-10 84 C16 62 26 68 34 98 C40 121 46 121 52 86 C58 51 64 51 70 84 C76 117 84 117 92 54 C96 31 101 22 112 10" fill="none" stroke="#FFFFFF" stroke-width="13" stroke-linecap="round"/></g></svg>
-      <span class="logo-text">Academia <br>Well</span>
+    <a class="logo" href="/index.html" aria-label="Well Online">
+      <img class="mark" src="/marca/well-online.svg" alt="Well Online" width="637" height="251" decoding="async">
     </a>
 
     <button class="volver" id="btn-volver" type="button">
@@ -890,7 +927,6 @@
       <span id="volver-txt">Tu camino</span>
     </button>
 
-    <span class="producto">Well Online</span>
     <span class="t-titulo" id="t-titulo"></span>
 
     <div class="usuario">
@@ -1069,13 +1105,14 @@
 
   <!-- ============ simulacro ============ -->
   <section class="pantalla" id="s-simulacro">
-    <div class="sim-barra">
-      <div>
+    <div class="sim-barra" id="sim-barra">
+      <div class="sim-id">
         <span class="sim-eti" id="sim-destreza"></span>
         <span class="sim-parte" id="sim-parte"></span>
       </div>
       <span class="sim-reloj" id="sim-reloj">--:--</span>
       <button class="sim-salir" id="sim-salir" type="button">Salir</button>
+      <span class="sim-audio" id="sim-audio" hidden><i id="sim-audio-fill"></i></span>
     </div>
     <div class="ej-cab">
       <h1 id="sim-titulo"></h1>

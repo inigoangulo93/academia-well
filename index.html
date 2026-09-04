@@ -33,8 +33,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --azul:#21409A; --tinta:#232B42; --carmin:#C0293B;
-    --carmin-suave:#FBE9EB; --azul-suave:#E9EDF9; --neutro:#F2F1ED;
+    /* Paleta Well Online. Los seis valores salen del manual de marca; el
+       azul principal es 'navy' y el de enlaces y acentos es 'blue'.
+       El carmin se queda, pero deja de ser decorativo: a partir de aqui
+       significa SOLO error, fallo o tiempo agotandose. Un producto que
+       corrige respuestas necesita un color que quiera decir 'esto esta
+       mal', y el manual no trae ninguno. */
+    --navy-deep:#071F62; --navy:#04287A; --blue:#0252D0;
+    --blue-bright:#0391FD; --cyan:#08C0FE; --ink:#12309B;
+    --azul:#04287A; --tinta:#232B42; --carmin:#C0293B;
+    --carmin-suave:#FBE9EB; --azul-suave:#E7EFFC; --neutro:#F2F1ED;
     --crema:#FDFCF9; --verde-wa:#128C4B; --gris:#5E6575;
     --linea:rgba(35,43,66,.12); --sombra:0 16px 44px rgba(35,43,66,.12); --radio:20px;
   }
@@ -156,7 +164,7 @@
     .burger{display:block}
     .nav-inner{padding:10px 20px}
     .nav-cta{gap:8px}
-    .logo svg.mark{height:40px}
+    .logo img.mark{height:40px}
     .logo-text{font-size:17px}
     .mobile-menu{display:block;position:fixed;inset:0;background:#fff;z-index:90;padding:110px 32px 40px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .25s ease, transform .25s ease, visibility .25s}
     body.menu-open .mobile-menu{opacity:1;visibility:visible;transform:none}
@@ -581,14 +589,11 @@
 
 
   /* ====== HEADER v2: limpio y sinuoso ====== */
-  @keyframes waveSlide{to{background-position-x:-26px}}
-  @keyframes ribbonDraw{to{stroke-dashoffset:0}}
+  @keyframes waveSlide{to{background-position-x:-26px}}}
 
-  .logo svg.mark{height:46px;width:auto;transition:height .25s ease, transform .25s ease}
-  header.main.scrolled .logo svg.mark{height:38px}
-  .logo:hover svg.mark{transform:rotate(-3deg) scale(1.05)}
-  .mark .ribbon{stroke-dasharray:560;stroke-dashoffset:560;animation:ribbonDraw 1.1s ease .25s forwards}
-  .logo:hover .ribbon{animation:ribbonDraw .8s ease forwards}
+  .logo img.mark{height:46px;width:auto;transition:height .25s ease, transform .25s ease}
+  header.main.scrolled .logo img.mark{height:38px}
+  .logo:hover img.mark{transform:scale(1.04)}
   .logo .logo-text{font-family:'Bree Serif',serif;font-size:19px;line-height:1.05;color:var(--azul)}
 
   /* Subrayado ondulado en la navegación */
@@ -608,11 +613,9 @@
 
   /* Footer con el mismo lockup vectorial */
   .foot-lockup{display:flex;align-items:center;gap:12px;margin-bottom:16px;text-decoration:none}
-  .foot-lockup svg.mark{height:52px;width:auto}
-  .foot-lockup .ribbon{stroke-dasharray:none;stroke-dashoffset:0;animation:none}
+  .foot-lockup img.mark{height:52px;width:auto}
 
   @media (prefers-reduced-motion: reduce){
-    .mark .ribbon{stroke-dashoffset:0;animation:none}
     header.main::after, .menu > li > a::after, .menu > li > button::after{animation:none}
   }
 
@@ -869,8 +872,7 @@
 <header class="main" id="mainHeader">
   <div class="wrap nav-inner">
     <a class="logo" href="#">
-      <svg class="mark" viewBox="0 0 100 140" aria-hidden="true"><defs><clipPath id="mclipH"><rect x="2" y="2" width="96" height="136" rx="5"/></clipPath></defs><g clip-path="url(#mclipH)"><rect x="2" y="2" width="96" height="136" fill="#C0293B"/><path d="M-10 84 C16 62 26 68 34 98 C40 121 46 121 52 86 C58 51 64 51 70 84 C76 117 84 117 92 54 C96 31 101 22 112 10 L112 -10 L-12 -10 Z" fill="#21409A"/><path class="ribbon" d="M-10 84 C16 62 26 68 34 98 C40 121 46 121 52 86 C58 51 64 51 70 84 C76 117 84 117 92 54 C96 31 101 22 112 10" fill="none" stroke="#FFFFFF" stroke-width="13" stroke-linecap="round"/></g></svg>
-      <span class="logo-text">Academia <br>Well</span>
+      <img class="mark" src="/marca/well-online.svg" alt="Well Online" width="637" height="251" decoding="async">
     </a>
     <ul class="menu">
       <li><a href="index.html" aria-current="page">Inicio</a></li>
@@ -1181,7 +1183,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="logo foot-lockup" href="index.html"><svg class="mark" viewBox="0 0 100 140" aria-hidden="true"><defs><clipPath id="mclipF"><rect x="2" y="2" width="96" height="136" rx="5"/></clipPath></defs><g clip-path="url(#mclipF)"><rect x="2" y="2" width="96" height="136" fill="#C0293B"/><path d="M-10 84 C16 62 26 68 34 98 C40 121 46 121 52 86 C58 51 64 51 70 84 C76 117 84 117 92 54 C96 31 101 22 112 10 L112 -10 L-12 -10 Z" fill="#21409A"/><path class="ribbon" d="M-10 84 C16 62 26 68 34 98 C40 121 46 121 52 86 C58 51 64 51 70 84 C76 117 84 117 92 54 C96 31 101 22 112 10" fill="none" stroke="#FFFFFF" stroke-width="13" stroke-linecap="round"/></g></svg><span class="logo-text">Academia <br>Well</span></a>
+        <a class="logo foot-lockup" href="index.html"><img class="mark" src="/marca/well-online.svg" alt="Well Online" width="637" height="251" decoding="async"></a>
         <p>M&aacute;s de veinte a&ntilde;os ense&ntilde;ando ingl&eacute;s en Galdakao. Centro preparador oficial de ex&aacute;menes de Cambridge.</p>
         <a class="foot-cambridge" href="cursos.html#cambridge"><img src="cambridge-english.png" alt="Cambridge English" loading="lazy" onerror="this.remove()"><span>Centro preparador oficial</span></a>
       </div>
