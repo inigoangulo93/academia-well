@@ -17,6 +17,8 @@ rojo=$'\033[31m'; verde=$'\033[32m'; gris=$'\033[90m'; fin=$'\033[0m'
 mal () { echo; echo "${rojo}$1${fin}"; exit 1; }
 paso () { echo; echo "${gris}── $1${fin}"; }
 
+modo="${1:-}"
+
 paso "1 · comprobaciones que no cuestan nada"
 
 [ -f gen-listening.py ] || mal "No estas en el repo. Haz cd a la carpeta academia-well."
@@ -37,6 +39,9 @@ rama=$(git rev-parse --abbrev-ref HEAD)
 echo "   rama: $rama"
 [ "$rama" = "well-online-practica" ] || mal "Esperaba la rama well-online-practica."
 
+if [ "$modo" = "--nivelar" ]; then
+  echo "   modo nivelar: se remonta con lo que hay en cache, sin llamar a nadie"
+else
 : "${ELEVENLABS_API_KEY:=}"
 n=${#ELEVENLABS_API_KEY}
 echo "   clave en el entorno: $n caracteres"
@@ -57,6 +62,7 @@ se ve UNA VEZ, cuando se crea o se rota.
   Permisos: Text to Speech = Access, todo lo demas = No Access
   Copiala en ese momento y:  export ELEVENLABS_API_KEY=<pegar>" ;;
 esac
+fi
 
 python3 - <<'PY'
 import json, sys
@@ -66,9 +72,33 @@ if sin: sys.exit('   Faltan voces por elegir: %s' % ', '.join(sin))
 print('   voces: %d de %d' % (len(d['papeles']), len(d['papeles'])))
 PY
 
+if [ "$modo" = "--nivelar" ]; then
+  paso "2 · remontar con el volumen nivelado, sin gastar nada"
+  python3 gen-listening.py --todos --remonta
+
+  paso "3 · comprobar"
+  python3 usa-voz-real.py --hazlo
+  node qa/qa-contenido.js | tail -3
+
+  paso "4 · subir"
+  git add audio/ practica-data.js
+  git commit -q -m "Volumen nivelado en los dieciseis listenings
+
+Cada voz salia con su propio volumen y en los ficheros de cinco o seis
+hablantes se notaba: el rango de sonoridad llegaba a 20 LU cuando en voz
+hablada lo normal son 5-8. Se normaliza cada linea por separado contra EBU
+R128 a -16 LUFS antes de juntarla.
+
+Remontado desde la cache: no se ha vuelto a pagar la voz."
+  git push origin well-online-practica
+  echo
+  echo "${verde}Hecho. Volumen nivelado y subido.${fin}"
+  exit 0
+fi
+
 python3 gen-listening.py --todos --simular | tail -3
 
-if [ "${1:-}" != "--todo" ]; then
+if [ "$modo" != "--todo" ]; then
   paso "2 · la audicion: 802 caracteres, el 0,6% del mes"
   python3 gen-listening.py listening/00-prueba-voces.json --proveedor elevenlabs
   echo

@@ -29,7 +29,7 @@ ANTES DE USARLO EN PRODUCCION, leer well-online.md:
   - El audio se declara siempre como "de practica, no oficial de Cambridge".
 """
 import json, os, sys, math, struct, wave, argparse, urllib.request
-import hashlib, subprocess, time, glob, urllib.error
+import hashlib, subprocess, time, glob, urllib.error, re
 
 RAIZ = os.path.dirname(os.path.abspath(__file__))
 
@@ -147,6 +147,52 @@ def hay_ffmpeg():
              'Y vuelve a lanzar el mismo comando.')
 
 
+def normalizado(trozo):
+    """Deja cada linea a la misma sonoridad.
+
+    Cada voz de ElevenLabs sale con el volumen que sale, y en un fichero con
+    seis personas eso se nota: medido sobre el primer lote, los monologos de la
+    parte 2 tenian un rango de 3 LU --lo normal en voz hablada es 5-8-- y las
+    partes 1 y 4, con cinco o seis voces, llegaban a 20,5. Traducido: a la mujer
+    del extracto se la oye mas baja que al hombre.
+
+    En un examen eso no es un detalle de acabado. Si una voz se oye peor, la
+    pregunta deja de medir comprension y pasa a medir el volumen del movil.
+
+    Se usa loudnorm en dos pasadas --se mide y luego se corrige con lo medido--
+    contra EBU R128, que es el estandar de emision. -16 LUFS porque esto se
+    escucha en moviles y auriculares, no en un cine.
+
+    El resultado se cachea: normalizar es gratis pero lento, y una linea que ya
+    esta medida no cambia.
+    """
+    dest = trozo[:-4] + '-norm.mp3'
+    if os.path.exists(dest):
+        return dest
+    medida = subprocess.run(
+        ['ffmpeg', '-hide_banner', '-nostats', '-i', trozo,
+         '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11:print_format=json', '-f', 'null', '-'],
+        capture_output=True, text=True).stderr
+    af = 'loudnorm=I=-16:TP=-1.5:LRA=11'
+    m = re.search(r'\{[^{}]*"input_i"[\s\S]*?\}', medida)
+    if m:
+        try:
+            d = json.loads(m.group(0))
+            # Una linea en silencio mide -inf y no se puede corregir con eso.
+            if all(x not in ('-inf', 'inf') for x in
+                   (d['input_i'], d['input_tp'], d['input_lra'], d['input_thresh'])):
+                af = ('loudnorm=I=-16:TP=-1.5:LRA=11:measured_I=%s:measured_TP=%s:'
+                      'measured_LRA=%s:measured_thresh=%s:offset=%s:linear=true'
+                      % (d['input_i'], d['input_tp'], d['input_lra'],
+                         d['input_thresh'], d['target_offset']))
+        except Exception:
+            pass
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', trozo, '-af', af,
+                    '-c:a', 'libmp3lame', '-b:a', '64k', '-ar', '44100', '-ac', '1', dest],
+                   check=True)
+    return dest
+
+
 def silencio_mp3(seg, destino):
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'lavfi',
                     '-i', 'anullsrc=r=44100:cl=mono', '-t', '%.3f' % seg,
@@ -173,8 +219,13 @@ def monta(piezas, destino):
         return 0.0
 
 
-def genera(guion, destino, proveedor, simular=False):
-    """Devuelve (segundos, caracteres_pagados, lineas_cacheadas)."""
+def genera(guion, destino, proveedor, simular=False, remonta=False):
+    """Devuelve (segundos, caracteres_pagados, lineas_cacheadas).
+
+    Con remonta=True no se llama a nadie: se vuelve a montar con lo que ya
+    hay en cache. Sirve para cambiar como se junta el audio --por ejemplo,
+    nivelar el volumen-- sin volver a pagar la voz.
+    """
     cat = carga_voces()
     modelo = cat.get('modelo', 'eleven_multilingual_v2')
     formato = cat.get('formato', 'mp3_44100_128')
@@ -183,7 +234,7 @@ def genera(guion, destino, proveedor, simular=False):
     os.makedirs(CACHE, exist_ok=True)
 
     clave = region = None
-    if not simular:
+    if not simular and not remonta:
         if proveedor == 'elevenlabs':
             clave = os.environ.get('ELEVENLABS_API_KEY') or sys.exit('Falta ELEVENLABS_API_KEY')
         elif proveedor == 'azure':
@@ -205,6 +256,10 @@ def genera(guion, destino, proveedor, simular=False):
         if os.path.exists(trozo):
             cacheadas += 1
         else:
+            if remonta:
+                sys.exit('No se puede remontar: la linea %d de %s no esta en cache.\n'
+                         'Hay que generarla:  python3 gen-listening.py --todos '
+                         '--proveedor elevenlabs' % (i + 1, guion['id']))
             pagados += len(linea['texto'])
             if not simular:
                 if proveedor == 'elevenlabs':
@@ -215,7 +270,7 @@ def genera(guion, destino, proveedor, simular=False):
                     f.write(datos)
                 print('  linea %d/%d  %s  %d car' % (i + 1, len(guion['lineas']), v['papel'],
                                                      len(linea['texto'])))
-        piezas.append(trozo)
+        piezas.append(trozo if simular else normalizado(trozo))
 
         pausa = float(linea.get('pausa', 0))
         if pausa:
@@ -301,6 +356,8 @@ def main():
     ap.add_argument('--tope', type=float, default=35, help='segundos maximos del relleno')
     ap.add_argument('--espeak', action='store_true',
                     help='voz local con espeak-ng: gratis, robotica, provisional')
+    ap.add_argument('--remonta', action='store_true',
+                    help='vuelve a montar con lo que hay en cache, sin llamar a nadie')
     ap.add_argument('--simular', action='store_true',
                     help='no llama a la API: dice lo que costaria')
     ap.add_argument('--proveedor', choices=['elevenlabs', 'azure'])
@@ -310,7 +367,7 @@ def main():
     # Antes de gastar un solo credito: que no falte ninguna voz por elegir. Es
     # mejor parar aqui que a mitad de los dieciseis, con la mitad pagada.
     rutas = guiones_de(a)
-    if not (a.demo or a.espeak):
+    if not (a.demo or a.espeak or a.remonta):
         cat = carga_voces()
         usados = set()
         for r in rutas:
@@ -343,7 +400,7 @@ def main():
         destino = os.path.join(RAIZ, 'audio', guion['id'] + '.mp3')
         if not a.simular:
             print(nombre)
-        seg, pag, cac = genera(guion, destino, a.proveedor, a.simular)
+        seg, pag, cac = genera(guion, destino, a.proveedor, a.simular, a.remonta)
         total_pag += pag; total_cache += cac
         if a.simular:
             print('%-14s %5d caracteres a pagar · %2d lineas ya en cache' % (nombre, pag, cac))
@@ -357,6 +414,9 @@ def main():
         return
 
     print('-' * 60)
+    if a.remonta:
+        print('REMONTADO desde cache: no se ha llamado a la API y no se ha gastado nada.')
+        return
     if a.simular:
         print('SIMULACION: no se ha llamado a la API y no se ha gastado nada.')
     print('%d caracteres a pagar (~%d creditos) · %d lineas servidas de cache'

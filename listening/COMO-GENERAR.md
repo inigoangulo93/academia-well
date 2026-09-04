@@ -73,6 +73,30 @@ Escribe `audio/t1-lis1.mp3` … `audio/t4-lis4.mp3`, MP3 mono a 64 kbps.
 Despues, apuntar los ficheros nuevos en `practica-data.js` (los campos `audio:`
 siguen mirando a `-espeak.mp3`) y borrar los provisionales.
 
+## Volumen: por que se nivela cada linea
+
+Cada voz de ElevenLabs sale con el volumen que sale. En un fichero con una sola
+persona no se nota; en uno con cinco o seis, si. Medido sobre el primer lote:
+
+    partes 2 (una voz)          2,9 - 3,3 LU
+    partes 3 (dos voces)        4,5 - 6,2 LU
+    partes 1 y 4 (cinco o seis) 16,2 - 20,5 LU
+
+En voz hablada bien nivelada lo normal son 5-8 LU. Veinte significa que a unas
+personas se las oye claramente mas bajo que a otras, y en un examen eso deja de
+ser acabado: la pregunta pasa a medir el volumen del movil.
+
+Cada linea se normaliza por separado con `loudnorm` en dos pasadas contra EBU
+R128, a -16 LUFS, antes de juntarla. Probado con dos voces separadas 11,9 LU:
+quedan a 0,1 LU.
+
+Como se hace al MONTAR y no al generar, rehacerlo no cuesta un credito:
+
+    ./voz.sh --nivelar
+
+Remonta los dieciseis con lo que hay en `audio/.cache/`, engancha, comprueba y
+sube. Ni siquiera hace falta la clave.
+
 ## Por que hay cache
 
 Cada linea se guarda en `audio/.cache/` con una firma de (voz, modelo, texto).
