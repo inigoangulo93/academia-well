@@ -13,6 +13,19 @@ dos pasadas mas.
 `voz.sh` hace todo lo de abajo en orden y se planta en cuanto algo no cuadra.
 Lo que sigue explica que hace cada paso y por que.
 
+## Si en macOS falla con CERTIFICATE_VERIFY_FAILED
+
+El Python de python.org no usa el llavero del sistema y viene sin autoridades
+certificadoras, asi que su primera llamada HTTPS falla siempre. No es la clave
+ni la conexion. Se arregla una vez:
+
+    /Applications/Python\ 3.x/Install\ Certificates.command
+
+Y si esa ruta no existe:
+
+    python3 -m pip install --upgrade certifi
+    export SSL_CERT_FILE=$(python3 -m certifi)
+
 ## Antes de gastar nada
 
 1. Rellenar `listening/voces.json`: un `voice_id` por cada uno de los diez

@@ -100,6 +100,19 @@ def eleven_linea(texto, voz, modelo, formato, clave, intentos=4):
                 sys.exit('ElevenLabs devolvio %s: %s' % (e.code, e.read()[:300].decode('utf-8', 'replace')))
             time.sleep(2 ** n)
         except Exception as e:
+            # El Python de python.org en macOS no usa el llavero del sistema y
+            # no trae autoridades certificadoras: la primera llamada HTTPS de
+            # una maquina recien montada falla siempre asi. No es la red, no es
+            # la clave, y el mensaje de urllib no lo dice por ningun lado.
+            if 'CERTIFICATE_VERIFY_FAILED' in str(e):
+                sys.exit('Tu Python no tiene certificados y no puede abrir HTTPS.\n'
+                         'No es la clave ni la conexion, y no se ha gastado nada.\n\n'
+                         'En macOS se arregla ejecutando una vez:\n'
+                         '    /Applications/Python\\ 3.x/Install\\ Certificates.command\n\n'
+                         'Si esa ruta no existe:\n'
+                         '    python3 -m pip install --upgrade certifi\n'
+                         '    export SSL_CERT_FILE=$(python3 -m certifi)\n\n'
+                         'Y vuelve a lanzar el mismo comando.')
             # Un traceback de urllib no le dice nada a nadie. Si despues de los
             # reintentos sigue sin haber red, se dice en una linea.
             if n == intentos - 1:
