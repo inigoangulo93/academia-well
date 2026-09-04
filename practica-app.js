@@ -478,7 +478,14 @@
          '<span class="tramo-cuenta">' + (st.sesiones ? T.sesionesN.replace('{n}', st.sesiones) : esc(T.pronto)) + '</span>' +
          marca + '</button>';
     h += '<div class="tramo-cuerpo"' + (abierto ? '' : ' hidden') + '><ol class="mapa">';
-    h += (test.sesiones || []).map(function (s, i) { return tarjetaSesion(s, i, sig); }).join('');
+    // La primera sesion cerrada es la unica que explica la regla; las de
+    // detras se entienden solas por el candado.
+    var yaHuboCerrada = false;
+    h += (test.sesiones || []).map(function (s, i) {
+      s._primeraCerrada = false;
+      if (estado(s) === 'bloqueada' && !yaHuboCerrada) { s._primeraCerrada = true; yaHuboCerrada = true; }
+      return tarjetaSesion(s, i, sig);
+    }).join('');
     h += simulacrosDe(test).map(function (sm) { return filaSimulacro(sm); }).join('');
     h += metaTest(test, st);
     h += '</ol></div></section>';
@@ -556,9 +563,18 @@
 
     var sub;
     if (e === 'bloqueada') {
-      var ant = ses._anterior, da = dominio(ant);
-      var faltan = Math.max(1, Math.ceil(UMBRAL * da.items) - da.ok);
-      sub = T.paraAbrir.replace('{n}', faltan).replace('{etapa}', tituloSesion(ant));
+      // La regla se dice UNA vez, en la primera sesion cerrada, y en gris.
+      //
+      // Antes salia en todas y en rojo: siete lineas identicas diciendo lo que
+      // el candado ya dice. El rojo es el color de que algo va mal, y esto no
+      // va mal: es que todavia no toca. Gastarlo aqui lo deja sin fuerza para
+      // cuando de verdad haya un problema.
+      //
+      // Y no se cuentan "aciertos que faltan". Eso suena a deuda y ademas
+      // cambia solo con reintentar; lo que abre la siguiente es terminar la
+      // anterior, que es lo unico que el alumno necesita saber.
+      sub = ses._primeraCerrada && ses._anterior
+        ? T.paraAbrir.replace('{etapa}', tituloSesion(ses._anterior)) : '';
     } else {
       sub = resumenReceta(ses);
     }

@@ -287,7 +287,9 @@
               max-width:300px;overflow:hidden}
   .paso-barra i{display:block;height:100%;background:var(--azul);border-radius:100px;transition:width .55s var(--ease)}
   .paso.bloqueada .paso-tit,.paso.pronto .paso-tit{color:var(--gris)}
-  .paso.bloqueada .paso-sub{color:var(--carmin);white-space:normal}
+  /* Gris, no carmin. Una sesion cerrada no es un error: es que todavia no
+     toca. El carmin se guarda para cuando algo va mal de verdad. */
+  .paso.bloqueada .paso-sub{color:var(--gris);white-space:normal}
   /* los pasos lejanos se comprimen: el camino se ve entero sin que 24 filas
      iguales tapen lo que toca ahora */
   .paso.pronto{opacity:.72}
@@ -1197,7 +1199,7 @@ window.WELL_UI_P = {
   diasSeguidos: 'días seguidos',
   proximoHito: 'Tu próxima insignia',
   estasAqui: 'estás aquí',
-  paraAbrir: 'Termina la {etapa}: te faltan {n} aciertos',
+  paraAbrir: 'Se abre al terminar la {etapa}',
   continuar: 'Continúa por aquí',
   empezar: 'Empezar',
 

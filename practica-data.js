@@ -296,8 +296,8 @@ window.WELL_PRACTICA = {
      Se mide colocacion y matiz, no gramatica: las cuatro opciones encajan
      gramaticalmente y solo una se dice de verdad. */
   't2-use1': {
-    tipo: 'opcion', parte: 1, titulo: 'Use of English · Parte 1',
-    instruccion: 'Elige la palabra que mejor encaja en cada hueco.',
+    tipo: 'opcion', parte: 1, titulo: 'Use of English · Part 1',
+    instruccion: 'Decide which answer best fits each gap.',
     texto: [
       'Museums have spent thirty years trying to stop being quiet. Where they once {1} on silence, they now offer late openings, workshops and cafés, on the {2} that a building nobody enjoys is a building nobody funds.',
       'The strategy has largely {3} off. Visitor numbers are up almost everywhere, and the argument that culture belongs to everyone is far harder to {4} than it was. Yet something has been lost along the way, and curators are increasingly willing to {5} it out loud.',
@@ -318,8 +318,8 @@ window.WELL_PRACTICA = {
   /* Parte 2 · open cloze: una sola palabra, sin pistas. Es la parte donde se
      ve si alguien tiene el idioma dentro o solo estudiado. */
   't2-use2a': {
-    tipo: 'cloze', parte: 2, titulo: 'Use of English · Parte 2',
-    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    tipo: 'cloze', parte: 2, titulo: 'Use of English · Part 2',
+    instruccion: 'Write <b>one word</b> in each gap.',
     texto: [
       'The bicycle is the only nineteenth-century machine still in daily use that almost nobody has tried to improve {1} of recognition. Cars, telephones and kitchens have all been reinvented several times {2}; the bicycle has been refined and left alone.',
       'This is usually explained by saying that the design was simply right first time, which is not quite true. Early bicycles were dangerous and uncomfortable, and it took thirty years {3} anyone arrived at {4} shape we now take for granted. What is true is that {5} the shape settled, there was nowhere obvious to go. Make it lighter and it costs more; add a motor and it becomes something {6}.',
@@ -333,8 +333,8 @@ window.WELL_PRACTICA = {
   },
 
   't2-use2b': {
-    tipo: 'cloze', parte: 2, titulo: 'Use of English · Parte 2 (extra)',
-    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    tipo: 'cloze', parte: 2, titulo: 'Use of English · Part 2 (extra)',
+    instruccion: 'Write <b>one word</b> in each gap.',
     texto: [
       'There is a particular kind of book that exists only to be given: heavy, beautiful and entirely unread. Every household has {1} least one, usually on the lowest shelf, and nobody can remember who brought it.',
       'It would be easy to be sneering {2} this, and publishers certainly rely on it more than they admit. But the gift book does something a paperback cannot. It says that the giver spent money and thought, {3} that the object is meant to sit in the room rather {4} in a bag. Nobody expects it to be finished, and no one is disappointed {5} it is not.',
@@ -349,8 +349,8 @@ window.WELL_PRACTICA = {
 
   /* Parte 3 · word formation */
   't2-use3': {
-    tipo: 'formacion', parte: 3, titulo: 'Use of English · Parte 3',
-    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    tipo: 'formacion', parte: 3, titulo: 'Use of English · Part 3',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
     items: [
       { antes: 'The scheme was abandoned after a series of', despues: 'delays.', raiz: 'AVOID', aceptadas: ['unavoidable'] },
       { antes: 'Her', despues: 'of the situation was better than mine.', raiz: 'JUDGE', aceptadas: ['judgement', 'judgment'] },
@@ -365,8 +365,8 @@ window.WELL_PRACTICA = {
 
   /* Parte 4 · key word transformation */
   't2-use4a': {
-    tipo: 'transformacion', parte: 4, titulo: 'Use of English · Parte 4',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    tipo: 'transformacion', parte: 4, titulo: 'Use of English · Part 4',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'I have not eaten here before.', clave: 'FIRST', antes: 'This is', despues: 'eaten here.', aceptadas: ['the first time I have', "the first time I've"] },
       { frase: 'She only agreed because you asked her.', clave: 'NOT', antes: 'She would', despues: 'you asked her.', aceptadas: ['not have agreed if'] },
@@ -378,8 +378,8 @@ window.WELL_PRACTICA = {
   },
 
   't2-use4b': {
-    tipo: 'transformacion', parte: 4, titulo: 'Use of English · Parte 4 (extra)',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    tipo: 'transformacion', parte: 4, titulo: 'Use of English · Part 4 (extra)',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'Nobody expected the meeting to last so long.', clave: 'TAKE', antes: 'Nobody expected the meeting', despues: 'long.', aceptadas: ['to take so'] },
       { frase: 'It is not worth complaining now.', clave: 'POINT', antes: 'There', despues: 'now.', aceptadas: ['is no point complaining', "'s no point complaining", 'is no point in complaining'] },
@@ -393,8 +393,8 @@ window.WELL_PRACTICA = {
   /* ===================== TEST 2 · READING ===================== */
 
   't2-read5': {
-    tipo: 'lectura', parte: 5, titulo: 'Reading · Parte 5',
-    instruccion: 'Lee el texto y elige la mejor respuesta (A, B, C o D) para cada pregunta.',
+    tipo: 'lectura', parte: 5, titulo: 'Reading · Part 5',
+    instruccion: 'Read the text and choose the answer (A, B, C or D) which fits best according to the text.',
     tituloTexto: 'The last people to make it by hand',
     texto: [
       'There are eleven people left in Britain who can build a wooden wheel to carriage standard, and Deborah Amory is one of them. She learned the trade at forty-one, after a career in insurance that she describes, without bitterness, as twenty years of being adequately paid to be bored.',
@@ -436,8 +436,8 @@ window.WELL_PRACTICA = {
   },
 
   't2-read6': {
-    tipo: 'lectura', parte: 6, titulo: 'Reading · Parte 6',
-    instruccion: 'Cuatro especialistas escriben sobre los deberes escolares. Elige el texto (A, B, C o D) que responde a cada pregunta.',
+    tipo: 'lectura', parte: 6, titulo: 'Reading · Part 6',
+    instruccion: 'You will read four extracts in which specialists give their views on homework. For each question, choose from the extracts A–D.',
     opcionesCortas: true,
     secciones: [
       { letra: 'A', titulo: 'Ruth Vaughan, educational psychologist',
@@ -462,8 +462,8 @@ window.WELL_PRACTICA = {
   },
 
   't2-read7': {
-    tipo: 'lectura', parte: 7, titulo: 'Reading · Parte 7',
-    instruccion: 'Faltan seis párrafos del texto. Elige para cada hueco el párrafo que encaja (A–G). Hay uno que no va en ninguno.',
+    tipo: 'lectura', parte: 7, titulo: 'Reading · Part 7',
+    instruccion: 'Six paragraphs have been removed from the text. Choose from the paragraphs A–G the one which fits each gap. There is one extra paragraph which you do not need to use.',
     tituloTexto: 'The library that refused to close',
     opcionesCortas: true,
     texto: [
@@ -501,8 +501,8 @@ window.WELL_PRACTICA = {
   },
 
   't2-read8': {
-    tipo: 'lectura', parte: 8, titulo: 'Reading · Parte 8',
-    instruccion: 'Seis personas hablan de un trabajo de verano que marcó su forma de trabajar. Elige la persona (A–F) que corresponde a cada pregunta.',
+    tipo: 'lectura', parte: 8, titulo: 'Reading · Part 8',
+    instruccion: 'You will read an article in which six people describe a summer job that shaped the way they work. For each question, choose from the people A–F.',
     opcionesCortas: true,
     secciones: [
       { letra: 'A', titulo: 'Alba, a hotel kitchen',
@@ -535,10 +535,10 @@ window.WELL_PRACTICA = {
   /* ===================== TEST 2 · LISTENING ===================== */
 
   't2-lis1': {
-    tipo: 'listening', parte: 1, titulo: 'Listening · Parte 1',
-    instruccion: 'Escucharás tres extractos. Elige la mejor respuesta (A, B o C) para cada pregunta. <b>Se escucha dos veces</b>.',
+    tipo: 'listening', parte: 1, titulo: 'Listening · Part 1',
+    instruccion: 'You will hear three different extracts. Choose the answer (A, B or C) which fits best according to what you hear. <b>You will hear the recording twice.</b>',
     audio: 'audio/t2-lis1.mp3', escuchas: 2,
-    contexto: 'Extracto 1: una exposición de fotografía. Extracto 2: un hombre que ha dejado el coche. Extracto 3: dos compañeros y un curso de formación.',
+    contexto: 'Extract 1: a photography exhibition. Extract 2: a man who has given up his car. Extract 3: two colleagues and a training course.',
     items: [
       { pregunta: '1  What annoyed the woman about the exhibition?',
         opciones: ['The photographs were poorly displayed.', 'The captions shaped her response in advance.', 'There was too much to take in at once.'], correcta: 1 },
@@ -556,8 +556,8 @@ window.WELL_PRACTICA = {
   },
 
   't2-lis2': {
-    tipo: 'listening', parte: 2, titulo: 'Listening · Parte 2',
-    instruccion: 'Completa cada frase con <b>una o dos palabras</b> de lo que oigas. <b>Se escucha dos veces</b>.',
+    tipo: 'listening', parte: 2, titulo: 'Listening · Part 2',
+    instruccion: 'Complete the sentences with <b>a word or short phrase</b> from what you hear. <b>You will hear the recording twice.</b>',
     audio: 'audio/t2-lis2.mp3', escuchas: 2,
     items: [
       { antes: 'More than half of the clocks Otto repairs were made after', despues: '.', aceptadas: ['1970'] },
@@ -572,10 +572,10 @@ window.WELL_PRACTICA = {
   },
 
   't2-lis3': {
-    tipo: 'listening', parte: 3, titulo: 'Listening · Parte 3',
-    instruccion: 'Escucharás una entrevista. Elige la mejor respuesta (A, B, C o D) para cada pregunta. <b>Se escucha dos veces</b>.',
+    tipo: 'listening', parte: 3, titulo: 'Listening · Part 3',
+    instruccion: 'You will hear an interview. Choose the answer (A, B, C or D) which fits best according to what you hear. <b>You will hear the recording twice.</b>',
     audio: 'audio/t2-lis3.mp3', escuchas: 2,
-    contexto: 'Una periodista entrevista al biólogo marino Cormac Whelan sobre el ruido en el mar.',
+    contexto: 'A journalist interviews the marine biologist Doctor Cormac Whelan about noise in the sea.',
     items: [
       { pregunta: '1  What does Dr Whelan say has changed about the sea?',
         opciones: ['It was silent and is now noisy.', 'The source of the noise, rather than its presence.', 'Storms have become considerably louder.', 'Whales have grown quieter in response.'], correcta: 1 },
@@ -593,13 +593,13 @@ window.WELL_PRACTICA = {
   },
 
   't2-lis4': {
-    tipo: 'listening', parte: 4, titulo: 'Listening · Parte 4',
-    instruccion: 'Escucharás a cinco personas hablando de una afición que dejaron. <b>Tarea 1</b> (1–5): por qué la dejaron. <b>Tarea 2</b> (6–10): qué dicen ahora. Se escucha dos veces.',
+    tipo: 'listening', parte: 4, titulo: 'Listening · Part 4',
+    instruccion: 'You will hear five short extracts in which people talk about giving up an activity they had done for years. While you listen you must complete both tasks. <b>You will hear the recording twice.</b>',
     audio: 'audio/t2-lis4.mp3', escuchas: 2,
     opcionesCortas: true,
-    contexto: 'Cada tarea tiene su propia lista de ocho opciones.',
+    contexto: 'Each task has its own list of eight options.',
     listas: [
-      { titulo: 'Tarea 1 · ¿Por qué la dejaron?', opciones: [
+      { titulo: 'Task One · Why did each speaker give it up?', opciones: [
         'it had stopped serving the purpose it once did',
         'the group changed into something different',
         'a physical problem forced the decision',
@@ -609,7 +609,7 @@ window.WELL_PRACTICA = {
         'they ran out of time for it',
         'they fell out with somebody involved'
       ] },
-      { titulo: 'Tarea 2 · ¿Qué dicen ahora?', opciones: [
+      { titulo: 'Task Two · What does each speaker say about it now?', opciones: [
         'they wish somebody had prepared them for what followed',
         'they still keep a physical reminder of it',
         'they blame nobody for what happened',
@@ -638,7 +638,7 @@ window.WELL_PRACTICA = {
 
   't2-speak1': {
     tipo: 'speaking', parte: 2, titulo: 'Long turn: cómo se llega al trabajo',
-    instruccion: 'Habla durante <b>un minuto seguido</b>. No hace falta contestar a todo: elige y compara.',
+    instruccion: 'Speak for <b>one minute</b> without stopping. You do not have to cover everything: choose and compare.',
     segundos: 60,
     pregunta: 'Why might people travel to work in these ways, and what might be difficult about each?',
     puntos: ['cycling through a city centre', 'a long train journey with a laptop', 'walking twenty minutes each way'],
@@ -648,7 +648,7 @@ window.WELL_PRACTICA = {
 
   't2-speak3': {
     tipo: 'speaking', parte: 3, titulo: 'Parte 3: decidir en voz alta',
-    instruccion: 'Habla durante <b>dos minutos</b>. Comenta las cinco opciones y llega a una conclusión.',
+    instruccion: 'Speak for <b>two minutes</b>. Discuss all five options and reach a conclusion.',
     segundos: 120,
     pregunta: 'A town has money for one project. How useful is each of these, and which two would you choose?',
     puntos: ['a covered market', 'better street lighting', 'a public swimming pool', 'more trees', 'free wifi in the centre'],
@@ -658,7 +658,7 @@ window.WELL_PRACTICA = {
 
   't2-speak4': {
     tipo: 'speaking', parte: 4, titulo: 'Parte 4: opinar y justificar',
-    instruccion: 'Contesta a las tres preguntas seguidas, <b>dos minutos</b> en total.',
+    instruccion: 'Answer the three questions one after the other, <b>two minutes</b> in total.',
     segundos: 120,
     pregunta: 'Questions about towns and change.',
     puntos: [
@@ -672,7 +672,7 @@ window.WELL_PRACTICA = {
 
   't2-speakr': {
     tipo: 'speaking', parte: 2, titulo: 'Repaso: un minuto sin parar',
-    instruccion: 'Habla durante <b>un minuto seguido</b>, sin pausas largas. Compara, no describas.',
+    instruccion: 'Speak for <b>one minute</b> without long pauses. Compare — do not simply describe.',
     segundos: 60,
     pregunta: 'Why might these moments be difficult, and how might the people be feeling?',
     puntos: ['starting a job where everyone already knows each other', 'moving back to a place you left years ago', 'learning something new in front of people much younger'],
@@ -684,7 +684,7 @@ window.WELL_PRACTICA = {
 
   't2-write1': {
     tipo: 'writing', parte: 1, titulo: 'Essay',
-    instruccion: 'Escribe entre <b>220 y 260 palabras</b>. Es obligatorio: en el examen esta tarea no se elige.',
+    instruccion: 'Write <b>220–260 words</b>. This part is compulsory: in the exam you do not get to choose it.',
     minutos: 45, palabras: [220, 260],
     enunciado: 'Your class has discussed how towns should spend limited public money. Write an essay discussing two of the three areas below and explaining which you think matters more.',
     contexto: 'Areas: public transport · libraries and cultural centres · green spaces.',
@@ -694,7 +694,7 @@ window.WELL_PRACTICA = {
 
   't2-write2': {
     tipo: 'writing', parte: 2, titulo: 'A elegir: carta o informe',
-    instruccion: 'Elige <b>una</b> de las dos y escribe entre <b>220 y 260 palabras</b>.',
+    instruccion: 'Choose <b>one</b> of the two tasks and write <b>220–260 words</b>.',
     minutos: 45, palabras: [220, 260],
     enunciado: 'Choose one of the following two tasks.',
     contexto: '1 · A magazine has published an article claiming that learning a language as an adult is a waste of time. Write a letter to the editor responding to the article.\n2 · Your college is deciding whether to keep its Saturday study room open. Write a report describing how the room is used and recommending what should happen.',
@@ -710,7 +710,7 @@ window.WELL_PRACTICA = {
 
   't2-gram1': {
     tipo: 'transformacion', titulo: 'Presentes · segunda vuelta',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'I started reading this novel a month ago and I am still on it.', clave: 'BEEN', antes: 'I', despues: 'this novel for a month.', aceptadas: ['have been reading', "'ve been reading"] },
       { frase: 'It is the first time she has ever complained.', clave: 'NEVER', antes: 'She', despues: 'before.', aceptadas: ['has never complained'] },
@@ -723,7 +723,7 @@ window.WELL_PRACTICA = {
 
   't2-gram2': {
     tipo: 'transformacion', titulo: 'Pasados · narrar',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'She had been waiting an hour when the call finally came.', clave: 'FOR', antes: 'The call came after she', despues: 'an hour.', aceptadas: ['had waited for'] },
       { frase: 'I only understood the joke later.', clave: 'UNTIL', antes: 'It was not', despues: 'that I understood the joke.', aceptadas: ['until later'] },
@@ -736,7 +736,7 @@ window.WELL_PRACTICA = {
 
   't2-gram3': {
     tipo: 'transformacion', titulo: 'Futuro · segunda vuelta',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'The exhibition closes on the tenth, so hurry.', clave: 'HAVE', antes: 'By the eleventh the exhibition', despues: '.', aceptadas: ['will have closed'] },
       { frase: 'I expect they are still eating when we arrive.', clave: 'BE', antes: 'They', despues: 'when we arrive.', aceptadas: ['will still be eating'] },
@@ -749,7 +749,7 @@ window.WELL_PRACTICA = {
 
   't2-gram4': {
     tipo: 'transformacion', titulo: 'Repaso de tiempos · mezcla',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'They are still deciding, so do not ring yet.', clave: 'MADE', antes: 'They', despues: 'their minds up yet.', aceptadas: ["haven't made", 'have not made'] },
       { frase: 'I met her in 2015 and we have been friends ever since.', clave: 'KNOWN', antes: 'I', despues: 'since 2015.', aceptadas: ['have known her', "'ve known her"] },
@@ -762,7 +762,7 @@ window.WELL_PRACTICA = {
 
   't2-gram5': {
     tipo: 'transformacion', titulo: 'Costumbres y adaptación',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'I no longer find the early starts difficult.', clave: 'USED', antes: 'I', despues: 'the early starts.', aceptadas: ['am used to', "'m used to"] },
       { frase: 'We often walked to the beach when we were small.', clave: 'WOULD', antes: 'We', despues: 'to the beach when we were small.', aceptadas: ['would often walk', 'would walk'] },
@@ -775,7 +775,7 @@ window.WELL_PRACTICA = {
 
   't2-gram6': {
     tipo: 'transformacion', titulo: 'Poder y tener que',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'She succeeded in persuading them in the end.', clave: 'ABLE', antes: 'She', despues: 'them in the end.', aceptadas: ['was able to persuade'] },
       { frase: 'It is compulsory to show identification at the door.', clave: 'HAVE', antes: 'You', despues: 'identification at the door.', aceptadas: ['have to show'] },
@@ -788,7 +788,7 @@ window.WELL_PRACTICA = {
 
   't2-gram7': {
     tipo: 'transformacion', titulo: 'No hace falta y no se puede',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'You brought a coat, and it turned out you did not need one.', clave: 'NEEDN’T', antes: 'You', despues: 'a coat.', aceptadas: ["needn't have brought"] },
       { frase: 'Photography is forbidden inside the church.', clave: 'ALLOWED', antes: 'You', despues: 'photographs inside the church.', aceptadas: ["aren't allowed to take", 'are not allowed to take'] },
@@ -801,7 +801,7 @@ window.WELL_PRACTICA = {
 
   't2-gram8': {
     tipo: 'transformacion', titulo: 'Consejo y reproche',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'It was wrong of you not to tell her.', clave: 'HAVE', antes: 'You', despues: 'her.', aceptadas: ['should have told', 'ought to have told'] },
       { frase: 'If I were you I would apologise now.', clave: 'BETTER', antes: 'You', despues: 'now.', aceptadas: ['had better apologise', "'d better apologise"] },
@@ -814,7 +814,7 @@ window.WELL_PRACTICA = {
 
   't2-gram9': {
     tipo: 'transformacion', titulo: 'Deducir: certeza y duda',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'I am certain they took the wrong turning.', clave: 'MUST', antes: 'They', despues: 'the wrong turning.', aceptadas: ['must have taken'] },
       { frase: 'There is no way she said that.', clave: 'HAVE', antes: 'She', despues: 'that.', aceptadas: ["can't have said", 'cannot have said'] },
@@ -827,7 +827,7 @@ window.WELL_PRACTICA = {
 
   't2-gram10': {
     tipo: 'transformacion', titulo: 'Pasivas · segunda vuelta',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'They are still counting the votes.', clave: 'BEING', antes: 'The votes', despues: 'counted.', aceptadas: ['are still being'] },
       { frase: 'People think the painting is a forgery.', clave: 'THOUGHT', antes: 'The painting', despues: 'a forgery.', aceptadas: ['is thought to be'] },
@@ -840,7 +840,7 @@ window.WELL_PRACTICA = {
 
   't2-gram11': {
     tipo: 'transformacion', titulo: 'Encargar y que te lo hagan',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'A dentist checks my teeth twice a year.', clave: 'HAVE', antes: 'I', despues: 'twice a year.', aceptadas: ['have my teeth checked'] },
       { frase: 'Someone broke into their flat last month.', clave: 'HAD', antes: 'They', despues: 'last month.', aceptadas: ['had their flat broken into'] },
@@ -853,7 +853,7 @@ window.WELL_PRACTICA = {
 
   't2-gram12': {
     tipo: 'transformacion', titulo: 'Condicionales · mezcladas',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'I did not save the file, so it is gone.', clave: 'HAD', antes: 'The file would still be here if I', despues: 'it.', aceptadas: ['had saved'] },
       { frase: 'She is not qualified, so they did not hire her.', clave: 'WERE', antes: 'If she', despues: ', they would have hired her.', aceptadas: ['were qualified'] },
@@ -866,7 +866,7 @@ window.WELL_PRACTICA = {
 
   't2-gram13': {
     tipo: 'transformacion', titulo: 'Deseos y arrepentimientos',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'I am sorry I did not accept the offer.', clave: 'WISH', antes: 'I', despues: 'the offer.', aceptadas: ['wish I had accepted'] },
       { frase: 'It is a shame the shop is shut.', clave: 'ONLY', antes: 'If', despues: 'open.', aceptadas: ['only the shop were', 'only the shop was'] },
@@ -879,7 +879,7 @@ window.WELL_PRACTICA = {
 
   't2-gram14': {
     tipo: 'transformacion', titulo: 'Relativo y consecuencia',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'The film was so long that we left early.', clave: 'SUCH', antes: 'It was', despues: 'that we left early.', aceptadas: ['such a long film'] },
       { frase: 'The house had a garden, and we bought it for that.', clave: 'WHOSE', antes: 'We bought the house', despues: 'us.', aceptadas: ['whose garden sold it to'] },
@@ -892,7 +892,7 @@ window.WELL_PRACTICA = {
 
   't2-gram15': {
     tipo: 'transformacion', titulo: 'Estilo indirecto · segunda vuelta',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: '"You broke it on purpose," she said to him.', clave: 'ACCUSED', antes: 'She', despues: 'it on purpose.', aceptadas: ['accused him of breaking'] },
       { frase: '"I would not do that if I were you," he said.', clave: 'ADVISED', antes: 'He', despues: 'that.', aceptadas: ['advised me not to do', 'advised us not to do'] },
@@ -905,7 +905,7 @@ window.WELL_PRACTICA = {
 
   't2-gram16': {
     tipo: 'transformacion', titulo: 'Inversión y énfasis',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'We had hardly started when the power went off.', clave: 'HARDLY', antes: '', despues: 'started when the power went off.', aceptadas: ['hardly had we'] },
       { frase: 'I have rarely seen him so pleased.', clave: 'RARELY', antes: '', despues: 'him so pleased.', aceptadas: ['rarely have I seen'] },
@@ -922,7 +922,7 @@ window.WELL_PRACTICA = {
 
   't2-voc1': {
     tipo: 'caja', titulo: 'Preposiciones tras sustantivo',
-    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
     caja: ['about', 'for', 'in', 'of', 'on', 'over', 'to', 'with'],
     items: [
       { antes: 'There is no need', despues: 'alarm.', aceptadas: ['for'] },
@@ -936,7 +936,7 @@ window.WELL_PRACTICA = {
 
   't2-voc2': {
     tipo: 'caja', titulo: 'Phrasal verbs · dar y quitar',
-    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
     caja: ['away', 'back', 'down', 'in', 'off', 'out', 'up', 'with'],
     items: [
       { antes: 'She gave', despues: 'most of her books before moving.', aceptadas: ['away'] },
@@ -950,7 +950,7 @@ window.WELL_PRACTICA = {
 
   't2-voc3': {
     tipo: 'caja', titulo: 'Adjetivos y su preposición',
-    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
     caja: ['about', 'at', 'from', 'in', 'of', 'on', 'to', 'with'],
     items: [
       { antes: 'He is hopeless', despues: 'directions.', aceptadas: ['at'] },
@@ -964,7 +964,7 @@ window.WELL_PRACTICA = {
 
   't2-voc4': {
     tipo: 'caja', titulo: 'Expresiones con partes del cuerpo',
-    instruccion: 'Completa cada expresión con una palabra de la caja. Hay más palabras de las que necesitas.',
+    instruccion: 'Complete each expression with a word from the box. There are more words than you need.',
     caja: ['arm', 'eye', 'foot', 'hand', 'head', 'heart', 'neck', 'shoulder'],
     items: [
       { antes: 'I did not see', despues: 'to eye with him about it.', aceptadas: ['eye'] },
@@ -978,7 +978,7 @@ window.WELL_PRACTICA = {
 
   't2-voc5': {
     tipo: 'cloze', titulo: 'Open cloze · el silencio caro',
-    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    instruccion: 'Write <b>one word</b> in each gap.',
     texto: [
       'Quiet, it turns out, has become a luxury good. Hotels advertise it, headphones promise it, and estate agents put it in the description whether or {1} it is true. What was once simply the absence of something is now sold {2} a feature.',
       'This would be merely amusing {3} it were not so unevenly distributed. The people most exposed to noise are, almost without exception, the ones least able to pay to escape it: flats beside ring roads, houses under flight paths. Nobody planned this, which is precisely the problem. Had anyone been asked to design it {4} purpose, they would have refused. In the {5} of a decision, the market simply arranged things the way markets do, and we are left calling the result unfortunate {6} than unjust.'
@@ -991,7 +991,7 @@ window.WELL_PRACTICA = {
 
   't2-voc6': {
     tipo: 'cloze', titulo: 'Open cloze · aprender un oficio',
-    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    instruccion: 'Write <b>one word</b> in each gap.',
     texto: [
       'The apprenticeship has been declared dead so many times that its survival has stopped being news. It persists because {1} does something no classroom manages: it puts the learner next to somebody who is actually doing the work, and lets them be useless for a while without anyone minding.',
       'Critics point {2} that the system was never as good as nostalgia suggests, and they are right. Plenty of apprentices spent three years sweeping floors. But the answer to a badly run apprenticeship is a better one, {3} a lecture theatre. What the classroom cannot easily teach is judgement, and judgement is {4} up out of small decisions made in front of somebody who will say when you are wrong. That takes time, and time is the one thing {5} which there is no substitute, {6} matter how the course is designed.'
@@ -1004,7 +1004,7 @@ window.WELL_PRACTICA = {
 
   't2-voc7': {
     tipo: 'formacion', titulo: 'Word formation · del verbo al nombre',
-    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
     items: [
       { antes: 'The', despues: 'of the new wing took two years.', raiz: 'CONSTRUCT', aceptadas: ['construction'] },
       { antes: 'Her', despues: 'to the project was never in doubt.', raiz: 'COMMIT', aceptadas: ['commitment'] },
@@ -1017,7 +1017,7 @@ window.WELL_PRACTICA = {
 
   't2-voc8': {
     tipo: 'formacion', titulo: 'Word formation · adjetivos difíciles',
-    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
     items: [
       { antes: 'The instructions were almost', despues: 'to follow.', raiz: 'POSSIBLE', aceptadas: ['impossible'] },
       { antes: 'She gave a', despues: 'account of what happened.', raiz: 'CONVINCE', aceptadas: ['convincing'] },
@@ -1030,7 +1030,7 @@ window.WELL_PRACTICA = {
 
   't2-voc9': {
     tipo: 'caja', titulo: 'Verbos con preposición fija',
-    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
     caja: ['at', 'for', 'from', 'in', 'of', 'on', 'to', 'with'],
     items: [
       { antes: 'Nobody objected', despues: 'the change of date.', aceptadas: ['to'] },
@@ -1044,7 +1044,7 @@ window.WELL_PRACTICA = {
 
   't2-voc10': {
     tipo: 'caja', titulo: 'Phrasal verbs · empezar y terminar',
-    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
     caja: ['ahead', 'along', 'down', 'off', 'out', 'through', 'up', 'with'],
     items: [
       { antes: 'The festival kicks', despues: 'on the fifteenth.', aceptadas: ['off'] },
@@ -1058,7 +1058,7 @@ window.WELL_PRACTICA = {
 
   't2-voc11': {
     tipo: 'caja', titulo: 'Colocaciones · verbo y sustantivo',
-    instruccion: 'Completa cada frase con un verbo de la caja. Hay más verbos de los que necesitas.',
+    instruccion: 'Complete each sentence with a verb from the box. There are more verbs than you need.',
     caja: ['break', 'catch', 'come', 'keep', 'lose', 'make', 'meet', 'set'],
     items: [
       { antes: 'It is hard to', despues: 'track of everyone these days.', aceptadas: ['keep'] },
@@ -1072,7 +1072,7 @@ window.WELL_PRACTICA = {
 
   't2-voc12': {
     tipo: 'caja', titulo: 'Expresiones con el tiempo',
-    instruccion: 'Completa cada expresión con una palabra de la caja. Hay más palabras de las que necesitas.',
+    instruccion: 'Complete each expression with a word from the box. There are more words than you need.',
     caja: ['clock', 'hand', 'moment', 'run', 'spur', 'time', 'while', 'word'],
     items: [
       { antes: 'We booked it on the', despues: 'of the moment.', aceptadas: ['spur'] },
@@ -1086,7 +1086,7 @@ window.WELL_PRACTICA = {
 
   't2-voc13': {
     tipo: 'cloze', titulo: 'Open cloze · el precio de lo gratis',
-    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    instruccion: 'Write <b>one word</b> in each gap.',
     texto: [
       'Nothing about a free service is free; the question is only who pays and {1} what. For two decades the answer was advertising, and for two decades most people decided they could live {2} that. What has changed is not the arrangement but its scale: what began as a way of guessing which advert to show has turned {3} an industry that knows a great deal more about you than your closest friends.',
       'It is tempting to blame the users for accepting it, and there is something in that. But the choice, as presented, was never much of {4} choice: agree, or do without the thing everyone else is using. Regulators have started to notice, {5} the pace is glacial and the companies have far better lawyers. Whether anything comes {6} it is, at this stage, anybody’s guess.'
@@ -1099,7 +1099,7 @@ window.WELL_PRACTICA = {
 
   't2-voc14': {
     tipo: 'cloze', titulo: 'Open cloze · volver a un sitio',
-    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    instruccion: 'Write <b>one word</b> in each gap.',
     texto: [
       'Returning to a place you knew well as a child is an experiment nobody should run twice. The street is narrower than it {1} to be, the hill is not a hill, and the shop that seemed enormous turns {2} to be the size of a kitchen. None of this is surprising, and all of it is unsettling.',
       'What catches people {3} guard is not the change but the absence of it. A town that has been carefully preserved is somehow harder to bear {4} one that has been rebuilt, because it insists that nothing has happened while you were away. You stand in front of a door that has not been repainted {5} 1994 and understand, more clearly than you would like, that the thing which moved on was you. It is worth doing {6}, but do not expect comfort from it.'
@@ -1112,7 +1112,7 @@ window.WELL_PRACTICA = {
 
   't2-voc15': {
     tipo: 'formacion', titulo: 'Word formation · prefijos y matices',
-    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
     items: [
       { antes: 'The figures had been badly', despues: 'by the press.', raiz: 'INTERPRET', aceptadas: ['misinterpreted'] },
       { antes: 'The two systems are simply', despues: '.', raiz: 'COMPATIBLE', aceptadas: ['incompatible'] },
@@ -1125,7 +1125,7 @@ window.WELL_PRACTICA = {
 
   't2-voc16': {
     tipo: 'formacion', titulo: 'Word formation · adverbios',
-    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
     items: [
       { antes: 'The building was', despues: 'damaged in the storm.', raiz: 'SEVERE', aceptadas: ['severely'] },
       { antes: 'She answered', despues: ', which surprised nobody.', raiz: 'TRUTH', aceptadas: ['truthfully'] },
@@ -1145,10 +1145,10 @@ window.WELL_PRACTICA = {
 
   't1-lis1': {
     tipo: 'listening', parte: 1,
-    titulo: 'Listening · Parte 1',
-    instruccion: 'Escucharás tres extractos. Elige la mejor respuesta (A, B o C) para cada pregunta. <b>Se escucha dos veces</b>.',
+    titulo: 'Listening · Part 1',
+    instruccion: 'You will hear three different extracts. Choose the answer (A, B or C) which fits best according to what you hear. <b>You will hear the recording twice.</b>',
     audio: 'audio/t1-lis1.mp3', escuchas: 2,
-    contexto: 'Extracto 1: dos compañeros hablan de un informe. Extracto 2: una mujer cuenta un curso que ha empezado. Extracto 3: dos personas comentan un cambio en su estación.',
+    contexto: 'Extract 1: two colleagues discuss a report. Extract 2: a woman talks about a course she has started. Extract 3: two people discuss a change at their station.',
     items: [
       { pregunta: '1  What is the man’s main criticism of the report?',
         opciones: ['Its conclusions are not well supported.', 'It is too long for anyone to read.', 'It leaves out the methodology.'], correcta: 1 },
@@ -1167,10 +1167,10 @@ window.WELL_PRACTICA = {
 
   't1-lis3': {
     tipo: 'listening', parte: 3,
-    titulo: 'Listening · Parte 3',
-    instruccion: 'Escucharás una entrevista. Elige la mejor respuesta (A, B, C o D) para cada pregunta. <b>Se escucha dos veces</b>.',
+    titulo: 'Listening · Part 3',
+    instruccion: 'You will hear an interview. Choose the answer (A, B, C or D) which fits best according to what you hear. <b>You will hear the recording twice.</b>',
     audio: 'audio/t1-lis3.mp3', escuchas: 2,
-    contexto: 'Una periodista entrevista al doctor Alan Merrick, que investiga el sueño.',
+    contexto: 'A journalist interviews Doctor Alan Merrick, who studies sleep.',
     items: [
       { pregunta: '1  What is Dr Merrick’s objection to the "eight hours" advice?',
         opciones: ['The figure was arrived at unscientifically.',
@@ -1207,13 +1207,13 @@ window.WELL_PRACTICA = {
 
   't1-lis4': {
     tipo: 'listening', parte: 4,
-    titulo: 'Listening · Parte 4',
-    instruccion: 'Escucharás a cinco personas hablando de por qué dejaron su ciudad. <b>Tarea 1</b> (preguntas 1–5): elige el motivo. <b>Tarea 2</b> (preguntas 6–10): elige lo que dice ahora. Se escucha dos veces.',
+    titulo: 'Listening · Part 4',
+    instruccion: 'You will hear five short extracts in which people talk about leaving the city where they lived. While you listen you must complete both tasks. <b>You will hear the recording twice.</b>',
     audio: 'audio/t1-lis4.mp3', escuchas: 2,
     opcionesCortas: true,
-    contexto: 'Cinco personas cuentan por qué dejaron la ciudad en la que vivían. Cada tarea tiene su propia lista de ocho opciones.',
+    contexto: 'Each task has its own list of eight options.',
     listas: [
-      { titulo: 'Tarea 1 · ¿Por qué se fue cada persona?', opciones: [
+      { titulo: 'Task One · Why did each speaker leave?', opciones: [
         'the cost of living there',
         'an obligation to family',
         'a change in how they worked',
@@ -1223,7 +1223,7 @@ window.WELL_PRACTICA = {
         'pressure from friends who had left',
         'a search for a different kind of work'
       ] },
-      { titulo: 'Tarea 2 · ¿Qué dice ahora, mirando atrás?', opciones: [
+      { titulo: 'Task Two · What does each speaker say now, looking back?', opciones: [
         'they would make exactly the same choice again',
         'the change did not deliver what it promised',
         'the hard part was not the one they had prepared for',
@@ -1258,7 +1258,7 @@ window.WELL_PRACTICA = {
   't1-speak3': {
     tipo: 'speaking', parte: 3,
     titulo: 'Parte 3: decidir en voz alta',
-    instruccion: 'Habla durante <b>dos minutos</b>. Comenta las cinco opciones y llega a una conclusión, aunque sea provisional.',
+    instruccion: 'Speak for <b>two minutes</b>. Discuss all five options and reach a conclusion, even a provisional one.',
     segundos: 120,
     pregunta: 'A school has money for one improvement. How important is each of these, and which two would you choose?',
     puntos: [
@@ -1275,7 +1275,7 @@ window.WELL_PRACTICA = {
   't1-speak4': {
     tipo: 'speaking', parte: 4,
     titulo: 'Parte 4: opinar y justificar',
-    instruccion: 'Contesta a las tres preguntas seguidas, <b>dos minutos</b> en total. No hace falta tener razón: hace falta sostener lo que digas.',
+    instruccion: 'Answer the three questions one after the other, <b>two minutes</b> in total. You do not have to be right — you have to support what you say.',
     segundos: 120,
     pregunta: 'Questions about education and money.',
     puntos: [
@@ -1290,7 +1290,7 @@ window.WELL_PRACTICA = {
   't1-speak-repaso': {
     tipo: 'speaking', parte: 2,
     titulo: 'Repaso: un minuto sin parar',
-    instruccion: 'Habla durante <b>un minuto seguido</b>, sin pausas largas. Compara, no describas.',
+    instruccion: 'Speak for <b>one minute</b> without long pauses. Compare — do not simply describe.',
     segundos: 60,
     pregunta: 'Why might people be doing these things, and how might they be feeling?',
     puntos: [
@@ -1305,7 +1305,7 @@ window.WELL_PRACTICA = {
   /* Area 3 · The future */
   'g3-transf': {
     tipo: 'transformacion', titulo: 'Futuro · palabra clave',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'I have decided to sell the flat.', clave: 'GOING', antes: 'I', despues: 'the flat.',
         aceptadas: ['am going to sell', "'m going to sell"] },
@@ -1325,7 +1325,7 @@ window.WELL_PRACTICA = {
   /* Area 4 · Repaso de todos los tiempos */
   'g4-transf': {
     tipo: 'transformacion', titulo: 'Repaso de tiempos · palabra clave',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'She began teaching in 2010 and she still teaches.', clave: 'TAUGHT', antes: 'She', despues: 'since 2010.',
         aceptadas: ['has taught'] },
@@ -1345,7 +1345,7 @@ window.WELL_PRACTICA = {
   /* Area 5 · Used to / would */
   'g5-transf': {
     tipo: 'transformacion', titulo: 'Hábitos del pasado · palabra clave',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'When I was a child, we spent every August in Laredo.', clave: 'WOULD', antes: 'When I was a child, we', despues: 'every August in Laredo.',
         aceptadas: ['would spend'] },
@@ -1365,7 +1365,7 @@ window.WELL_PRACTICA = {
   /* Area 6 · To be / get used to */
   'g6-transf': {
     tipo: 'transformacion', titulo: 'Acostumbrarse · palabra clave',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'Getting up at five is normal for her now.', clave: 'USED', antes: 'She', despues: 'up at five.',
         aceptadas: ['is used to getting', "'s used to getting"] },
@@ -1385,7 +1385,7 @@ window.WELL_PRACTICA = {
   /* Area 7 y 8 · Modales de habilidad y obligacion */
   'g7-transf': {
     tipo: 'transformacion', titulo: 'Habilidad y obligación · palabra clave',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'She managed to finish the race despite the injury.', clave: 'ABLE', antes: 'She', despues: 'the race despite the injury.',
         aceptadas: ['was able to finish'] },
@@ -1405,7 +1405,7 @@ window.WELL_PRACTICA = {
   /* Area 9 · Ausencia de obligacion, que es donde se equivoca todo el mundo */
   'g8-transf': {
     tipo: 'transformacion', titulo: 'No hace falta · palabra clave',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'It is not necessary for you to come tomorrow.', clave: 'HAVE', antes: 'You', despues: 'tomorrow.',
         aceptadas: ["don't have to come", 'do not have to come'] },
@@ -1425,7 +1425,7 @@ window.WELL_PRACTICA = {
   /* Area 10 a 12 · Prohibicion, consejo, posibilidad y certeza */
   'g9-transf': {
     tipo: 'transformacion', titulo: 'Consejo y certeza · palabra clave',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'It was a mistake to lend him the car.', clave: 'HAVE', antes: 'You', despues: 'him the car.',
         aceptadas: ["shouldn't have lent", 'should not have lent'] },
@@ -1445,7 +1445,7 @@ window.WELL_PRACTICA = {
   /* Area 13 a 15 · Pasiva, pasiva impersonal y causativa */
   'g10-transf': {
     tipo: 'transformacion', titulo: 'Pasivas y causativa · palabra clave',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'Someone is repairing my bike at the moment.', clave: 'BEING', antes: 'My bike', despues: 'at the moment.',
         aceptadas: ['is being repaired', "'s being repaired"] },
@@ -1465,7 +1465,7 @@ window.WELL_PRACTICA = {
   /* Area 16 a 18 · Condicionales, otros conectores e inversion */
   'g11-transf': {
     tipo: 'transformacion', titulo: 'Condicionales · palabra clave',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'I did not know she was ill, so I did not call.', clave: 'HAD', antes: 'If I', despues: 'she was ill, I would have called.',
         aceptadas: ['had known'] },
@@ -1485,7 +1485,7 @@ window.WELL_PRACTICA = {
   /* Area 19 a 21 · Comparaciones, wishes y unreal past */
   'g12-transf': {
     tipo: 'transformacion', titulo: 'Deseos y comparación · palabra clave',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'I regret not studying music.', clave: 'WISH', antes: 'I', despues: 'music.',
         aceptadas: ['wish I had studied'] },
@@ -1505,7 +1505,7 @@ window.WELL_PRACTICA = {
   /* Area 22 a 24 · Relativo, so/such y estilo indirecto */
   'g13-transf': {
     tipo: 'transformacion', titulo: 'Estilo indirecto · palabra clave',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: '"I will call you on Sunday," she said.', clave: 'WOULD', antes: 'She said', despues: 'me on Sunday.',
         aceptadas: ['she would call'] },
@@ -1525,7 +1525,7 @@ window.WELL_PRACTICA = {
   /* Area 25 · Cuantificadores, linkers e inversion */
   'g14-transf': {
     tipo: 'transformacion', titulo: 'Inversión y conectores · palabra clave',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'I have never read a duller book.', clave: 'NEVER', antes: '', despues: 'a duller book.',
         aceptadas: ['never have I read'] },
@@ -1545,7 +1545,7 @@ window.WELL_PRACTICA = {
   /* Area 22 · Oraciones de relativo */
   'g15-transf': {
     tipo: 'transformacion', titulo: 'Oraciones de relativo · palabra clave',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'The woman lent me the book. She lives upstairs.', clave: 'WHO', antes: 'The woman', despues: 'lent me the book.',
         aceptadas: ['who lives upstairs'] },
@@ -1565,7 +1565,7 @@ window.WELL_PRACTICA = {
   /* Area 19 · Tipos de comparacion */
   'g16-transf': {
     tipo: 'transformacion', titulo: 'Comparaciones · palabra clave',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'The film was much worse than I expected.', clave: 'NEARLY', antes: 'The film was', despues: 'as I expected.',
         aceptadas: ['not nearly as good'] },
@@ -1585,7 +1585,7 @@ window.WELL_PRACTICA = {
   /* Vocabulario · open cloze (parte 2 del examen: una sola palabra, sin pistas) */
   'v3-cloze': {
     tipo: 'cloze', titulo: 'Open cloze · el trabajo de pie',
-    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    instruccion: 'Write <b>one word</b> in each gap.',
     texto: [
       'Standing desks were sold, at first, on a promise that has since {1} rather quiet: that sitting was killing us and standing would fix it. The claim was never quite as solid {2} it looked. What the research actually showed was that people who sit for very long periods are less healthy than those who move, which is not the same thing {3} all.',
       'That has not stopped the desks from selling. Nor {4} it made them useless. Offices that installed them report fewer complaints about back pain, though whether this is {5} to the desks themselves or to the fact that people finally started getting up is anyone’s guess. In the {6} run, the lesson may simply be that furniture cannot do the walking for you.'
@@ -1602,7 +1602,7 @@ window.WELL_PRACTICA = {
 
   'v4-cloze': {
     tipo: 'cloze', titulo: 'Open cloze · el ruido de la ciudad',
-    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    instruccion: 'Write <b>one word</b> in each gap.',
     texto: [
       'Noise is the pollutant nobody photographs. It leaves {1} trace on the landscape, and complaining about it sounds like a failure of character rather {2} a public health matter. Yet the evidence has been accumulating for decades, and it is no {3} possible to dismiss it as fussiness.',
       'Cities that have taken the problem {4} have found the solutions unglamorous: quieter road surfaces, lower speed limits, night-time restrictions on deliveries. None of these makes a mayor famous. But residents of the streets {5} question sleep better, and in the {6} of a cheap alternative, that will have to be enough.'
@@ -1620,7 +1620,7 @@ window.WELL_PRACTICA = {
   /* Vocabulario · word formation (parte 3: se da la raiz) */
   'v3-formacion': {
     tipo: 'formacion', titulo: 'Word formation · sustantivos y adjetivos',
-    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
     items: [
       { antes: 'The new procedure has improved', despues: 'across the whole department.', raiz: 'EFFICIENT', aceptadas: ['efficiency'] },
       { antes: 'Her argument was completely', despues: 'and nobody could fault it.', raiz: 'FAULT', aceptadas: ['faultless'] },
@@ -1633,7 +1633,7 @@ window.WELL_PRACTICA = {
 
   'v4-formacion': {
     tipo: 'formacion', titulo: 'Word formation · prefijos negativos',
-    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
     items: [
       { antes: 'The handwriting was almost', despues: 'after all those years.', raiz: 'LEGIBLE', aceptadas: ['illegible'] },
       { antes: 'It would be', despues: 'to travel without insurance.', raiz: 'WISE', aceptadas: ['unwise'] },
@@ -1647,7 +1647,7 @@ window.WELL_PRACTICA = {
   /* Vocabulario · cajas de palabras (phrasal verbs y preposiciones) */
   'v3-caja': {
     tipo: 'caja', titulo: 'Phrasal verbs · partículas',
-    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
     caja: ['away', 'down', 'in', 'off', 'on', 'out', 'over', 'up'],
     items: [
       { antes: 'The meeting was called', despues: 'at the last minute.', aceptadas: ['off'] },
@@ -1661,7 +1661,7 @@ window.WELL_PRACTICA = {
 
   'v4-caja': {
     tipo: 'caja', titulo: 'Preposiciones dependientes · adjetivos',
-    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
     caja: ['about', 'at', 'for', 'from', 'in', 'of', 'on', 'to', 'with'],
     items: [
       { antes: 'She is not remotely interested', despues: 'politics.', aceptadas: ['in'] },
@@ -1675,7 +1675,7 @@ window.WELL_PRACTICA = {
 
   'v5-caja': {
     tipo: 'caja', titulo: 'Preposiciones dependientes · verbos',
-    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
     caja: ['for', 'from', 'in', 'into', 'of', 'on', 'to', 'with'],
     items: [
       { antes: 'Nobody warned us', despues: 'the roadworks.', aceptadas: ['of'] },
@@ -1689,7 +1689,7 @@ window.WELL_PRACTICA = {
 
   'v6-caja': {
     tipo: 'caja', titulo: 'Expresiones hechas',
-    instruccion: 'Completa cada expresión con una palabra de la caja. Hay más palabras de las que necesitas.',
+    instruccion: 'Complete each expression with a word from the box. There are more words than you need.',
     caja: ['blue', 'clockwork', 'cold', 'edge', 'hands', 'nutshell', 'thumb', 'weather'],
     items: [
       { antes: 'She has been feeling under the', despues: 'since Monday.', aceptadas: ['weather'] },
@@ -1703,7 +1703,7 @@ window.WELL_PRACTICA = {
 
   'v7-caja': {
     tipo: 'caja', titulo: 'Colocaciones con verbos frecuentes',
-    instruccion: 'Completa cada frase con un verbo de la caja. Hay más verbos de los que necesitas.',
+    instruccion: 'Complete each sentence with a verb from the box. There are more verbs than you need.',
     caja: ['do', 'draw', 'give', 'make', 'pay', 'raise', 'reach', 'take'],
     items: [
       { antes: 'It took them all night to', despues: 'a decision.', aceptadas: ['reach', 'make'] },
@@ -1717,7 +1717,7 @@ window.WELL_PRACTICA = {
 
   'v8-caja': {
     tipo: 'caja', titulo: 'Phrasal verbs · segunda tanda',
-    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
     caja: ['along', 'back', 'forward', 'in', 'off', 'through', 'together', 'up'],
     items: [
       { antes: 'The council has put', despues: 'a new plan for the square.', aceptadas: ['forward'] },
@@ -1731,7 +1731,7 @@ window.WELL_PRACTICA = {
 
   'v5-cloze': {
     tipo: 'cloze', titulo: 'Open cloze · leer en papel',
-    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    instruccion: 'Write <b>one word</b> in each gap.',
     texto: [
       'Every few years someone announces that print is finished, and every few years it fails {1} die. The interesting question is not why paper survives but {2} it survives: readers who move between both formats report that they remember more of what they read on paper, and researchers have struggled to explain {3} away.',
       'One suggestion is that a physical book gives the reader a sense {4} where they are in the argument, something a screen flattens. Another is simply that screens invite interruption. Neither theory is settled, {5} both point in the same direction: the difference may have less to do {6} the paper than with the attention it happens to protect.'
@@ -1748,7 +1748,7 @@ window.WELL_PRACTICA = {
 
   'v6-cloze': {
     tipo: 'cloze', titulo: 'Open cloze · aprender de mayor',
-    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    instruccion: 'Write <b>one word</b> in each gap.',
     texto: [
       'It is often said that adults cannot learn a language properly, and like most things that are often said, it is half true. Adults are worse {1} accent and better at almost everything else. They read faster, they grasp grammar sooner, and they know what they are trying to say, {2} is more than can be said for a child.',
       'What adults lack is not capacity {3} time, and the honesty to be bad at something in public. A seven-year-old will happily say a sentence wrong forty times {4} lunch. A forty-year-old will rehearse it silently and then say {5} at all. Nobody has yet found a method that removes this problem; the best teachers simply arrange matters {6} that being wrong costs nothing.'
@@ -1765,7 +1765,7 @@ window.WELL_PRACTICA = {
 
   'v5-formacion': {
     tipo: 'formacion', titulo: 'Word formation · verbos y sustantivos',
-    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
     items: [
       { antes: 'The council refused to', despues: 'the decision despite the protests.', raiz: 'CONSIDER', aceptadas: ['reconsider'] },
       { antes: 'There has been a marked', despues: 'in air quality since 2020.', raiz: 'IMPROVE', aceptadas: ['improvement'] },
@@ -1778,7 +1778,7 @@ window.WELL_PRACTICA = {
 
   'v6-formacion': {
     tipo: 'formacion', titulo: 'Word formation · adverbios y adjetivos',
-    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
     items: [
       { antes: 'The scheme was', despues: 'expensive to run.', raiz: 'PROHIBIT', aceptadas: ['prohibitively'] },
       { antes: 'She answered', despues: ', as if the question bored her.', raiz: 'PATIENT', aceptadas: ['impatiently'] },
@@ -1800,7 +1800,7 @@ window.WELL_PRACTICA = {
   'g1-transf': {
     tipo: 'transformacion',
     titulo: 'Presentes · palabra clave',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'I started working here in 2019 and I am still here.',
         clave: 'BEEN', antes: 'I', despues: 'here since 2019.',
@@ -1827,7 +1827,7 @@ window.WELL_PRACTICA = {
   'g2-transf': {
     tipo: 'transformacion',
     titulo: 'Pasados · palabra clave',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'She finished the report and then went home.',
         clave: 'HAD', antes: 'She went home after she', despues: 'the report.',
@@ -1859,8 +1859,8 @@ window.WELL_PRACTICA = {
   't1-read5': {
     tipo: 'lectura',
     parte: 5,
-    titulo: 'Reading · Parte 5',
-    instruccion: 'Lee el texto y elige la mejor respuesta (A, B, C o D) para cada pregunta.',
+    titulo: 'Reading · Part 5',
+    instruccion: 'Read the text and choose the answer (A, B, C or D) which fits best according to the text.',
     tituloTexto: 'The trouble with remembering',
     texto: [
       'For most of the twentieth century, psychologists treated memory rather as a librarian treats a collection: things were filed away, occasionally mislaid, and retrieved more or less intact. That model has not survived contact with the evidence. Memory, it turns out, is less an archive than a workshop. Every time we recall something, we rebuild it — and the version we put back is subtly different from the one we took out.',
@@ -1921,8 +1921,8 @@ window.WELL_PRACTICA = {
   't1-read6': {
     tipo: 'lectura',
     parte: 6,
-    titulo: 'Reading · Parte 6',
-    instruccion: 'Cuatro especialistas escriben sobre la enseñanza de la programación en la escuela. Elige el texto (A, B, C o D) que responde a cada pregunta.',
+    titulo: 'Reading · Part 6',
+    instruccion: 'You will read four extracts in which specialists give their views on teaching programming at school. For each question, choose from the extracts A–D.',
     opcionesCortas: true,
     secciones: [
       { letra: 'A', titulo: 'Marisol Aguirre, professor of education',
@@ -1954,8 +1954,8 @@ window.WELL_PRACTICA = {
   't1-read7': {
     tipo: 'lectura',
     parte: 7,
-    titulo: 'Reading · Parte 7',
-    instruccion: 'Faltan seis párrafos del texto. Elige para cada hueco el párrafo que encaja (A–G). Hay uno que no va en ninguno.',
+    titulo: 'Reading · Part 7',
+    instruccion: 'Six paragraphs have been removed from the text. Choose from the paragraphs A–G the one which fits each gap. There is one extra paragraph which you do not need to use.',
     tituloTexto: 'The lighthouse keeper’s garden',
     texto: [
       'When Aileen Ross took the posting on Ardnamurchan in 1974, the handover notes ran to four pages and mentioned the garden only once, in a sentence she would remember for the rest of her life: "Nothing grows. Do not try."',
@@ -2000,8 +2000,8 @@ window.WELL_PRACTICA = {
   't1-read8': {
     tipo: 'lectura',
     parte: 8,
-    titulo: 'Reading · Parte 8',
-    instruccion: 'Seis personas cuentan cómo cambiaron de oficio pasados los cuarenta. Elige la persona (A–F) que corresponde a cada pregunta.',
+    titulo: 'Reading · Part 8',
+    instruccion: 'You will read an article in which six people describe changing career after the age of forty. For each question, choose from the people A–F.',
     opcionesCortas: true,
     secciones: [
       { letra: 'A', titulo: 'Rafa, from accountancy to bread',
@@ -2045,7 +2045,7 @@ window.WELL_PRACTICA = {
       "tipo": "listening",
       "parte": 2,
       "titulo": "Una cartógrafa",
-      "instruccion": "Vas a oír a una cartógrafa hablando de su trabajo. Completa cada frase con <b>una palabra o expresión corta</b>. Lo oirás <b>dos veces</b>.",
+      "instruccion": "You will hear a woman talking about her work as a cartographer. Complete the sentences with <b>a word or short phrase</b>. <b>You will hear the recording twice.</b>",
       "audio": "audio/t1-lis2.mp3",
       "escuchas": 2,
       "items": [
@@ -2062,7 +2062,7 @@ window.WELL_PRACTICA = {
     "v1-writing1": {
       "tipo": "writing",
       "titulo": "Essay: ¿merece la pena aprender idiomas?",
-      "instruccion": "Escribe entre <b>220 y 260 palabras</b>. Usa tus propias palabras: no copies frases del enunciado.",
+      "instruccion": "Write <b>220–260 words</b>. Use your own words: do not copy phrases from the task.",
       "minutos": 45,
       "palabras": [220, 260],
       "enunciado": "Your class has watched a documentary about language learning. You have made the notes below.",
@@ -2078,7 +2078,7 @@ window.WELL_PRACTICA = {
     "v1-writing2": {
       "tipo": "writing",
       "titulo": "Review: una app para aprender idiomas",
-      "instruccion": "Escribe entre <b>220 y 260 palabras</b>. Una review no es solo describir: hay que valorar y recomendar o no.",
+      "instruccion": "Write <b>220–260 words</b>. A review is not only description: you have to judge, and recommend or not.",
       "minutos": 45,
       "palabras": [220, 260],
       "enunciado": "An international website is looking for reviews of language-learning apps.",
@@ -2093,7 +2093,7 @@ window.WELL_PRACTICA = {
     "v1-speaking": {
       "tipo": "speaking",
       "titulo": "Long turn: aprender fuera de clase",
-      "instruccion": "Habla durante <b>un minuto seguido</b>. No hace falta contestar a todo: elige y compara.",
+      "instruccion": "Speak for <b>one minute</b> without stopping. You do not have to cover everything: choose and compare.",
       "segundos": 60,
       "pregunta": "Why might people choose these ways of learning a language, and how effective is each one?",
       "puntos": [
@@ -2107,7 +2107,7 @@ window.WELL_PRACTICA = {
     "v1-opcion": {
       "tipo": "opcion",
       "titulo": "Por qué recordamos las caras",
-      "instruccion": "Lee el texto y elige la mejor opción para cada hueco.",
+      "instruccion": "Read the text and decide which answer best fits each gap.",
       "texto": [
         "Almost everyone has {1} the experience of recognising a face in the street and being completely unable to {2} the person's name. This is not a sign of a poor memory; it is simply how the brain is {3} up.",
         "A face is a rich image that connects to dozens of other memories, {4} a name is an arbitrary label with nothing behind it. Researchers have long been {5} in this asymmetry.",
@@ -2127,7 +2127,7 @@ window.WELL_PRACTICA = {
     "v1-caja": {
       "tipo": "caja",
       "titulo": "Adjetivos y verbos con preposición",
-      "instruccion": "Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.",
+      "instruccion": "Complete each sentence with a word from the box. There are more words than you need.",
       "caja": [
         "about",
         "at",
@@ -2201,7 +2201,7 @@ window.WELL_PRACTICA = {
     "v1-cloze": {
       "tipo": "cloze",
       "titulo": "Aprender un idioma de adulto",
-      "instruccion": "Escribe <b>una sola palabra</b> en cada hueco.",
+      "instruccion": "Write <b>one word</b> in each gap.",
       "texto": [
         "Learning a language as an adult {1} often described as a race against time. In fact, research suggests {2} opposite: adults are usually better {3} understanding grammar than children, and they make faster progress in the early stages.",
         "{4} children have is time, and a complete lack of embarrassment. Adults, {5} the other hand, worry about making mistakes, and it is that worry, rather than their memory, that slows them {6}.",
@@ -2255,7 +2255,7 @@ window.WELL_PRACTICA = {
     "v1-formacion": {
       "tipo": "formacion",
       "titulo": "Sufijos y prefijos frecuentes",
-      "instruccion": "Usa la palabra de la derecha para formar la que encaja en el hueco.",
+      "instruccion": "Use the word given in capitals to form a word that fits in the gap.",
       "items": [
         {
           "antes": "The instructions were completely",
@@ -2326,7 +2326,7 @@ window.WELL_PRACTICA = {
     "v1-transf": {
       "tipo": "transformacion",
       "titulo": "Frases con palabra clave",
-      "instruccion": "Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.",
+      "instruccion": "Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.",
       "items": [
         {
           "frase": "It is five years since I last visited Bilbao.",
@@ -2389,7 +2389,7 @@ window.WELL_PRACTICA = {
     "v2-caja": {
       "tipo": "caja",
       "titulo": "Partículas de phrasal verbs",
-      "instruccion": "Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.",
+      "instruccion": "Complete each sentence with a word from the box. There are more words than you need.",
       "caja": [
         "away",
         "back",
@@ -2463,7 +2463,7 @@ window.WELL_PRACTICA = {
     "v2-cloze": {
       "tipo": "cloze",
       "titulo": "La memoria se entrena",
-      "instruccion": "Escribe <b>una sola palabra</b> en cada hueco.",
+      "instruccion": "Write <b>one word</b> in each gap.",
       "texto": [
         "Most people assume that a good memory is something you {1} born with. Trainers disagree. {2} to them, memory works like a muscle: the more you use it, the {3} it gets.",
         "The trick is not repeating a list over and {4} again, but connecting each new item {5} something you already know. {6} you do that, the information has somewhere to live.",
@@ -2520,7 +2520,7 @@ window.WELL_PRACTICA = {
     "v2-transf": {
       "tipo": "transformacion",
       "titulo": "Frases con palabra clave",
-      "instruccion": "Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.",
+      "instruccion": "Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.",
       "items": [
         {
           "frase": "\"I'm sorry I didn't call you,\" he said.",
@@ -2588,7 +2588,7 @@ window.WELL_PRACTICA = {
 
   't3-gram1': {
     tipo: 'transformacion', titulo: 'Presentes · tercera vuelta',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'Nobody has repaired that gate for years.', clave: 'BEEN', antes: 'That gate', despues: 'for years.', aceptadas: ["hasn't been repaired", 'has not been repaired'] },
       { frase: 'He keeps interrupting, and it is starting to irritate me.', clave: 'ALWAYS', antes: 'He', despues: ', which is starting to irritate me.', aceptadas: ['is always interrupting', "'s always interrupting"] },
@@ -2601,7 +2601,7 @@ window.WELL_PRACTICA = {
 
   't3-gram2': {
     tipo: 'transformacion', titulo: 'Pasados · tercera vuelta',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'He arrived, and the meeting had already begun.', clave: 'STARTED', antes: 'The meeting', despues: 'he arrived.', aceptadas: ['had already started when', 'had started before'] },
       { frase: 'I was cycling home when the storm broke.', clave: 'WAY', antes: 'I was on', despues: 'when the storm broke.', aceptadas: ['my way home'] },
@@ -2614,7 +2614,7 @@ window.WELL_PRACTICA = {
 
   't3-gram3': {
     tipo: 'transformacion', titulo: 'Futuro · tercera vuelta',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'The shop shuts in ten minutes, so we should hurry.', clave: 'POINT', antes: 'The shop is on', despues: ', so we should hurry.', aceptadas: ['the point of closing'] },
       { frase: 'They intend to publish the findings next spring.', clave: 'DUE', antes: 'The findings', despues: 'next spring.', aceptadas: ['are due to be published'] },
@@ -2627,7 +2627,7 @@ window.WELL_PRACTICA = {
 
   't3-gram4': {
     tipo: 'transformacion', titulo: 'Repaso de tiempos · tercera vuelta',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'I last spoke to her at the wedding.', clave: 'SINCE', antes: 'I have not', despues: 'the wedding.', aceptadas: ['spoken to her since'] },
       { frase: 'The kitchen is being painted at the moment.', clave: 'HAVING', antes: 'We', despues: 'at the moment.', aceptadas: ['are having the kitchen painted', "'re having the kitchen painted"] },
@@ -2640,7 +2640,7 @@ window.WELL_PRACTICA = {
 
   't3-gram5': {
     tipo: 'transformacion', titulo: 'Costumbres · tercera vuelta',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'Working from home no longer feels strange to me.', clave: 'USED', antes: 'I', despues: 'from home.', aceptadas: ['am used to working', "'m used to working"] },
       { frase: 'Every summer we drove to the same village.', clave: 'WOULD', antes: 'Every summer we', despues: 'to the same village.', aceptadas: ['would drive'] },
@@ -2653,7 +2653,7 @@ window.WELL_PRACTICA = {
 
   't3-gram6': {
     tipo: 'transformacion', titulo: 'Modales · poder y deber',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'Despite the fog, they landed safely.', clave: 'MANAGED', antes: 'Despite the fog, they', despues: 'safely.', aceptadas: ['managed to land'] },
       { frase: 'Passengers are obliged to keep their belts fastened.', clave: 'MUST', antes: 'Passengers', despues: 'their belts fastened.', aceptadas: ['must keep'] },
@@ -2666,7 +2666,7 @@ window.WELL_PRACTICA = {
 
   't3-gram7': {
     tipo: 'transformacion', titulo: 'Deducciones sobre el pasado',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'I am certain nobody told him.', clave: 'HAVE', antes: 'Nobody', despues: 'him.', aceptadas: ['can have told'] },
       { frase: 'The obvious explanation is that she left early.', clave: 'MUST', antes: 'She', despues: 'early.', aceptadas: ['must have left'] },
@@ -2679,7 +2679,7 @@ window.WELL_PRACTICA = {
 
   't3-gram8': {
     tipo: 'transformacion', titulo: 'Consejo y crítica',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'It was careless of them to leave it unlocked.', clave: 'HAVE', antes: 'They', despues: 'it unlocked.', aceptadas: ["shouldn't have left", 'should not have left'] },
       { frase: 'The sensible thing would be to ask first.', clave: 'BETTER', antes: 'You', despues: 'first.', aceptadas: ['had better ask', "'d better ask"] },
@@ -2692,7 +2692,7 @@ window.WELL_PRACTICA = {
 
   't3-gram9': {
     tipo: 'transformacion', titulo: 'Voz pasiva · tercera vuelta',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'Someone will meet you at the airport.', clave: 'MET', antes: 'You', despues: 'at the airport.', aceptadas: ['will be met'] },
       { frase: 'They are still investigating the cause.', clave: 'BEING', antes: 'The cause', despues: 'investigated.', aceptadas: ['is still being'] },
@@ -2705,7 +2705,7 @@ window.WELL_PRACTICA = {
 
   't3-gram10': {
     tipo: 'transformacion', titulo: 'Pasivas impersonales',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'People say the house is haunted.', clave: 'SAID', antes: 'The house', despues: 'haunted.', aceptadas: ['is said to be'] },
       { frase: 'Everyone believes he left the country.', clave: 'BELIEVED', antes: 'He', despues: 'the country.', aceptadas: ['is believed to have left'] },
@@ -2718,7 +2718,7 @@ window.WELL_PRACTICA = {
 
   't3-gram11': {
     tipo: 'transformacion', titulo: 'Causativa · que te lo hagan',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'A mechanic services my car every autumn.', clave: 'HAVE', antes: 'I', despues: 'every autumn.', aceptadas: ['have my car serviced'] },
       { frase: 'Someone stole her bike last week.', clave: 'HAD', antes: 'She', despues: 'last week.', aceptadas: ['had her bike stolen'] },
@@ -2731,7 +2731,7 @@ window.WELL_PRACTICA = {
 
   't3-gram12': {
     tipo: 'transformacion', titulo: 'Condicionales · los tres tipos y las mezclas',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'I did not book early, so the flight cost a fortune.', clave: 'HAD', antes: 'If I', despues: ', the flight would have been cheaper.', aceptadas: ['had booked early'] },
       { frase: 'She is not here, so she cannot sign it.', clave: 'WERE', antes: 'If she', despues: ', she could sign it.', aceptadas: ['were here'] },
@@ -2744,7 +2744,7 @@ window.WELL_PRACTICA = {
 
   't3-gram13': {
     tipo: 'transformacion', titulo: 'Condicionales sin <i>if</i>',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'If I had known about the strike, I would have driven.', clave: 'HAD', antes: 'I would have driven', despues: 'about the strike.', aceptadas: ['had I known'] },
       { frase: 'You can borrow it if you return it by Friday.', clave: 'LONG', antes: 'You can borrow it', despues: 'you return it by Friday.', aceptadas: ['as long as'] },
@@ -2757,7 +2757,7 @@ window.WELL_PRACTICA = {
 
   't3-gram14': {
     tipo: 'transformacion', titulo: 'Deseos y lamentos',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'I regret not studying languages at school.', clave: 'WISH', antes: 'I', despues: 'languages at school.', aceptadas: ['wish I had studied'] },
       { frase: 'It is a pity you cannot come.', clave: 'ONLY', antes: 'If', despues: 'come.', aceptadas: ['only you could'] },
@@ -2770,7 +2770,7 @@ window.WELL_PRACTICA = {
 
   't3-gram15': {
     tipo: 'transformacion', titulo: 'Relativo, comparación y <i>so / such</i>',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'The film was so long that we left early.', clave: 'SUCH', antes: 'It was', despues: 'that we left early.', aceptadas: ['such a long film'] },
       { frase: 'The queue was very long, so we gave up.', clave: 'SO', antes: 'The queue was', despues: 'we gave up.', aceptadas: ['so long that'] },
@@ -2783,7 +2783,7 @@ window.WELL_PRACTICA = {
 
   't3-gram16': {
     tipo: 'transformacion', titulo: 'Estilo indirecto e inversión enfática',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: '"You broke the window," said the caretaker.', clave: 'ACCUSED', antes: 'The caretaker', despues: 'the window.', aceptadas: ['accused me of breaking'] },
       { frase: '"I will pay for the damage," she said.', clave: 'OFFERED', antes: 'She', despues: 'for the damage.', aceptadas: ['offered to pay'] },
@@ -2799,7 +2799,7 @@ window.WELL_PRACTICA = {
 
   't3-voc1': {
     tipo: 'caja', titulo: 'Preposiciones tras sustantivo · tercera vuelta',
-    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
     caja: ['against', 'between', 'for', 'from', 'in', 'of', 'on', 'to'],
     items: [
       { antes: 'There is a growing demand', despues: 'shorter contracts.', aceptadas: ['for'] },
@@ -2813,7 +2813,7 @@ window.WELL_PRACTICA = {
 
   't3-voc2': {
     tipo: 'caja', titulo: 'Phrasal verbs · seguir y abandonar',
-    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
     caja: ['back', 'down', 'into', 'off', 'on', 'out', 'through', 'up'],
     items: [
       { antes: 'She refused to back', despues: 'despite the pressure.', aceptadas: ['down'] },
@@ -2827,7 +2827,7 @@ window.WELL_PRACTICA = {
 
   't3-voc3': {
     tipo: 'caja', titulo: 'Adjetivos y su preposición · tercera vuelta',
-    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
     caja: ['about', 'at', 'for', 'from', 'in', 'of', 'to', 'with'],
     items: [
       { antes: 'The town is renowned', despues: 'its cheese.', aceptadas: ['for'] },
@@ -2841,7 +2841,7 @@ window.WELL_PRACTICA = {
 
   't3-voc4': {
     tipo: 'caja', titulo: 'Expresiones hechas · apuros y oficio',
-    instruccion: 'Completa cada expresión con una palabra de la caja. Hay más palabras de las que necesitas.',
+    instruccion: 'Complete each expression with a word from the box. There are more words than you need.',
     caja: ['deep', 'ends', 'hand', 'ropes', 'shoestring', 'strings', 'track', 'water'],
     items: [
       { antes: 'They ran the whole festival on a', despues: '.', aceptadas: ['shoestring'] },
@@ -2855,7 +2855,7 @@ window.WELL_PRACTICA = {
 
   't3-voc5': {
     tipo: 'cloze', titulo: 'Open cloze · perderse',
-    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    instruccion: 'Write <b>one word</b> in each gap.',
     texto: [
       'Getting lost has quietly become difficult. A generation ago it required no effort {1} all: you set off, misread a sign and spent an hour discovering a village nobody had recommended. Now the phone in your pocket will not permit it, and something has gone {2} with the inconvenience.',
       'This is not an argument {3} maps, which are among the finest things anyone has made. It is an argument about attention. A route you have been told, turn {4} turn, is a route you will not remember, because remembering it was never asked of you. The old way was slower and occasionally humiliating, but it left a picture in your head that no amount {5} zooming can reproduce. Whether that matters is a fair question, and one worth asking before the last of us who can read a paper map {6} out.'
@@ -2868,7 +2868,7 @@ window.WELL_PRACTICA = {
 
   't3-voc6': {
     tipo: 'cloze', titulo: 'Open cloze · ser malo en algo',
-    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    instruccion: 'Write <b>one word</b> in each gap.',
     texto: [
       'There is a particular kind of courage in being visibly bad at something after the age of thirty. Children are incompetent at almost everything and do not appear to mind, whereas adults have learned that incompetence is embarrassing and so restrict {1} to what they already do well. The result is a life that gets steadily narrower {2} it gets more comfortable.',
       'The obvious reply is that time is short and one should play to your strengths, and there is something {3} that. But the argument proves too much. Taken seriously it would have you abandon every activity at the exact {4} where it stops being flattering, which is usually the moment before it starts being interesting. Nobody ever learned an instrument, a language {5} a trade without a long stretch of sounding foolish in front of somebody. That stretch is not the price of the skill. It {6}, in some important sense, the skill arriving.'
@@ -2881,7 +2881,7 @@ window.WELL_PRACTICA = {
 
   't3-voc7': {
     tipo: 'formacion', titulo: 'Word formation · nombres abstractos',
-    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
     items: [
       { antes: 'Her', despues: 'to detail is remarkable.', raiz: 'ATTEND', aceptadas: ['attention'] },
       { antes: 'The', despues: 'of the evidence was never questioned.', raiz: 'RELEVANT', aceptadas: ['relevance'] },
@@ -2894,7 +2894,7 @@ window.WELL_PRACTICA = {
 
   't3-voc8': {
     tipo: 'formacion', titulo: 'Word formation · verbos derivados',
-    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
     items: [
       { antes: 'The new rules will', despues: 'the process considerably.', raiz: 'SIMPLE', aceptadas: ['simplify'] },
       { antes: 'They had to', despues: 'the walls after the fire.', raiz: 'STRONG', aceptadas: ['strengthen'] },
@@ -2907,7 +2907,7 @@ window.WELL_PRACTICA = {
 
   't3-voc9': {
     tipo: 'caja', titulo: 'Verbos con preposición fija · tercera vuelta',
-    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
     caja: ['about', 'for', 'from', 'in', 'into', 'of', 'on', 'with'],
     items: [
       { antes: 'The book consists', despues: 'twelve short essays.', aceptadas: ['of'] },
@@ -2921,7 +2921,7 @@ window.WELL_PRACTICA = {
 
   't3-voc10': {
     tipo: 'caja', titulo: 'Phrasal verbs · aguantar y descubrir',
-    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
     caja: ['across', 'away', 'on', 'out', 'over', 'through', 'up', 'with'],
     items: [
       { antes: 'He made the whole story', despues: '.', aceptadas: ['up'] },
@@ -2935,7 +2935,7 @@ window.WELL_PRACTICA = {
 
   't3-voc11': {
     tipo: 'caja', titulo: 'Colocaciones · verbo y sustantivo · tercera vuelta',
-    instruccion: 'Completa cada frase con un verbo de la caja. Hay más verbos de los que necesitas.',
+    instruccion: 'Complete each sentence with a verb from the box. There are more verbs than you need.',
     caja: ['draw', 'give', 'hold', 'pay', 'raise', 'run', 'take', 'throw'],
     items: [
       { antes: 'They refused to', despues: 'attention to the mistake.', aceptadas: ['draw'] },
@@ -2949,7 +2949,7 @@ window.WELL_PRACTICA = {
 
   't3-voc12': {
     tipo: 'caja', titulo: 'Expresiones con colores y elementos',
-    instruccion: 'Completa cada expresión con una palabra de la caja. Hay más palabras de las que necesitas.',
+    instruccion: 'Complete each expression with a word from the box. There are more words than you need.',
     caja: ['blue', 'cold', 'fire', 'green', 'ice', 'red', 'thin', 'water'],
     items: [
       { antes: 'The letter arrived completely out of the', despues: '.', aceptadas: ['blue'] },
@@ -2963,7 +2963,7 @@ window.WELL_PRACTICA = {
 
   't3-voc13': {
     tipo: 'cloze', titulo: 'Open cloze · dar consejos',
-    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    instruccion: 'Write <b>one word</b> in each gap.',
     texto: [
       'Advice is the one gift people give freely and receive badly. Ask ten friends what you should do and you will get eleven answers, none of {1} you will act on, and all of which you will remember when the thing goes wrong. This is not ingratitude. It is that advice arrives stripped of the {2} thing that would make it useful: the situation it came from.',
       'What people actually want, and rarely say, is permission. They have already decided; what they lack is somebody to agree out loud so that the decision stops being theirs {3}. Anyone who has ever asked whether to hand in their notice knows the feeling. The useful friend, {4} rare, is the one who notices this and asks a question instead of delivering a verdict. It costs more effort and earns less credit, {5} it is the only version that survives contact with the morning. In the {6} run, being listened to changes more minds than being told.'
@@ -2976,7 +2976,7 @@ window.WELL_PRACTICA = {
 
   't3-voc14': {
     tipo: 'cloze', titulo: 'Open cloze · pueblo o ciudad',
-    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    instruccion: 'Write <b>one word</b> in each gap.',
     texto: [
       'Small towns are praised by people who have just left them and defended by people who have never lived in one. The truth sits somewhere less quotable. What a small town gives you is not peace, {1} is often in short supply, but consequence: you will meet again everybody you were ever rude to, and this turns out to be a more effective form of civility {2} any amount of legislation.',
       'The cost is the same coin turned {3}. Being known is hard to distinguish from being watched, and the town that will notice you are ill is the town that noticed who you left the party with. Cities solve this by not caring, and charge {4} the privilege in rent and in loneliness. Neither arrangement is better in the abstract; each suits a different decade of a life, which is {5} so many people move twice and end up, {6} their own surprise, back where they started.'
@@ -2989,7 +2989,7 @@ window.WELL_PRACTICA = {
 
   't3-voc15': {
     tipo: 'formacion', titulo: 'Word formation · personas y procesos',
-    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
     items: [
       { antes: 'The', despues: 'of the scheme has been widely criticised.', raiz: 'ADMINISTER', aceptadas: ['administration'] },
       { antes: 'She trained as an', despues: 'before switching to law.', raiz: 'ACCOUNT', aceptadas: ['accountant'] },
@@ -3002,7 +3002,7 @@ window.WELL_PRACTICA = {
 
   't3-voc16': {
     tipo: 'formacion', titulo: 'Word formation · adjetivos en negativo',
-    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
     items: [
       { antes: 'The instructions were hopelessly', despues: '.', raiz: 'ADEQUATE', aceptadas: ['inadequate'] },
       { antes: 'Her reasoning was entirely', despues: '.', raiz: 'LOGIC', aceptadas: ['illogical'] },
@@ -3017,8 +3017,8 @@ window.WELL_PRACTICA = {
   /* ===================== TEST 3 · USE OF ENGLISH ===================== */
 
   't3-use1': {
-    tipo: 'opcion', parte: 1, titulo: 'Use of English · Parte 1',
-    instruccion: 'Elige la palabra que mejor encaja en cada hueco.',
+    tipo: 'opcion', parte: 1, titulo: 'Use of English · Part 1',
+    instruccion: 'Decide which answer best fits each gap.',
     texto: [
       'Repair has become fashionable again, which is a strange fate for something that was, within living memory, simply what you {1} when a thing broke. Councils now run repair cafés; manufacturers, under pressure, have begun, grudgingly, to {2} spare parts available again.',
       'The enthusiasm is easy to {3} at. It arrives thirty years late and it is, for now, a hobby rather than an economy: it takes a Saturday morning to mend a kettle that costs eleven pounds. But the objection misses the {4}. What the repair café restores is not the kettle. It is the assumption that the inside of an object is knowable, and that assumption has been quietly eroded by a generation of things sealed with glue.',
@@ -3037,8 +3037,8 @@ window.WELL_PRACTICA = {
   },
 
   't3-use2a': {
-    tipo: 'cloze', parte: 2, titulo: 'Use of English · Parte 2',
-    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    tipo: 'cloze', parte: 2, titulo: 'Use of English · Part 2',
+    instruccion: 'Write <b>one word</b> in each gap.',
     texto: [
       'Nobody is taught to cook any {1}; they are taught to follow recipes, which is a different skill and a much less useful one. A recipe tells you what to do with two hundred grams of something you happen to have bought. It is no help {2} all when the packet turns out to hold one hundred and fifty.',
       'The cook who improvises is not being creative, {3} the television programmes suggest. They are applying a small number of rules learned by repetition: fat carries flavour, salt goes in by stages, and {4} anything browns it tastes of more than it did. None of this is secret and none of it is hard, but it is almost never written {5}, because it does not photograph well and cannot be sold as a book.',
@@ -3052,8 +3052,8 @@ window.WELL_PRACTICA = {
   },
 
   't3-use2b': {
-    tipo: 'cloze', parte: 2, titulo: 'Use of English · Parte 2',
-    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    tipo: 'cloze', parte: 2, titulo: 'Use of English · Part 2',
+    instruccion: 'Write <b>one word</b> in each gap.',
     texto: [
       'A bookshelf is not a library; it is an argument you are having with yourself in public. Most of the books on it will never be opened {1}, and their owner knows this perfectly well.',
       'The usual explanation is vanity, and there is some truth {2} it. But vanity does not account {3} the paperbacks nobody would be impressed by, the ones with cracked spines that have moved house four times. Those are kept for a different reason: they are evidence. To throw {4} the book is to concede that the person who read it at nineteen has gone, {5} is a larger admission than most of us want to make on a Sunday afternoon.',
@@ -3067,8 +3067,8 @@ window.WELL_PRACTICA = {
   },
 
   't3-use3': {
-    tipo: 'formacion', parte: 3, titulo: 'Use of English · Parte 3',
-    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    tipo: 'formacion', parte: 3, titulo: 'Use of English · Part 3',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
     items: [
       { antes: 'The committee published its', despues: 'in June.', raiz: 'RECOMMEND', aceptadas: ['recommendation', 'recommendations'] },
       { antes: 'She spoke with unusual', despues: 'for someone so young.', raiz: 'ASSURE', aceptadas: ['assurance'] },
@@ -3082,8 +3082,8 @@ window.WELL_PRACTICA = {
   },
 
   't3-use4a': {
-    tipo: 'transformacion', parte: 4, titulo: 'Use of English · Parte 4',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    tipo: 'transformacion', parte: 4, titulo: 'Use of English · Part 4',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'I regret telling him.', clave: 'WISH', antes: 'I', despues: 'him.', aceptadas: ["wish I hadn't told", 'wish I had not told'] },
       { frase: 'Nobody expected the result.', clave: 'CAME', antes: 'The result', despues: 'to everybody.', aceptadas: ['came as a surprise'] },
@@ -3095,8 +3095,8 @@ window.WELL_PRACTICA = {
   },
 
   't3-use4b': {
-    tipo: 'transformacion', parte: 4, titulo: 'Use of English · Parte 4',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    tipo: 'transformacion', parte: 4, titulo: 'Use of English · Part 4',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'They say he is living abroad.', clave: 'SAID', antes: 'He', despues: 'abroad.', aceptadas: ['is said to be living'] },
       { frase: 'The last time I saw her was in 2019.', clave: 'SEEN', antes: 'I', despues: 'since 2019.', aceptadas: ["haven't seen her", 'have not seen her'] },
@@ -3111,8 +3111,8 @@ window.WELL_PRACTICA = {
   /* ===================== TEST 3 · READING ===================== */
 
   't3-read5': {
-    tipo: 'lectura', parte: 5, titulo: 'Reading · Parte 5',
-    instruccion: 'Lee el texto y elige la mejor respuesta (A, B, C o D) para cada pregunta.',
+    tipo: 'lectura', parte: 5, titulo: 'Reading · Part 5',
+    instruccion: 'Read the text and choose the answer (A, B, C or D) which fits best according to the text.',
     tituloTexto: 'The woman who keeps what you left behind',
     texto: [
       'The lost property office at Atxuri is not, as most people assume, in the station building. It is two floors below it, in a room that was once a coal store, and Nazaret Beitia has run it for nineteen years. On the morning I visit she is holding a viola and looking at it the way a vet looks at an animal somebody has left tied to a railing.',
@@ -3157,8 +3157,8 @@ window.WELL_PRACTICA = {
   },
 
   't3-read6': {
-    tipo: 'lectura', parte: 6, titulo: 'Reading · Parte 6',
-    instruccion: 'Cuatro especialistas escriben sobre la enseñanza de la escritura a mano. Elige el texto (A, B, C o D) que responde a cada pregunta.',
+    tipo: 'lectura', parte: 6, titulo: 'Reading · Part 6',
+    instruccion: 'You will read four extracts in which specialists give their views on teaching handwriting. For each question, choose from the extracts A–D.',
     opcionesCortas: true,
     secciones: [
       { letra: 'A', titulo: 'Marta Osorio, developmental neuroscientist',
@@ -3183,8 +3183,8 @@ window.WELL_PRACTICA = {
   },
 
   't3-read7': {
-    tipo: 'lectura', parte: 7, titulo: 'Reading · Parte 7',
-    instruccion: 'Faltan seis párrafos del texto. Elige para cada hueco el párrafo que encaja (A–G). Hay uno que no va en ninguno.',
+    tipo: 'lectura', parte: 7, titulo: 'Reading · Part 7',
+    instruccion: 'Six paragraphs have been removed from the text. Choose from the paragraphs A–G the one which fits each gap. There is one extra paragraph which you do not need to use.',
     tituloTexto: 'The man who counted the benches',
     opcionesCortas: true,
     texto: [
@@ -3222,8 +3222,8 @@ window.WELL_PRACTICA = {
   },
 
   't3-read8': {
-    tipo: 'lectura', parte: 8, titulo: 'Reading · Parte 8',
-    instruccion: 'Seis personas hablan de aprender un idioma de adultas. Elige la persona (A–F) que corresponde a cada pregunta.',
+    tipo: 'lectura', parte: 8, titulo: 'Reading · Part 8',
+    instruccion: 'You will read an article in which six people describe learning a language as an adult. For each question, choose from the people A–F.',
     opcionesCortas: true,
     secciones: [
       { letra: 'A', titulo: 'Bego, Portuguese at forty-five',
@@ -3258,10 +3258,10 @@ window.WELL_PRACTICA = {
      Audio provisional de espeak-ng. Se sustituye por voz real antes de cobrar. */
 
   't3-lis1': {
-    tipo: 'listening', parte: 1, titulo: 'Listening · Parte 1',
-    instruccion: 'Escucharás tres extractos. Elige la mejor respuesta (A, B o C) para cada pregunta. <b>Se escucha dos veces</b>.',
+    tipo: 'listening', parte: 1, titulo: 'Listening · Part 1',
+    instruccion: 'You will hear three different extracts. Choose the answer (A, B or C) which fits best according to what you hear. <b>You will hear the recording twice.</b>',
     audio: 'audio/t3-lis1.mp3', escuchas: 2,
-    contexto: 'Extracto 1: una mujer que ha terminado un curso de cocina. Extracto 2: una mujer que se ha mudado de la ciudad a un pueblo. Extracto 3: dos compañeros y una mudanza de oficina.',
+    contexto: 'Extract 1: a woman who has finished a cookery course. Extract 2: a woman who has moved from a city to a small town. Extract 3: two colleagues and an office move.',
     items: [
       { pregunta: '1  What does the woman say she could not do before the course?',
         opciones: ['Cook without written instructions in front of her.', 'Follow a recipe accurately.', 'Cook for more than a few people.'], correcta: 0 },
@@ -3279,8 +3279,8 @@ window.WELL_PRACTICA = {
   },
 
   't3-lis2': {
-    tipo: 'listening', parte: 2, titulo: 'Listening · Parte 2',
-    instruccion: 'Completa cada frase con <b>una o dos palabras</b> de lo que oigas. <b>Se escucha dos veces</b>.',
+    tipo: 'listening', parte: 2, titulo: 'Listening · Part 2',
+    instruccion: 'Complete the sentences with <b>a word or short phrase</b> from what you hear. <b>You will hear the recording twice.</b>',
     audio: 'audio/t3-lis2.mp3', escuchas: 2,
     items: [
       { antes: 'Gemma says that restoring neon is mostly a job about', despues: '.', aceptadas: ['glass'] },
@@ -3295,10 +3295,10 @@ window.WELL_PRACTICA = {
   },
 
   't3-lis3': {
-    tipo: 'listening', parte: 3, titulo: 'Listening · Parte 3',
-    instruccion: 'Escucharás una entrevista. Elige la mejor respuesta (A, B, C o D) para cada pregunta. <b>Se escucha dos veces</b>.',
+    tipo: 'listening', parte: 3, titulo: 'Listening · Part 3',
+    instruccion: 'You will hear an interview. Choose the answer (A, B, C or D) which fits best according to what you hear. <b>You will hear the recording twice.</b>',
     audio: 'audio/t3-lis3.mp3', escuchas: 2,
-    contexto: 'Un periodista entrevista a Ruth Callaghan, que dirige un archivo de cine amateur.',
+    contexto: 'A journalist interviews Ruth Callaghan, who runs an archive of amateur film.',
     items: [
       { pregunta: '1  What does Ruth say gives amateur film its value?',
         opciones: ['The skill of the people who shot it.', 'What appears behind the intended subject.', 'The affection with which it was made.', 'The rarity of surviving copies.'], correcta: 1 },
@@ -3316,13 +3316,13 @@ window.WELL_PRACTICA = {
   },
 
   't3-lis4': {
-    tipo: 'listening', parte: 4, titulo: 'Listening · Parte 4',
-    instruccion: 'Escucharás a cinco personas hablando de un cambio de oficio. <b>Tarea 1</b> (1–5): por qué cambiaron. <b>Tarea 2</b> (6–10): qué dicen ahora. Se escucha dos veces.',
+    tipo: 'listening', parte: 4, titulo: 'Listening · Part 4',
+    instruccion: 'You will hear five short extracts in which people talk about changing to a completely different kind of work. While you listen you must complete both tasks. <b>You will hear the recording twice.</b>',
     audio: 'audio/t3-lis4.mp3', escuchas: 2,
     opcionesCortas: true,
-    contexto: 'Cada tarea tiene su propia lista de ocho opciones.',
+    contexto: 'Each task has its own list of eight options.',
     listas: [
-      { titulo: 'Tarea 1 · ¿Por qué cambiaron?', opciones: [
+      { titulo: 'Task One · Why did each speaker change?', opciones: [
         'the only promotion on offer led somewhere they did not want',
         'a health problem took the decision out of their hands',
         'the work they had trained for had ceased to exist',
@@ -3332,7 +3332,7 @@ window.WELL_PRACTICA = {
         'the pay had fallen below what they could accept',
         'a colleague talked them into trying something else'
       ] },
-      { titulo: 'Tarea 2 · ¿Qué dicen ahora?', opciones: [
+      { titulo: 'Task Two · What does each speaker say about it now?', opciones: [
         'they recommend making the change as undramatic as possible',
         'they are still shedding a habit from the old job',
         'they miss the authority more than the work itself',
@@ -3362,7 +3362,7 @@ window.WELL_PRACTICA = {
 
   't3-speak1': {
     tipo: 'speaking', parte: 2, titulo: 'Long turn: dónde se estudia',
-    instruccion: 'Habla durante <b>un minuto seguido</b>. No hace falta contestar a todo: elige y compara.',
+    instruccion: 'Speak for <b>one minute</b> without stopping. You do not have to cover everything: choose and compare.',
     segundos: 60,
     pregunta: 'Why might people choose to study in these places, and what might be difficult about each?',
     puntos: ['a busy café in the middle of the afternoon', 'a silent university library', 'a kitchen table at home with the family around'],
@@ -3372,7 +3372,7 @@ window.WELL_PRACTICA = {
 
   't3-speak3': {
     tipo: 'speaking', parte: 3, titulo: 'Parte 3: decidir en voz alta',
-    instruccion: 'Habla durante <b>dos minutos</b>. Comenta las cinco opciones y llega a una conclusión.',
+    instruccion: 'Speak for <b>two minutes</b>. Discuss all five options and reach a conclusion.',
     segundos: 120,
     pregunta: 'A company wants its staff to keep learning. How useful is each of these, and which two would you choose?',
     puntos: ['paying for evening courses', 'an hour of protected study time each week', 'sending people to conferences', 'pairing new staff with experienced ones', 'a budget for books and subscriptions'],
@@ -3382,7 +3382,7 @@ window.WELL_PRACTICA = {
 
   't3-speak4': {
     tipo: 'speaking', parte: 4, titulo: 'Parte 4: opinar y justificar',
-    instruccion: 'Contesta a las tres preguntas seguidas, <b>dos minutos</b> en total.',
+    instruccion: 'Answer the three questions one after the other, <b>two minutes</b> in total.',
     segundos: 120,
     pregunta: 'Questions about work and learning.',
     puntos: [
@@ -3396,7 +3396,7 @@ window.WELL_PRACTICA = {
 
   't3-speakr': {
     tipo: 'speaking', parte: 2, titulo: 'Repaso: un minuto sin parar',
-    instruccion: 'Habla durante <b>un minuto seguido</b>, sin pausas largas. Compara, no describas.',
+    instruccion: 'Speak for <b>one minute</b> without long pauses. Compare — do not simply describe.',
     segundos: 60,
     pregunta: 'Why might these situations be uncomfortable, and how might the people be dealing with them?',
     puntos: ['being corrected in front of other people', 'asking a question everybody else seems to know the answer to', 'explaining your work to somebody who does it better'],
@@ -3406,7 +3406,7 @@ window.WELL_PRACTICA = {
 
   't3-write1': {
     tipo: 'writing', parte: 1, titulo: 'Essay',
-    instruccion: 'Escribe entre <b>220 y 260 palabras</b>. Es obligatorio: en el examen esta tarea no se elige.',
+    instruccion: 'Write <b>220–260 words</b>. This part is compulsory: in the exam you do not get to choose it.',
     minutos: 45, palabras: [220, 260],
     enunciado: 'Your class has discussed how adults can best keep learning after they finish formal education. Write an essay discussing two of the three approaches below and explaining which you think works better.',
     contexto: 'Approaches: formal courses with a qualification · learning on the job from colleagues · teaching yourself with books and the internet.',
@@ -3416,7 +3416,7 @@ window.WELL_PRACTICA = {
 
   't3-write2': {
     tipo: 'writing', parte: 2, titulo: 'A elegir: propuesta o reseña',
-    instruccion: 'Elige <b>una</b> de las dos y escribe entre <b>220 y 260 palabras</b>.',
+    instruccion: 'Choose <b>one</b> of the two tasks and write <b>220–260 words</b>.',
     minutos: 45, palabras: [220, 260],
     enunciado: 'Choose one of the following two tasks.',
     contexto: '1 · Your workplace has money for one improvement to how new staff are trained. Write a proposal describing the present situation, recommending a change and explaining what it would achieve.\n2 · A website collects reviews of places to study. Write a review of a library, café or study space you know, describing it and saying who it would and would not suit.',
@@ -3430,7 +3430,7 @@ window.WELL_PRACTICA = {
 
   't4-gram1': {
     tipo: 'transformacion', titulo: 'Presentes · cuarta vuelta',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'It is ages since I last went to the cinema.', clave: 'BEEN', antes: 'I', despues: 'to the cinema for ages.', aceptadas: ["haven't been", 'have not been'] },
       { frase: 'She is in the habit of checking everything twice.', clave: 'ALWAYS', antes: 'She', despues: 'everything twice.', aceptadas: ['is always checking', 'always checks'] },
@@ -3443,7 +3443,7 @@ window.WELL_PRACTICA = {
 
   't4-gram2': {
     tipo: 'transformacion', titulo: 'Pasados · cuarta vuelta',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'It was my first visit to Rome.', clave: 'NEVER', antes: 'I', despues: 'Rome before.', aceptadas: ['had never visited', 'had never been to'] },
       { frase: 'She was walking home when it happened.', clave: 'WAY', antes: 'It happened while she was', despues: 'home.', aceptadas: ['on her way'] },
@@ -3456,7 +3456,7 @@ window.WELL_PRACTICA = {
 
   't4-gram3': {
     tipo: 'transformacion', titulo: 'Futuro · cuarta vuelta',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'The train leaves at six tomorrow.', clave: 'DUE', antes: 'The train', despues: 'at six tomorrow.', aceptadas: ['is due to leave'] },
       { frase: 'I am sure they will refuse.', clave: 'BOUND', antes: 'They', despues: '.', aceptadas: ['are bound to refuse'] },
@@ -3469,7 +3469,7 @@ window.WELL_PRACTICA = {
 
   't4-gram4': {
     tipo: 'transformacion', titulo: 'Repaso de tiempos · cuarta vuelta',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'I have not been to the dentist for two years.', clave: 'LAST', antes: 'The', despues: 'to the dentist was two years ago.', aceptadas: ['last time I went'] },
       { frase: 'A builder is repairing the roof next week.', clave: 'BEING', antes: 'The roof', despues: 'next week.', aceptadas: ['is being repaired'] },
@@ -3482,7 +3482,7 @@ window.WELL_PRACTICA = {
 
   't4-gram5': {
     tipo: 'transformacion', titulo: 'Costumbres · cuarta vuelta',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'I found the noise strange at first but not any more.', clave: 'GOT', antes: 'I have', despues: 'the noise.', aceptadas: ['got used to'] },
       { frase: 'We often went there as children.', clave: 'WOULD', antes: 'As children we', despues: 'there.', aceptadas: ['would often go'] },
@@ -3495,7 +3495,7 @@ window.WELL_PRACTICA = {
 
   't4-gram6': {
     tipo: 'transformacion', titulo: 'Obligación y prohibición',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'It is compulsory to wear a helmet here.', clave: 'MUST', antes: 'Helmets', despues: 'here.', aceptadas: ['must be worn'] },
       { frase: 'Photography is forbidden in this room.', clave: 'ALLOWED', antes: 'You', despues: 'photographs in this room.', aceptadas: ["aren't allowed to take", 'are not allowed to take'] },
@@ -3508,7 +3508,7 @@ window.WELL_PRACTICA = {
 
   't4-gram7': {
     tipo: 'transformacion', titulo: 'Deducciones · cuarta vuelta',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'I am certain she has forgotten.', clave: 'MUST', antes: 'She', despues: '.', aceptadas: ['must have forgotten'] },
       { frase: 'It is impossible that they knew.', clave: 'HAVE', antes: 'They', despues: '.', aceptadas: ["can't have known", 'cannot have known'] },
@@ -3521,7 +3521,7 @@ window.WELL_PRACTICA = {
 
   't4-gram8': {
     tipo: 'transformacion', titulo: 'Consejo y reproche · cuarta vuelta',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'Signing it was a mistake.', clave: 'HAVE', antes: 'I', despues: 'it.', aceptadas: ["shouldn't have signed", 'should not have signed'] },
       { frase: 'Why did you not ask?', clave: 'OUGHT', antes: 'You', despues: '.', aceptadas: ['ought to have asked'] },
@@ -3534,7 +3534,7 @@ window.WELL_PRACTICA = {
 
   't4-gram9': {
     tipo: 'transformacion', titulo: 'Voz pasiva · cuarta vuelta',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'Someone has taken my umbrella.', clave: 'BEEN', antes: 'My umbrella', despues: '.', aceptadas: ['has been taken'] },
       { frase: 'They will announce the result on Monday.', clave: 'ANNOUNCED', antes: 'The result', despues: 'on Monday.', aceptadas: ['will be announced'] },
@@ -3547,7 +3547,7 @@ window.WELL_PRACTICA = {
 
   't4-gram10': {
     tipo: 'transformacion', titulo: 'Pasivas impersonales · cuarta vuelta',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'People believe the coin is Roman.', clave: 'BELIEVED', antes: 'The coin', despues: 'Roman.', aceptadas: ['is believed to be'] },
       { frase: 'They say she refused the offer.', clave: 'HAVE', antes: 'She is said', despues: 'the offer.', aceptadas: ['to have refused'] },
@@ -3560,7 +3560,7 @@ window.WELL_PRACTICA = {
 
   't4-gram11': {
     tipo: 'transformacion', titulo: 'Causativa · cuarta vuelta',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'A photographer is taking our picture tomorrow.', clave: 'HAVING', antes: 'We are', despues: 'tomorrow.', aceptadas: ['having our picture taken'] },
       { frase: 'Someone broke into their house last month.', clave: 'BROKEN', antes: 'They had their house', despues: 'last month.', aceptadas: ['broken into'] },
@@ -3573,7 +3573,7 @@ window.WELL_PRACTICA = {
 
   't4-gram12': {
     tipo: 'transformacion', titulo: 'Condicionales · cuarta vuelta',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'She did not revise, so she failed.', clave: 'HAD', antes: 'If she', despues: ', she would have passed.', aceptadas: ['had revised'] },
       { frase: 'I am not tall enough to reach it.', clave: 'WERE', antes: 'If I', despues: ', I could reach it.', aceptadas: ['were taller'] },
@@ -3586,7 +3586,7 @@ window.WELL_PRACTICA = {
 
   't4-gram13': {
     tipo: 'transformacion', titulo: 'Condicionales sin <i>if</i> · cuarta vuelta',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'If you need anything, ring the desk.', clave: 'SHOULD', antes: 'Ring the desk', despues: 'need anything.', aceptadas: ['should you'] },
       { frase: 'If they had asked, we would have said yes.', clave: 'ASKED', antes: 'Had', despues: ', we would have said yes.', aceptadas: ['they asked'] },
@@ -3599,7 +3599,7 @@ window.WELL_PRACTICA = {
 
   't4-gram14': {
     tipo: 'transformacion', titulo: 'Deseos y lamentos · cuarta vuelta',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'I am sorry I sold the piano.', clave: 'WISH', antes: 'I', despues: 'the piano.', aceptadas: ["wish I hadn't sold", 'wish I had not sold'] },
       { frase: 'It is a shame we cannot stay longer.', clave: 'ONLY', antes: 'If', despues: 'stay longer.', aceptadas: ['only we could'] },
@@ -3612,7 +3612,7 @@ window.WELL_PRACTICA = {
 
   't4-gram15': {
     tipo: 'transformacion', titulo: 'Relativo, comparación y <i>so / such</i> · cuarta vuelta',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'The queue was so slow that we left.', clave: 'SUCH', antes: 'It was', despues: 'that we left.', aceptadas: ['such a slow queue'] },
       { frase: 'The room was very cold, so nobody stayed.', clave: 'SO', antes: 'The room was', despues: 'nobody stayed.', aceptadas: ['so cold that'] },
@@ -3625,7 +3625,7 @@ window.WELL_PRACTICA = {
 
   't4-gram16': {
     tipo: 'transformacion', titulo: 'Estilo indirecto e inversión · cuarta vuelta',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: '"I did not take it," he said.', clave: 'DENIED', antes: 'He', despues: 'it.', aceptadas: ['denied taking'] },
       { frase: '"You should see a doctor," she told me.', clave: 'ADVISED', antes: 'She', despues: 'a doctor.', aceptadas: ['advised me to see'] },
@@ -3641,7 +3641,7 @@ window.WELL_PRACTICA = {
 
   't4-voc1': {
     tipo: 'caja', titulo: 'Preposiciones tras sustantivo · cuarta vuelta',
-    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
     caja: ['at', 'between', 'for', 'in', 'of', 'on', 'to', 'with'],
     items: [
       { antes: 'There is no substitute', despues: 'experience.', aceptadas: ['for'] },
@@ -3655,7 +3655,7 @@ window.WELL_PRACTICA = {
 
   't4-voc2': {
     tipo: 'caja', titulo: 'Phrasal verbs · con la gente',
-    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
     caja: ['along', 'down', 'in', 'into', 'off', 'on', 'out', 'up'],
     items: [
       { antes: 'They fell', despues: 'over money and have not spoken since.', aceptadas: ['out'] },
@@ -3669,7 +3669,7 @@ window.WELL_PRACTICA = {
 
   't4-voc3': {
     tipo: 'caja', titulo: 'Adjetivos y su preposición · cuarta vuelta',
-    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
     caja: ['about', 'at', 'for', 'from', 'of', 'on', 'to', 'with'],
     items: [
       { antes: 'She is notorious', despues: 'arriving late.', aceptadas: ['for'] },
@@ -3683,7 +3683,7 @@ window.WELL_PRACTICA = {
 
   't4-voc4': {
     tipo: 'caja', titulo: 'Expresiones hechas · avanzar y atascarse',
-    instruccion: 'Completa cada expresión con una palabra de la caja. Hay más palabras de las que necesitas.',
+    instruccion: 'Complete each expression with a word from the box. There are more words than you need.',
     caja: ['board', 'bridge', 'door', 'ground', 'home', 'line', 'road', 'wall'],
     items: [
       { antes: 'It is time to go back to the drawing', despues: '.', aceptadas: ['board'] },
@@ -3697,7 +3697,7 @@ window.WELL_PRACTICA = {
 
   't4-voc5': {
     tipo: 'cloze', titulo: 'Open cloze · el mismo camino',
-    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    instruccion: 'Write <b>one word</b> in each gap.',
     texto: [
       'Most people have a route they take without ever deciding to. It is rarely the shortest and almost never the one they would recommend to a visitor; it is simply the one their feet have settled {1}. Ask them why and you will get an answer invented on the spot, which they will then believe.',
       'What the route is doing is saving attention. A street you know is a street you do not have to look at, and not looking at things is {2} the brain spends most of its effort trying to arrange. This is efficient and it has a price: the route becomes invisible, and after a few years you could not describe the middle of it {3} your life depended on it. {4} is why people notice that a shop has closed about three weeks after it closes.',
@@ -3711,7 +3711,7 @@ window.WELL_PRACTICA = {
 
   't4-voc6': {
     tipo: 'cloze', titulo: 'Open cloze · quien sabe cómo funciona todo',
-    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    instruccion: 'Write <b>one word</b> in each gap.',
     texto: [
       'Every organisation has somebody who knows how it actually works, and it is almost never the person at the top of the chart. It is far more {1} to be whoever has been there longest in a job nobody has thought to reorganise: the person on the front desk, the one who orders the paper.',
       'They know because information reaches them by accident. Nobody briefs the front desk, {2} everybody walks past it, and over eleven years that adds {3} to a map no consultant could produce in six weeks. Ask them who to speak to about a broken lift and you will have a name in four seconds; ask a director the same question and you will be given a department.',
@@ -3725,7 +3725,7 @@ window.WELL_PRACTICA = {
 
   't4-voc7': {
     tipo: 'formacion', titulo: 'Word formation · nombres · cuarta vuelta',
-    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
     items: [
       { antes: 'The', despues: 'of the two towers took a year.', raiz: 'DEMOLISH', aceptadas: ['demolition'] },
       { antes: 'Her', despues: 'was accepted without argument.', raiz: 'RESIGN', aceptadas: ['resignation'] },
@@ -3738,7 +3738,7 @@ window.WELL_PRACTICA = {
 
   't4-voc8': {
     tipo: 'formacion', titulo: 'Word formation · adjetivos · cuarta vuelta',
-    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
     items: [
       { antes: 'The evidence turned out to be largely', despues: '.', raiz: 'RELY', aceptadas: ['unreliable'] },
       { antes: 'Her account of the evening was entirely', despues: '.', raiz: 'BELIEVE', aceptadas: ['believable'] },
@@ -3751,7 +3751,7 @@ window.WELL_PRACTICA = {
 
   't4-voc9': {
     tipo: 'caja', titulo: 'Verbos con preposición fija · cuarta vuelta',
-    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
     caja: ['about', 'for', 'from', 'in', 'of', 'on', 'to', 'with'],
     items: [
       { antes: 'Nobody warned us', despues: 'the road works.', aceptadas: ['about'] },
@@ -3765,7 +3765,7 @@ window.WELL_PRACTICA = {
 
   't4-voc10': {
     tipo: 'caja', titulo: 'Phrasal verbs · problemas y salidas',
-    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
     caja: ['away', 'back', 'down', 'off', 'out', 'round', 'through', 'up'],
     items: [
       { antes: 'The talks broke', despues: 'again on Friday afternoon.', aceptadas: ['down'] },
@@ -3779,7 +3779,7 @@ window.WELL_PRACTICA = {
 
   't4-voc11': {
     tipo: 'caja', titulo: 'Colocaciones · verbo y sustantivo · cuarta vuelta',
-    instruccion: 'Completa cada frase con un verbo de la caja. Hay más verbos de los que necesitas.',
+    instruccion: 'Complete each sentence with a verb from the box. There are more verbs than you need.',
     caja: ['bear', 'cast', 'draw', 'make', 'place', 'put', 'strike', 'take'],
     items: [
       { antes: 'It is hard to', despues: 'a balance between the two.', aceptadas: ['strike'] },
@@ -3793,7 +3793,7 @@ window.WELL_PRACTICA = {
 
   't4-voc12': {
     tipo: 'caja', titulo: 'Expresiones con distancia y medida',
-    instruccion: 'Completa cada expresión con una palabra de la caja. Hay más palabras de las que necesitas.',
+    instruccion: 'Complete each expression with a word from the box. There are more words than you need.',
     caja: ['bottom', 'half', 'inch', 'mile', 'number', 'odds', 'stone', 'yard'],
     items: [
       { antes: 'He would not give an', despues: 'in the negotiation.', aceptadas: ['inch'] },
@@ -3807,7 +3807,7 @@ window.WELL_PRACTICA = {
 
   't4-voc13': {
     tipo: 'cloze', titulo: 'Open cloze · las instrucciones',
-    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    instruccion: 'Write <b>one word</b> in each gap.',
     texto: [
       'Nobody reads the instructions, and the industry response has been to make them shorter, which has not helped {1} the smallest degree. The problem was never length. It is that instructions are written by somebody who already understands the object, and that person has lost the ability to imagine not understanding it.',
       'The classic failure is the step that says “connect the unit”. To the writer this is one action. To the reader it is four questions, {2} of which the page answers. Every trade has its own version of this, and every trade is convinced the version is the reader’s fault. The evidence says otherwise: give the same page to six people who have never seen the object and you will get six different first moves, which is not a coincidence {3} a measurement.',
@@ -3821,7 +3821,7 @@ window.WELL_PRACTICA = {
 
   't4-voc14': {
     tipo: 'cloze', titulo: 'Open cloze · cambiar de opinión',
-    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    instruccion: 'Write <b>one word</b> in each gap.',
     texto: [
       'Changing your mind in public is one of the few genuinely difficult things, and the difficulty has almost nothing to {1} with the facts. By the time an argument has been had twice, the position has stopped being a belief and become a piece of furniture: other people know where it stands, and so do you.',
       'This is why better evidence often makes matters worse. Somebody arrives with the decisive study, and instead {2} conceding you notice that they are enjoying themselves. The concession they are asking {3} is not an intellectual one. It is social, it is expensive, and they have not offered to pay any part of it.',
@@ -3835,7 +3835,7 @@ window.WELL_PRACTICA = {
 
   't4-voc15': {
     tipo: 'formacion', titulo: 'Word formation · prefijos · cuarta vuelta',
-    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
     items: [
       { antes: 'The figures in the leaflet were deliberately', despues: '.', raiz: 'LEAD', aceptadas: ['misleading'] },
       { antes: 'The two accounts are simply', despues: '.', raiz: 'RECONCILE', aceptadas: ['irreconcilable'] },
@@ -3848,7 +3848,7 @@ window.WELL_PRACTICA = {
 
   't4-voc16': {
     tipo: 'formacion', titulo: 'Word formation · adverbios · cuarta vuelta',
-    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
     items: [
       { antes: 'The scheme has been', despues: 'successful, given the budget.', raiz: 'SURPRISE', aceptadas: ['surprisingly'] },
       { antes: 'She answered', despues: 'and left the room.', raiz: 'CURT', aceptadas: ['curtly'] },
@@ -3863,8 +3863,8 @@ window.WELL_PRACTICA = {
   /* ===================== TEST 4 · USE OF ENGLISH ===================== */
 
   't4-use1': {
-    tipo: 'opcion', parte: 1, titulo: 'Use of English · Parte 1',
-    instruccion: 'Elige la palabra que mejor encaja en cada hueco.',
+    tipo: 'opcion', parte: 1, titulo: 'Use of English · Part 1',
+    instruccion: 'Decide which answer best fits each gap.',
     texto: [
       'For most of the twentieth century the ambition was to get rid of rivers. A stream running through a town was a nuisance and a health risk, and the sensible thing was to {1} it in a pipe and build over the top. Hundreds of European towns did exactly that, and for sixty years nobody gave it a second {2}.',
       'The reversal, when it came, was not driven by nostalgia. A pipe built for the rainfall of 1930 cannot {3} with the rainfall of today, and the cheapest way to increase its capacity is often to take the lid off altogether. Councils that would never have {4} the money for a beauty project found it at once for a drainage one.',
@@ -3883,8 +3883,8 @@ window.WELL_PRACTICA = {
   },
 
   't4-use2a': {
-    tipo: 'cloze', parte: 2, titulo: 'Use of English · Parte 2',
-    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    tipo: 'cloze', parte: 2, titulo: 'Use of English · Part 2',
+    instruccion: 'Write <b>one word</b> in each gap.',
     texto: [
       'There is a drawer in most houses that contains nothing anybody has looked at in four years. It is not a drawer for things you need; it is a drawer for things you cannot {1} yourself to throw away, which is a different category and a much larger one.',
       'The usual advice is to be ruthless, and the usual advice fails, because it misunderstands what the drawer is {2}. Almost nothing in it is kept for its use. The guarantee for an appliance sold nine years ago is not insurance; it is a receipt for a decision, and throwing it out means admitting {3} the decision was taken by somebody you no longer quite are.',
@@ -3898,8 +3898,8 @@ window.WELL_PRACTICA = {
   },
 
   't4-use2b': {
-    tipo: 'cloze', parte: 2, titulo: 'Use of English · Parte 2',
-    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    tipo: 'cloze', parte: 2, titulo: 'Use of English · Part 2',
+    instruccion: 'Write <b>one word</b> in each gap.',
     texto: [
       'Arriving early is treated as a virtue and is usually nothing {1} the sort. The habitually early are not more considerate than everybody else; they are people who find waiting less unpleasant {2} the possibility of being late, and have arranged their lives accordingly.',
       'This is worth saying because the early tend to be insufferable about it. They will tell you, {3} being asked, how long the journey took, and they will treat somebody else’s different arrangement {4} a moral failing rather than a different tolerance for the same discomfort. The late, {5} their part, are no better: they present their lateness as evidence of a full and interesting life, which it very rarely is.',
@@ -3913,8 +3913,8 @@ window.WELL_PRACTICA = {
   },
 
   't4-use3': {
-    tipo: 'formacion', parte: 3, titulo: 'Use of English · Parte 3',
-    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    tipo: 'formacion', parte: 3, titulo: 'Use of English · Part 3',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
     items: [
       { antes: 'The report was written with admirable', despues: '.', raiz: 'BRIEF', aceptadas: ['brevity'] },
       { antes: 'His', despues: 'was never in doubt, whatever else was.', raiz: 'HONEST', aceptadas: ['honesty'] },
@@ -3928,8 +3928,8 @@ window.WELL_PRACTICA = {
   },
 
   't4-use4a': {
-    tipo: 'transformacion', parte: 4, titulo: 'Use of English · Parte 4',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    tipo: 'transformacion', parte: 4, titulo: 'Use of English · Part 4',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'I have never been so bored.', clave: 'MORE', antes: 'I have never', despues: 'in my life.', aceptadas: ['been more bored'] },
       { frase: 'Nobody had warned me about the cost.', clave: 'BEEN', antes: 'I', despues: 'about the cost.', aceptadas: ["hadn't been warned", 'had not been warned'] },
@@ -3941,8 +3941,8 @@ window.WELL_PRACTICA = {
   },
 
   't4-use4b': {
-    tipo: 'transformacion', parte: 4, titulo: 'Use of English · Parte 4',
-    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    tipo: 'transformacion', parte: 4, titulo: 'Use of English · Part 4',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
     items: [
       { frase: 'She was too tired to argue.', clave: 'ENERGY', antes: 'She did not', despues: 'argue.', aceptadas: ['have the energy to'] },
       { frase: 'The decision is not mine to make.', clave: 'UP', antes: 'It is not', despues: 'me.', aceptadas: ['up to'] },
@@ -3957,8 +3957,8 @@ window.WELL_PRACTICA = {
   /* ===================== TEST 4 · READING ===================== */
 
   't4-read5': {
-    tipo: 'lectura', parte: 5, titulo: 'Reading · Parte 5',
-    instruccion: 'Lee el texto y elige la mejor respuesta (A, B, C o D) para cada pregunta.',
+    tipo: 'lectura', parte: 5, titulo: 'Reading · Part 5',
+    instruccion: 'Read the text and choose the answer (A, B, C or D) which fits best according to the text.',
     tituloTexto: 'The woman who writes the questions',
     texto: [
       'Pilar Anzola works in a room with no windows, which she is careful to say is not a metaphor: the building is old and the room used to be a store. On the table in front of her are eleven newspaper articles, four of which she has already rejected, and a printed sheet of numbers that matters more to her than any of them. She has written examination questions for nineteen years and has never met a single person who has answered one.',
@@ -4003,8 +4003,8 @@ window.WELL_PRACTICA = {
   },
 
   't4-read6': {
-    tipo: 'lectura', parte: 6, titulo: 'Reading · Parte 6',
-    instruccion: 'Cuatro especialistas escriben sobre la semana laboral de cuatro días. Elige el texto (A, B, C o D) que responde a cada pregunta.',
+    tipo: 'lectura', parte: 6, titulo: 'Reading · Part 6',
+    instruccion: 'You will read four extracts in which specialists give their views on the four-day week. For each question, choose from the extracts A–D.',
     opcionesCortas: true,
     secciones: [
       { letra: 'A', titulo: 'Nerea Salas, labour economist',
@@ -4029,8 +4029,8 @@ window.WELL_PRACTICA = {
   },
 
   't4-read7': {
-    tipo: 'lectura', parte: 7, titulo: 'Reading · Parte 7',
-    instruccion: 'Faltan seis párrafos del texto. Elige para cada hueco el párrafo que encaja (A–G). Hay uno que no va en ninguno.',
+    tipo: 'lectura', parte: 7, titulo: 'Reading · Part 7',
+    instruccion: 'Six paragraphs have been removed from the text. Choose from the paragraphs A–G the one which fits each gap. There is one extra paragraph which you do not need to use.',
     tituloTexto: 'Sixty-one years of rain',
     opcionesCortas: true,
     texto: [
@@ -4068,8 +4068,8 @@ window.WELL_PRACTICA = {
   },
 
   't4-read8': {
-    tipo: 'lectura', parte: 8, titulo: 'Reading · Parte 8',
-    instruccion: 'Seis personas hablan de un profesor que les marcó. Elige la persona (A–F) que corresponde a cada pregunta.',
+    tipo: 'lectura', parte: 8, titulo: 'Reading · Part 8',
+    instruccion: 'You will read an article in which six people describe a teacher who made a lasting impression. For each question, choose from the people A–F.',
     opcionesCortas: true,
     secciones: [
       { letra: 'A', titulo: 'Marta',
@@ -4104,10 +4104,10 @@ window.WELL_PRACTICA = {
      Audio provisional de espeak-ng. Se sustituye por voz real antes de cobrar. */
 
   't4-lis1': {
-    tipo: 'listening', parte: 1, titulo: 'Listening · Parte 1',
-    instruccion: 'Escucharás tres extractos. Elige la mejor respuesta (A, B o C) para cada pregunta. <b>Se escucha dos veces</b>.',
+    tipo: 'listening', parte: 1, titulo: 'Listening · Part 1',
+    instruccion: 'You will hear three different extracts. Choose the answer (A, B or C) which fits best according to what you hear. <b>You will hear the recording twice.</b>',
     audio: 'audio/t4-lis1.mp3', escuchas: 2,
-    contexto: 'Extracto 1: un club de lectura que ha dejado de leer. Extracto 2: una mujer que ha dejado su huerto. Extracto 3: dos compañeros y un sistema nuevo de informes.',
+    contexto: 'Extract 1: a book group that has stopped reading. Extract 2: a woman who has given up her allotment. Extract 3: two colleagues and a new reporting system.',
     items: [
       { pregunta: '1  What does the woman say about the group’s real purpose?',
         opciones: ['It was social, although nobody would admit it.', 'It was to read books nobody would tackle alone.', 'It was to keep up a habit from their student days.'], correcta: 0 },
@@ -4125,8 +4125,8 @@ window.WELL_PRACTICA = {
   },
 
   't4-lis2': {
-    tipo: 'listening', parte: 2, titulo: 'Listening · Parte 2',
-    instruccion: 'Completa cada frase con <b>una o dos palabras</b> de lo que oigas. <b>Se escucha dos veces</b>.',
+    tipo: 'listening', parte: 2, titulo: 'Listening · Part 2',
+    instruccion: 'Complete the sentences with <b>a word or short phrase</b> from what you hear. <b>You will hear the recording twice.</b>',
     audio: 'audio/t4-lis2.mp3', escuchas: 2,
     items: [
       { antes: 'Finn says that building a dry stone wall is almost entirely about', despues: '.', aceptadas: ['sorting'] },
@@ -4141,10 +4141,10 @@ window.WELL_PRACTICA = {
   },
 
   't4-lis3': {
-    tipo: 'listening', parte: 3, titulo: 'Listening · Parte 3',
-    instruccion: 'Escucharás una entrevista. Elige la mejor respuesta (A, B, C o D) para cada pregunta. <b>Se escucha dos veces</b>.',
+    tipo: 'listening', parte: 3, titulo: 'Listening · Part 3',
+    instruccion: 'You will hear an interview. Choose the answer (A, B, C or D) which fits best according to what you hear. <b>You will hear the recording twice.</b>',
     audio: 'audio/t4-lis3.mp3', escuchas: 2,
-    contexto: 'Un periodista entrevista a Imelda Rourke, que asesora a ciudades sobre los árboles de calle.',
+    contexto: 'A journalist interviews Imelda Rourke, who advises cities on street trees.',
     items: [
       { pregunta: '1  What effect of street trees does Rourke say she can actually measure?',
         opciones: ['The value they add to nearby property.', 'The difference they make to summer temperature.', 'The amount of rainwater they absorb.', 'The improvement in air quality.'], correcta: 1 },
@@ -4162,13 +4162,13 @@ window.WELL_PRACTICA = {
   },
 
   't4-lis4': {
-    tipo: 'listening', parte: 4, titulo: 'Listening · Parte 4',
-    instruccion: 'Escucharás a cinco personas hablando de una decisión que tomaron deprisa. <b>Tarea 1</b> (1–5): por qué decidieron tan rápido. <b>Tarea 2</b> (6–10): qué dicen ahora. Se escucha dos veces.',
+    tipo: 'listening', parte: 4, titulo: 'Listening · Part 4',
+    instruccion: 'You will hear five short extracts in which people talk about a decision they took very quickly. While you listen you must complete both tasks. <b>You will hear the recording twice.</b>',
     audio: 'audio/t4-lis4.mp3', escuchas: 2,
     opcionesCortas: true,
-    contexto: 'Cada tarea tiene su propia lista de ocho opciones.',
+    contexto: 'Each task has its own list of eight options.',
     listas: [
-      { titulo: 'Tarea 1 · ¿Por qué decidieron tan rápido?', opciones: [
+      { titulo: 'Task One · Why did each speaker decide so quickly?', opciones: [
         'they had in fact been deciding for years',
         'the opportunity would have gone by that evening',
         'somebody in the room talked them into it',
@@ -4178,7 +4178,7 @@ window.WELL_PRACTICA = {
         'there was no information worth waiting for',
         'they simply wanted to stop thinking about it'
       ] },
-      { titulo: 'Tarea 2 · ¿Qué dicen ahora?', opciones: [
+      { titulo: 'Task Two · What does each speaker say about it now?', opciones: [
         'they regret how they broke the news rather than the choice',
         'they would do exactly the same again',
         'they think the speed was the least important part',
@@ -4208,7 +4208,7 @@ window.WELL_PRACTICA = {
 
   't4-speak1': {
     tipo: 'speaking', parte: 2, titulo: 'Long turn: cómo se aprende un oficio',
-    instruccion: 'Habla durante <b>un minuto seguido</b>. No hace falta contestar a todo: elige y compara.',
+    instruccion: 'Speak for <b>one minute</b> without stopping. You do not have to cover everything: choose and compare.',
     segundos: 60,
     pregunta: 'Why might people learn a trade in these ways, and what might be difficult about each?',
     puntos: ['watching somebody experienced and copying them', 'a course with an examination at the end', 'being left alone with the work and no help'],
@@ -4218,7 +4218,7 @@ window.WELL_PRACTICA = {
 
   't4-speak3': {
     tipo: 'speaking', parte: 3, titulo: 'Parte 3: decidir en voz alta',
-    instruccion: 'Habla durante <b>dos minutos</b>. Comenta las cinco opciones y llega a una conclusión.',
+    instruccion: 'Speak for <b>two minutes</b>. Discuss all five options and reach a conclusion.',
     segundos: 120,
     pregunta: 'A neighbourhood has money for one change to its streets. How useful is each of these, and which two would you choose?',
     puntos: ['planting trees along the main avenue', 'widening the pavements', 'a covered area for the weekly market', 'slowing the traffic to twenty', 'more benches and lighting'],
@@ -4228,7 +4228,7 @@ window.WELL_PRACTICA = {
 
   't4-speak4': {
     tipo: 'speaking', parte: 4, titulo: 'Parte 4: opinar y justificar',
-    instruccion: 'Contesta a las tres preguntas seguidas, <b>dos minutos</b> en total.',
+    instruccion: 'Answer the three questions one after the other, <b>two minutes</b> in total.',
     segundos: 120,
     pregunta: 'Questions about decisions and advice.',
     puntos: [
@@ -4242,7 +4242,7 @@ window.WELL_PRACTICA = {
 
   't4-speakr': {
     tipo: 'speaking', parte: 2, titulo: 'Repaso: un minuto sin parar',
-    instruccion: 'Habla durante <b>un minuto seguido</b>, sin pausas largas. Compara, no describas.',
+    instruccion: 'Speak for <b>one minute</b> without long pauses. Compare — do not simply describe.',
     segundos: 60,
     pregunta: 'Why might these be hard to do well, and what might go wrong in each?',
     puntos: ['explaining something you know to somebody who does not', 'saying no to a favour you have been asked for', 'giving somebody bad news you are not responsible for'],
@@ -4252,7 +4252,7 @@ window.WELL_PRACTICA = {
 
   't4-write1': {
     tipo: 'writing', parte: 1, titulo: 'Essay',
-    instruccion: 'Escribe entre <b>220 y 260 palabras</b>. Es obligatorio: en el examen esta tarea no se elige.',
+    instruccion: 'Write <b>220–260 words</b>. This part is compulsory: in the exam you do not get to choose it.',
     minutos: 45, palabras: [220, 260],
     enunciado: 'Your class has discussed how a town should decide what to spend money on. Write an essay discussing two of the three methods below and explaining which you think leads to better decisions.',
     contexto: 'Methods: a vote open to every resident · a committee of elected councillors · a panel of independent specialists.',
@@ -4262,7 +4262,7 @@ window.WELL_PRACTICA = {
 
   't4-write2': {
     tipo: 'writing', parte: 2, titulo: 'A elegir: correo formal o informe',
-    instruccion: 'Elige <b>una</b> de las dos y escribe entre <b>220 y 260 palabras</b>.',
+    instruccion: 'Choose <b>one</b> of the two tasks and write <b>220–260 words</b>.',
     minutos: 45, palabras: [220, 260],
     enunciado: 'Choose one of the following two tasks.',
     contexto: '1 · You took a course that was advertised very differently from what it turned out to be. Write a formal email to the organisation explaining what happened and saying what you expect them to do.\n2 · Your town council is deciding whether to keep its Saturday bus service. Write a report describing who uses it, what would happen if it stopped, and what you recommend.',
