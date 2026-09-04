@@ -75,6 +75,54 @@ terminar en revision humana**.
 
 ## 4. La pregunta abierta: de donde salen las frases
 
+### El texto exacto que hay que mandarle
+
+> Elena, una cosa corta pero importante para poder seguir.
+>
+> Los dos documentos que me pasaste, **GRAMMAR FOLDER** y **VOCABULARY
+> FOLDER**, tienen unas 2.100 frases entre los dos. Son el corazon del curso y
+> quiero meterlas ya en la plataforma. Antes necesito saber de donde salen,
+> porque cambia donde las puedo poner.
+>
+> **De cada uno de los dos, ¿cual de estas cuatro es?**
+>
+> 1. Las escribi yo.
+> 2. Las saque de libros, pero las reescribi a mi manera.
+> 3. Estan copiadas de un libro tal cual. *(¿Te acuerdas de cual?)*
+> 4. No lo se; son de hace muchos años.
+>
+> No hay respuesta mala: con cualquiera de las cuatro seguimos adelante. Lo
+> unico que cambia es si el material puede estar en abierto o solo para
+> alumnos que pagan. Y si es la 3 o la 4 tampoco es un problema — de hecho
+> tenerlo cerrado nos conviene, porque lo que esta en abierto lo puede copiar
+> cualquier otra academia.
+>
+> Si los dos documentos no son iguales, dimelo por separado.
+
+**Por que esa forma y no «¿son tuyas o copiadas?».** Un si/no la empuja a decir
+«son mias» para desbloquearnos, y esa es justo la respuesta sobre la que
+actuariamos de forma irreversible: publicar en un repositorio publico no se
+deshace. Cuatro casillas reconocibles y un «no hay respuesta mala» hacen que el
+«no lo se» salga barato, que es lo que hace falta. Y va por documento porque
+los dos pueden tener origenes distintos.
+
+### Que desbloquea cada respuesta
+
+| Respuesta | Repo publico | Detras del login | Parte gratuita |
+|---|---|---|---|
+| 1 · Suyas | Si | Si | Si |
+| 2 · Reescritas | No, por prudencia | Si | No |
+| 3 · Copiadas | No | No tal cual: hay que reescribirlas | No |
+| 4 · No lo se | No | Se trata como la 3 | No |
+
+En los casos 3 y 4 no se pierde su trabajo: se conserva el diseño pedagogico
+—que se practica, en que orden, con que formato— y se reescriben las frases.
+
+**Lo que esta en juego:** vocabulario y gramatica son **16 de los 34 bloques de
+cada test, el 47 % del curso**. Hoy estan a 1 de 8 y 0 de 8.
+
+### El razonamiento de fondo
+
 El formato (open cloze, word formation, key word transformation) es el de
 Cambridge y no es de nadie. **Las frases concretas pueden venir de manuales
 publicados.** Hace falta que la academia diga si las escribio ella o las copio.
