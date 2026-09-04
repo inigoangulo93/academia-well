@@ -55,7 +55,7 @@ window.WELL_PRACTICA = {
       sesiones: [
         { id: 't1-s1', n: 1, tipo: 'A', bloques: [
           { destreza: 'vocabulario', ejercicios: ['v1-caja', 'v2-caja'] },
-          { destreza: 'gramatica' },
+          { destreza: 'gramatica', ejercicios: ['g1-transf', 'g2-transf'] },
           { destreza: 'use', parte: 1, tarea: 'Multiple-choice cloze', ejercicios: ['v1-opcion'] },
           { destreza: 'listening', parte: 1, tarea: 'Tres extractos' }
         ]},
@@ -113,6 +113,67 @@ window.WELL_PRACTICA = {
   ],
 
   ejercicios: {
+  /* ---------- Gramatica ----------
+     Escritas contra el temario de Elena (well-online-temario.md), area por
+     area y en su orden. Las frases son nuevas: las suyas son una seleccion de
+     paginas de internet y no pueden entrar aqui.
+     Formato: key word transformation, que es el que ella usa casi siempre y el
+     que mas discrimina. Entre dos y cinco palabras, la clave no se toca. */
+
+  /* Area 1 · Present tenses */
+  'g1-transf': {
+    tipo: 'transformacion',
+    titulo: 'Presentes · palabra clave',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'I started working here in 2019 and I am still here.',
+        clave: 'BEEN', antes: 'I', despues: 'here since 2019.',
+        aceptadas: ['have been working', "'ve been working"] },
+      { frase: 'This is the first time I have eaten octopus.',
+        clave: 'NEVER', antes: 'I', despues: 'octopus before.',
+        aceptadas: ['have never eaten', "'ve never eaten"] },
+      { frase: 'My sister is in Lisbon at the moment, but only until June.',
+        clave: 'LIVING', antes: 'My sister', despues: 'in Lisbon until June.',
+        aceptadas: ['is living', "'s living"] },
+      { frase: 'My flight is scheduled for six tomorrow morning.',
+        clave: 'LEAVES', antes: 'According to the timetable, my flight', despues: 'tomorrow morning.',
+        aceptadas: ['leaves at six'] },
+      { frase: 'It is ages since we last spoke.',
+        clave: 'SPOKEN', antes: 'We', despues: 'for ages.',
+        aceptadas: ["haven't spoken", 'have not spoken'] },
+      { frase: 'I arranged to meet Nerea on Friday and it is all settled.',
+        clave: 'MEETING', antes: 'I', despues: 'on Friday.',
+        aceptadas: ['am meeting Nerea', "'m meeting Nerea", 'am meeting her', "'m meeting her"] }
+    ]
+  },
+
+  /* Area 2 · Past tenses */
+  'g2-transf': {
+    tipo: 'transformacion',
+    titulo: 'Pasados · palabra clave',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'She finished the report and then went home.',
+        clave: 'HAD', antes: 'She went home after she', despues: 'the report.',
+        aceptadas: ['had finished'] },
+      { frase: 'It was raining, and it had been doing so all morning.',
+        clave: 'BEEN', antes: 'It', despues: 'all morning.',
+        aceptadas: ['had been raining'] },
+      { frase: 'I did not recognise him because we had last met many years before.',
+        clave: 'SEEN', antes: 'I did not recognise him because I', despues: 'him for many years.',
+        aceptadas: ["hadn't seen", 'had not seen'] },
+      { frase: 'When I got to the station, my train had already left.',
+        clave: 'BY', antes: 'My train had already left', despues: 'to the station.',
+        aceptadas: ['by the time I got', 'by the time I arrived'] },
+      { frase: 'They were halfway through dinner when the lights went out.',
+        clave: 'HAVING', antes: 'They', despues: 'when the lights went out.',
+        aceptadas: ['were having dinner'] },
+      { frase: 'He smoked when he was younger, but he does not any more.',
+        clave: 'USED', antes: 'He', despues: 'when he was younger.',
+        aceptadas: ['used to smoke'] }
+    ]
+  },
+
   /* ---------- Reading, parte 5: multiple choice ----------
      Un texto largo y seis preguntas. Se pregunta por detalle, por actitud, por
      a que se refiere una frase y por el sentido global: si todas fueran de

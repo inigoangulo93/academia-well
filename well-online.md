@@ -73,7 +73,33 @@ Las claves parecen alinearse una linea por ejercicio y en orden, pero tienen
 erratas (`when they heared`), asi que el volcado automatico **tiene que
 terminar en revision humana**.
 
-## 4. La pregunta abierta: de donde salen las frases
+## 4. RESUELTA: de donde salen las frases
+
+**Elena contesto el 4 de septiembre de 2026:** *«son de internet, cogidas de
+varias paginas; es una seleccion»*.
+
+Decision, y no se vuelve sobre ella: **esas ~2.100 frases no entran en el
+repositorio, ni en la parte gratuita, ni se sirven tal cual detras del login.**
+No son suyas y no son nuestras.
+
+Lo que si se conserva, y es lo que de verdad valia: **el temario**. Que se
+practica, en que orden y con que formato son veinte años de decisiones suyas.
+Esta extraido en **`well-online-temario.md`**, sin una sola frase copiada, y a
+partir de ahi se escriben las frases nuevas.
+
+Dos razones mas para hacerlo asi, que no son legales:
+
+- Una seleccion de ejercicios de internet **no es una ventaja competitiva**:
+  cualquier academia puede reunir la misma. Material propio si lo es.
+- Las claves originales traen erratas (`when they heared`). Si venian asi de la
+  fuente, la fuente no era buena. Reescribir permite ademas garantizar que todo
+  es C1, cosa que en una seleccion de varias paginas no esta garantizada.
+
+El texto de la pregunta y el razonamiento de por que se hizo asi quedan abajo,
+porque la forma de preguntar fue la que hizo que se pudiera contestar «no lo se»
+sin coste.
+
+## 4 bis. Como se pregunto (historico)
 
 ### El texto exacto que hay que mandarle
 

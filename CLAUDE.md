@@ -72,11 +72,20 @@ porque Elena no tiene material de reading digitalizado. Las cuatro partes las
 pinta un único tipo de ejercicio, `lectura`: lo que cambia entre ellas es si se
 elige una frase (parte 5) o una letra que señala a un trozo del texto (6, 7 y 8).
 
+**El material de Elena no entra aqui, y la pregunta esta cerrada.** Contesto que
+sus frases son «de internet, cogidas de varias paginas: es una seleccion». Asi
+que no van al repositorio, ni a la parte gratuita, ni se sirven tal cual detras
+del login. Lo que si se usa es su **temario** —que se practica, en que orden y
+con que formato—, extraido en `well-online-temario.md` sin una sola frase
+copiada. Todo el vocabulario y la gramatica se escriben nuevos contra ese
+fichero.
+
 La **estructura** sale del material real. Los **ejercicios** de
-`practica-data.js` **no son el material de Elena**: los escribí yo imitando sus
-formatos, porque este repositorio es público y la procedencia de sus fotocopias
-está sin aclarar. **No metas aquí su material hasta que eso se responda**, y
-nunca los audios de sus CD: son grabaciones publicadas de una editorial.
+`practica-data.js` **no son el material de Elena**: los escribí yo. Y ya no es
+una precaución provisional, es la regla definitiva: sus frases son una selección
+de páginas de internet. **No copies nunca una frase suya a este repositorio**,
+tampoco «solo esta vez para salir del paso». Ni los audios de sus CD: son
+grabaciones publicadas de una editorial.
 
 **Cuentas y servidor.** El progreso vive en el navegador del alumno. Supabase
 está montado y probado pero **desconectado**: mientras `well-config.js` esté
