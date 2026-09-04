@@ -31,6 +31,21 @@ echo "   clave en el entorno: $n caracteres"
 [ "$n" -gt 30 ] || mal "La clave no esta puesta, o es un marcador de posicion.
 Copia la buena de elevenlabs.io y pegala:  export ELEVENLABS_API_KEY=<pegar>"
 
+# El panel de ElevenLabs ensena en la lista el ID de la clave, no la clave. El
+# valor de verdad solo se ve una vez, al crearla o al rotarla, y empieza por
+# sk_. Copiar el ID es el error natural, porque es lo unico que hay a la vista.
+case "$ELEVENLABS_API_KEY" in
+  sk_*) ;;
+  *) mal "Eso no es la clave: es el ID de la clave.
+
+La lista de ElevenLabs ensena el ID. La clave de verdad empieza por sk_ y solo
+se ve UNA VEZ, cuando se crea o se rota.
+
+  elevenlabs.io -> Profile -> API Keys -> Rotate (o crear una nueva)
+  Permisos: Text to Speech = Access, todo lo demas = No Access
+  Copiala en ese momento y:  export ELEVENLABS_API_KEY=<pegar>" ;;
+esac
+
 python3 - <<'PY'
 import json, sys
 d = json.load(open('listening/voces.json'))
