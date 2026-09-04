@@ -482,7 +482,9 @@
         esc(T.cursoOtroNivel.replace('{suyo}', (nivelAlumno() || {}).nivel || '')
                             .replace('{este}', act.nivel.mcer)) + '</p>' : '') +
       testsActivos().map(function (t) { return pintaTest(t, sig); }).join('') +
-      '<p class="ruta-pie">' + T.sesionesCargadas.replace('{n}', conMaterial).replace('{t}', misSesiones.length) + '</p>';
+      '<p class="ruta-pie">' + (conMaterial === misSesiones.length
+        ? T.sesionesTodas.replace('{t}', misSesiones.length)
+        : T.sesionesCargadas.replace('{n}', conMaterial).replace('{t}', misSesiones.length)) + '</p>';
   }
 
   /* ---------- el camino: un test, sus sesiones ---------- */
