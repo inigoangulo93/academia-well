@@ -107,12 +107,502 @@ window.WELL_PRACTICA = {
         ]}
       ]
     },
-    { id: 't2', titulo: 'Test 2' },
+    {
+      id: 't2', titulo: 'Test 2',
+      sesiones: [
+        { id: 't2-s1', n: 1, tipo: 'A', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['t2-voc1', 't2-voc2'] },
+          { destreza: 'gramatica', ejercicios: ['t2-gram1', 't2-gram2'] },
+          { destreza: 'use', parte: 1, tarea: 'Multiple-choice cloze' },
+          { destreza: 'listening', parte: 1, tarea: 'Tres extractos' }
+        ] },
+        { id: 't2-s2', n: 2, tipo: 'B', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['t2-voc3', 't2-voc4'] },
+          { destreza: 'gramatica', ejercicios: ['t2-gram3', 't2-gram4'] },
+          { destreza: 'reading', parte: 5, tarea: 'Multiple choice' },
+          { destreza: 'speaking', tarea: 'Partes 1 y 2' }
+        ] },
+        { id: 't2-s3', n: 3, tipo: 'A', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['t2-voc5', 't2-voc6'] },
+          { destreza: 'gramatica', ejercicios: ['t2-gram5', 't2-gram6'] },
+          { destreza: 'use', parte: 2, tarea: 'Open cloze' },
+          { destreza: 'listening', parte: 2, tarea: 'Frases incompletas' }
+        ] },
+        { id: 't2-s4', n: 4, tipo: 'B', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['t2-voc7', 't2-voc8'] },
+          { destreza: 'gramatica', ejercicios: ['t2-gram7', 't2-gram8'] },
+          { destreza: 'reading', parte: 6, tarea: 'Cross-text matching' },
+          { destreza: 'speaking', tarea: 'Parte 3' }
+        ] },
+        { id: 't2-s5', n: 5, tipo: 'A', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['t2-voc9', 't2-voc10'] },
+          { destreza: 'gramatica', ejercicios: ['t2-gram9', 't2-gram10'] },
+          { destreza: 'use', parte: 3, tarea: 'Word formation' },
+          { destreza: 'listening', parte: 3, tarea: 'Conversación larga' }
+        ] },
+        { id: 't2-s6', n: 6, tipo: 'B', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['t2-voc11', 't2-voc12'] },
+          { destreza: 'gramatica', ejercicios: ['t2-gram11', 't2-gram12'] },
+          { destreza: 'reading', parte: 7, tarea: 'Gapped text' },
+          { destreza: 'speaking', tarea: 'Parte 4' }
+        ] },
+        { id: 't2-s7', n: 7, tipo: 'A', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['t2-voc13', 't2-voc14'] },
+          { destreza: 'gramatica', ejercicios: ['t2-gram13', 't2-gram14'] },
+          { destreza: 'use', parte: 4, tarea: 'Key word transformation' },
+          { destreza: 'listening', parte: 4, tarea: 'Multiple matching' }
+        ] },
+        { id: 't2-s8', n: 8, tipo: 'B', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['t2-voc15', 't2-voc16'] },
+          { destreza: 'gramatica', ejercicios: ['t2-gram15', 't2-gram16'] },
+          { destreza: 'reading', parte: 8, tarea: 'Multiple matching' },
+          { destreza: 'speaking', tarea: 'Repaso' }
+        ] },
+        { id: 't2-s9', n: 9, tipo: 'W', bloques: [
+          { destreza: 'writing', parte: 1, tarea: 'Essay' },
+          { destreza: 'writing', parte: 2, tarea: 'A elegir' }
+        ] }
+      ]
+    },
     { id: 't3', titulo: 'Test 3' },
     { id: 't4', titulo: 'Test 4' }
   ],
 
   ejercicios: {
+  /* ===================== TEST 2 · GRAMATICA =====================
+     Segunda vuelta al temario de Elena, con las mismas areas y en el mismo
+     orden que el Test 1 pero apretando: verbos de estado, narrativa con
+     pasados mezclados, futuro perfecto, matices de los modales. Frases nuevas;
+     ninguna sale de sus fotocopias. */
+
+  't2-gram1': {
+    tipo: 'transformacion', titulo: 'Presentes · segunda vuelta',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'I started reading this novel a month ago and I am still on it.', clave: 'BEEN', antes: 'I', despues: 'this novel for a month.', aceptadas: ['have been reading', "'ve been reading"] },
+      { frase: 'It is the first time she has ever complained.', clave: 'NEVER', antes: 'She', despues: 'before.', aceptadas: ['has never complained'] },
+      { frase: 'He is being unusually polite this evening.', clave: 'NORMALLY', antes: 'He', despues: 'this polite.', aceptadas: ["isn't normally", 'is not normally'] },
+      { frase: 'They have not spoken since the argument.', clave: 'LAST', antes: 'The argument was', despues: 'to each other.', aceptadas: ['the last time they spoke'] },
+      { frase: 'My contract finishes at the end of March.', clave: 'RUNS', antes: 'My contract', despues: 'the end of March.', aceptadas: ['runs until', 'runs out at'] },
+      { frase: 'How long have you had that cough?', clave: 'SINCE', antes: 'How long is it', despues: 'that cough?', aceptadas: ['since you got', 'since you first got'] }
+    ]
+  },
+
+  't2-gram2': {
+    tipo: 'transformacion', titulo: 'Pasados · narrar',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'She had been waiting an hour when the call finally came.', clave: 'FOR', antes: 'The call came after she', despues: 'an hour.', aceptadas: ['had waited for'] },
+      { frase: 'I only understood the joke later.', clave: 'UNTIL', antes: 'It was not', despues: 'that I understood the joke.', aceptadas: ['until later'] },
+      { frase: 'They finished the roof and only then did it start to rain.', clave: 'BEFORE', antes: 'They had finished the roof', despues: 'to rain.', aceptadas: ['before it started'] },
+      { frase: 'Nobody had warned us, so we were unprepared.', clave: 'BEEN', antes: 'We were unprepared because we', despues: '.', aceptadas: ["hadn't been warned", 'had not been warned'] },
+      { frase: 'He was tired because he had been driving all night.', clave: 'DRIVEN', antes: 'He was tired because he', despues: 'all night.', aceptadas: ['had driven'] },
+      { frase: 'The last time I visited Girona was in 2018.', clave: 'BEEN', antes: 'I', despues: 'Girona since 2018.', aceptadas: ["haven't been to", 'have not been to'] }
+    ]
+  },
+
+  't2-gram3': {
+    tipo: 'transformacion', titulo: 'Futuro · segunda vuelta',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'The exhibition closes on the tenth, so hurry.', clave: 'HAVE', antes: 'By the eleventh the exhibition', despues: '.', aceptadas: ['will have closed'] },
+      { frase: 'I expect they are still eating when we arrive.', clave: 'BE', antes: 'They', despues: 'when we arrive.', aceptadas: ['will still be eating'] },
+      { frase: 'The results are published next Tuesday.', clave: 'DUE', antes: 'The results', despues: 'next Tuesday.', aceptadas: ['are due to be published'] },
+      { frase: 'She intends to hand in her notice tomorrow.', clave: 'GOING', antes: 'She', despues: 'her notice tomorrow.', aceptadas: ['is going to hand in', "'s going to hand in"] },
+      { frase: 'In August we will have been married for ten years.', clave: 'BEEN', antes: 'In August we', despues: 'for ten years.', aceptadas: ['will have been married'] },
+      { frase: 'The train is on the point of leaving.', clave: 'ABOUT', antes: 'The train', despues: '.', aceptadas: ['is about to leave', "'s about to leave"] }
+    ]
+  },
+
+  't2-gram4': {
+    tipo: 'transformacion', titulo: 'Repaso de tiempos · mezcla',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'They are still deciding, so do not ring yet.', clave: 'MADE', antes: 'They', despues: 'their minds up yet.', aceptadas: ["haven't made", 'have not made'] },
+      { frase: 'I met her in 2015 and we have been friends ever since.', clave: 'KNOWN', antes: 'I', despues: 'since 2015.', aceptadas: ['have known her', "'ve known her"] },
+      { frase: 'The building was finished long before we moved here.', clave: 'ALREADY', antes: 'The building', despues: 'when we moved here.', aceptadas: ['had already been finished', 'had already been built'] },
+      { frase: 'She is not usually this quiet.', clave: 'BEING', antes: 'She', despues: 'quiet today.', aceptadas: ['is being unusually', "'s being unusually"] },
+      { frase: 'It has been raining without stopping since dawn.', clave: 'STOPPED', antes: 'It', despues: 'since dawn.', aceptadas: ["hasn't stopped raining", 'has not stopped raining'] },
+      { frase: 'I will finish the report before you get back.', clave: 'HAVE', antes: 'By the time you get back I', despues: 'the report.', aceptadas: ['will have finished'] }
+    ]
+  },
+
+  't2-gram5': {
+    tipo: 'transformacion', titulo: 'Costumbres y adaptación',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'I no longer find the early starts difficult.', clave: 'USED', antes: 'I', despues: 'the early starts.', aceptadas: ['am used to', "'m used to"] },
+      { frase: 'We often walked to the beach when we were small.', clave: 'WOULD', antes: 'We', despues: 'to the beach when we were small.', aceptadas: ['would often walk', 'would walk'] },
+      { frase: 'It took him a while to adapt to the silence.', clave: 'ACCUSTOMED', antes: 'It took him a while', despues: 'the silence.', aceptadas: ['to get accustomed to', 'to become accustomed to'] },
+      { frase: 'There was a bakery on this corner years ago.', clave: 'BE', antes: 'There', despues: 'a bakery on this corner.', aceptadas: ['used to be'] },
+      { frase: 'Speaking in public still makes her nervous.', clave: 'USED', antes: 'She', despues: 'in public.', aceptadas: ["isn't used to speaking", 'is not used to speaking'] },
+      { frase: 'He never used to eat fish, but he does now.', clave: 'DIDN’T', antes: 'He', despues: 'fish, but he does now.', aceptadas: ["didn't use to eat", "didn't used to eat"] }
+    ]
+  },
+
+  't2-gram6': {
+    tipo: 'transformacion', titulo: 'Poder y tener que',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'She succeeded in persuading them in the end.', clave: 'ABLE', antes: 'She', despues: 'them in the end.', aceptadas: ['was able to persuade'] },
+      { frase: 'It is compulsory to show identification at the door.', clave: 'HAVE', antes: 'You', despues: 'identification at the door.', aceptadas: ['have to show'] },
+      { frase: 'Nobody forced me; I offered.', clave: 'MADE', antes: 'I', despues: 'do it; I offered.', aceptadas: ["wasn't made to", 'was not made to'] },
+      { frase: 'It was necessary for them to cancel the trip.', clave: 'HAD', antes: 'They', despues: 'the trip.', aceptadas: ['had to cancel'] },
+      { frase: 'I could not read music at that age.', clave: 'UNABLE', antes: 'At that age I', despues: 'music.', aceptadas: ['was unable to read'] },
+      { frase: 'Learning the whole poem is a requirement.', clave: 'MUST', antes: 'You', despues: 'the whole poem.', aceptadas: ['must learn'] }
+    ]
+  },
+
+  't2-gram7': {
+    tipo: 'transformacion', titulo: 'No hace falta y no se puede',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'You brought a coat, and it turned out you did not need one.', clave: 'NEEDN’T', antes: 'You', despues: 'a coat.', aceptadas: ["needn't have brought"] },
+      { frase: 'Photography is forbidden inside the church.', clave: 'ALLOWED', antes: 'You', despues: 'photographs inside the church.', aceptadas: ["aren't allowed to take", 'are not allowed to take'] },
+      { frase: 'There was no need to pay, and we did not.', clave: 'HAVE', antes: 'We', despues: '.', aceptadas: ["didn't have to pay", 'did not have to pay'] },
+      { frase: 'It is optional to attend the second session.', clave: 'NEED', antes: 'You', despues: 'the second session.', aceptadas: ["don't need to attend", 'do not need to attend'] },
+      { frase: 'Feeding the animals was prohibited.', clave: 'MUSTN’T', antes: 'Visitors were told they', despues: 'the animals.', aceptadas: ["mustn't feed"] },
+      { frase: 'They were not permitted to leave the building.', clave: 'ALLOWED', antes: 'They', despues: 'the building.', aceptadas: ["weren't allowed to leave", 'were not allowed to leave'] }
+    ]
+  },
+
+  't2-gram8': {
+    tipo: 'transformacion', titulo: 'Consejo y reproche',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'It was wrong of you not to tell her.', clave: 'HAVE', antes: 'You', despues: 'her.', aceptadas: ['should have told', 'ought to have told'] },
+      { frase: 'If I were you I would apologise now.', clave: 'BETTER', antes: 'You', despues: 'now.', aceptadas: ['had better apologise', "'d better apologise"] },
+      { frase: 'It would be sensible to book in advance.', clave: 'OUGHT', antes: 'You', despues: 'in advance.', aceptadas: ['ought to book'] },
+      { frase: 'Leaving so late was a mistake on their part.', clave: 'SHOULD', antes: 'They', despues: 'so late.', aceptadas: ["shouldn't have left", 'should not have left'] },
+      { frase: 'Why do you not simply ask him?', clave: 'ABOUT', antes: 'How', despues: 'him?', aceptadas: ['about asking'] },
+      { frase: 'I regret not taking the earlier train.', clave: 'HAVE', antes: 'I', despues: 'the earlier train.', aceptadas: ['should have taken', 'ought to have taken'] }
+    ]
+  },
+
+  't2-gram9': {
+    tipo: 'transformacion', titulo: 'Deducir: certeza y duda',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'I am certain they took the wrong turning.', clave: 'MUST', antes: 'They', despues: 'the wrong turning.', aceptadas: ['must have taken'] },
+      { frase: 'There is no way she said that.', clave: 'HAVE', antes: 'She', despues: 'that.', aceptadas: ["can't have said", 'cannot have said'] },
+      { frase: 'Perhaps he forgot to lock up.', clave: 'MIGHT', antes: 'He', despues: 'to lock up.', aceptadas: ['might have forgotten'] },
+      { frase: 'It is possible that the letter got lost.', clave: 'MAY', antes: 'The letter', despues: 'lost.', aceptadas: ['may have got', 'may have gotten'] },
+      { frase: 'I am sure that is not his signature.', clave: 'BE', antes: 'That', despues: 'his signature.', aceptadas: ["can't be", 'cannot be'] },
+      { frase: 'The lights are on, so somebody is obviously in.', clave: 'MUST', antes: 'The lights are on, so somebody', despues: '.', aceptadas: ['must be in'] }
+    ]
+  },
+
+  't2-gram10': {
+    tipo: 'transformacion', titulo: 'Pasivas · segunda vuelta',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'They are still counting the votes.', clave: 'BEING', antes: 'The votes', despues: 'counted.', aceptadas: ['are still being'] },
+      { frase: 'People think the painting is a forgery.', clave: 'THOUGHT', antes: 'The painting', despues: 'a forgery.', aceptadas: ['is thought to be'] },
+      { frase: 'They say he left the country in June.', clave: 'HAVE', antes: 'He is said to', despues: 'the country in June.', aceptadas: ['have left'] },
+      { frase: 'Nobody has used this entrance for years.', clave: 'BEEN', antes: 'This entrance', despues: 'for years.', aceptadas: ["hasn't been used", 'has not been used'] },
+      { frase: 'They will announce the winner on Friday.', clave: 'BE', antes: 'The winner', despues: 'on Friday.', aceptadas: ['will be announced'] },
+      { frase: 'Everyone expects prices to fall again.', clave: 'EXPECTED', antes: 'Prices', despues: 'again.', aceptadas: ['are expected to fall'] }
+    ]
+  },
+
+  't2-gram11': {
+    tipo: 'transformacion', titulo: 'Encargar y que te lo hagan',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'A dentist checks my teeth twice a year.', clave: 'HAVE', antes: 'I', despues: 'twice a year.', aceptadas: ['have my teeth checked'] },
+      { frase: 'Someone broke into their flat last month.', clave: 'HAD', antes: 'They', despues: 'last month.', aceptadas: ['had their flat broken into'] },
+      { frase: 'We are paying a firm to redesign the website.', clave: 'HAVING', antes: 'We', despues: 'redesigned.', aceptadas: ['are having the website', "'re having the website"] },
+      { frase: 'She asked a tailor to shorten the sleeves.', clave: 'GOT', antes: 'She', despues: 'shortened.', aceptadas: ['got the sleeves'] },
+      { frase: 'A photographer is taking our picture tomorrow.', clave: 'HAVING', antes: 'We', despues: 'taken tomorrow.', aceptadas: ['are having our picture', "'re having our picture"] },
+      { frase: 'The council removed the tree without asking us.', clave: 'HAD', antes: 'We', despues: 'without being asked.', aceptadas: ['had the tree removed'] }
+    ]
+  },
+
+  't2-gram12': {
+    tipo: 'transformacion', titulo: 'Condicionales · mezcladas',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'I did not save the file, so it is gone.', clave: 'HAD', antes: 'The file would still be here if I', despues: 'it.', aceptadas: ['had saved'] },
+      { frase: 'She is not qualified, so they did not hire her.', clave: 'WERE', antes: 'If she', despues: ', they would have hired her.', aceptadas: ['were qualified'] },
+      { frase: 'Take an umbrella in case it rains.', clave: 'SHOULD', antes: 'Take an umbrella', despues: '.', aceptadas: ['should it rain'] },
+      { frase: 'You can stay as long as you are quiet.', clave: 'PROVIDED', antes: 'You can stay', despues: 'quiet.', aceptadas: ['provided you are', 'provided that you are', "provided you're"] },
+      { frase: 'Without the neighbours we would never have known.', clave: 'BEEN', antes: 'If it', despues: 'the neighbours, we would never have known.', aceptadas: ["hadn't been for", 'had not been for'] },
+      { frase: 'He will not improve unless he practises.', clave: 'ONLY', antes: 'He will improve', despues: 'practises.', aceptadas: ['only if he'] }
+    ]
+  },
+
+  't2-gram13': {
+    tipo: 'transformacion', titulo: 'Deseos y arrepentimientos',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'I am sorry I did not accept the offer.', clave: 'WISH', antes: 'I', despues: 'the offer.', aceptadas: ['wish I had accepted'] },
+      { frase: 'It is a shame the shop is shut.', clave: 'ONLY', antes: 'If', despues: 'open.', aceptadas: ['only the shop were', 'only the shop was'] },
+      { frase: 'I would rather you did not mention it.', clave: 'PREFER', antes: 'I', despues: 'mention it.', aceptadas: ["'d prefer you not to", 'would prefer you not to'] },
+      { frase: 'She regrets having sold the piano.', clave: 'WISHES', antes: 'She', despues: 'the piano.', aceptadas: ["wishes she hadn't sold", 'wishes she had not sold'] },
+      { frase: 'It annoys me that he always interrupts.', clave: 'WOULD', antes: 'I wish he', despues: 'interrupting.', aceptadas: ['would stop'] },
+      { frase: 'It is time for us to leave.', clave: 'WENT', antes: 'It is time', despues: '.', aceptadas: ['we went'] }
+    ]
+  },
+
+  't2-gram14': {
+    tipo: 'transformacion', titulo: 'Relativo y consecuencia',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'The film was so long that we left early.', clave: 'SUCH', antes: 'It was', despues: 'that we left early.', aceptadas: ['such a long film'] },
+      { frase: 'The house had a garden, and we bought it for that.', clave: 'WHOSE', antes: 'We bought the house', despues: 'us.', aceptadas: ['whose garden sold it to'] },
+      { frase: 'She missed the train, which meant she missed the meeting.', clave: 'RESULT', antes: 'She missed the train and', despues: 'missed the meeting.', aceptadas: ['as a result she'] },
+      { frase: 'That is the man I was telling you about.', clave: 'WHOM', antes: 'That is the man', despues: 'you.', aceptadas: ['about whom I told', 'about whom I was telling'] },
+      { frase: 'The soup was too hot to drink.', clave: 'ENOUGH', antes: 'The soup was not', despues: 'drink.', aceptadas: ['cool enough to'] },
+      { frase: 'Nobody knows the reason for the delay.', clave: 'WHY', antes: 'Nobody knows', despues: 'delayed.', aceptadas: ['why it was'] }
+    ]
+  },
+
+  't2-gram15': {
+    tipo: 'transformacion', titulo: 'Estilo indirecto · segunda vuelta',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: '"You broke it on purpose," she said to him.', clave: 'ACCUSED', antes: 'She', despues: 'it on purpose.', aceptadas: ['accused him of breaking'] },
+      { frase: '"I would not do that if I were you," he said.', clave: 'ADVISED', antes: 'He', despues: 'that.', aceptadas: ['advised me not to do', 'advised us not to do'] },
+      { frase: '"All right, I took the money," he said.', clave: 'TAKING', antes: 'He admitted', despues: '.', aceptadas: ['to taking the money', 'taking the money'] },
+      { frase: '"Do not forget to sign," she reminded me.', clave: 'REMINDED', antes: 'She', despues: '.', aceptadas: ['reminded me to sign'] },
+      { frase: '"Shall we meet on Thursday?" he said.', clave: 'SUGGESTED', antes: 'He', despues: 'on Thursday.', aceptadas: ['suggested meeting', 'suggested that we meet'] },
+      { frase: '"I will not sign it," she said.', clave: 'REFUSED', antes: 'She', despues: 'it.', aceptadas: ['refused to sign'] }
+    ]
+  },
+
+  't2-gram16': {
+    tipo: 'transformacion', titulo: 'Inversión y énfasis',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'We had hardly started when the power went off.', clave: 'HARDLY', antes: '', despues: 'started when the power went off.', aceptadas: ['hardly had we'] },
+      { frase: 'I have rarely seen him so pleased.', clave: 'RARELY', antes: '', despues: 'him so pleased.', aceptadas: ['rarely have I seen'] },
+      { frase: 'She did not realise what it meant until much later.', clave: 'ONLY', antes: '', despues: 'she realise what it meant.', aceptadas: ['only much later did'] },
+      { frase: 'You may not smoke here under any circumstances.', clave: 'CIRCUMSTANCES', antes: 'Under no', despues: 'here.', aceptadas: ['circumstances may you smoke'] },
+      { frase: 'The house is not only cold, it is also damp.', clave: 'ONLY', antes: 'Not', despues: ', it is also damp.', aceptadas: ['only is the house cold'] },
+      { frase: 'It was the noise that kept me awake, not the heat.', clave: 'WHAT', antes: '', despues: 'awake was the noise, not the heat.', aceptadas: ['what kept me'] }
+    ]
+  },
+
+  /* ===================== TEST 2 · VOCABULARIO =====================
+     Mismos tres formatos que usa Elena y en la misma proporcion: ocho cajas de
+     palabras, cuatro open cloze y cuatro de word formation. Frases nuevas. */
+
+  't2-voc1': {
+    tipo: 'caja', titulo: 'Preposiciones tras sustantivo',
+    instruccion: 'Completa cada frase con una palabra de la caja. Sobra una.',
+    caja: ['about', 'for', 'in', 'of', 'on', 'over', 'to', 'with'],
+    items: [
+      { antes: 'There is no need', despues: 'alarm.', aceptadas: ['for'] },
+      { antes: 'She has a real talent', despues: 'languages.', aceptadas: ['for'] },
+      { antes: 'They have no control', despues: 'the timetable.', aceptadas: ['over'] },
+      { antes: 'His attitude', despues: 'the whole thing surprised me.', aceptadas: ['to'] },
+      { antes: 'There has been a sharp rise', despues: 'complaints.', aceptadas: ['in'] },
+      { antes: 'I have no intention', despues: 'apologising.', aceptadas: ['of'] }
+    ]
+  },
+
+  't2-voc2': {
+    tipo: 'caja', titulo: 'Phrasal verbs · dar y quitar',
+    instruccion: 'Completa cada frase con una palabra de la caja. Sobra una.',
+    caja: ['away', 'back', 'down', 'in', 'off', 'out', 'up', 'with'],
+    items: [
+      { antes: 'She gave', despues: 'most of her books before moving.', aceptadas: ['away'] },
+      { antes: 'After an hour of arguing he finally gave', despues: '.', aceptadas: ['in'] },
+      { antes: 'I had to take the shirt', despues: 'to the shop.', aceptadas: ['back'] },
+      { antes: 'The company laid fifty people', despues: 'in March.', aceptadas: ['off'] },
+      { antes: 'They turned', despues: 'the heating to save money.', aceptadas: ['down'] },
+      { antes: 'He handed', despues: 'his notice on Friday.', aceptadas: ['in'] }
+    ]
+  },
+
+  't2-voc3': {
+    tipo: 'caja', titulo: 'Adjetivos y su preposición',
+    instruccion: 'Completa cada frase con una palabra de la caja. Sobra una.',
+    caja: ['about', 'at', 'from', 'in', 'of', 'on', 'to', 'with'],
+    items: [
+      { antes: 'He is hopeless', despues: 'directions.', aceptadas: ['at'] },
+      { antes: 'She was unaware', despues: 'the change.', aceptadas: ['of'] },
+      { antes: 'The result was independent', despues: 'the weather.', aceptadas: ['of'] },
+      { antes: 'They are keen', despues: 'starting immediately.', aceptadas: ['on'] },
+      { antes: 'This model is inferior', despues: 'the old one.', aceptadas: ['to'] },
+      { antes: 'I am not familiar', despues: 'that procedure.', aceptadas: ['with'] }
+    ]
+  },
+
+  't2-voc4': {
+    tipo: 'caja', titulo: 'Expresiones con partes del cuerpo',
+    instruccion: 'Completa cada expresión con una palabra de la caja. Sobra una.',
+    caja: ['arm', 'eye', 'foot', 'hand', 'head', 'heart', 'neck', 'shoulder'],
+    items: [
+      { antes: 'I did not see', despues: 'to eye with him about it.', aceptadas: ['eye'] },
+      { antes: 'She learned the whole speech by', despues: '.', aceptadas: ['heart'] },
+      { antes: 'Could you give me a', despues: 'with these boxes?', aceptadas: ['hand'] },
+      { antes: 'He got off on the wrong', despues: 'with his new boss.', aceptadas: ['foot'] },
+      { antes: 'Try to keep a cool', despues: 'when they ask.', aceptadas: ['head'] },
+      { antes: 'The tickets cost an', despues: 'and a leg.', aceptadas: ['arm'] }
+    ]
+  },
+
+  't2-voc5': {
+    tipo: 'cloze', titulo: 'Open cloze · el silencio caro',
+    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    texto: [
+      'Quiet, it turns out, has become a luxury good. Hotels advertise it, headphones promise it, and estate agents put it in the description whether or {1} it is true. What was once simply the absence of something is now sold {2} a feature.',
+      'This would be merely amusing {3} it were not so unevenly distributed. The people most exposed to noise are, almost without exception, the ones least able to pay to escape it: flats beside ring roads, houses under flight paths. Nobody planned this, which is precisely the problem. Had anyone been asked to design it {4} purpose, they would have refused. In the {5} of a decision, the market simply arranged things the way markets do, and we are left calling the result unfortunate {6} than unjust.'
+    ],
+    items: [
+      { aceptadas: ['not'] }, { aceptadas: ['as'] }, { aceptadas: ['if'] },
+      { aceptadas: ['on'] }, { aceptadas: ['absence'] }, { aceptadas: ['rather'] }
+    ]
+  },
+
+  't2-voc6': {
+    tipo: 'cloze', titulo: 'Open cloze · aprender un oficio',
+    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    texto: [
+      'The apprenticeship has been declared dead so many times that its survival has stopped being news. It persists because {1} does something no classroom manages: it puts the learner next to somebody who is actually doing the work, and lets them be useless for a while without anyone minding.',
+      'Critics point {2} that the system was never as good as nostalgia suggests, and they are right. Plenty of apprentices spent three years sweeping floors. But the answer to a badly run apprenticeship is a better one, {3} a lecture theatre. What the classroom cannot easily teach is judgement, and judgement is {4} up out of small decisions made in front of somebody who will say when you are wrong. That takes time, and time is the one thing {5} which there is no substitute, {6} matter how the course is designed.'
+    ],
+    items: [
+      { aceptadas: ['it'] }, { aceptadas: ['out'] }, { aceptadas: ['not'] },
+      { aceptadas: ['built', 'made'] }, { aceptadas: ['for'] }, { aceptadas: ['no'] }
+    ]
+  },
+
+  't2-voc7': {
+    tipo: 'formacion', titulo: 'Word formation · del verbo al nombre',
+    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    items: [
+      { antes: 'The', despues: 'of the new wing took two years.', raiz: 'CONSTRUCT', aceptadas: ['construction'] },
+      { antes: 'Her', despues: 'to the project was never in doubt.', raiz: 'COMMIT', aceptadas: ['commitment'] },
+      { antes: 'They demanded a full', despues: 'of the accident.', raiz: 'EXPLAIN', aceptadas: ['explanation'] },
+      { antes: 'The', despues: 'between the two reports is striking.', raiz: 'RESEMBLE', aceptadas: ['resemblance'] },
+      { antes: 'His', despues: 'to sign delayed everything.', raiz: 'REFUSE', aceptadas: ['refusal'] },
+      { antes: 'There was widespread', despues: 'with the decision.', raiz: 'SATISFY', aceptadas: ['dissatisfaction'] }
+    ]
+  },
+
+  't2-voc8': {
+    tipo: 'formacion', titulo: 'Word formation · adjetivos difíciles',
+    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    items: [
+      { antes: 'The instructions were almost', despues: 'to follow.', raiz: 'POSSIBLE', aceptadas: ['impossible'] },
+      { antes: 'She gave a', despues: 'account of what happened.', raiz: 'CONVINCE', aceptadas: ['convincing'] },
+      { antes: 'The damage is thankfully', despues: '.', raiz: 'REPAIR', aceptadas: ['repairable'] },
+      { antes: 'His behaviour was completely', despues: 'in the circumstances.', raiz: 'EXCUSE', aceptadas: ['inexcusable'] },
+      { antes: 'They made a', despues: 'effort to include everybody.', raiz: 'CONSCIENCE', aceptadas: ['conscientious'] },
+      { antes: 'The two accounts are', despues: 'different.', raiz: 'MARK', aceptadas: ['markedly'] }
+    ]
+  },
+
+  't2-voc9': {
+    tipo: 'caja', titulo: 'Verbos con preposición fija',
+    instruccion: 'Completa cada frase con una palabra de la caja. Sobra una.',
+    caja: ['at', 'for', 'from', 'in', 'of', 'on', 'to', 'with'],
+    items: [
+      { antes: 'Nobody objected', despues: 'the change of date.', aceptadas: ['to'] },
+      { antes: 'The result depends', despues: 'how many turn up.', aceptadas: ['on'] },
+      { antes: 'She was accused', despues: 'leaking the report.', aceptadas: ['of'] },
+      { antes: 'They congratulated him', despues: 'the appointment.', aceptadas: ['on'] },
+      { antes: 'Please refrain', despues: 'using flash photography.', aceptadas: ['from'] },
+      { antes: 'We had to cope', despues: 'a great deal that winter.', aceptadas: ['with'] }
+    ]
+  },
+
+  't2-voc10': {
+    tipo: 'caja', titulo: 'Phrasal verbs · empezar y terminar',
+    instruccion: 'Completa cada frase con una palabra de la caja. Sobra una.',
+    caja: ['ahead', 'along', 'down', 'off', 'out', 'through', 'up', 'with'],
+    items: [
+      { antes: 'The festival kicks', despues: 'on the fifteenth.', aceptadas: ['off'] },
+      { antes: 'Talks broke', despues: 'after four hours.', aceptadas: ['down'] },
+      { antes: 'They went', despues: 'with the plan despite the warnings.', aceptadas: ['ahead'] },
+      { antes: 'The batteries ran', despues: 'halfway through.', aceptadas: ['out'] },
+      { antes: 'We had to see the project', despues: 'to the end.', aceptadas: ['through'] },
+      { antes: 'The two of them get', despues: 'surprisingly well for rivals.', aceptadas: ['along'] }
+    ]
+  },
+
+  't2-voc11': {
+    tipo: 'caja', titulo: 'Colocaciones · verbo y sustantivo',
+    instruccion: 'Completa cada frase con un verbo de la caja. Sobra uno.',
+    caja: ['break', 'catch', 'come', 'keep', 'lose', 'make', 'meet', 'set'],
+    items: [
+      { antes: 'It is hard to', despues: 'track of everyone these days.', aceptadas: ['keep'] },
+      { antes: 'We will never', despues: 'the deadline at this rate.', aceptadas: ['meet'] },
+      { antes: 'Try not to', despues: 'your temper with them.', aceptadas: ['lose'] },
+      { antes: 'They are hoping to', despues: 'a record this summer.', aceptadas: ['break'] },
+      { antes: 'It took me a week to', despues: 'up with the reading.', aceptadas: ['catch'] },
+      { antes: 'The committee will', despues: 'a date in September.', aceptadas: ['set'] }
+    ]
+  },
+
+  't2-voc12': {
+    tipo: 'caja', titulo: 'Expresiones con el tiempo',
+    instruccion: 'Completa cada expresión con una palabra de la caja. Sobra una.',
+    caja: ['clock', 'hand', 'moment', 'run', 'spur', 'time', 'while', 'word'],
+    items: [
+      { antes: 'We booked it on the', despues: 'of the moment.', aceptadas: ['spur'] },
+      { antes: 'In the long', despues: 'it will save money.', aceptadas: ['run'] },
+      { antes: 'It is worth doing, but it takes a', despues: '.', aceptadas: ['while'] },
+      { antes: 'They worked round the', despues: 'to finish it.', aceptadas: ['clock'] },
+      { antes: 'For the', despues: 'being, nothing has changed.', aceptadas: ['time'] },
+      { antes: 'Have the papers ready at', despues: '.', aceptadas: ['hand'] }
+    ]
+  },
+
+  't2-voc13': {
+    tipo: 'cloze', titulo: 'Open cloze · el precio de lo gratis',
+    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    texto: [
+      'Nothing about a free service is free; the question is only who pays and {1} what. For two decades the answer was advertising, and for two decades most people decided they could live {2} that. What has changed is not the arrangement but its scale: what began as a way of guessing which advert to show has turned {3} an industry that knows a great deal more about you than your closest friends.',
+      'It is tempting to blame the users for accepting it, and there is something in that. But the choice, as presented, was never much of {4} choice: agree, or do without the thing everyone else is using. Regulators have started to notice, {5} the pace is glacial and the companies have far better lawyers. Whether anything comes {6} it is, at this stage, anybody’s guess.'
+    ],
+    items: [
+      { aceptadas: ['with', 'for'] }, { aceptadas: ['with'] }, { aceptadas: ['into'] },
+      { aceptadas: ['a'] }, { aceptadas: ['but', 'though', 'yet'] }, { aceptadas: ['of'] }
+    ]
+  },
+
+  't2-voc14': {
+    tipo: 'cloze', titulo: 'Open cloze · volver a un sitio',
+    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    texto: [
+      'Returning to a place you knew well as a child is an experiment nobody should run twice. The street is narrower than it {1} to be, the hill is not a hill, and the shop that seemed enormous turns {2} to be the size of a kitchen. None of this is surprising, and all of it is unsettling.',
+      'What catches people {3} guard is not the change but the absence of it. A town that has been carefully preserved is somehow harder to bear {4} one that has been rebuilt, because it insists that nothing has happened while you were away. You stand in front of a door that has not been repainted {5} 1994 and understand, more clearly than you would like, that the thing which moved on was you. It is worth doing {6}, but do not expect comfort from it.'
+    ],
+    items: [
+      { aceptadas: ['used'] }, { aceptadas: ['out'] }, { aceptadas: ['off'] },
+      { aceptadas: ['than'] }, { aceptadas: ['since'] }, { aceptadas: ['once'] }
+    ]
+  },
+
+  't2-voc15': {
+    tipo: 'formacion', titulo: 'Word formation · prefijos y matices',
+    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    items: [
+      { antes: 'The figures had been badly', despues: 'by the press.', raiz: 'INTERPRET', aceptadas: ['misinterpreted'] },
+      { antes: 'The two systems are simply', despues: '.', raiz: 'COMPATIBLE', aceptadas: ['incompatible'] },
+      { antes: 'They had to', despues: 'the whole timetable.', raiz: 'THINK', aceptadas: ['rethink'] },
+      { antes: 'Her contribution was', despues: 'by everyone at the time.', raiz: 'ESTIMATE', aceptadas: ['underestimated'] },
+      { antes: 'The delay was entirely', despues: '.', raiz: 'AVOID', aceptadas: ['avoidable', 'unavoidable'] },
+      { antes: 'He spoke with', despues: 'confidence for a beginner.', raiz: 'SURPRISE', aceptadas: ['surprising'] }
+    ]
+  },
+
+  't2-voc16': {
+    tipo: 'formacion', titulo: 'Word formation · adverbios',
+    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    items: [
+      { antes: 'The building was', despues: 'damaged in the storm.', raiz: 'SEVERE', aceptadas: ['severely'] },
+      { antes: 'She answered', despues: ', which surprised nobody.', raiz: 'TRUTH', aceptadas: ['truthfully'] },
+      { antes: 'The two events are', despues: 'connected.', raiz: 'DOUBT', aceptadas: ['undoubtedly'] },
+      { antes: 'He arrived', despues: 'late, as always.', raiz: 'SHAME', aceptadas: ['shamelessly'] },
+      { antes: 'The report was', despues: 'written in a single evening.', raiz: 'APPARENT', aceptadas: ['apparently'] },
+      { antes: 'They dealt with the complaint', despues: '.', raiz: 'EFFICIENT', aceptadas: ['efficiently'] }
+    ]
+  },
+
   /* ---------- Listening ----------
      Cuatro partes, como el examen. El audio de hoy es PROVISIONAL: lo genera
      espeak-ng en local, gratis, y es un sintetizador robotico. Sirve para que

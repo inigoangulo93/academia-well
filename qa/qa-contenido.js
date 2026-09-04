@@ -199,14 +199,20 @@ const FORMA = { use: 30, reading: 26 };   // Cambridge: 8+8+8+6 y 6+4+6+10
 for (const t of D.tests) {
   if (!(t.sesiones || []).length) continue;
   for (const dz of Object.keys(FORMA)) {
-    const vistas = {}; let preguntas = 0, partes = 0;
+    const vistas = {}; let preguntas = 0, partes = 0, faltan = false;
     (t.sesiones || []).forEach(s => (s.bloques || []).forEach(b => {
       if (b.destreza !== dz || !(b.ejercicios || []).length) return;
       const p = b.parte || 0;
       if (vistas[p]) return;
       vistas[p] = true; partes++;
-      preguntas += (D.ejercicios[b.ejercicios[0]].items || []).length;
+      // Puede apuntar a un ejercicio que aun no existe: eso ya lo denuncia la
+      // comprobacion de integridad, aqui no se revienta por ello.
+      var primero = D.ejercicios[b.ejercicios[0]];
+      if (primero) preguntas += (primero.items || []).length; else faltan = true;
     }));
+    // Un test a medio escribir todavia no tiene simulacro que medir. Se avisa,
+    // para que no se olvide, pero no es un fallo hasta que este entero.
+    if (faltan || partes === 0) { ojo(t.id, 'el simulacro de ' + dz + ' aun no esta completo'); continue; }
     if (partes !== 4) mal(t.id, 'el simulacro de ' + dz + ' tiene ' + partes + ' partes y el examen tiene 4');
     else if (preguntas !== FORMA[dz])
       mal(t.id, 'el simulacro de ' + dz + ' suma ' + preguntas + ' preguntas; el examen tiene ' + FORMA[dz]);
