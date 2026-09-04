@@ -21,6 +21,18 @@ paso "1 · comprobaciones que no cuestan nada"
 
 [ -f gen-listening.py ] || mal "No estas en el repo. Haz cd a la carpeta academia-well."
 
+# ffmpeg monta los trozos y mete los silencios entre lineas. Sin el, la
+# generacion llega a pagar la primera linea y revienta al juntarla. Se
+# comprueba aqui, con lo que no cuesta nada.
+command -v ffmpeg >/dev/null || mal "Falta ffmpeg, que es lo que junta los trozos de audio.
+
+  brew install ffmpeg
+
+Si no tienes Homebrew:
+  /bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+command -v ffprobe >/dev/null || mal "Tienes ffmpeg pero no ffprobe. Reinstala:  brew reinstall ffmpeg"
+echo "   ffmpeg: $(ffmpeg -version 2>/dev/null | head -1 | cut -d' ' -f1-3)"
+
 rama=$(git rev-parse --abbrev-ref HEAD)
 echo "   rama: $rama"
 [ "$rama" = "well-online-practica" ] || mal "Esperaba la rama well-online-practica."

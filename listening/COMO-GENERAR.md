@@ -13,6 +13,14 @@ dos pasadas mas.
 `voz.sh` hace todo lo de abajo en orden y se planta en cuanto algo no cuadra.
 Lo que sigue explica que hace cada paso y por que.
 
+## Lo que hace falta tener instalado
+
+- **ffmpeg** (trae ffprobe). Junta los trozos y mete los silencios entre
+  lineas. `brew install ffmpeg`.
+- **Python 3** con certificados, ver mas abajo.
+
+`voz.sh` comprueba las dos cosas antes de gastar un credito.
+
 ## Si en macOS falla con CERTIFICATE_VERIFY_FAILED
 
 El Python de python.org no usa el llavero del sistema y viene sin autoridades

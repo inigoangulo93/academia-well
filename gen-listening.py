@@ -134,6 +134,19 @@ def azure_linea(texto, voz, clave, region):
         return r.read()
 
 
+def hay_ffmpeg():
+    """Sin ffmpeg no hay montaje. Mejor decirlo en una linea que soltar un
+    traceback de subprocess, que no menciona ffmpeg hasta el final del todo."""
+    from shutil import which
+    if which('ffmpeg') and which('ffprobe'):
+        return
+    sys.exit('Falta ffmpeg, que es lo que junta los trozos de audio y mete los\n'
+             'silencios entre lineas. Lo generado hasta aqui esta en cache y no\n'
+             'se paga otra vez.\n\n'
+             '    brew install ffmpeg\n\n'
+             'Y vuelve a lanzar el mismo comando.')
+
+
 def silencio_mp3(seg, destino):
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'lavfi',
                     '-i', 'anullsrc=r=44100:cl=mono', '-t', '%.3f' % seg,
@@ -179,6 +192,8 @@ def genera(guion, destino, proveedor, simular=False):
         else:
             sys.exit('Proveedor desconocido: %s' % proveedor)
 
+    if not simular:
+        hay_ffmpeg()
     piezas, pagados, cacheadas = [], 0, 0
     for i, linea in enumerate(guion['lineas']):
         v = voces[linea['voz']]
