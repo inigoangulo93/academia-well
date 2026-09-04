@@ -144,6 +144,162 @@ window.WELL_PRACTICA = {
       ]
     },
     {
+      id: 'b2t2', nivel: 'b2',
+      titulo: 'Test 2',
+      sesiones: [
+        { id: 'b2t2-s1', n: 1, tipo: 'A', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['b2t2-voc1', 'b2t2-voc2'] },
+          { destreza: 'gramatica', ejercicios: ['b2t2-gram1', 'b2t2-gram2'] },
+          { destreza: 'use', parte: 1, tarea: 'Multiple-choice cloze', ejercicios: ['b2t2-use1'] },
+          { destreza: 'listening', parte: 1, tarea: 'Ocho extractos', ejercicios: ['b2t2-lis1'] }
+        ] },
+        { id: 'b2t2-s2', n: 2, tipo: 'B', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['b2t2-voc3', 'b2t2-voc4'] },
+          { destreza: 'gramatica', ejercicios: ['b2t2-gram3', 'b2t2-gram4'] },
+          { destreza: 'reading', parte: 5, tarea: 'Multiple choice', ejercicios: ['b2t2-read5'] },
+          { destreza: 'speaking', tarea: 'Parte 2', ejercicios: ['b2t2-speak1'] }
+        ] },
+        { id: 'b2t2-s3', n: 3, tipo: 'A', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['b2t2-voc5', 'b2t2-voc6'] },
+          { destreza: 'gramatica', ejercicios: ['b2t2-gram5', 'b2t2-gram6'] },
+          { destreza: 'use', parte: 2, tarea: 'Open cloze', ejercicios: ['b2t2-use2a', 'b2t2-use2b'] },
+          { destreza: 'listening', parte: 2, tarea: 'Frases incompletas', ejercicios: ['b2t2-lis2'] }
+        ] },
+        { id: 'b2t2-s4', n: 4, tipo: 'B', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['b2t2-voc7', 'b2t2-voc8'] },
+          { destreza: 'gramatica', ejercicios: ['b2t2-gram7', 'b2t2-gram8'] },
+          { destreza: 'reading', parte: 6, tarea: 'Gapped text', ejercicios: ['b2t2-read6'] },
+          { destreza: 'speaking', tarea: 'Parte 3', ejercicios: ['b2t2-speak3'] }
+        ] },
+        { id: 'b2t2-s5', n: 5, tipo: 'A', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['b2t2-voc9', 'b2t2-voc10'] },
+          { destreza: 'gramatica', ejercicios: ['b2t2-gram9', 'b2t2-gram10'] },
+          { destreza: 'use', parte: 3, tarea: 'Word formation', ejercicios: ['b2t2-use3'] },
+          { destreza: 'listening', parte: 3, tarea: 'Cinco hablantes', ejercicios: ['b2t2-lis3'] }
+        ] },
+        { id: 'b2t2-s6', n: 6, tipo: 'B', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['b2t2-voc11', 'b2t2-voc12'] },
+          { destreza: 'gramatica', ejercicios: ['b2t2-gram11', 'b2t2-gram12'] },
+          { destreza: 'reading', parte: 7, tarea: 'Multiple matching', ejercicios: ['b2t2-read7'] },
+          { destreza: 'speaking', tarea: 'Parte 4', ejercicios: ['b2t2-speak4'] }
+        ] },
+        { id: 'b2t2-s7', n: 7, tipo: 'A', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['b2t2-voc13', 'b2t2-voc14'] },
+          { destreza: 'gramatica', ejercicios: ['b2t2-gram13', 'b2t2-gram14'] },
+          { destreza: 'use', parte: 4, tarea: 'Key word transformation', ejercicios: ['b2t2-use4a', 'b2t2-use4b'] },
+          { destreza: 'listening', parte: 4, tarea: 'Entrevista', ejercicios: ['b2t2-lis4'] }
+        ] },
+        { id: 'b2t2-s8', n: 8, tipo: 'W', bloques: [
+          { destreza: 'writing', parte: 1, tarea: 'Essay', ejercicios: ['b2t2-write1'] },
+          { destreza: 'writing', parte: 2, tarea: 'A elegir', ejercicios: ['b2t2-write2'] }
+        ] }
+      ]
+    },
+    {
+      id: 'b2t3', nivel: 'b2',
+      titulo: 'Test 3',
+      sesiones: [
+        { id: 'b2t3-s1', n: 1, tipo: 'A', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['b2t3-voc1', 'b2t3-voc2'] },
+          { destreza: 'gramatica', ejercicios: ['b2t3-gram1', 'b2t3-gram2'] },
+          { destreza: 'use', parte: 1, tarea: 'Multiple-choice cloze', ejercicios: ['b2t3-use1'] },
+          { destreza: 'listening', parte: 1, tarea: 'Ocho extractos', ejercicios: ['b2t3-lis1'] }
+        ] },
+        { id: 'b2t3-s2', n: 2, tipo: 'B', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['b2t3-voc3', 'b2t3-voc4'] },
+          { destreza: 'gramatica', ejercicios: ['b2t3-gram3', 'b2t3-gram4'] },
+          { destreza: 'reading', parte: 5, tarea: 'Multiple choice', ejercicios: ['b2t3-read5'] },
+          { destreza: 'speaking', tarea: 'Parte 2', ejercicios: ['b2t3-speak1'] }
+        ] },
+        { id: 'b2t3-s3', n: 3, tipo: 'A', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['b2t3-voc5', 'b2t3-voc6'] },
+          { destreza: 'gramatica', ejercicios: ['b2t3-gram5', 'b2t3-gram6'] },
+          { destreza: 'use', parte: 2, tarea: 'Open cloze', ejercicios: ['b2t3-use2a', 'b2t3-use2b'] },
+          { destreza: 'listening', parte: 2, tarea: 'Frases incompletas', ejercicios: ['b2t3-lis2'] }
+        ] },
+        { id: 'b2t3-s4', n: 4, tipo: 'B', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['b2t3-voc7', 'b2t3-voc8'] },
+          { destreza: 'gramatica', ejercicios: ['b2t3-gram7', 'b2t3-gram8'] },
+          { destreza: 'reading', parte: 6, tarea: 'Gapped text', ejercicios: ['b2t3-read6'] },
+          { destreza: 'speaking', tarea: 'Parte 3', ejercicios: ['b2t3-speak3'] }
+        ] },
+        { id: 'b2t3-s5', n: 5, tipo: 'A', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['b2t3-voc9', 'b2t3-voc10'] },
+          { destreza: 'gramatica', ejercicios: ['b2t3-gram9', 'b2t3-gram10'] },
+          { destreza: 'use', parte: 3, tarea: 'Word formation', ejercicios: ['b2t3-use3'] },
+          { destreza: 'listening', parte: 3, tarea: 'Cinco hablantes', ejercicios: ['b2t3-lis3'] }
+        ] },
+        { id: 'b2t3-s6', n: 6, tipo: 'B', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['b2t3-voc11', 'b2t3-voc12'] },
+          { destreza: 'gramatica', ejercicios: ['b2t3-gram11', 'b2t3-gram12'] },
+          { destreza: 'reading', parte: 7, tarea: 'Multiple matching', ejercicios: ['b2t3-read7'] },
+          { destreza: 'speaking', tarea: 'Parte 4', ejercicios: ['b2t3-speak4'] }
+        ] },
+        { id: 'b2t3-s7', n: 7, tipo: 'A', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['b2t3-voc13', 'b2t3-voc14'] },
+          { destreza: 'gramatica', ejercicios: ['b2t3-gram13', 'b2t3-gram14'] },
+          { destreza: 'use', parte: 4, tarea: 'Key word transformation', ejercicios: ['b2t3-use4a', 'b2t3-use4b'] },
+          { destreza: 'listening', parte: 4, tarea: 'Entrevista', ejercicios: ['b2t3-lis4'] }
+        ] },
+        { id: 'b2t3-s8', n: 8, tipo: 'W', bloques: [
+          { destreza: 'writing', parte: 1, tarea: 'Essay', ejercicios: ['b2t3-write1'] },
+          { destreza: 'writing', parte: 2, tarea: 'A elegir', ejercicios: ['b2t3-write2'] }
+        ] }
+      ]
+    },
+    {
+      id: 'b2t4', nivel: 'b2',
+      titulo: 'Test 4',
+      sesiones: [
+        { id: 'b2t4-s1', n: 1, tipo: 'A', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['b2t4-voc1', 'b2t4-voc2'] },
+          { destreza: 'gramatica', ejercicios: ['b2t4-gram1', 'b2t4-gram2'] },
+          { destreza: 'use', parte: 1, tarea: 'Multiple-choice cloze', ejercicios: ['b2t4-use1'] },
+          { destreza: 'listening', parte: 1, tarea: 'Ocho extractos', ejercicios: ['b2t4-lis1'] }
+        ] },
+        { id: 'b2t4-s2', n: 2, tipo: 'B', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['b2t4-voc3', 'b2t4-voc4'] },
+          { destreza: 'gramatica', ejercicios: ['b2t4-gram3', 'b2t4-gram4'] },
+          { destreza: 'reading', parte: 5, tarea: 'Multiple choice', ejercicios: ['b2t4-read5'] },
+          { destreza: 'speaking', tarea: 'Parte 2', ejercicios: ['b2t4-speak1'] }
+        ] },
+        { id: 'b2t4-s3', n: 3, tipo: 'A', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['b2t4-voc5', 'b2t4-voc6'] },
+          { destreza: 'gramatica', ejercicios: ['b2t4-gram5', 'b2t4-gram6'] },
+          { destreza: 'use', parte: 2, tarea: 'Open cloze', ejercicios: ['b2t4-use2a', 'b2t4-use2b'] },
+          { destreza: 'listening', parte: 2, tarea: 'Frases incompletas', ejercicios: ['b2t4-lis2'] }
+        ] },
+        { id: 'b2t4-s4', n: 4, tipo: 'B', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['b2t4-voc7', 'b2t4-voc8'] },
+          { destreza: 'gramatica', ejercicios: ['b2t4-gram7', 'b2t4-gram8'] },
+          { destreza: 'reading', parte: 6, tarea: 'Gapped text', ejercicios: ['b2t4-read6'] },
+          { destreza: 'speaking', tarea: 'Parte 3', ejercicios: ['b2t4-speak3'] }
+        ] },
+        { id: 'b2t4-s5', n: 5, tipo: 'A', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['b2t4-voc9', 'b2t4-voc10'] },
+          { destreza: 'gramatica', ejercicios: ['b2t4-gram9', 'b2t4-gram10'] },
+          { destreza: 'use', parte: 3, tarea: 'Word formation', ejercicios: ['b2t4-use3'] },
+          { destreza: 'listening', parte: 3, tarea: 'Cinco hablantes', ejercicios: ['b2t4-lis3'] }
+        ] },
+        { id: 'b2t4-s6', n: 6, tipo: 'B', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['b2t4-voc11', 'b2t4-voc12'] },
+          { destreza: 'gramatica', ejercicios: ['b2t4-gram11', 'b2t4-gram12'] },
+          { destreza: 'reading', parte: 7, tarea: 'Multiple matching', ejercicios: ['b2t4-read7'] },
+          { destreza: 'speaking', tarea: 'Parte 4', ejercicios: ['b2t4-speak4'] }
+        ] },
+        { id: 'b2t4-s7', n: 7, tipo: 'A', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['b2t4-voc13', 'b2t4-voc14'] },
+          { destreza: 'gramatica', ejercicios: ['b2t4-gram13', 'b2t4-gram14'] },
+          { destreza: 'use', parte: 4, tarea: 'Key word transformation', ejercicios: ['b2t4-use4a', 'b2t4-use4b'] },
+          { destreza: 'listening', parte: 4, tarea: 'Entrevista', ejercicios: ['b2t4-lis4'] }
+        ] },
+        { id: 'b2t4-s8', n: 8, tipo: 'W', bloques: [
+          { destreza: 'writing', parte: 1, tarea: 'Essay', ejercicios: ['b2t4-write1'] },
+          { destreza: 'writing', parte: 2, tarea: 'A elegir', ejercicios: ['b2t4-write2'] }
+        ] }
+      ]
+    },
+    {
       id: 't1', nivel: 'c1',
       titulo: 'Test 1',
       sesiones: [
@@ -5085,6 +5241,2182 @@ window.WELL_PRACTICA = {
     enunciado: 'Choose one of the following three tasks.',
     contexto: '1 · An English friend is coming to stay with you for a week in July and has asked what to bring and what you could do together. Write an email replying to their questions.\n2 · A website is collecting reviews of places to eat near your school or workplace. Write a review of one, saying what it is like and who would enjoy it.\n3 · An English-language magazine has asked readers for articles under the title "The best thing I have learned outside school". Write your article.',
     cierre: 'El correo es informal y contesta a lo que te han preguntado. La reseña opina y recomienda. El artículo busca que el lector siga leyendo: empieza por algo concreto, no por una definición.',
+    items: [ { escrito: true } ]
+  },
+
+  /* ---------------------- TEST 2 de B2 First ---------------------- */
+
+  'b2t2-gram1': {
+    tipo: 'transformacion', titulo: 'Presentes',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'We moved to this flat in 2019 and we are still here.', clave: 'LIVED', antes: 'We', despues: 'in this flat since 2019.', aceptadas: ['have lived'] },
+      { frase: 'How long is it since you started learning Basque?', clave: 'BEEN', antes: 'How long', despues: 'Basque?', aceptadas: ['have you been learning'] },
+      { frase: 'Ana is not at her desk at the moment.', clave: 'AWAY', antes: 'Ana', despues: 'from her desk at the moment.', aceptadas: ['is away'] },
+      { frase: 'They are repairing the lift this week.', clave: 'BEING', antes: 'The lift', despues: 'this week.', aceptadas: ['is being repaired'] },
+      { frase: 'My brother constantly borrows my things without asking.', clave: 'ALWAYS', antes: 'My brother', despues: 'my things without asking.', aceptadas: ['is always borrowing'] },
+      { frase: 'She has had that car for five years.', clave: 'BOUGHT', antes: 'She', despues: 'five years ago.', aceptadas: ['bought that car', 'bought the car'] }
+    ]
+  },
+
+  'b2t2-gram2': {
+    tipo: 'transformacion', titulo: 'Pasados',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'The concert finished and then we went for a meal.', clave: 'AFTER', antes: 'We went for a meal', despues: 'finished.', aceptadas: ['after the concert'] },
+      { frase: 'It started to rain while we were walking home.', clave: 'WHEN', antes: 'We', despues: 'it started to rain.', aceptadas: ['were walking home when'] },
+      { frase: 'I did not recognise her because I had not seen her for years.', clave: 'HAD', antes: 'I did not recognise her because I', despues: 'her for years.', aceptadas: ["hadn't seen", 'had not seen'] },
+      { frase: 'Nobody had told him about the meeting.', clave: 'BEEN', antes: 'He', despues: 'about the meeting.', aceptadas: ["hadn't been told", 'had not been told'] },
+      { frase: 'I was in the middle of cooking when he called.', clave: 'COOKING', antes: 'I', despues: 'when he called.', aceptadas: ['was cooking'] },
+      { frase: 'The last time I went to the theatre was in 2019.', clave: 'SINCE', antes: 'I have not been to the theatre', despues: '.', aceptadas: ['since 2019'] }
+    ]
+  },
+
+  'b2t2-gram3': {
+    tipo: 'transformacion', titulo: 'Futuro',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'I have arranged to meet Jon at six.', clave: 'MEETING', antes: 'I', despues: 'Jon at six.', aceptadas: ['am meeting', "'m meeting"] },
+      { frase: 'The exam will be over by five o’clock.', clave: 'FINISHED', antes: 'The exam', despues: 'by five o’clock.', aceptadas: ['will have finished'] },
+      { frase: 'The plane takes off at ten past seven.', clave: 'TAKING', antes: 'The plane', despues: 'at ten past seven.', aceptadas: ['is taking off'] },
+      { frase: 'I will phone you as soon as I arrive.', clave: 'MOMENT', antes: 'I will phone you', despues: 'arrive.', aceptadas: ['the moment I'] },
+      { frase: 'She intends to look for a new job.', clave: 'GOING', antes: 'She', despues: 'for a new job.', aceptadas: ['is going to look'] },
+      { frase: 'The builders will still be working at six.', clave: 'BE', antes: 'At six the builders', despues: 'working.', aceptadas: ['will still be'] }
+    ]
+  },
+
+  'b2t2-gram4': {
+    tipo: 'transformacion', titulo: 'Repaso de tiempos',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'It is three years since I last went skiing.', clave: 'BEEN', antes: 'I', despues: 'skiing for three years.', aceptadas: ["haven't been", 'have not been'] },
+      { frase: 'She started the course in September and she is still doing it.', clave: 'DOING', antes: 'She', despues: 'the course since September.', aceptadas: ['has been doing'] },
+      { frase: 'They will finish the bridge next year.', clave: 'BE', antes: 'The bridge', despues: 'next year.', aceptadas: ['will be finished'] },
+      { frase: 'This is my first visit to Scotland.', clave: 'TIME', antes: 'It is the first', despues: 'to Scotland.', aceptadas: ['time I have been'] },
+      { frase: 'We were still eating when they arrived.', clave: 'FINISHED', antes: 'We', despues: 'eating when they arrived.', aceptadas: ["hadn't finished", 'had not finished'] },
+      { frase: 'How long ago did you buy that bike?', clave: 'HAD', antes: 'How long', despues: 'that bike?', aceptadas: ['have you had'] }
+    ]
+  },
+
+  'b2t2-gram5': {
+    tipo: 'transformacion', titulo: 'Costumbres del pasado',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'When I was a child I played the piano every day.', clave: 'USED', antes: 'I', despues: 'the piano every day when I was a child.', aceptadas: ['used to play'] },
+      { frase: 'My grandmother often told us stories at bedtime.', clave: 'WOULD', antes: 'My grandmother', despues: 'us stories at bedtime.', aceptadas: ['would often tell'] },
+      { frase: 'There was a cinema here in the past, but not now.', clave: 'BE', antes: 'There', despues: 'a cinema here.', aceptadas: ['used to be'] },
+      { frase: 'She did not like coffee when she was younger.', clave: 'USE', antes: 'She', despues: 'coffee when she was younger.', aceptadas: ["didn't use to like", 'did not use to like'] },
+      { frase: 'We never went abroad when I was small.', clave: 'NEVER', antes: 'We', despues: 'abroad when I was small.', aceptadas: ['never used to go'] },
+      { frase: 'He does not smoke now, but he did before.', clave: 'LONGER', antes: 'He', despues: 'smokes.', aceptadas: ['no longer'] }
+    ]
+  },
+
+  'b2t2-gram6': {
+    tipo: 'transformacion', titulo: 'Acostumbrarse',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'Driving on the left was strange for me at first.', clave: 'USED', antes: 'At first I', despues: 'driving on the left.', aceptadas: ["wasn't used to", 'was not used to'] },
+      { frase: 'She is finding the early starts easier now.', clave: 'GETTING', antes: 'She', despues: 'the early starts.', aceptadas: ['is getting used to'] },
+      { frase: 'Living alone does not bother me any more.', clave: 'USED', antes: 'I', despues: 'living alone.', aceptadas: ['am used to', "'m used to"] },
+      { frase: 'It took him a while to accept the new system.', clave: 'GET', antes: 'It took him a while', despues: 'the new system.', aceptadas: ['to get used to'] },
+      { frase: 'She did not find the cold weather difficult after a month.', clave: 'GOT', antes: 'After a month she', despues: 'the cold weather.', aceptadas: ['had got used to', 'got used to'] },
+      { frase: 'Long journeys are normal for her.', clave: 'USED', antes: 'She', despues: 'long journeys.', aceptadas: ['is used to'] }
+    ]
+  },
+
+  'b2t2-gram7': {
+    tipo: 'transformacion', titulo: 'Poder y tener que',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'You are not allowed to park here.', clave: 'MUST', antes: 'You', despues: 'here.', aceptadas: ["mustn't park", 'must not park'] },
+      { frase: 'I managed to finish it before lunch.', clave: 'ABLE', antes: 'I', despues: 'finish it before lunch.', aceptadas: ['was able to'] },
+      { frase: 'It is obligatory to wear a helmet.', clave: 'HAVE', antes: 'You', despues: 'a helmet.', aceptadas: ['have to wear'] },
+      { frase: 'She could not come because of her exams.', clave: 'UNABLE', antes: 'She', despues: 'come because of her exams.', aceptadas: ['was unable to'] },
+      { frase: 'It was not necessary for us to queue.', clave: 'HAVE', antes: 'We', despues: 'queue.', aceptadas: ["didn't have to", 'did not have to'] },
+      { frase: 'He knows how to swim very well.', clave: 'CAN', antes: 'He', despues: 'very well.', aceptadas: ['can swim'] }
+    ]
+  },
+
+  'b2t2-gram8': {
+    tipo: 'transformacion', titulo: 'Consejo y deducción',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'It was a mistake to tell him.', clave: 'SHOULD', antes: 'You', despues: 'him.', aceptadas: ["shouldn't have told", 'should not have told'] },
+      { frase: 'I am sure she has already left.', clave: 'MUST', antes: 'She', despues: 'already.', aceptadas: ['must have left'] },
+      { frase: 'It is impossible that he saw us.', clave: 'CANNOT', antes: 'He', despues: 'us.', aceptadas: ['cannot have seen'] },
+      { frase: 'Perhaps they missed the train.', clave: 'MIGHT', antes: 'They', despues: 'the train.', aceptadas: ['might have missed'] },
+      { frase: 'If I were you I would ring the doctor.', clave: 'OUGHT', antes: 'You', despues: 'the doctor.', aceptadas: ['ought to ring'] },
+      { frase: 'I advise you to book early.', clave: 'BETTER', antes: 'You', despues: 'early.', aceptadas: ["'d better book", 'had better book'] }
+    ]
+  },
+
+  'b2t2-gram9': {
+    tipo: 'transformacion', titulo: 'Voz pasiva',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'Somebody is cleaning the windows.', clave: 'BEING', antes: 'The windows', despues: '.', aceptadas: ['are being cleaned'] },
+      { frase: 'They have cancelled all the flights.', clave: 'BEEN', antes: 'All the flights', despues: 'cancelled.', aceptadas: ['have been'] },
+      { frase: 'People say he is very generous.', clave: 'SAID', antes: 'He', despues: 'very generous.', aceptadas: ['is said to be'] },
+      { frase: 'They will announce the results on Friday.', clave: 'ANNOUNCED', antes: 'The results', despues: 'on Friday.', aceptadas: ['will be announced'] },
+      { frase: 'They gave her a prize.', clave: 'GIVEN', antes: 'She', despues: 'a prize.', aceptadas: ['was given'] },
+      { frase: 'Someone should tell the neighbours.', clave: 'BE', antes: 'The neighbours', despues: '.', aceptadas: ['should be told'] }
+    ]
+  },
+
+  'b2t2-gram10': {
+    tipo: 'transformacion', titulo: 'Que te lo hagan',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'A mechanic services my car every year.', clave: 'HAVE', antes: 'I', despues: 'every year.', aceptadas: ['have my car serviced'] },
+      { frase: 'Somebody broke into their house last night.', clave: 'HAD', antes: 'They', despues: 'into last night.', aceptadas: ['had their house broken'] },
+      { frase: 'A hairdresser is going to cut her hair tomorrow.', clave: 'HAVING', antes: 'She is', despues: 'tomorrow.', aceptadas: ['having her hair cut'] },
+      { frase: 'I am going to ask someone to paint the door.', clave: 'GET', antes: 'I am going to', despues: '.', aceptadas: ['get the door painted'] },
+      { frase: 'Someone repaired her laptop last week.', clave: 'GOT', antes: 'She', despues: 'last week.', aceptadas: ['got her laptop repaired'] },
+      { frase: 'We are going to ask a builder to build an extension.', clave: 'HAVE', antes: 'We are going to', despues: 'built.', aceptadas: ['have an extension'] }
+    ]
+  },
+
+  'b2t2-gram11': {
+    tipo: 'transformacion', titulo: 'Condicionales',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'I did not know, so I did not tell you.', clave: 'HAD', antes: 'If I', despues: ', I would have told you.', aceptadas: ['had known'] },
+      { frase: 'Take a coat or you will be cold.', clave: 'UNLESS', antes: 'You will be cold', despues: 'a coat.', aceptadas: ['unless you take'] },
+      { frase: 'I do not have a car, so I cannot give you a lift.', clave: 'HAD', antes: 'If I', despues: ', I could give you a lift.', aceptadas: ['had a car'] },
+      { frase: 'She only passed because you helped her.', clave: 'NOT', antes: 'If you', despues: 'her, she would not have passed.', aceptadas: ['had not helped'] },
+      { frase: 'Phone me in case there is a problem.', clave: 'IF', antes: 'Phone me', despues: 'a problem.', aceptadas: ['if there is'] },
+      { frase: 'You can borrow it as long as you give it back.', clave: 'PROVIDED', antes: 'You can borrow it', despues: 'give it back.', aceptadas: ['provided you'] }
+    ]
+  },
+
+  'b2t2-gram12': {
+    tipo: 'transformacion', titulo: 'Deseos y lamentos',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'I am sorry I did not study harder.', clave: 'WISH', antes: 'I', despues: 'harder.', aceptadas: ['wish I had studied'] },
+      { frase: 'I would like to be taller.', clave: 'WERE', antes: 'I wish I', despues: '.', aceptadas: ['were taller'] },
+      { frase: 'It is a pity you cannot come.', clave: 'ONLY', antes: 'If', despues: 'come.', aceptadas: ['only you could'] },
+      { frase: 'I regret buying this phone.', clave: 'WISH', antes: 'I', despues: 'this phone.', aceptadas: ["wish I hadn't bought", 'wish I had not bought'] },
+      { frase: 'We really should go home now.', clave: 'WENT', antes: 'It is time', despues: 'home.', aceptadas: ['we went'] },
+      { frase: 'I regret not telling her the truth.', clave: 'HAD', antes: 'I wish I', despues: 'her the truth.', aceptadas: ['had told'] }
+    ]
+  },
+
+  'b2t2-gram13': {
+    tipo: 'transformacion', titulo: 'Estilo indirecto',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: '"I will call you tomorrow," she said.', clave: 'WOULD', antes: 'She said', despues: 'the next day.', aceptadas: ['she would call me'] },
+      { frase: '"Do not touch that," he told me.', clave: 'NOT', antes: 'He told me', despues: 'that.', aceptadas: ['not to touch'] },
+      { frase: '"Where have you been?" she asked me.', clave: 'WHERE', antes: 'She asked me', despues: '.', aceptadas: ['where I had been'] },
+      { frase: '"I did not take the money," said Tom.', clave: 'DENIED', antes: 'Tom', despues: 'the money.', aceptadas: ['denied taking'] },
+      { frase: '"Would you like to come to dinner?" they asked us.', clave: 'INVITED', antes: 'They', despues: 'to dinner.', aceptadas: ['invited us'] },
+      { frase: '"Yes, I broke the window," said Leo.', clave: 'ADMITTED', antes: 'Leo', despues: 'the window.', aceptadas: ['admitted breaking'] }
+    ]
+  },
+
+  'b2t2-gram14': {
+    tipo: 'transformacion', titulo: 'Comparar y relativas',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'This is the most difficult exam I have ever taken.', clave: 'MORE', antes: 'I have never taken', despues: 'this one.', aceptadas: ['a more difficult exam than'] },
+      { frase: 'The flat is not as big as I remembered.', clave: 'BIGGER', antes: 'I remembered the flat', despues: 'it is.', aceptadas: ['being bigger than'] },
+      { frase: 'She is a woman. Her son works with me.', clave: 'WHOSE', antes: 'She is the woman', despues: 'with me.', aceptadas: ['whose son works'] },
+      { frase: 'That is the village. I was born there.', clave: 'WHERE', antes: 'That is the village', despues: 'born.', aceptadas: ['where I was'] },
+      { frase: 'My brother lives in Girona and he is a vet.', clave: 'WHO', antes: 'My brother,', despues: 'Girona, is a vet.', aceptadas: ['who lives in'] },
+      { frase: 'Nobody in the team runs faster than Julen.', clave: 'FASTEST', antes: 'Julen', despues: 'in the team.', aceptadas: ['is the fastest runner'] }
+    ]
+  },
+
+  'b2t2-voc1': {
+    tipo: 'caja', titulo: 'Preposiciones tras sustantivo · segunda vuelta',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
+    caja: ['about', 'between', 'for', 'in', 'of', 'on', 'to', 'with'],
+    items: [
+      { antes: 'There has been a big increase', despues: 'the number of tourists.', aceptadas: ['in'] },
+      { antes: 'She had no answer', despues: 'that question.', aceptadas: ['to'] },
+      { antes: 'The reason', despues: 'the delay was never explained.', aceptadas: ['for'] },
+      { antes: 'They finally reached an agreement', despues: 'the two families.', aceptadas: ['between'] },
+      { antes: 'I have no intention', despues: 'moving house.', aceptadas: ['of'] },
+      { antes: 'There is something wrong', despues: 'the printer.', aceptadas: ['with'] }
+    ]
+  },
+
+  'b2t2-voc2': {
+    tipo: 'caja', titulo: 'Phrasal verbs · dinero y trabajo',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
+    caja: ['back', 'down', 'in', 'off', 'on', 'out', 'over', 'up'],
+    items: [
+      { antes: 'Prices have gone', despues: 'again this month.', aceptadas: ['up'] },
+      { antes: 'I need to pay her', despues: 'before Friday.', aceptadas: ['back'] },
+      { antes: 'The factory laid', despues: 'forty workers in March.', aceptadas: ['off'] },
+      { antes: 'She has taken', despues: 'a new job in Vitoria.', aceptadas: ['on'] },
+      { antes: 'They turned the heating', despues: 'to save money.', aceptadas: ['down'] },
+      { antes: 'He filled', despues: 'the application form at the desk.', aceptadas: ['in'] }
+    ]
+  },
+
+  'b2t2-voc3': {
+    tipo: 'caja', titulo: 'Adjetivos y su preposición · segunda vuelta',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
+    caja: ['about', 'at', 'for', 'from', 'in', 'of', 'on', 'with'],
+    items: [
+      { antes: 'She is very keen', despues: 'photography.', aceptadas: ['on'] },
+      { antes: 'I am not very good', despues: 'remembering names.', aceptadas: ['at'] },
+      { antes: 'This town is completely different', despues: 'the one I grew up in.', aceptadas: ['from'] },
+      { antes: 'He is very proud', despues: 'his daughter.', aceptadas: ['of'] },
+      { antes: 'They were extremely pleased', despues: 'the result.', aceptadas: ['with'] },
+      { antes: 'I am sorry', despues: 'the noise last night.', aceptadas: ['about'] }
+    ]
+  },
+
+  'b2t2-voc4': {
+    tipo: 'caja', titulo: 'Verbos con preposición fija · segunda vuelta',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
+    caja: ['about', 'for', 'from', 'in', 'of', 'on', 'to', 'with'],
+    items: [
+      { antes: 'I have been waiting', despues: 'the bus for twenty minutes.', aceptadas: ['for'] },
+      { antes: 'She never complains', despues: 'anything.', aceptadas: ['about'] },
+      { antes: 'This coat belongs', despues: 'my sister.', aceptadas: ['to'] },
+      { antes: 'He suffers', despues: 'terrible headaches in summer.', aceptadas: ['from'] },
+      { antes: 'They believe', despues: 'giving everybody a chance.', aceptadas: ['in'] },
+      { antes: 'Please concentrate', despues: 'your own work.', aceptadas: ['on'] }
+    ]
+  },
+
+  'b2t2-voc5': {
+    tipo: 'caja', titulo: 'Phrasal verbs · casa y rutina',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
+    caja: ['away', 'back', 'off', 'on', 'out', 'over', 'round', 'up'],
+    items: [
+      { antes: 'I get', despues: 'at half past six every day.', aceptadas: ['up'] },
+      { antes: 'Do not forget to turn the lights', despues: 'when you leave.', aceptadas: ['off'] },
+      { antes: 'Some friends came', despues: 'for dinner on Saturday.', aceptadas: ['round'] },
+      { antes: 'We are eating', despues: 'tonight.', aceptadas: ['out'] },
+      { antes: 'Put your coat', despues: ', it is freezing.', aceptadas: ['on'] },
+      { antes: 'She went', despues: 'to Sevilla for the weekend.', aceptadas: ['away'] }
+    ]
+  },
+
+  'b2t2-voc6': {
+    tipo: 'caja', titulo: 'Colocaciones · verbo y sustantivo',
+    instruccion: 'Complete each sentence with a verb from the box. There are more verbs than you need.',
+    caja: ['break', 'catch', 'keep', 'lose', 'save', 'spend', 'tell', 'win'],
+    items: [
+      { antes: 'Try not to', despues: 'your temper with him.', aceptadas: ['lose'] },
+      { antes: 'Can you', despues: 'a secret?', aceptadas: ['keep'] },
+      { antes: 'It is not always easy to', despues: 'the truth.', aceptadas: ['tell'] },
+      { antes: 'They hope to', despues: 'the match on Sunday.', aceptadas: ['win'] },
+      { antes: 'Hurry up or we will not', despues: 'the train.', aceptadas: ['catch'] },
+      { antes: 'Doing it online will', despues: 'us a lot of time.', aceptadas: ['save'] }
+    ]
+  },
+
+  'b2t2-voc7': {
+    tipo: 'caja', titulo: 'Expresiones cotidianas · segunda vuelta',
+    instruccion: 'Complete each expression with a word from the box. There are more words than you need.',
+    caja: ['ages', 'chance', 'go', 'idea', 'luck', 'mind', 'trouble', 'turn'],
+    items: [
+      { antes: 'I have not seen her for', despues: '.', aceptadas: ['ages'] },
+      { antes: 'Have a', despues: 'at the first question.', aceptadas: ['go'] },
+      { antes: 'It is my', despues: 'to pay.', aceptadas: ['turn'] },
+      { antes: 'By any', despues: ', are you free on Thursday?', aceptadas: ['chance'] },
+      { antes: 'Good', despues: 'with the exam tomorrow.', aceptadas: ['luck'] },
+      { antes: 'I have no', despues: 'what he means.', aceptadas: ['idea'] }
+    ]
+  },
+
+  'b2t2-voc8': {
+    tipo: 'cloze', titulo: 'Open cloze · papel o pantalla',
+    instruccion: 'Write <b>one word</b> in each gap.',
+    texto: [
+      'There is a particular argument that comes {1} every few years, and it is the one about paper books against screens. Both sides have been saying exactly the same things for twenty years and neither of them has moved {2} inch.',
+      'What gets lost is that they are not really the same activity. A screen is very good at getting a book to you at eleven at night, and terrible at telling you {3} much of it is left. Paper does the opposite. Neither of these is a moral position; they are different tools, and most people who read a lot end {4} using both without thinking about it.',
+      'The thing worth defending is not the paper. It is the hour. Whatever you read {5}, the difficulty is finding the time and leaving the phone in another room, and no format has ever solved that {6} you.'
+    ],
+    items: [
+      { aceptadas: ['round', 'around', 'up', 'back'] }, { aceptadas: ['an'] }, { aceptadas: ['how'] },
+      { aceptadas: ['up'] }, { aceptadas: ['on'] }, { aceptadas: ['for'] }
+    ]
+  },
+
+  'b2t2-voc9': {
+    tipo: 'cloze', titulo: 'Open cloze · aprender a conducir',
+    instruccion: 'Write <b>one word</b> in each gap.',
+    texto: [
+      'Nobody enjoys learning to drive, and the people who say they did are remembering the licence rather {1} the lessons. For the first month you are being asked to do six things at once, badly, in public, beside somebody with a second set of pedals who has seen it all {2}.',
+      'What makes it hard is not the machine. It is that everything has to become automatic before you can pay attention to anything {3}, and the only way through that is repetition, which is dull. There is no clever method, and the instructors who promise {4} shortcut are selling confidence rather than skill.',
+      'Then one afternoon you notice that you have driven right across the city and cannot remember any {5} of it, and that is the moment at which you have learned. It arrives without warning, and it arrives {6} everybody, eventually.'
+    ],
+    items: [
+      { aceptadas: ['than'] }, { aceptadas: ['before'] }, { aceptadas: ['else'] },
+      { aceptadas: ['a'] }, { aceptadas: ['part'] }, { aceptadas: ['for', 'to'] }
+    ]
+  },
+
+  'b2t2-voc10': {
+    tipo: 'cloze', titulo: 'Open cloze · listas de tareas',
+    instruccion: 'Write <b>one word</b> in each gap.',
+    texto: [
+      'Everybody has a system for remembering what they have to do, and almost {1} of them work for longer than a fortnight. The list gets long, the long list gets frightening, the frightening list gets ignored, and then you buy a new app and start the whole thing {2} again.',
+      'The problem is not the app. It is that we write down what we would {3} to be true rather than what we are actually going to do on Tuesday. A list with nineteen things on it is not a plan; it is a description {4} how you feel about your life. Three things is a plan, and three things is also, on most days, {5} much as anybody gets done.',
+      'Nobody wants to hear this, because a short list means choosing, and choosing means admitting out loud that the other sixteen were never going to happen {6}.'
+    ],
+    items: [
+      { aceptadas: ['none'] }, { aceptadas: ['over', 'all'] }, { aceptadas: ['like'] },
+      { aceptadas: ['of'] }, { aceptadas: ['as'] }, { aceptadas: ['anyway'] }
+    ]
+  },
+
+  'b2t2-voc11': {
+    tipo: 'formacion', titulo: 'Word formation · nombres abstractos',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
+    items: [
+      { antes: 'His', despues: 'to the team has never been in doubt.', raiz: 'COMMIT', aceptadas: ['commitment'] },
+      { antes: 'There was a great deal of', despues: 'about the new rules.', raiz: 'CONFUSE', aceptadas: ['confusion'] },
+      { antes: 'The', despues: 'between the two schools has grown.', raiz: 'COMPETE', aceptadas: ['competition'] },
+      { antes: 'She spoke about her old teacher with real', despues: '.', raiz: 'WARM', aceptadas: ['warmth'] },
+      { antes: 'The', despues: 'of the letter was clear to everybody.', raiz: 'IMPORTANT', aceptadas: ['importance'] },
+      { antes: 'We are still waiting for an', despues: 'of what happened.', raiz: 'EXPLAIN', aceptadas: ['explanation'] }
+    ]
+  },
+
+  'b2t2-voc12': {
+    tipo: 'formacion', titulo: 'Word formation · adjetivos',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
+    items: [
+      { antes: 'The ending of the film was rather', despues: '.', raiz: 'DISAPPOINT', aceptadas: ['disappointing'] },
+      { antes: 'It is a very', despues: 'building from the outside.', raiz: 'ATTRACT', aceptadas: ['attractive'] },
+      { antes: 'She is extremely', despues: 'about her work.', raiz: 'ENTHUSIASM', aceptadas: ['enthusiastic'] },
+      { antes: 'The water in that stream is not', despues: '.', raiz: 'DRINK', aceptadas: ['drinkable'] },
+      { antes: 'That was a very', despues: 'thing to do.', raiz: 'DANGER', aceptadas: ['dangerous'] },
+      { antes: 'He was', despues: 'to everybody at the party.', raiz: 'FRIEND', aceptadas: ['friendly'] }
+    ]
+  },
+
+  'b2t2-voc13': {
+    tipo: 'formacion', titulo: 'Word formation · adjetivos en negativo',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
+    items: [
+      { antes: 'The new rules seem completely', despues: '.', raiz: 'FAIR', aceptadas: ['unfair'] },
+      { antes: 'His handwriting is almost', despues: '.', raiz: 'LEGIBLE', aceptadas: ['illegible'] },
+      { antes: 'They were getting very', despues: 'about the delay.', raiz: 'PATIENT', aceptadas: ['impatient'] },
+      { antes: 'He is hopelessly', despues: 'and loses things constantly.', raiz: 'ORGANISE', aceptadas: ['disorganised', 'disorganized'] },
+      { antes: 'The two accounts of the evening are', despues: 'with each other.', raiz: 'COMPATIBLE', aceptadas: ['incompatible'] },
+      { antes: 'She was', despues: 'to find the address he had given her.', raiz: 'ABLE', aceptadas: ['unable'] }
+    ]
+  },
+
+  'b2t2-voc14': {
+    tipo: 'formacion', titulo: 'Word formation · personas y oficios',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
+    items: [
+      { antes: 'She works as a', despues: 'in a bank in Getxo.', raiz: 'MANAGE', aceptadas: ['manager'] },
+      { antes: 'He trained as an', despues: 'in Bilbao.', raiz: 'ELECTRIC', aceptadas: ['electrician'] },
+      { antes: 'The', despues: 'of the play is only twenty-five.', raiz: 'WRITE', aceptadas: ['writer'] },
+      { antes: 'She is a well-known', despues: 'in this part of Spain.', raiz: 'POLITICS', aceptadas: ['politician'] },
+      { antes: 'The', despues: 'said the roof would cost four thousand euros.', raiz: 'BUILD', aceptadas: ['builder'] },
+      { antes: 'My sister is a', despues: 'at the university.', raiz: 'RESEARCH', aceptadas: ['researcher'] }
+    ]
+  },
+
+  'b2t2-use1': {
+    tipo: 'opcion', parte: 1, titulo: 'Use of English · Part 1',
+    instruccion: 'Decide which answer best fits each gap.',
+    texto: [
+      'Buying second-hand clothes used to be something people did quietly and did not {1} up in conversation. Now the queue outside the charity shop on a Saturday morning is longer than the one outside the chain store opposite, and the shop has started to {2} its prices accordingly.',
+      'Two things changed at the same time, and it is worth {3} them apart. One is money: clothes got expensive and wages did not {4} pace. The other is that a generation decided a new jumper made in a hurry was faintly embarrassing, which is a much larger shift and a much less reliable one.',
+      'The shops themselves have mixed feelings. Volunteers who spent years {5} through donated bags for anything wearable now find people arriving at nine to look for particular labels. Nobody in the sector is going to {6} the money down, and it pays for what the charity actually {7}. But the people the shops were originally for are finding less on the rails, and nobody has worked {8} what to do about that.'
+    ],
+    items: [
+      { opciones: ['take', 'put', 'bring', 'call'], correcta: 2 },
+      { opciones: ['rise', 'lift', 'grow', 'raise'], correcta: 3 },
+      { opciones: ['telling', 'keeping', 'holding', 'setting'], correcta: 0 },
+      { opciones: ['make', 'take', 'keep', 'hold'], correcta: 2 },
+      { opciones: ['picking', 'sorting', 'choosing', 'arranging'], correcta: 1 },
+      { opciones: ['refuse', 'put', 'send', 'turn'], correcta: 3 },
+      { opciones: ['makes', 'gives', 'does', 'runs'], correcta: 2 },
+      { opciones: ['off', 'over', 'out', 'up'], correcta: 2 }
+    ]
+  },
+
+  'b2t2-use2a': {
+    tipo: 'cloze', parte: 2, titulo: 'Use of English · Part 2',
+    instruccion: 'Write <b>one word</b> in each gap.',
+    texto: [
+      'Sleep is the one piece of health advice that nobody argues {1}, and that almost nobody follows. Everybody agrees that eight hours would be better; almost everybody treats the last hour of the day as the only one that belongs to them, and spends it looking at a screen.',
+      'The advice itself is not complicated, which is {2} it is so irritating. The same time every night, no coffee after four, a room that is cold and dark. Nothing there is beyond {3} of us. What makes it hard is that going to bed feels {4} giving up: the day was disappointing, and sleeping ends any chance of rescuing it.',
+      'Nobody in the sleep clinics puts it in those words, but they know it, {5} is why the good ones ask what you are staying up for rather {6} lecturing you about screens. The answer is usually nothing at all, and hearing yourself say {7} out loud does more than any amount of advice {8} ever done.'
+    ],
+    items: [
+      { aceptadas: ['with'] }, { aceptadas: ['why'] }, { aceptadas: ['most', 'any'] },
+      { aceptadas: ['like'] }, { aceptadas: ['which'] }, { aceptadas: ['than'] },
+      { aceptadas: ['it', 'that'] }, { aceptadas: ['has'] }
+    ]
+  },
+
+  'b2t2-use2b': {
+    tipo: 'cloze', parte: 2, titulo: 'Use of English · Part 2 (extra)',
+    instruccion: 'Write <b>one word</b> in each gap.',
+    texto: [
+      'Friendships made at sixteen have an unfair advantage {1} all the ones that come afterwards. They were formed before anybody had decided who they were going to be, which makes them the only friendships in {2} you are not being measured against a version of yourself you invented later.',
+      'That is also {3} makes them hard to keep. The people who knew you at sixteen remember the whole of it, and there are stretches nobody wants remembered. It is easier to build a friendship at thirty-five, {4} the edit is already done and both sides have quietly agreed to it.',
+      'Most of us end {5} with a few of each and pretend not to notice the difference. The old ones are the people you would ring at four in the morning; the new ones are the people you actually see. Neither kind is worth {6} much on its own, and hardly anybody manages to have both {7} the same person. If you do, do not say so out loud: it is the {8} of luck other people find hard to forgive.'
+    ],
+    items: [
+      { aceptadas: ['over'] }, { aceptadas: ['which'] }, { aceptadas: ['what'] },
+      { aceptadas: ['because', 'since', 'as', 'when'] }, { aceptadas: ['up'] },
+      { aceptadas: ['that', 'very', 'all', 'too'] }, { aceptadas: ['in'] },
+      { aceptadas: ['kind', 'sort', 'type'] }
+    ]
+  },
+
+  'b2t2-use3': {
+    tipo: 'formacion', parte: 3, titulo: 'Use of English · Part 3',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
+    items: [
+      { antes: 'The staff were extremely', despues: 'when we complained.', raiz: 'APOLOGY', aceptadas: ['apologetic'] },
+      { antes: 'Her', despues: 'to detail is remarkable.', raiz: 'ATTEND', aceptadas: ['attention'] },
+      { antes: 'The town has changed', despues: 'since I was last here.', raiz: 'CONSIDER', aceptadas: ['considerably'] },
+      { antes: 'It was an entirely', despues: 'mistake.', raiz: 'UNDERSTAND', aceptadas: ['understandable'] },
+      { antes: 'The', despues: 'of the old theatre took eighteen months.', raiz: 'RESTORE', aceptadas: ['restoration'] },
+      { antes: 'She has a very', despues: 'way of explaining things.', raiz: 'PRACTICE', aceptadas: ['practical'] },
+      { antes: 'The results were', despues: 'better than last year.', raiz: 'SIGNIFY', aceptadas: ['significantly'] },
+      { antes: 'The company has denied any', despues: 'for the delay.', raiz: 'RESPONSIBLE', aceptadas: ['responsibility'] }
+    ]
+  },
+
+  'b2t2-use4a': {
+    tipo: 'transformacion', parte: 4, titulo: 'Use of English · Part 4',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'They cancelled the concert because of the storm.', clave: 'OFF', antes: 'The concert', despues: 'because of the storm.', aceptadas: ['was called off'] },
+      { frase: 'It does not matter what she decides.', clave: 'DIFFERENCE', antes: 'It makes', despues: 'what she decides.', aceptadas: ['no difference'] },
+      { frase: 'I did not expect the bill to be so high.', clave: 'SURPRISE', antes: 'The bill', despues: 'to me.', aceptadas: ['came as a surprise'] },
+      { frase: 'She swims better than anyone else in the club.', clave: 'AS', antes: 'Nobody else in the club swims', despues: 'she does.', aceptadas: ['as well as'] },
+      { frase: 'Remember to lock the door.', clave: 'FORGET', antes: 'Do not', despues: 'the door.', aceptadas: ['forget to lock'] },
+      { frase: 'The last time it rained was three weeks ago.', clave: 'RAINED', antes: 'It', despues: 'for three weeks.', aceptadas: ["hasn't rained", 'has not rained'] }
+    ]
+  },
+
+  'b2t2-use4b': {
+    tipo: 'transformacion', parte: 4, titulo: 'Use of English · Part 4 (extra)',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'The meeting was so long that half of them left.', clave: 'SUCH', antes: 'It', despues: 'that half of them left.', aceptadas: ['was such a long meeting'] },
+      { frase: 'You were wrong not to tell her.', clave: 'SHOULD', antes: 'You', despues: 'her.', aceptadas: ['should have told'] },
+      { frase: 'Someone is going to repaint the office next month.', clave: 'REPAINTED', antes: 'The office', despues: 'next month.', aceptadas: ['is going to be repainted'] },
+      { frase: 'He is not tall enough to reach the top shelf.', clave: 'TOO', antes: 'He', despues: 'to reach the top shelf.', aceptadas: ['is too short'] },
+      { frase: 'I could not go because I had no money.', clave: 'BEEN', antes: 'If I', despues: 'so short of money, I could have gone.', aceptadas: ["hadn't been", 'had not been'] },
+      { frase: '"Do not tell anyone," she said to me.', clave: 'WARNED', antes: 'She', despues: 'anyone.', aceptadas: ['warned me not to tell'] }
+    ]
+  },
+
+  'b2t2-read5': {
+    tipo: 'lectura', parte: 5, titulo: 'Reading · Part 5',
+    instruccion: 'Read the text and choose the best answer (A, B, C or D) for each question.',
+    tituloTexto: 'The man who works while the town sleeps',
+    texto: [
+      'The bakery on Kale Nagusia opens to customers at seven. Josu Etxebarria has been there since half past eleven the night before, and by the time the first person pushes the door he has done what most people would call a full day. He does not describe it that way. "It is one shift," he says. "It just happens to be at the wrong end of the clock."',
+      'He is fifty-four and has done this for thirty-one years, which he mentions only when asked and then immediately qualifies. His father did it for forty-two and his grandfather before that, and Josu is careful to say that neither of them chose it either. The bakery came with the family the way a surname does, and the question of whether he wanted it was never put to him in a form he could have answered.',
+      'This does not make him unhappy, and he becomes visibly irritated when visitors assume that it should. The irritation is not about the work but about the assumption behind the question. "People want to hear that I am trapped," he says, "because then the story is about escape, and everybody likes that story. But I am good at this, the town eats it, and my knees have lasted. Where exactly am I supposed to be escaping to?"',
+      'What has changed, he says, is not the baking but the hours around it. Thirty years ago the town had four night workers he saw regularly: himself, a nurse, a man at the paper mill and a taxi driver. The mill closed, the taxi driver retired and the hospital moved to Galdakao. He now sees nobody at all between midnight and five, except occasionally somebody walking home. He raises this without any trace of self-pity, as a fact about the town rather than about himself.',
+      'His daughter works in Bilbao and will not be taking the bakery. He says this cheerfully and then adds something he has clearly thought about: that he would rather it closed than be run badly by somebody who felt they had to. He has had two offers to sell and turned down both, not because the price was wrong but because neither buyer asked him a single question about the flour.',
+      'Towards five the ovens come up and the smell reaches the street, which is the part he will admit to enjoying. "That is the only bit that is not work," he says, and then corrects himself, because he does not like the sound of it: it is also, he points out, the moment at which he can tell whether the night has gone right, and if it has not there is still an hour to put it right.'
+    ],
+    items: [
+      { pregunta: '1  What does Josu suggest by calling his night "one shift"?',
+        opciones: ['He works fewer hours than people assume.',
+                   'He does not think his hours deserve special attention.',
+                   'He would rather be working in the daytime.',
+                   'The work is easier than it appears from outside.'], correcta: 1 },
+      { pregunta: '2  Why does he mention his father and grandfather?',
+        opciones: ['To show how carefully the skill was passed down.',
+                   'To explain why he feels responsible for the business.',
+                   'To make clear that the choice was never really offered to any of them.',
+                   'To suggest that the trade is disappearing.'], correcta: 2 },
+      { pregunta: '3  What irritates him about the way visitors react?',
+        opciones: ['They expect him to want a different life.',
+                   'They doubt that he is good at the job.',
+                   'They ask him about his health.',
+                   'They assume the town does not value him.'], correcta: 0 },
+      { pregunta: '4  What point is he making in the fourth paragraph?',
+        opciones: ['Working at night has become more dangerous.',
+                   'He misses the company he used to have at night.',
+                   'What has changed is the town rather than the work.',
+                   'Fewer people now buy what he produces.'], correcta: 2 },
+      { pregunta: '5  Why did he turn down the two offers to buy the bakery?',
+        opciones: ['The money he was offered was too little.',
+                   'Neither buyer showed any interest in the bread itself.',
+                   'He had promised the business to his daughter.',
+                   'He is not ready to stop working yet.'], correcta: 1 },
+      { pregunta: '6  Why does he correct himself at the end?',
+        opciones: ['He realises the smell is not really the best part.',
+                   'He is embarrassed to be enjoying his work.',
+                   'He remembers how much is still left to do.',
+                   'He does not want a practical moment to sound sentimental.'], correcta: 3 }
+    ]
+  },
+
+  'b2t2-read6': {
+    tipo: 'lectura', parte: 6, titulo: 'Reading · Part 6',
+    instruccion: 'Six sentences have been removed from the text. Choose from the sentences A–G the one which fits each gap. There is one extra sentence which you do not need to use.',
+    tituloTexto: 'The school that stopped setting homework',
+    texto: [
+      'When the head teacher of a secondary school in Denbighshire announced in 2018 that homework would stop for pupils under fourteen, she expected a fight with parents and she got one. {1} What she had not expected was that the loudest objections of all would come from the pupils.',
+      'Her reasoning had been practical rather than ideological. The school had measured how long the work actually took and found a range of ten minutes to three hours for exactly the same task. {2} The homework was not measuring effort or ability; it was measuring the kitchen table.',
+      'Two years of results are now available and they are far less dramatic than either side predicted. Attainment at fourteen is very slightly up, well within the range you would expect from noise. {3} The gap between the pupils on free school meals and the rest, however, has narrowed by an amount the school describes carefully as "probably real".',
+      'The pupils’ objection turned out to be about fairness of a completely different kind. {4} Several of them told the school they had been using homework as evidence at home that they were working, and that without it the arguments about screen time had got worse rather than better.',
+      'Other schools ring up, and the head is careful with them. She points out that her school is small, that the staff had two terms to prepare, and that she had a governing body willing to be shouted at for a year. {5} She has stopped using the word "abolished" in these conversations, because it is the word that starts the argument she cannot win.',
+      'Whether any of it lasts is another matter. {6} The head has three years left before she retires and says, without much apparent worry, that she expects the policy to be reversed within five years of her leaving, and that the measuring will have been worth doing anyway.'
+    ],
+    secciones: [
+      { letra: 'A', texto: ['On its own, that figure would prove nothing at all.'] },
+      { letra: 'B', texto: ['Two of the four schools that copied the policy have already quietly reinstated it.'] },
+      { letra: 'C', texto: ['Forty-one families wrote to the governors within a fortnight, and eleven of them threatened to move their children.'] },
+      { letra: 'D', texto: ['Without all three of those things, she says, she would never have attempted it.'] },
+      { letra: 'E', texto: ['The county council has since asked all its secondary schools to publish how much homework they set.'] },
+      { letra: 'F', texto: ['They had not been defending the work; they had been defending what the work protected them from.'] },
+      { letra: 'G', texto: ['The difference matched almost exactly whether a child had a quiet room and an adult at home who could help.'] }
+    ],
+    opcionesCortas: true,
+    items: [
+      { pregunta: '1', opciones: ['A','B','C','D','E','F','G'], correcta: 2 },
+      { pregunta: '2', opciones: ['A','B','C','D','E','F','G'], correcta: 6 },
+      { pregunta: '3', opciones: ['A','B','C','D','E','F','G'], correcta: 0 },
+      { pregunta: '4', opciones: ['A','B','C','D','E','F','G'], correcta: 5 },
+      { pregunta: '5', opciones: ['A','B','C','D','E','F','G'], correcta: 3 },
+      { pregunta: '6', opciones: ['A','B','C','D','E','F','G'], correcta: 1 }
+    ]
+  },
+
+  'b2t2-read7': {
+    tipo: 'lectura', parte: 7, titulo: 'Reading · Part 7',
+    instruccion: 'You are going to read an article in which four people describe taking up a musical instrument as adults. For each question, choose from the people A–D. The people may be chosen more than once.',
+    opcionesCortas: true,
+    secciones: [
+      { letra: 'A', titulo: 'Idoia, piano at thirty-eight',
+        texto: ['I had lessons as a child, gave up at twelve, and then spent twenty-six years telling people I used to play. Starting again at thirty-eight was in some ways worse than starting from nothing, because my hands remembered things my ears had outgrown and I kept playing the same four pieces badly. What finally fixed it was a teacher who made me learn something I actively disliked. I practise about twenty minutes a day, I am never going to be good, and I stopped minding about that at roughly the two-year mark.'] },
+      { letra: 'B', titulo: 'Rubén, drums at forty-five',
+        texto: ['My wife bought me a practice pad for my forty-fifth birthday, which was either very kind or a hint, and I have never asked which. The thing nobody tells you is how physical it is. I thought I was fit, and after ten minutes my forearms were finished. I play in a garage on Sundays with three men I did not know two years ago, and honestly the band is most of the point. If it broke up I am not at all sure I would carry on.'] },
+      { letra: 'C', titulo: 'Hannah, violin at fifty-two',
+        texto: ['Everybody warned me about the violin and everybody was right: for eight months it was genuinely unpleasant to listen to, and that included me. I was doing it in a flat with neighbours on both sides, which meant a mute and a great deal of apologising. What I had not expected was how much it changed my listening. I go to concerts now and hear the second violins, which sounds like a small thing and is not. I am fifty-six, I have played in public exactly once, badly, and I would do it again tomorrow.'] },
+      { letra: 'D', titulo: 'Jokin, guitar at twenty-nine',
+        texto: ['I learned from the internet, which everybody tells you is impossible and which is perfectly possible if you accept that it will take twice as long. It took about three years to get to the point where I could play at a party. The part I got wrong was rhythm: I spent two years on chords and none at all on timing, and then had to go back and repair it, which was humiliating and necessary. If I were starting again I would pay for six lessons at the beginning and then carry on by myself.'] }
+    ],
+    items: [
+      { pregunta: '1  Who says the people they play with are most of the reason they continue?',
+        opciones: ['A','B','C','D'], correcta: 1 },
+      { pregunta: '2  Who found that earlier experience made starting harder?',
+        opciones: ['A','B','C','D'], correcta: 0 },
+      { pregunta: '3  Who mentions physical demands they had not expected?',
+        opciones: ['A','B','C','D'], correcta: 1 },
+      { pregunta: '4  Who says learning has changed the way they listen to music?',
+        opciones: ['A','B','C','D'], correcta: 2 },
+      { pregunta: '5  Who had to go back and repair a gap in their learning?',
+        opciones: ['A','B','C','D'], correcta: 3 },
+      { pregunta: '6  Who mentions being considerate towards the people living nearby?',
+        opciones: ['A','B','C','D'], correcta: 2 },
+      { pregunta: '7  Who has accepted that they will never be very good?',
+        opciones: ['A','B','C','D'], correcta: 0 },
+      { pregunta: '8  Who recommends mixing lessons with teaching yourself?',
+        opciones: ['A','B','C','D'], correcta: 3 },
+      { pregunta: '9  Who admits that the early stage was unpleasant for them as well?',
+        opciones: ['A','B','C','D'], correcta: 2 },
+      { pregunta: '10  Who says a teacher pushed them out of a comfortable habit?',
+        opciones: ['A','B','C','D'], correcta: 0 }
+    ]
+  },
+
+  'b2t2-lis1': {
+    tipo: 'listening', parte: 1, titulo: 'Listening · Part 1',
+    instruccion: 'You will hear people talking in eight different situations. Choose the answer (A, B or C) which fits best according to what you hear. <b>You will hear the recording twice.</b>',
+    audio: 'audio/b2t2-lis1-espeak.mp3', escuchas: 2, demo: true,
+    contexto: 'Eight short extracts, one question each.',
+    items: [
+      { pregunta: '1  What is the woman’s main complaint about the holiday?',
+        opciones: ['The hotel was worse than the photographs suggested.', 'The beach was further away than advertised.', 'The photographs had been taken to hide something.'], correcta: 2 },
+      { pregunta: '2  What do the two friends agree about the restaurant?',
+        opciones: ['The wait was worth it in the end.', 'They will not be going back.', 'The food was far too expensive.'], correcta: 0 },
+      { pregunta: '3  Why is the man leaving the message?',
+        opciones: ['To cancel the delivery altogether.', 'To say where the parcel should be left.', 'To complain about an earlier delivery.'], correcta: 1 },
+      { pregunta: '4  What does the woman say about the club’s rule?',
+        opciones: ['She introduced it herself.', 'She now thinks it is why members stay.', 'It applies only while they are running.'], correcta: 1 },
+      { pregunta: '5  What does the woman advise her colleague to do?',
+        opciones: ['Ask for more time straight away.', 'Hand it in on Friday as planned.', 'Get somebody else to help him.'], correcta: 0 },
+      { pregunta: '6  What had nobody warned the man about?',
+        opciones: ['How early the shops shut.', 'How poor the buses would be.', 'How hard he would find the silence.'], correcta: 2 },
+      { pregunta: '7  What is the woman’s point about the recipe card?',
+        opciones: ['Her grandmother kept the method to herself.', 'The amounts were never measured in the first place.', 'The handwriting cannot be read.'], correcta: 1 },
+      { pregunta: '8  What does the man think about the podcast?',
+        opciones: ['The ending makes up for the rest.', 'It should have been far shorter.', 'He will finish it another day.'], correcta: 1 }
+    ]
+  },
+
+  'b2t2-lis2': {
+    tipo: 'listening', parte: 2, titulo: 'Listening · Part 2',
+    instruccion: 'Complete the sentences with <b>a word or short phrase</b> from what you hear. <b>You will hear the recording twice.</b>',
+    audio: 'audio/b2t2-lis2-espeak.mp3', escuchas: 2, demo: true,
+    contexto: 'Sile Donovan talks about the small ferry she runs to an island.',
+    items: [
+      { antes: 'Before this job Sile spent fourteen years working as a', despues: '.', aceptadas: ['fisheries officer', 'fisheries'] },
+      { antes: 'The boat she uses was built in', despues: '.', aceptadas: ['Denmark'] },
+      { antes: 'For its first fifteen years the boat was used on a', despues: '.', aceptadas: ['lake'] },
+      { antes: 'When the tide is right, the crossing takes', despues: '.', aceptadas: ['twenty-five minutes', '25 minutes', 'twenty five minutes'] },
+      { antes: 'The busiest day of the week is', despues: '.', aceptadas: ['Thursday'] },
+      { antes: 'Apart from passengers, what she carries most of is the', despues: '.', aceptadas: ['post', 'mail'] },
+      { antes: 'Sile cancels the sailing when the wind reaches', despues: '.', aceptadas: ['force seven', 'seven', 'force 7'] },
+      { antes: 'She says the hardest part of the job is the', despues: '.', aceptadas: ['timetable'] },
+      { antes: 'In winter the population of the island is', despues: '.', aceptadas: ['ninety', '90'] },
+      { antes: 'Her biggest worry at the moment is the cost of a new', despues: '.', aceptadas: ['engine'] }
+    ]
+  },
+
+  'b2t2-lis3': {
+    tipo: 'listening', parte: 3, titulo: 'Listening · Part 3',
+    instruccion: 'You will hear five short extracts in which people talk about moving to a different town. Choose from the list A–H what each speaker says. Use each letter once. There are three extra letters. <b>You will hear the recording twice.</b>',
+    audio: 'audio/b2t2-lis3-espeak.mp3', escuchas: 2, demo: true,
+    opcionesCortas: true,
+    listas: [
+      { titulo: 'What does each speaker say about the move?', opciones: [
+        'I found it hard to make friends at first.',
+        'Living there cost less than I had expected.',
+        'I moved for somebody else rather than for myself.',
+        'I regretted it within the first year.',
+        'The job was not what the advertisement described.',
+        'I did not expect to miss the weather I grew up with.',
+        'Joining something local changed everything.',
+        'I still have not properly unpacked.'
+      ] }
+    ],
+    items: [
+      { pregunta: '1  Speaker 1', opciones: ['A','B','C','D','E','F','G','H'], correcta: 2 },
+      { pregunta: '2  Speaker 2', opciones: ['A','B','C','D','E','F','G','H'], correcta: 4 },
+      { pregunta: '3  Speaker 3', opciones: ['A','B','C','D','E','F','G','H'], correcta: 6 },
+      { pregunta: '4  Speaker 4', opciones: ['A','B','C','D','E','F','G','H'], correcta: 5 },
+      { pregunta: '5  Speaker 5', opciones: ['A','B','C','D','E','F','G','H'], correcta: 1 }
+    ]
+  },
+
+  'b2t2-lis4': {
+    tipo: 'listening', parte: 4, titulo: 'Listening · Part 4',
+    instruccion: 'You will hear an interview. Choose the answer (A, B, C or D) which fits best according to what you hear. <b>You will hear the recording twice.</b>',
+    audio: 'audio/b2t2-lis4-espeak.mp3', escuchas: 2, demo: true,
+    contexto: 'A journalist interviews Marta Zabaleta, who designs playgrounds.',
+    items: [
+      { pregunta: '1  How did Marta come to design playgrounds?',
+        opciones: ['She had wanted to do it since she was young.', 'It grew out of one small part of another job.', 'A colleague put her name forward for it.', 'She could not find any work in housing.'], correcta: 1 },
+      { pregunta: '2  What is her view of the safety regulations?',
+        opciones: ['They were taken further than was useful.', 'They should never have been brought in.', 'They are not enforced strictly enough.', 'They have made playgrounds too costly.'], correcta: 0 },
+      { pregunta: '3  What did she discover by watching children?',
+        opciones: ['They prefer older equipment.', 'They spend most of their time between the structures.', 'They play in larger groups than expected.', 'They avoid anything that frightens them.'], correcta: 1 },
+      { pregunta: '4  What is her main criticism of new playgrounds?',
+        opciones: ['They copy one another too closely.', 'They are built from the wrong materials.', 'They are designed to satisfy the people paying for them.', 'They are too small for the number of children.'], correcta: 2 },
+      { pregunta: '5  What does she say about asking children for their opinion?',
+        opciones: ['They should be asked what to build.', 'Their answers are rarely of any use.', 'They simply repeat what adults tell them.', 'They are better at finding faults than at designing.'], correcta: 3 },
+      { pregunta: '6  What has changed the way she designs in recent years?',
+        opciones: ['New safety standards.', 'Better materials.', 'The lack of money for upkeep.', 'Pressure from parents.'], correcta: 2 },
+      { pregunta: '7  What is her conclusion about what makes a good playground?',
+        opciones: ['A nearby one beats a better one further away.', 'Councils should build fewer and better ones.', 'Quality matters more than people admit.', 'Most of them are not worth building at all.'], correcta: 0 }
+    ]
+  },
+
+  'b2t2-speak1': {
+    tipo: 'speaking', parte: 2, titulo: 'Long turn: dos maneras de ir al trabajo',
+    instruccion: 'Habla durante <b>un minuto seguido</b>. Compara las dos situaciones: no las describas una detrás de otra.',
+    segundos: 60,
+    pregunta: 'Compare these two situations and say how the people might be feeling.',
+    puntos: ['a crowded train at eight in the morning', 'cycling to work in the rain'],
+    nota: 'En el examen esto se hace con dos fotografías y hay una segunda pregunta corta al final. Aquí van descritas mientras la academia no aporte las suyas.',
+    items: [ { grabacion: true } ]
+  },
+
+  'b2t2-speak3': {
+    tipo: 'speaking', parte: 3, titulo: 'Parte 3: decidir en voz alta',
+    instruccion: 'Habla durante <b>dos minutos</b>. Comenta las cinco ideas y termina eligiendo una.',
+    segundos: 120,
+    pregunta: 'A town wants more people to use its library. How useful would each of these be, and which one would work best?',
+    puntos: ['opening on Sunday mornings', 'lending tools and games as well as books', 'a café inside the building', 'free classes for older people', 'delivering books to people who cannot get there'],
+    nota: 'En el examen esto se habla con otro candidato: se negocia y se llega a un acuerdo. Grabándote solo se practica todo menos eso, que es un criterio entero.',
+    items: [ { grabacion: true } ]
+  },
+
+  'b2t2-speak4': {
+    tipo: 'speaking', parte: 4, titulo: 'Parte 4: opinar y justificar',
+    instruccion: 'Contesta a las tres preguntas seguidas, <b>dos minutos</b> en total.',
+    segundos: 120,
+    pregunta: 'Questions about towns and the people who live in them.',
+    puntos: [
+      'Is it better to grow up in a small town or in a city? Why?',
+      'Some people say young people leave small towns and never come back. Is that a problem?',
+      'Should councils spend money on libraries and parks, or on other things first?'
+    ],
+    nota: 'En el examen el examinador pregunta y luego te pide que reacciones a lo que ha dicho la otra persona. Aquí solo está la primera mitad.',
+    items: [ { grabacion: true } ]
+  },
+
+  'b2t2-write1': {
+    tipo: 'writing', parte: 1, titulo: 'Essay',
+    instruccion: 'Escribe entre <b>140 y 190 palabras</b>. Es obligatorio: en el examen esta tarea no se elige.',
+    minutos: 40, palabras: [140, 190],
+    enunciado: 'In your English class you have been talking about tourism. Now your teacher has asked you to write an essay. Do you agree that visitors should pay more to enter the most popular places in a city?',
+    contexto: 'Notes. Write about: 1 · crowds · 2 · the people who live there · 3 ... (your own idea).',
+    cierre: 'Write in a fairly formal style. Use both of the given notes and add one idea of your own.',
+    items: [ { escrito: true } ]
+  },
+
+  'b2t2-write2': {
+    tipo: 'writing', parte: 2, titulo: 'A elegir: correo, informe o artículo',
+    instruccion: 'Elige <b>una</b> de las tres y escribe entre <b>140 y 190 palabras</b>.',
+    minutos: 40, palabras: [140, 190],
+    enunciado: 'Choose one of the following three tasks.',
+    contexto: '1 · You bought something online that arrived damaged and the shop has not replied to two messages. Write a formal email explaining what happened and saying what you want them to do.\n2 · Your school or workplace is deciding what to do with a small unused room. Write a report describing the room, giving two possible uses and recommending one.\n3 · An English-language magazine has asked readers for articles under the title "A place in my town that visitors never find". Write your article.',
+    cierre: 'El correo formal necesita fechas, hechos y una petición concreta. El informe lleva encabezados y termina recomendando. El artículo tiene que enganchar en la primera línea: empieza por algo concreto, no por una definición.',
+    items: [ { escrito: true } ]
+  },
+
+  /* ---------------------- TEST 3 de B2 First ---------------------- */
+
+  'b2t3-gram1': {
+    tipo: 'transformacion', titulo: 'Presentes',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'Iker is on holiday until the fourteenth.', clave: 'BACK', antes: 'Iker', despues: 'until the fourteenth.', aceptadas: ["won't be back", 'will not be back'] },
+      { frase: 'It is ages since we last spoke.', clave: 'SPOKEN', antes: 'We', despues: 'for ages.', aceptadas: ["haven't spoken", 'have not spoken'] },
+      { frase: 'They are building a new roundabout at the moment.', clave: 'BUILT', antes: 'A new roundabout', despues: 'at the moment.', aceptadas: ['is being built'] },
+      { frase: 'She began teaching here in 2016.', clave: 'TEACHING', antes: 'She', despues: 'here since 2016.', aceptadas: ['has been teaching'] },
+      { frase: 'My flatmate leaves the kitchen in a mess every single day.', clave: 'FOREVER', antes: 'My flatmate', despues: 'the kitchen in a mess.', aceptadas: ['is forever leaving'] },
+      { frase: 'I do not know that song.', clave: 'HEARD', antes: 'I', despues: 'that song before.', aceptadas: ["haven't heard", 'have not heard', 'have never heard'] }
+    ]
+  },
+
+  'b2t3-gram2': {
+    tipo: 'transformacion', titulo: 'Pasados',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'We had dinner and then the film started.', clave: 'BEFORE', antes: 'We had dinner', despues: 'started.', aceptadas: ['before the film'] },
+      { frase: 'She was in the shower when the phone rang.', clave: 'HAVING', antes: 'She', despues: 'when the phone rang.', aceptadas: ['was having a shower'] },
+      { frase: 'The room was empty because everybody had gone home.', clave: 'LEFT', antes: 'The room was empty because everybody', despues: '.', aceptadas: ['had left'] },
+      { frase: 'They did not invite me to the wedding.', clave: 'INVITED', antes: 'I', despues: 'to the wedding.', aceptadas: ["wasn't invited", 'was not invited'] },
+      { frase: 'It was the first time she had eaten oysters.', clave: 'NEVER', antes: 'She', despues: 'oysters before.', aceptadas: ['had never eaten'] },
+      { frase: 'I last visited my cousins in 2018.', clave: 'SINCE', antes: 'I have not visited my cousins', despues: '.', aceptadas: ['since 2018'] }
+    ]
+  },
+
+  'b2t3-gram3': {
+    tipo: 'transformacion', titulo: 'Futuro',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'The match starts at a quarter to nine.', clave: 'KICKS', antes: 'The match', despues: 'at a quarter to nine.', aceptadas: ['kicks off'] },
+      { frase: 'They have decided to sell the house.', clave: 'SELLING', antes: 'They', despues: 'the house.', aceptadas: ['are selling'] },
+      { frase: 'The work will be over before the end of May.', clave: 'HAVE', antes: 'By the end of May they', despues: 'the work.', aceptadas: ['will have finished'] },
+      { frase: 'I am certain she will say yes.', clave: 'CERTAIN', antes: 'She', despues: 'yes.', aceptadas: ['is certain to say'] },
+      { frase: 'That bag looks heavy. I will carry it for you.', clave: 'GIVE', antes: 'That bag looks heavy.', despues: 'a hand.', aceptadas: ["I'll give you", 'I will give you'] },
+      { frase: 'Do not ring before eleven.', clave: 'AFTER', antes: 'Ring me', despues: 'only.', aceptadas: ['after eleven'] }
+    ]
+  },
+
+  'b2t3-gram4': {
+    tipo: 'transformacion', titulo: 'Repaso de tiempos',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'It is five years since he moved to Girona.', clave: 'LIVING', antes: 'He', despues: 'in Girona for five years.', aceptadas: ['has been living'] },
+      { frase: 'The shop closed down two months ago.', clave: 'BEEN', antes: 'The shop', despues: 'for two months.', aceptadas: ['has been closed'] },
+      { frase: 'This is my second time in Portugal.', clave: 'TIME', antes: 'It is the second', despues: 'to Portugal.', aceptadas: ['time I have been'] },
+      { frase: 'The concert had not started when we got there.', clave: 'BEGUN', antes: 'When we got there the concert', despues: '.', aceptadas: ['had not begun', "hadn't begun"] },
+      { frase: 'When did you get that jacket?', clave: 'HAVE', antes: 'How long', despues: 'that jacket?', aceptadas: ['have you had'] },
+      { frase: 'They are going to open the new line in September.', clave: 'OPENED', antes: 'The new line', despues: 'in September.', aceptadas: ['will be opened', 'is going to be opened'] }
+    ]
+  },
+
+  'b2t3-gram5': {
+    tipo: 'transformacion', titulo: 'Costumbres del pasado',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'We walked to school every morning when we were small.', clave: 'USED', antes: 'We', despues: 'to school every morning when we were small.', aceptadas: ['used to walk'] },
+      { frase: 'My father sometimes sang to us in the car.', clave: 'WOULD', antes: 'My father', despues: 'to us in the car.', aceptadas: ['would sometimes sing'] },
+      { frase: 'There is no market here now, although there was one before.', clave: 'BE', antes: 'There', despues: 'a market here.', aceptadas: ['used to be'] },
+      { frase: 'He was not interested in politics when he was younger.', clave: 'USE', antes: 'He', despues: 'interested in politics when he was younger.', aceptadas: ["didn't use to be", 'did not use to be'] },
+      { frase: 'I never ate vegetables as a child.', clave: 'NEVER', antes: 'I', despues: 'vegetables as a child.', aceptadas: ['never used to eat'] },
+      { frase: 'She does not swim any more, but she did before.', clave: 'LONGER', antes: 'She', despues: 'swims.', aceptadas: ['no longer'] }
+    ]
+  },
+
+  'b2t3-gram6': {
+    tipo: 'transformacion', titulo: 'Acostumbrarse',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'The heat was very hard for me during the first summer.', clave: 'USED', antes: 'During the first summer I', despues: 'the heat.', aceptadas: ["wasn't used to", 'was not used to'] },
+      { frase: 'She is finding the new keyboard easier every day.', clave: 'GETTING', antes: 'She', despues: 'the new keyboard.', aceptadas: ['is getting used to'] },
+      { frase: 'Working at weekends does not bother him now.', clave: 'USED', antes: 'He', despues: 'working at weekends.', aceptadas: ['is used to'] },
+      { frase: 'It took me months to accept the silence.', clave: 'GET', antes: 'It took me months', despues: 'the silence.', aceptadas: ['to get used to'] },
+      { frase: 'After a year the early mornings felt normal to her.', clave: 'GOT', antes: 'After a year she', despues: 'the early mornings.', aceptadas: ['had got used to', 'got used to'] },
+      { frase: 'Speaking English all day is normal for me now.', clave: 'USED', antes: 'I', despues: 'English all day.', aceptadas: ['am used to speaking', "'m used to speaking"] }
+    ]
+  },
+
+  'b2t3-gram7': {
+    tipo: 'transformacion', titulo: 'Poder y tener que',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'Photography is forbidden inside the church.', clave: 'ALLOWED', antes: 'You', despues: 'photographs inside the church.', aceptadas: ['are not allowed to take', "aren't allowed to take"] },
+      { frase: 'In the end I got the door open.', clave: 'MANAGED', antes: 'In the end I', despues: 'the door.', aceptadas: ['managed to open'] },
+      { frase: 'It is compulsory for all staff to sign in.', clave: 'MUST', antes: 'All staff', despues: 'in.', aceptadas: ['must sign'] },
+      { frase: 'She was not able to reach him all morning.', clave: 'COULD', antes: 'She', despues: 'him all morning.', aceptadas: ["couldn't reach", 'could not reach'] },
+      { frase: 'There was no need for you to wait.', clave: 'HAVE', antes: 'You', despues: 'wait.', aceptadas: ["didn't have to", 'did not have to'] },
+      { frase: 'He is not able to drive because of his eyes.', clave: 'UNABLE', antes: 'He', despues: 'because of his eyes.', aceptadas: ['is unable to drive'] }
+    ]
+  },
+
+  'b2t3-gram8': {
+    tipo: 'transformacion', titulo: 'Consejo y deducción',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'It was wrong of you to leave without saying anything.', clave: 'HAVE', antes: 'You should not', despues: 'without saying anything.', aceptadas: ['have left'] },
+      { frase: 'I am sure they took the wrong turning.', clave: 'MUST', antes: 'They', despues: 'the wrong turning.', aceptadas: ['must have taken'] },
+      { frase: 'It is impossible that she wrote this.', clave: 'CANNOT', antes: 'She', despues: 'this.', aceptadas: ['cannot have written'] },
+      { frase: 'Maybe he forgot the meeting.', clave: 'MAY', antes: 'He', despues: 'the meeting.', aceptadas: ['may have forgotten'] },
+      { frase: 'In your place I would say nothing.', clave: 'WERE', antes: 'If I', despues: ', I would say nothing.', aceptadas: ['were you'] },
+      { frase: 'My advice is to leave earlier next time.', clave: 'OUGHT', antes: 'You', despues: 'earlier next time.', aceptadas: ['ought to leave'] }
+    ]
+  },
+
+  'b2t3-gram9': {
+    tipo: 'transformacion', titulo: 'Voz pasiva',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'They are questioning two men at the station.', clave: 'BEING', antes: 'Two men', despues: 'at the station.', aceptadas: ['are being questioned'] },
+      { frase: 'Somebody has moved my bike.', clave: 'BEEN', antes: 'My bike', despues: 'moved.', aceptadas: ['has been'] },
+      { frase: 'People believe the painting is a copy.', clave: 'BELIEVED', antes: 'The painting', despues: 'a copy.', aceptadas: ['is believed to be'] },
+      { frase: 'They are going to demolish the old station.', clave: 'DEMOLISHED', antes: 'The old station', despues: '.', aceptadas: ['is going to be demolished'] },
+      { frase: 'The head teacher gave Nerea the prize.', clave: 'GIVEN', antes: 'Nerea', despues: 'the prize by the head teacher.', aceptadas: ['was given'] },
+      { frase: 'Somebody has to sign this form.', clave: 'BE', antes: 'This form', despues: '.', aceptadas: ['has to be signed'] }
+    ]
+  },
+
+  'b2t3-gram10': {
+    tipo: 'transformacion', titulo: 'Que te lo hagan',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'A company cleans our windows twice a year.', clave: 'HAVE', antes: 'We', despues: 'twice a year.', aceptadas: ['have our windows cleaned'] },
+      { frase: 'Somebody stole her passport in Rome.', clave: 'HAD', antes: 'She', despues: 'in Rome.', aceptadas: ['had her passport stolen'] },
+      { frase: 'A photographer is going to take their picture on Friday.', clave: 'HAVING', antes: 'They are', despues: 'on Friday.', aceptadas: ['having their picture taken'] },
+      { frase: 'I am going to ask somebody to fix the fence.', clave: 'GET', antes: 'I am going to', despues: '.', aceptadas: ['get the fence fixed'] },
+      { frase: 'Somebody delivered the sofa yesterday.', clave: 'GOT', antes: 'They', despues: 'yesterday.', aceptadas: ['got the sofa delivered'] },
+      { frase: 'We are going to ask a plumber to put in a new shower.', clave: 'HAVE', antes: 'We are going to', despues: 'put in.', aceptadas: ['have a new shower'] }
+    ]
+  },
+
+  'b2t3-gram11': {
+    tipo: 'transformacion', titulo: 'Condicionales',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'She was not there, so she did not see it.', clave: 'HAD', antes: 'If she', despues: 'there, she would have seen it.', aceptadas: ['had been'] },
+      { frase: 'Book now or there will be nothing left.', clave: 'UNLESS', antes: 'There will be nothing left', despues: 'now.', aceptadas: ['unless you book'] },
+      { frase: 'I cannot help you because I do not have the file.', clave: 'HAD', antes: 'If I', despues: ', I could help you.', aceptadas: ['had the file'] },
+      { frase: 'He passed only because he worked all summer.', clave: 'NOT', antes: 'If he', despues: 'all summer, he would not have passed.', aceptadas: ['had not worked'] },
+      { frase: 'Take an umbrella in case it rains.', clave: 'IF', antes: 'Take an umbrella', despues: '.', aceptadas: ['if it rains'] },
+      { frase: 'You may use the car as long as you fill it up.', clave: 'PROVIDED', antes: 'You may use the car', despues: 'fill it up.', aceptadas: ['provided you'] }
+    ]
+  },
+
+  'b2t3-gram12': {
+    tipo: 'transformacion', titulo: 'Deseos y lamentos',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'I am sorry I sold the flat.', clave: 'WISH', antes: 'I', despues: 'the flat.', aceptadas: ["wish I hadn't sold", 'wish I had not sold'] },
+      { frase: 'It is a shame I do not live nearer the sea.', clave: 'LIVED', antes: 'I wish', despues: 'nearer the sea.', aceptadas: ['I lived'] },
+      { frase: 'It is a pity they are not coming.', clave: 'ONLY', antes: 'If', despues: 'coming.', aceptadas: ['only they were'] },
+      { frase: 'I regret not taking the other job.', clave: 'TAKEN', antes: 'I wish I', despues: 'the other job.', aceptadas: ['had taken'] },
+      { frase: 'We really ought to leave now.', clave: 'WENT', antes: 'It is time', despues: '.', aceptadas: ['we went'] },
+      { frase: 'I would prefer you not to smoke in here.', clave: 'RATHER', antes: 'I', despues: 'smoke in here.', aceptadas: ["would rather you didn't", 'would rather you did not'] }
+    ]
+  },
+
+  'b2t3-gram13': {
+    tipo: 'transformacion', titulo: 'Estilo indirecto',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: '"I am moving to Lisbon," he said.', clave: 'WAS', antes: 'He said', despues: 'to Lisbon.', aceptadas: ['he was moving'] },
+      { frase: '"Please wait outside," the nurse said.', clave: 'TO', antes: 'The nurse asked us', despues: 'outside.', aceptadas: ['to wait'] },
+      { frase: '"When did you get here?" she asked me.', clave: 'HAD', antes: 'She asked me when', despues: 'there.', aceptadas: ['I had got', 'I had arrived'] },
+      { frase: '"You took my umbrella," she said to him.', clave: 'ACCUSED', antes: 'She', despues: 'her umbrella.', aceptadas: ['accused him of taking'] },
+      { frase: '"I will pay you back on Friday," he said.', clave: 'PROMISED', antes: 'He', despues: 'back on Friday.', aceptadas: ['promised to pay me'] },
+      { frase: '"Shall we get a taxi?" said Ane.', clave: 'SUGGESTED', antes: 'Ane', despues: 'a taxi.', aceptadas: ['suggested getting'] }
+    ]
+  },
+
+  'b2t3-gram14': {
+    tipo: 'transformacion', titulo: 'Comparar y relativas',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'This is the coldest winter I can remember.', clave: 'COLDER', antes: 'I cannot remember', despues: 'this one.', aceptadas: ['a colder winter than'] },
+      { frase: 'The journey was shorter than I expected.', clave: 'LONGER', antes: 'I expected the journey', despues: 'it was.', aceptadas: ['to be longer than'] },
+      { frase: 'That is the man. His dog bit the postman.', clave: 'WHOSE', antes: 'That is the man', despues: 'the postman.', aceptadas: ['whose dog bit'] },
+      { frase: 'This is the café. We first met here.', clave: 'WHERE', antes: 'This is the café', despues: 'met.', aceptadas: ['where we first'] },
+      { frase: 'My aunt teaches in Pamplona and she is retiring in June.', clave: 'WHO', antes: 'My aunt,', despues: 'in Pamplona, is retiring in June.', aceptadas: ['who teaches'] },
+      { frase: 'No other player in the squad is as quick as Aitor.', clave: 'QUICKEST', antes: 'Aitor', despues: 'in the squad.', aceptadas: ['is the quickest player'] }
+    ]
+  },
+
+  'b2t3-voc1': {
+    tipo: 'caja', titulo: 'Preposiciones tras sustantivo · tercera vuelta',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
+    caja: ['about', 'between', 'for', 'in', 'of', 'on', 'to', 'with'],
+    items: [
+      { antes: 'She has a great deal of experience', despues: 'this kind of work.', aceptadas: ['in', 'of'] },
+      { antes: 'There has been a fall', despues: 'the price of tickets.', aceptadas: ['in'] },
+      { antes: 'He made no reference', despues: 'the accident.', aceptadas: ['to'] },
+      { antes: 'The connection', despues: 'the two events is not clear.', aceptadas: ['between'] },
+      { antes: 'They have a very good reputation', despues: 'fish.', aceptadas: ['for'] },
+      { antes: 'I had an argument', despues: 'my landlord about the deposit.', aceptadas: ['with'] }
+    ]
+  },
+
+  'b2t3-voc2': {
+    tipo: 'caja', titulo: 'Phrasal verbs · empezar y dejar',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
+    caja: ['away', 'back', 'down', 'in', 'off', 'on', 'out', 'up'],
+    items: [
+      { antes: 'She took', despues: 'painting after she retired.', aceptadas: ['up'] },
+      { antes: 'He gave', despues: 'smoking three years ago.', aceptadas: ['up'] },
+      { antes: 'The engine cut', despues: 'halfway up the hill.', aceptadas: ['out'] },
+      { antes: 'They set', despues: 'at six to avoid the traffic.', aceptadas: ['off'] },
+      { antes: 'Please carry', despues: 'with what you were doing.', aceptadas: ['on'] },
+      { antes: 'The car broke', despues: 'just outside Durango.', aceptadas: ['down'] }
+    ]
+  },
+
+  'b2t3-voc3': {
+    tipo: 'caja', titulo: 'Adjetivos y su preposición · tercera vuelta',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
+    caja: ['about', 'at', 'for', 'from', 'in', 'of', 'to', 'with'],
+    items: [
+      { antes: 'He is terrible', despues: 'getting up early.', aceptadas: ['at'] },
+      { antes: 'She was very disappointed', despues: 'her result.', aceptadas: ['with'] },
+      { antes: 'This part of the coast is famous', despues: 'its storms.', aceptadas: ['for'] },
+      { antes: 'She is very fond', despues: 'her grandchildren.', aceptadas: ['of'] },
+      { antes: 'The town is similar', despues: 'the one where I grew up.', aceptadas: ['to'] },
+      { antes: 'They were fed up', despues: 'waiting.', aceptadas: ['with'] }
+    ]
+  },
+
+  'b2t3-voc4': {
+    tipo: 'caja', titulo: 'Verbos con preposición fija · tercera vuelta',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
+    caja: ['about', 'for', 'from', 'in', 'of', 'on', 'to', 'with'],
+    items: [
+      { antes: 'The result depends entirely', despues: 'the weather on Sunday.', aceptadas: ['on'] },
+      { antes: 'Nobody warned us', despues: 'the roadworks.', aceptadas: ['about'] },
+      { antes: 'She reminds me', despues: 'my sister.', aceptadas: ['of'] },
+      { antes: 'They were arguing', despues: 'money again.', aceptadas: ['about'] },
+      { antes: 'He apologised', despues: 'the mistake.', aceptadas: ['for'] },
+      { antes: 'This box is made', despues: 'recycled paper.', aceptadas: ['from', 'of'] }
+    ]
+  },
+
+  'b2t3-voc5': {
+    tipo: 'caja', titulo: 'Phrasal verbs · información y problemas',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
+    caja: ['across', 'down', 'into', 'off', 'out', 'over', 'through', 'up'],
+    items: [
+      { antes: 'Can you look the word', despues: 'in the dictionary?', aceptadas: ['up'] },
+      { antes: 'We came', despues: 'these photos while we were tidying.', aceptadas: ['across'] },
+      { antes: 'It took the police a week to find', despues: 'who had done it.', aceptadas: ['out'] },
+      { antes: 'Let us go', despues: 'the figures once more.', aceptadas: ['over', 'through'] },
+      { antes: 'The talks broke', despues: 'after three days.', aceptadas: ['down'] },
+      { antes: 'I ran', despues: 'an old teacher of mine at the station.', aceptadas: ['into'] }
+    ]
+  },
+
+  'b2t3-voc6': {
+    tipo: 'caja', titulo: 'Colocaciones · verbo y sustantivo · tercera vuelta',
+    instruccion: 'Complete each sentence with a verb from the box. There are more verbs than you need.',
+    caja: ['draw', 'give', 'hold', 'make', 'pay', 'reach', 'run', 'take'],
+    items: [
+      { antes: 'The committee will', despues: 'a decision on Thursday.', aceptadas: ['reach'] },
+      { antes: 'She refused to', despues: 'up hope.', aceptadas: ['give'] },
+      { antes: 'Nobody wanted to', despues: 'the blame.', aceptadas: ['take'] },
+      { antes: 'Try to', despues: 'a good impression on Monday.', aceptadas: ['make'] },
+      { antes: 'We had to', despues: 'the risk.', aceptadas: ['run', 'take'] },
+      { antes: 'Please', despues: 'the line for a moment.', aceptadas: ['hold'] }
+    ]
+  },
+
+  'b2t3-voc7': {
+    tipo: 'caja', titulo: 'Expresiones cotidianas · tercera vuelta',
+    instruccion: 'Complete each expression with a word from the box. There are more words than you need.',
+    caja: ['difference', 'fault', 'hurry', 'point', 'purpose', 'sense', 'trouble', 'worth'],
+    items: [
+      { antes: 'He did it on', despues: ', I am sure of it.', aceptadas: ['purpose'] },
+      { antes: 'It was not my', despues: 'that the train was late.', aceptadas: ['fault'] },
+      { antes: 'There is no', despues: 'in complaining now.', aceptadas: ['point'] },
+      { antes: 'Is it', despues: 'going all that way for one day?', aceptadas: ['worth'] },
+      { antes: 'They left in a', despues: 'and forgot the tickets.', aceptadas: ['hurry'] },
+      { antes: 'It makes no', despues: 'to me either way.', aceptadas: ['difference'] }
+    ]
+  },
+
+  'b2t3-voc8': {
+    tipo: 'cloze', titulo: 'Open cloze · los grupos de mensajes',
+    instruccion: 'Write <b>one word</b> in each gap.',
+    texto: [
+      'Every family now has a group chat, and almost nobody remembers agreeing {1} it. Somebody set it up for a birthday in 2019 and it never closed, and it has since become the place where three generations discover, at eleven at night, that they disagree about politics.',
+      'The trouble is that it collapses several kinds of conversation {2} one. A message you would once have sent to your sister now goes to your sister, your uncle and a cousin you last saw at a funeral. Nobody is quite sure {3} they are talking to, so everybody performs slightly, and the ones who say least are often the ones reading {4} of all.',
+      'The people who leave these groups are treated as though they have done something rude, {5} in fact they have only done what everybody privately considers. It is much easier to stay, say nothing for weeks, and send a photograph of a cake {6} in a while.'
+    ],
+    items: [
+      { aceptadas: ['to'] }, { aceptadas: ['into'] }, { aceptadas: ['who', 'whom'] },
+      { aceptadas: ['most'] }, { aceptadas: ['when', 'while', 'whereas', 'although'] },
+      { aceptadas: ['once', 'every'] }
+    ]
+  },
+
+  'b2t3-voc9': {
+    tipo: 'cloze', titulo: 'Open cloze · trabajar de camarero',
+    instruccion: 'Write <b>one word</b> in each gap.',
+    texto: [
+      'Almost everybody should wait tables for six months, and almost nobody who has done it would say so out {1} without sounding smug. But it teaches two things that are difficult to learn any other way.',
+      'The first is that being polite is a skill and {2} a personality. On a Friday night, at table nine, with the kitchen forty minutes behind, you are pleasant because it is your job, and the discovery that you can do this while feeling nothing at {3} is more useful than it sounds. The second is how many people are rude to somebody carrying plates and would never be rude to the same person in an office.',
+      'It also ruins eating out for a while. You notice the trainee, you notice the table that has been waiting too long, and you cannot stop yourself stacking your own plates, {4} every waiter will tell you does not actually help. That passes. What does {5} pass is the reflex of looking somebody in the eye when they put food in {6} of you.'
+    ],
+    items: [
+      { aceptadas: ['loud'] }, { aceptadas: ['not'] }, { aceptadas: ['all'] },
+      { aceptadas: ['which'] }, { aceptadas: ['not'] }, { aceptadas: ['front'] }
+    ]
+  },
+
+  'b2t3-voc10': {
+    tipo: 'cloze', titulo: 'Open cloze · las fotos del móvil',
+    instruccion: 'Write <b>one word</b> in each gap.',
+    texto: [
+      'There are more photographs of last Tuesday than there are of the whole of the nineteenth century, and almost none of them will ever be looked {1} again. This is not a tragedy. It is simply what happens when something stops being expensive.',
+      'What has been lost is the edit. A roll of film held twenty-four pictures and cost money to develop, {2} meant somebody chose. Choosing is what turned a pile of images into a record. Now there is no pile and no record: there is a search box, and it works perfectly {3} long as you can remember roughly when something happened, which is exactly the thing people cannot do.',
+      'The odd result is that families with fewer photographs often know their own history better {4} families with thousands. Forty pictures in a shoebox get shown at Christmas and explained by somebody who was there. Forty thousand on a phone get shown to {5} at all, and when the person who took them is gone, {6} is left is a folder nobody can date.'
+    ],
+    items: [
+      { aceptadas: ['at'] }, { aceptadas: ['which'] }, { aceptadas: ['as'] },
+      { aceptadas: ['than'] }, { aceptadas: ['nobody', 'no-one', 'noone'] }, { aceptadas: ['what'] }
+    ]
+  },
+
+  'b2t3-voc11': {
+    tipo: 'formacion', titulo: 'Word formation · nombres abstractos',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
+    items: [
+      { antes: 'His', despues: 'of the situation was completely wrong.', raiz: 'JUDGE', aceptadas: ['judgement', 'judgment'] },
+      { antes: 'There is very little', despues: 'that it will happen again.', raiz: 'LIKELY', aceptadas: ['likelihood'] },
+      { antes: 'The', despues: 'of the machine takes about an hour.', raiz: 'INSTALL', aceptadas: ['installation'] },
+      { antes: 'She showed remarkable', despues: 'for a girl of nine.', raiz: 'MATURE', aceptadas: ['maturity'] },
+      { antes: 'The', despues: 'of the two systems has not gone smoothly.', raiz: 'COMBINE', aceptadas: ['combination'] },
+      { antes: 'We were struck by the', despues: 'of the welcome.', raiz: 'GENEROUS', aceptadas: ['generosity'] }
+    ]
+  },
+
+  'b2t3-voc12': {
+    tipo: 'formacion', titulo: 'Word formation · adjetivos',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
+    items: [
+      { antes: 'The results were rather', despues: 'at first.', raiz: 'SURPRISE', aceptadas: ['surprising'] },
+      { antes: 'It is a very', despues: 'walk from here.', raiz: 'PLEASE', aceptadas: ['pleasant'] },
+      { antes: 'The old bridge is no longer', despues: '.', raiz: 'USE', aceptadas: ['usable', 'useful'] },
+      { antes: 'She was extremely', despues: 'about the whole thing.', raiz: 'REASON', aceptadas: ['reasonable'] },
+      { antes: 'That was a truly', despues: 'performance.', raiz: 'MEMORY', aceptadas: ['memorable'] },
+      { antes: 'The town is not very', despues: 'in winter.', raiz: 'LIFE', aceptadas: ['lively'] }
+    ]
+  },
+
+  'b2t3-voc13': {
+    tipo: 'formacion', titulo: 'Word formation · adjetivos en negativo',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
+    items: [
+      { antes: 'The instructions were completely', despues: '.', raiz: 'CLEAR', aceptadas: ['unclear'] },
+      { antes: 'His answer was entirely', despues: 'to the question.', raiz: 'RELEVANT', aceptadas: ['irrelevant'] },
+      { antes: 'She was', despues: 'with the way it had been handled.', raiz: 'PLEASE', aceptadas: ['displeased'] },
+      { antes: 'It is', despues: 'to park there on a Saturday.', raiz: 'POSSIBLE', aceptadas: ['impossible'] },
+      { antes: 'The room felt cold and', despues: '.', raiz: 'WELCOME', aceptadas: ['unwelcoming'] },
+      { antes: 'His behaviour was', despues: 'of a man in his position.', raiz: 'WORTHY', aceptadas: ['unworthy'] }
+    ]
+  },
+
+  'b2t3-voc14': {
+    tipo: 'formacion', titulo: 'Word formation · personas y oficios',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
+    items: [
+      { antes: 'She has worked as a', despues: 'for twenty years.', raiz: 'LIBRARY', aceptadas: ['librarian'] },
+      { antes: 'She works as an', despues: 'for a company in Bilbao.', raiz: 'INTERPRET', aceptadas: ['interpreter'] },
+      { antes: 'He is a', despues: 'at the local paper.', raiz: 'PHOTOGRAPH', aceptadas: ['photographer'] },
+      { antes: 'Two hundred', despues: 'signed the letter.', raiz: 'RESIDE', aceptadas: ['residents'] },
+      { antes: 'My cousin is a', despues: 'in the merchant navy.', raiz: 'ENGINE', aceptadas: ['engineer'] },
+      { antes: 'The', despues: 'of the museum gave a short talk.', raiz: 'FOUND', aceptadas: ['founder'] }
+    ]
+  },
+
+  'b2t3-use1': {
+    tipo: 'opcion', parte: 1, titulo: 'Use of English · Part 1',
+    instruccion: 'Decide which answer best fits each gap.',
+    texto: [
+      'Nobody planned for the town square to become the place where teenagers spend their evenings, and for about a year the council tried to {1} it. Benches were removed, a fence went up, and the fountain was switched off at seven. None of it made the slightest {2}.',
+      'What changed things was a new clerk who asked a question nobody had {3} to ask: where else, exactly, were they supposed to go? The honest answer was nowhere. The youth club had closed in 2011, the two cafés shut at eight and the bus home cost more than most of them {4} in an evening. The square was not a choice. It was what was left.',
+      'The council put the benches {5}, turned the fountain back on and installed a light and a bin. Complaints fell by two thirds within a year, which nobody has been able to {6} for entirely, although the bin is thought to have done more work than anybody expected. It is not a triumph and the clerk is careful not to {7} it as one. But it cost eleven hundred euros, which is less than the fence, and it {8} on the assumption that the people in the square were residents rather than a problem.'
+    ],
+    items: [
+      { opciones: ['prevent', 'stop', 'avoid', 'refuse'], correcta: 1 },
+      { opciones: ['effect', 'change', 'difference', 'result'], correcta: 2 },
+      { opciones: ['thought', 'wanted', 'managed', 'hoped'], correcta: 0 },
+      { opciones: ['won', 'gained', 'earned', 'paid'], correcta: 2 },
+      { opciones: ['again', 'over', 'round', 'back'], correcta: 3 },
+      { opciones: ['count', 'explain', 'account', 'answer'], correcta: 2 },
+      { opciones: ['describe', 'name', 'call', 'say'], correcta: 0 },
+      { opciones: ['rested', 'stood', 'built', 'lay'], correcta: 0 }
+    ]
+  },
+
+  'b2t3-use2a': {
+    tipo: 'cloze', parte: 2, titulo: 'Use of English · Part 2',
+    instruccion: 'Write <b>one word</b> in each gap.',
+    texto: [
+      'Nobody is ever taught how to complain, and it shows. The two usual approaches are to say nothing at all and then be furious about it for a fortnight, {1} to arrive angry and lose the argument in the first sentence. Neither of them works, and both are exhausting.',
+      'The people who are good at it have almost nothing {2} common except that they are dull about it. They say what happened, in order, {3} dates. They say what they want, once, {4} clearly. They do not describe how they feel, because the person at the other end of the telephone did not cause it and cannot be made {5} care. It is a technique rather {6} a talent, which is the good news, and most of it can be learned in an afternoon.',
+      'The other half of it is knowing when to stop. Most complaints are worth about twenty minutes; {7} that, you are working for nothing, and the company is relying on precisely that. Write it down, send it, and then let it {8}. The people who cannot are rarely the ones who were most wronged.'
+    ],
+    items: [
+      { aceptadas: ['or'] }, { aceptadas: ['in'] }, { aceptadas: ['with'] },
+      { aceptadas: ['very', 'quite', 'perfectly'] }, { aceptadas: ['to'] },
+      { aceptadas: ['than'] }, { aceptadas: ['after', 'beyond'] },
+      { aceptadas: ['go', 'drop', 'rest'] }
+    ]
+  },
+
+  'b2t3-use2b': {
+    tipo: 'cloze', parte: 2, titulo: 'Use of English · Part 2 (extra)',
+    instruccion: 'Write <b>one word</b> in each gap.',
+    texto: [
+      'Learning the names of trees is the sort of thing people put {1} until they are fifty, and then wish they had done at nine. There is no obvious reward. Nothing works any better afterwards, nobody pays you more, and the only visible change is that a walk takes twice {2} long.',
+      'What actually happens is that a green blur turns {3} about nine separate things. It is the same street it always was, and it is not the same street at all, which is very difficult to explain to anybody who has not done it. The effect is not limited {4} trees: people who learn birdsong describe exactly the same experience, and {5} do people who learn the names of clouds.',
+      'The barrier is that the first fortnight is boring. You have to look at leaves and be wrong repeatedly, and there is nothing on earth {6} dull as a beginner’s field guide. But there comes a point, usually in the third week, {7} the names stop being a list and turn into a way of seeing, and after that you could not go back to the blur even {8} you wanted to.'
+    ],
+    items: [
+      { aceptadas: ['off'] }, { aceptadas: ['as'] }, { aceptadas: ['into'] },
+      { aceptadas: ['to'] }, { aceptadas: ['so'] }, { aceptadas: ['as'] },
+      { aceptadas: ['when', 'where'] }, { aceptadas: ['if'] }
+    ]
+  },
+
+  'b2t3-use3': {
+    tipo: 'formacion', parte: 3, titulo: 'Use of English · Part 3',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
+    items: [
+      { antes: 'The', despues: 'of the new timetable has been postponed.', raiz: 'INTRODUCE', aceptadas: ['introduction'] },
+      { antes: 'He answered every question', despues: 'and at length.', raiz: 'PATIENT', aceptadas: ['patiently'] },
+      { antes: 'The report is long but not especially', despues: '.', raiz: 'INFORM', aceptadas: ['informative'] },
+      { antes: 'There has been a marked', despues: 'in air quality.', raiz: 'IMPROVE', aceptadas: ['improvement'] },
+      { antes: 'The two versions are almost', despues: '.', raiz: 'IDENTITY', aceptadas: ['identical'] },
+      { antes: 'She spoke with great', despues: 'about the changes.', raiz: 'ANXIOUS', aceptadas: ['anxiety'] },
+      { antes: 'The scheme has been', despues: 'expensive to run.', raiz: 'SURPRISE', aceptadas: ['surprisingly'] },
+      { antes: 'His', despues: 'to answer made everybody suspicious.', raiz: 'REFUSE', aceptadas: ['refusal'] }
+    ]
+  },
+
+  'b2t3-use4a': {
+    tipo: 'transformacion', parte: 4, titulo: 'Use of English · Part 4',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'The weather stopped us from going.', clave: 'PREVENTED', antes: 'The weather', despues: 'going.', aceptadas: ['prevented us from'] },
+      { frase: 'I have never met a kinder person.', clave: 'KINDEST', antes: 'She is', despues: 'I have ever met.', aceptadas: ['the kindest person'] },
+      { frase: 'Nobody knows where he went.', clave: 'IDEA', antes: 'Nobody', despues: 'he went.', aceptadas: ['has any idea where'] },
+      { frase: 'It is not worth ringing them now.', clave: 'POINT', antes: 'There', despues: 'ringing them now.', aceptadas: ['is no point in', "'s no point in"] },
+      { frase: 'She is a much better cook than I am.', clave: 'NEARLY', antes: 'I cannot cook', despues: 'she can.', aceptadas: ['nearly as well as'] },
+      { frase: 'They only told us yesterday.', clave: 'UNTIL', antes: 'We', despues: 'yesterday.', aceptadas: ["weren't told until", 'were not told until'] }
+    ]
+  },
+
+  'b2t3-use4b': {
+    tipo: 'transformacion', parte: 4, titulo: 'Use of English · Part 4 (extra)',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'It was raining so hard that the match was stopped.', clave: 'SUCH', antes: 'There was', despues: 'that the match was stopped.', aceptadas: ['such heavy rain'] },
+      { frase: 'I am sorry that I did not listen to you.', clave: 'WISH', antes: 'I', despues: 'to you.', aceptadas: ['wish I had listened'] },
+      { frase: 'Somebody must clean this before Monday.', clave: 'BE', antes: 'This', despues: 'before Monday.', aceptadas: ['must be cleaned'] },
+      { frase: 'She is not experienced enough for the job.', clave: 'TOO', antes: 'She', despues: 'for the job.', aceptadas: ['is too inexperienced'] },
+      { frase: 'He did not tell me, so I did not go.', clave: 'HAD', antes: 'If he', despues: 'me, I would have gone.', aceptadas: ['had told'] },
+      { frase: '"You should see a doctor," she said to me.', clave: 'ADVISED', antes: 'She', despues: 'a doctor.', aceptadas: ['advised me to see'] }
+    ]
+  },
+
+  'b2t3-read5': {
+    tipo: 'lectura', parte: 5, titulo: 'Reading · Part 5',
+    instruccion: 'Read the text and choose the best answer (A, B, C or D) for each question.',
+    tituloTexto: 'The teacher whose pupils are grown men',
+    texto: [
+      'The class meets on Tuesdays at half past six in a room above a bank in Portsmouth, and there are eleven names on the register. The youngest is twenty-four; the oldest, whose name is Bill, is seventy-one. All of them are learning to read.',
+      'Their teacher, Fiona Bray, has done this for nine years and spent the eleven years before it teaching seven-year-olds. She says the two jobs have almost nothing in common, and that the first thing she had to unlearn was encouragement. "With children you praise everything, constantly, because they have no reason yet to think they are stupid. Say the same things to a man of fifty and he hears you being kind to him, which is not what he came for."',
+      'What most of them came for is specific and small. One wants to read a bedtime story to his granddaughter without inventing it from the pictures. Another has been offered promotion twice and turned it down twice, and never told his employer why. Bill will not say, and Bray has learned not to ask; she notes only that he has not missed a Tuesday in four years.',
+      'The commonest misunderstanding, she says, is that her pupils cannot read at all. Almost all of them can read something. They have systems: they recognise the shape of the words they need, they know which forms to avoid, they arrange their lives so that a partner or a child deals with anything written. The systems work, and that is the problem. A system that works is a reason not to climb the stairs to a room above a bank on a Tuesday, and most people take forty years to run out of one.',
+      'Progress is slow and she refuses to dress it up. Adults learn to read more slowly than children, for reasons nobody has fully explained, and the distance between arriving and reading a newspaper is measured in years. She tells new pupils this in the first ten minutes, which she knows costs her some of them. "They have been promised things before," she says. "If I add to that list I am simply another person who let them down, and there are enough of those already."',
+      'The money for the class comes from a charity and is agreed one year at a time. Bray spends about a fortnight each spring on the application and describes the process, carefully, as reasonable. What she will say is that in nine years of forms nobody has ever asked her how many of her pupils came back the following term, which is the only figure she herself looks at.'
+    ],
+    items: [
+      { pregunta: '1  What did Bray have to change when she began teaching adults?',
+        opciones: ['The way she gave praise.', 'The materials she used in class.', 'The length of her lessons.', 'Her expectations of how fast people learn.'], correcta: 0 },
+      { pregunta: '2  What is suggested about Bill?',
+        opciones: ['He is the weakest reader in the group.', 'He has been coming longer than anybody else.', 'His reasons are private but his commitment is not in doubt.', 'He is likely to stop attending soon.'], correcta: 2 },
+      { pregunta: '3  Why does Bray call her pupils’ systems "the problem"?',
+        opciones: ['They make people believe they are reading properly.', 'They work well enough to remove the reason to ask for help.', 'They depend on other people who may not always be available.', 'They are very hard to unlearn later on.'], correcta: 1 },
+      { pregunta: '4  Why does she warn new pupils about how slow progress will be?',
+        opciones: ['To keep her classes small.', 'Because the charity requires her to.', 'To avoid becoming another broken promise.', 'Because she did the same with children.'], correcta: 2 },
+      { pregunta: '5  What does the writer imply about the funding process?',
+        opciones: ['It is unfair to small charities.', 'It measures the wrong things.', 'It takes up most of her year.', 'It is about to be withdrawn.'], correcta: 1 },
+      { pregunta: '6  What is Bray’s attitude to her work as a whole?',
+        opciones: ['She is frustrated by how little she achieves.', 'She is uncomfortable when people praise it.', 'She thinks the state ought to be running it.', 'She is honest about it rather than hopeful.'], correcta: 3 }
+    ]
+  },
+
+  'b2t3-read6': {
+    tipo: 'lectura', parte: 6, titulo: 'Reading · Part 6',
+    instruccion: 'Six sentences have been removed from the text. Choose from the sentences A–G the one which fits each gap. There is one extra sentence which you do not need to use.',
+    tituloTexto: 'The river that came back to the surface',
+    texto: [
+      'For eighty years the Cranbeck ran under Leigh Street in a brick culvert, and almost nobody in the town knew that it was there. {1} It appeared on no map that ordinary people ever saw, and the only sign of it was a manhole cover outside the chemist that steamed on cold mornings.',
+      'The plan to bring it back to the surface was not, to begin with, about the river at all. The council needed to replace the culvert, which was failing, and replacing it cost considerably more than removing it. {2} Nobody involved would have described the original decision as environmental.',
+      'Objections came, as they always do, from the people nearest. Fourteen shops lost eleven parking spaces between them and said so loudly and for eighteen months. {3} Two of the fourteen have since told the local paper that they had been wrong, which is a higher proportion than the council expected.',
+      'What surprised the engineers was not the flooding, which behaved more or less as the models had said it would. {4} Within two summers there were kingfishers, which nobody had promised and which now appear in the town’s publicity more often than the swimming pool.',
+      'Other towns come to visit, and the borough engineer who ran the scheme is guarded with them. He points out that the Cranbeck is small, that the culvert had to be replaced in any case, and that the money would never have been found for a river on its own. {5} He has stopped giving talks with the word "restoration" in the title.',
+      'The stream is now the thing the town puts on its signs. {6} That is not what anybody set out to do, and the engineer, who retires next year, says he has given up trying to correct the story.'
+    ],
+    secciones: [
+      { letra: 'A', texto: ['It was how quickly the wildlife arrived.'] },
+      { letra: 'B', texto: ['It had been buried in 1938 because it flooded, it smelled, and it was in the way of a road.'] },
+      { letra: 'C', texto: ['A drain that everybody had forgotten has become the reason people stop on their way past.'] },
+      { letra: 'D', texto: ['Trade on Leigh Street is now about nine per cent higher than it was before the work.'] },
+      { letra: 'E', texto: ['Three further culverts in the borough are due to be replaced before 2031.'] },
+      { letra: 'F', texto: ['Opening the stream up was, in the first instance, simply the cheaper of two engineering options.'] },
+      { letra: 'G', texto: ['Without that failing brickwork, he says, none of it would ever have happened.'] }
+    ],
+    opcionesCortas: true,
+    items: [
+      { pregunta: '1', opciones: ['A','B','C','D','E','F','G'], correcta: 1 },
+      { pregunta: '2', opciones: ['A','B','C','D','E','F','G'], correcta: 5 },
+      { pregunta: '3', opciones: ['A','B','C','D','E','F','G'], correcta: 3 },
+      { pregunta: '4', opciones: ['A','B','C','D','E','F','G'], correcta: 0 },
+      { pregunta: '5', opciones: ['A','B','C','D','E','F','G'], correcta: 6 },
+      { pregunta: '6', opciones: ['A','B','C','D','E','F','G'], correcta: 2 }
+    ]
+  },
+
+  'b2t3-read7': {
+    tipo: 'lectura', parte: 7, titulo: 'Reading · Part 7',
+    instruccion: 'You are going to read an article in which four people describe running a small business from home. For each question, choose from the people A–D. The people may be chosen more than once.',
+    opcionesCortas: true,
+    secciones: [
+      { letra: 'A', titulo: 'Naiara, jam and preserves',
+        texto: ['I started because I had a glut of plums and a freezer that was already full, and four years later it pays about a third of what my old job did, for roughly the same hours. I want to be straightforward about that, because a great deal of what is written about this is not. What I had not expected is how little of it is cooking. It is labels, and regulations, and driving to markets in the rain. The cooking is perhaps a fifth of the week. If you would not enjoy the other four fifths, do not begin.'] },
+      { letra: 'B', titulo: 'Tom, bookkeeping',
+        texto: ['The work itself I could do in my sleep; I did it in an office for nineteen years. The difference is that at home nobody tells you to stop. Within a month I was answering emails at eleven at night and calling it flexibility. What fixed it was a door. I moved the desk out of the kitchen and into the spare room, and now that room is shut at six. I am well aware that this sounds like a very small thing, and it changed everything.'] },
+      { letra: 'C', titulo: 'Priya, vintage sewing machines',
+        texto: ['Machines get sent to me from all over the country, mostly by people who inherited one and cannot bear to throw it out. Half of them are worth less than the postage, and I say so, and then I repair them anyway if the owner wants me to. That is not sound business advice. But I am fifty-eight and I am not trying to build anything; I am trying to have interesting weeks. My accountant has stopped mentioning it.'] },
+      { letra: 'D', titulo: 'Gorka, guitar lessons',
+        texto: ['Everybody assumes teaching online is worse, and for the first year I agreed with them. Then I worked out that the problem was not the screen at all: it was that I was teaching the way I had taught in a room. Once I started recording things for them to watch beforehand and using the hour only for the parts that genuinely need me, it became better than the room ever was. I have thirty-one students in six countries and I have never met any of them.'] }
+    ],
+    items: [
+      { pregunta: '1  Who is open about earning considerably less than before?',
+        opciones: ['A','B','C','D'], correcta: 0 },
+      { pregunta: '2  Who had to create a physical boundary in order to stop working?',
+        opciones: ['A','B','C','D'], correcta: 1 },
+      { pregunta: '3  Who accepts that the way they work makes little commercial sense?',
+        opciones: ['A','B','C','D'], correcta: 2 },
+      { pregunta: '4  Who changed their own method rather than blaming the format?',
+        opciones: ['A','B','C','D'], correcta: 3 },
+      { pregunta: '5  Who says the craft itself takes up a small part of the week?',
+        opciones: ['A','B','C','D'], correcta: 0 },
+      { pregunta: '6  Who is aware that what helped them sounds trivial?',
+        opciones: ['A','B','C','D'], correcta: 1 },
+      { pregunta: '7  Who says they are not trying to make the business grow?',
+        opciones: ['A','B','C','D'], correcta: 2 },
+      { pregunta: '8  Who now believes their way of working beats the traditional one?',
+        opciones: ['A','B','C','D'], correcta: 3 },
+      { pregunta: '9  Who warns others about the parts of the job they may not enjoy?',
+        opciones: ['A','B','C','D'], correcta: 0 },
+      { pregunta: '10  Who mentions customers whose belongings are worth very little?',
+        opciones: ['A','B','C','D'], correcta: 2 }
+    ]
+  },
+
+  'b2t3-lis1': {
+    tipo: 'listening', parte: 1, titulo: 'Listening · Part 1',
+    instruccion: 'You will hear people talking in eight different situations. Choose the answer (A, B or C) which fits best according to what you hear. <b>You will hear the recording twice.</b>',
+    audio: 'audio/b2t3-lis1-espeak.mp3', escuchas: 2, demo: true,
+    contexto: 'Eight short extracts, one question each.',
+    items: [
+      { pregunta: '1  What did the man value most about the course?',
+        opciones: ['The chance to say what he thought on the form.', 'The content, which was better than a book.', 'Finding out that the others were improvising too.'], correcta: 2 },
+      { pregunta: '2  How does the woman feel about the flat?',
+        opciones: ['Annoyed that everything else about it is right.', 'Keen to keep looking at other places.', 'Convinced the rent is still too high.'], correcta: 0 },
+      { pregunta: '3  Why is Laura leaving the message?',
+        opciones: ['To correct what the calendar says.', 'To cancel the meeting.', 'To arrange a different time.'], correcta: 0 },
+      { pregunta: '4  What does the man say about the eight-week rule?',
+        opciones: ['It ought to be applied more gently.', 'Being flexible with it made things worse.', 'It is the reason the waiting list is so long.'], correcta: 1 },
+      { pregunta: '5  What does the man say about the new system?',
+        opciones: ['It is faster than the old one.', 'Nobody has explained the change to him.', 'The reason for it was dull and practical.'], correcta: 2 },
+      { pregunta: '6  What had the woman got wrong about learning to swim?',
+        opciones: ['How difficult she would find the water.', 'How long it would take her.', 'Which part would be hardest.'], correcta: 2 },
+      { pregunta: '7  Why does the man keep the photograph?',
+        opciones: ['It is better than he first thought.', 'It is the only record of that summer.', 'He can name everybody in it.'], correcta: 1 },
+      { pregunta: '8  What does the man mean about the book?',
+        opciones: ['He would not recommend it to anybody.', 'He gave up before the end.', 'It has stayed with him more than books he enjoyed.'], correcta: 2 }
+    ]
+  },
+
+  'b2t3-lis2': {
+    tipo: 'listening', parte: 2, titulo: 'Listening · Part 2',
+    instruccion: 'Complete the sentences with <b>a word or short phrase</b> from what you hear. <b>You will hear the recording twice.</b>',
+    audio: 'audio/b2t3-lis2-espeak.mp3', escuchas: 2, demo: true,
+    contexto: 'Will Amory talks about his work looking after public clocks.',
+    items: [
+      { antes: 'For nine years before this, Will worked as a', despues: '.', aceptadas: ['piano tuner', 'tuner'] },
+      { antes: 'The oldest clock he looks after was made in', despues: '.', aceptadas: ['1889'] },
+      { antes: 'He says that by far the commonest cause of trouble is', despues: '.', aceptadas: ['damp', 'water'] },
+      { antes: 'The part of the job he finds hardest is the', despues: '.', aceptadas: ['ladder'] },
+      { antes: 'The tool he would not work without is a', despues: '.', aceptadas: ['mirror'] },
+      { antes: 'Most of his clocks lose about', despues: 'a week.', aceptadas: ['ten seconds', '10 seconds'] },
+      { antes: 'He resets them by hand once a', despues: '.', aceptadas: ['month'] },
+      { antes: 'The one clock that was saved from replacement was saved by the', despues: '.', aceptadas: ['stationmaster'] },
+      { antes: 'His apprentice used to work in', despues: '.', aceptadas: ['furniture restoration', 'furniture'] },
+      { antes: 'What worries him most about the future is the supply of', despues: '.', aceptadas: ['spare parts', 'parts'] }
+    ]
+  },
+
+  'b2t3-lis3': {
+    tipo: 'listening', parte: 3, titulo: 'Listening · Part 3',
+    instruccion: 'You will hear five short extracts in which people talk about a journey that went wrong. Choose from the list A–H what each speaker says. Use each letter once. There are three extra letters. <b>You will hear the recording twice.</b>',
+    audio: 'audio/b2t3-lis3-espeak.mp3', escuchas: 2, demo: true,
+    opcionesCortas: true,
+    listas: [
+      { titulo: 'What does each speaker say about the journey?', opciones: [
+        'I met people I am still in touch with.',
+        'The unplanned part turned out to be the best part.',
+        'It cost far more than I had budgeted for.',
+        'I had been warned and I ignored the warning.',
+        'The mistake was entirely my own.',
+        'I would happily do the same journey again.',
+        'I lost time that nobody can give back to me.',
+        'The company refused to take any responsibility.'
+      ] }
+    ],
+    items: [
+      { pregunta: '1  Speaker 1', opciones: ['A','B','C','D','E','F','G','H'], correcta: 1 },
+      { pregunta: '2  Speaker 2', opciones: ['A','B','C','D','E','F','G','H'], correcta: 6 },
+      { pregunta: '3  Speaker 3', opciones: ['A','B','C','D','E','F','G','H'], correcta: 4 },
+      { pregunta: '4  Speaker 4', opciones: ['A','B','C','D','E','F','G','H'], correcta: 0 },
+      { pregunta: '5  Speaker 5', opciones: ['A','B','C','D','E','F','G','H'], correcta: 3 }
+    ]
+  },
+
+  'b2t3-lis4': {
+    tipo: 'listening', parte: 4, titulo: 'Listening · Part 4',
+    instruccion: 'You will hear an interview. Choose the answer (A, B, C or D) which fits best according to what you hear. <b>You will hear the recording twice.</b>',
+    audio: 'audio/b2t3-lis4-espeak.mp3', escuchas: 2, demo: true,
+    contexto: 'A journalist interviews Elin Vaughan, who draws maps by hand.',
+    items: [
+      { pregunta: '1  Why does Elin say a satellite photograph is not a map?',
+        opciones: ['It is not accurate enough for walkers.', 'It shows everything and decides nothing.', 'It is difficult for most people to read.', 'It goes out of date very quickly.'], correcta: 1 },
+      { pregunta: '2  How did she start doing this work?',
+        opciones: ['A walking group commissioned her.', 'She trained as a cartographer.', 'She made one for her own teaching.', 'She took over from a colleague.'], correcta: 2 },
+      { pregunta: '3  What changed her view of people who frame her maps?',
+        opciones: ['The money she made from selling prints.', 'Advice from another mapmaker.', 'Realising that nobody navigates any more.', 'A letter explaining why somebody had hung one up.'], correcta: 3 },
+      { pregunta: '4  What does she say is the hardest part of the work?',
+        opciones: ['Getting the scale right.', 'Deciding what to leave out.', 'Walking every route herself.', 'Keeping the maps up to date.'], correcta: 1 },
+      { pregunta: '5  How has technology changed what she does?',
+        opciones: ['It has taken over the drawing.', 'It has made her maps more decorative.', 'It has made checking much quicker.', 'It has forced her prices down.'], correcta: 2 },
+      { pregunta: '6  What is her point about phones and maps?',
+        opciones: ['People navigate worse than they used to.', 'They give a different kind of information.', 'Phones should not be used for walking.', 'Paper maps are more reliable in bad weather.'], correcta: 1 },
+      { pregunta: '7  What does she say people leave out when they tell this kind of story?',
+        opciones: ['How long it takes before it earns anything.', 'How much walking is involved.', 'How much the technology has helped.', 'How often mistakes get into a map.'], correcta: 0 }
+    ]
+  },
+
+  'b2t3-speak1': {
+    tipo: 'speaking', parte: 2, titulo: 'Long turn: dos maneras de comer',
+    instruccion: 'Habla durante <b>un minuto seguido</b>. Compara las dos situaciones: no las describas una detrás de otra.',
+    segundos: 60,
+    pregunta: 'Compare these two situations and say what the people might enjoy about each.',
+    puntos: ['a family eating together on a Sunday', 'somebody eating alone at their desk at work'],
+    nota: 'En el examen esto se hace con dos fotografías y hay una segunda pregunta corta al final. Aquí van descritas mientras la academia no aporte las suyas.',
+    items: [ { grabacion: true } ]
+  },
+
+  'b2t3-speak3': {
+    tipo: 'speaking', parte: 3, titulo: 'Parte 3: decidir en voz alta',
+    instruccion: 'Habla durante <b>dos minutos</b>. Comenta las cinco ideas y termina eligiendo una.',
+    segundos: 120,
+    pregunta: 'A company wants its staff to be less tired at the end of the day. How much would each of these help, and which would help most?',
+    puntos: ['finishing at three on Fridays', 'no meetings before ten in the morning', 'working from home two days a week', 'a proper hour for lunch away from the desk', 'no emails after six'],
+    nota: 'En el examen esto se habla con otro candidato: se negocia y se llega a un acuerdo. Grabándote solo se practica todo menos eso, que es un criterio entero.',
+    items: [ { grabacion: true } ]
+  },
+
+  'b2t3-speak4': {
+    tipo: 'speaking', parte: 4, titulo: 'Parte 4: opinar y justificar',
+    instruccion: 'Contesta a las tres preguntas seguidas, <b>dos minutos</b> en total.',
+    segundos: 120,
+    pregunta: 'Questions about work and free time.',
+    puntos: [
+      'Do people work too much in your country? Why do you think that is?',
+      'Some people say we should be able to switch off our phones after work. Would that be possible?',
+      'Is it better to have a job you love and less money, or the other way round?'
+    ],
+    nota: 'En el examen el examinador pregunta y luego te pide que reacciones a lo que ha dicho la otra persona. Aquí solo está la primera mitad.',
+    items: [ { grabacion: true } ]
+  },
+
+  'b2t3-write1': {
+    tipo: 'writing', parte: 1, titulo: 'Essay',
+    instruccion: 'Escribe entre <b>140 y 190 palabras</b>. Es obligatorio: en el examen esta tarea no se elige.',
+    minutos: 40, palabras: [140, 190],
+    enunciado: 'In your English class you have been talking about transport. Now your teacher has asked you to write an essay. Do you agree that city centres should be closed to private cars?',
+    contexto: 'Notes. Write about: 1 · air and noise · 2 · people who live outside the city · 3 ... (your own idea).',
+    cierre: 'Write in a fairly formal style. Use both of the given notes and add one idea of your own.',
+    items: [ { escrito: true } ]
+  },
+
+  'b2t3-write2': {
+    tipo: 'writing', parte: 2, titulo: 'A elegir: reseña, correo o artículo',
+    instruccion: 'Elige <b>una</b> de las tres y escribe entre <b>140 y 190 palabras</b>.',
+    minutos: 40, palabras: [140, 190],
+    enunciado: 'Choose one of the following three tasks.',
+    contexto: '1 · A website collects reviews of courses and classes. Write a review of a course you have taken, saying what it was like and who it would suit.\n2 · You stayed in a flat you booked online and several things were not as described. Write a formal email to the owner explaining the problems and saying what you expect.\n3 · An English-language magazine has asked readers for articles under the title "Something I was wrong about". Write your article.',
+    cierre: 'La reseña opina y recomienda a alguien concreto. El correo formal necesita hechos, fechas y una petición clara. El artículo va en primera persona y engancha en la primera línea.',
+    items: [ { escrito: true } ]
+  },
+
+  /* ---------------------- TEST 4 de B2 First ---------------------- */
+
+  'b2t4-gram1': {
+    tipo: 'transformacion', titulo: 'Presentes',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'The library opened in March and it is still open.', clave: 'OPEN', antes: 'The library', despues: 'since March.', aceptadas: ['has been open'] },
+      { frase: 'How long is it since they got married?', clave: 'BEEN', antes: 'How long', despues: 'married?', aceptadas: ['have they been'] },
+      { frase: 'Somebody is fixing the roof today.', clave: 'BEING', antes: 'The roof', despues: 'today.', aceptadas: ['is being fixed'] },
+      { frase: 'I do not know this street.', clave: 'BEEN', antes: 'I', despues: 'down this street before.', aceptadas: ["haven't been", 'have not been', 'have never been'] },
+      { frase: 'She interrupts me every single time I speak.', clave: 'ALWAYS', antes: 'She', despues: 'me.', aceptadas: ['is always interrupting'] },
+      { frase: 'They have had that dog for two years.', clave: 'GOT', antes: 'They', despues: 'two years ago.', aceptadas: ['got that dog', 'got the dog'] }
+    ]
+  },
+
+  'b2t4-gram2': {
+    tipo: 'transformacion', titulo: 'Pasados',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'I locked the door and then went to bed.', clave: 'AFTER', antes: 'I went to bed', despues: 'the door.', aceptadas: ['after locking', 'after I locked'] },
+      { frase: 'The lights went out while I was cooking.', clave: 'WHEN', antes: 'I', despues: 'the lights went out.', aceptadas: ['was cooking when'] },
+      { frase: 'She was hungry because she had not eaten since breakfast.', clave: 'NOTHING', antes: 'She was hungry because she', despues: 'since breakfast.', aceptadas: ['had eaten nothing'] },
+      { frase: 'They did not pay me for the extra hours.', clave: 'PAID', antes: 'I', despues: 'for the extra hours.', aceptadas: ["wasn't paid", 'was not paid'] },
+      { frase: 'It was her first visit to a hospital.', clave: 'NEVER', antes: 'She', despues: 'in a hospital before.', aceptadas: ['had never been'] },
+      { frase: 'The last time we saw them was at the wedding.', clave: 'SINCE', antes: 'We have not seen them', despues: '.', aceptadas: ['since the wedding'] }
+    ]
+  },
+
+  'b2t4-gram3': {
+    tipo: 'transformacion', titulo: 'Futuro',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'The ferry leaves at ten past six.', clave: 'SAILS', antes: 'The ferry', despues: 'at ten past six.', aceptadas: ['sails at'] },
+      { frase: 'We have arranged to have dinner with them on Friday.', clave: 'HAVING', antes: 'We', despues: 'with them on Friday.', aceptadas: ['are having dinner'] },
+      { frase: 'The building work will be over before Christmas.', clave: 'HAVE', antes: 'By Christmas they', despues: 'the building work.', aceptadas: ['will have finished'] },
+      { frase: 'It is obvious that they are going to lose.', clave: 'BOUND', antes: 'They', despues: '.', aceptadas: ['are bound to lose'] },
+      { frase: 'That box looks heavy. I will carry it.', clave: 'CARRY', antes: 'That box looks heavy.', despues: 'it for you.', aceptadas: ["I'll carry", 'I will carry'] },
+      { frase: 'Do not decide before you have seen it.', clave: 'UNTIL', antes: 'Do not decide', despues: 'it.', aceptadas: ['until you have seen'] }
+    ]
+  },
+
+  'b2t4-gram4': {
+    tipo: 'transformacion', titulo: 'Repaso de tiempos',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'It is four years since she started at the hospital.', clave: 'WORKING', antes: 'She', despues: 'at the hospital for four years.', aceptadas: ['has been working'] },
+      { frase: 'The café shut down last winter.', clave: 'BEEN', antes: 'The café', despues: 'since last winter.', aceptadas: ['has been closed', 'has been shut'] },
+      { frase: 'This is my third time in Rome.', clave: 'TIME', antes: 'It is the third', despues: 'to Rome.', aceptadas: ['time I have been'] },
+      { frase: 'The train had already gone when I got to the platform.', clave: 'LEFT', antes: 'The train', despues: 'I got to the platform.', aceptadas: ['had left before', 'had already left when'] },
+      { frase: 'When did she buy that coat?', clave: 'HAD', antes: 'How long', despues: 'that coat?', aceptadas: ['has she had'] },
+      { frase: 'They are going to repair the road in April.', clave: 'REPAIRED', antes: 'The road', despues: 'in April.', aceptadas: ['is going to be repaired', 'will be repaired'] }
+    ]
+  },
+
+  'b2t4-gram5': {
+    tipo: 'transformacion', titulo: 'Costumbres del pasado',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'We spent every August at my aunt’s house when we were young.', clave: 'USED', antes: 'We', despues: 'every August at my aunt’s house.', aceptadas: ['used to spend'] },
+      { frase: 'My mother sometimes read to us before we slept.', clave: 'WOULD', antes: 'My mother', despues: 'to us before we slept.', aceptadas: ['would sometimes read'] },
+      { frase: 'There is no baker in the village now, although there was one before.', clave: 'BE', antes: 'There', despues: 'a baker in the village.', aceptadas: ['used to be'] },
+      { frase: 'He did not enjoy reading when he was at school.', clave: 'USE', antes: 'He', despues: 'reading when he was at school.', aceptadas: ["didn't use to enjoy", 'did not use to enjoy'] },
+      { frase: 'I never travelled by plane before I was twenty.', clave: 'NEVER', antes: 'I', despues: 'by plane before I was twenty.', aceptadas: ['never used to travel'] },
+      { frase: 'They do not live here any more, but they did before.', clave: 'LONGER', antes: 'They', despues: 'here.', aceptadas: ['no longer live'] }
+    ]
+  },
+
+  'b2t4-gram6': {
+    tipo: 'transformacion', titulo: 'Acostumbrarse',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'The traffic noise bothered me a great deal at first.', clave: 'USED', antes: 'At first I', despues: 'the traffic noise.', aceptadas: ["wasn't used to", 'was not used to'] },
+      { frase: 'The new software is becoming easier for him every week.', clave: 'GETTING', antes: 'He', despues: 'the new software.', aceptadas: ['is getting used to'] },
+      { frase: 'Getting up at five does not bother her now.', clave: 'USED', antes: 'She', despues: 'getting up at five.', aceptadas: ['is used to'] },
+      { frase: 'It took us a year to accept the change.', clave: 'GET', antes: 'It took us a year', despues: 'the change.', aceptadas: ['to get used to'] },
+      { frase: 'After six months the accent no longer troubled him.', clave: 'GOT', antes: 'After six months he', despues: 'the accent.', aceptadas: ['had got used to', 'got used to'] },
+      { frase: 'Cold showers are perfectly normal for them.', clave: 'USED', antes: 'They', despues: 'cold showers.', aceptadas: ['are used to'] }
+    ]
+  },
+
+  'b2t4-gram7': {
+    tipo: 'transformacion', titulo: 'Poder y tener que',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'Eating is forbidden in the reading room.', clave: 'ALLOWED', antes: 'You', despues: 'in the reading room.', aceptadas: ['are not allowed to eat', "aren't allowed to eat"] },
+      { frase: 'In the end we found somewhere to park.', clave: 'MANAGED', antes: 'In the end we', despues: 'somewhere to park.', aceptadas: ['managed to find'] },
+      { frase: 'It is compulsory to show your ticket at the barrier.', clave: 'MUST', antes: 'You', despues: 'your ticket at the barrier.', aceptadas: ['must show'] },
+      { frase: 'He was not able to finish the race.', clave: 'COULD', antes: 'He', despues: 'the race.', aceptadas: ["couldn't finish", 'could not finish'] },
+      { frase: 'It was not necessary for her to come in on Saturday.', clave: 'HAVE', antes: 'She', despues: 'come in on Saturday.', aceptadas: ["didn't have to", 'did not have to'] },
+      { frase: 'She is capable of running a marathon.', clave: 'ABLE', antes: 'She', despues: 'a marathon.', aceptadas: ['is able to run'] }
+    ]
+  },
+
+  'b2t4-gram8': {
+    tipo: 'transformacion', titulo: 'Consejo y deducción',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'It was a mistake to lend him the money.', clave: 'SHOULD', antes: 'You', despues: 'him the money.', aceptadas: ["shouldn't have lent", 'should not have lent'] },
+      { frase: 'I am certain they have gone already.', clave: 'MUST', antes: 'They', despues: 'already.', aceptadas: ['must have gone'] },
+      { frase: 'There is no chance that she said that.', clave: 'CANNOT', antes: 'She', despues: 'that.', aceptadas: ['cannot have said'] },
+      { frase: 'Perhaps he left it on the train.', clave: 'MIGHT', antes: 'He', despues: 'it on the train.', aceptadas: ['might have left'] },
+      { frase: 'In your position I would say nothing at all.', clave: 'WERE', antes: 'If I', despues: ', I would say nothing at all.', aceptadas: ['were in your position', 'were you'] },
+      { frase: 'My advice is to check it once more.', clave: 'BETTER', antes: 'You', despues: 'it once more.', aceptadas: ["'d better check", 'had better check'] }
+    ]
+  },
+
+  'b2t4-gram9': {
+    tipo: 'transformacion', titulo: 'Voz pasiva',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'They are repainting the bridge this summer.', clave: 'BEING', antes: 'The bridge', despues: 'this summer.', aceptadas: ['is being repainted'] },
+      { frase: 'Somebody has taken my umbrella.', clave: 'BEEN', antes: 'My umbrella', despues: 'taken.', aceptadas: ['has been'] },
+      { frase: 'People think the fire started in the kitchen.', clave: 'THOUGHT', antes: 'The fire', despues: 'started in the kitchen.', aceptadas: ['is thought to have'] },
+      { frase: 'They will publish the list on Monday.', clave: 'PUBLISHED', antes: 'The list', despues: 'on Monday.', aceptadas: ['will be published'] },
+      { frase: 'The company offered Ane a contract.', clave: 'OFFERED', antes: 'Ane', despues: 'a contract by the company.', aceptadas: ['was offered'] },
+      { frase: 'Somebody ought to check these figures.', clave: 'BE', antes: 'These figures', despues: '.', aceptadas: ['ought to be checked'] }
+    ]
+  },
+
+  'b2t4-gram10': {
+    tipo: 'transformacion', titulo: 'Que te lo hagan',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'A garage checks our brakes every autumn.', clave: 'HAVE', antes: 'We', despues: 'every autumn.', aceptadas: ['have our brakes checked'] },
+      { frase: 'Somebody took his bike from the garden.', clave: 'HAD', antes: 'He', despues: 'from the garden.', aceptadas: ['had his bike taken'] },
+      { frase: 'A dentist is going to take out her tooth on Monday.', clave: 'HAVING', antes: 'She is', despues: 'out on Monday.', aceptadas: ['having her tooth taken'] },
+      { frase: 'I am going to ask somebody to clean the carpets.', clave: 'GET', antes: 'I am going to', despues: '.', aceptadas: ['get the carpets cleaned'] },
+      { frase: 'Somebody translated the letter for them.', clave: 'GOT', antes: 'They', despues: 'for them.', aceptadas: ['got the letter translated'] },
+      { frase: 'We are going to ask an electrician to put in new lights.', clave: 'HAVE', antes: 'We are going to', despues: 'put in.', aceptadas: ['have new lights'] }
+    ]
+  },
+
+  'b2t4-gram11': {
+    tipo: 'transformacion', titulo: 'Condicionales',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'He did not ask, so nobody helped him.', clave: 'HAD', antes: 'If he', despues: ', somebody would have helped him.', aceptadas: ['had asked'] },
+      { frase: 'Leave now or you will miss it.', clave: 'UNLESS', antes: 'You will miss it', despues: 'now.', aceptadas: ['unless you leave'] },
+      { frase: 'I cannot come because I am working on Saturday.', clave: 'WORKING', antes: 'If I', despues: 'on Saturday, I could come.', aceptadas: ["weren't working", 'was not working', 'were not working'] },
+      { frase: 'She was late only because the bus broke down.', clave: 'NOT', antes: 'If the bus', despues: 'down, she would not have been late.', aceptadas: ['had not broken'] },
+      { frase: 'Take some cash in case the card does not work.', clave: 'IF', antes: 'Take some cash', despues: 'work.', aceptadas: ['if the card does not', "if the card doesn't"] },
+      { frase: 'You can stay as long as you help with the cooking.', clave: 'PROVIDED', antes: 'You can stay', despues: 'help with the cooking.', aceptadas: ['provided you'] }
+    ]
+  },
+
+  'b2t4-gram12': {
+    tipo: 'transformacion', titulo: 'Deseos y lamentos',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'I am sorry I said anything.', clave: 'WISH', antes: 'I', despues: 'anything.', aceptadas: ["wish I hadn't said", 'wish I had not said'] },
+      { frase: 'It is a shame that I cannot drive.', clave: 'COULD', antes: 'I wish', despues: '.', aceptadas: ['I could drive'] },
+      { frase: 'It is a pity the shop is closed.', clave: 'ONLY', antes: 'If', despues: 'open.', aceptadas: ['only the shop were', 'only the shop was'] },
+      { frase: 'I regret not going to the meeting.', clave: 'GONE', antes: 'I wish I', despues: 'to the meeting.', aceptadas: ['had gone'] },
+      { frase: 'We really ought to be leaving.', clave: 'WENT', antes: 'It is time', despues: '.', aceptadas: ['we went'] },
+      { frase: 'I would prefer you not to tell her yet.', clave: 'RATHER', antes: 'I', despues: 'tell her yet.', aceptadas: ["would rather you didn't", 'would rather you did not'] }
+    ]
+  },
+
+  'b2t4-gram13': {
+    tipo: 'transformacion', titulo: 'Estilo indirecto',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: '"I am looking for a flat," she said.', clave: 'WAS', antes: 'She said', despues: 'for a flat.', aceptadas: ['she was looking'] },
+      { frase: '"Please sit down," he said to them.', clave: 'TO', antes: 'He asked them', despues: 'down.', aceptadas: ['to sit'] },
+      { frase: '"Why did you leave so early?" she asked him.', clave: 'HAD', antes: 'She asked him why', despues: 'so early.', aceptadas: ['he had left'] },
+      { frase: '"It was not me," he said.', clave: 'DENIED', antes: 'He', despues: 'it.', aceptadas: ['denied doing'] },
+      { frase: '"I will be there at eight," she said.', clave: 'PROMISED', antes: 'She', despues: 'at eight.', aceptadas: ['promised to be there'] },
+      { frase: '"Why not go by train?" said Unai.', clave: 'SUGGESTED', antes: 'Unai', despues: 'by train.', aceptadas: ['suggested going'] }
+    ]
+  },
+
+  'b2t4-gram14': {
+    tipo: 'transformacion', titulo: 'Comparar y relativas',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'This is the longest book I have ever read.', clave: 'LONGER', antes: 'I have never read', despues: 'this one.', aceptadas: ['a longer book than'] },
+      { frase: 'The exam was easier than I had expected.', clave: 'HARDER', antes: 'I had expected the exam', despues: 'it was.', aceptadas: ['to be harder than'] },
+      { frase: 'She is the woman. Her brother sold us the car.', clave: 'WHOSE', antes: 'She is the woman', despues: 'us the car.', aceptadas: ['whose brother sold'] },
+      { frase: 'That is the hotel. We stayed there in June.', clave: 'WHERE', antes: 'That is the hotel', despues: 'in June.', aceptadas: ['where we stayed'] },
+      { frase: 'My neighbour works nights and he sleeps all afternoon.', clave: 'WHO', antes: 'My neighbour,', despues: 'nights, sleeps all afternoon.', aceptadas: ['who works'] },
+      { frase: 'No other bakery in town is as good as this one.', clave: 'BEST', antes: 'This is', despues: 'in town.', aceptadas: ['the best bakery'] }
+    ]
+  },
+
+  'b2t4-voc1': {
+    tipo: 'caja', titulo: 'Preposiciones tras sustantivo · cuarta vuelta',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
+    caja: ['about', 'between', 'for', 'from', 'in', 'of', 'on', 'to'],
+    items: [
+      { antes: 'There is a real need', despues: 'more nurses.', aceptadas: ['for'] },
+      { antes: 'He has a strange attitude', despues: 'money.', aceptadas: ['to'] },
+      { antes: 'The choice', despues: 'the two candidates was not easy.', aceptadas: ['between'] },
+      { antes: 'She has a great deal of knowledge', despues: 'the area.', aceptadas: ['of', 'about'] },
+      { antes: 'There was a sharp rise', despues: 'the number of complaints.', aceptadas: ['in'] },
+      { antes: 'I got no reply', despues: 'either of my letters.', aceptadas: ['to'] }
+    ]
+  },
+
+  'b2t4-voc2': {
+    tipo: 'caja', titulo: 'Phrasal verbs · discutir y arreglar',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
+    caja: ['away', 'back', 'down', 'in', 'off', 'on', 'out', 'up'],
+    items: [
+      { antes: 'They finally made', despues: 'after a fortnight.', aceptadas: ['up'] },
+      { antes: 'He refused to back', despues: 'even when he was clearly wrong.', aceptadas: ['down'] },
+      { antes: 'Let us sort this', despues: 'before we go home.', aceptadas: ['out'] },
+      { antes: 'She walked', despues: 'in the middle of the argument.', aceptadas: ['away', 'out'] },
+      { antes: 'The two of them fell', despues: 'over a parking space.', aceptadas: ['out'] },
+      { antes: 'I had to give', despues: 'and let him drive.', aceptadas: ['in'] }
+    ]
+  },
+
+  'b2t4-voc3': {
+    tipo: 'caja', titulo: 'Adjetivos y su preposición · cuarta vuelta',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
+    caja: ['about', 'at', 'for', 'from', 'in', 'of', 'on', 'to'],
+    items: [
+      { antes: 'He is hopeless', despues: 'directions.', aceptadas: ['at'] },
+      { antes: 'She is very interested', despues: 'archaeology.', aceptadas: ['in'] },
+      { antes: 'This one is identical', despues: 'the one we saw yesterday.', aceptadas: ['to'] },
+      { antes: 'They were extremely rude', despues: 'the waiter.', aceptadas: ['to'] },
+      { antes: 'They were worried', despues: 'the cost of the repair.', aceptadas: ['about'] },
+      { antes: 'The whole village was proud', despues: 'her.', aceptadas: ['of'] }
+    ]
+  },
+
+  'b2t4-voc4': {
+    tipo: 'caja', titulo: 'Verbos con preposición fija · cuarta vuelta',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
+    caja: ['about', 'for', 'from', 'in', 'of', 'on', 'to', 'with'],
+    items: [
+      { antes: 'Everything depends', despues: 'what she decides.', aceptadas: ['on'] },
+      { antes: 'They accused him', despues: 'copying.', aceptadas: ['of'] },
+      { antes: 'She insisted', despues: 'seeing the manager.', aceptadas: ['on'] },
+      { antes: 'Nobody had told me', despues: 'the change of room.', aceptadas: ['about'] },
+      { antes: 'The illness prevented him', despues: 'travelling.', aceptadas: ['from'] },
+      { antes: 'I have never agreed', despues: 'him about that.', aceptadas: ['with'] }
+    ]
+  },
+
+  'b2t4-voc5': {
+    tipo: 'caja', titulo: 'Phrasal verbs · tiempo y planes',
+    instruccion: 'Complete each sentence with a word from the box. There are more words than you need.',
+    caja: ['back', 'down', 'forward', 'in', 'off', 'on', 'through', 'up'],
+    items: [
+      { antes: 'They put the wedding', despues: 'until September.', aceptadas: ['off'] },
+      { antes: 'I am really looking', despues: 'to the summer.', aceptadas: ['forward'] },
+      { antes: 'She turned', despues: 'twenty minutes late as usual.', aceptadas: ['up'] },
+      { antes: 'The deal fell', despues: 'at the last minute.', aceptadas: ['through'] },
+      { antes: 'We got', despues: 'from Lisbon on Sunday night.', aceptadas: ['back'] },
+      { antes: 'Please go', despues: 'with what you were saying.', aceptadas: ['on'] }
+    ]
+  },
+
+  'b2t4-voc6': {
+    tipo: 'caja', titulo: 'Colocaciones · verbo y sustantivo · cuarta vuelta',
+    instruccion: 'Complete each sentence with a verb from the box. There are more verbs than you need.',
+    caja: ['break', 'catch', 'do', 'follow', 'keep', 'make', 'set', 'take'],
+    items: [
+      { antes: 'You should not', despues: 'a promise you have made.', aceptadas: ['break'] },
+      { antes: 'You can rely on her to', despues: 'her word.', aceptadas: ['keep'] },
+      { antes: 'Try to', despues: 'the instructions exactly.', aceptadas: ['follow'] },
+      { antes: 'They plan to', despues: 'up a new company in June.', aceptadas: ['set'] },
+      { antes: 'It is time to', despues: 'a decision about the flat.', aceptadas: ['make'] },
+      { antes: 'He always refuses to', despues: 'the washing-up.', aceptadas: ['do'] }
+    ]
+  },
+
+  'b2t4-voc7': {
+    tipo: 'caja', titulo: 'Expresiones cotidianas · cuarta vuelta',
+    instruccion: 'Complete each expression with a word from the box. There are more words than you need.',
+    caja: ['clue', 'course', 'doubt', 'joke', 'mind', 'moment', 'shame', 'while'],
+    items: [
+      { antes: 'It is a real', despues: 'that you cannot come.', aceptadas: ['shame'] },
+      { antes: 'I have no', despues: 'where I left it.', aceptadas: ['clue'] },
+      { antes: 'She changed her', despues: 'at the last minute.', aceptadas: ['mind'] },
+      { antes: 'Without a', despues: ', that is the best one.', aceptadas: ['doubt'] },
+      { antes: 'Can you wait a', despues: '?', aceptadas: ['moment'] },
+      { antes: 'It took us quite a', despues: 'to find the place.', aceptadas: ['while'] }
+    ]
+  },
+
+  'b2t4-voc8': {
+    tipo: 'cloze', titulo: 'Open cloze · las mudanzas de trabajo',
+    instruccion: 'Write <b>one word</b> in each gap.',
+    texto: [
+      'The first week in a new job is the only week in which you are allowed to know nothing, and hardly anybody takes advantage {1} it. Instead people spend it pretending, which costs them the one fortnight in their whole employment when a stupid question is free.',
+      'Part of the reason is that nobody explains the important things, because the important things are not written {2}. Where the good coffee is. Which of the two people with the same first name actually decides. Whether the Friday meeting matters or is simply {3} everybody has always gone. You can read the handbook twice and learn none of that.',
+      'The people who settle fastest are not the cleverest. They are the ones who ask somebody to lunch in the first fortnight, {4} feels excruciating and works. By the third month you will have stopped noticing that the job was ever strange, and by the sixth you will be the person a new arrival is too embarrassed to ask, {5} is how the whole thing keeps going round {6} anybody deciding it should.'
+    ],
+    items: [
+      { aceptadas: ['of'] }, { aceptadas: ['down'] }, { aceptadas: ['where', 'somewhere'] },
+      { aceptadas: ['which'] }, { aceptadas: ['which'] }, { aceptadas: ['without'] }
+    ]
+  },
+
+  'b2t4-voc9': {
+    tipo: 'cloze', titulo: 'Open cloze · las plantas de casa',
+    instruccion: 'Write <b>one word</b> in each gap.',
+    texto: [
+      'Almost everybody kills their first houseplant, and almost everybody blames themselves for {1}. In fact the plant was probably doomed in the shop: it had been grown in a greenhouse in the Netherlands, flown two thousand kilometres and left {2} a draught by a door for eleven days before you ever saw it.',
+      'The second one usually survives, and not because you have learned anything about plants. You have learned something about your flat: which window gets the afternoon, which corner is colder {3} it looks, and where the radiator dries the air out. That is local knowledge and nobody can give it {4} you.',
+      'The advice in books is mostly about water, and it is mostly wrong for the same reason all general advice is wrong. More houseplants die of kindness {5} of neglect, and the single most useful thing anybody ever told me was to put my finger in the soil before doing anything {6} all.'
+    ],
+    items: [
+      { aceptadas: ['it'] }, { aceptadas: ['in'] }, { aceptadas: ['than'] },
+      { aceptadas: ['to'] }, { aceptadas: ['than'] }, { aceptadas: ['at'] }
+    ]
+  },
+
+  'b2t4-voc10': {
+    tipo: 'cloze', titulo: 'Open cloze · la libreta de vocabulario',
+    instruccion: 'Write <b>one word</b> in each gap.',
+    texto: [
+      'The most useless thing a language student can own is a notebook full of words they have never said out {1}. Everybody has one. Mine ran to ninety pages, arranged by topic, colour-coded, and worth almost nothing, because a word you have written down is not a word you have got.',
+      'What actually sticks is a word you needed. You wanted to buy a plug adaptor, you could {2} name it, you had to describe it with your hands for ninety seconds, and now you will remember that word for the rest of your life whether you like it {3} not. Nothing in a notebook is learned that way.',
+      'This is not an argument against writing things {4}, which helps, but against believing that the writing is the learning. The list is a shopping list. It is {5} use at all until somebody goes to the shop, and the shop, unfortunately, is a conversation in {6} you are going to be slow and wrong in front of a stranger.'
+    ],
+    items: [
+      { aceptadas: ['loud'] }, { aceptadas: ['not'] }, { aceptadas: ['or'] },
+      { aceptadas: ['down'] }, { aceptadas: ['no'] }, { aceptadas: ['which'] }
+    ]
+  },
+
+  'b2t4-voc11': {
+    tipo: 'formacion', titulo: 'Word formation · nombres abstractos',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
+    items: [
+      { antes: 'His', despues: 'to help was obvious from the start.', raiz: 'WILLING', aceptadas: ['willingness'] },
+      { antes: 'There is growing', despues: 'about the state of the building.', raiz: 'CONCERNED', aceptadas: ['concern'] },
+      { antes: 'The', despues: 'of the new library is planned for May.', raiz: 'OPEN', aceptadas: ['opening'] },
+      { antes: 'She spoke with great', despues: 'about her time there.', raiz: 'AFFECTIONATE', aceptadas: ['affection'] },
+      { antes: 'The', despues: 'of the results took longer than expected.', raiz: 'ANALYSE', aceptadas: ['analysis'] },
+      { antes: 'We were impressed by the', despues: 'of the service.', raiz: 'EFFICIENT', aceptadas: ['efficiency'] }
+    ]
+  },
+
+  'b2t4-voc12': {
+    tipo: 'formacion', titulo: 'Word formation · adjetivos',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
+    items: [
+      { antes: 'The whole trip was extremely', despues: '.', raiz: 'ENJOY', aceptadas: ['enjoyable'] },
+      { antes: 'He gave a rather', despues: 'account of the evening.', raiz: 'CONFUSE', aceptadas: ['confusing', 'confused'] },
+      { antes: 'The instructions were admirably', despues: '.', raiz: 'HELP', aceptadas: ['helpful'] },
+      { antes: 'It is a', despues: 'building from every angle.', raiz: 'BEAUTY', aceptadas: ['beautiful'] },
+      { antes: 'The town was almost', despues: 'in February.', raiz: 'DESERT', aceptadas: ['deserted'] },
+      { antes: 'She was very', despues: 'about the changes.', raiz: 'DOUBT', aceptadas: ['doubtful'] }
+    ]
+  },
+
+  'b2t4-voc13': {
+    tipo: 'formacion', titulo: 'Word formation · adjetivos en negativo',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
+    items: [
+      { antes: 'The whole plan seems completely', despues: '.', raiz: 'REALISTIC', aceptadas: ['unrealistic'] },
+      { antes: 'His answer was almost', despues: 'over the phone.', raiz: 'AUDIBLE', aceptadas: ['inaudible'] },
+      { antes: 'She was clearly', despues: 'with the arrangements.', raiz: 'SATISFY', aceptadas: ['dissatisfied'] },
+      { antes: 'The two statements are', despues: '.', raiz: 'CONSISTENT', aceptadas: ['inconsistent'] },
+      { antes: 'It would be', despues: 'to leave before the end.', raiz: 'POLITE', aceptadas: ['impolite'] },
+      { antes: 'The old lift is now', despues: '.', raiz: 'SAFE', aceptadas: ['unsafe'] }
+    ]
+  },
+
+  'b2t4-voc14': {
+    tipo: 'formacion', titulo: 'Word formation · personas y oficios',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
+    items: [
+      { antes: 'She has been a', despues: 'at the town hall for years.', raiz: 'RECEIVE', aceptadas: ['receptionist'] },
+      { antes: 'The', despues: 'of the orchestra is Portuguese.', raiz: 'CONDUCT', aceptadas: ['conductor'] },
+      { antes: 'He works as a', despues: 'for a Spanish paper.', raiz: 'REPORT', aceptadas: ['reporter'] },
+      { antes: 'Six hundred', despues: 'visited the exhibition on Sunday.', raiz: 'VISIT', aceptadas: ['visitors'] },
+      { antes: 'My brother is a', despues: 'in a school in Barakaldo.', raiz: 'TEACH', aceptadas: ['teacher'] },
+      { antes: 'The', despues: 'of the company still comes in on Fridays.', raiz: 'OWN', aceptadas: ['owner'] }
+    ]
+  },
+
+  'b2t4-use1': {
+    tipo: 'opcion', parte: 1, titulo: 'Use of English · Part 1',
+    instruccion: 'Decide which answer best fits each gap.',
+    texto: [
+      'The night bus is the only form of public transport that people feel they have to {1} for. Nobody makes excuses about a tram. But the last bus home has a reputation, most of it earned in about four minutes of a four-hour shift, and the drivers gave {2} trying to correct it years ago.',
+      'What the reputation misses is who is actually on board. At half past two on a Saturday the bus is mostly {3} up of people going to work: cleaners, bakers, two nurses and a man who opens a fish market at four. They are not out enjoying themselves. They are commuting, at the only hour the timetable {4} open to them, and they happen to be sharing the journey with a small number of people who have had a very long evening.',
+      'Cutting these routes is always presented as a saving, and it always {5} out to be a transfer. Take the bus away and the cleaner takes a taxi she cannot {6}, or she leaves the job. This is not an argument that wins council meetings, because the people who need the route are asleep while the meeting is {7} and at work when the consultation closes. It would be far easier to defend the night bus if the people it {8} had time to turn up and say so.'
+    ],
+    items: [
+      { opciones: ['excuse', 'apologise', 'regret', 'explain'], correcta: 1 },
+      { opciones: ['off', 'in', 'up', 'over'], correcta: 2 },
+      { opciones: ['made', 'built', 'put', 'set'], correcta: 0 },
+      { opciones: ['gives', 'offers', 'leaves', 'lets'], correcta: 2 },
+      { opciones: ['comes', 'works', 'turns', 'ends'], correcta: 2 },
+      { opciones: ['pay', 'spend', 'afford', 'cost'], correcta: 2 },
+      { opciones: ['made', 'held', 'done', 'taken'], correcta: 1 },
+      { opciones: ['helps', 'works', 'carries', 'serves'], correcta: 3 }
+    ]
+  },
+
+  'b2t4-use2a': {
+    tipo: 'cloze', parte: 2, titulo: 'Use of English · Part 2',
+    instruccion: 'Write <b>one word</b> in each gap.',
+    texto: [
+      'There is no good moment to learn to cook, to swim or to drive, which is {1} so many people arrive at forty having done none of the three. Each of them is easiest at nine, unpleasant at nineteen and faintly humiliating at thirty-nine, and the humiliation is the whole {2} the barrier.',
+      'It is worth being precise about what the embarrassment actually is. It is not that the task is hard; it is that you will be visibly bad at something in {3} of other adults, and adults have almost no practice at that. Children are bad at things all day long and think nothing {4} it. Somewhere between twelve and twenty we lose the habit, and by thirty we have arranged our lives {5} that we are never seen struggling.',
+      'The way through is not confidence, {6} nobody has any at the start. It is choosing a room where being bad is normal. An adult beginners’ class works precisely because everybody in it is equally hopeless, {7} the six weeks of feeling foolish get shared out. Nobody there is watching you as closely {8} you think, because they are all much too busy being watched themselves.'
+    ],
+    items: [
+      { aceptadas: ['why'] }, { aceptadas: ['of'] }, { aceptadas: ['front'] },
+      { aceptadas: ['of'] }, { aceptadas: ['so'] },
+      { aceptadas: ['because', 'since', 'as'] }, { aceptadas: ['and'] },
+      { aceptadas: ['as'] }
+    ]
+  },
+
+  'b2t4-use2b': {
+    tipo: 'cloze', parte: 2, titulo: 'Use of English · Part 2 (extra)',
+    instruccion: 'Write <b>one word</b> in each gap.',
+    texto: [
+      'Nobody has ever been persuaded {1} anything by being told that they are wrong, and yet it remains the method almost everybody uses. The evidence {2} this has been consistent for fifty years and has had no effect at all on how arguments are conducted at family dinners.',
+      'What does occasionally work is much slower and a great deal less satisfying. You ask what somebody actually believes, in their own words, and then you ask {3} they came to think it, and you listen to the answer without preparing your reply. Almost nobody can manage that for more {4} ninety seconds, because it feels like losing. It is not losing; it is the only part of the conversation {5} has ever changed a mind.',
+      'The other thing that helps is time. People do change their views, quite often, but almost never in the room {6} they are being challenged. They change them a fortnight later, in private, they never mention it, and they certainly never give you the credit. If you need the credit, you are not really trying to persuade anybody: you are trying to win, {7} is a different activity {8} a much worse success rate.'
+    ],
+    items: [
+      { aceptadas: ['of'] }, { aceptadas: ['on'] }, { aceptadas: ['how', 'why'] },
+      { aceptadas: ['than'] }, { aceptadas: ['that', 'which'] }, { aceptadas: ['where'] },
+      { aceptadas: ['which'] }, { aceptadas: ['with'] }
+    ]
+  },
+
+  'b2t4-use3': {
+    tipo: 'formacion', parte: 3, titulo: 'Use of English · Part 3',
+    instruccion: 'Use the word given in capitals to form a word that fits in the gap.',
+    items: [
+      { antes: 'The', despues: 'of the scheme has been widely praised.', raiz: 'SUCCEED', aceptadas: ['success'] },
+      { antes: 'He explained the rules very', despues: '.', raiz: 'CLEAR', aceptadas: ['clearly'] },
+      { antes: 'There has been a marked', despues: 'in the number of accidents.', raiz: 'REDUCE', aceptadas: ['reduction'] },
+      { antes: 'The report was long and not particularly', despues: '.', raiz: 'USE', aceptadas: ['useful'] },
+      { antes: 'Her', despues: 'of Italian is better than she admits.', raiz: 'KNOW', aceptadas: ['knowledge'] },
+      { antes: 'The two designs are almost', despues: '.', raiz: 'IDENTITY', aceptadas: ['identical'] },
+      { antes: 'They dealt with the complaint extremely', despues: '.', raiz: 'EFFICIENT', aceptadas: ['efficiently'] },
+      { antes: 'His', despues: 'to sign the contract surprised nobody.', raiz: 'REFUSE', aceptadas: ['refusal'] }
+    ]
+  },
+
+  'b2t4-use4a': {
+    tipo: 'transformacion', parte: 4, titulo: 'Use of English · Part 4',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'The fog stopped the plane from landing.', clave: 'PREVENTED', antes: 'The fog', despues: 'landing.', aceptadas: ['prevented the plane from'] },
+      { frase: 'I have never stayed in a nicer hotel.', clave: 'NICEST', antes: 'It is', despues: 'I have ever stayed in.', aceptadas: ['the nicest hotel'] },
+      { frase: 'It is pointless arguing with him.', clave: 'POINT', antes: 'There', despues: 'arguing with him.', aceptadas: ['is no point in', "'s no point in"] },
+      { frase: 'Nobody knows why she resigned.', clave: 'IDEA', antes: 'Nobody', despues: 'she resigned.', aceptadas: ['has any idea why'] },
+      { frase: 'He plays much better than I do.', clave: 'NEARLY', antes: 'I cannot play', despues: 'he can.', aceptadas: ['nearly as well as'] },
+      { frase: 'They only told us this morning.', clave: 'UNTIL', antes: 'We', despues: 'this morning.', aceptadas: ["weren't told until", 'were not told until'] }
+    ]
+  },
+
+  'b2t4-use4b': {
+    tipo: 'transformacion', parte: 4, titulo: 'Use of English · Part 4 (extra)',
+    instruccion: 'Complete the second sentence so that it has a similar meaning to the first, using the word given. Use <b>between two and five words</b>, including the word given.',
+    items: [
+      { frase: 'The queue was so long that we gave up.', clave: 'SUCH', antes: 'It', despues: 'that we gave up.', aceptadas: ['was such a long queue'] },
+      { frase: 'I am sorry I did not take your advice.', clave: 'WISH', antes: 'I', despues: 'your advice.', aceptadas: ['wish I had taken'] },
+      { frase: 'Somebody has to send these letters today.', clave: 'BE', antes: 'These letters', despues: 'today.', aceptadas: ['have to be sent'] },
+      { frase: 'She is not experienced enough to lead the team.', clave: 'TOO', antes: 'She', despues: 'to lead the team.', aceptadas: ['is too inexperienced'] },
+      { frase: 'He did not warn me, so I was late.', clave: 'HAD', antes: 'If he', despues: 'me, I would not have been late.', aceptadas: ['had warned'] },
+      { frase: '"You ought to take a break," she said to him.', clave: 'ADVISED', antes: 'She', despues: 'a break.', aceptadas: ['advised him to take'] }
+    ]
+  },
+
+  'b2t4-read5': {
+    tipo: 'lectura', parte: 5, titulo: 'Reading · Part 5',
+    instruccion: 'Read the text and choose the best answer (A, B, C or D) for each question.',
+    tituloTexto: 'The woman who answers the phone at three in the morning',
+    texto: [
+      'The office is one room above a launderette in Cardiff, and there are four telephones in it, of which two ever ring. Megan Prosser has been taking calls on the night shift for eleven years. She works from ten until six, alone for most of it, and the busiest hour of her week is between two and three on a Sunday morning.',
+      'She is careful, in the first five minutes of our conversation, to correct two things. She is not a counsellor, and she says so to every caller within the first minute. And the line is not, as the local paper described it last year, a crisis line. "Most of the people who ring me are not in crisis," she says. "They are awake, and it is three o’clock, and there is nobody else. That is a different thing, and treating it as an emergency makes it worse."',
+      'The training took four months and most of it, she says, was about not helping. New volunteers arrive wanting to solve things, and the instinct is almost impossible to remove. "Somebody tells you their marriage has ended and every part of you wants to say something useful. There is nothing useful. What there is, is another person awake at the same time as you, and that turns out to be the entire service."',
+      'She keeps no notes and learns no names, which is policy and which she describes as the hardest part. People ring back — she can hear it in a voice — and she is not permitted to say so, because the moment a caller becomes a regular the line stops being what it is. She accepts the reasoning completely and says it still costs her something every time.',
+      'The charity that runs the line has been asked repeatedly to measure what it does, and has never found a way that satisfies anybody. Calls answered is a number, but it is not the number. Prosser suggests, with a slight shrug, that the only honest measure would be how many people put the phone down and went to sleep, which nobody can know. The funders have accepted this for eleven years, which she says is more generous than she would have expected.',
+      'She has three years left before she stops. She talks about it without any obvious reluctance and then says one thing that seems to cost her more: that the line will need somebody to do Sunday nights, and that Sunday nights are the reason most volunteers leave. She has never persuaded anybody to take one on, and she has stopped trying, and she thinks the honest description of the problem is better recruitment than any amount of encouragement.'
+    ],
+    items: [
+      { pregunta: '1  Why does Prosser object to the phrase "crisis line"?',
+        opciones: ['It puts people off ringing at all.',
+                   'It misdescribes most of the calls she takes.',
+                   'It suggests she has training she does not have.',
+                   'It was invented by the local newspaper.'], correcta: 1 },
+      { pregunta: '2  What does she say the training was mainly about?',
+        opciones: ['Recognising when a caller is at risk.',
+                   'Learning what the charity will and will not allow.',
+                   'Resisting the urge to offer solutions.',
+                   'Keeping calls to a reasonable length.'], correcta: 2 },
+      { pregunta: '3  What does she say the service actually consists of?',
+        opciones: ['Giving people practical advice at a difficult hour.',
+                   'Being awake at the same time as somebody else.',
+                   'Directing callers to organisations that can help.',
+                   'Listening until a caller has calmed down.'], correcta: 1 },
+      { pregunta: '4  How does she feel about the rule on keeping no records?',
+        opciones: ['She agrees with it and still finds it difficult.',
+                   'She thinks it should be changed for regular callers.',
+                   'She often ignores it in practice.',
+                   'She believes it protects the volunteers more than the callers.'], correcta: 0 },
+      { pregunta: '5  What is the difficulty with measuring the service?',
+        opciones: ['The charity does not collect enough information.',
+                   'The funders keep changing what they ask for.',
+                   'The thing that matters cannot be counted.',
+                   'Volunteers disagree about what success would mean.'], correcta: 2 },
+      { pregunta: '6  What does she suggest about finding her replacement?',
+        opciones: ['Volunteers should be paid for night shifts.',
+                   'The shift should be shared between two people.',
+                   'She intends to keep working until somebody is found.',
+                   'Being honest about the shift would work better than encouraging people.'], correcta: 3 }
+    ]
+  },
+
+  'b2t4-read6': {
+    tipo: 'lectura', parte: 6, titulo: 'Reading · Part 6',
+    instruccion: 'Six sentences have been removed from the text. Choose from the sentences A–G the one which fits each gap. There is one extra sentence which you do not need to use.',
+    tituloTexto: 'The football club that its supporters bought',
+    texto: [
+      'In 2009 a fourth-division club in the north of England had eleven days to find two hundred thousand pounds or stop existing. {1} What happened instead has been written about a great deal, usually badly, and the club itself has spent fifteen years trying to correct the story.',
+      'The version that gets told is that the fans rose up and saved their club. The version the club prefers is duller and more useful. Four supporters with accountancy backgrounds spent nine days in a solicitor’s office. {2} The singing outside the ground made no difference at all to the outcome, although it made the photographs.',
+      'The ownership model that came out of it is not complicated. Anybody can buy one share, one share is the maximum, and every shareholder has one vote regardless of anything. {3} It is deliberately arranged so that no rich person can ever rescue them again.',
+      'This has costs, and the club is unusually willing to list them. They have been promoted once and relegated twice since 2009. {4} A manager they liked left for a club that could pay him nearly four times as much, and there was nothing anybody could do and nobody pretended otherwise.',
+      'What they have instead is a ground they own, no debt, and a season ticket that has risen by less than inflation for fifteen years. {5} The average age of the crowd has fallen every year since 2012, which in this division is close to unheard of.',
+      'Other clubs send delegations, and the chairman — who is elected, and who drives a delivery van — is blunt with them. {6} He says the question is not whether supporter ownership works, because it plainly does, but whether a club is prepared to accept the ceiling that comes with it, and that most of the people who ask him are not.'
+    ],
+    secciones: [
+      { letra: 'A', texto: ['Nobody in the boardroom expected the money to be found, and privately most of the supporters did not either.'] },
+      { letra: 'B', texto: ['They will almost certainly never play in the top two divisions again, and everybody involved knows this.'] },
+      { letra: 'C', texto: ['Attendances are now more than double what they were in the last season under the old owner.'] },
+      { letra: 'D', texto: ['That means the man with four thousand pounds and the student with twenty have exactly the same say.'] },
+      { letra: 'E', texto: ['The stadium was sold to a property company in 2007 and leased back on terms nobody had read carefully.'] },
+      { letra: 'F', texto: ['What actually saved it was a rescue structure that most of the people cheering outside did not understand.'] },
+      { letra: 'G', texto: ['He tells them that the model would have failed at a club with a larger wage bill and a smaller town.'] }
+    ],
+    opcionesCortas: true,
+    items: [
+      { pregunta: '1', opciones: ['A','B','C','D','E','F','G'], correcta: 0 },
+      { pregunta: '2', opciones: ['A','B','C','D','E','F','G'], correcta: 5 },
+      { pregunta: '3', opciones: ['A','B','C','D','E','F','G'], correcta: 3 },
+      { pregunta: '4', opciones: ['A','B','C','D','E','F','G'], correcta: 1 },
+      { pregunta: '5', opciones: ['A','B','C','D','E','F','G'], correcta: 2 },
+      { pregunta: '6', opciones: ['A','B','C','D','E','F','G'], correcta: 6 }
+    ]
+  },
+
+  'b2t4-read7': {
+    tipo: 'lectura', parte: 7, titulo: 'Reading · Part 7',
+    instruccion: 'You are going to read an article in which four people describe a hobby they have kept for a long time. For each question, choose from the people A–D. The people may be chosen more than once.',
+    opcionesCortas: true,
+    secciones: [
+      { letra: 'A', titulo: 'Eneko, sea swimming',
+        texto: ['Twenty-two years, every week, in water that is eleven degrees in February. People want it to be about willpower and it is the opposite: the whole point is that once you are in, there is nothing to decide. I go with the same four people and two of them I have never seen outside a beach car park, which sounds sad and is not. I do not talk about the health benefits, partly because I am not sure about them and partly because that is not why anybody goes.'] },
+      { letra: 'B', titulo: 'Ruth, keeping bees',
+        texto: ['I have had hives for nineteen years and I lose colonies most winters, and it still upsets me every time. The mistake beginners make is thinking it is like gardening. It is not: you are looking after something that makes its own decisions and will simply leave if it does not like the arrangement. I sell a little honey to neighbours at a price that does not cover the equipment, which my husband finds very funny.'] },
+      { letra: 'C', titulo: 'Piotr, model railways',
+        texto: ['I started at eleven and I am fifty-eight, and there was a gap of about fourteen years in the middle when I had small children and no room. What I did not expect was how easy it was to come back. The layout was in my mother’s loft, most of it still worked, and the part of my brain that knew how to do it had apparently been waiting. I show people photographs now and they are politer about it than they used to be, which I put down to the internet.'] },
+      { letra: 'D', titulo: 'Aoife, choral singing',
+        texto: ['I am not a good singer and that took me about five years to say out loud without shame. In a choir of sixty it does not matter, and that is exactly what nobody understands until they have done it: you are not a soloist who happens to be in a group, you are one part of a single thing. We rehearse on Tuesdays whether anybody feels like it or not, and I would say the whether-you-feel-like-it-or-not is where all of it comes from.'] }
+    ],
+    items: [
+      { pregunta: '1  Who says that having no choice is part of the appeal?',
+        opciones: ['A','B','C','D'], correcta: 0 },
+      { pregunta: '2  Who mentions a long break before returning to the hobby?',
+        opciones: ['A','B','C','D'], correcta: 2 },
+      { pregunta: '3  Who admits that losses still affect them after many years?',
+        opciones: ['A','B','C','D'], correcta: 1 },
+      { pregunta: '4  Who took a long time to admit something about their own ability?',
+        opciones: ['A','B','C','D'], correcta: 3 },
+      { pregunta: '5  Who says the money side makes no sense?',
+        opciones: ['A','B','C','D'], correcta: 1 },
+      { pregunta: '6  Who values the regular routine above how they feel on the day?',
+        opciones: ['A','B','C','D'], correcta: 3 },
+      { pregunta: '7  Who mentions friendships that exist only within the activity?',
+        opciones: ['A','B','C','D'], correcta: 0 },
+      { pregunta: '8  Who was surprised at how much they had remembered?',
+        opciones: ['A','B','C','D'], correcta: 2 },
+      { pregunta: '9  Who corrects a common comparison people make?',
+        opciones: ['A','B','C','D'], correcta: 1 },
+      { pregunta: '10  Who has noticed that other people now react differently?',
+        opciones: ['A','B','C','D'], correcta: 2 }
+    ]
+  },
+
+  'b2t4-lis1': {
+    tipo: 'listening', parte: 1, titulo: 'Listening · Part 1',
+    instruccion: 'You will hear people talking in eight different situations. Choose the answer (A, B or C) which fits best according to what you hear. <b>You will hear the recording twice.</b>',
+    audio: 'audio/b2t4-lis1-espeak.mp3', escuchas: 2, demo: true,
+    contexto: 'Eight short extracts, one question each.',
+    items: [
+      { pregunta: '1  How does the woman feel about her own reaction?',
+        opciones: ['She has become the kind of person she did not want to be.', 'She regrets not filming any of it herself.', 'She blames the venue rather than the audience.'], correcta: 0 },
+      { pregunta: '2  What does the man say about the job advertisement?',
+        opciones: ['She should get the other two skills first.', 'Employers list more than they expect to find.', 'The job is probably already taken.'], correcta: 1 },
+      { pregunta: '3  Why is the man leaving the message?',
+        opciones: ['To ask his friend to bring some food.', 'To warn that Saturday may be cancelled.', 'To stop his friend buying anything.'], correcta: 2 },
+      { pregunta: '4  What surprised the woman about the garden project?',
+        opciones: ['How much food it produced.', 'Who turned out to want it.', 'How little it cost to run.'], correcta: 1 },
+      { pregunta: '5  Why does the woman want to mention the bill?',
+        opciones: ['She thinks the restaurant does it deliberately.', 'The amount is larger than her friend realises.', 'Letting it go would bother her for days.'], correcta: 2 },
+      { pregunta: '6  What does the man say about the book?',
+        opciones: ['He would not recommend it to anybody.', 'It asked more of him than a book should.', 'It improved steadily from the first page.'], correcta: 1 },
+      { pregunta: '7  What does the woman admit about her studying?',
+        opciones: ['She chose the comfortable half of the language.', 'She has not put in enough hours.', 'Her teacher was too hard on her.'], correcta: 0 },
+      { pregunta: '8  What does the woman think about the walk?',
+        opciones: ['The whole day was spoilt from the start.', 'She would do the same route again.', 'The end of it is what stayed with her.'], correcta: 2 }
+    ]
+  },
+
+  'b2t4-lis2': {
+    tipo: 'listening', parte: 2, titulo: 'Listening · Part 2',
+    instruccion: 'Complete the sentences with <b>a word or short phrase</b> from what you hear. <b>You will hear the recording twice.</b>',
+    audio: 'audio/b2t4-lis2-espeak.mp3', escuchas: 2, demo: true,
+    contexto: 'Cara Nolan talks about her work training guide dogs.',
+    items: [
+      { antes: 'Before this work, Cara spent six years in a', despues: '.', aceptadas: ['veterinary practice', 'vets', 'vet practice'] },
+      { antes: 'The dogs stay with a volunteer family until they are', despues: 'old.', aceptadas: ['fourteen months', '14 months'] },
+      { antes: 'The quality she is really looking for in a dog is', despues: '.', aceptadas: ['confidence'] },
+      { antes: 'Roughly', despues: 'of the dogs do not finish the programme.', aceptadas: ['half', 'a half'] },
+      { antes: 'The hardest thing to teach a dog is how to', despues: 'an instruction.', aceptadas: ['refuse', 'disobey'] },
+      { antes: 'From the day they arrive, the full training takes', despues: '.', aceptadas: ['eighteen months', '18 months'] },
+      { antes: 'The commonest reason a dog does not make it is', despues: '.', aceptadas: ['noise'] },
+      { antes: 'Cara says the hardest part of her job is the', despues: '.', aceptadas: ['handover'] },
+      { antes: 'What worries her most is the length of the', despues: '.', aceptadas: ['waiting list'] },
+      { antes: 'The real shortage, she says, is of volunteer', despues: '.', aceptadas: ['families'] }
+    ]
+  },
+
+  'b2t4-lis3': {
+    tipo: 'listening', parte: 3, titulo: 'Listening · Part 3',
+    instruccion: 'You will hear five short extracts in which people talk about a piece of advice they were given. Choose from the list A–H what each speaker says. Use each letter once. There are three extra letters. <b>You will hear the recording twice.</b>',
+    audio: 'audio/b2t4-lis3-espeak.mp3', escuchas: 2, demo: true,
+    opcionesCortas: true,
+    listas: [
+      { titulo: 'What does each speaker say about the advice?', opciones: [
+        'It came from somebody I hardly knew.',
+        'I have passed it on to my own family.',
+        'It went against what everybody else was saying.',
+        'It was given to me at a very bad moment.',
+        'I ignored it and paid for it later.',
+        'I followed it and it turned out to be wrong.',
+        'It only made sense to me many years afterwards.',
+        'It was entirely about money.'
+      ] }
+    ],
+    items: [
+      { pregunta: '1  Speaker 1', opciones: ['A','B','C','D','E','F','G','H'], correcta: 2 },
+      { pregunta: '2  Speaker 2', opciones: ['A','B','C','D','E','F','G','H'], correcta: 4 },
+      { pregunta: '3  Speaker 3', opciones: ['A','B','C','D','E','F','G','H'], correcta: 0 },
+      { pregunta: '4  Speaker 4', opciones: ['A','B','C','D','E','F','G','H'], correcta: 6 },
+      { pregunta: '5  Speaker 5', opciones: ['A','B','C','D','E','F','G','H'], correcta: 1 }
+    ]
+  },
+
+  'b2t4-lis4': {
+    tipo: 'listening', parte: 4, titulo: 'Listening · Part 4',
+    instruccion: 'You will hear an interview. Choose the answer (A, B, C or D) which fits best according to what you hear. <b>You will hear the recording twice.</b>',
+    audio: 'audio/b2t4-lis4-espeak.mp3', escuchas: 2, demo: true,
+    contexto: 'A journalist interviews Daniel Okoro, who interprets in criminal courts.',
+    items: [
+      { pregunta: '1  What had Daniel assumed before he applied?',
+        opciones: ['That the work would not interest him.', 'That speaking two languages was enough on its own.', 'That there were no vacancies in his area.', 'That the training would be very short.'], correcta: 1 },
+      { pregunta: '2  What does he say people get wrong about the job?',
+        opciones: ['They think it is about words rather than rules.', 'They think it is badly paid.', 'They think anybody can be trained to do it.', 'They think it happens mostly in writing.'], correcta: 0 },
+      { pregunta: '3  Why does he find speaking in the first person so hard?',
+        opciones: ['The sentences are often very long.', 'It slows the proceedings down.', 'Every instinct is to put distance between himself and the words.', 'Judges frequently object to it.'], correcta: 2 },
+      { pregunta: '4  What is the commonest reason an interpreter is removed from a case?',
+        opciones: ['Arriving late.', 'Mistranslating a technical term.', 'Discussing the case afterwards.', 'Trying to help somebody understand.'], correcta: 3 },
+      { pregunta: '5  What is his view of working by video link?',
+        opciones: ['He would prefer to go back to the old way.', 'It saves money at no real cost.', 'He accepts it, but thinks something is lost.', 'It has made the work far more tiring.'], correcta: 2 },
+      { pregunta: '6  What does he say is behind the shortage of interpreters?',
+        opciones: ['The training is too long.', 'The pay has not changed in ten years.', 'Too few people speak the languages needed.', 'The recruitment campaigns are badly designed.'], correcta: 1 },
+      { pregunta: '7  What does he want people to understand about the work?',
+        opciones: ['That it should be far better recognised.', 'That mistakes are more common than anybody admits.', 'That done well, it goes unnoticed.', 'That it is more stressful than most legal work.'], correcta: 2 }
+    ]
+  },
+
+  'b2t4-speak1': {
+    tipo: 'speaking', parte: 2, titulo: 'Long turn: dos maneras de estudiar juntos',
+    instruccion: 'Habla durante <b>un minuto seguido</b>. Compara las dos situaciones: no las describas una detrás de otra.',
+    segundos: 60,
+    pregunta: 'Compare these two situations and say what might be difficult about each.',
+    puntos: ['four students working together round one table', 'somebody studying alone in their bedroom at night'],
+    nota: 'En el examen esto se hace con dos fotografías y hay una segunda pregunta corta al final. Aquí van descritas mientras la academia no aporte las suyas.',
+    items: [ { grabacion: true } ]
+  },
+
+  'b2t4-speak3': {
+    tipo: 'speaking', parte: 3, titulo: 'Parte 3: decidir en voz alta',
+    instruccion: 'Habla durante <b>dos minutos</b>. Comenta las cinco ideas y termina eligiendo una.',
+    segundos: 120,
+    pregunta: 'A town wants to make it easier for older people to keep living in their own homes. How much would each of these help, and which would help most?',
+    puntos: ['more benches and public toilets in the centre', 'a shopping delivery service', 'free bus travel', 'somebody to visit once a week', 'classes on using a phone and the internet'],
+    nota: 'En el examen esto se habla con otro candidato: se negocia y se llega a un acuerdo. Grabándote solo se practica todo menos eso, que es un criterio entero.',
+    items: [ { grabacion: true } ]
+  },
+
+  'b2t4-speak4': {
+    tipo: 'speaking', parte: 4, titulo: 'Parte 4: opinar y justificar',
+    instruccion: 'Contesta a las tres preguntas seguidas, <b>dos minutos</b> en total.',
+    segundos: 120,
+    pregunta: 'Questions about growing older and about help.',
+    puntos: [
+      'Do young and old people spend enough time together where you live?',
+      'Some people say it is hard to ask for help. Why do you think that is?',
+      'Should families or the state look after older people? Why?'
+    ],
+    nota: 'En el examen el examinador pregunta y luego te pide que reacciones a lo que ha dicho la otra persona. Aquí solo está la primera mitad.',
+    items: [ { grabacion: true } ]
+  },
+
+  'b2t4-write1': {
+    tipo: 'writing', parte: 1, titulo: 'Essay',
+    instruccion: 'Escribe entre <b>140 y 190 palabras</b>. Es obligatorio: en el examen esta tarea no se elige.',
+    minutos: 40, palabras: [140, 190],
+    enunciado: 'In your English class you have been talking about volunteering. Now your teacher has asked you to write an essay. Do you agree that every student should do some voluntary work before leaving school?',
+    contexto: 'Notes. Write about: 1 · what students would learn · 2 · time and studies · 3 ... (your own idea).',
+    cierre: 'Write in a fairly formal style. Use both of the given notes and add one idea of your own.',
+    items: [ { escrito: true } ]
+  },
+
+  'b2t4-write2': {
+    tipo: 'writing', parte: 2, titulo: 'A elegir: artículo, correo o informe',
+    instruccion: 'Elige <b>una</b> de las tres y escribe entre <b>140 y 190 palabras</b>.',
+    minutos: 40, palabras: [140, 190],
+    enunciado: 'Choose one of the following three tasks.',
+    contexto: '1 · An English-language magazine has asked readers for articles under the title "The best advice I have ever been given". Write your article.\n2 · A friend from England is thinking of spending a year working in your town and has asked what it is really like. Write an email answering their questions honestly.\n3 · Your school or company asked students to try a new timetable for a month. Write a report saying what worked, what did not, and what you recommend.',
+    cierre: 'El artículo va en primera persona y necesita una historia concreta, no una lista. El correo informal contesta a lo que te han preguntado. El informe lleva encabezados y termina con una recomendación clara.',
     items: [ { escrito: true } ]
   },
 

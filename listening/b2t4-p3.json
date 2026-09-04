@@ -1,0 +1,115 @@
+{
+  "id": "b2t4-lis3",
+  "examen": "fce",
+  "parte": 3,
+  "tarea": "Multiple matching, cinco hablantes",
+  "titulo": "Un consejo que me dieron",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    {
+      "id": "narrador",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro",
+      "papel": "narrador"
+    },
+    {
+      "id": "h1",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbcwmd",
+      "descripcion": "hombre, 30s",
+      "papel": "gb-h-joven"
+    },
+    {
+      "id": "m1",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbcwmd",
+      "descripcion": "mujer, 55-60",
+      "papel": "gb-m-mayor"
+    },
+    {
+      "id": "m2",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "mujer, 20-30",
+      "papel": "gb-m-joven"
+    },
+    {
+      "id": "h2",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-rp",
+      "descripcion": "hombre, 55-60",
+      "papel": "gb-h-mayor"
+    },
+    {
+      "id": "h3",
+      "acento": "en-US",
+      "espeak": "en-us",
+      "descripcion": "hombre estadounidense",
+      "papel": "us-h"
+    }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    {
+      "voz": "narrador",
+      "pausa": 1.0,
+      "texto": "Part Three. You will hear five short extracts in which people talk about a piece of advice they were given. For questions one to five, choose from the list A to H what each speaker says. Use each letter only once. There are three extra letters which you do not need to use."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Speaker one."
+    },
+    {
+      "voz": "h1",
+      "pausa": 1.2,
+      "texto": "Every single person around me said take the safe job, and my aunt said take the other one. She was the only one, and she was not somebody whose opinion I would normally have weighted very heavily. But she was the only person who asked me what I actually wanted to be doing at forty, and everybody else was asking about the salary."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Speaker two."
+    },
+    {
+      "voz": "m1",
+      "pausa": 1.2,
+      "texto": "She told me not to sign it without showing it to somebody, and I signed it that afternoon because I did not want to look nervous. Eleven months later I found out precisely what I had agreed to. It cost me a great deal of money and about two years of being angry with myself, and she has never once said anything about it."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Speaker three."
+    },
+    {
+      "voz": "m2",
+      "pausa": 1.2,
+      "texto": "A woman on a train. I have no idea what her name was and I have never seen her again. I had been crying, badly, and she said one sentence to me before she got off at Preston, and I have repeated that sentence to myself probably a thousand times in fifteen years. I could not tell you anything else about her."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Speaker four."
+    },
+    {
+      "voz": "h2",
+      "pausa": 1.2,
+      "texto": "My grandfather said it to me when I was about nine and it made no sense whatsoever. It was something about not being the cleverest person in the room. I nodded, because you do, and then at some point in my thirties I was in a meeting and it arrived, complete, twenty-five years late, and I finally understood what he had been telling me."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Speaker five."
+    },
+    {
+      "voz": "h3",
+      "pausa": 1.5,
+      "texto": "My mother told me to write down what I was frightened of, because it is always smaller on paper. I thought it was nonsense at the time. I have used it every year since, and both of my daughters do it now, and the younger one has started telling her friends about it, which means it will probably outlive all of us."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "That is the end of Part Three."
+    }
+  ]
+}

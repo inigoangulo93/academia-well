@@ -1,0 +1,114 @@
+{
+  "id": "b2t3-lis4",
+  "examen": "fce",
+  "parte": 4,
+  "tarea": "Multiple choice, entrevista",
+  "titulo": "La mujer que dibuja mapas a mano",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    {
+      "id": "narrador",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro",
+      "papel": "narrador"
+    },
+    {
+      "id": "ent",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbcwmd",
+      "descripcion": "hombre, 30s",
+      "papel": "gb-h-joven"
+    },
+    {
+      "id": "car",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-rp",
+      "descripcion": "mujer, 40s",
+      "papel": "gb-m-medio"
+    }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    {
+      "voz": "narrador",
+      "pausa": 1.0,
+      "texto": "Part Four. You will hear an interview with Elin Vaughan, who draws maps by hand. For questions one to seven, choose the best answer — A, B, C or D."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "Elin Vaughan has been drawing maps by hand for twenty-two years. Elin, in an age of satellites, why would anybody draw a map?"
+    },
+    {
+      "voz": "car",
+      "pausa": 0.3,
+      "texto": "Because a satellite photograph is not a map. It is a picture of everything, and everything is not useful. A map is an argument about what matters: this path counts, that fence does not, this hill is the one you will feel in your legs. Somebody has to decide that, and no camera has ever decided anything."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "How did you start?"
+    },
+    {
+      "voz": "car",
+      "pausa": 0.3,
+      "texto": "Badly, and by accident. I was a geography teacher and I drew a map of a walk for a class because the printed one was hopeless for what I needed. A parent asked for a copy, then a walking group asked for forty, and I spent four years doing it in the evenings before I admitted it had become the job. I would not recommend that route to anybody. It only worked because I had a salary the whole time."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "Do people ever use your maps to navigate, or are they decoration?"
+    },
+    {
+      "voz": "car",
+      "pausa": 0.3,
+      "texto": "Both, and I have stopped minding about the second. For years I was faintly insulted when somebody framed one. Then a man wrote to tell me he had hung a map of a valley in his kitchen after his father died there, and I understood that I had been thinking about it far too narrowly. A map is a place you can look at when you cannot go."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "What is the hardest part of the work?"
+    },
+    {
+      "voz": "car",
+      "pausa": 0.3,
+      "texto": "Leaving things out. Anybody can add. Every walk I map has forty things on it that somebody would want included, and if I put them all in it becomes wallpaper. I have a rule that I take one thing out for every two I put in, and I would say that rule is most of the skill."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "Has the technology changed what you do?"
+    },
+    {
+      "voz": "car",
+      "pausa": 0.3,
+      "texto": "It has changed how I check. I still draw by hand, but I verify against the survey data, which twenty years ago meant three days of walking and now means an afternoon. What it has not changed is the drawing, because there is still nothing that decides for you what to leave out, and that is the whole job."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "You have said you are worried about how people find their way now."
+    },
+    {
+      "voz": "car",
+      "pausa": 0.3,
+      "texto": "I have said something narrower than that, and it gets reported as a complaint about phones, which it is not. A phone tells you where you are. A map tells you where you are in relation to everything else, and those are different pieces of information. People are not worse at navigating. They are less likely to have a picture of the whole thing in their head, and they notice this only when the phone dies."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "What would you say to somebody who wanted to do what you do?"
+    },
+    {
+      "voz": "car",
+      "pausa": 1.5,
+      "texto": "Learn to walk it first. Every mistake I have ever made in a map came from drawing something I had not been to. And do not expect to make a living from it for about five years, which is the part people leave out when they tell this kind of story, so I put it in every time."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "That is the end of Part Four."
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "id": "b2t2-lis4",
+  "examen": "fce",
+  "parte": 4,
+  "tarea": "Multiple choice, entrevista",
+  "titulo": "Quien diseña los parques infantiles",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    {
+      "id": "narrador",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro",
+      "papel": "narrador"
+    },
+    {
+      "id": "ent",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbclan",
+      "descripcion": "hombre, 40s",
+      "papel": "gb-h-medio"
+    },
+    {
+      "id": "dis",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbcwmd",
+      "descripcion": "mujer, 55-60",
+      "papel": "gb-m-mayor"
+    }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    {
+      "voz": "narrador",
+      "pausa": 1.0,
+      "texto": "Part Four. You will hear an interview with Marta Zabaleta, who designs playgrounds. For questions one to seven, choose the best answer — A, B, C or D."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "Marta Zabaleta has designed more than sixty playgrounds. Marta, how does somebody end up doing this?"
+    },
+    {
+      "voz": "dis",
+      "pausa": 0.3,
+      "texto": "By accident, in my case, and I think that is true of most of us. I trained as an architect and I was doing housing, which I was not enjoying. A council asked me to look at a park as a very small piece of a much bigger job, and I spent two weeks on it and eleven years on everything that came after. Nobody sets out to do this at eighteen."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "You have been critical of the safety regulations."
+    },
+    {
+      "voz": "dis",
+      "pausa": 0.3,
+      "texto": "I have been careful, which is not the same. The rules stopped children falling three metres onto concrete, and that was worth doing and I would not undo it. What happened afterwards is that we kept going, and we took out the wobble, and the height, and the bit that was slightly frightening. A playground with no risk in it is safe and it is also pointless, because children will not use it, and a playground nobody uses is not safe. It is just empty."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "What surprises you about the way children actually use these places?"
+    },
+    {
+      "voz": "dis",
+      "pausa": 0.3,
+      "texto": "That they mostly ignore the equipment. I spent years designing climbing frames and then started watching, properly, with a notebook, and the children were in the gaps: behind the frame, under the slide, on the low wall at the edge that we put there for adults to sit on. The equipment is where they start. The spaces between it are where they stay."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "So what is wrong with most new playgrounds?"
+    },
+    {
+      "voz": "dis",
+      "pausa": 0.3,
+      "texto": "They are designed to be looked at. There is a photograph in the report, the councillor stands in front of it, and everybody agrees it is marvellous, and none of those people is four. I do not say this to be rude about councillors. I say it because the person signing off the money has never once been the person who has to play in it, and that gap explains almost everything that goes wrong."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "You consult children. Does it help?"
+    },
+    {
+      "voz": "dis",
+      "pausa": 0.3,
+      "texto": "It helps if you ask the right question. If you ask a nine-year-old what to build, you get a rocket. Every time. If you take the same nine-year-old to the existing park and ask what is annoying about it, you get twenty minutes of extremely precise information that no adult would have noticed. They are unreliable designers and they are the best inspectors I have ever worked with."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "Has anything changed in the last ten years?"
+    },
+    {
+      "voz": "dis",
+      "pausa": 0.3,
+      "texto": "The money, and therefore everything. There is enough to build and almost nothing to maintain, so I now design for the fifteenth year rather than the first. That means fewer moving parts, materials that fail slowly and visibly instead of suddenly, and nothing that needs a specialist to repair. It is less exciting on paper and there is more of it still standing."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "Finally, what makes a good playground?"
+    },
+    {
+      "voz": "dis",
+      "pausa": 1.5,
+      "texto": "Being close. I have built two or three I am genuinely proud of, and a small dull one at the end of somebody’s street will be used a hundred times more than any of them. Distance beats quality, every time, and it is not what anybody wants to hear when they are commissioning something impressive."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "That is the end of Part Four."
+    }
+  ]
+}

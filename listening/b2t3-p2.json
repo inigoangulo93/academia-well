@@ -1,0 +1,87 @@
+{
+  "id": "b2t3-lis2",
+  "examen": "fce",
+  "parte": 2,
+  "tarea": "Sentence completion",
+  "titulo": "El hombre que arregla relojes de estacion",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    {
+      "id": "narrador",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro",
+      "papel": "narrador"
+    },
+    {
+      "id": "will",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-rp",
+      "descripcion": "hombre, 55-60",
+      "papel": "gb-h-mayor"
+    }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    {
+      "voz": "narrador",
+      "pausa": 1.0,
+      "texto": "Part Two. You will hear a man called Will Amory talking about his work looking after station clocks. For questions one to ten, complete the sentences with a word or short phrase."
+    },
+    {
+      "voz": "will",
+      "pausa": 0.8,
+      "texto": "My name is Will Amory and I look after public clocks. Mostly railway stations, some town halls, one brewery. There are four of us left doing this in the whole country, which sounds dramatic and is simply arithmetic."
+    },
+    {
+      "voz": "will",
+      "pausa": 0.8,
+      "texto": "I did not train for it. I spent nine years as a piano tuner, which taught me patience and taught me to listen, and I came to clocks at thirty-four when a friend asked me to look at one and I did not give it back for six months."
+    },
+    {
+      "voz": "will",
+      "pausa": 0.8,
+      "texto": "The oldest clock on my list was made in 1889 and it is, by a distance, the easiest one I look after. Everything in it can be reached, everything in it can be replaced by hand, and nothing in it has a circuit board."
+    },
+    {
+      "voz": "will",
+      "pausa": 0.8,
+      "texto": "The commonest fault, by a long way, is not wear. It is damp. Water gets into a case that was never designed to be watertight, and it does its damage slowly enough that nobody notices until something stops."
+    },
+    {
+      "voz": "will",
+      "pausa": 0.8,
+      "texto": "People assume the difficult part is the mechanism. It is the ladder. Half my working life is spent getting to a clock rather than fixing it, and the paperwork for working at height is now longer than anything I write about the clock itself."
+    },
+    {
+      "voz": "will",
+      "pausa": 0.8,
+      "texto": "The tool I would not be without is a mirror. A small one, on a handle. Half of what you need to see in a clock case is behind something you cannot move, and there is no substitute for it."
+    },
+    {
+      "voz": "will",
+      "pausa": 0.8,
+      "texto": "I am asked constantly whether the clocks are accurate. Most of mine lose about ten seconds a week, and I set them by hand every month. Nobody has ever complained, and I have come to think that a station clock is not really there to tell you the time."
+    },
+    {
+      "voz": "will",
+      "pausa": 0.8,
+      "texto": "The hardest conversation is when a station wants to replace a working clock with a screen. It has happened four times and I lost three of them. The one I won was won by the stationmaster, not by me, and she did it by counting how many people looked up."
+    },
+    {
+      "voz": "will",
+      "pausa": 0.8,
+      "texto": "I have one apprentice, which is one more than the other three have between them. She came from a background in furniture restoration, and she is quicker than I was at the same stage and considerably better with the public."
+    },
+    {
+      "voz": "will",
+      "pausa": 1.5,
+      "texto": "What worries me is not the money and it is not the work. It is the spare parts. Nobody makes them, the old stock is nearly gone, and in ten years the answer to a broken clock is going to be a decision rather than a repair."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "That is the end of Part Two."
+    }
+  ]
+}

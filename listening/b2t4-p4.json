@@ -1,0 +1,114 @@
+{
+  "id": "b2t4-lis4",
+  "examen": "fce",
+  "parte": 4,
+  "tarea": "Multiple choice, entrevista",
+  "titulo": "Interpretar en un juzgado",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    {
+      "id": "narrador",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro",
+      "papel": "narrador"
+    },
+    {
+      "id": "ent",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-rp",
+      "descripcion": "mujer, 40s",
+      "papel": "gb-m-medio"
+    },
+    {
+      "id": "int",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbclan",
+      "descripcion": "hombre, 40s",
+      "papel": "gb-h-medio"
+    }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    {
+      "voz": "narrador",
+      "pausa": 1.0,
+      "texto": "Part Four. You will hear an interview with Daniel Okoro, who works as an interpreter in courts. For questions one to seven, choose the best answer — A, B, C or D."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "Daniel Okoro has interpreted in criminal courts for seventeen years. Daniel, how does anybody end up doing this?"
+    },
+    {
+      "voz": "int",
+      "pausa": 0.3,
+      "texto": "In my case, by answering an advertisement. I grew up speaking two languages at home, which qualifies you for absolutely nothing on its own, and I assumed for years that it did. Then I saw a notice in a library asking for interpreters and I went, expecting to be told I was not good enough, and instead I was told I would need two years of training. Which was correct, and which I had not expected at all."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "What do people most often get wrong about the job?"
+    },
+    {
+      "voz": "int",
+      "pausa": 0.3,
+      "texto": "They think it is about words. It is not; it is about rules. Anybody bilingual can tell you what a sentence means. What takes the training is doing it inside a set of rules that are not negotiable: everything is rendered, nothing is added, nothing is smoothed, and you do it in the first person as though you were the speaker. That last part is the whole difficulty."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "Why is that so difficult?"
+    },
+    {
+      "voz": "int",
+      "pausa": 0.3,
+      "texto": "Because you say \"I hit him\" while looking at a room full of people, and every human instinct is to put a distance between yourself and the sentence. You cannot. If I say \"he says he hit him\", I have made myself a witness, and I am not one. It took me a year to stop doing it and I still notice myself wanting to."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "Is there anything you are forbidden to do that people find surprising?"
+    },
+    {
+      "voz": "int",
+      "pausa": 0.3,
+      "texto": "Explaining. If somebody uses a word the defendant clearly does not understand, I may not help. I say the word, in their language, and if it means nothing to them that is information the court needs to have. New interpreters find this close to unbearable, and every one of them tries to help at least once, and it is the single commonest reason people are taken off a case."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "What has changed most in seventeen years?"
+    },
+    {
+      "voz": "int",
+      "pausa": 0.3,
+      "texto": "The video links. Half of my work is now on a screen, and it is cheaper and it is faster and I would not go back, but something is lost and I want to be honest that I cannot fully prove what. You cannot see whether somebody has understood you on a screen. In a room you can, and you adjust before anybody has said anything."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "You have been critical of how interpreters are trained."
+    },
+    {
+      "voz": "int",
+      "pausa": 0.3,
+      "texto": "I have been critical of how they are paid, which produces the training problem rather than the other way round. There is a national shortage in eleven languages. You cannot solve that with a recruitment campaign when the day rate has not moved in a decade. People do two years of training, work eighteen months and leave, and nobody in charge appears to find this mysterious."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "Finally — what would you want people to understand about the work?"
+    },
+    {
+      "voz": "int",
+      "pausa": 1.5,
+      "texto": "That when it is done properly, nobody notices it happened. That is the standard. If anybody in that room remembers me afterwards, something has gone wrong, and I have spent seventeen years trying to be forgotten by everybody I have ever worked with."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "That is the end of Part Four."
+    }
+  ]
+}

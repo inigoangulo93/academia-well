@@ -1,0 +1,115 @@
+{
+  "id": "b2t2-lis3",
+  "examen": "fce",
+  "parte": 3,
+  "tarea": "Multiple matching, cinco hablantes",
+  "titulo": "Cambiar de ciudad",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    {
+      "id": "narrador",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro",
+      "papel": "narrador"
+    },
+    {
+      "id": "h1",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbcwmd",
+      "descripcion": "hombre, 30s",
+      "papel": "gb-h-joven"
+    },
+    {
+      "id": "m1",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-rp",
+      "descripcion": "mujer, 40s",
+      "papel": "gb-m-medio"
+    },
+    {
+      "id": "h2",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-rp",
+      "descripcion": "hombre, 55-60",
+      "papel": "gb-h-mayor"
+    },
+    {
+      "id": "m2",
+      "acento": "en-GB",
+      "espeak": "en-gb-scotland",
+      "descripcion": "mujer escocesa, 30s",
+      "papel": "gb-m-escocesa"
+    },
+    {
+      "id": "m3",
+      "acento": "en-US",
+      "espeak": "en-us",
+      "descripcion": "mujer estadounidense",
+      "papel": "us-m"
+    }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    {
+      "voz": "narrador",
+      "pausa": 1.0,
+      "texto": "Part Three. You will hear five short extracts in which people talk about moving to a different town. For questions one to five, choose from the list A to H what each speaker says. Use each letter only once. There are three extra letters which you do not need to use."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Speaker one."
+    },
+    {
+      "voz": "h1",
+      "pausa": 1.2,
+      "texto": "I would not have gone if it had been up to me, and I want to be honest about that because people tell the story afterwards as though it was a shared adventure. Her job was in Leeds, my job could be done anywhere, and so we went to Leeds. It has worked out. But the decision was hers and I made it easier, and those are two different things."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Speaker two."
+    },
+    {
+      "voz": "m1",
+      "pausa": 1.2,
+      "texto": "The advertisement said I would be running a department. I arrived and there was no department: there was me, a filing cabinet and a plan to build one at some point in the next two years. Nobody had lied exactly, they had just described the intention rather than the situation. I stayed eighteen months, which was longer than it deserved, and I would ask much harder questions now."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Speaker three."
+    },
+    {
+      "voz": "h2",
+      "pausa": 1.2,
+      "texto": "For the first four months I spoke to nobody except at work, and I had begun to think the place was unfriendly, which it is not. Then I joined the choir at the church hall, which I had walked past three hundred times. Within a month I knew forty people. It sounds like the sort of advice you would ignore, and it was the only thing that worked."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Speaker four."
+    },
+    {
+      "voz": "m2",
+      "pausa": 1.2,
+      "texto": "The flat is bigger, the neighbours are kind and the work is better paid. What nobody prepares you for is the light. Where I grew up it rains and it is grey, and I complained about it constantly for twenty-nine years, and now I live somewhere warm and I miss it in a way I cannot defend and cannot stop."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Speaker five."
+    },
+    {
+      "voz": "m3",
+      "pausa": 1.5,
+      "texto": "I had budgeted for a disaster. I put aside six months of savings, took the cheapest flat I could find and prepared to be miserable about money for a year. Then the rent was two-thirds of what I had been paying, the bus was a euro, and by March I had more in the account than when I arrived. I am still slightly suspicious of it."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "That is the end of Part Three."
+    }
+  ]
+}

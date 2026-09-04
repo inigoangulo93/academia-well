@@ -1,0 +1,213 @@
+{
+  "id": "b2t4-lis1",
+  "examen": "fce",
+  "parte": 1,
+  "tarea": "Multiple choice, ocho extractos",
+  "titulo": "Ocho extractos breves",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    {
+      "id": "narrador",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro",
+      "papel": "narrador"
+    },
+    {
+      "id": "h1",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbclan",
+      "descripcion": "hombre, 40s",
+      "papel": "gb-h-medio"
+    },
+    {
+      "id": "h2",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbcwmd",
+      "descripcion": "hombre, 30s",
+      "papel": "gb-h-joven"
+    },
+    {
+      "id": "h3",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-rp",
+      "descripcion": "hombre, 55-60",
+      "papel": "gb-h-mayor"
+    },
+    {
+      "id": "h4",
+      "acento": "en-US",
+      "espeak": "en-us",
+      "descripcion": "hombre estadounidense",
+      "papel": "us-h"
+    },
+    {
+      "id": "m1",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "mujer, 20-30",
+      "papel": "gb-m-joven"
+    },
+    {
+      "id": "m2",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-rp",
+      "descripcion": "mujer, 40s",
+      "papel": "gb-m-medio"
+    },
+    {
+      "id": "m3",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbcwmd",
+      "descripcion": "mujer, 55-60",
+      "papel": "gb-m-mayor"
+    },
+    {
+      "id": "m4",
+      "acento": "en-GB",
+      "espeak": "en-gb-scotland",
+      "descripcion": "mujer escocesa, 30s",
+      "papel": "gb-m-escocesa"
+    },
+    {
+      "id": "m5",
+      "acento": "en-US",
+      "espeak": "en-us",
+      "descripcion": "mujer estadounidense",
+      "papel": "us-m"
+    }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    {
+      "voz": "narrador",
+      "pausa": 1.0,
+      "texto": "Part One. You will hear people talking in eight different situations. For questions one to eight, choose the best answer — A, B or C."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract one. You hear a woman talking about a concert she went to."
+    },
+    {
+      "voz": "m1",
+      "pausa": 1.2,
+      "texto": "The band were excellent and I could barely see them. I spent two hours looking at the back of somebody’s phone, because he filmed the whole thing and I do not believe for one second that he has watched any of it since. I am not going to become the person who complains about phones at concerts. I appear to have become her anyway."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract two. You hear two colleagues talking about a job advertisement."
+    },
+    {
+      "voz": "h1",
+      "pausa": 0.3,
+      "texto": "You should go for it. You do four of the six things on that list already."
+    },
+    {
+      "voz": "m2",
+      "pausa": 0.3,
+      "texto": "And the other two?"
+    },
+    {
+      "voz": "h1",
+      "pausa": 0.3,
+      "texto": "Nobody does all six. They write down what they would like and then they interview whoever turns up."
+    },
+    {
+      "voz": "m2",
+      "pausa": 1.2,
+      "texto": "I hate that that is probably true."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract three. You hear a man leaving a message for a friend."
+    },
+    {
+      "voz": "h2",
+      "pausa": 1.2,
+      "texto": "It is me. Do not buy anything for Saturday — Mikel has already got the meat and I have got everything else, and if you turn up with a third bag of charcoal I will not be responsible. Just bring yourself and the speaker. And if it rains we are still doing it, so bring a coat and stop asking."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract four. You hear a woman on the radio talking about a community garden."
+    },
+    {
+      "voz": "m3",
+      "pausa": 1.2,
+      "texto": "The thing that surprised us was who came. We had expected retired people and we got people in their twenties who live in flats with no balcony. They do not want vegetables particularly; what they want is somewhere to be outdoors that is not a park bench and does not cost anything. We have adjusted the whole project around that and it works far better than what we planned."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract five. You hear two friends talking about a restaurant bill."
+    },
+    {
+      "voz": "m4",
+      "pausa": 0.3,
+      "texto": "They have charged us for four coffees and we had three."
+    },
+    {
+      "voz": "h3",
+      "pausa": 0.3,
+      "texto": "It is two euros forty."
+    },
+    {
+      "voz": "m4",
+      "pausa": 1.2,
+      "texto": "I know exactly what it is. I am going to mention it anyway, because if I do not I will still be thinking about it on Thursday, and that costs me more than two euros forty."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract six. You hear a man talking about a book he has just finished."
+    },
+    {
+      "voz": "h4",
+      "pausa": 1.2,
+      "texto": "Six hundred pages and I nearly stopped at page ninety. What kept me going was a friend telling me to get to chapter eight, and she was right, and I have now said the same sentence to four other people. I have no idea whether any book should require that much faith from a reader. This one did, and it earned it, and I am aware that is not much of a recommendation."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract seven. You hear a woman talking about a language she is learning."
+    },
+    {
+      "voz": "m5",
+      "pausa": 1.2,
+      "texto": "Three years in, and my reading is excellent and my speaking is embarrassing. That is entirely my own doing. Reading is comfortable: nobody hears you, nothing is at stake, and you can look everything up. I built myself a very pleasant hiding place and called it studying, and it took a teacher about four minutes to point that out to me."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract eight. You hear two people talking about a walk they did."
+    },
+    {
+      "voz": "h2",
+      "pausa": 0.3,
+      "texto": "Would you do it again?"
+    },
+    {
+      "voz": "m1",
+      "pausa": 0.3,
+      "texto": "Not that route. The last eight kilometres were along a road and it ruined the whole shape of it."
+    },
+    {
+      "voz": "h2",
+      "pausa": 0.3,
+      "texto": "It was still a good day."
+    },
+    {
+      "voz": "m1",
+      "pausa": 1.5,
+      "texto": "It was a good day with a bad ending, and I am the sort of person who remembers the ending."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "That is the end of Part One."
+    }
+  ]
+}

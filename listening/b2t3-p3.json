@@ -1,0 +1,115 @@
+{
+  "id": "b2t3-lis3",
+  "examen": "fce",
+  "parte": 3,
+  "tarea": "Multiple matching, cinco hablantes",
+  "titulo": "Un viaje que salio mal",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    {
+      "id": "narrador",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro",
+      "papel": "narrador"
+    },
+    {
+      "id": "m1",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "mujer, 20-30",
+      "papel": "gb-m-joven"
+    },
+    {
+      "id": "h1",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbclan",
+      "descripcion": "hombre, 40s",
+      "papel": "gb-h-medio"
+    },
+    {
+      "id": "m2",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbcwmd",
+      "descripcion": "mujer, 55-60",
+      "papel": "gb-m-mayor"
+    },
+    {
+      "id": "h2",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbcwmd",
+      "descripcion": "hombre, 30s",
+      "papel": "gb-h-joven"
+    },
+    {
+      "id": "m3",
+      "acento": "en-GB",
+      "espeak": "en-gb-scotland",
+      "descripcion": "mujer escocesa, 30s",
+      "papel": "gb-m-escocesa"
+    }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    {
+      "voz": "narrador",
+      "pausa": 1.0,
+      "texto": "Part Three. You will hear five short extracts in which people talk about a journey that went wrong. For questions one to five, choose from the list A to H what each speaker says. Use each letter only once. There are three extra letters which you do not need to use."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Speaker one."
+    },
+    {
+      "voz": "m1",
+      "pausa": 1.2,
+      "texto": "We had been planning it for eleven months and I had a folder. An actual paper folder. Then the ferry was cancelled and every single thing in that folder became useless within about ninety seconds. What I remember is that the four days we improvised afterwards are the four days anybody in that car still talks about, and the eleven months of planning have never once come up."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Speaker two."
+    },
+    {
+      "voz": "h1",
+      "pausa": 1.2,
+      "texto": "The insurance covered it, eventually, after fourteen weeks and a great many photographs. I am not really complaining about the money. What I have not got over is that I spent the last three days of a holiday I had saved two years for on the telephone in a hotel car park, and nobody gives you those back."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Speaker three."
+    },
+    {
+      "voz": "m2",
+      "pausa": 1.2,
+      "texto": "It was entirely my own doing. I had the wrong month on the booking, and I had checked it twice, and both times I saw what I expected to see rather than what was on the page. My husband has never once mentioned it, which is somehow worse. I now read anything important out loud, slowly, which looks ridiculous and has caught two more mistakes since."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Speaker four."
+    },
+    {
+      "voz": "h2",
+      "pausa": 1.2,
+      "texto": "Six hours on the floor of an airport with a two-year-old and a dying phone. What I did not expect was the other family. They had a charger and a pack of cards, we had food, and by hour four the children were asleep on a pile of coats and we were talking like people who had known each other for years. We still send them a card at Christmas."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Speaker five."
+    },
+    {
+      "voz": "m3",
+      "pausa": 1.5,
+      "texto": "Everybody says you should not travel in August and everybody is right and I did it anyway. The traffic was what everybody had told me it would be, the prices were what everybody had told me they would be, and the beach was what everybody had told me it would be. There is no story here. I was simply warned, and I ignored it, and it went exactly as described."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "That is the end of Part Three."
+    }
+  ]
+}

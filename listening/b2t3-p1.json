@@ -1,0 +1,218 @@
+{
+  "id": "b2t3-lis1",
+  "examen": "fce",
+  "parte": 1,
+  "tarea": "Multiple choice, ocho extractos",
+  "titulo": "Ocho extractos breves",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    {
+      "id": "narrador",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro",
+      "papel": "narrador"
+    },
+    {
+      "id": "h1",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbclan",
+      "descripcion": "hombre, 40s",
+      "papel": "gb-h-medio"
+    },
+    {
+      "id": "h2",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbcwmd",
+      "descripcion": "hombre, 30s",
+      "papel": "gb-h-joven"
+    },
+    {
+      "id": "h3",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-rp",
+      "descripcion": "hombre, 55-60",
+      "papel": "gb-h-mayor"
+    },
+    {
+      "id": "h4",
+      "acento": "en-US",
+      "espeak": "en-us",
+      "descripcion": "hombre estadounidense",
+      "papel": "us-h"
+    },
+    {
+      "id": "m1",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "mujer, 20-30",
+      "papel": "gb-m-joven"
+    },
+    {
+      "id": "m2",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-rp",
+      "descripcion": "mujer, 40s",
+      "papel": "gb-m-medio"
+    },
+    {
+      "id": "m3",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbcwmd",
+      "descripcion": "mujer, 55-60",
+      "papel": "gb-m-mayor"
+    },
+    {
+      "id": "m4",
+      "acento": "en-GB",
+      "espeak": "en-gb-scotland",
+      "descripcion": "mujer escocesa, 30s",
+      "papel": "gb-m-escocesa"
+    },
+    {
+      "id": "m5",
+      "acento": "en-US",
+      "espeak": "en-us",
+      "descripcion": "mujer estadounidense",
+      "papel": "us-m"
+    }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    {
+      "voz": "narrador",
+      "pausa": 1.0,
+      "texto": "Part One. You will hear people talking in eight different situations. For questions one to eight, choose the best answer — A, B or C."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract one. You hear a man talking about a course he has just finished."
+    },
+    {
+      "voz": "h1",
+      "pausa": 1.2,
+      "texto": "The content was fine. I could have got most of it from a book, and I said so on the form. What I could not have got from a book was sitting in a room with eleven other people who do the same job and finding out that all of them are also making it up as they go along. That was worth the fee on its own. I did not write that on the form."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract two. You hear two people talking about a flat they have seen."
+    },
+    {
+      "voz": "m1",
+      "pausa": 0.3,
+      "texto": "It is twenty minutes further out than we said."
+    },
+    {
+      "voz": "h2",
+      "pausa": 0.3,
+      "texto": "It is also two hundred a month cheaper and it has the room you wanted."
+    },
+    {
+      "voz": "m1",
+      "pausa": 0.3,
+      "texto": "I know. That is why I am cross about the twenty minutes."
+    },
+    {
+      "voz": "h2",
+      "pausa": 1.2,
+      "texto": "Then we take it and you complain about the bus for a year, which you would do anyway."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract three. You hear a woman leaving a message for a colleague."
+    },
+    {
+      "voz": "m2",
+      "pausa": 1.2,
+      "texto": "Hi, it is Laura. The meeting on Wednesday has not been cancelled — I know that is what the calendar says, and the calendar is wrong. What has happened is that it has moved to the other building, and somebody deleted it instead of editing it. So please do go, and please tell Andoni, because he is not answering anything today."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract four. You hear a man on the radio talking about a village allotment."
+    },
+    {
+      "voz": "h3",
+      "pausa": 1.2,
+      "texto": "We have thirty-one plots and a waiting list of ninety. The rule that causes all the arguments is that if you do not touch your plot for eight weeks in the growing season, you lose it. It sounds harsh. But I have watched three committees try to be kind about that rule, and every time the list got longer and the site got emptier, which helps nobody at all."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract five. You hear two colleagues talking about a new system at work."
+    },
+    {
+      "voz": "m4",
+      "pausa": 0.3,
+      "texto": "Have you actually used it yet?"
+    },
+    {
+      "voz": "h1",
+      "pausa": 0.3,
+      "texto": "Twice. It does everything the old one did, in about the same time."
+    },
+    {
+      "voz": "m4",
+      "pausa": 0.3,
+      "texto": "So why did we change?"
+    },
+    {
+      "voz": "h1",
+      "pausa": 1.2,
+      "texto": "Because the old one was going to stop being supported in March. That is the whole reason, and nobody wanted to say it because it is not very inspiring."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract six. You hear a woman talking about learning to swim as an adult."
+    },
+    {
+      "voz": "m3",
+      "pausa": 1.2,
+      "texto": "I had assumed the hard part would be the water. It was not. The hard part was walking out in a swimming costume in front of a class of strangers on the first evening, and everything after that was easier than I had feared. If somebody had told me that beforehand I would have gone eight years earlier, and I say so now to anybody who will listen."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract seven. You hear a man talking about a photograph he has kept."
+    },
+    {
+      "voz": "h4",
+      "pausa": 1.2,
+      "texto": "It is out of focus, my thumb is in the corner of it, and there are four people in it of whom I can only name two. By any normal standard it is a bad photograph and I have thrown away hundreds of better ones. But it is the only picture anybody took that summer, and that turns out to be the only thing that matters about a photograph after thirty years."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract eight. You hear two friends talking about a book."
+    },
+    {
+      "voz": "m5",
+      "pausa": 0.3,
+      "texto": "Did you finish it?"
+    },
+    {
+      "voz": "h2",
+      "pausa": 0.3,
+      "texto": "I finished it and I am still not sure I liked it."
+    },
+    {
+      "voz": "m5",
+      "pausa": 0.3,
+      "texto": "That is not really an answer."
+    },
+    {
+      "voz": "h2",
+      "pausa": 1.5,
+      "texto": "It is the honest one. I have thought about it every day for a fortnight, which is more than I can say for the last three books I enjoyed."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "That is the end of Part One."
+    }
+  ]
+}

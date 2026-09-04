@@ -1,0 +1,87 @@
+{
+  "id": "b2t4-lis2",
+  "examen": "fce",
+  "parte": 2,
+  "tarea": "Sentence completion",
+  "titulo": "Adiestrar perros guia",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    {
+      "id": "narrador",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro",
+      "papel": "narrador"
+    },
+    {
+      "id": "cara",
+      "acento": "en-GB",
+      "espeak": "en-gb-scotland",
+      "descripcion": "mujer escocesa, 30s",
+      "papel": "gb-m-escocesa"
+    }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    {
+      "voz": "narrador",
+      "pausa": 1.0,
+      "texto": "Part Two. You will hear a woman called Cara Nolan talking about her work training guide dogs. For questions one to ten, complete the sentences with a word or short phrase."
+    },
+    {
+      "voz": "cara",
+      "pausa": 0.8,
+      "texto": "My name is Cara Nolan and I train guide dogs. I have been doing it for sixteen years and I have put about a hundred and forty dogs through the programme, which is fewer than people imagine."
+    },
+    {
+      "voz": "cara",
+      "pausa": 0.8,
+      "texto": "I did not start here. I spent six years working in a veterinary practice, which taught me a great deal about dogs and almost nothing about training them, because a frightened animal on a table is not the same animal at all."
+    },
+    {
+      "voz": "cara",
+      "pausa": 0.8,
+      "texto": "The dogs do not come to us as puppies. They live with a volunteer family until they are fourteen months old, and what that family does in those months matters more than anything I do afterwards."
+    },
+    {
+      "voz": "cara",
+      "pausa": 0.8,
+      "texto": "Everybody assumes we are looking for obedience. We are not. The quality we are actually looking for is confidence, because a nervous dog cannot make decisions, and the whole job is decisions."
+    },
+    {
+      "voz": "cara",
+      "pausa": 0.8,
+      "texto": "About half of the dogs do not finish. That figure shocks people and it should not. A dog that is wrong for this work is not a failure; it is a dog that is going to be very happy doing something else."
+    },
+    {
+      "voz": "cara",
+      "pausa": 0.8,
+      "texto": "The hardest thing to teach, by a long way, is how to refuse an instruction. If the handler says forward and there is a car coming, the dog has to say no. Everything else in dog training tells them to do as they are told, and here we need the opposite."
+    },
+    {
+      "voz": "cara",
+      "pausa": 0.8,
+      "texto": "The full training takes eighteen months from the day they arrive with us. People always want it to be quicker, and the answer is that you cannot hurry the part where the dog decides it trusts you."
+    },
+    {
+      "voz": "cara",
+      "pausa": 0.8,
+      "texto": "The commonest reason a dog does not make it is noise. Not traffic, which they get used to, but the sudden and unpredictable: a bin lorry, a firework, a shout. If that unsettles a dog at twenty months, it will unsettle it at seven years."
+    },
+    {
+      "voz": "cara",
+      "pausa": 0.8,
+      "texto": "The hardest part of my job is the handover. I have had a dog for a year and a half and then I give it to somebody else and I do not see it again, and after sixteen years it has not become any easier. I would be suspicious of anybody who said it had."
+    },
+    {
+      "voz": "cara",
+      "pausa": 1.5,
+      "texto": "What worries me is the waiting list. It is longer now than at any point since I started, and the reason is not money and it is not dogs. It is that we cannot find enough volunteer families, and without them the whole thing stops before it begins."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "That is the end of Part Two."
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "id": "b2t2-lis2",
+  "examen": "fce",
+  "parte": 2,
+  "tarea": "Sentence completion",
+  "titulo": "La barca que hace de autobus",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    {
+      "id": "narrador",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro",
+      "papel": "narrador"
+    },
+    {
+      "id": "sile",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbcwmd",
+      "descripcion": "mujer, 55-60",
+      "papel": "gb-m-mayor"
+    }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    {
+      "voz": "narrador",
+      "pausa": 1.0,
+      "texto": "Part Two. You will hear a woman called Sile Donovan talking about the small ferry she runs. For questions one to ten, complete the sentences with a word or short phrase."
+    },
+    {
+      "voz": "sile",
+      "pausa": 0.8,
+      "texto": "My name is Sile Donovan and I run the ferry to the island. Six crossings a day in summer, three in winter, and I am the skipper, the ticket office and, most mornings, the person who carries the shopping up the pier."
+    },
+    {
+      "voz": "sile",
+      "pausa": 0.8,
+      "texto": "People assume I came from a family of sailors. I did not. I spent fourteen years as a fisheries officer, which is a job about paperwork and arguments, and I took this on when the previous skipper retired and nobody else applied."
+    },
+    {
+      "voz": "sile",
+      "pausa": 0.8,
+      "texto": "The boat is older than she looks. She was built in Denmark in 1994 and spent her first fifteen years on a lake, which is why the hull is the wrong shape for what we ask of her and why she rolls in a way that visitors remember."
+    },
+    {
+      "voz": "sile",
+      "pausa": 0.8,
+      "texto": "The crossing takes twenty-five minutes if the tide is with us. People always want it to be shorter, and I always tell them the same thing: the day it takes fifteen is the day something has gone badly wrong."
+    },
+    {
+      "voz": "sile",
+      "pausa": 0.8,
+      "texto": "Everybody assumes the weekend is the busy time. It is not. Our busiest day is Thursday, because that is when the bank van comes and when the doctor holds her surgery on the island, and half the island travels on the same two sailings."
+    },
+    {
+      "voz": "sile",
+      "pausa": 0.8,
+      "texto": "Apart from passengers, the thing I carry most of is the post. Not parcels, which everybody expects. Letters. Two sacks a day, and I am legally responsible for them, which nobody warned me about when I signed anything."
+    },
+    {
+      "voz": "sile",
+      "pausa": 0.8,
+      "texto": "I cancel when the wind reaches force seven. That is my decision and not the company’s, and I have been shouted at for it perhaps a dozen times, always by somebody who does not live on the island."
+    },
+    {
+      "voz": "sile",
+      "pausa": 0.8,
+      "texto": "The hardest part of the job is not the weather and it is not the boat. It is the timetable. Everything on that island — the school bus, the nurse, the delivery of bread — hangs off six sailings, and if I move one of them by ten minutes, four other things break."
+    },
+    {
+      "voz": "sile",
+      "pausa": 0.8,
+      "texto": "In summer there can be three hundred people over there. In winter the population is ninety, and I know all ninety, and that is the number that decides whether this route exists in ten years."
+    },
+    {
+      "voz": "sile",
+      "pausa": 1.5,
+      "texto": "I learned my navigation from my uncle, who taught me on a boat half this size and told me repeatedly that instruments fail and headlands do not. What keeps me awake now is money, and specifically the engine. She needs a new one, it costs more than the boat is worth, and nobody has yet explained to me who is going to pay for it."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "That is the end of Part Two."
+    }
+  ]
+}

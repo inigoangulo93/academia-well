@@ -1,12 +1,13 @@
 # Generar el audio de los listenings
 
-Cinco tests (cuatro de C1 y el primero de B2), cuatro partes cada uno:
-**20 guiones, 46.585 caracteres**. Con el plan Creator de ElevenLabs (121.000
-creditos al mes) cabe entero y sobra para una pasada mas.
+Ocho tests (cuatro de C1 y cuatro de B2), cuatro partes cada uno:
+**32 guiones, 78.382 caracteres**. Con el plan Creator de ElevenLabs (121.000
+creditos al mes) cabe entero en un mes, con unos 42.000 de margen.
 
 Lo que ya esta pagado queda en la cache de `audio/.cache/`: anadir un test
-nuevo solo cuesta lo que ese test ocupa. El primer test de B2 son 11.516
-caracteres.
+nuevo solo cuesta lo que ese test ocupa. Los cuatro de C1 son 35.069
+caracteres y los cuatro de B2 son 43.313, asi que si los de C1 ya estan
+generados, terminar B2 cuesta 43.313 y no los 78.382 del total.
 
 ## El camino corto
 

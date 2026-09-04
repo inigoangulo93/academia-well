@@ -1,0 +1,218 @@
+{
+  "id": "b2t2-lis1",
+  "examen": "fce",
+  "parte": 1,
+  "tarea": "Multiple choice, ocho extractos",
+  "titulo": "Ocho extractos breves",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    {
+      "id": "narrador",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro",
+      "papel": "narrador"
+    },
+    {
+      "id": "h1",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbclan",
+      "descripcion": "hombre, 40s",
+      "papel": "gb-h-medio"
+    },
+    {
+      "id": "h2",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbcwmd",
+      "descripcion": "hombre, 30s",
+      "papel": "gb-h-joven"
+    },
+    {
+      "id": "h3",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-rp",
+      "descripcion": "hombre, 55-60",
+      "papel": "gb-h-mayor"
+    },
+    {
+      "id": "h4",
+      "acento": "en-US",
+      "espeak": "en-us",
+      "descripcion": "hombre estadounidense",
+      "papel": "us-h"
+    },
+    {
+      "id": "m1",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "mujer, 20-30",
+      "papel": "gb-m-joven"
+    },
+    {
+      "id": "m2",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-rp",
+      "descripcion": "mujer, 40s",
+      "papel": "gb-m-medio"
+    },
+    {
+      "id": "m3",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbcwmd",
+      "descripcion": "mujer, 55-60",
+      "papel": "gb-m-mayor"
+    },
+    {
+      "id": "m4",
+      "acento": "en-GB",
+      "espeak": "en-gb-scotland",
+      "descripcion": "mujer escocesa, 30s",
+      "papel": "gb-m-escocesa"
+    },
+    {
+      "id": "m5",
+      "acento": "en-US",
+      "espeak": "en-us",
+      "descripcion": "mujer estadounidense",
+      "papel": "us-m"
+    }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    {
+      "voz": "narrador",
+      "pausa": 1.0,
+      "texto": "Part One. You will hear people talking in eight different situations. For questions one to eight, choose the best answer — A, B or C."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract one. You hear a woman talking about a holiday."
+    },
+    {
+      "voz": "m1",
+      "pausa": 1.2,
+      "texto": "The hotel was fine. The beach was where they said it would be. But the photographs had been taken from the one angle that does not include the motorway, and once you have seen it you cannot stop hearing it. I am not even angry about the noise. I am annoyed that somebody stood there with a camera and worked out exactly which way to point it."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract two. You hear two friends talking about a restaurant."
+    },
+    {
+      "voz": "h1",
+      "pausa": 0.3,
+      "texto": "Fifty minutes for the first plate. Fifty."
+    },
+    {
+      "voz": "m2",
+      "pausa": 0.3,
+      "texto": "And you would go back tomorrow."
+    },
+    {
+      "voz": "h1",
+      "pausa": 0.3,
+      "texto": "I would go back tonight. That is what is annoying about it."
+    },
+    {
+      "voz": "m2",
+      "pausa": 1.2,
+      "texto": "Then it is not really a complaint, is it. It is a warning to arrive hungry."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract three. You hear a man leaving a message about a delivery."
+    },
+    {
+      "voz": "h2",
+      "pausa": 1.2,
+      "texto": "Hello, this is about the delivery booked for Thursday morning. I am not going to be at the flat — something has come up at work and I cannot change it. Do not leave it with the neighbour on the left, because she is away. The one on the right is in all week and has said it is fine. If that does not work, bring it back on Saturday."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract four. You hear a woman on the radio talking about a running club."
+    },
+    {
+      "voz": "m3",
+      "pausa": 1.2,
+      "texto": "The rule that surprises people is that we do not discuss times. Not on the run, not afterwards, not in the group messages. It was not my idea and I resisted it for a year. But we keep almost everybody who turns up, which no other club round here manages, and I have stopped pretending that is a coincidence."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract five. You hear two colleagues talking about a report."
+    },
+    {
+      "voz": "m4",
+      "pausa": 0.3,
+      "texto": "Is it going to be ready?"
+    },
+    {
+      "voz": "h3",
+      "pausa": 0.3,
+      "texto": "It is going to be ready. It is not going to be good."
+    },
+    {
+      "voz": "m4",
+      "pausa": 0.3,
+      "texto": "Then say that now, not on Friday. Nobody minds waiting a week. Everybody minds reading something twice."
+    },
+    {
+      "voz": "h3",
+      "pausa": 1.2,
+      "texto": "You are probably right. I will ask for the extra week this afternoon."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract six. You hear a man talking about moving to the countryside."
+    },
+    {
+      "voz": "h4",
+      "pausa": 1.2,
+      "texto": "Everybody warns you about the shops closing early and the buses, and all of that turned out to be true and manageable. What I was not ready for was the quiet. I had spent forty years complaining about traffic and then lay awake for three weeks because there was nothing to listen to. It passed. But nobody had mentioned it, and I would have liked to have been told."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract seven. You hear a woman talking about a family recipe."
+    },
+    {
+      "voz": "m5",
+      "pausa": 1.2,
+      "texto": "I have the card in her handwriting, and it is useless. Half a glass of oil. Flour until it looks right. Bake it until it is done. She was not being secretive — she genuinely did not know the amounts, because she had never once measured anything. So what I actually inherited is not a recipe. It is nine failed attempts and a memory of what it should taste like."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract eight. You hear two friends talking about a podcast."
+    },
+    {
+      "voz": "m1",
+      "pausa": 0.3,
+      "texto": "Did you get to the end of it?"
+    },
+    {
+      "voz": "h1",
+      "pausa": 0.3,
+      "texto": "I got to the end of the first hour, which I think we can agree should have been the end."
+    },
+    {
+      "voz": "m1",
+      "pausa": 0.3,
+      "texto": "The last part is the best part."
+    },
+    {
+      "voz": "h1",
+      "pausa": 1.5,
+      "texto": "Then it should have been the first part. Nothing that takes two hours to say is worth two hours."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "That is the end of Part One."
+    }
+  ]
+}

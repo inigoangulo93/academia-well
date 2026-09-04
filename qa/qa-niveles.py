@@ -72,10 +72,16 @@ async def main():
         for mcer, esperado in [('B2', 'b2'), ('C1', 'c1')]:
             ctx = await b.new_context(viewport={'width': 1280, 'height': 900})
             pg = await con_nivel(ctx, mcer)
-            n = await pg.evaluate("()=>document.querySelectorAll('#rutas .tramo').length")
-            prueba(n == conteo.get(esperado),
-                   '%s ve sus %d tests y no los %d de todos'
-                   % (mcer, conteo.get(esperado), len(await pg.evaluate("()=>window.WELL_PRACTICA.tests"))))
+            ids = await pg.evaluate(
+                "()=>[...document.querySelectorAll('[data-tramo]')]"
+                ".map(b=>b.getAttribute('data-tramo'))")
+            suyos = await pg.evaluate(
+                "(n)=>window.WELL_PRACTICA.tests.filter(t=>(t.nivel||'c1')===n).map(t=>t.id)",
+                esperado)
+            todos = await pg.evaluate("()=>window.WELL_PRACTICA.tests.length")
+            prueba(sorted(ids) == sorted(suyos),
+                   '%s ve exactamente sus tests (%s) y no los %d de todos'
+                   % (mcer, ', '.join(ids), todos))
             chip = (await pg.locator('.nivel-chip').inner_text()).strip()
             prueba(chip == ('FCE' if mcer == 'B2' else 'CAE'),
                    '%s: la sigla del curso es %s' % (mcer, chip))
@@ -119,13 +125,21 @@ async def main():
             await pg.wait_for_timeout(500)
             await pg.goto(B + 'practica.html')
             await pg.wait_for_timeout(700)
-            return await pg.evaluate("()=>document.querySelectorAll('#rutas .tramo').length")
+            # Los IDS de los tests, no cuantos hay: en cuanto B2 tuvo tambien
+            # cuatro tests, contar dejo de distinguir un curso del otro y la
+            # prueba pasaba mirando el numero equivocado.
+            return await pg.evaluate(
+                "()=>[...document.querySelectorAll('[data-tramo]')]"
+                ".map(b=>b.getAttribute('data-tramo'))")
 
         antes = await pon('C1')
         despues = await pon('B2')
-        prueba(antes == conteo.get('c1'), 'admin pone C1 y se pintan sus %d tests' % conteo.get('c1'))
-        prueba(despues == conteo.get('b2') and despues != antes,
-               'admin pone B2 y el curso cambia (%d -> %d)' % (antes, despues))
+        prueba(len(antes) == conteo.get('c1') and all(not t.startswith('b2') for t in antes),
+               'admin pone C1 y se pintan sus tests: %s' % antes)
+        prueba(len(despues) == conteo.get('b2') and all(t.startswith('b2') for t in despues),
+               'admin pone B2 y se pintan los suyos: %s' % despues)
+        prueba(not set(antes) & set(despues),
+               'los dos cursos no comparten ni un test')
         await ctx.close()
         await b.close()
 

@@ -8,7 +8,7 @@
 # Para en cuanto algo no cuadra, y comprueba lo que puede antes de gastar un
 # solo credito. La audicion va aparte a proposito: nadie ha escuchado estas
 # voces todavia, y descubrir que dos suenan igual cuesta 802 caracteres si se
-# mira antes y 46.585 si se mira despues.
+# mira antes y 78.382 si se mira despues.
 
 set -euo pipefail
 cd "$(dirname "$0")"
