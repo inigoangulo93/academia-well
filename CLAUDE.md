@@ -80,6 +80,11 @@ con que formato—, extraido en `well-online-temario.md` sin una sola frase
 copiada. Todo el vocabulario y la gramatica se escriben nuevos contra ese
 fichero.
 
+**Al escribir contenido, `node qa/qa-contenido.js` antes de dar nada por bueno.**
+Tarda un segundo y no abre navegador. Los errores de contenido no los ve ninguna
+otra prueba: el navegador pinta igual de bien un ejercicio con la clave mal
+puesta, y el alumno se queda con que ha fallado algo que tenía bien.
+
 La **estructura** sale del material real. Los **ejercicios** de
 `practica-data.js` **no son el material de Elena**: los escribí yo. Y ya no es
 una precaución provisional, es la regla definitiva: sus frases son una selección

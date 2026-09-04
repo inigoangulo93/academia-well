@@ -491,7 +491,10 @@
          esc(T.simulacroDe.replace('{destreza}', sm.destreza.nombre)) + '</span>' +
          '<span class="paso-sub">' + esc(T.simulacroSub
            .replace('{min}', sm.minutos).replace('{n}', sm.items)
-           .replace('{p}', sm.partes.length)) + '</span></span>';
+           .replace('{p}', sm.partes.length)
+           // "1 partes" queda de pagina a medio hacer
+           .replace('{partes}', sm.partes.length === 1 ? T.unaParte : T.variasPartes)) +
+         '</span></span>';
     h += '<span class="paso-marca ' + (pct === null ? 'gris' : pct >= 60 ? 'hecho' : 'flojo') + '">' +
          (pct === null ? esc(T.simSinHacer) : pct + '%') + '</span>';
     return h + '</button></li>';
@@ -826,13 +829,23 @@
   // Un simulacro es la destreza entera de un test, en orden de parte y de una
   // sentada: con reloj y sin ver ninguna solucion hasta el final. El modo
   // entrenamiento y este miden cosas distintas y no deben mezclarse.
+  // El simulacro tiene que tener la forma del examen, no la del curso. En el
+  // curso una misma parte sale varias veces, porque se practica mas de un dia;
+  // en el examen sale una. Si se metieran todas, el porcentaje dejaria de ser
+  // comparable con el examen real, que es justo lo que se le vende al alumno.
+  // Se coge la primera aparicion de cada parte.
   function simulacroDe(test, dzId) {
-    var partes = [];
+    var partes = [], vistas = {};
     (test.sesiones || []).forEach(function (s) {
       s.bloques.forEach(function (b) {
-        if (b.destreza === dzId && b._ejercicios.length) {
-          partes.push({ parte: b.parte || 0, tarea: b.tarea || '', ejercicios: b._ejercicios });
-        }
+        if (b.destreza !== dzId || !b._ejercicios.length) return;
+        var parte = b.parte || 0;
+        if (vistas[parte]) return;
+        vistas[parte] = true;
+        // Y solo el primer ejercicio de la parte: en el curso hay dos porque se
+        // practica dos dias, pero el examen trae uno. Con uno por parte salen
+        // exactamente las 30 preguntas de Use of English y las 26 de Reading.
+        partes.push({ parte: parte, tarea: b.tarea || '', ejercicios: b._ejercicios.slice(0, 1) });
       });
     });
     partes.sort(function (a, b) { return a.parte - b.parte; });
