@@ -1171,18 +1171,45 @@
   // puede repetir el trozo dificil, la nota deja de medir nada.
   function reproductor(ej) {
     var n = ej.escuchas || 2;
-    return '<div class="repro" data-escuchas="' + n + '">' +
+    return '<div class="repro" data-escuchas="' + n + '" id="repro">' +
       '<audio id="au" src="' + esc(ej.audio) + '" preload="metadata"></audio>' +
-      '<button type="button" class="repro-play" id="au-play">' +
-        '<svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">' +
-        '<path d="M8 5v14l11-7z"/></svg><span id="au-txt"></span></button>' +
-      '<div class="repro-info">' +
-        '<span class="repro-cuenta" id="au-cuenta"></span>' +
-        '<span class="repro-barra"><i id="au-fill"></i></span>' +
-        '<span class="repro-aviso">' + esc(T.reproAviso) + '</span>' +
+
+      '<div class="repro-cab">' +
+        '<button type="button" class="repro-play" id="au-play" aria-label="' + esc(T.reproEmpezar) + '">' +
+          '<svg class="ic-play" viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true">' +
+          '<path d="M8 5v14l11-7z"/></svg>' +
+          // mientras suena no se puede pausar, asi que en vez de un icono de
+          // pausa que no haria nada, el boton late
+          '<span class="ecu" aria-hidden="true"><i></i><i></i><i></i></span>' +
+        '</button>' +
+        '<span class="repro-txt">' +
+          '<b id="au-txt"></b>' +
+          '<span class="repro-cuenta" id="au-cuenta"></span>' +
+        '</span>' +
       '</div>' +
+
+      '<div class="repro-tiempos">' +
+        '<span class="repro-t" id="au-t">0:00</span>' +
+        // la barra no lleva tirador a proposito: no se puede arrastrar, y una
+        // barra con tirador esta invitando a intentarlo
+        '<span class="repro-barra"><i id="au-fill"></i></span>' +
+        '<span class="repro-t" id="au-total">--:--</span>' +
+      '</div>' +
+
+      '<p class="repro-aviso">' +
+        '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" ' +
+        'stroke-width="2" stroke-linecap="round" aria-hidden="true">' +
+        '<rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>' +
+        esc(T.reproAviso) + '</p>' +
       (ej.demo ? '<p class="repro-demo">' + esc(T.reproDemo) + '</p>' : '') +
       '</div>';
+  }
+
+  // 0:07 · 2:25. Sin horas: ningun listening del examen llega a sesenta minutos.
+  function reloj(seg) {
+    if (!isFinite(seg) || seg < 0) return '--:--';
+    var m = Math.floor(seg / 60), r = Math.floor(seg % 60);
+    return m + ':' + (r < 10 ? '0' : '') + r;
   }
 
   var AUDIO = { escuchas: 0 };
@@ -1196,13 +1223,26 @@
       var quedan = total - AUDIO.escuchas;
       $('#au-cuenta').textContent = T.reproEscucha
         .replace('{n}', Math.min(AUDIO.escuchas + 1, total)).replace('{t}', total);
-      $('#au-txt').textContent = AUDIO.escuchas === 0 ? T.reproEmpezar
+      // Mientras suena el boton no hace nada, asi que el rotulo tiene que
+      // decir que esta pasando y no invitar a pulsarlo otra vez.
+      $('#au-txt').textContent = !au.paused ? T.reproSonando
+        : AUDIO.escuchas === 0 ? T.reproEmpezar
         : quedan > 0 ? T.reproOtra : T.reproFin;
       $('#au-play').disabled = quedan <= 0 || !au.paused;
+      var caja = $('#repro');
+      if (caja) {
+        caja.classList.toggle('sonando', !au.paused);
+        caja.classList.toggle('agotado', quedan <= 0);
+      }
     };
     pinta();
 
+    var pintaTotal = function () { $('#au-total').textContent = reloj(au.duration); };
+    au.addEventListener('loadedmetadata', pintaTotal);
+    pintaTotal();
+
     au.addEventListener('timeupdate', function () {
+      $('#au-t').textContent = reloj(au.currentTime);
       // Hay formatos de los que el navegador no sabe la duracion y devuelve
       // Infinity. Sin este isFinite, la barra se queda clavada en cero y
       // parece que el audio no avanza.
@@ -1234,6 +1274,7 @@
       AUDIO.escuchas++;
       tope = 0; corrigiendo = false;
       $('#au-fill').style.width = '0%';
+      $('#au-t').textContent = '0:00';
       pinta();
       track('listening_escucha', { ejercicio: ej.id, escucha: AUDIO.escuchas });
     });
