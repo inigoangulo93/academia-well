@@ -537,7 +537,7 @@ window.WELL_PRACTICA = {
   't2-lis1': {
     tipo: 'listening', parte: 1, titulo: 'Listening · Parte 1',
     instruccion: 'Escucharás tres extractos. Elige la mejor respuesta (A, B o C) para cada pregunta. <b>Se escucha dos veces</b>.',
-    audio: 'audio/t2-lis1-espeak.mp3', demo: true, escuchas: 2,
+    audio: 'audio/t2-lis1.mp3', escuchas: 2,
     contexto: 'Extracto 1: una exposición de fotografía. Extracto 2: un hombre que ha dejado el coche. Extracto 3: dos compañeros y un curso de formación.',
     items: [
       { pregunta: '1  What annoyed the woman about the exhibition?',
@@ -558,7 +558,7 @@ window.WELL_PRACTICA = {
   't2-lis2': {
     tipo: 'listening', parte: 2, titulo: 'Listening · Parte 2',
     instruccion: 'Completa cada frase con <b>una o dos palabras</b> de lo que oigas. <b>Se escucha dos veces</b>.',
-    audio: 'audio/t2-lis2-espeak.mp3', demo: true, escuchas: 2,
+    audio: 'audio/t2-lis2.mp3', escuchas: 2,
     items: [
       { antes: 'More than half of the clocks Otto repairs were made after', despues: '.', aceptadas: ['1970'] },
       { antes: 'Before this work, Otto spent eleven years as a', despues: '.', aceptadas: ['piano tuner', 'tuner'] },
@@ -574,7 +574,7 @@ window.WELL_PRACTICA = {
   't2-lis3': {
     tipo: 'listening', parte: 3, titulo: 'Listening · Parte 3',
     instruccion: 'Escucharás una entrevista. Elige la mejor respuesta (A, B, C o D) para cada pregunta. <b>Se escucha dos veces</b>.',
-    audio: 'audio/t2-lis3-espeak.mp3', demo: true, escuchas: 2,
+    audio: 'audio/t2-lis3.mp3', escuchas: 2,
     contexto: 'Una periodista entrevista al biólogo marino Cormac Whelan sobre el ruido en el mar.',
     items: [
       { pregunta: '1  What does Dr Whelan say has changed about the sea?',
@@ -595,7 +595,7 @@ window.WELL_PRACTICA = {
   't2-lis4': {
     tipo: 'listening', parte: 4, titulo: 'Listening · Parte 4',
     instruccion: 'Escucharás a cinco personas hablando de una afición que dejaron. <b>Tarea 1</b> (1–5): por qué la dejaron. <b>Tarea 2</b> (6–10): qué dicen ahora. Se escucha dos veces.',
-    audio: 'audio/t2-lis4-espeak.mp3', demo: true, escuchas: 2,
+    audio: 'audio/t2-lis4.mp3', escuchas: 2,
     opcionesCortas: true,
     contexto: 'Cada tarea tiene su propia lista de ocho opciones.',
     listas: [
@@ -1147,7 +1147,7 @@ window.WELL_PRACTICA = {
     tipo: 'listening', parte: 1,
     titulo: 'Listening · Parte 1',
     instruccion: 'Escucharás tres extractos. Elige la mejor respuesta (A, B o C) para cada pregunta. <b>Se escucha dos veces</b>.',
-    audio: 'audio/t1-lis1-espeak.mp3', demo: true, escuchas: 2,
+    audio: 'audio/t1-lis1.mp3', escuchas: 2,
     contexto: 'Extracto 1: dos compañeros hablan de un informe. Extracto 2: una mujer cuenta un curso que ha empezado. Extracto 3: dos personas comentan un cambio en su estación.',
     items: [
       { pregunta: '1  What is the man’s main criticism of the report?',
@@ -1169,7 +1169,7 @@ window.WELL_PRACTICA = {
     tipo: 'listening', parte: 3,
     titulo: 'Listening · Parte 3',
     instruccion: 'Escucharás una entrevista. Elige la mejor respuesta (A, B, C o D) para cada pregunta. <b>Se escucha dos veces</b>.',
-    audio: 'audio/t1-lis3-espeak.mp3', demo: true, escuchas: 2,
+    audio: 'audio/t1-lis3.mp3', escuchas: 2,
     contexto: 'Una periodista entrevista al doctor Alan Merrick, que investiga el sueño.',
     items: [
       { pregunta: '1  What is Dr Merrick’s objection to the "eight hours" advice?',
@@ -1209,7 +1209,7 @@ window.WELL_PRACTICA = {
     tipo: 'listening', parte: 4,
     titulo: 'Listening · Parte 4',
     instruccion: 'Escucharás a cinco personas hablando de por qué dejaron su ciudad. <b>Tarea 1</b> (preguntas 1–5): elige el motivo. <b>Tarea 2</b> (preguntas 6–10): elige lo que dice ahora. Se escucha dos veces.',
-    audio: 'audio/t1-lis4-espeak.mp3', demo: true, escuchas: 2,
+    audio: 'audio/t1-lis4.mp3', escuchas: 2,
     opcionesCortas: true,
     contexto: 'Cinco personas cuentan por qué dejaron la ciudad en la que vivían. Cada tarea tiene su propia lista de ocho opciones.',
     listas: [
@@ -2046,8 +2046,7 @@ window.WELL_PRACTICA = {
       "parte": 2,
       "titulo": "Una cartógrafa",
       "instruccion": "Vas a oír a una cartógrafa hablando de su trabajo. Completa cada frase con <b>una palabra o expresión corta</b>. Lo oirás <b>dos veces</b>.",
-      "audio": "audio/t1-lis2-espeak.mp3",
-      "demo": true,
+      "audio": "audio/t1-lis2.mp3",
       "escuchas": 2,
       "items": [
         { "antes": "Ruth explains that most of her working day is spent in front of a", "despues": ".", "aceptadas": ["screen", "computer screen"] },
@@ -3261,7 +3260,7 @@ window.WELL_PRACTICA = {
   't3-lis1': {
     tipo: 'listening', parte: 1, titulo: 'Listening · Parte 1',
     instruccion: 'Escucharás tres extractos. Elige la mejor respuesta (A, B o C) para cada pregunta. <b>Se escucha dos veces</b>.',
-    audio: 'audio/t3-lis1-espeak.mp3', demo: true, escuchas: 2,
+    audio: 'audio/t3-lis1.mp3', escuchas: 2,
     contexto: 'Extracto 1: una mujer que ha terminado un curso de cocina. Extracto 2: una mujer que se ha mudado de la ciudad a un pueblo. Extracto 3: dos compañeros y una mudanza de oficina.',
     items: [
       { pregunta: '1  What does the woman say she could not do before the course?',
@@ -3282,7 +3281,7 @@ window.WELL_PRACTICA = {
   't3-lis2': {
     tipo: 'listening', parte: 2, titulo: 'Listening · Parte 2',
     instruccion: 'Completa cada frase con <b>una o dos palabras</b> de lo que oigas. <b>Se escucha dos veces</b>.',
-    audio: 'audio/t3-lis2-espeak.mp3', demo: true, escuchas: 2,
+    audio: 'audio/t3-lis2.mp3', escuchas: 2,
     items: [
       { antes: 'Gemma says that restoring neon is mostly a job about', despues: '.', aceptadas: ['glass'] },
       { antes: 'Before neon she spent nine years working in', despues: '.', aceptadas: ['stained glass'] },
@@ -3298,7 +3297,7 @@ window.WELL_PRACTICA = {
   't3-lis3': {
     tipo: 'listening', parte: 3, titulo: 'Listening · Parte 3',
     instruccion: 'Escucharás una entrevista. Elige la mejor respuesta (A, B, C o D) para cada pregunta. <b>Se escucha dos veces</b>.',
-    audio: 'audio/t3-lis3-espeak.mp3', demo: true, escuchas: 2,
+    audio: 'audio/t3-lis3.mp3', escuchas: 2,
     contexto: 'Un periodista entrevista a Ruth Callaghan, que dirige un archivo de cine amateur.',
     items: [
       { pregunta: '1  What does Ruth say gives amateur film its value?',
@@ -3319,7 +3318,7 @@ window.WELL_PRACTICA = {
   't3-lis4': {
     tipo: 'listening', parte: 4, titulo: 'Listening · Parte 4',
     instruccion: 'Escucharás a cinco personas hablando de un cambio de oficio. <b>Tarea 1</b> (1–5): por qué cambiaron. <b>Tarea 2</b> (6–10): qué dicen ahora. Se escucha dos veces.',
-    audio: 'audio/t3-lis4-espeak.mp3', demo: true, escuchas: 2,
+    audio: 'audio/t3-lis4.mp3', escuchas: 2,
     opcionesCortas: true,
     contexto: 'Cada tarea tiene su propia lista de ocho opciones.',
     listas: [
@@ -4107,7 +4106,7 @@ window.WELL_PRACTICA = {
   't4-lis1': {
     tipo: 'listening', parte: 1, titulo: 'Listening · Parte 1',
     instruccion: 'Escucharás tres extractos. Elige la mejor respuesta (A, B o C) para cada pregunta. <b>Se escucha dos veces</b>.',
-    audio: 'audio/t4-lis1-espeak.mp3', demo: true, escuchas: 2,
+    audio: 'audio/t4-lis1.mp3', escuchas: 2,
     contexto: 'Extracto 1: un club de lectura que ha dejado de leer. Extracto 2: una mujer que ha dejado su huerto. Extracto 3: dos compañeros y un sistema nuevo de informes.',
     items: [
       { pregunta: '1  What does the woman say about the group’s real purpose?',
@@ -4128,7 +4127,7 @@ window.WELL_PRACTICA = {
   't4-lis2': {
     tipo: 'listening', parte: 2, titulo: 'Listening · Parte 2',
     instruccion: 'Completa cada frase con <b>una o dos palabras</b> de lo que oigas. <b>Se escucha dos veces</b>.',
-    audio: 'audio/t4-lis2-espeak.mp3', demo: true, escuchas: 2,
+    audio: 'audio/t4-lis2.mp3', escuchas: 2,
     items: [
       { antes: 'Finn says that building a dry stone wall is almost entirely about', despues: '.', aceptadas: ['sorting'] },
       { antes: 'Before this work he spent fourteen years in', despues: '.', aceptadas: ['forestry'] },
@@ -4144,7 +4143,7 @@ window.WELL_PRACTICA = {
   't4-lis3': {
     tipo: 'listening', parte: 3, titulo: 'Listening · Parte 3',
     instruccion: 'Escucharás una entrevista. Elige la mejor respuesta (A, B, C o D) para cada pregunta. <b>Se escucha dos veces</b>.',
-    audio: 'audio/t4-lis3-espeak.mp3', demo: true, escuchas: 2,
+    audio: 'audio/t4-lis3.mp3', escuchas: 2,
     contexto: 'Un periodista entrevista a Imelda Rourke, que asesora a ciudades sobre los árboles de calle.',
     items: [
       { pregunta: '1  What effect of street trees does Rourke say she can actually measure?',
@@ -4165,7 +4164,7 @@ window.WELL_PRACTICA = {
   't4-lis4': {
     tipo: 'listening', parte: 4, titulo: 'Listening · Parte 4',
     instruccion: 'Escucharás a cinco personas hablando de una decisión que tomaron deprisa. <b>Tarea 1</b> (1–5): por qué decidieron tan rápido. <b>Tarea 2</b> (6–10): qué dicen ahora. Se escucha dos veces.',
-    audio: 'audio/t4-lis4-espeak.mp3', demo: true, escuchas: 2,
+    audio: 'audio/t4-lis4.mp3', escuchas: 2,
     opcionesCortas: true,
     contexto: 'Cada tarea tiene su propia lista de ocho opciones.',
     listas: [
