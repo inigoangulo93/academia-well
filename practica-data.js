@@ -2043,6 +2043,7 @@ window.WELL_PRACTICA = {
 
     "t1-lis2": {
       "tipo": "listening",
+      "parte": 2,
       "titulo": "Una cartógrafa",
       "instruccion": "Vas a oír a una cartógrafa hablando de su trabajo. Completa cada frase con <b>una palabra o expresión corta</b>. Lo oirás <b>dos veces</b>.",
       "audio": "audio/t1-lis2-espeak.mp3",

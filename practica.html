@@ -220,7 +220,14 @@
          transition:border-color .18s,box-shadow .18s}
   .tramo.aqui{border-color:var(--azul);box-shadow:0 0 0 3px var(--azul-suave)}
   .tramo.hecho{border-color:rgba(30,142,90,.4)}
-  .tramo:not(.abierto){background:transparent;border-style:dashed}
+  /* Cerrado NO es lo mismo que vacio. Cuando casi todo estaba por escribir, los
+     tramos cerrados iban en transparente y con el borde a rayas para que se
+     leyeran como "aqui todavia no hay nada". Ahora los cuatro tests tienen
+     material y se cierran por defecto: en transparente perdian toda presencia y
+     parecian deshabilitados. Fondo blanco y borde entero, como cualquier ficha
+     en la que se puede entrar. */
+  .tramo:not(.abierto){background:#fff}
+  .tramo:not(.abierto):hover{border-color:var(--azul);box-shadow:0 2px 10px rgba(35,43,66,.07)}
   .tramo-cab{width:100%;display:grid;grid-template-columns:auto 1fr auto auto;gap:12px;align-items:center;
              background:none;border:none;padding:15px 18px;cursor:pointer;text-align:left;
              font-family:'Figtree',sans-serif;transition:background .13s}
@@ -419,6 +426,71 @@
                overflow:hidden;cursor:default}
   .repro-barra i{display:block;height:100%;width:0;background:#fff;border-radius:100px;
                  transition:width .2s linear}
+
+  /* ---------- modal ----------
+     Sustituye a window.confirm(). El nativo no se puede maquetar, sale con la
+     tipografia del sistema, dice el dominio en la cabecera y en movil aparece
+     pegado arriba del todo: parece un aviso del navegador, no una pantalla
+     nuestra. Y en un simulacro lo que se pregunta es serio. */
+  .modal-fondo{position:fixed;inset:0;z-index:200;display:flex;align-items:center;
+               justify-content:center;padding:20px;
+               background:rgba(35,43,66,.55);backdrop-filter:blur(3px);
+               animation:modalFondo .18s ease-out}
+  @keyframes modalFondo{from{opacity:0}to{opacity:1}}
+  .modal{width:100%;max-width:440px;background:var(--crema);border-radius:20px;
+         padding:28px;box-shadow:0 24px 60px rgba(35,43,66,.28);
+         animation:modalEntra .22s cubic-bezier(.2,.8,.3,1)}
+  @keyframes modalEntra{from{opacity:0;transform:translateY(12px) scale(.97)}
+                        to{opacity:1;transform:none}}
+  .modal h2{margin:0 0 10px;font-family:'Bree Serif',Georgia,serif;
+            font-size:22px;line-height:1.2;color:var(--azul)}
+  .modal p{margin:0 0 8px;font-size:15px;line-height:1.55;color:var(--tinta)}
+  .modal p:last-of-type{margin-bottom:0}
+  .modal .modal-nota{font-size:13.5px;color:var(--gris)}
+  .modal-datos{display:flex;gap:10px;margin:16px 0 4px}
+  .modal-dato{flex:1;background:var(--neutro);border-radius:12px;padding:10px 12px;text-align:center}
+  .modal-dato b{display:block;font-family:'Bree Serif',Georgia,serif;font-size:19px;color:var(--azul)}
+  .modal-dato span{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--gris)}
+  .modal-pie{display:flex;gap:10px;margin-top:22px}
+  .modal-pie .btn{flex:1;justify-content:center}
+  /* En movil se apilan al reves: el principal arriba y la salida abajo. Lo de
+     abajo es lo que cae bajo el pulgar y se pulsa sin mirar, y ahi tiene que
+     estar lo que no rompe nada. En el dialogo de abandonar, lo de abajo es
+     "Seguir". */
+  @media (max-width:420px){
+    .modal{padding:22px}
+    .modal-pie{flex-direction:column-reverse}
+    .modal-datos{flex-direction:column;gap:8px}
+    .modal-dato{display:flex;align-items:baseline;justify-content:space-between;text-align:left}
+  }
+
+  /* ---------- cuenta atras antes del audio ----------
+     Tapa la tarjeta entera y a proposito: mientras cuenta no hay nada que
+     hacer ahi debajo, y dejar el contenido medio visible solo distrae. */
+  .cuenta{position:absolute;inset:0;display:flex;flex-direction:column;
+          align-items:center;justify-content:center;gap:14px;
+          background:#16295A;border-radius:inherit;z-index:3}
+  .cuenta-disco{position:relative;display:flex;align-items:center;
+                justify-content:center;width:116px;height:116px;flex:none}
+  .cuenta-n{font-family:'Bree Serif',Georgia,serif;font-size:46px;line-height:1;
+            color:#fff;font-variant-numeric:tabular-nums}
+  .cuenta-n.late{animation:cuentaLate .9s cubic-bezier(.2,.8,.3,1)}
+  @keyframes cuentaLate{0%{opacity:0;transform:scale(1.45)}
+                        24%{opacity:1;transform:scale(1)}
+                        100%{opacity:1;transform:scale(1)}}
+  .cuenta-txt{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;
+              color:rgba(255,255,255,.7)}
+  .cuenta-aro{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+  .cuenta-aro circle{fill:none;stroke-width:5;stroke-linecap:round}
+  .cuenta-aro .fondo{stroke:rgba(255,255,255,.15)}
+  /* 2*PI*54 = 339.3: la circunferencia del aro, para vaciarlo por segundos */
+  .cuenta-aro .barra{stroke:#FFD666;stroke-dasharray:339.3;stroke-dashoffset:0;
+                     transition:stroke-dashoffset 1s linear}
+  @media (prefers-reduced-motion:reduce){
+    .modal-fondo,.modal,.cuenta-n.late{animation:none}
+    .cuenta-aro .barra{transition:none}
+  }
+  .repro{position:relative}
 
   /* el candado se alinea con la primera linea, no con el centro del parrafo:
      centrado sobre dos lineas queda colgando */
@@ -1141,7 +1213,18 @@ window.WELL_UI_P = {
   unaParte: 'parte',
   variasPartes: 'partes',
   simSinHacer: 'Sin hacer',
-  simConfirmar: 'Vas a empezar el simulacro.\n\n{n} preguntas y {min} minutos de reloj, sin ver ninguna solución hasta el final. Si sales, se pierde.\n\n¿Empezamos?',
+  simConfirmarTit: 'Vas a empezar el simulacro',
+  simConfirmarCuerpo: 'De una sentada y con el reloj corriendo. No verás ninguna solución hasta el final, y si sales por el camino se pierde entero.',
+  simConfirmarPreg: 'Preguntas',
+  simConfirmarMin: 'Minutos',
+  simConfirmarOk: 'Empezar',
+  simConfirmarNo: 'Ahora no',
+  simAbandonarTit: '¿Salir del simulacro?',
+  simAbandonarCuerpo: 'Se pierde entero: las respuestas que llevas no se guardan y el intento no cuenta.',
+  simAbandonarOk: 'Salir y perderlo',
+  simAbandonarNo: 'Seguir',
+  cuentaListo: 'Preparado',
+  cuentaYa: '¡Ya!',
   simRepetir: 'Ya lo hiciste una vez. Si lo repites, se guarda el intento nuevo.',
   simAbandonar: '¿Seguro que quieres salir? El simulacro se pierde entero.',
   parteDe: 'Parte {n} de {t}',

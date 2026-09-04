@@ -43,8 +43,12 @@ async def main():
         pg.on('pageerror', lambda e: errores.append(str(e)))
         pg.on('console', lambda m: errores.append('consola: ' + m.text)
               if m.type == 'error' and 'net::ERR' not in m.text else None)
-        # el confirm() de "vas a empezar un simulacro" se acepta solo
-        pg.on('dialog', lambda d: asyncio.ensure_future(d.accept()))
+        # Ya no hay confirm() nativo: hay modal. Si volviera a haberlo, este
+        # manejador lo aceptaria y la prueba pasaria sin enterarse, asi que
+        # aqui se apunta el dialogo nativo como FALLO.
+        nativos = []
+        pg.on('dialog', lambda d: (nativos.append(d.type),
+                                   asyncio.ensure_future(d.dismiss())))
 
         await pg.goto(B + 'practica.html', wait_until='domcontentloaded')
         await pg.wait_for_timeout(700)
@@ -90,6 +94,33 @@ async def main():
                   'ya no quedan simulacros sueltos de use ni de reading')
 
         await pg.click('[data-simulacro="t1-ruoe"]')
+        await pg.wait_for_timeout(400)
+
+        m = await pg.evaluate("""() => {
+          const c = document.querySelector('.modal');
+          if (!c) return null;
+          return { tit: c.querySelector('h2').textContent,
+                   datos: Array.from(c.querySelectorAll('.modal-dato b')).map(b => b.textContent),
+                   rol: c.getAttribute('role'), modal: c.getAttribute('aria-modal'),
+                   foco: document.activeElement === c.querySelector('[data-si]') };
+        }""")
+        comprueba(m is not None, 'sale un modal nuestro y no un confirm del navegador')
+        comprueba(m and m['datos'] == ['56', '90'],
+                  'el modal canta las 56 preguntas y los 90 minutos: %s' % (m or {}).get('datos'))
+        comprueba(m and m['rol'] == 'dialog' and m['modal'] == 'true',
+                  'esta anunciado como dialogo para quien usa lector de pantalla')
+        comprueba(m and m['foco'], 'el foco entra en el modal')
+
+        # Escape cancela y no empieza nada.
+        await pg.keyboard.press('Escape')
+        await pg.wait_for_timeout(250)
+        comprueba(await pg.evaluate("() => !document.querySelector('.modal')"), 'Escape lo cierra')
+        comprueba(await pg.evaluate("() => !document.querySelector('#s-simulacro').classList.contains('activa')"),
+                  'y al cerrarlo con Escape NO ha empezado el simulacro')
+
+        await pg.click('[data-simulacro="t1-ruoe"]')
+        await pg.wait_for_timeout(300)
+        await pg.click('.modal [data-si]')
         await pg.wait_for_timeout(600)
         cab = await pg.evaluate("() => document.querySelector('#sim-destreza').textContent")
         comprueba(cab == 'Reading & Use of English', 'la cabecera dice el papel: "%s"' % cab)
@@ -127,7 +158,21 @@ async def main():
         comprueba('Reading & Use of English' in titulo, 'el resultado nombra el papel: "%s"' % titulo)
         comprueba(pct.strip() not in ('', '0%'), 'puntua las respuestas (%s)' % pct.strip())
 
+        comprueba(not nativos, 'ningun dialogo nativo del navegador: %s' % (nativos or 'ninguno'))
         comprueba(not errores, 'sin errores de consola: %s' % (errores or 'ninguno'))
+
+        # --- el panel no se abre entero ---
+        print('\nEl panel al entrar')
+        await pg.evaluate("() => localStorage.clear()")
+        await pg.goto(B + 'practica.html', wait_until='domcontentloaded')
+        await pg.wait_for_timeout(800)
+        ab = await pg.evaluate("""() => Array.from(document.querySelectorAll('[data-tramo]'))
+                                      .map(t => t.getAttribute('aria-expanded'))""")
+        alto = await pg.evaluate("() => document.body.scrollHeight")
+        comprueba(ab.count('true') == 1,
+                  'solo se abre el test donde vas, no los cuatro (%s)' % ab)
+        comprueba(alto < 2600, 'la pagina no sale interminable al entrar (%d px)' % alto)
+
         await pg.evaluate("() => localStorage.clear()")
         await b.close()
 

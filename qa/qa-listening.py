@@ -90,6 +90,59 @@ async def main():
             comprueba((e['escuchas'] or 2) == 2, 'se escucha dos veces, como en el examen')
             comprueba(not errores, 'sin errores de consola: %s' % (errores or 'ninguno'))
 
+        # --- la cuenta atras, y que solo haya un reproductor ---
+        print('\nCuenta atras y reproductor unico')
+        await pg.evaluate("()=>localStorage.clear()")
+        await pg.goto(B + 'practica.html#t1-lis1', wait_until='domcontentloaded')
+        await pg.wait_for_timeout(700)
+        await pg.click('#au-play')
+        await pg.wait_for_timeout(300)
+        c = await pg.evaluate("""() => {
+          const k = document.querySelector('#au-cuenta5');
+          return { visible: k && !k.hidden, n: (document.querySelector('#au-n')||{}).textContent,
+                   sonando: !document.querySelector('#au').paused,
+                   bloqueado: document.querySelector('#au-play').disabled };
+        }""")
+        comprueba(c['visible'], 'al dar a Escuchar sale la cuenta atras')
+        comprueba(c['n'] == '5', 'empieza en 5 (vi "%s")' % c['n'])
+        comprueba(not c['sonando'], 'el audio NO suena todavia')
+        comprueba(c['bloqueado'], 'y el boton no admite un segundo clic')
+        # Cinco segundos: ni cuatro ni seis. A los 4,4 s todavia no puede sonar.
+        await pg.wait_for_timeout(4100)
+        pronto = await pg.evaluate("() => document.querySelector('#au').currentTime")
+        comprueba(pronto == 0, 'a los 4,4 s sigue sin sonar (%.1f s)' % pronto)
+        await pg.wait_for_timeout(1800)
+        fin = await pg.evaluate("""() => ({
+          oculta: document.querySelector('#au-cuenta5').hidden,
+          t: document.querySelector('#au').currentTime })""")
+        comprueba(fin['t'] > 0.3, 'a los 6,2 s ya suena (%.1f s)' % fin['t'])
+        comprueba(fin['oculta'], 'y la cuenta se ha quitado de en medio')
+
+        # El fallo que se colo hasta produccion: al volver de un simulacro
+        # quedaban dos id="au" en el DOM, $('#au') cogia el viejo escondido, y
+        # el reproductor de delante se quedaba sin rotulo y con el boton muerto.
+        await pg.evaluate("()=>localStorage.clear()")
+        await pg.goto(B + 'practica.html', wait_until='domcontentloaded')
+        await pg.wait_for_timeout(700)
+        await pg.click('[data-simulacro="t1-listening"]')
+        await pg.wait_for_timeout(300)
+        await pg.click('.modal [data-si]')
+        await pg.wait_for_timeout(700)
+        await pg.click('#sim-salir')
+        await pg.wait_for_timeout(300)
+        await pg.click('.modal [data-si]')
+        await pg.wait_for_timeout(700)
+        await pg.goto(B + 'practica.html#t1-lis1', wait_until='domcontentloaded')
+        await pg.wait_for_timeout(800)
+        u = await pg.evaluate("""() => ({
+          cuantos: document.querySelectorAll('#au').length,
+          txt: (document.querySelector('#au-txt')||{}).textContent })""")
+        comprueba(u['cuantos'] == 1,
+                  'despues de un simulacro solo queda un reproductor (hay %d)' % u['cuantos'])
+        comprueba(bool(u['txt']),
+                  'y el de delante tiene su rotulo, no se queda mudo ("%s")' % u['txt'])
+        await pg.evaluate("()=>localStorage.clear()")
+
         # ¿Sabe saltar este navegador? Si no, lo del rebobinado no se puede
         # medir aqui y hay que decirlo, no callarlo.
         await pg.goto(B + '404.html', wait_until='domcontentloaded')

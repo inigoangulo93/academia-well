@@ -458,7 +458,12 @@
   function pintaTest(test, sig) {
     var st = estadoTest(test);
     var tieneAqui = sig && (test.sesiones || []).indexOf(sig._sesion) > -1;
-    var abierto = P.tramos[test.id] !== undefined ? !!P.tramos[test.id] : (tieneAqui || st.vivo || st.conMaterial > 0);
+    // Abierto por defecto SOLO el test donde esta tu siguiente ejercicio. Antes
+    // se abria tambien cualquiera "vivo", y vivo significa que le queda alguna
+    // sesion por hacer, cosa que cumplen los cuatro: se abrian los cuatro y la
+    // pagina salia con treinta y seis sesiones y 4.500 pixeles de largo. Lo
+    // que el alumno tiene que ver al entrar es por donde iba, no el curso.
+    var abierto = P.tramos[test.id] !== undefined ? !!P.tramos[test.id] : !!tieneAqui;
 
     var marca = st.hecho ? '<span class="tramo-marca hecho">' + esc(T.completada) + '</span>'
               : st.items ? '<span class="tramo-marca viva">' + st.ok + '/' + st.items + '</span>'
@@ -1164,6 +1169,77 @@
     return !!(ej && ej.items && ej.items[0] && ej.items[0].opciones);
   }
 
+  /* ---------- modal ----------
+     Sustituye a window.confirm(). Devuelve la respuesta por callback y no por
+     valor, porque a diferencia del nativo no bloquea el hilo: quien lo llama
+     tiene que hacer lo suyo dentro del callback, no despues de la llamada. */
+
+  var MODAL = null;
+
+  function cierraModal() {
+    if (!MODAL) return;
+    var m = MODAL; MODAL = null;
+    document.removeEventListener('keydown', m.tecla, true);
+    if (m.fondo.parentNode) m.fondo.parentNode.removeChild(m.fondo);
+    // Se devuelve el foco a donde estaba. Sin esto, quien navega con teclado
+    // vuelve al principio de la pagina cada vez que cierra un dialogo.
+    if (m.antes && document.body.contains(m.antes)) m.antes.focus();
+  }
+
+  // o = { titulo, cuerpo, nota, datos:[{n,eti}], ok, no, peligro }
+  function pregunta(o, siSi) {
+    cierraModal();
+    var antes = document.activeElement;
+    var fondo = document.createElement('div');
+    fondo.className = 'modal-fondo';
+
+    var caja = document.createElement('div');
+    caja.className = 'modal';
+    caja.setAttribute('role', 'dialog');
+    caja.setAttribute('aria-modal', 'true');
+    caja.setAttribute('aria-labelledby', 'modal-tit');
+
+    var h = '<h2 id="modal-tit">' + esc(o.titulo) + '</h2>';
+    h += '<p>' + esc(o.cuerpo) + '</p>';
+    if (o.datos && o.datos.length) {
+      h += '<div class="modal-datos">' + o.datos.map(function (d) {
+        return '<div class="modal-dato"><b>' + esc(String(d.n)) + '</b>' +
+               '<span>' + esc(d.eti) + '</span></div>';
+      }).join('') + '</div>';
+    }
+    if (o.nota) h += '<p class="modal-nota">' + esc(o.nota) + '</p>';
+    h += '<div class="modal-pie">' +
+         '<button type="button" class="btn btn-ghost" data-no>' + esc(o.no) + '</button>' +
+         '<button type="button" class="btn ' + (o.peligro ? 'btn-peligro' : 'btn-azul') +
+         '" data-si>' + esc(o.ok) + '</button>' +
+         '</div>';
+    caja.innerHTML = h;
+    fondo.appendChild(caja);
+    document.body.appendChild(fondo);
+
+    var bSi = caja.querySelector('[data-si]'), bNo = caja.querySelector('[data-no]');
+    bSi.addEventListener('click', function () { cierraModal(); siSi(); });
+    bNo.addEventListener('click', cierraModal);
+    // Clic fuera = cancelar, nunca aceptar. Un clic perdido no puede empezar un
+    // simulacro ni tirar el que llevas a medias.
+    fondo.addEventListener('mousedown', function (ev) { if (ev.target === fondo) cierraModal(); });
+
+    var tecla = function (ev) {
+      if (ev.key === 'Escape') { ev.preventDefault(); cierraModal(); return; }
+      if (ev.key !== 'Tab') return;
+      // El foco no se sale del dialogo mientras esta abierto.
+      var f = [bNo, bSi];
+      var i = f.indexOf(document.activeElement);
+      ev.preventDefault();
+      f[(i + (ev.shiftKey ? f.length - 1 : 1) + f.length) % f.length].focus();
+    };
+    document.addEventListener('keydown', tecla, true);
+
+    MODAL = { fondo: fondo, tecla: tecla, antes: antes };
+    // Arranca el foco en la salida segura, no en el boton que hace la cosa.
+    (o.peligro ? bNo : bSi).focus();
+  }
+
   /* ---------- reproductor con reglas de examen ---------- */
 
   // Dos escuchas, sin rebobinar y sin barra de progreso manipulable. Si se
@@ -1185,6 +1261,17 @@
           '<b id="au-txt"></b>' +
           '<span class="repro-cuenta" id="au-cuenta"></span>' +
         '</span>' +
+      '</div>' +
+
+      '<div class="cuenta" id="au-cuenta5" hidden>' +
+        '<span class="cuenta-disco">' +
+          '<svg class="cuenta-aro" viewBox="0 0 120 120" aria-hidden="true">' +
+            '<circle class="fondo" cx="60" cy="60" r="54"/>' +
+            '<circle class="barra" id="au-aro" cx="60" cy="60" r="54"/>' +
+          '</svg>' +
+          '<b class="cuenta-n" id="au-n" aria-live="assertive"></b>' +
+        '</span>' +
+        '<span class="cuenta-txt" id="au-listo"></span>' +
       '</div>' +
 
       '<div class="repro-tiempos">' +
@@ -1211,11 +1298,51 @@
     return m + ':' + (r < 10 ? '0' : '') + r;
   }
 
-  var AUDIO = { escuchas: 0 };
+  var AUDIO = { escuchas: 0, tic: null };
+
+  // Cinco segundos antes de que arranque el audio. No es decoracion: en el
+  // examen el audio no empieza cuando tu decides, y darle a un boton y oir voz
+  // en el mismo instante no se parece en nada a estar sentado esperando. Es
+  // ademas el momento de levantar la vista a las preguntas.
+  var CUENTA = 5;
+
+  function cuentaAtras(cuando) {
+    var caja = $('#au-cuenta5'), num = $('#au-n'), aro = $('#au-aro'), txt = $('#au-listo');
+    if (!caja) { cuando(); return; }
+    if (AUDIO.tic) clearInterval(AUDIO.tic);
+    var n = CUENTA, largo = 2 * Math.PI * 54;
+    caja.hidden = false;
+    if (txt) txt.textContent = T.cuentaListo;
+    var pinta = function () {
+      num.textContent = n > 0 ? n : T.cuentaYa;
+      // Se quita y se vuelve a poner para reiniciar la animacion del numero:
+      // sin esto solo late el primero.
+      num.classList.remove('late');
+      void num.offsetWidth;
+      num.classList.add('late');
+      if (aro) aro.style.strokeDashoffset = largo * (1 - n / CUENTA);
+    };
+    pinta();
+    AUDIO.tic = setInterval(function () {
+      // Si se ha cambiado de pantalla, el nodo ya no esta: se para sola.
+      if (!document.body.contains(caja)) { clearInterval(AUDIO.tic); AUDIO.tic = null; return; }
+      n--;
+      pinta();
+      // Cinco segundos son cinco: 5, 4, 3, 2, 1 y suena. El "ya" se ve encima
+      // del audio que ya ha arrancado, no antes; si esperase un segundo mas a
+      // decirlo, la cuenta duraria seis.
+      if (n <= 0) {
+        clearInterval(AUDIO.tic); AUDIO.tic = null;
+        cuando();
+        setTimeout(function () { caja.hidden = true; }, 500);
+      }
+    }, 1000);
+  }
 
   function preparaReproductor(ej) {
     var au = $('#au');
     if (!au) return;
+    if (AUDIO.tic) { clearInterval(AUDIO.tic); AUDIO.tic = null; }
     AUDIO.escuchas = 0;
     var total = ej.escuchas || 2;
     var pinta = function () {
@@ -1227,7 +1354,7 @@
       $('#au-txt').textContent = !au.paused ? T.reproSonando
         : AUDIO.escuchas === 0 ? T.reproEmpezar
         : quedan > 0 ? T.reproOtra : T.reproFin;
-      $('#au-play').disabled = quedan <= 0 || !au.paused;
+      $('#au-play').disabled = quedan <= 0 || !au.paused || !!AUDIO.tic;
       var caja = $('#repro');
       if (caja) {
         caja.classList.toggle('sonando', !au.paused);
@@ -1281,8 +1408,17 @@
     au.addEventListener('pause', pinta);
     $('#au-play').addEventListener('click', function () {
       if (AUDIO.escuchas >= total) return;
-      au.play();
+      // Mientras cuenta, el boton no responde: si no, dos clics seguidos
+      // arrancan dos cuentas y el audio empieza dos veces.
+      if (AUDIO.tic) return;
+      $('#au-play').disabled = true;
+      cuentaAtras(function () { au.play(); });
     });
+    // Al salir de la pantalla se para la cuenta: si no, sigue viva y el audio
+    // arranca solo encima de otro ejercicio.
+    AUDIO.corta = function () {
+      if (AUDIO.tic) { clearInterval(AUDIO.tic); AUDIO.tic = null; }
+    };
   }
 
 
@@ -1529,7 +1665,28 @@
 
   /* ---------- navegacion ---------- */
 
+  // Solo puede haber un reproductor vivo en toda la pagina. La pantalla del
+  // simulacro y la del ejercicio usan la misma marca, con el mismo id="au", y
+  // ninguna vaciaba su cuerpo al salir. Con las dos puestas habia dos id="au",
+  // $('#au') devolvia el primero del documento --el viejo, escondido--, y el
+  // reproductor que el alumno tenia delante se quedaba sin rotulo y con el
+  // boton muerto. Pasaba siempre que hubieras abierto un simulacro de listening
+  // antes, que es justo lo que hace cualquiera que este probando la aplicacion.
+  function soloUnReproductor(salvo) {
+    ['#sim-cuerpo', '#ej-cuerpo'].forEach(function (sel) {
+      if (sel === salvo) return;
+      var c = document.querySelector(sel);
+      if (!c || !c.querySelector('#au')) return;
+      var a = c.querySelector('audio');
+      if (a) { try { a.pause(); } catch (e) {} }
+      c.innerHTML = '';
+    });
+  }
+
   function muestra(id) {
+    if (AUDIO && AUDIO.corta) AUDIO.corta();
+    soloUnReproductor(id === 's-simulacro' ? '#sim-cuerpo'
+                    : id === 's-ejercicio' ? '#ej-cuerpo' : null);
     if (id !== 's-speaking') { clearInterval(GRAB.reloj); paraGrabacion(); }
     var au = $('#au');
     if (au && id !== 's-ejercicio' && id !== 's-simulacro') { try { au.pause(); } catch (e) {} }
@@ -1577,18 +1734,27 @@
     var sim = simulacroPorId(id);
     if (!sim) return;
     var hist = (P.simulacros || {})[id] || [];
-    var aviso = T.simConfirmar.replace('{min}', sim.minutos).replace('{n}', sim.items);
-    if (hist.length) aviso += '\n\n' + T.simRepetir;
-    if (window.confirm(aviso)) empiezaSimulacro(id);
+    pregunta({
+      titulo: T.simConfirmarTit,
+      cuerpo: T.simConfirmarCuerpo,
+      datos: [{ n: sim.items, eti: T.simConfirmarPreg }, { n: sim.minutos, eti: T.simConfirmarMin }],
+      nota: hist.length ? T.simRepetir : '',
+      ok: T.simConfirmarOk, no: T.simConfirmarNo
+    }, function () { empiezaSimulacro(id); });
   }
 
   function abandonaSimulacro() {
-    if (!window.confirm(T.simAbandonar)) return;
-    clearInterval(relojSim);
-    SIM = null;
-    guardaSim();
-    alPanel();
-    track('simulacro_abandonado', {});
+    pregunta({
+      titulo: T.simAbandonarTit,
+      cuerpo: T.simAbandonarCuerpo,
+      ok: T.simAbandonarOk, no: T.simAbandonarNo, peligro: true
+    }, function () {
+      clearInterval(relojSim);
+      SIM = null;
+      guardaSim();
+      alPanel();
+      track('simulacro_abandonado', {});
+    });
   }
 
   function alPanel() {

@@ -195,6 +195,16 @@ for (const id of IDS) {
   else if (max > n * 0.6) ojo(id, 'reparto desigual: una letra sale ' + max + ' de ' + n + ' veces');
 }
 
+/* ---------- toda parte de examen dice que parte es ---------- */
+// Un listening sin "parte" no es un detalle cosmetico: el reproductor decide
+// por ella cuantos segundos da para leer las preguntas, y sin ella da cero.
+// Faltaba en uno de dieciseis y no se veia por ningun lado.
+for (const id of IDS) {
+  const e = D.ejercicios[id];
+  if (['listening', 'lectura'].indexOf(e.tipo) > -1 && typeof e.parte !== 'number')
+    mal(id, 'es un ' + e.tipo + ' y no dice de que parte del examen es');
+}
+
 /* ---------- el simulacro tiene que tener la forma del examen ---------- */
 // Se replica lo que hace simulacroDe: por PAPEL, no por destreza, la primera
 // aparicion de cada parte y su primer ejercicio. Si esto se desvia, el
