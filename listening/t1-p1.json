@@ -8,43 +8,38 @@
   "voces": [
     {
       "id": "narrador",
-      "proveedor": "elevenlabs",
-      "voz": "PENDIENTE",
       "acento": "en-GB",
       "espeak": "en-gb",
-      "descripcion": "narrador neutro, ritmo lento"
+      "descripcion": "narrador neutro, ritmo lento",
+      "papel": "narrador"
     },
     {
       "id": "hombre1",
-      "proveedor": "elevenlabs",
-      "voz": "PENDIENTE",
       "acento": "en-GB",
       "espeak": "en-gb-x-rp",
-      "descripcion": "hombre, 50s, britanico"
+      "descripcion": "hombre, 50s, britanico",
+      "papel": "gb-h-mayor"
     },
     {
       "id": "mujer1",
-      "proveedor": "elevenlabs",
-      "voz": "PENDIENTE",
       "acento": "en-GB",
       "espeak": "en-gb-scotland",
-      "descripcion": "mujer, 30s, escocesa"
+      "descripcion": "mujer, 30s, escocesa",
+      "papel": "gb-m-escocesa"
     },
     {
       "id": "hombre2",
-      "proveedor": "elevenlabs",
-      "voz": "PENDIENTE",
       "acento": "en-US",
       "espeak": "en-us",
-      "descripcion": "hombre, 30s, estadounidense"
+      "descripcion": "hombre, 30s, estadounidense",
+      "papel": "us-h"
     },
     {
       "id": "mujer2",
-      "proveedor": "elevenlabs",
-      "voz": "PENDIENTE",
       "acento": "en-GB",
       "espeak": "en-gb-x-gbclan",
-      "descripcion": "mujer, 60s, norte de Inglaterra"
+      "descripcion": "mujer, 60s, norte de Inglaterra",
+      "papel": "gb-m-mayor"
     }
   ],
   "velocidad": 150,

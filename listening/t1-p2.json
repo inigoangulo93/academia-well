@@ -8,18 +8,16 @@
   "voces": [
     {
       "id": "narrador",
-      "proveedor": "elevenlabs",
-      "voz": "PENDIENTE",
       "acento": "en-GB",
       "espeak": "en-gb",
-      "descripcion": "narrador neutro"
+      "descripcion": "narrador neutro",
+      "papel": "narrador"
     },
     {
       "id": "ruth",
-      "proveedor": "elevenlabs",
-      "voz": "PENDIENTE",
       "acento": "en-GB",
-      "descripcion": "mujer, 40s, britanica, ritmo pausado"
+      "descripcion": "mujer, 40s, britanica, ritmo pausado",
+      "papel": "gb-m-medio"
     }
   ],
   "velocidad": 150,

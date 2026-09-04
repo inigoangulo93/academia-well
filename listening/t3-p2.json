@@ -8,19 +8,17 @@
   "voces": [
     {
       "id": "narrador",
-      "proveedor": "elevenlabs",
-      "voz": "PENDIENTE",
       "acento": "en-GB",
       "espeak": "en-gb",
-      "descripcion": "narrador neutro"
+      "descripcion": "narrador neutro",
+      "papel": "narrador"
     },
     {
       "id": "gemma",
-      "proveedor": "elevenlabs",
-      "voz": "PENDIENTE",
       "acento": "en-GB",
       "espeak": "en-gb-scotland",
-      "descripcion": "mujer, 40s, pausada"
+      "descripcion": "mujer, 40s, pausada",
+      "papel": "gb-m-medio"
     }
   ],
   "velocidad": 148,

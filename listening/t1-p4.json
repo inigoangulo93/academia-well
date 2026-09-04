@@ -8,51 +8,45 @@
   "voces": [
     {
       "id": "narrador",
-      "proveedor": "elevenlabs",
-      "voz": "PENDIENTE",
       "acento": "en-GB",
       "espeak": "en-gb",
-      "descripcion": "narrador neutro"
+      "descripcion": "narrador neutro",
+      "papel": "narrador"
     },
     {
       "id": "uno",
-      "proveedor": "elevenlabs",
-      "voz": "PENDIENTE",
       "acento": "en-GB",
       "espeak": "en-gb-x-rp",
-      "descripcion": "hombre, 30s"
+      "descripcion": "hombre, 30s",
+      "papel": "gb-h-joven"
     },
     {
       "id": "dos",
-      "proveedor": "elevenlabs",
-      "voz": "PENDIENTE",
       "acento": "en-GB",
       "espeak": "en-gb-scotland",
-      "descripcion": "mujer, 40s"
+      "descripcion": "mujer, 40s",
+      "papel": "gb-m-medio"
     },
     {
       "id": "tres",
-      "proveedor": "elevenlabs",
-      "voz": "PENDIENTE",
       "acento": "en-US",
       "espeak": "en-us",
-      "descripcion": "hombre, 50s"
+      "descripcion": "hombre, 50s",
+      "papel": "us-h"
     },
     {
       "id": "cuatro",
-      "proveedor": "elevenlabs",
-      "voz": "PENDIENTE",
       "acento": "en-GB",
       "espeak": "en-gb-x-gbclan",
-      "descripcion": "mujer, 20s"
+      "descripcion": "mujer, 20s",
+      "papel": "gb-m-joven"
     },
     {
       "id": "cinco",
-      "proveedor": "elevenlabs",
-      "voz": "PENDIENTE",
       "acento": "en-GB",
       "espeak": "en-gb-x-gbcwmd",
-      "descripcion": "hombre, 60s"
+      "descripcion": "hombre, 60s",
+      "papel": "gb-h-mayor"
     }
   ],
   "velocidad": 150,

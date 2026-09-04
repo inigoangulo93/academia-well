@@ -8,19 +8,17 @@
   "voces": [
     {
       "id": "narrador",
-      "proveedor": "elevenlabs",
-      "voz": "PENDIENTE",
       "acento": "en-GB",
       "espeak": "en-gb",
-      "descripcion": "narrador neutro"
+      "descripcion": "narrador neutro",
+      "papel": "narrador"
     },
     {
       "id": "finn",
-      "proveedor": "elevenlabs",
-      "voz": "PENDIENTE",
       "acento": "en-GB",
       "espeak": "en-gb-x-gbclan",
-      "descripcion": "hombre, 50s, pausado"
+      "descripcion": "hombre, 50s, pausado",
+      "papel": "gb-h-mayor"
     }
   ],
   "velocidad": 148,

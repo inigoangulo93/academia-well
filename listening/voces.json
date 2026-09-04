@@ -1,0 +1,65 @@
+{
+  "_lee_esto": [
+    "Pega aqui el voice_id de cada papel, sacado de ElevenLabs (Voice Library ->",
+    "anadir a My Voices -> copiar ID). Son publicos: pueden estar en el repositorio.",
+    "La clave de la API NO va aqui ni en ningun fichero: va en el entorno,",
+    "como ELEVENLABS_API_KEY.",
+    "Ningun guion repite papel dentro de si mismo, asi que en una conversacion",
+    "nunca hablan dos personas con la misma voz."
+  ],
+  "proveedor": "elevenlabs",
+  "modelo": "eleven_multilingual_v2",
+  "formato": "mp3_44100_128",
+  "papeles": {
+    "narrador": {
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "descripcion": "Narrador del examen. Lectura clara y neutra, sin dramatizar. Es la voz que dice que parte es y que hay que hacer."
+    },
+    "gb-h-joven": {
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "descripcion": "Hombre britanico, unos 30."
+    },
+    "gb-h-medio": {
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "descripcion": "Hombre britanico, unos 40."
+    },
+    "gb-h-mayor": {
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "descripcion": "Hombre britanico, 55-60, ritmo pausado."
+    },
+    "gb-m-joven": {
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "descripcion": "Mujer britanica, 20-30."
+    },
+    "gb-m-medio": {
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "descripcion": "Mujer britanica, unos 40."
+    },
+    "gb-m-mayor": {
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "descripcion": "Mujer britanica, 55-60."
+    },
+    "gb-m-escocesa": {
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "descripcion": "Mujer escocesa. El CAE mezcla acentos nativos a proposito: esta es la que rompe el ingles del sur."
+    },
+    "us-h": {
+      "voz": "PENDIENTE",
+      "acento": "en-US",
+      "descripcion": "Hombre estadounidense."
+    },
+    "us-m": {
+      "voz": "PENDIENTE",
+      "acento": "en-US",
+      "descripcion": "Mujer estadounidense."
+    }
+  }
+}

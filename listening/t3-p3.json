@@ -8,27 +8,24 @@
   "voces": [
     {
       "id": "narrador",
-      "proveedor": "elevenlabs",
-      "voz": "PENDIENTE",
       "acento": "en-GB",
       "espeak": "en-gb",
-      "descripcion": "narrador neutro"
+      "descripcion": "narrador neutro",
+      "papel": "narrador"
     },
     {
       "id": "ent",
-      "proveedor": "elevenlabs",
-      "voz": "PENDIENTE",
       "acento": "en-GB",
       "espeak": "en-gb-x-gbclan",
-      "descripcion": "hombre, 40s, periodista"
+      "descripcion": "hombre, 40s, periodista",
+      "papel": "gb-h-medio"
     },
     {
       "id": "arch",
-      "proveedor": "elevenlabs",
-      "voz": "PENDIENTE",
       "acento": "en-GB",
       "espeak": "en-gb-scotland",
-      "descripcion": "mujer, 50s, archivera"
+      "descripcion": "mujer, 50s, archivera",
+      "papel": "gb-m-mayor"
     }
   ],
   "velocidad": 150,

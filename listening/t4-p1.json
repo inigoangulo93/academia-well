@@ -8,43 +8,38 @@
   "voces": [
     {
       "id": "narrador",
-      "proveedor": "elevenlabs",
-      "voz": "PENDIENTE",
       "acento": "en-GB",
       "espeak": "en-gb",
-      "descripcion": "narrador neutro"
+      "descripcion": "narrador neutro",
+      "papel": "narrador"
     },
     {
       "id": "m1",
-      "proveedor": "elevenlabs",
-      "voz": "PENDIENTE",
       "acento": "en-GB",
       "espeak": "en-gb-scotland",
-      "descripcion": "mujer, 30s"
+      "descripcion": "mujer, 30s",
+      "papel": "gb-m-escocesa"
     },
     {
       "id": "h1",
-      "proveedor": "elevenlabs",
-      "voz": "PENDIENTE",
       "acento": "en-GB",
       "espeak": "en-gb-x-rp",
-      "descripcion": "hombre, 40s"
+      "descripcion": "hombre, 40s",
+      "papel": "gb-h-medio"
     },
     {
       "id": "m2",
-      "proveedor": "elevenlabs",
-      "voz": "PENDIENTE",
       "acento": "en-GB",
       "espeak": "en-gb-x-gbclan",
-      "descripcion": "mujer, 60s"
+      "descripcion": "mujer, 60s",
+      "papel": "gb-m-mayor"
     },
     {
       "id": "h2",
-      "proveedor": "elevenlabs",
-      "voz": "PENDIENTE",
       "acento": "en-US",
       "espeak": "en-us",
-      "descripcion": "hombre, 30s"
+      "descripcion": "hombre, 30s",
+      "papel": "us-h"
     }
   ],
   "velocidad": 150,
