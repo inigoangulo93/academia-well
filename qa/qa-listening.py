@@ -146,9 +146,17 @@ async def main():
         # ¿Sabe saltar este navegador? Si no, lo del rebobinado no se puede
         # medir aqui y hay que decirlo, no callarlo.
         await pg.goto(B + '404.html', wait_until='domcontentloaded')
+        # Apuntaba al audio provisional. Cuando llego la voz de verdad y los
+        # -espeak se borraron, el fichero dejo de existir, loadedmetadata no
+        # llegaba nunca y la promesa se quedaba colgada hasta que Playwright la
+        # recogia: un traceback despues de 121 comprobaciones en verde. Ahora
+        # va al audio real y no espera indefinidamente.
         salta = await pg.evaluate("""async () => {
-          const a = new Audio('audio/t1-lis1-espeak.mp3');
-          await new Promise(ok => a.addEventListener('loadedmetadata', ok, {once:true}));
+          const a = new Audio('audio/t1-lis1.mp3');
+          const listo = new Promise(ok => a.addEventListener('loadedmetadata', ok, {once:true}));
+          const tarde = new Promise(ok => setTimeout(ok, 8000));
+          await Promise.race([listo, tarde]);
+          if (!isFinite(a.duration)) return -1;
           a.currentTime = 50;
           await new Promise(r => setTimeout(r, 500));
           return a.currentTime;

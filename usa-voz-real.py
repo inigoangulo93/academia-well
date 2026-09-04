@@ -31,6 +31,12 @@ def main():
 
     s = io.open(DATOS, encoding='utf-8').read()
     antes = s
+    # Si ya esta hecho, no es un fallo: es que se relanza el proceso. Antes se
+    # plantaba con "esperaba 16 y he encontrado 0" y tumbaba voz.sh --todo justo
+    # despues de haber generado y pagado los dieciseis.
+    if not any(('audio/%s-espeak.mp3' % i) in s for i in IDS):
+        print('Ya estaba hecho: los 16 apuntan al audio de verdad.')
+        return
     n = 0
     for i in IDS:
         # El fichero esta escrito en dos estilos, con comillas simples y con
