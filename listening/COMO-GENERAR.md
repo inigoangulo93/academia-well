@@ -4,6 +4,15 @@ Cuatro tests, cuatro partes cada uno: **16 guiones, 35.069 caracteres**. Con el
 plan Creator de ElevenLabs (121.000 creditos al mes) cabe entero y sobra para
 dos pasadas mas.
 
+## El camino corto
+
+    export ELEVENLABS_API_KEY=<pegar la clave>
+    ./voz.sh            comprueba, genera la audicion de 802 caracteres y para
+    ./voz.sh --todo     genera los 16, engancha el audio, commit y push
+
+`voz.sh` hace todo lo de abajo en orden y se planta en cuanto algo no cuadra.
+Lo que sigue explica que hace cada paso y por que.
+
 ## Antes de gastar nada
 
 1. Rellenar `listening/voces.json`: un `voice_id` por cada uno de los diez

@@ -99,9 +99,13 @@ def eleven_linea(texto, voz, modelo, formato, clave, intentos=4):
             if e.code in (400, 401, 402, 403, 422) or n == intentos - 1:
                 sys.exit('ElevenLabs devolvio %s: %s' % (e.code, e.read()[:300].decode('utf-8', 'replace')))
             time.sleep(2 ** n)
-        except Exception:
+        except Exception as e:
+            # Un traceback de urllib no le dice nada a nadie. Si despues de los
+            # reintentos sigue sin haber red, se dice en una linea.
             if n == intentos - 1:
-                raise
+                sys.exit('No se ha podido hablar con ElevenLabs despues de %d intentos: %s\n'
+                         'Mira la conexion y vuelve a lanzar el mismo comando: lo ya generado '
+                         'esta en cache y no se paga otra vez.' % (intentos, e))
             time.sleep(2 ** n)
 
 
