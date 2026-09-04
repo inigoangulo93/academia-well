@@ -66,6 +66,12 @@ da la academia.
 la estructura del examen, cómo se produce el listening y el speaking, cómo se
 puntúa sin mentir, y qué falta. Léelo antes de tocar nada de esta parte.
 
+El **Reading** (partes 5 a 8 del Test 1) sí está entero y es mío de principio a
+fin: los textos, las preguntas y las claves. No hay conflicto de procedencia
+porque Elena no tiene material de reading digitalizado. Las cuatro partes las
+pinta un único tipo de ejercicio, `lectura`: lo que cambia entre ellas es si se
+elige una frase (parte 5) o una letra que señala a un trozo del texto (6, 7 y 8).
+
 La **estructura** sale del material real. Los **ejercicios** de
 `practica-data.js` **no son el material de Elena**: los escribí yo imitando sus
 formatos, porque este repositorio es público y la procedencia de sus fotocopias

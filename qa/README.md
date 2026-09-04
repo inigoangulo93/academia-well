@@ -8,6 +8,7 @@ python3 qa/qa-estatico.py        # enlaces rotos, meta, JSON-LD, sitemap, ficher
 python3 qa/qa-navegador.py       # 11 páginas x 4 anchos: desbordes, errores de consola, imágenes rotas
 python3 qa/qa-test-nivel.py      # el test de nivel entero: 5 perfiles, nivel esperado, certificado
 python3 qa/qa-supabase.py        # la capa de datos, con un Supabase de mentira (levanta su propio servidor)
+python3 qa/qa-reading.py         # las cuatro partes del Reading: se pintan, se contestan y se corrigen
 ```
 
 `qa-supabase.py` sustituye el cliente de Supabase por `qa/falso-supabase.js`,

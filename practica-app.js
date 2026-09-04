@@ -1086,6 +1086,56 @@
            'aria-label="' + T.hueco + ' ' + (i + 1) + '">';
   }
 
+  // Reading. Arriba el material que hay que leer, abajo las preguntas. El
+  // material puede ser un texto corrido (parte 5), varios textos con letra
+  // (partes 6 y 8) o un texto con huecos mas los parrafos sueltos que hay que
+  // colocar (parte 7). Las preguntas se responden igual en los cuatro casos.
+  function lecturaHTML(ej) {
+    // En pantalla ancha, el material a la izquierda y las preguntas a la
+    // derecha, como en el examen en papel. Con todo en una columna hay que
+    // subir y bajar diez veces para contestar la parte 8.
+    var h = '<div class="lectura"><div class="lectura-material">';
+
+    if (ej.texto && ej.texto.length) {
+      h += '<div class="lectura-texto">';
+      if (ej.tituloTexto) h += '<h3 class="lectura-tit">' + esc(ej.tituloTexto) + '</h3>';
+      ej.texto.forEach(function (par) {
+        // {n} es el hueco de un parrafo entero (parte 7)
+        var m = String(par).match(/^\{(\d+)\}$/);
+        if (m) h += '<p class="lectura-hueco">' + T.huecoNumero.replace('{n}', m[1]) + '</p>';
+        else h += '<p>' + esc(par) + '</p>';
+      });
+      h += '</div>';
+    }
+
+    if (ej.secciones && ej.secciones.length) {
+      h += '<div class="lectura-secciones">';
+      ej.secciones.forEach(function (sec) {
+        h += '<div class="seccion"><span class="seccion-letra">' + esc(sec.letra) + '</span><div>';
+        if (sec.titulo) h += '<h4>' + esc(sec.titulo) + '</h4>';
+        (sec.texto || []).forEach(function (par) { h += '<p>' + esc(par) + '</p>'; });
+        h += '</div></div>';
+      });
+      h += '</div>';
+    }
+
+    h += '</div><ol class="grupos preguntas">';
+    ej.items.forEach(function (it, i) {
+      h += '<li>';
+      if (it.pregunta) h += '<p class="pregunta">' + esc(it.pregunta) + '</p>';
+      h += '<div class="grupo-op' + (ej.opcionesCortas ? ' letras' : '') + '" data-i="' + i +
+           '" role="radiogroup" aria-label="' + T.pregunta.replace('{n}', i + 1) + '">';
+      it.opciones.forEach(function (op, k) {
+        h += '<button type="button" class="op" data-op="' + k + '">' +
+             '<span class="op-letra">' + 'ABCDEFGH'.charAt(k) + '</span>' +
+             (ej.opcionesCortas ? '' : esc(op)) + '</button>';
+      });
+      h += '</div></li>';
+    });
+    h += '</ol></div>';
+    return h;
+  }
+
   function conMarcadores(txt) {
     return String(txt).replace(/\{(\d+)\}/g, function (_, n) {
       return '<span class="conhueco"><em class="num">' + n + '</em>' + campo(Number(n) - 1, 'corto') + '</span>';
@@ -1093,6 +1143,12 @@
   }
 
   var ANCHO = { caja: 'corto', cloze: 'corto', formacion: 'medio', transformacion: 'largo' };
+
+  // Tipos en los que se responde eligiendo, no escribiendo. Las cuatro partes
+  // del Reading caben en 'lectura': lo unico que cambia entre ellas es si las
+  // opciones son frases (parte 5) o letras que senalan a un trozo del texto
+  // (partes 6, 7 y 8).
+  var ELIGE = { opcion: 1, lectura: 1 };
 
   /* ---------- reproductor con reglas de examen ---------- */
 
@@ -1185,6 +1241,8 @@
         h += '</div></li>';
       });
       h += '</ol>';
+    } else if (ej.tipo === 'lectura') {
+      h += lecturaHTML(ej);
     } else if (ej.tipo === 'cloze') {
       h += '<div class="texto">' + ej.texto.map(function (p) {
         return '<p>' + conMarcadores(esc(p)) + '</p>';
@@ -1252,7 +1310,7 @@
   function campos(cont, ej) {
     cont = cont || $('#ej-cuerpo');
     ej = ej || actual;
-    return ej && ej.tipo === 'opcion' ? $$('.grupo-op', cont) : $$('.hueco', cont);
+    return ej && ELIGE[ej.tipo] ? $$('.grupo-op', cont) : $$('.hueco', cont);
   }
   function valorDe(c) {
     if (!c.classList.contains('grupo-op')) return c.value;
@@ -1261,7 +1319,7 @@
   }
 
   function enfoca() {
-    if (actual && actual.tipo === 'opcion') return;
+    if (actual && ELIGE[actual.tipo]) return;
     if (!window.matchMedia('(min-width:700px)').matches) return;
     var libres = $$('.hueco').filter(function (i) { return !i.value; });
     (libres[0] || $('.hueco') || {}).focus && (libres[0] || $('.hueco')).focus();
