@@ -164,7 +164,63 @@ window.WELL_PRACTICA = {
         ] }
       ]
     },
-    { id: 't3', titulo: 'Test 3' },
+    {
+      id: 't3', titulo: 'Test 3',
+      sesiones: [
+        { id: 't3-s1', n: 1, tipo: 'A', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['t3-voc1', 't3-voc2'] },
+          { destreza: 'gramatica', ejercicios: ['t3-gram1', 't3-gram2'] },
+          { destreza: 'use', parte: 1, tarea: 'Multiple-choice cloze', ejercicios: ['t3-use1'] },
+          { destreza: 'listening', parte: 1, tarea: 'Tres extractos', ejercicios: ['t3-lis1'] }
+        ] },
+        { id: 't3-s2', n: 2, tipo: 'B', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['t3-voc3', 't3-voc4'] },
+          { destreza: 'gramatica', ejercicios: ['t3-gram3', 't3-gram4'] },
+          { destreza: 'reading', parte: 5, tarea: 'Multiple choice', ejercicios: ['t3-read5'] },
+          { destreza: 'speaking', tarea: 'Partes 1 y 2', ejercicios: ['t3-speak1'] }
+        ] },
+        { id: 't3-s3', n: 3, tipo: 'A', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['t3-voc5', 't3-voc6'] },
+          { destreza: 'gramatica', ejercicios: ['t3-gram5', 't3-gram6'] },
+          { destreza: 'use', parte: 2, tarea: 'Open cloze', ejercicios: ['t3-use2a', 't3-use2b'] },
+          { destreza: 'listening', parte: 2, tarea: 'Frases incompletas', ejercicios: ['t3-lis2'] }
+        ] },
+        { id: 't3-s4', n: 4, tipo: 'B', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['t3-voc7', 't3-voc8'] },
+          { destreza: 'gramatica', ejercicios: ['t3-gram7', 't3-gram8'] },
+          { destreza: 'reading', parte: 6, tarea: 'Cross-text matching', ejercicios: ['t3-read6'] },
+          { destreza: 'speaking', tarea: 'Parte 3', ejercicios: ['t3-speak3'] }
+        ] },
+        { id: 't3-s5', n: 5, tipo: 'A', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['t3-voc9', 't3-voc10'] },
+          { destreza: 'gramatica', ejercicios: ['t3-gram9', 't3-gram10'] },
+          { destreza: 'use', parte: 3, tarea: 'Word formation', ejercicios: ['t3-use3'] },
+          { destreza: 'listening', parte: 3, tarea: 'Conversación larga', ejercicios: ['t3-lis3'] }
+        ] },
+        { id: 't3-s6', n: 6, tipo: 'B', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['t3-voc11', 't3-voc12'] },
+          { destreza: 'gramatica', ejercicios: ['t3-gram11', 't3-gram12'] },
+          { destreza: 'reading', parte: 7, tarea: 'Gapped text', ejercicios: ['t3-read7'] },
+          { destreza: 'speaking', tarea: 'Parte 4', ejercicios: ['t3-speak4'] }
+        ] },
+        { id: 't3-s7', n: 7, tipo: 'A', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['t3-voc13', 't3-voc14'] },
+          { destreza: 'gramatica', ejercicios: ['t3-gram13', 't3-gram14'] },
+          { destreza: 'use', parte: 4, tarea: 'Key word transformation', ejercicios: ['t3-use4a', 't3-use4b'] },
+          { destreza: 'listening', parte: 4, tarea: 'Multiple matching', ejercicios: ['t3-lis4'] }
+        ] },
+        { id: 't3-s8', n: 8, tipo: 'B', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['t3-voc15', 't3-voc16'] },
+          { destreza: 'gramatica', ejercicios: ['t3-gram15', 't3-gram16'] },
+          { destreza: 'reading', parte: 8, tarea: 'Multiple matching', ejercicios: ['t3-read8'] },
+          { destreza: 'speaking', tarea: 'Repaso', ejercicios: ['t3-speakr'] }
+        ] },
+        { id: 't3-s9', n: 9, tipo: 'W', bloques: [
+          { destreza: 'writing', parte: 1, tarea: 'Essay', ejercicios: ['t3-write1'] },
+          { destreza: 'writing', parte: 2, tarea: 'A elegir', ejercicios: ['t3-write2'] }
+        ] }
+      ]
+    },
     { id: 't4', titulo: 'Test 4' }
   ],
 
@@ -801,7 +857,7 @@ window.WELL_PRACTICA = {
 
   't2-voc1': {
     tipo: 'caja', titulo: 'Preposiciones tras sustantivo',
-    instruccion: 'Completa cada frase con una palabra de la caja. Sobra una.',
+    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
     caja: ['about', 'for', 'in', 'of', 'on', 'over', 'to', 'with'],
     items: [
       { antes: 'There is no need', despues: 'alarm.', aceptadas: ['for'] },
@@ -815,7 +871,7 @@ window.WELL_PRACTICA = {
 
   't2-voc2': {
     tipo: 'caja', titulo: 'Phrasal verbs · dar y quitar',
-    instruccion: 'Completa cada frase con una palabra de la caja. Sobra una.',
+    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
     caja: ['away', 'back', 'down', 'in', 'off', 'out', 'up', 'with'],
     items: [
       { antes: 'She gave', despues: 'most of her books before moving.', aceptadas: ['away'] },
@@ -829,7 +885,7 @@ window.WELL_PRACTICA = {
 
   't2-voc3': {
     tipo: 'caja', titulo: 'Adjetivos y su preposición',
-    instruccion: 'Completa cada frase con una palabra de la caja. Sobra una.',
+    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
     caja: ['about', 'at', 'from', 'in', 'of', 'on', 'to', 'with'],
     items: [
       { antes: 'He is hopeless', despues: 'directions.', aceptadas: ['at'] },
@@ -843,7 +899,7 @@ window.WELL_PRACTICA = {
 
   't2-voc4': {
     tipo: 'caja', titulo: 'Expresiones con partes del cuerpo',
-    instruccion: 'Completa cada expresión con una palabra de la caja. Sobra una.',
+    instruccion: 'Completa cada expresión con una palabra de la caja. Hay más palabras de las que necesitas.',
     caja: ['arm', 'eye', 'foot', 'hand', 'head', 'heart', 'neck', 'shoulder'],
     items: [
       { antes: 'I did not see', despues: 'to eye with him about it.', aceptadas: ['eye'] },
@@ -909,7 +965,7 @@ window.WELL_PRACTICA = {
 
   't2-voc9': {
     tipo: 'caja', titulo: 'Verbos con preposición fija',
-    instruccion: 'Completa cada frase con una palabra de la caja. Sobra una.',
+    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
     caja: ['at', 'for', 'from', 'in', 'of', 'on', 'to', 'with'],
     items: [
       { antes: 'Nobody objected', despues: 'the change of date.', aceptadas: ['to'] },
@@ -923,7 +979,7 @@ window.WELL_PRACTICA = {
 
   't2-voc10': {
     tipo: 'caja', titulo: 'Phrasal verbs · empezar y terminar',
-    instruccion: 'Completa cada frase con una palabra de la caja. Sobra una.',
+    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
     caja: ['ahead', 'along', 'down', 'off', 'out', 'through', 'up', 'with'],
     items: [
       { antes: 'The festival kicks', despues: 'on the fifteenth.', aceptadas: ['off'] },
@@ -937,7 +993,7 @@ window.WELL_PRACTICA = {
 
   't2-voc11': {
     tipo: 'caja', titulo: 'Colocaciones · verbo y sustantivo',
-    instruccion: 'Completa cada frase con un verbo de la caja. Sobra uno.',
+    instruccion: 'Completa cada frase con un verbo de la caja. Hay más verbos de los que necesitas.',
     caja: ['break', 'catch', 'come', 'keep', 'lose', 'make', 'meet', 'set'],
     items: [
       { antes: 'It is hard to', despues: 'track of everyone these days.', aceptadas: ['keep'] },
@@ -951,7 +1007,7 @@ window.WELL_PRACTICA = {
 
   't2-voc12': {
     tipo: 'caja', titulo: 'Expresiones con el tiempo',
-    instruccion: 'Completa cada expresión con una palabra de la caja. Sobra una.',
+    instruccion: 'Completa cada expresión con una palabra de la caja. Hay más palabras de las que necesitas.',
     caja: ['clock', 'hand', 'moment', 'run', 'spur', 'time', 'while', 'word'],
     items: [
       { antes: 'We booked it on the', despues: 'of the moment.', aceptadas: ['spur'] },
@@ -997,7 +1053,7 @@ window.WELL_PRACTICA = {
       { antes: 'The two systems are simply', despues: '.', raiz: 'COMPATIBLE', aceptadas: ['incompatible'] },
       { antes: 'They had to', despues: 'the whole timetable.', raiz: 'THINK', aceptadas: ['rethink'] },
       { antes: 'Her contribution was', despues: 'by everyone at the time.', raiz: 'ESTIMATE', aceptadas: ['underestimated'] },
-      { antes: 'The delay was entirely', despues: '.', raiz: 'AVOID', aceptadas: ['avoidable', 'unavoidable'] },
+      { antes: 'The delay was entirely', despues: ', had anyone read the timetable.', raiz: 'AVOID', aceptadas: ['avoidable'] },
       { antes: 'He spoke with', despues: 'confidence for a beginner.', raiz: 'SURPRISE', aceptadas: ['surprising'] }
     ]
   },
@@ -1526,7 +1582,7 @@ window.WELL_PRACTICA = {
   /* Vocabulario · cajas de palabras (phrasal verbs y preposiciones) */
   'v3-caja': {
     tipo: 'caja', titulo: 'Phrasal verbs · partículas',
-    instruccion: 'Completa cada frase con una palabra de la caja. Sobra una.',
+    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
     caja: ['away', 'down', 'in', 'off', 'on', 'out', 'over', 'up'],
     items: [
       { antes: 'The meeting was called', despues: 'at the last minute.', aceptadas: ['off'] },
@@ -1540,7 +1596,7 @@ window.WELL_PRACTICA = {
 
   'v4-caja': {
     tipo: 'caja', titulo: 'Preposiciones dependientes · adjetivos',
-    instruccion: 'Completa cada frase con una palabra de la caja. Sobra una.',
+    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
     caja: ['about', 'at', 'for', 'from', 'in', 'of', 'on', 'to', 'with'],
     items: [
       { antes: 'She is not remotely interested', despues: 'politics.', aceptadas: ['in'] },
@@ -1554,7 +1610,7 @@ window.WELL_PRACTICA = {
 
   'v5-caja': {
     tipo: 'caja', titulo: 'Preposiciones dependientes · verbos',
-    instruccion: 'Completa cada frase con una palabra de la caja. Sobra una.',
+    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
     caja: ['for', 'from', 'in', 'into', 'of', 'on', 'to', 'with'],
     items: [
       { antes: 'Nobody warned us', despues: 'the roadworks.', aceptadas: ['of'] },
@@ -1568,7 +1624,7 @@ window.WELL_PRACTICA = {
 
   'v6-caja': {
     tipo: 'caja', titulo: 'Expresiones hechas',
-    instruccion: 'Completa cada expresión con una palabra de la caja. Sobra una.',
+    instruccion: 'Completa cada expresión con una palabra de la caja. Hay más palabras de las que necesitas.',
     caja: ['blue', 'clockwork', 'cold', 'edge', 'hands', 'nutshell', 'thumb', 'weather'],
     items: [
       { antes: 'She has been feeling under the', despues: 'since Monday.', aceptadas: ['weather'] },
@@ -1582,7 +1638,7 @@ window.WELL_PRACTICA = {
 
   'v7-caja': {
     tipo: 'caja', titulo: 'Colocaciones con verbos frecuentes',
-    instruccion: 'Completa cada frase con un verbo de la caja. Sobra uno.',
+    instruccion: 'Completa cada frase con un verbo de la caja. Hay más verbos de los que necesitas.',
     caja: ['do', 'draw', 'give', 'make', 'pay', 'raise', 'reach', 'take'],
     items: [
       { antes: 'It took them all night to', despues: 'a decision.', aceptadas: ['reach', 'make'] },
@@ -1596,7 +1652,7 @@ window.WELL_PRACTICA = {
 
   'v8-caja': {
     tipo: 'caja', titulo: 'Phrasal verbs · segunda tanda',
-    instruccion: 'Completa cada frase con una palabra de la caja. Sobra una.',
+    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
     caja: ['along', 'back', 'forward', 'in', 'off', 'through', 'together', 'up'],
     items: [
       { antes: 'The council has put', despues: 'a new plan for the square.', aceptadas: ['forward'] },
@@ -2006,7 +2062,7 @@ window.WELL_PRACTICA = {
     "v1-caja": {
       "tipo": "caja",
       "titulo": "Adjetivos y verbos con preposición",
-      "instruccion": "Completa cada frase con una palabra de la caja. Sobra una.",
+      "instruccion": "Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.",
       "caja": [
         "about",
         "at",
@@ -2268,7 +2324,7 @@ window.WELL_PRACTICA = {
     "v2-caja": {
       "tipo": "caja",
       "titulo": "Partículas de phrasal verbs",
-      "instruccion": "Completa cada frase con una palabra de la caja. Sobra una.",
+      "instruccion": "Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.",
       "caja": [
         "away",
         "back",
@@ -2460,6 +2516,848 @@ window.WELL_PRACTICA = {
           ]
         }
       ]
-    }
+    },
+
+  /* ===================== TEST 3 · GRAMATICA =====================
+     Tercera vuelta al temario de Elena, en su orden. Frases nuevas. */
+
+  't3-gram1': {
+    tipo: 'transformacion', titulo: 'Presentes · tercera vuelta',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'Nobody has repaired that gate for years.', clave: 'BEEN', antes: 'That gate', despues: 'for years.', aceptadas: ["hasn't been repaired", 'has not been repaired'] },
+      { frase: 'He keeps interrupting, and it is starting to irritate me.', clave: 'ALWAYS', antes: 'He', despues: ', which is starting to irritate me.', aceptadas: ['is always interrupting', "'s always interrupting"] },
+      { frase: 'This is my third attempt at the exam.', clave: 'TAKEN', antes: 'I', despues: 'the exam three times.', aceptadas: ['have now taken', "'ve now taken", 'have taken'] },
+      { frase: 'The results come out on the fifth of every month.', clave: 'PUBLISHED', antes: 'The results', despues: 'the fifth of every month.', aceptadas: ['are published on'] },
+      { frase: 'She has been at that desk since seven this morning.', clave: 'SITTING', antes: 'She', despues: 'at that desk since seven.', aceptadas: ['has been sitting', "'s been sitting"] },
+      { frase: 'I am not familiar with this software yet.', clave: 'GOT', antes: 'I', despues: 'to this software yet.', aceptadas: ["haven't got used", 'have not got used'] }
+    ]
+  },
+
+  't3-gram2': {
+    tipo: 'transformacion', titulo: 'Pasados · tercera vuelta',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'He arrived, and the meeting had already begun.', clave: 'STARTED', antes: 'The meeting', despues: 'he arrived.', aceptadas: ['had already started when', 'had started before'] },
+      { frase: 'I was cycling home when the storm broke.', clave: 'WAY', antes: 'I was on', despues: 'when the storm broke.', aceptadas: ['my way home'] },
+      { frase: 'She spent two hours looking for it before giving up.', clave: 'BEEN', antes: 'She', despues: 'for two hours when she gave up.', aceptadas: ['had been looking'] },
+      { frase: 'They did not tell me about the change.', clave: 'INFORMED', antes: 'I', despues: 'the change.', aceptadas: ["wasn't informed of", 'was not informed of', "wasn't informed about"] },
+      { frase: 'It was the worst holiday I had ever had.', clave: 'NEVER', antes: 'I', despues: 'a worse holiday.', aceptadas: ['had never had'] },
+      { frase: 'The rain started, and shortly afterwards we left.', clave: 'SOON', antes: 'We left', despues: 'the rain started.', aceptadas: ['soon after'] }
+    ]
+  },
+
+  't3-gram3': {
+    tipo: 'transformacion', titulo: 'Futuro · tercera vuelta',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'The shop shuts in ten minutes, so we should hurry.', clave: 'POINT', antes: 'The shop is on', despues: ', so we should hurry.', aceptadas: ['the point of closing'] },
+      { frase: 'They intend to publish the findings next spring.', clave: 'DUE', antes: 'The findings', despues: 'next spring.', aceptadas: ['are due to be published'] },
+      { frase: 'I doubt the parcel will arrive before Friday.', clave: 'UNLIKELY', antes: 'The parcel', despues: 'before Friday.', aceptadas: ['is unlikely to arrive'] },
+      { frase: 'By Christmas she will have worked here for a decade.', clave: 'BEEN', antes: 'By Christmas she', despues: 'here for a decade.', aceptadas: ['will have been working'] },
+      { frase: 'Ring me after you have spoken to him.', clave: 'ONCE', antes: 'Ring me', despues: 'to him.', aceptadas: ['once you have spoken', "once you've spoken"] },
+      { frase: 'There is no chance of them agreeing to that.', clave: 'WAY', antes: 'There is', despues: 'agree to that.', aceptadas: ['no way they will', 'no way they would'] }
+    ]
+  },
+
+  't3-gram4': {
+    tipo: 'transformacion', titulo: 'Repaso de tiempos · tercera vuelta',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'I last spoke to her at the wedding.', clave: 'SINCE', antes: 'I have not', despues: 'the wedding.', aceptadas: ['spoken to her since'] },
+      { frase: 'The kitchen is being painted at the moment.', clave: 'HAVING', antes: 'We', despues: 'at the moment.', aceptadas: ['are having the kitchen painted', "'re having the kitchen painted"] },
+      { frase: 'He had already eaten when I offered him lunch.', clave: 'BY', antes: 'He had eaten', despues: 'him lunch.', aceptadas: ['by the time I offered'] },
+      { frase: 'It has been three weeks since the last delivery.', clave: 'DELIVERED', antes: 'Nothing', despues: 'three weeks.', aceptadas: ['has been delivered for', 'has been delivered in'] },
+      { frase: 'They will still be discussing it at midnight.', clave: 'BE', antes: 'At midnight they', despues: 'it.', aceptadas: ['will still be discussing'] },
+      { frase: 'I have not seen that film, though I keep meaning to.', clave: 'YET', antes: 'I', despues: 'that film, though I keep meaning to.', aceptadas: ['have not yet seen', "haven't yet seen"] }
+    ]
+  },
+
+  't3-gram5': {
+    tipo: 'transformacion', titulo: 'Costumbres · tercera vuelta',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'Working from home no longer feels strange to me.', clave: 'USED', antes: 'I', despues: 'from home.', aceptadas: ['am used to working', "'m used to working"] },
+      { frase: 'Every summer we drove to the same village.', clave: 'WOULD', antes: 'Every summer we', despues: 'to the same village.', aceptadas: ['would drive'] },
+      { frase: 'She is gradually adapting to the new software.', clave: 'GETTING', antes: 'She is gradually', despues: 'the new software.', aceptadas: ['getting used to'] },
+      { frase: 'I played the guitar as a teenager but stopped.', clave: 'USED', antes: 'I', despues: 'the guitar as a teenager.', aceptadas: ['used to play'] },
+      { frase: 'The noise from the road no longer wakes them.', clave: 'ACCUSTOMED', antes: 'They have become', despues: 'from the road.', aceptadas: ['accustomed to the noise'] },
+      { frase: 'There was never a bank on this street.', clave: 'BE', antes: 'There', despues: 'a bank on this street.', aceptadas: ['never used to be'] }
+    ]
+  },
+
+  't3-gram6': {
+    tipo: 'transformacion', titulo: 'Modales · poder y deber',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'Despite the fog, they landed safely.', clave: 'MANAGED', antes: 'Despite the fog, they', despues: 'safely.', aceptadas: ['managed to land'] },
+      { frase: 'Passengers are obliged to keep their belts fastened.', clave: 'MUST', antes: 'Passengers', despues: 'their belts fastened.', aceptadas: ['must keep'] },
+      { frase: 'I was not capable of finishing it alone.', clave: 'ABLE', antes: 'I', despues: 'it alone.', aceptadas: ["wasn't able to finish", 'was not able to finish'] },
+      { frase: 'It is up to you whether you come.', clave: 'HAVE', antes: 'You', despues: 'if you do not want to.', aceptadas: ["don't have to come", 'do not have to come'] },
+      { frase: 'Handing it in late is not permitted.', clave: 'ALLOWED', antes: 'You', despues: 'it in late.', aceptadas: ["aren't allowed to hand", 'are not allowed to hand'] },
+      { frase: 'It was not necessary for you to wait.', clave: 'NEED', antes: 'You', despues: '.', aceptadas: ["needn't have waited", 'need not have waited'] }
+    ]
+  },
+
+  't3-gram7': {
+    tipo: 'transformacion', titulo: 'Deducciones sobre el pasado',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'I am certain nobody told him.', clave: 'HAVE', antes: 'Nobody', despues: 'him.', aceptadas: ['can have told'] },
+      { frase: 'The obvious explanation is that she left early.', clave: 'MUST', antes: 'She', despues: 'early.', aceptadas: ['must have left'] },
+      { frase: 'Possibly they misread the instructions.', clave: 'MAY', antes: 'They', despues: 'the instructions.', aceptadas: ['may have misread'] },
+      { frase: 'It is not possible that he walked here in ten minutes.', clave: 'HAVE', antes: 'He', despues: 'here in ten minutes.', aceptadas: ["can't have walked", 'cannot have walked'] },
+      { frase: 'Perhaps I left my keys in the car.', clave: 'MIGHT', antes: 'I', despues: 'my keys in the car.', aceptadas: ['might have left'] },
+      { frase: 'I am sure that was not deliberate.', clave: 'BEEN', antes: 'That', despues: 'deliberate.', aceptadas: ["can't have been", 'cannot have been'] }
+    ]
+  },
+
+  't3-gram8': {
+    tipo: 'transformacion', titulo: 'Consejo y crítica',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'It was careless of them to leave it unlocked.', clave: 'HAVE', antes: 'They', despues: 'it unlocked.', aceptadas: ["shouldn't have left", 'should not have left'] },
+      { frase: 'The sensible thing would be to ask first.', clave: 'BETTER', antes: 'You', despues: 'first.', aceptadas: ['had better ask', "'d better ask"] },
+      { frase: 'Why did you not say something at the time?', clave: 'OUGHT', antes: 'You', despues: 'something at the time.', aceptadas: ['ought to have said'] },
+      { frase: 'I regret buying the cheaper one.', clave: 'WISH', antes: 'I', despues: 'the cheaper one.', aceptadas: ["wish I hadn't bought", 'wish I had not bought'] },
+      { frase: 'Perhaps you could try turning it off and on.', clave: 'WORTH', antes: 'It might', despues: 'off and on.', aceptadas: ['be worth turning it'] },
+      { frase: 'Telling her was a mistake, as it turned out.', clave: 'SHOULD', antes: 'As it turned out, I', despues: 'her.', aceptadas: ["shouldn't have told", 'should not have told'] }
+    ]
+  },
+
+  't3-gram9': {
+    tipo: 'transformacion', titulo: 'Voz pasiva · tercera vuelta',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'Someone will meet you at the airport.', clave: 'MET', antes: 'You', despues: 'at the airport.', aceptadas: ['will be met'] },
+      { frase: 'They are still investigating the cause.', clave: 'BEING', antes: 'The cause', despues: 'investigated.', aceptadas: ['is still being'] },
+      { frase: 'Nobody had warned us about the delay.', clave: 'WARNED', antes: 'We', despues: 'about the delay.', aceptadas: ["hadn't been warned", 'had not been warned'] },
+      { frase: 'You cannot take photographs inside the chapel.', clave: 'TAKEN', antes: 'Photographs', despues: 'inside the chapel.', aceptadas: ["can't be taken", 'cannot be taken'] },
+      { frase: 'They gave the winner a medal.', clave: 'AWARDED', antes: 'The winner', despues: 'a medal.', aceptadas: ['was awarded'] },
+      { frase: 'The council is going to demolish the old cinema.', clave: 'DEMOLISHED', antes: 'The old cinema is going', despues: 'by the council.', aceptadas: ['to be demolished'] }
+    ]
+  },
+
+  't3-gram10': {
+    tipo: 'transformacion', titulo: 'Pasivas impersonales',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'People say the house is haunted.', clave: 'SAID', antes: 'The house', despues: 'haunted.', aceptadas: ['is said to be'] },
+      { frase: 'Everyone believes he left the country.', clave: 'BELIEVED', antes: 'He', despues: 'the country.', aceptadas: ['is believed to have left'] },
+      { frase: 'They report that two people are missing.', clave: 'REPORTED', antes: 'It', despues: 'two people are missing.', aceptadas: ['is reported that'] },
+      { frase: 'Experts think the painting is a forgery.', clave: 'THOUGHT', antes: 'The painting', despues: 'a forgery.', aceptadas: ['is thought to be'] },
+      { frase: 'People used to consider this street dangerous.', clave: 'CONSIDERED', antes: 'This street', despues: 'dangerous.', aceptadas: ['used to be considered'] },
+      { frase: 'Nobody knows where the money went.', clave: 'KNOWN', antes: 'It', despues: 'where the money went.', aceptadas: ["isn't known", 'is not known'] }
+    ]
+  },
+
+  't3-gram11': {
+    tipo: 'transformacion', titulo: 'Causativa · que te lo hagan',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'A mechanic services my car every autumn.', clave: 'HAVE', antes: 'I', despues: 'every autumn.', aceptadas: ['have my car serviced'] },
+      { frase: 'Someone stole her bike last week.', clave: 'HAD', antes: 'She', despues: 'last week.', aceptadas: ['had her bike stolen'] },
+      { frase: 'We are paying someone to redecorate the hall.', clave: 'GETTING', antes: 'We are', despues: 'redecorated.', aceptadas: ['getting the hall'] },
+      { frase: 'I must arrange for someone to check the boiler.', clave: 'CHECKED', antes: 'I must', despues: '.', aceptadas: ['have the boiler checked', 'get the boiler checked'] },
+      { frase: 'The dentist took out two of his teeth.', clave: 'HAD', antes: 'He', despues: 'out.', aceptadas: ['had two teeth taken'] },
+      { frase: 'They are going to install a new lift for us.', clave: 'HAVING', antes: 'We are', despues: 'installed.', aceptadas: ['having a new lift'] }
+    ]
+  },
+
+  't3-gram12': {
+    tipo: 'transformacion', titulo: 'Condicionales · los tres tipos y las mezclas',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'I did not book early, so the flight cost a fortune.', clave: 'HAD', antes: 'If I', despues: ', the flight would have been cheaper.', aceptadas: ['had booked early'] },
+      { frase: 'She is not here, so she cannot sign it.', clave: 'WERE', antes: 'If she', despues: ', she could sign it.', aceptadas: ['were here'] },
+      { frase: 'He missed the train because he overslept.', clave: 'NOT', antes: 'If he had', despues: ', he would not have missed the train.', aceptadas: ['not overslept'] },
+      { frase: 'I am tired today because I worked late last night.', clave: 'WOULD', antes: 'If I had not worked late last night, I', despues: 'so tired today.', aceptadas: ["wouldn't be", 'would not be'] },
+      { frase: 'Take an umbrella; it might rain.', clave: 'CASE', antes: 'Take an umbrella', despues: 'rains.', aceptadas: ['in case it'] },
+      { frase: 'Without your help I would have failed.', clave: 'HELPED', antes: 'If you', despues: ', I would have failed.', aceptadas: ["hadn't helped me", 'had not helped me'] }
+    ]
+  },
+
+  't3-gram13': {
+    tipo: 'transformacion', titulo: 'Condicionales sin <i>if</i>',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'If I had known about the strike, I would have driven.', clave: 'HAD', antes: 'I would have driven', despues: 'about the strike.', aceptadas: ['had I known'] },
+      { frase: 'You can borrow it if you return it by Friday.', clave: 'LONG', antes: 'You can borrow it', despues: 'you return it by Friday.', aceptadas: ['as long as'] },
+      { frase: 'We will go ahead if the weather is fine.', clave: 'PROVIDED', antes: 'We will go ahead', despues: 'fine.', aceptadas: ['provided the weather is'] },
+      { frase: 'If you do not pay now, the offer expires.', clave: 'UNLESS', antes: 'The offer expires', despues: 'now.', aceptadas: ['unless you pay'] },
+      { frase: 'If the council approved it, work would start in May.', clave: 'WERE', antes: 'Work would start in May,', despues: 'to approve it.', aceptadas: ['were the council'] },
+      { frase: 'If it had not been for Ana, we would have got lost.', clave: 'NOT', antes: 'Had it', despues: 'for Ana, we would have got lost.', aceptadas: ['not been'] }
+    ]
+  },
+
+  't3-gram14': {
+    tipo: 'transformacion', titulo: 'Deseos y lamentos',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'I regret not studying languages at school.', clave: 'WISH', antes: 'I', despues: 'languages at school.', aceptadas: ['wish I had studied'] },
+      { frase: 'It is a pity you cannot come.', clave: 'ONLY', antes: 'If', despues: 'come.', aceptadas: ['only you could'] },
+      { frase: 'I would rather you did not mention it.', clave: 'PREFER', antes: 'I', despues: 'mention it.', aceptadas: ['would prefer you not to', "'d prefer you not to"] },
+      { frase: 'She is annoyed that the shop closed so early.', clave: 'WISHES', antes: 'She', despues: 'closed so early.', aceptadas: ["wishes the shop hadn't", 'wishes the shop had not'] },
+      { frase: 'It is time for us to leave.', clave: 'WENT', antes: 'It is time', despues: '.', aceptadas: ['we went'] },
+      { frase: 'I would rather be at home now.', clave: 'WERE', antes: 'I wish', despues: 'at home now.', aceptadas: ['I were'] }
+    ]
+  },
+
+  't3-gram15': {
+    tipo: 'transformacion', titulo: 'Relativo, comparación y <i>so / such</i>',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'The film was so long that we left early.', clave: 'SUCH', antes: 'It was', despues: 'that we left early.', aceptadas: ['such a long film'] },
+      { frase: 'The queue was very long, so we gave up.', clave: 'SO', antes: 'The queue was', despues: 'we gave up.', aceptadas: ['so long that'] },
+      { frase: 'We stayed in a flat and its owner lives in Lisbon.', clave: 'WHOSE', antes: 'We stayed in a flat', despues: 'lives in Lisbon.', aceptadas: ['whose owner'] },
+      { frase: 'This is the most confusing form I have ever filled in.', clave: 'MORE', antes: 'I have never filled in', despues: 'form.', aceptadas: ['a more confusing'] },
+      { frase: 'The house was much smaller than I remembered.', clave: 'NEARLY', antes: 'The house was', despues: 'as I remembered.', aceptadas: ['not nearly as big'] },
+      { frase: 'The manager, who I had never met, apologised.', clave: 'WHOM', antes: 'The manager,', despues: 'met, apologised.', aceptadas: ['whom I had never'] }
+    ]
+  },
+
+  't3-gram16': {
+    tipo: 'transformacion', titulo: 'Estilo indirecto e inversión enfática',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: '"You broke the window," said the caretaker.', clave: 'ACCUSED', antes: 'The caretaker', despues: 'the window.', aceptadas: ['accused me of breaking'] },
+      { frase: '"I will pay for the damage," she said.', clave: 'OFFERED', antes: 'She', despues: 'for the damage.', aceptadas: ['offered to pay'] },
+      { frase: '"Do not touch the wires," the engineer told us.', clave: 'WARNED', antes: 'The engineer', despues: 'the wires.', aceptadas: ['warned us not to touch'] },
+      { frase: 'I have never heard such nonsense.', clave: 'HAVE', antes: 'Never', despues: 'such nonsense.', aceptadas: ['have I heard'] },
+      { frase: 'She only realised her mistake when she got home.', clave: 'UNTIL', antes: 'Not', despues: 'home did she realise her mistake.', aceptadas: ['until she got'] },
+      { frase: 'They had barely started when the lights failed.', clave: 'SOONER', antes: 'No', despues: 'started than the lights failed.', aceptadas: ['sooner had they'] }
+    ]
+  },
+
+
+  /* ===================== TEST 3 · VOCABULARIO ===================== */
+
+  't3-voc1': {
+    tipo: 'caja', titulo: 'Preposiciones tras sustantivo · tercera vuelta',
+    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    caja: ['against', 'between', 'for', 'from', 'in', 'of', 'on', 'to'],
+    items: [
+      { antes: 'There is a growing demand', despues: 'shorter contracts.', aceptadas: ['for'] },
+      { antes: 'She has an excellent grasp', despues: 'the material.', aceptadas: ['of'] },
+      { antes: 'The link', despues: 'the two cases is not obvious.', aceptadas: ['between'] },
+      { antes: 'They have no objection', despues: 'the proposal.', aceptadas: ['to'] },
+      { antes: 'He has a strong prejudice', despues: 'anything modern.', aceptadas: ['against'] },
+      { antes: 'The recipe suggests a substitute', despues: 'butter.', aceptadas: ['for'] }
+    ]
+  },
+
+  't3-voc2': {
+    tipo: 'caja', titulo: 'Phrasal verbs · seguir y abandonar',
+    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    caja: ['back', 'down', 'into', 'off', 'on', 'out', 'through', 'up'],
+    items: [
+      { antes: 'She refused to back', despues: 'despite the pressure.', aceptadas: ['down'] },
+      { antes: 'They put the meeting', despues: 'until Thursday.', aceptadas: ['off'] },
+      { antes: 'He carried', despues: 'working as though nothing had happened.', aceptadas: ['on'] },
+      { antes: 'The deal fell', despues: 'at the last minute.', aceptadas: ['through'] },
+      { antes: 'Two of them dropped', despues: 'of the course in October.', aceptadas: ['out'] },
+      { antes: 'Do not give', despues: 'so easily.', aceptadas: ['up'] }
+    ]
+  },
+
+  't3-voc3': {
+    tipo: 'caja', titulo: 'Adjetivos y su preposición · tercera vuelta',
+    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    caja: ['about', 'at', 'for', 'from', 'in', 'of', 'to', 'with'],
+    items: [
+      { antes: 'The town is renowned', despues: 'its cheese.', aceptadas: ['for'] },
+      { antes: 'She is completely oblivious', despues: 'the effect it has.', aceptadas: ['to'] },
+      { antes: 'He was adamant', despues: 'not going.', aceptadas: ['about'] },
+      { antes: 'This material is resistant', despues: 'heat.', aceptadas: ['to'] },
+      { antes: 'The results are consistent', despues: 'our earlier findings.', aceptadas: ['with'] },
+      { antes: 'I am no good', despues: 'remembering names.', aceptadas: ['at'] }
+    ]
+  },
+
+  't3-voc4': {
+    tipo: 'caja', titulo: 'Expresiones hechas · apuros y oficio',
+    instruccion: 'Completa cada expresión con una palabra de la caja. Hay más palabras de las que necesitas.',
+    caja: ['deep', 'ends', 'hand', 'ropes', 'shoestring', 'strings', 'track', 'water'],
+    items: [
+      { antes: 'They ran the whole festival on a', despues: '.', aceptadas: ['shoestring'] },
+      { antes: 'It took me a month to learn the', despues: '.', aceptadas: ['ropes'] },
+      { antes: 'She had to pull a few', despues: 'to get him an interview.', aceptadas: ['strings'] },
+      { antes: 'By the third month they were in', despues: 'water.', aceptadas: ['deep'] },
+      { antes: 'It is hard to keep', despues: 'of who owes what.', aceptadas: ['track'] },
+      { antes: 'They are struggling to make', despues: 'meet.', aceptadas: ['ends'] }
+    ]
+  },
+
+  't3-voc5': {
+    tipo: 'cloze', titulo: 'Open cloze · perderse',
+    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    texto: [
+      'Getting lost has quietly become difficult. A generation ago it required no effort {1} all: you set off, misread a sign and spent an hour discovering a village nobody had recommended. Now the phone in your pocket will not permit it, and something has gone {2} with the inconvenience.',
+      'This is not an argument {3} maps, which are among the finest things anyone has made. It is an argument about attention. A route you have been told, turn {4} turn, is a route you will not remember, because remembering it was never asked of you. The old way was slower and occasionally humiliating, but it left a picture in your head that no amount {5} zooming can reproduce. Whether that matters is a fair question, and one worth asking before the last of us who can read a paper map {6} out.'
+    ],
+    items: [
+      { aceptadas: ['at'] }, { aceptadas: ['along'] }, { aceptadas: ['against'] },
+      { aceptadas: ['by'] }, { aceptadas: ['of'] }, { aceptadas: ['dies'] }
+    ]
+  },
+
+  't3-voc6': {
+    tipo: 'cloze', titulo: 'Open cloze · ser malo en algo',
+    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    texto: [
+      'There is a particular kind of courage in being visibly bad at something after the age of thirty. Children are incompetent at almost everything and do not appear to mind, whereas adults have learned that incompetence is embarrassing and so restrict {1} to what they already do well. The result is a life that gets steadily narrower {2} it gets more comfortable.',
+      'The obvious reply is that time is short and one should play to your strengths, and there is something {3} that. But the argument proves too much. Taken seriously it would have you abandon every activity at the exact {4} where it stops being flattering, which is usually the moment before it starts being interesting. Nobody ever learned an instrument, a language {5} a trade without a long stretch of sounding foolish in front of somebody. That stretch is not the price of the skill. It {6}, in some important sense, the skill arriving.'
+    ],
+    items: [
+      { aceptadas: ['themselves'] }, { aceptadas: ['as'] }, { aceptadas: ['in'] },
+      { aceptadas: ['point'] }, { aceptadas: ['or'] }, { aceptadas: ['is'] }
+    ]
+  },
+
+  't3-voc7': {
+    tipo: 'formacion', titulo: 'Word formation · nombres abstractos',
+    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    items: [
+      { antes: 'Her', despues: 'to detail is remarkable.', raiz: 'ATTEND', aceptadas: ['attention'] },
+      { antes: 'The', despues: 'of the evidence was never questioned.', raiz: 'RELEVANT', aceptadas: ['relevance'] },
+      { antes: 'They showed a complete', despues: 'of the rules.', raiz: 'IGNORE', aceptadas: ['ignorance'] },
+      { antes: 'His', despues: 'to accept help made everything harder.', raiz: 'RELUCTANT', aceptadas: ['reluctance'] },
+      { antes: 'There is a real', despues: 'that the bridge will close.', raiz: 'LIKELY', aceptadas: ['likelihood'] },
+      { antes: 'The', despues: 'between the two versions is striking.', raiz: 'SIMILAR', aceptadas: ['similarity'] }
+    ]
+  },
+
+  't3-voc8': {
+    tipo: 'formacion', titulo: 'Word formation · verbos derivados',
+    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    items: [
+      { antes: 'The new rules will', despues: 'the process considerably.', raiz: 'SIMPLE', aceptadas: ['simplify'] },
+      { antes: 'They had to', despues: 'the walls after the fire.', raiz: 'STRONG', aceptadas: ['strengthen'] },
+      { antes: 'The council refused to', despues: 'the decision.', raiz: 'JUST', aceptadas: ['justify'] },
+      { antes: 'We need to', despues: 'a few points before signing.', raiz: 'CLEAR', aceptadas: ['clarify'] },
+      { antes: 'The scheme was designed to', despues: 'small businesses.', raiz: 'POWER', aceptadas: ['empower'] },
+      { antes: 'The medicine did little to', despues: 'the pain.', raiz: 'LESS', aceptadas: ['lessen'] }
+    ]
+  },
+
+  't3-voc9': {
+    tipo: 'caja', titulo: 'Verbos con preposición fija · tercera vuelta',
+    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    caja: ['about', 'for', 'from', 'in', 'into', 'of', 'on', 'with'],
+    items: [
+      { antes: 'The book consists', despues: 'twelve short essays.', aceptadas: ['of'] },
+      { antes: 'His parents deterred him', despues: 'applying.', aceptadas: ['from'] },
+      { antes: 'She insisted', despues: 'paying her share.', aceptadas: ['on'] },
+      { antes: 'Nobody had bargained', despues: 'the weather.', aceptadas: ['for'] },
+      { antes: 'The talks resulted', despues: 'a compromise nobody liked.', aceptadas: ['in'] },
+      { antes: 'He was charged', despues: 'careless driving.', aceptadas: ['with'] }
+    ]
+  },
+
+  't3-voc10': {
+    tipo: 'caja', titulo: 'Phrasal verbs · aguantar y descubrir',
+    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    caja: ['across', 'away', 'on', 'out', 'over', 'through', 'up', 'with'],
+    items: [
+      { antes: 'He made the whole story', despues: '.', aceptadas: ['up'] },
+      { antes: 'I came', despues: 'these letters while clearing the attic.', aceptadas: ['across'] },
+      { antes: 'I cannot put up', despues: 'the noise any longer.', aceptadas: ['with'] },
+      { antes: 'They got', despues: 'the worst of the winter somehow.', aceptadas: ['through'] },
+      { antes: 'She talked me', despues: 'of resigning.', aceptadas: ['out'] },
+      { antes: 'The meeting dragged', despues: 'for three hours.', aceptadas: ['on'] }
+    ]
+  },
+
+  't3-voc11': {
+    tipo: 'caja', titulo: 'Colocaciones · verbo y sustantivo · tercera vuelta',
+    instruccion: 'Completa cada frase con un verbo de la caja. Hay más verbos de los que necesitas.',
+    caja: ['draw', 'give', 'hold', 'pay', 'raise', 'run', 'take', 'throw'],
+    items: [
+      { antes: 'They refused to', despues: 'attention to the mistake.', aceptadas: ['draw'] },
+      { antes: 'Nobody was prepared to', despues: 'responsibility for it.', aceptadas: ['take'] },
+      { antes: 'The talk will', despues: 'a number of difficult questions.', aceptadas: ['raise'] },
+      { antes: 'Try to', despues: 'your nerve until the end.', aceptadas: ['hold'] },
+      { antes: 'We had to', despues: 'the risk of losing the deposit.', aceptadas: ['run'] },
+      { antes: 'The company finally agreed to', despues: 'compensation.', aceptadas: ['pay'] }
+    ]
+  },
+
+  't3-voc12': {
+    tipo: 'caja', titulo: 'Expresiones con colores y elementos',
+    instruccion: 'Completa cada expresión con una palabra de la caja. Hay más palabras de las que necesitas.',
+    caja: ['blue', 'cold', 'fire', 'green', 'ice', 'red', 'thin', 'water'],
+    items: [
+      { antes: 'The letter arrived completely out of the', despues: '.', aceptadas: ['blue'] },
+      { antes: 'He got', despues: 'feet the night before the wedding.', aceptadas: ['cold'] },
+      { antes: 'The proposal was given the', despues: 'light in June.', aceptadas: ['green'] },
+      { antes: 'She is very good at breaking the', despues: 'with strangers.', aceptadas: ['ice'] },
+      { antes: 'They spent the afternoon cutting through', despues: 'tape.', aceptadas: ['red'] },
+      { antes: 'His excuse was wearing rather', despues: 'by then.', aceptadas: ['thin'] }
+    ]
+  },
+
+  't3-voc13': {
+    tipo: 'cloze', titulo: 'Open cloze · dar consejos',
+    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    texto: [
+      'Advice is the one gift people give freely and receive badly. Ask ten friends what you should do and you will get eleven answers, none of {1} you will act on, and all of which you will remember when the thing goes wrong. This is not ingratitude. It is that advice arrives stripped of the {2} thing that would make it useful: the situation it came from.',
+      'What people actually want, and rarely say, is permission. They have already decided; what they lack is somebody to agree out loud so that the decision stops being theirs {3}. Anyone who has ever asked whether to hand in their notice knows the feeling. The useful friend, {4} rare, is the one who notices this and asks a question instead of delivering a verdict. It costs more effort and earns less credit, {5} it is the only version that survives contact with the morning. In the {6} run, being listened to changes more minds than being told.'
+    ],
+    items: [
+      { aceptadas: ['which'] }, { aceptadas: ['one'] }, { aceptadas: ['alone'] },
+      { aceptadas: ['though'] }, { aceptadas: ['but'] }, { aceptadas: ['long'] }
+    ]
+  },
+
+  't3-voc14': {
+    tipo: 'cloze', titulo: 'Open cloze · pueblo o ciudad',
+    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    texto: [
+      'Small towns are praised by people who have just left them and defended by people who have never lived in one. The truth sits somewhere less quotable. What a small town gives you is not peace, {1} is often in short supply, but consequence: you will meet again everybody you were ever rude to, and this turns out to be a more effective form of civility {2} any amount of legislation.',
+      'The cost is the same coin turned {3}. Being known is hard to distinguish from being watched, and the town that will notice you are ill is the town that noticed who you left the party with. Cities solve this by not caring, and charge {4} the privilege in rent and in loneliness. Neither arrangement is better in the abstract; each suits a different decade of a life, which is {5} so many people move twice and end up, {6} their own surprise, back where they started.'
+    ],
+    items: [
+      { aceptadas: ['which'] }, { aceptadas: ['than'] }, { aceptadas: ['over'] },
+      { aceptadas: ['for'] }, { aceptadas: ['why'] }, { aceptadas: ['to'] }
+    ]
+  },
+
+  't3-voc15': {
+    tipo: 'formacion', titulo: 'Word formation · personas y procesos',
+    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    items: [
+      { antes: 'The', despues: 'of the scheme has been widely criticised.', raiz: 'ADMINISTER', aceptadas: ['administration'] },
+      { antes: 'She trained as an', despues: 'before switching to law.', raiz: 'ACCOUNT', aceptadas: ['accountant'] },
+      { antes: 'The', despues: 'of the results took a fortnight.', raiz: 'ANALYSE', aceptadas: ['analysis'] },
+      { antes: 'They appointed a new', despues: 'in March.', raiz: 'SUPERVISE', aceptadas: ['supervisor'] },
+      { antes: 'The', despues: 'of the smaller firm was announced yesterday.', raiz: 'ACQUIRE', aceptadas: ['acquisition'] },
+      { antes: 'He works as a', despues: 'for a small publisher.', raiz: 'TRANSLATE', aceptadas: ['translator'] }
+    ]
+  },
+
+  't3-voc16': {
+    tipo: 'formacion', titulo: 'Word formation · adjetivos en negativo',
+    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    items: [
+      { antes: 'The instructions were hopelessly', despues: '.', raiz: 'ADEQUATE', aceptadas: ['inadequate'] },
+      { antes: 'Her reasoning was entirely', despues: '.', raiz: 'LOGIC', aceptadas: ['illogical'] },
+      { antes: 'The damage was, unfortunately,', despues: '.', raiz: 'REVERSE', aceptadas: ['irreversible'] },
+      { antes: 'The two witnesses gave', despues: 'accounts.', raiz: 'CONTRADICT', aceptadas: ['contradictory'] },
+      { antes: 'His handwriting is almost', despues: '.', raiz: 'LEGIBLE', aceptadas: ['illegible'] },
+      { antes: 'The whole affair was highly', despues: '.', raiz: 'REGRET', aceptadas: ['regrettable'] }
+    ]
+  },
+
+
+  /* ===================== TEST 3 · USE OF ENGLISH ===================== */
+
+  't3-use1': {
+    tipo: 'opcion', parte: 1, titulo: 'Use of English · Parte 1',
+    instruccion: 'Elige la palabra que mejor encaja en cada hueco.',
+    texto: [
+      'Repair has become fashionable again, which is a strange fate for something that was, within living memory, simply what you {1} when a thing broke. Councils now run repair cafés; manufacturers, under pressure, have begun, grudgingly, to {2} spare parts available again.',
+      'The enthusiasm is easy to {3} at. It arrives thirty years late and it is, for now, a hobby rather than an economy: it takes a Saturday morning to mend a kettle that costs eleven pounds. But the objection misses the {4}. What the repair café restores is not the kettle. It is the assumption that the inside of an object is knowable, and that assumption has been quietly eroded by a generation of things sealed with glue.',
+      'Manufacturers understand this better than they {5} on. A device you can open is a device you can judge, and a device you can judge is one you might {6} to replace. The right to repair, now written into law in several countries, is therefore not a nostalgic gesture but a real transfer of power, {7} small. Whether it survives the next round of lobbying is another matter, and one on which it would be unwise to {8} money.'
+    ],
+    items: [
+      { opciones: ['did', 'made', 'took', 'held'], correcta: 0 },
+      { opciones: ['put', 'set', 'make', 'turn'], correcta: 2 },
+      { opciones: ['ridicule', 'dismiss', 'laugh', 'scorn'], correcta: 2 },
+      { opciones: ['matter', 'point', 'issue', 'case'], correcta: 1 },
+      { opciones: ['give', 'let', 'put', 'take'], correcta: 1 },
+      { opciones: ['deny', 'reject', 'resist', 'refuse'], correcta: 3 },
+      { opciones: ['whatever', 'whenever', 'however', 'wherever'], correcta: 2 },
+      { opciones: ['spend', 'waste', 'count', 'stake'], correcta: 3 }
+    ]
+  },
+
+  't3-use2a': {
+    tipo: 'cloze', parte: 2, titulo: 'Use of English · Parte 2',
+    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    texto: [
+      'Nobody is taught to cook any {1}; they are taught to follow recipes, which is a different skill and a much less useful one. A recipe tells you what to do with two hundred grams of something you happen to have bought. It is no help {2} all when the packet turns out to hold one hundred and fifty.',
+      'The cook who improvises is not being creative, {3} the television programmes suggest. They are applying a small number of rules learned by repetition: fat carries flavour, salt goes in by stages, and {4} anything browns it tastes of more than it did. None of this is secret and none of it is hard, but it is almost never written {5}, because it does not photograph well and cannot be sold as a book.',
+      'The consequence is a generation that can produce an excellent dinner {6} long as somebody else has planned it, and is defeated by a fridge. This is not laziness. It is what happens {7} a craft is taught as a series of outcomes rather {8} a set of habits.'
+    ],
+    items: [
+      { aceptadas: ['more', 'longer'] }, { aceptadas: ['at'] }, { aceptadas: ['whatever'] },
+      { aceptadas: ['once'] }, { aceptadas: ['down'] }, { aceptadas: ['as'] },
+      { aceptadas: ['when', 'if'] }, { aceptadas: ['than'] }
+    ]
+  },
+
+  't3-use2b': {
+    tipo: 'cloze', parte: 2, titulo: 'Use of English · Parte 2',
+    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    texto: [
+      'A bookshelf is not a library; it is an argument you are having with yourself in public. Most of the books on it will never be opened {1}, and their owner knows this perfectly well.',
+      'The usual explanation is vanity, and there is some truth {2} it. But vanity does not account {3} the paperbacks nobody would be impressed by, the ones with cracked spines that have moved house four times. Those are kept for a different reason: they are evidence. To throw {4} the book is to concede that the person who read it at nineteen has gone, {5} is a larger admission than most of us want to make on a Sunday afternoon.',
+      'This is why advice about decluttering so often fails. It treats the shelf as storage, {6} it is closer to a diary. The sensible response is neither to keep everything {7} to stage a purge, but to notice what the shelf is for and be honest about it. A book you will never read {8} still be doing its job.'
+    ],
+    items: [
+      { aceptadas: ['again'] }, { aceptadas: ['in'] }, { aceptadas: ['for'] },
+      { aceptadas: ['away', 'out'] }, { aceptadas: ['which'] }, { aceptadas: ['whereas', 'when'] },
+      { aceptadas: ['nor'] }, { aceptadas: ['may', 'might', 'can'] }
+    ]
+  },
+
+  't3-use3': {
+    tipo: 'formacion', parte: 3, titulo: 'Use of English · Parte 3',
+    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    items: [
+      { antes: 'The committee published its', despues: 'in June.', raiz: 'RECOMMEND', aceptadas: ['recommendation', 'recommendations'] },
+      { antes: 'She spoke with unusual', despues: 'for someone so young.', raiz: 'ASSURE', aceptadas: ['assurance'] },
+      { antes: 'The plan was criticised for its', despues: '.', raiz: 'VAGUE', aceptadas: ['vagueness'] },
+      { antes: 'They dealt with the complaint', despues: 'and without fuss.', raiz: 'PROMPT', aceptadas: ['promptly'] },
+      { antes: 'The', despues: 'of the two reports took a week.', raiz: 'COMPARE', aceptadas: ['comparison'] },
+      { antes: 'His account was wholly', despues: 'with hers.', raiz: 'CONSIST', aceptadas: ['inconsistent'] },
+      { antes: 'The building has been', despues: 'altered since 1900.', raiz: 'EXTEND', aceptadas: ['extensively'] },
+      { antes: 'There was general', despues: 'about what had been agreed.', raiz: 'CONFUSE', aceptadas: ['confusion'] }
+    ]
+  },
+
+  't3-use4a': {
+    tipo: 'transformacion', parte: 4, titulo: 'Use of English · Parte 4',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'I regret telling him.', clave: 'WISH', antes: 'I', despues: 'him.', aceptadas: ["wish I hadn't told", 'wish I had not told'] },
+      { frase: 'Nobody expected the result.', clave: 'CAME', antes: 'The result', despues: 'to everybody.', aceptadas: ['came as a surprise'] },
+      { frase: 'They cancelled the concert because of the rain.', clave: 'CALLED', antes: 'The concert', despues: 'because of the rain.', aceptadas: ['was called off'] },
+      { frase: 'It does not matter what he says.', clave: 'NO', antes: 'It makes', despues: 'what he says.', aceptadas: ['no difference'] },
+      { frase: 'She is the best cook I know.', clave: 'AS', antes: 'I do not know anyone who cooks', despues: 'she does.', aceptadas: ['as well as'] },
+      { frase: 'You need not have brought anything.', clave: 'NECESSARY', antes: 'It', despues: 'anything.', aceptadas: ["wasn't necessary to bring", 'was not necessary to bring'] }
+    ]
+  },
+
+  't3-use4b': {
+    tipo: 'transformacion', parte: 4, titulo: 'Use of English · Parte 4',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'They say he is living abroad.', clave: 'SAID', antes: 'He', despues: 'abroad.', aceptadas: ['is said to be living'] },
+      { frase: 'The last time I saw her was in 2019.', clave: 'SEEN', antes: 'I', despues: 'since 2019.', aceptadas: ["haven't seen her", 'have not seen her'] },
+      { frase: 'I only understood later what she meant.', clave: 'UNTIL', antes: 'It was not', despues: 'I understood what she meant.', aceptadas: ['until later that'] },
+      { frase: 'He is too young to drive.', clave: 'ENOUGH', antes: 'He', despues: 'to drive.', aceptadas: ["isn't old enough", 'is not old enough'] },
+      { frase: 'Whose idea was it to come here?', clave: 'CAME', antes: 'Who', despues: 'of coming here?', aceptadas: ['came up with the idea'] },
+      { frase: 'The rain prevented us from finishing.', clave: 'STOPPED', antes: 'The rain', despues: 'finishing.', aceptadas: ['stopped us from'] }
+    ]
+  },
+
+
+  /* ===================== TEST 3 · READING ===================== */
+
+  't3-read5': {
+    tipo: 'lectura', parte: 5, titulo: 'Reading · Parte 5',
+    instruccion: 'Lee el texto y elige la mejor respuesta (A, B, C o D) para cada pregunta.',
+    tituloTexto: 'The woman who keeps what you left behind',
+    texto: [
+      'The lost property office at Atxuri is not, as most people assume, in the station building. It is two floors below it, in a room that was once a coal store, and Nazaret Beitia has run it for nineteen years. On the morning I visit she is holding a viola and looking at it the way a vet looks at an animal somebody has left tied to a railing.',
+      '“Eleven thousand items last year,” she says, “and about a third go home.” She offers the figure without apology. It sounds low until you spend an hour watching what actually arrives: umbrellas by the crate, single gloves, phone chargers in numbers that suggest a national shortage. Nobody comes back for a charger. The job, she explains, is not really about objects at all, and the people who last in it are the ones who work that out early.',
+      'What she means becomes clearer when a woman appears at the counter to ask about a plastic folder. Beitia does not ask what was in it. She asks when, and which platform, and whether the woman had changed trains, and only at the end, almost as an afterthought, what the folder looked like. The folder is not there. The woman stands for a moment and then says, unprompted, that it held the paperwork for her mother’s flat. Beitia writes this down, gives her a reference number, and says she will ring on Friday whether or not anything has turned up. This last part is not policy.',
+      'The pattern she has noticed over nineteen years is one she says nobody believes at first. Expensive items are claimed less often than worthless ones. A laptop will sit for months; a child’s drawing in a supermarket bag is usually collected within the day, by somebody who has taken time off work to come. Her explanation is unromantic. Anything with a serial number is somebody’s insurance problem, and a form is easier than a tram across the city.',
+      'She has had one apprentice, a young man from the ticket office who lasted six weeks. He was, she says, careful and quick and entirely unsuited to it, and she does not hold this against him. “He wanted to solve them,” she says. “Every one. And you cannot. Two out of three of these go into a container and that is the whole of it. If that is unbearable, you are not weak, you are simply in the wrong job.” She had told him as much in his first week and he had not believed her.',
+      'The law allows her to dispose of anything unclaimed after three months. On a shelf behind her desk sit perhaps forty items that have been there considerably longer: a wedding ring, a set of house keys with a wooden fob, a child’s cardigan, a folder of photographs. She does not draw attention to the shelf, and when I ask about it she says only that the container comes on Thursdays and that some weeks she is busy. The viola, she thinks, will go home. Instruments almost always do.'
+    ],
+    items: [
+      { pregunta: '1  What impression does the writer give of Beitia in the first paragraph?',
+        opciones: ['She treats the object in front of her as a responsibility.',
+                   'She resents having been put below ground.',
+                   'She is bored by the routine of the work.',
+                   'She has stopped noticing unusual items.'], correcta: 0 },
+      { pregunta: '2  What does Beitia suggest about the people who stay in the job?',
+        opciones: ['They keep the rate of return as high as they can.',
+                   'They avoid becoming attached to what arrives.',
+                   'They grasp early that the work is not about property.',
+                   'They have a good memory for what has passed through.'], correcta: 2 },
+      { pregunta: '3  Why does the writer add that ringing on Friday “is not policy”?',
+        opciones: ['To criticise the rules the office works under.',
+                   'To suggest that Beitia expects the folder to appear.',
+                   'To explain why so few items are returned.',
+                   'To show that Beitia does more than she is required to.'], correcta: 3 },
+      { pregunta: '4  How does Beitia account for the pattern described in the fourth paragraph?',
+        opciones: ['People are more sentimental than they will admit.',
+                   'Valuable items are stolen before they reach her.',
+                   'Replacing something valuable is less trouble than collecting it.',
+                   'Owners of expensive things are slower to notice a loss.'], correcta: 2 },
+      { pregunta: '5  What is Beitia’s attitude towards the apprentice?',
+        opciones: ['She thinks he gave up sooner than he needed to.',
+                   'She regards his reaction as a poor fit rather than a failing.',
+                   'She holds herself responsible for not warning him.',
+                   'She believes more time would have settled him.'], correcta: 1 },
+      { pregunta: '6  What does the shelf behind the desk suggest about Beitia?',
+        opciones: ['She is careless about the rules on disposal.',
+                   'She expects the items on it to be collected eventually.',
+                   'She keeps them as a record of her years there.',
+                   'She is less detached than her account of the job implies.'], correcta: 3 }
+    ]
+  },
+
+  't3-read6': {
+    tipo: 'lectura', parte: 6, titulo: 'Reading · Parte 6',
+    instruccion: 'Cuatro especialistas escriben sobre la enseñanza de la escritura a mano. Elige el texto (A, B, C o D) que responde a cada pregunta.',
+    opcionesCortas: true,
+    secciones: [
+      { letra: 'A', titulo: 'Marta Osorio, developmental neuroscientist',
+        texto: ['The evidence for teaching handwriting is genuinely strong, and it is strong in exactly one place: the first years of school, where forming a letter by hand helps a child recognise it later. That effect is well replicated and I would defend it against any budget cut. What I will not defend is the extension of the claim to eleven-year-olds, or the suggestion that the discipline of handwriting builds some general quality of mind. There is no evidence for that whatsoever, and the people who repeat it are, I notice, never the people who have to teach it.'] },
+      { letra: 'B', titulo: 'Colin Traeger, secondary school teacher',
+        texto: ['I have read enough of the research to know that it does not help me on a Tuesday. My pupils will sit three hours of written examination with a pen, in silence, in a hall, and if they cannot produce legible prose at speed for that long they will be marked down for reasons that have nothing to do with what they know. Until that changes, the argument about brains and letters is a luxury. Tell me what the boards will accept and I will teach it; that decision, and not the science, is what actually settles the question.'] },
+      { letra: 'C', titulo: 'Ana Ferreiro, occupational therapist',
+        texto: ['My caseload is children for whom writing by hand is painful, slow or both, and the cost of the current arrangement falls almost entirely on them. I would keep handwriting in the early years — the evidence there is solid and I have no wish to argue with it — but I would teach typing alongside it from seven, not as a surrender but as a second route. What I see instead is children spending the years when they might be writing well fighting the mechanics of the pen, and arriving at secondary school convinced they have nothing to say.'] },
+      { letra: 'D', titulo: 'Yusuf Demir, historian of education',
+        texto: ['Every generation has announced that a writing technology was decisive, and every generation has been wrong in an interesting way: the slate, the steel nib, the biro, each was going to ruin or rescue the schoolroom. I would add a warning that my colleagues will dislike. We are asking the research to settle something it cannot settle, because the disagreement is not about children at all. It is about what we intend to examine and how, and that is a decision somebody has to take rather than discover.'] }
+    ],
+    items: [
+      { pregunta: '1  Which expert is most concerned about the pupils for whom writing by hand is physically difficult?',
+        opciones: ['A', 'B', 'C', 'D'], correcta: 2 },
+      { pregunta: '2  Which expert shares C’s view that the case for handwriting is strongest with the youngest pupils?',
+        opciones: ['A', 'B', 'C', 'D'], correcta: 0 },
+      { pregunta: '3  Which expert takes a different view from A about how far research can settle the question?',
+        opciones: ['A', 'B', 'C', 'D'], correcta: 3 },
+      { pregunta: '4  Which expert argues that the demands of the examination decide the matter whatever the research says?',
+        opciones: ['A', 'B', 'C', 'D'], correcta: 1 }
+    ]
+  },
+
+  't3-read7': {
+    tipo: 'lectura', parte: 7, titulo: 'Reading · Parte 7',
+    instruccion: 'Faltan seis párrafos del texto. Elige para cada hueco el párrafo que encaja (A–G). Hay uno que no va en ninguno.',
+    tituloTexto: 'The man who counted the benches',
+    opcionesCortas: true,
+    texto: [
+      'The first bench Ander Otxoa recorded was outside a chemist on Calle Ronda, and he recorded it because he had needed it. He was fifty-three, three weeks out of hospital and newly aware that the distance he could walk was no longer measured in streets but in places to sit down.',
+      '{1}',
+      'That was in 2016. By the following spring the notebook had become a spreadsheet, and the spreadsheet had grown a column he had not planned: condition. A bench with a broken slat was not a bench. A bench with an armrest fixed across the middle was, for anyone who needed to lie down for two minutes, also not a bench, although he was some time working that out.',
+      '{2}',
+      'The council, when he finally wrote to them, answered with the politeness reserved for people who are not going to get anything. Benches, the letter explained, fell to three separate departments depending on whether they stood in a park, on a pavement or at a bus stop, and no single list of them existed.',
+      '{3}',
+      'What changed matters was not the argument but the map. Printed a metre across and pinned up at a neighbourhood meeting, it showed the city in a way no report had managed: dense clusters of dots in the centre and along the river, and then, in the two districts furthest north, a long emptiness broken by four dots in a kilometre and a half.',
+      '{4}',
+      'Otxoa is careful about the credit. He points out that the campaign was run by other people, that he is no good at meetings, and that his own contribution amounted to six years of walking slowly and writing things down.',
+      '{5}',
+      'The count now stands at one thousand one hundred and six, every one of which he has visited at least twice. Forty-one benches have been installed since 2019, thirty-four of them in the north.',
+      '{6}',
+      'He has been asked more than once whether he would do it again, knowing what it cost him in shoe leather and Sunday afternoons. He says the question is the wrong way round. The walking was not the price of the map. Until his legs failed him he had lived in the city for thirty years and had never once looked at it.'
+    ],
+    secciones: [
+      { letra: 'A', texto: ['The distinction mattered more than he had expected. Of those first four hundred entries, sixty-one turned out to be unusable by the very people most likely to need them, and he began to suspect that nobody counting benches from an office would ever have noticed.'] },
+      { letra: 'B', texto: ['He is unwilling to claim that the second figure follows from the first, and says so before anyone can ask. What he will say is that the arguments now take place over a document everybody accepts, which was not the case in 2016.'] },
+      { letra: 'C', texto: ['Nobody at the meeting needed the finding explained to them. Several people who had lived in those districts all their lives said afterwards that they had known it without knowing it, which is the usual condition of a fact nobody has ever drawn.'] },
+      { letra: 'D', texto: ['Benches have never been fashionable in urban design, being cheap, unphotogenic and impossible to attribute to a named architect. They appear in budgets under street furniture, alongside bollards and litter bins, and are usually the first line to be cut.'] },
+      { letra: 'E', texto: ['He wrote it down in a pocket notebook — the street, the material, whether it had a back — and he did so for no reason he could have defended at the time. It simply seemed worth knowing, and knowing things was one of the few activities still fully available to him.'] },
+      { letra: 'F', texto: ['This is true, and it is also, his neighbours point out, not the whole story. The reason the councillors could not wave the map away was that every dot on it had been stood beside, photographed and dated by one person with nothing to gain.'] },
+      { letra: 'G', texto: ['This was meant as a refusal and he took it as an invitation. If nobody held a list, then the one he had spent two winters compiling was not a hobby. It was the only list there was.'] }
+    ],
+    items: [
+      { pregunta: '1', opciones: ['A','B','C','D','E','F','G'], correcta: 4 },
+      { pregunta: '2', opciones: ['A','B','C','D','E','F','G'], correcta: 0 },
+      { pregunta: '3', opciones: ['A','B','C','D','E','F','G'], correcta: 6 },
+      { pregunta: '4', opciones: ['A','B','C','D','E','F','G'], correcta: 2 },
+      { pregunta: '5', opciones: ['A','B','C','D','E','F','G'], correcta: 5 },
+      { pregunta: '6', opciones: ['A','B','C','D','E','F','G'], correcta: 1 }
+    ]
+  },
+
+  't3-read8': {
+    tipo: 'lectura', parte: 8, titulo: 'Reading · Parte 8',
+    instruccion: 'Seis personas hablan de aprender un idioma de adultas. Elige la persona (A–F) que corresponde a cada pregunta.',
+    opcionesCortas: true,
+    secciones: [
+      { letra: 'A', titulo: 'Bego, Portuguese at forty-five',
+        texto: ['I had three hundred words and a grammar book and I was going nowhere, and it took a colleague to tell me why: I was collecting the language rather than spending it. Every evening of study was another shelf of vocabulary I never took down. What broke it was being put on a weekly call where I had to speak badly in front of people who had known me as competent for a decade. That was the whole of the difficulty, and it had nothing to do with Portuguese. I still find it uncomfortable and I still do it.'] },
+      { letra: 'B', titulo: 'Tomás, Japanese for eight years',
+        texto: ['I read novels. I cannot order a coffee. People assume this means Japanese is impossible, and it is not — the fault is entirely in how I went about it, which was eight years of reading alone in a flat because reading alone in a flat is what I enjoy. Nobody made me do it that way. I could have joined something in the first year and I did not. I am not giving up over it; I have started going to a conversation group, badly, and I expect it to take another two years to catch up with my own reading.'] },
+      { letra: 'C', titulo: 'Ivet, Basque at thirty',
+        texto: ['It was spoken over my head all through my childhood and never to me, and starting it at thirty was not like starting a foreign language. It was more like being handed back something that had been mislaid on my behalf. There is a grief in that which surprised me and which I have never found a good way of describing. What does not help, though everyone means well, is my aunts switching to Spanish the moment I hesitate. They think they are sparing me. They are taking away the only three seconds in which I might have got there.'] },
+      { letra: 'D', titulo: 'Ruy, English from television',
+        texto: ['I arrived at twenty with an accent people complimented and a grammar that was, I now understand, held together with sticky tape. Because I was understood, nobody corrected me, and being understood felt like proof that I was fine. It is not the same thing and I lost about fifteen years to the confusion. At thirty-eight I went back and did the tenses properly, in a classroom, with exercises, which was humiliating and worked. There is a ceiling on fluency without accuracy and you do not see it until your head is against it.'] },
+      { letra: 'E', titulo: 'Nadia, German for a family',
+        texto: ['For two years I studied German in order to speak German, and I made almost no progress. Then my partner’s father was ill and there were arrangements to make and forms to read, and within four months I was doing things in German I had not been able to do in two years, because the German had stopped being the point. His mother corrected every second sentence I produced, in front of everybody, and I resented her for about a year. She was right every single time, and I would not be where I am without it.'] },
+      { letra: 'F', titulo: 'Peio, French at seventy',
+        texto: ['Everybody wants to talk to me about memory, as though seventy-two were the obstacle. My memory is fine; what I have lost is nerve. At twenty you will say something wrong to a stranger and think nothing of it, and at my age you have spent fifty years arranging a life in which you are never the least capable person in the room, and then you walk into a class and there you are. That is the work. I measure it in months rather than weeks, and I have more months than most people assume.'] }
+    ],
+    items: [
+      { pregunta: '1  Who realised they had been accumulating the language rather than using it?', opciones: ['A','B','C','D','E','F'], correcta: 0 },
+      { pregunta: '2  Who says their obstacle is confidence rather than the capacity to learn?', opciones: ['A','B','C','D','E','F'], correcta: 5 },
+      { pregunta: '3  Who was helped by corrections that were unwelcome at the time?', opciones: ['A','B','C','D','E','F'], correcta: 4 },
+      { pregunta: '4  Who took a long time to see that being understood was not the same as being correct?', opciones: ['A','B','C','D','E','F'], correcta: 3 },
+      { pregunta: '5  Who describes a sense of loss bound up with the language itself?', opciones: ['A','B','C','D','E','F'], correcta: 2 },
+      { pregunta: '6  Who is carrying on despite a large gap between two of their skills?', opciones: ['A','B','C','D','E','F'], correcta: 1 },
+      { pregunta: '7  Who mentions people making things easier in a way that does not help?', opciones: ['A','B','C','D','E','F'], correcta: 2 },
+      { pregunta: '8  Who had to accept appearing less capable than they are?', opciones: ['A','B','C','D','E','F'], correcta: 0 },
+      { pregunta: '9  Who found that progress came once the language stopped being the aim?', opciones: ['A','B','C','D','E','F'], correcta: 4 },
+      { pregunta: '10  Who blames their own method rather than the difficulty of the language?', opciones: ['A','B','C','D','E','F'], correcta: 1 }
+    ]
+  },
+
+
+  /* ===================== TEST 3 · LISTENING =====================
+     Audio provisional de espeak-ng. Se sustituye por voz real antes de cobrar. */
+
+  't3-lis1': {
+    tipo: 'listening', parte: 1, titulo: 'Listening · Parte 1',
+    instruccion: 'Escucharás tres extractos. Elige la mejor respuesta (A, B o C) para cada pregunta. <b>Se escucha dos veces</b>.',
+    audio: 'audio/t3-lis1-espeak.mp3', demo: true, escuchas: 2,
+    contexto: 'Extracto 1: una mujer que ha terminado un curso de cocina. Extracto 2: una mujer que se ha mudado de la ciudad a un pueblo. Extracto 3: dos compañeros y una mudanza de oficina.',
+    items: [
+      { pregunta: '1  What does the woman say she could not do before the course?',
+        opciones: ['Cook without written instructions in front of her.', 'Follow a recipe accurately.', 'Cook for more than a few people.'], correcta: 0 },
+      { pregunta: '2  What does she say about who should sign up?',
+        opciones: ['Only people who genuinely cannot cook will gain from it.', 'Confident cooks will find the sessions too easy.', 'Its value depends on being willing to feel uncomfortable.'], correcta: 2 },
+      { pregunta: '3  What does the woman say has been the most significant change?',
+        opciones: ['Paying half the rent she used to.', 'The effect on the way she treats people.', 'Having a slower daily routine.'], correcta: 1 },
+      { pregunta: '4  What does she say she misses?',
+        opciones: ['The concerts she used to go to.', 'The friends she left behind.', 'Being unrecognised when she is in a bad mood.'], correcta: 2 },
+      { pregunta: '5  Why does the woman say people are complaining about the desks?',
+        opciones: ['The desks are the worst part of the plan.', 'It is the only complaint the process allows.', 'Nobody has read the rest of the plan.'], correcta: 1 },
+      { pregunta: '6  What is her view of the consultation?',
+        opciones: ['It is genuine but aimed at the wrong questions.', 'It is a pretence intended to cause delay.', 'It will be abandoned before December.'], correcta: 0 }
+    ]
+  },
+
+  't3-lis2': {
+    tipo: 'listening', parte: 2, titulo: 'Listening · Parte 2',
+    instruccion: 'Completa cada frase con <b>una o dos palabras</b> de lo que oigas. <b>Se escucha dos veces</b>.',
+    audio: 'audio/t3-lis2-espeak.mp3', demo: true, escuchas: 2,
+    items: [
+      { antes: 'Gemma says that restoring neon is mostly a job about', despues: '.', aceptadas: ['glass'] },
+      { antes: 'Before neon she spent nine years working in', despues: '.', aceptadas: ['stained glass'] },
+      { antes: 'The commonest reason a sign fails is the', despues: '.', aceptadas: ['transformer'] },
+      { antes: 'The colour she finds hardest to match is', despues: '.', aceptadas: ['blue'] },
+      { antes: 'On the Bilbao sign, the stage that took longest was finding a', despues: '.', aceptadas: ['photograph', 'photo'] },
+      { antes: 'The one thing she refuses to do for clients is fake', despues: '.', aceptadas: ['ageing', 'aging'] },
+      { antes: 'Her apprentice came to her from', despues: '.', aceptadas: ['dentistry'] },
+      { antes: 'She tells beginners to start by buying a box of broken', despues: '.', aceptadas: ['tube', 'glass tube'] }
+    ]
+  },
+
+  't3-lis3': {
+    tipo: 'listening', parte: 3, titulo: 'Listening · Parte 3',
+    instruccion: 'Escucharás una entrevista. Elige la mejor respuesta (A, B, C o D) para cada pregunta. <b>Se escucha dos veces</b>.',
+    audio: 'audio/t3-lis3-espeak.mp3', demo: true, escuchas: 2,
+    contexto: 'Un periodista entrevista a Ruth Callaghan, que dirige un archivo de cine amateur.',
+    items: [
+      { pregunta: '1  What does Ruth say gives amateur film its value?',
+        opciones: ['The skill of the people who shot it.', 'What appears behind the intended subject.', 'The affection with which it was made.', 'The rarity of surviving copies.'], correcta: 1 },
+      { pregunta: '2  How does she contrast amateur film with newsreels?',
+        opciones: ['Newsreels record the exceptional day rather than the ordinary years.', 'Newsreels were shot on more durable stock.', 'Newsreels concentrated on cities and ignored towns.', 'Newsreels were edited to please advertisers.'], correcta: 0 },
+      { pregunta: '3  What does she say about the four fifths she cannot use?',
+        opciones: ['They are usually damaged beyond repair.', 'They duplicate material she already holds.', 'They lack the information that would make them useful.', 'They were shot too badly to be watched.'], correcta: 2 },
+      { pregunta: '4  What does she admit about identification by the public?',
+        opciones: ['It has produced more errors than it has corrected.', 'It works only in places with an active local history group.', 'It is slower than doing the work in-house.', 'Her own team’s guesses were often the worse ones.'], correcta: 3 },
+      { pregunta: '5  What is her objection to the emphasis on digitisation?',
+        opciones: ['The equipment becomes obsolete too quickly.', 'A scanned reel nobody has catalogued is still closed.', 'It is far more expensive than funders realise.', 'It encourages the disposal of the originals.'], correcta: 1 },
+      { pregunta: '6  Why does the archive keep the original film?',
+        opciones: ['The law requires it for donated material.', 'Researchers still ask to handle the reels.', 'Every scanning standard so far has been superseded.', 'Cold storage has turned out to be cheap.'], correcta: 2 }
+    ]
+  },
+
+  't3-lis4': {
+    tipo: 'listening', parte: 4, titulo: 'Listening · Parte 4',
+    instruccion: 'Escucharás a cinco personas hablando de un cambio de oficio. <b>Tarea 1</b> (1–5): por qué cambiaron. <b>Tarea 2</b> (6–10): qué dicen ahora. Se escucha dos veces.',
+    audio: 'audio/t3-lis4-espeak.mp3', demo: true, escuchas: 2,
+    opcionesCortas: true,
+    contexto: 'Cada tarea tiene su propia lista de ocho opciones.',
+    listas: [
+      { titulo: 'Tarea 1 · ¿Por qué cambiaron?', opciones: [
+        'the only promotion on offer led somewhere they did not want',
+        'a health problem took the decision out of their hands',
+        'the work they had trained for had ceased to exist',
+        'an interest held for years was finally acted on',
+        'their own reputation had become a trap',
+        'they were asked to leave after a disagreement',
+        'the pay had fallen below what they could accept',
+        'a colleague talked them into trying something else'
+      ] },
+      { titulo: 'Tarea 2 · ¿Qué dicen ahora?', opciones: [
+        'they recommend making the change as undramatic as possible',
+        'they are still shedding a habit from the old job',
+        'they miss the authority more than the work itself',
+        'they would go back if the conditions improved',
+        'they accept a far smaller income in exchange',
+        'they wish somebody had warned them about the cost',
+        'they no longer resent the way it came about',
+        'they were surprised how quickly they adapted'
+      ] }
+    ],
+    items: [
+      { pregunta: 'Tarea 1 · 1  Speaker one', opciones: ['A','B','C','D','E','F','G','H'], correcta: 0 },
+      { pregunta: 'Tarea 1 · 2  Speaker two', opciones: ['A','B','C','D','E','F','G','H'], correcta: 3 },
+      { pregunta: 'Tarea 1 · 3  Speaker three', opciones: ['A','B','C','D','E','F','G','H'], correcta: 1 },
+      { pregunta: 'Tarea 1 · 4  Speaker four', opciones: ['A','B','C','D','E','F','G','H'], correcta: 4 },
+      { pregunta: 'Tarea 1 · 5  Speaker five', opciones: ['A','B','C','D','E','F','G','H'], correcta: 2 },
+      { pregunta: 'Tarea 2 · 6  Speaker one', opciones: ['A','B','C','D','E','F','G','H'], correcta: 2 },
+      { pregunta: 'Tarea 2 · 7  Speaker two', opciones: ['A','B','C','D','E','F','G','H'], correcta: 0 },
+      { pregunta: 'Tarea 2 · 8  Speaker three', opciones: ['A','B','C','D','E','F','G','H'], correcta: 6 },
+      { pregunta: 'Tarea 2 · 9  Speaker four', opciones: ['A','B','C','D','E','F','G','H'], correcta: 4 },
+      { pregunta: 'Tarea 2 · 10  Speaker five', opciones: ['A','B','C','D','E','F','G','H'], correcta: 1 }
+    ]
+  },
+
+
+  /* ============== TEST 3 · SPEAKING Y WRITING ============== */
+
+  't3-speak1': {
+    tipo: 'speaking', parte: 2, titulo: 'Long turn: dónde se estudia',
+    instruccion: 'Habla durante <b>un minuto seguido</b>. No hace falta contestar a todo: elige y compara.',
+    segundos: 60,
+    pregunta: 'Why might people choose to study in these places, and what might be difficult about each?',
+    puntos: ['a busy café in the middle of the afternoon', 'a silent university library', 'a kitchen table at home with the family around'],
+    nota: 'En el examen esto se hace con tres fotografías. Aquí van descritas mientras la academia no aporte las suyas.',
+    items: [ { grabacion: true } ]
+  },
+
+  't3-speak3': {
+    tipo: 'speaking', parte: 3, titulo: 'Parte 3: decidir en voz alta',
+    instruccion: 'Habla durante <b>dos minutos</b>. Comenta las cinco opciones y llega a una conclusión.',
+    segundos: 120,
+    pregunta: 'A company wants its staff to keep learning. How useful is each of these, and which two would you choose?',
+    puntos: ['paying for evening courses', 'an hour of protected study time each week', 'sending people to conferences', 'pairing new staff with experienced ones', 'a budget for books and subscriptions'],
+    nota: 'En el examen esto se habla con otro candidato durante tres minutos: se negocia y se llega a un acuerdo. Grabándote solo se practica todo menos eso, que es un criterio entero de los cinco.',
+    items: [ { grabacion: true } ]
+  },
+
+  't3-speak4': {
+    tipo: 'speaking', parte: 4, titulo: 'Parte 4: opinar y justificar',
+    instruccion: 'Contesta a las tres preguntas seguidas, <b>dos minutos</b> en total.',
+    segundos: 120,
+    pregunta: 'Questions about work and learning.',
+    puntos: [
+      'Should employers pay for training that a worker could take elsewhere? Why?',
+      'Some people say experience teaches more than any course. Do you agree?',
+      'Is it harder to change career now than it was for your parents?'
+    ],
+    nota: 'En el examen el examinador pregunta y luego pide tu reacción a lo que ha dicho la otra persona. Aquí solo está la primera mitad.',
+    items: [ { grabacion: true } ]
+  },
+
+  't3-speakr': {
+    tipo: 'speaking', parte: 2, titulo: 'Repaso: un minuto sin parar',
+    instruccion: 'Habla durante <b>un minuto seguido</b>, sin pausas largas. Compara, no describas.',
+    segundos: 60,
+    pregunta: 'Why might these situations be uncomfortable, and how might the people be dealing with them?',
+    puntos: ['being corrected in front of other people', 'asking a question everybody else seems to know the answer to', 'explaining your work to somebody who does it better'],
+    nota: 'El objetivo no es acertar: es no callarse. Si te quedas en blanco, di por qué te has quedado en blanco y sigue; en el examen eso puntúa más que el silencio.',
+    items: [ { grabacion: true } ]
+  },
+
+  't3-write1': {
+    tipo: 'writing', parte: 1, titulo: 'Essay',
+    instruccion: 'Escribe entre <b>220 y 260 palabras</b>. Es obligatorio: en el examen esta tarea no se elige.',
+    minutos: 45, palabras: [220, 260],
+    enunciado: 'Your class has discussed how adults can best keep learning after they finish formal education. Write an essay discussing two of the three approaches below and explaining which you think works better.',
+    contexto: 'Approaches: formal courses with a qualification · learning on the job from colleagues · teaching yourself with books and the internet.',
+    cierre: 'Write in a formal style. Do not simply list advantages: take a position and support it.',
+    items: [ { escrito: true } ]
+  },
+
+  't3-write2': {
+    tipo: 'writing', parte: 2, titulo: 'A elegir: propuesta o reseña',
+    instruccion: 'Elige <b>una</b> de las dos y escribe entre <b>220 y 260 palabras</b>.',
+    minutos: 45, palabras: [220, 260],
+    enunciado: 'Choose one of the following two tasks.',
+    contexto: '1 · Your workplace has money for one improvement to how new staff are trained. Write a proposal describing the present situation, recommending a change and explaining what it would achieve.\n2 · A website collects reviews of places to study. Write a review of a library, café or study space you know, describing it and saying who it would and would not suit.',
+    cierre: 'La propuesta mira hacia delante y va dirigida a quien decide: encabezados, recomendación clara. La reseña es para un lector cualquiera y admite opinión y humor. Elige la que menos te apetezca: es la que necesitas practicar.',
+    items: [ { escrito: true } ]
+  },
+
   }
 };

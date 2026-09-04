@@ -104,6 +104,10 @@ for (const id of IDS) {
   const sobran = caja.filter(c => !usadas.has(c));
   if (!sobran.length) ojo(id, 'no sobra ninguna palabra: se puede resolver por descarte');
   if (sobran.length > 3) ojo(id, 'sobran ' + sobran.length + ' palabras, puede despistar de mas');
+  // La instruccion no puede prometer un numero que no se cumple: durante dos
+  // tests dijo "Sobra una" mientras sobraban tres. El alumno cuenta.
+  if (/sobra una|sobra uno/i.test(e.instruccion || '') && sobran.length !== 1)
+    mal(id, 'la instruccion dice que sobra una y sobran ' + sobran.length);
 }
 
 /* ---------- word formation ---------- */

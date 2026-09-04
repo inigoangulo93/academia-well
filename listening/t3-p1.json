@@ -1,0 +1,148 @@
+{
+  "id": "t3-lis1",
+  "examen": "cae",
+  "parte": 1,
+  "tarea": "Multiple choice, tres extractos",
+  "titulo": "Tres conversaciones",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    {
+      "id": "narrador",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro"
+    },
+    {
+      "id": "m1",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-scotland",
+      "descripcion": "mujer, 30s"
+    },
+    {
+      "id": "h1",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-rp",
+      "descripcion": "hombre, 40s"
+    },
+    {
+      "id": "m2",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbclan",
+      "descripcion": "mujer, 50s"
+    },
+    {
+      "id": "h2",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-US",
+      "espeak": "en-us",
+      "descripcion": "hombre, 20s"
+    }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract one. You hear two people talking about a cookery course one of them has finished."
+    },
+    {
+      "voz": "m1",
+      "pausa": 0.3,
+      "texto": "Everyone asks whether I can cook now, and the honest answer is that I could cook before. What I could not do was work without a recipe in front of me."
+    },
+    {
+      "voz": "h1",
+      "pausa": 0.3,
+      "texto": "And six weeks fixed that?"
+    },
+    {
+      "voz": "m1",
+      "pausa": 0.3,
+      "texto": "Six weeks made me notice it. The tutor took the sheets away in the second session and half the room stopped moving. That was the lesson, really. The rest was practice."
+    },
+    {
+      "voz": "h1",
+      "pausa": 0.3,
+      "texto": "So would you tell somebody to sign up?"
+    },
+    {
+      "voz": "m1",
+      "pausa": 0.8,
+      "texto": "I would tell them to sign up and then be honest about which of the two problems they have. If you genuinely cannot cook, a course is fine. If you can cook and you are frightened, a course will only help if you let it make you uncomfortable, and most people quietly do not."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract two. You hear a woman talking about moving from a city to a small town."
+    },
+    {
+      "voz": "m2",
+      "pausa": 0.3,
+      "texto": "The rent halved, which is the part everybody wants to hear about, and it is the least interesting thing that happened."
+    },
+    {
+      "voz": "h2",
+      "pausa": 0.3,
+      "texto": "What was more interesting?"
+    },
+    {
+      "voz": "m2",
+      "pausa": 0.3,
+      "texto": "That I stopped being able to be rude. In the city, if a conversation goes badly you simply never see the person again. Here you see them on Thursday at the market. It has improved my manners considerably and I cannot say I chose it."
+    },
+    {
+      "voz": "h2",
+      "pausa": 0.3,
+      "texto": "Do you miss anything?"
+    },
+    {
+      "voz": "m2",
+      "pausa": 0.8,
+      "texto": "Not the things I expected to. I thought it would be concerts. It is being anonymous when I am in a bad mood."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract three. You hear two colleagues discussing a change of office."
+    },
+    {
+      "voz": "h1",
+      "pausa": 0.3,
+      "texto": "They have sent round the plan for the new floor. Everybody is furious about the desks."
+    },
+    {
+      "voz": "m1",
+      "pausa": 0.3,
+      "texto": "They are furious about the desks because the desks are the only thing on the plan they are allowed to be furious about."
+    },
+    {
+      "voz": "h1",
+      "pausa": 0.3,
+      "texto": "Meaning?"
+    },
+    {
+      "voz": "m1",
+      "pausa": 0.3,
+      "texto": "Meaning nobody has explained why we are moving at all, and that question is not on the form. So three hundred people are writing to facilities about monitor arms."
+    },
+    {
+      "voz": "h1",
+      "pausa": 0.3,
+      "texto": "You think the consultation is for show, then."
+    },
+    {
+      "voz": "m1",
+      "pausa": 0.8,
+      "texto": "I think it is real, and it is real about the wrong things, which is worse than a fake one. A fake consultation you can ignore. This one will keep everybody busy until December."
+    }
+  ]
+}

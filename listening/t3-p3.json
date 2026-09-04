@@ -1,0 +1,112 @@
+{
+  "id": "t3-lis3",
+  "examen": "cae",
+  "parte": 3,
+  "tarea": "Multiple choice, conversacion larga",
+  "titulo": "Una entrevista sobre cine amateur",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    {
+      "id": "narrador",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro"
+    },
+    {
+      "id": "ent",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbclan",
+      "descripcion": "hombre, 40s, periodista"
+    },
+    {
+      "id": "arch",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-scotland",
+      "descripcion": "mujer, 50s, archivera"
+    }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "You will hear an interview with Ruth Callaghan, who runs an archive of amateur film."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "Ruth, you have spent twenty years collecting home movies. Most people would call that other people's holiday footage."
+    },
+    {
+      "voz": "arch",
+      "pausa": 0.4,
+      "texto": "Most people would, and they are describing the content correctly and the value not at all. A professional crew in nineteen sixty-two filmed what a producer had decided was worth filming. A man with a cine camera filmed his street because his daughter was standing in it. The street is behind her, and the street is what we cannot get anywhere else."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "So the accidental background is the record."
+    },
+    {
+      "voz": "arch",
+      "pausa": 0.4,
+      "texto": "It is the only record of the ordinary. Shop fronts, buses, what people wore on a Tuesday. Newsreels give you the day the factory closed. Amateur film gives you the fourteen years before it closed, which is where almost everybody actually lived."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "How much of what you are sent is usable?"
+    },
+    {
+      "voz": "arch",
+      "pausa": 0.4,
+      "texto": "Perhaps a fifth, and I want to be careful how I say that, because the four fifths are not rubbish. They are simply unidentified. A reel with no name, no place and no date is a beautiful object and almost useless to a historian. The work is not collecting. Anybody can collect. The work is finding out where the camera was standing."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "And that is done how?"
+    },
+    {
+      "voz": "arch",
+      "pausa": 0.4,
+      "texto": "Very slowly, and increasingly by people who are not us. We put stills online and somebody in a town recognises a doorway. We were sceptical about that at first. We were wrong, and I would say so publicly: our own guesses were worse than theirs about half the time."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "Is the digitisation a solution or a distraction?"
+    },
+    {
+      "voz": "arch",
+      "pausa": 0.4,
+      "texto": "It is necessary and it is oversold. Funders love it because it produces a number you can put in a report. But a digital file that nobody has catalogued is a reel in a box with the lid closed, and we now have a great many of them. Given a choice between scanning a thousand reels and identifying a hundred, I would take the hundred, and I lose that argument regularly."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "What happens to the film itself once it is scanned?"
+    },
+    {
+      "voz": "arch",
+      "pausa": 0.4,
+      "texto": "We keep it, cold, and we are unusual in that. The pressure to dispose of the original is constant and it comes from people who genuinely mean well. My answer is that every scanning standard I have worked with in twenty years has been superseded, and the acetate has not."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "Finally, what would you say to somebody with a box of reels in a loft?"
+    },
+    {
+      "voz": "arch",
+      "pausa": 0.8,
+      "texto": "Write on the box before you do anything else. Whatever you know: names, the street, roughly when. You are the last person who will ever know it, and once you have gone it is a very pretty film of nobody."
+    }
+  ]
+}

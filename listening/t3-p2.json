@@ -1,0 +1,61 @@
+{
+  "id": "t3-lis2",
+  "examen": "cae",
+  "parte": 2,
+  "tarea": "Sentence completion",
+  "titulo": "Una restauradora de rotulos de neon",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    {
+      "id": "gemma",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-scotland",
+      "descripcion": "mujer, 40s, pausada"
+    }
+  ],
+  "velocidad": 148,
+  "lineas": [
+    {
+      "voz": "gemma",
+      "pausa": 0.5,
+      "texto": "My name is Gemma Iriondo and I restore neon signs, which people assume is a job about lighting. It is mostly a job about glass."
+    },
+    {
+      "voz": "gemma",
+      "pausa": 0.6,
+      "texto": "I came to it from stained glass, and I was doing that for nine years before I ever bent a tube. The two trades share almost nothing except patience, and patience turns out to be the transferable part."
+    },
+    {
+      "voz": "gemma",
+      "pausa": 0.6,
+      "texto": "The commonest reason a sign fails is not the gas and it is not the glass. It is the transformer, and a transformer is the cheapest thing in the whole assembly. People telephone me convinced they need a new sign and half of them need a part that costs forty pounds."
+    },
+    {
+      "voz": "gemma",
+      "pausa": 0.6,
+      "texto": "The hardest colour to match is blue. Every workshop that made signs in the nineteen fifties mixed its own, and there is no chart anywhere. I match by eye against a photograph and I have been wrong often enough to be careful about it."
+    },
+    {
+      "voz": "gemma",
+      "pausa": 0.6,
+      "texto": "The job I am proudest of is a cinema sign in Bilbao. It had been dark since nineteen eighty-four and there were eleven letters missing. It took me four months, and the part that took longest was not the making. It was finding a photograph clear enough to work from."
+    },
+    {
+      "voz": "gemma",
+      "pausa": 0.6,
+      "texto": "What I refuse is fake ageing. Clients ask for it constantly. They want a sign that looks as though it has been there for sixty years, and I will not do it, because in twenty years somebody honest will have to work out which parts are real."
+    },
+    {
+      "voz": "gemma",
+      "pausa": 0.6,
+      "texto": "I have one apprentice and she came to me from dentistry, which sounds like a joke and is not. She had already spent years doing small precise work with her hands while somebody watched, and that is exactly the skill."
+    },
+    {
+      "voz": "gemma",
+      "pausa": 0.8,
+      "texto": "If you want to start, do not buy a torch. Buy a box of broken tube and break more of it. Everyone wants to make a letter in the first week, and the first thing you actually have to learn is how glass behaves when it is too hot, which you only learn by ruining it."
+    }
+  ]
+}

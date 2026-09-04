@@ -1,0 +1,116 @@
+{
+  "id": "t3-lis4",
+  "examen": "cae",
+  "parte": 4,
+  "tarea": "Multiple matching, cinco monologos",
+  "titulo": "Cinco personas cambian de oficio",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    {
+      "id": "narrador",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro"
+    },
+    {
+      "id": "uno",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-rp",
+      "descripcion": "mujer, 40s"
+    },
+    {
+      "id": "dos",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-scotland",
+      "descripcion": "hombre, 30s"
+    },
+    {
+      "id": "tres",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-US",
+      "espeak": "en-us",
+      "descripcion": "mujer, 50s"
+    },
+    {
+      "id": "cuatro",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbclan",
+      "descripcion": "hombre, 60s"
+    },
+    {
+      "id": "cinco",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "mujer, 20s"
+    }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "You will hear five short extracts in which people talk about changing to a completely different kind of work."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "Speaker one."
+    },
+    {
+      "voz": "uno",
+      "pausa": 1.0,
+      "texto": "I did not leave the law because I hated it. I left because I was promoted into a job I had never wanted and it turned out that was the only direction available. There was no other floor to move to. What surprises me now is how little I miss the work and how much I miss being the person in the room who knew the answer. That took about two years to stop stinging, and I would tell anyone considering it that the salary is not the hard part."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "Speaker two."
+    },
+    {
+      "voz": "dos",
+      "pausa": 1.0,
+      "texto": "Everyone assumes there was a moment and there was not. I had been reading about boatbuilding for six years before I did anything at all, which is the bit people leave out of these stories. When I finally moved I had savings, a course booked and somebody willing to take me on Saturdays. It looked brave from outside and from inside it was almost boring. My advice, for what it is worth, is to make it boring. The drama is what stops people."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "Speaker three."
+    },
+    {
+      "voz": "tres",
+      "pausa": 1.0,
+      "texto": "Twenty-six years in hospital administration and then my hands started shaking and I could not do the hours any more. So the decision was made for me, and I want to be clear that I did not choose this and would not pretend otherwise. What I did choose was what came next, and teaching turned out to use everything I had learned about keeping fifty people calm. I am no longer angry about it. It took a while."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "Speaker four."
+    },
+    {
+      "voz": "cuatro",
+      "pausa": 1.0,
+      "texto": "I was good at it, that was the trouble. Being good at something is a trap nobody warns you about, because the better you are the more it costs to stop. By the end I was working entirely on the strength of a reputation I had built at thirty-five and no longer recognised. I gave myself a year to get out and it took three. What I have now pays a third of what I earned and I sleep."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "Speaker five."
+    },
+    {
+      "voz": "cinco",
+      "pausa": 0.8,
+      "texto": "I retrained at twenty-eight, which everybody told me was young enough not to count, and it counted. I had no choice in it: the thing I qualified for had more or less ceased to exist by the time I finished, and there is no arguing with that. The hardest part was being the least experienced person in a room of people my own age. Nobody is unkind about it; they simply explain things to you, and you have to decide not to mind. I still catch myself pretending to know things, which is the one habit I brought with me and the one I would leave behind if I could."
+    }
+  ]
+}
