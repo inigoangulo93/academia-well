@@ -1,0 +1,148 @@
+{
+  "id": "t4-lis1",
+  "examen": "cae",
+  "parte": 1,
+  "tarea": "Multiple choice, tres extractos",
+  "titulo": "Tres conversaciones",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    {
+      "id": "narrador",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro"
+    },
+    {
+      "id": "m1",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-scotland",
+      "descripcion": "mujer, 30s"
+    },
+    {
+      "id": "h1",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-rp",
+      "descripcion": "hombre, 40s"
+    },
+    {
+      "id": "m2",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbclan",
+      "descripcion": "mujer, 60s"
+    },
+    {
+      "id": "h2",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-US",
+      "espeak": "en-us",
+      "descripcion": "hombre, 30s"
+    }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract one. You hear two people talking about a book group."
+    },
+    {
+      "voz": "m1",
+      "pausa": 0.3,
+      "texto": "We have not read a book since March and everybody is considerably happier, which I think tells you something."
+    },
+    {
+      "voz": "h1",
+      "pausa": 0.3,
+      "texto": "So what do you actually do when you meet?"
+    },
+    {
+      "voz": "m1",
+      "pausa": 0.3,
+      "texto": "We meet. That was always the point and none of us would say it out loud. Somebody was getting through four hundred pages a month out of duty and then apologising for not finishing."
+    },
+    {
+      "voz": "h1",
+      "pausa": 0.3,
+      "texto": "Would you ever go back to the books?"
+    },
+    {
+      "voz": "m1",
+      "pausa": 0.8,
+      "texto": "Only if somebody genuinely wanted to, and that is the test we should have applied at the start. A group that meets because it wants to read is a book group. Ours was a way of seeing each other on a Tuesday that needed a reason attached to it."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract two. You hear a woman talking about giving up her allotment."
+    },
+    {
+      "voz": "m2",
+      "pausa": 0.3,
+      "texto": "Everybody assumes I gave it up because of my back."
+    },
+    {
+      "voz": "h2",
+      "pausa": 0.3,
+      "texto": "And that was not the reason?"
+    },
+    {
+      "voz": "m2",
+      "pausa": 0.3,
+      "texto": "The back was the excuse I used, because it ends the conversation politely. The truth is I had nine years of it and perhaps three of those were any good. The rest was arriving on a Saturday to find out what had died during the week."
+    },
+    {
+      "voz": "h2",
+      "pausa": 0.3,
+      "texto": "That sounds rather bleak."
+    },
+    {
+      "voz": "m2",
+      "pausa": 0.8,
+      "texto": "It is not bleak, it is honest. And what I miss is not the growing at all. It is the man on the next plot, who talked to me every week for nine years and whose surname I never once learned."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Extract three. You hear two colleagues discussing a new reporting system."
+    },
+    {
+      "voz": "h1",
+      "pausa": 0.3,
+      "texto": "It went live on Monday and I have now entered the same figures three times."
+    },
+    {
+      "voz": "m1",
+      "pausa": 0.3,
+      "texto": "You will enter them three times for about six weeks, and then somebody will quietly build a spreadsheet, and by Christmas we will all be using the spreadsheet."
+    },
+    {
+      "voz": "h1",
+      "pausa": 0.3,
+      "texto": "That is very cynical."
+    },
+    {
+      "voz": "m1",
+      "pausa": 0.3,
+      "texto": "It is not cynicism, it is the fourth time I have watched it happen. The system is not badly built. It was specified by people who wanted a report, and nobody asked what the report was for. So it collects everything, because everything is safer than choosing."
+    },
+    {
+      "voz": "h1",
+      "pausa": 0.3,
+      "texto": "Are you going to say that at the review?"
+    },
+    {
+      "voz": "m1",
+      "pausa": 0.8,
+      "texto": "I will say it, and it will be written down, and the review is in November, and the specification was signed in March."
+    }
+  ]
+}

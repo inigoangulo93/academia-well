@@ -1,0 +1,116 @@
+{
+  "id": "t4-lis4",
+  "examen": "cae",
+  "parte": 4,
+  "tarea": "Multiple matching, cinco monologos",
+  "titulo": "Cinco personas y una decision rapida",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    {
+      "id": "narrador",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro"
+    },
+    {
+      "id": "uno",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-scotland",
+      "descripcion": "mujer, 40s"
+    },
+    {
+      "id": "dos",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-rp",
+      "descripcion": "hombre, 50s"
+    },
+    {
+      "id": "tres",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-US",
+      "espeak": "en-us",
+      "descripcion": "mujer, 30s"
+    },
+    {
+      "id": "cuatro",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbclan",
+      "descripcion": "hombre, 30s"
+    },
+    {
+      "id": "cinco",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "mujer, 60s"
+    }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "You will hear five short extracts in which people talk about a decision they took very quickly."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "Speaker one."
+    },
+    {
+      "voz": "uno",
+      "pausa": 1.0,
+      "texto": "We saw it at eleven and we had offered by four, and the reason was simply that two other people were viewing it that evening. There was no time to be sensible and I have never regretted it. What I notice, looking back, is that it is the only significant thing I have ever done without telephoning three people first, and I think that is why it feels like mine. I would not recommend the method. I would defend the result."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "Speaker two."
+    },
+    {
+      "voz": "dos",
+      "pausa": 1.0,
+      "texto": "I resigned on a Thursday afternoon with no plan whatsoever, and everybody treated it as a moment of madness. It was nothing of the kind. I had been deciding it for about four years in the way you decide things without admitting you are deciding them, and the Thursday was just when the deciding finished. People make far too much of the speed. The speed is the last two minutes of something that took years."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "Speaker three."
+    },
+    {
+      "voz": "tres",
+      "pausa": 1.0,
+      "texto": "They asked on the Monday and I said yes before the end of the call, and I knew perfectly well that saying no would have meant admitting I was not the person I had been telling everyone I was. So I went. The job was good and the city was good. What I got wrong was the telling: I let my parents find out from somebody else, and eleven years later that is the part I would go back and change."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "Speaker four."
+    },
+    {
+      "voz": "cuatro",
+      "pausa": 1.0,
+      "texto": "I went to look at her and I came home with her, in about an hour, and there was no reasoning involved at all. I want to be honest that it was feeling and I knew it was feeling at the time. It has cost me two holidays a year, a sofa and a certain amount of sleep, and if you put me back in that room I would do exactly the same thing before anybody had finished explaining the paperwork."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "Speaker five."
+    },
+    {
+      "voz": "cinco",
+      "pausa": 0.8,
+      "texto": "We agreed the whole partnership over lunch and shook hands before the coffee, and it took four years to come apart and rather longer to pay for. People assume the lesson is not to decide quickly. It is not. He was extremely persuasive and I let myself be persuaded in a restaurant, and I have made fast decisions since, at a table with a piece of paper on it, that have been perfectly sound."
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "id": "t4-lis2",
+  "examen": "cae",
+  "parte": 2,
+  "tarea": "Sentence completion",
+  "titulo": "Un constructor de muros de piedra seca",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    {
+      "id": "finn",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbclan",
+      "descripcion": "hombre, 50s, pausado"
+    }
+  ],
+  "velocidad": 148,
+  "lineas": [
+    {
+      "voz": "finn",
+      "pausa": 0.5,
+      "texto": "My name is Finn Aramburu and I build dry stone walls. People assume the job is about strength. It is almost entirely about sorting."
+    },
+    {
+      "voz": "finn",
+      "pausa": 0.6,
+      "texto": "I came into it from forestry, which I did for fourteen years, and the connection is not obvious until you have done both. Both are about looking at something for a long time before you touch it."
+    },
+    {
+      "voz": "finn",
+      "pausa": 0.6,
+      "texto": "The commonest mistake beginners make is choosing stones that are too big. A big stone feels like progress and it leaves you a hole you cannot fill for the rest of the day."
+    },
+    {
+      "voz": "finn",
+      "pausa": 0.6,
+      "texto": "There is no mortar in any of this, so nothing holds the wall together except its own weight. Everything you do is arranged around that one fact, and once you understand it the rules stop being rules and become obvious."
+    },
+    {
+      "voz": "finn",
+      "pausa": 0.6,
+      "texto": "The tool I would not work without is not the hammer. It is the line. A wall built without a string line looks fine to the person who built it and to nobody else."
+    },
+    {
+      "voz": "finn",
+      "pausa": 0.6,
+      "texto": "The hardest part of any wall is the end. A wall that runs on is straightforward; where it stops, you have to build something that will not be pushed over, and I have taken ends down and rebuilt them more times than I would like to admit."
+    },
+    {
+      "voz": "finn",
+      "pausa": 0.6,
+      "texto": "A wall built properly will stand for a hundred and fifty years without anyone touching it. That figure is not mine. It is what the ones I repair turn out to be when we look them up."
+    },
+    {
+      "voz": "finn",
+      "pausa": 0.8,
+      "texto": "If you want to learn, do not build anything. Go and take down a fallen wall, slowly, and lay the stones out as you go. You learn more in a fortnight of taking apart than in a year of putting up."
+    }
+  ]
+}

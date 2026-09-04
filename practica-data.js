@@ -221,7 +221,63 @@ window.WELL_PRACTICA = {
         ] }
       ]
     },
-    { id: 't4', titulo: 'Test 4' }
+    {
+      id: 't4', titulo: 'Test 4',
+      sesiones: [
+        { id: 't4-s1', n: 1, tipo: 'A', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['t4-voc1', 't4-voc2'] },
+          { destreza: 'gramatica', ejercicios: ['t4-gram1', 't4-gram2'] },
+          { destreza: 'use', parte: 1, tarea: 'Multiple-choice cloze', ejercicios: ['t4-use1'] },
+          { destreza: 'listening', parte: 1, tarea: 'Tres extractos', ejercicios: ['t4-lis1'] }
+        ] },
+        { id: 't4-s2', n: 2, tipo: 'B', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['t4-voc3', 't4-voc4'] },
+          { destreza: 'gramatica', ejercicios: ['t4-gram3', 't4-gram4'] },
+          { destreza: 'reading', parte: 5, tarea: 'Multiple choice', ejercicios: ['t4-read5'] },
+          { destreza: 'speaking', tarea: 'Partes 1 y 2', ejercicios: ['t4-speak1'] }
+        ] },
+        { id: 't4-s3', n: 3, tipo: 'A', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['t4-voc5', 't4-voc6'] },
+          { destreza: 'gramatica', ejercicios: ['t4-gram5', 't4-gram6'] },
+          { destreza: 'use', parte: 2, tarea: 'Open cloze', ejercicios: ['t4-use2a', 't4-use2b'] },
+          { destreza: 'listening', parte: 2, tarea: 'Frases incompletas', ejercicios: ['t4-lis2'] }
+        ] },
+        { id: 't4-s4', n: 4, tipo: 'B', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['t4-voc7', 't4-voc8'] },
+          { destreza: 'gramatica', ejercicios: ['t4-gram7', 't4-gram8'] },
+          { destreza: 'reading', parte: 6, tarea: 'Cross-text matching', ejercicios: ['t4-read6'] },
+          { destreza: 'speaking', tarea: 'Parte 3', ejercicios: ['t4-speak3'] }
+        ] },
+        { id: 't4-s5', n: 5, tipo: 'A', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['t4-voc9', 't4-voc10'] },
+          { destreza: 'gramatica', ejercicios: ['t4-gram9', 't4-gram10'] },
+          { destreza: 'use', parte: 3, tarea: 'Word formation', ejercicios: ['t4-use3'] },
+          { destreza: 'listening', parte: 3, tarea: 'Conversación larga', ejercicios: ['t4-lis3'] }
+        ] },
+        { id: 't4-s6', n: 6, tipo: 'B', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['t4-voc11', 't4-voc12'] },
+          { destreza: 'gramatica', ejercicios: ['t4-gram11', 't4-gram12'] },
+          { destreza: 'reading', parte: 7, tarea: 'Gapped text', ejercicios: ['t4-read7'] },
+          { destreza: 'speaking', tarea: 'Parte 4', ejercicios: ['t4-speak4'] }
+        ] },
+        { id: 't4-s7', n: 7, tipo: 'A', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['t4-voc13', 't4-voc14'] },
+          { destreza: 'gramatica', ejercicios: ['t4-gram13', 't4-gram14'] },
+          { destreza: 'use', parte: 4, tarea: 'Key word transformation', ejercicios: ['t4-use4a', 't4-use4b'] },
+          { destreza: 'listening', parte: 4, tarea: 'Multiple matching', ejercicios: ['t4-lis4'] }
+        ] },
+        { id: 't4-s8', n: 8, tipo: 'B', bloques: [
+          { destreza: 'vocabulario', ejercicios: ['t4-voc15', 't4-voc16'] },
+          { destreza: 'gramatica', ejercicios: ['t4-gram15', 't4-gram16'] },
+          { destreza: 'reading', parte: 8, tarea: 'Multiple matching', ejercicios: ['t4-read8'] },
+          { destreza: 'speaking', tarea: 'Repaso', ejercicios: ['t4-speakr'] }
+        ] },
+        { id: 't4-s9', n: 9, tipo: 'W', bloques: [
+          { destreza: 'writing', parte: 1, tarea: 'Essay', ejercicios: ['t4-write1'] },
+          { destreza: 'writing', parte: 2, tarea: 'A elegir', ejercicios: ['t4-write2'] }
+        ] }
+      ]
+    }
   ],
 
   ejercicios: {
@@ -3356,6 +3412,852 @@ window.WELL_PRACTICA = {
     enunciado: 'Choose one of the following two tasks.',
     contexto: '1 · Your workplace has money for one improvement to how new staff are trained. Write a proposal describing the present situation, recommending a change and explaining what it would achieve.\n2 · A website collects reviews of places to study. Write a review of a library, café or study space you know, describing it and saying who it would and would not suit.',
     cierre: 'La propuesta mira hacia delante y va dirigida a quien decide: encabezados, recomendación clara. La reseña es para un lector cualquiera y admite opinión y humor. Elige la que menos te apetezca: es la que necesitas practicar.',
+    items: [ { escrito: true } ]
+  },
+
+
+  /* ===================== TEST 4 · GRAMATICA =====================
+     Cuarta y ultima vuelta al temario de Elena, en su orden. Frases nuevas. */
+
+  't4-gram1': {
+    tipo: 'transformacion', titulo: 'Presentes · cuarta vuelta',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'It is ages since I last went to the cinema.', clave: 'BEEN', antes: 'I', despues: 'to the cinema for ages.', aceptadas: ["haven't been", 'have not been'] },
+      { frase: 'She is in the habit of checking everything twice.', clave: 'ALWAYS', antes: 'She', despues: 'everything twice.', aceptadas: ['is always checking', 'always checks'] },
+      { frase: 'The report is due on my desk by Friday.', clave: 'EXPECTED', antes: 'The report', despues: 'on my desk by Friday.', aceptadas: ['is expected'] },
+      { frase: 'How long have you had this cough?', clave: 'BEEN', antes: 'How long', despues: 'from this cough?', aceptadas: ['have you been suffering'] },
+      { frase: 'They are decorating our flat this week.', clave: 'BEING', antes: 'Our flat', despues: 'this week.', aceptadas: ['is being decorated'] },
+      { frase: 'I still find the new keyboard strange.', clave: 'USED', antes: 'I', despues: 'the new keyboard.', aceptadas: ["haven't got used to", 'have not got used to'] }
+    ]
+  },
+
+  't4-gram2': {
+    tipo: 'transformacion', titulo: 'Pasados · cuarta vuelta',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'It was my first visit to Rome.', clave: 'NEVER', antes: 'I', despues: 'Rome before.', aceptadas: ['had never visited', 'had never been to'] },
+      { frase: 'She was walking home when it happened.', clave: 'WAY', antes: 'It happened while she was', despues: 'home.', aceptadas: ['on her way'] },
+      { frase: 'They finished the roof before the rain came.', clave: 'BY', antes: 'The roof was finished', despues: 'came.', aceptadas: ['by the time the rain'] },
+      { frase: 'He had not eaten since breakfast.', clave: 'ANYTHING', antes: 'He had not', despues: 'since breakfast.', aceptadas: ['eaten anything'] },
+      { frase: 'I did not know she had left.', clave: 'AWARE', antes: 'I', despues: 'she had left.', aceptadas: ["wasn't aware that", 'was not aware that'] },
+      { frase: 'He talked for two hours before anyone asked a question.', clave: 'BEEN', antes: 'He', despues: 'for two hours when the first question came.', aceptadas: ['had been talking'] }
+    ]
+  },
+
+  't4-gram3': {
+    tipo: 'transformacion', titulo: 'Futuro · cuarta vuelta',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'The train leaves at six tomorrow.', clave: 'DUE', antes: 'The train', despues: 'at six tomorrow.', aceptadas: ['is due to leave'] },
+      { frase: 'I am sure they will refuse.', clave: 'BOUND', antes: 'They', despues: '.', aceptadas: ['are bound to refuse'] },
+      { frase: 'They will finish the bridge by June.', clave: 'HAVE', antes: 'The bridge', despues: 'by June.', aceptadas: ['will have been finished'] },
+      { frase: 'We are about to leave.', clave: 'POINT', antes: 'We are on', despues: 'leaving.', aceptadas: ['the point of'] },
+      { frase: 'Do not ring before you have read it.', clave: 'UNTIL', antes: 'Wait', despues: 'read it before you ring.', aceptadas: ['until you have'] },
+      { frase: 'There is very little chance of rain.', clave: 'LIKELY', antes: 'It', despues: 'rain.', aceptadas: ["isn't likely to", 'is not likely to'] }
+    ]
+  },
+
+  't4-gram4': {
+    tipo: 'transformacion', titulo: 'Repaso de tiempos · cuarta vuelta',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'I have not been to the dentist for two years.', clave: 'LAST', antes: 'The', despues: 'to the dentist was two years ago.', aceptadas: ['last time I went'] },
+      { frase: 'A builder is repairing the roof next week.', clave: 'BEING', antes: 'The roof', despues: 'next week.', aceptadas: ['is being repaired'] },
+      { frase: 'It started raining an hour ago and has not stopped.', clave: 'RAINING', antes: 'It', despues: 'for an hour.', aceptadas: ['has been raining'] },
+      { frase: 'She left before I arrived.', clave: 'ALREADY', antes: 'She', despues: 'when I arrived.', aceptadas: ['had already left'] },
+      { frase: 'They will not have finished waiting by ten.', clave: 'STILL', antes: 'At ten they', despues: '.', aceptadas: ['will still be waiting'] },
+      { frase: 'This is the first time I have driven a van.', clave: 'NEVER', antes: 'I', despues: 'a van before.', aceptadas: ['have never driven', "'ve never driven"] }
+    ]
+  },
+
+  't4-gram5': {
+    tipo: 'transformacion', titulo: 'Costumbres · cuarta vuelta',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'I found the noise strange at first but not any more.', clave: 'GOT', antes: 'I have', despues: 'the noise.', aceptadas: ['got used to'] },
+      { frase: 'We often went there as children.', clave: 'WOULD', antes: 'As children we', despues: 'there.', aceptadas: ['would often go'] },
+      { frase: 'She no longer smokes.', clave: 'USED', antes: 'She', despues: ', but she does not now.', aceptadas: ['used to smoke'] },
+      { frase: 'Getting up at five feels normal to him now.', clave: 'ACCUSTOMED', antes: 'He has become', despues: 'at five.', aceptadas: ['accustomed to getting up'] },
+      { frase: 'There was no bakery here before.', clave: 'BE', antes: 'There', despues: 'a bakery here.', aceptadas: ["didn't use to be", 'did not use to be'] },
+      { frase: 'She is slowly adapting to the shifts.', clave: 'GETTING', antes: 'She is slowly', despues: 'the shifts.', aceptadas: ['getting used to'] }
+    ]
+  },
+
+  't4-gram6': {
+    tipo: 'transformacion', titulo: 'Obligación y prohibición',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'It is compulsory to wear a helmet here.', clave: 'MUST', antes: 'Helmets', despues: 'here.', aceptadas: ['must be worn'] },
+      { frase: 'Photography is forbidden in this room.', clave: 'ALLOWED', antes: 'You', despues: 'photographs in this room.', aceptadas: ["aren't allowed to take", 'are not allowed to take'] },
+      { frase: 'It was not necessary for us to book.', clave: 'HAVE', antes: 'We', despues: 'book.', aceptadas: ["didn't have to", 'did not have to'] },
+      { frase: 'They obliged him to resign.', clave: 'MADE', antes: 'He', despues: 'resign.', aceptadas: ['was made to'] },
+      { frase: 'Under no circumstances may you open it.', clave: 'OPEN', antes: 'You must', despues: 'under any circumstances.', aceptadas: ['not open it'] },
+      { frase: 'It is up to you whether you stay.', clave: 'NEED', antes: 'You', despues: 'if you do not want to.', aceptadas: ["don't need to stay", 'do not need to stay'] }
+    ]
+  },
+
+  't4-gram7': {
+    tipo: 'transformacion', titulo: 'Deducciones · cuarta vuelta',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'I am certain she has forgotten.', clave: 'MUST', antes: 'She', despues: '.', aceptadas: ['must have forgotten'] },
+      { frase: 'It is impossible that they knew.', clave: 'HAVE', antes: 'They', despues: '.', aceptadas: ["can't have known", 'cannot have known'] },
+      { frase: 'Perhaps the letter went to the wrong address.', clave: 'MIGHT', antes: 'The letter', despues: 'to the wrong address.', aceptadas: ['might have gone'] },
+      { frase: 'I am sure that is not his handwriting.', clave: 'BE', antes: 'That', despues: 'his handwriting.', aceptadas: ["can't be", 'cannot be'] },
+      { frase: 'Possibly nobody told them.', clave: 'MAY', antes: 'Nobody', despues: 'them.', aceptadas: ['may have told'] },
+      { frase: 'The obvious conclusion is that he was lying.', clave: 'BEEN', antes: 'He must', despues: '.', aceptadas: ['have been lying'] }
+    ]
+  },
+
+  't4-gram8': {
+    tipo: 'transformacion', titulo: 'Consejo y reproche · cuarta vuelta',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'Signing it was a mistake.', clave: 'HAVE', antes: 'I', despues: 'it.', aceptadas: ["shouldn't have signed", 'should not have signed'] },
+      { frase: 'Why did you not ask?', clave: 'OUGHT', antes: 'You', despues: '.', aceptadas: ['ought to have asked'] },
+      { frase: 'The wise course would be to wait.', clave: 'BETTER', antes: 'You', despues: '.', aceptadas: ['had better wait', "'d better wait"] },
+      { frase: 'I am sorry I did not listen to her.', clave: 'WISH', antes: 'I', despues: 'to her.', aceptadas: ['wish I had listened'] },
+      { frase: 'It is not worth complaining now.', clave: 'POINT', antes: 'There is', despues: 'now.', aceptadas: ['no point complaining', 'no point in complaining'] },
+      { frase: 'Perhaps you should try restarting it.', clave: 'WORTH', antes: 'It might', despues: 'it.', aceptadas: ['be worth restarting'] }
+    ]
+  },
+
+  't4-gram9': {
+    tipo: 'transformacion', titulo: 'Voz pasiva · cuarta vuelta',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'Someone has taken my umbrella.', clave: 'BEEN', antes: 'My umbrella', despues: '.', aceptadas: ['has been taken'] },
+      { frase: 'They will announce the result on Monday.', clave: 'ANNOUNCED', antes: 'The result', despues: 'on Monday.', aceptadas: ['will be announced'] },
+      { frase: 'Nobody is using this room.', clave: 'BEING', antes: 'This room', despues: '.', aceptadas: ["isn't being used", 'is not being used'] },
+      { frase: 'They offered her the post.', clave: 'OFFERED', antes: 'She', despues: 'the post.', aceptadas: ['was offered'] },
+      { frase: 'You must not leave bags here.', clave: 'LEFT', antes: 'Bags', despues: 'here.', aceptadas: ["mustn't be left", 'must not be left'] },
+      { frase: 'They are going to close the road.', clave: 'BE', antes: 'The road is going', despues: 'closed.', aceptadas: ['to be'] }
+    ]
+  },
+
+  't4-gram10': {
+    tipo: 'transformacion', titulo: 'Pasivas impersonales · cuarta vuelta',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'People believe the coin is Roman.', clave: 'BELIEVED', antes: 'The coin', despues: 'Roman.', aceptadas: ['is believed to be'] },
+      { frase: 'They say she refused the offer.', clave: 'HAVE', antes: 'She is said', despues: 'the offer.', aceptadas: ['to have refused'] },
+      { frase: 'Everyone assumes the file was destroyed.', clave: 'ASSUMED', antes: 'It', despues: 'the file was destroyed.', aceptadas: ['is assumed that'] },
+      { frase: 'People expected the talks to fail.', clave: 'EXPECTED', antes: 'The talks', despues: 'to fail.', aceptadas: ['were expected'] },
+      { frase: 'Nobody has proved the claim.', clave: 'BEEN', antes: 'The claim', despues: 'proved.', aceptadas: ["hasn't been", 'has not been'] },
+      { frase: 'They reported that two lorries were missing.', clave: 'REPORTED', antes: 'Two lorries', despues: 'missing.', aceptadas: ['were reported to be'] }
+    ]
+  },
+
+  't4-gram11': {
+    tipo: 'transformacion', titulo: 'Causativa · cuarta vuelta',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'A photographer is taking our picture tomorrow.', clave: 'HAVING', antes: 'We are', despues: 'tomorrow.', aceptadas: ['having our picture taken'] },
+      { frase: 'Someone broke into their house last month.', clave: 'BROKEN', antes: 'They had their house', despues: 'last month.', aceptadas: ['broken into'] },
+      { frase: 'I need somebody to look at my knee.', clave: 'LOOKED', antes: 'I need to have my knee', despues: '.', aceptadas: ['looked at'] },
+      { frase: 'The garage is servicing the van on Tuesday.', clave: 'HAVING', antes: 'We are', despues: 'on Tuesday.', aceptadas: ['having the van serviced'] },
+      { frase: 'A tailor shortened his trousers.', clave: 'GOT', antes: 'He', despues: 'shortened.', aceptadas: ['got his trousers'] },
+      { frase: 'Somebody stole my wallet at the station.', clave: 'HAD', antes: 'I', despues: 'at the station.', aceptadas: ['had my wallet stolen'] }
+    ]
+  },
+
+  't4-gram12': {
+    tipo: 'transformacion', titulo: 'Condicionales · cuarta vuelta',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'She did not revise, so she failed.', clave: 'HAD', antes: 'If she', despues: ', she would have passed.', aceptadas: ['had revised'] },
+      { frase: 'I am not tall enough to reach it.', clave: 'WERE', antes: 'If I', despues: ', I could reach it.', aceptadas: ['were taller'] },
+      { frase: 'He drank too much coffee, so he cannot sleep now.', clave: 'NOT', antes: 'If he had', despues: 'so much coffee, he could sleep now.', aceptadas: ['not drunk'] },
+      { frase: 'Take a coat; it may turn cold.', clave: 'CASE', antes: 'Take a coat', despues: 'cold.', aceptadas: ['in case it turns'] },
+      { frase: 'She helped me, so I finished on time.', clave: 'HELPED', antes: 'If she', despues: ', I would not have finished on time.', aceptadas: ["hadn't helped me", 'had not helped me'] },
+      { frase: 'They will only refund you with the receipt.', clave: 'UNLESS', antes: 'They will not refund you', despues: 'the receipt.', aceptadas: ['unless you have'] }
+    ]
+  },
+
+  't4-gram13': {
+    tipo: 'transformacion', titulo: 'Condicionales sin <i>if</i> · cuarta vuelta',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'If you need anything, ring the desk.', clave: 'SHOULD', antes: 'Ring the desk', despues: 'need anything.', aceptadas: ['should you'] },
+      { frase: 'If they had asked, we would have said yes.', clave: 'ASKED', antes: 'Had', despues: ', we would have said yes.', aceptadas: ['they asked'] },
+      { frase: 'You can stay if you do not smoke inside.', clave: 'PROVIDED', antes: 'You can stay', despues: 'inside.', aceptadas: ["provided you don't smoke", 'provided you do not smoke'] },
+      { frase: 'If it were not for the traffic, we would be there.', clave: 'NOT', antes: 'Were it', despues: 'the traffic, we would be there.', aceptadas: ['not for'] },
+      { frase: 'They will lend it to you if you bring it back on Monday.', clave: 'LONG', antes: 'They will lend it to you', despues: 'you bring it back on Monday.', aceptadas: ['as long as'] },
+      { frase: 'If the price rose, we would look elsewhere.', clave: 'WERE', antes: 'We would look elsewhere,', despues: 'to rise.', aceptadas: ['were the price'] }
+    ]
+  },
+
+  't4-gram14': {
+    tipo: 'transformacion', titulo: 'Deseos y lamentos · cuarta vuelta',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'I am sorry I sold the piano.', clave: 'WISH', antes: 'I', despues: 'the piano.', aceptadas: ["wish I hadn't sold", 'wish I had not sold'] },
+      { frase: 'It is a shame we cannot stay longer.', clave: 'ONLY', antes: 'If', despues: 'stay longer.', aceptadas: ['only we could'] },
+      { frase: 'I would rather you told nobody.', clave: 'PREFER', antes: 'I', despues: 'nobody.', aceptadas: ['would prefer you to tell', "'d prefer you to tell"] },
+      { frase: 'She is annoyed that the train was late.', clave: 'BEEN', antes: 'She wishes the train', despues: 'late.', aceptadas: ["hadn't been", 'had not been'] },
+      { frase: 'We ought to leave now.', clave: 'TIME', antes: 'It is', despues: 'left.', aceptadas: ['time we'] },
+      { frase: 'I would rather be somewhere else.', clave: 'WERE', antes: 'I wish', despues: 'somewhere else.', aceptadas: ['I were'] }
+    ]
+  },
+
+  't4-gram15': {
+    tipo: 'transformacion', titulo: 'Relativo, comparación y <i>so / such</i> · cuarta vuelta',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'The queue was so slow that we left.', clave: 'SUCH', antes: 'It was', despues: 'that we left.', aceptadas: ['such a slow queue'] },
+      { frase: 'The room was very cold, so nobody stayed.', clave: 'SO', antes: 'The room was', despues: 'nobody stayed.', aceptadas: ['so cold that'] },
+      { frase: 'I bought a coat and its lining is torn.', clave: 'WHOSE', antes: 'I bought a coat', despues: 'is torn.', aceptadas: ['whose lining'] },
+      { frase: 'This is the dullest talk I have ever heard.', clave: 'DULLER', antes: 'I have never heard', despues: 'talk.', aceptadas: ['a duller'] },
+      { frase: 'The bill was far less than I had feared.', clave: 'NEARLY', antes: 'The bill was', despues: 'as I had feared.', aceptadas: ['not nearly as high'] },
+      { frase: 'The neighbour, who I had never spoken to, complained.', clave: 'WHOM', antes: 'The neighbour,', despues: 'spoken, complained.', aceptadas: ['to whom I had never'] }
+    ]
+  },
+
+  't4-gram16': {
+    tipo: 'transformacion', titulo: 'Estilo indirecto e inversión · cuarta vuelta',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: '"I did not take it," he said.', clave: 'DENIED', antes: 'He', despues: 'it.', aceptadas: ['denied taking'] },
+      { frase: '"You should see a doctor," she told me.', clave: 'ADVISED', antes: 'She', despues: 'a doctor.', aceptadas: ['advised me to see'] },
+      { frase: '"I am sorry I was late," he said.', clave: 'APOLOGISED', antes: 'He', despues: 'late.', aceptadas: ['apologised for being'] },
+      { frase: 'I had never seen anything like it.', clave: 'HAD', antes: 'Never', despues: 'anything like it.', aceptadas: ['had I seen'] },
+      { frase: 'She realised her error only on the train.', clave: 'UNTIL', antes: 'Not', despues: 'the train did she realise her error.', aceptadas: ['until she was on'] },
+      { frase: 'They had scarcely arrived when the storm broke.', clave: 'SOONER', antes: 'No', despues: 'arrived than the storm broke.', aceptadas: ['sooner had they'] }
+    ]
+  },
+
+
+  /* ===================== TEST 4 · VOCABULARIO ===================== */
+
+  't4-voc1': {
+    tipo: 'caja', titulo: 'Preposiciones tras sustantivo · cuarta vuelta',
+    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    caja: ['at', 'between', 'for', 'in', 'of', 'on', 'to', 'with'],
+    items: [
+      { antes: 'There is no substitute', despues: 'experience.', aceptadas: ['for'] },
+      { antes: 'She has a good eye', despues: 'detail.', aceptadas: ['for'] },
+      { antes: 'Their reaction', despues: 'the news surprised me.', aceptadas: ['to'] },
+      { antes: 'He has an obsession', despues: 'punctuality.', aceptadas: ['with'] },
+      { antes: 'There has been a sharp fall', despues: 'applications.', aceptadas: ['in'] },
+      { antes: 'The difference', despues: 'the two is very slight.', aceptadas: ['between'] }
+    ]
+  },
+
+  't4-voc2': {
+    tipo: 'caja', titulo: 'Phrasal verbs · con la gente',
+    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    caja: ['along', 'down', 'in', 'into', 'off', 'on', 'out', 'up'],
+    items: [
+      { antes: 'They fell', despues: 'over money and have not spoken since.', aceptadas: ['out'] },
+      { antes: 'She let me', despues: 'badly last week.', aceptadas: ['down'] },
+      { antes: 'He has taken', despues: 'far too much work this term.', aceptadas: ['on'] },
+      { antes: 'I ran', despues: 'an old colleague at the airport.', aceptadas: ['into'] },
+      { antes: 'They put me', despues: 'for two nights without being asked.', aceptadas: ['up'] },
+      { antes: 'We get', despues: 'much better than we used to.', aceptadas: ['along'] }
+    ]
+  },
+
+  't4-voc3': {
+    tipo: 'caja', titulo: 'Adjetivos y su preposición · cuarta vuelta',
+    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    caja: ['about', 'at', 'for', 'from', 'of', 'on', 'to', 'with'],
+    items: [
+      { antes: 'She is notorious', despues: 'arriving late.', aceptadas: ['for'] },
+      { antes: 'The result is entirely dependent', despues: 'the weather.', aceptadas: ['on'] },
+      { antes: 'He is quite indifferent', despues: 'what people think.', aceptadas: ['to'] },
+      { antes: 'The centre is short', despues: 'volunteers again.', aceptadas: ['of'] },
+      { antes: 'I am hopeless', despues: 'chess and always have been.', aceptadas: ['at'] },
+      { antes: 'The town is quite distinct', despues: 'its neighbours.', aceptadas: ['from'] }
+    ]
+  },
+
+  't4-voc4': {
+    tipo: 'caja', titulo: 'Expresiones hechas · avanzar y atascarse',
+    instruccion: 'Completa cada expresión con una palabra de la caja. Hay más palabras de las que necesitas.',
+    caja: ['board', 'bridge', 'door', 'ground', 'home', 'line', 'road', 'wall'],
+    items: [
+      { antes: 'It is time to go back to the drawing', despues: '.', aceptadas: ['board'] },
+      { antes: 'We will cross that', despues: 'when we come to it.', aceptadas: ['bridge'] },
+      { antes: 'The two of them found common', despues: 'in the end.', aceptadas: ['ground'] },
+      { antes: 'Trying to explain it was like talking to a brick', despues: '.', aceptadas: ['wall'] },
+      { antes: 'The photograph drove the point', despues: 'in a way the figures had not.', aceptadas: ['home'] },
+      { antes: 'Somewhere along the', despues: 'we lost the thread of it.', aceptadas: ['line'] }
+    ]
+  },
+
+  't4-voc5': {
+    tipo: 'cloze', titulo: 'Open cloze · el mismo camino',
+    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    texto: [
+      'Most people have a route they take without ever deciding to. It is rarely the shortest and almost never the one they would recommend to a visitor; it is simply the one their feet have settled {1}. Ask them why and you will get an answer invented on the spot, which they will then believe.',
+      'What the route is doing is saving attention. A street you know is a street you do not have to look at, and not looking at things is {2} the brain spends most of its effort trying to arrange. This is efficient and it has a price: the route becomes invisible, and after a few years you could not describe the middle of it {3} your life depended on it. {4} is why people notice that a shop has closed about three weeks after it closes.',
+      'The remedy is absurdly simple and almost nobody applies it. Turn left {5} you would normally turn right. You will arrive four minutes late and see a city you have lived in for a decade. The reason we do not do it is not laziness. It is that the route is a small daily promise that today will contain nothing we have not already dealt {6}.'
+    ],
+    items: [
+      { aceptadas: ['on'] }, { aceptadas: ['what'] }, { aceptadas: ['if'] },
+      { aceptadas: ['that', 'this'] }, { aceptadas: ['where'] }, { aceptadas: ['with'] }
+    ]
+  },
+
+  't4-voc6': {
+    tipo: 'cloze', titulo: 'Open cloze · quien sabe cómo funciona todo',
+    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    texto: [
+      'Every organisation has somebody who knows how it actually works, and it is almost never the person at the top of the chart. It is far more {1} to be whoever has been there longest in a job nobody has thought to reorganise: the person on the front desk, the one who orders the paper.',
+      'They know because information reaches them by accident. Nobody briefs the front desk, {2} everybody walks past it, and over eleven years that adds {3} to a map no consultant could produce in six weeks. Ask them who to speak to about a broken lift and you will have a name in four seconds; ask a director the same question and you will be given a department.',
+      'Sensible managers understand this and treat it as a resource. The rest treat it as an untidiness, and every few years somebody arrives with a plan {4} moves the front desk into a shared service in another city. The saving is real and appears in the accounts. The loss is also real and appears {5} in the accounts at all, which is exactly why the plan keeps being approved. Institutions can only count what somebody has thought {6} counting.'
+    ],
+    items: [
+      { aceptadas: ['likely'] }, { aceptadas: ['but', 'yet'] }, { aceptadas: ['up'] },
+      { aceptadas: ['which', 'that'] }, { aceptadas: ['nowhere'] }, { aceptadas: ['of'] }
+    ]
+  },
+
+  't4-voc7': {
+    tipo: 'formacion', titulo: 'Word formation · nombres · cuarta vuelta',
+    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    items: [
+      { antes: 'The', despues: 'of the two towers took a year.', raiz: 'DEMOLISH', aceptadas: ['demolition'] },
+      { antes: 'Her', despues: 'was accepted without argument.', raiz: 'RESIGN', aceptadas: ['resignation'] },
+      { antes: 'There is no', despues: 'for what he did.', raiz: 'JUSTIFY', aceptadas: ['justification'] },
+      { antes: 'The', despues: 'of the drug is still under review.', raiz: 'SAFE', aceptadas: ['safety'] },
+      { antes: 'They apologised for the', despues: 'and refunded the fare.', raiz: 'INCONVENIENT', aceptadas: ['inconvenience'] },
+      { antes: 'His', despues: 'to the field is widely recognised.', raiz: 'CONTRIBUTE', aceptadas: ['contribution'] }
+    ]
+  },
+
+  't4-voc8': {
+    tipo: 'formacion', titulo: 'Word formation · adjetivos · cuarta vuelta',
+    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    items: [
+      { antes: 'The evidence turned out to be largely', despues: '.', raiz: 'RELY', aceptadas: ['unreliable'] },
+      { antes: 'Her account of the evening was entirely', despues: '.', raiz: 'BELIEVE', aceptadas: ['believable'] },
+      { antes: 'The instructions were needlessly', despues: '.', raiz: 'COMPLICATE', aceptadas: ['complicated'] },
+      { antes: 'The soup was, I am afraid, completely', despues: '.', raiz: 'TASTE', aceptadas: ['tasteless'] },
+      { antes: 'His handwriting is barely', despues: '.', raiz: 'READ', aceptadas: ['readable'] },
+      { antes: 'The offer they made was frankly', despues: '.', raiz: 'INSULT', aceptadas: ['insulting'] }
+    ]
+  },
+
+  't4-voc9': {
+    tipo: 'caja', titulo: 'Verbos con preposición fija · cuarta vuelta',
+    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    caja: ['about', 'for', 'from', 'in', 'of', 'on', 'to', 'with'],
+    items: [
+      { antes: 'Nobody warned us', despues: 'the road works.', aceptadas: ['about'] },
+      { antes: 'She apologised', despues: 'the delay before anyone complained.', aceptadas: ['for'] },
+      { antes: 'The whole street benefited', despues: 'the change.', aceptadas: ['from'] },
+      { antes: 'He confided', despues: 'his sister and nobody else.', aceptadas: ['in'] },
+      { antes: 'I do not approve', despues: 'the method, whatever the result.', aceptadas: ['of'] },
+      { antes: 'The two accounts do not correspond', despues: 'each other at all.', aceptadas: ['to'] }
+    ]
+  },
+
+  't4-voc10': {
+    tipo: 'caja', titulo: 'Phrasal verbs · problemas y salidas',
+    instruccion: 'Completa cada frase con una palabra de la caja. Hay más palabras de las que necesitas.',
+    caja: ['away', 'back', 'down', 'off', 'out', 'round', 'through', 'up'],
+    items: [
+      { antes: 'The talks broke', despues: 'again on Friday afternoon.', aceptadas: ['down'] },
+      { antes: 'They came', despues: 'to our position in the end.', aceptadas: ['round'] },
+      { antes: 'We will have to put the meeting', despues: 'until March.', aceptadas: ['off'] },
+      { antes: 'I cannot work', despues: 'what she actually wants.', aceptadas: ['out'] },
+      { antes: 'The colour has faded', despues: 'over the years.', aceptadas: ['away'] },
+      { antes: 'She sailed', despues: 'the interview without appearing to try.', aceptadas: ['through'] }
+    ]
+  },
+
+  't4-voc11': {
+    tipo: 'caja', titulo: 'Colocaciones · verbo y sustantivo · cuarta vuelta',
+    instruccion: 'Completa cada frase con un verbo de la caja. Hay más verbos de los que necesitas.',
+    caja: ['bear', 'cast', 'draw', 'make', 'place', 'put', 'strike', 'take'],
+    items: [
+      { antes: 'It is hard to', despues: 'a balance between the two.', aceptadas: ['strike'] },
+      { antes: 'Please', despues: 'in mind that the office shuts at four.', aceptadas: ['bear'] },
+      { antes: 'Nobody was willing to', despues: 'the blame for it.', aceptadas: ['take'] },
+      { antes: 'The new report', despues: 'doubt on the earlier figures.', aceptadas: ['cast'] },
+      { antes: 'Before we finish I would like to', despues: 'a suggestion.', aceptadas: ['make'] },
+      { antes: 'She was asked to', despues: 'an order by the end of the week.', aceptadas: ['place'] }
+    ]
+  },
+
+  't4-voc12': {
+    tipo: 'caja', titulo: 'Expresiones con distancia y medida',
+    instruccion: 'Completa cada expresión con una palabra de la caja. Hay más palabras de las que necesitas.',
+    caja: ['bottom', 'half', 'inch', 'mile', 'number', 'odds', 'stone', 'yard'],
+    items: [
+      { antes: 'He would not give an', despues: 'in the negotiation.', aceptadas: ['inch'] },
+      { antes: 'You could see the mistake a', despues: 'off.', aceptadas: ['mile'] },
+      { antes: 'She got to the', despues: 'of it eventually.', aceptadas: ['bottom'] },
+      { antes: 'The', despues: 'were against them from the start.', aceptadas: ['odds'] },
+      { antes: 'If you think that was bad, you do not know the', despues: 'of it.', aceptadas: ['half'] },
+      { antes: 'Nobody knows the exact', despues: 'of people affected.', aceptadas: ['number'] }
+    ]
+  },
+
+  't4-voc13': {
+    tipo: 'cloze', titulo: 'Open cloze · las instrucciones',
+    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    texto: [
+      'Nobody reads the instructions, and the industry response has been to make them shorter, which has not helped {1} the smallest degree. The problem was never length. It is that instructions are written by somebody who already understands the object, and that person has lost the ability to imagine not understanding it.',
+      'The classic failure is the step that says “connect the unit”. To the writer this is one action. To the reader it is four questions, {2} of which the page answers. Every trade has its own version of this, and every trade is convinced the version is the reader’s fault. The evidence says otherwise: give the same page to six people who have never seen the object and you will get six different first moves, which is not a coincidence {3} a measurement.',
+      'The only reliable method is embarrassing and cheap. Sit somebody down with the object and the page and say nothing at all, {4} matter what they do. Twenty minutes of that will teach you more {5} a year of redrafting, and most organisations will not do it, because watching a stranger fail to use your product is unpleasant and cannot be delegated. So the instructions get shorter, the calls to the helpline stay {6} they were, and everybody agrees that people simply do not read.'
+    ],
+    items: [
+      { aceptadas: ['in'] }, { aceptadas: ['none'] }, { aceptadas: ['but'] },
+      { aceptadas: ['no'] }, { aceptadas: ['than'] }, { aceptadas: ['as', 'where'] }
+    ]
+  },
+
+  't4-voc14': {
+    tipo: 'cloze', titulo: 'Open cloze · cambiar de opinión',
+    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    texto: [
+      'Changing your mind in public is one of the few genuinely difficult things, and the difficulty has almost nothing to {1} with the facts. By the time an argument has been had twice, the position has stopped being a belief and become a piece of furniture: other people know where it stands, and so do you.',
+      'This is why better evidence often makes matters worse. Somebody arrives with the decisive study, and instead {2} conceding you notice that they are enjoying themselves. The concession they are asking {3} is not an intellectual one. It is social, it is expensive, and they have not offered to pay any part of it.',
+      'The people who are good at this appear to share a single habit: they say it early and briefly, before the position has hardened, and they do {4} apologise at length. “I had that wrong” is a complete sentence. What follows it should be the new position rather {5} a long account of how the old one came about, which is only a way of defending it while appearing to give it {6}.'
+    ],
+    items: [
+      { aceptadas: ['do'] }, { aceptadas: ['of'] }, { aceptadas: ['for'] },
+      { aceptadas: ['not'] }, { aceptadas: ['than'] }, { aceptadas: ['up'] }
+    ]
+  },
+
+  't4-voc15': {
+    tipo: 'formacion', titulo: 'Word formation · prefijos · cuarta vuelta',
+    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    items: [
+      { antes: 'The figures in the leaflet were deliberately', despues: '.', raiz: 'LEAD', aceptadas: ['misleading'] },
+      { antes: 'The two accounts are simply', despues: '.', raiz: 'RECONCILE', aceptadas: ['irreconcilable'] },
+      { antes: 'They had to', despues: 'the entire schedule at two days’ notice.', raiz: 'ARRANGE', aceptadas: ['rearrange'] },
+      { antes: 'Her role in it has been consistently', despues: '.', raiz: 'VALUE', aceptadas: ['undervalued'] },
+      { antes: 'Given the forecast, the delay was entirely', despues: '.', raiz: 'FORESEE', aceptadas: ['foreseeable'] },
+      { antes: 'His conduct at the meeting was wholly', despues: '.', raiz: 'PROFESSION', aceptadas: ['unprofessional'] }
+    ]
+  },
+
+  't4-voc16': {
+    tipo: 'formacion', titulo: 'Word formation · adverbios · cuarta vuelta',
+    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    items: [
+      { antes: 'The scheme has been', despues: 'successful, given the budget.', raiz: 'SURPRISE', aceptadas: ['surprisingly'] },
+      { antes: 'She answered', despues: 'and left the room.', raiz: 'CURT', aceptadas: ['curtly'] },
+      { antes: 'The two accounts differ', despues: 'on one point.', raiz: 'MARK', aceptadas: ['markedly'] },
+      { antes: 'He behaved', despues: 'throughout, which nobody expected.', raiz: 'IMPECCABLE', aceptadas: ['impeccably'] },
+      { antes: 'The results are', despues: 'better than last year’s.', raiz: 'CONSIDER', aceptadas: ['considerably'] },
+      { antes: 'They dealt with the complaint', despues: 'and quickly.', raiz: 'SENSE', aceptadas: ['sensibly'] }
+    ]
+  },
+
+
+  /* ===================== TEST 4 · USE OF ENGLISH ===================== */
+
+  't4-use1': {
+    tipo: 'opcion', parte: 1, titulo: 'Use of English · Parte 1',
+    instruccion: 'Elige la palabra que mejor encaja en cada hueco.',
+    texto: [
+      'For most of the twentieth century the ambition was to get rid of rivers. A stream running through a town was a nuisance and a health risk, and the sensible thing was to {1} it in a pipe and build over the top. Hundreds of European towns did exactly that, and for sixty years nobody gave it a second {2}.',
+      'The reversal, when it came, was not driven by nostalgia. A pipe built for the rainfall of 1930 cannot {3} with the rainfall of today, and the cheapest way to increase its capacity is often to take the lid off altogether. Councils that would never have {4} the money for a beauty project found it at once for a drainage one.',
+      'What nobody predicted was the effect on the streets themselves. A town that has spent a decade arguing about parking will {5} its mind about a road within eighteen months once there is water beside it. Property prices rise, which is the part that {6} up in the reports; the part that is harder to {7} is that people simply walk more. Whether any of it justifies the cost is still argued over, although the argument is now about {8} much to spend rather than whether to spend anything at all.'
+    ],
+    items: [
+      { opciones: ['sink', 'drown', 'hide', 'bury'], correcta: 3 },
+      { opciones: ['thought', 'idea', 'mind', 'notice'], correcta: 0 },
+      { opciones: ['manage', 'cope', 'handle', 'meet'], correcta: 1 },
+      { opciones: ['spared', 'found', 'granted', 'lent'], correcta: 1 },
+      { opciones: ['turn', 'shift', 'alter', 'change'], correcta: 3 },
+      { opciones: ['ends', 'turns', 'comes', 'finishes'], correcta: 0 },
+      { opciones: ['count', 'measure', 'weigh', 'value'], correcta: 1 },
+      { opciones: ['what', 'so', 'how', 'too'], correcta: 2 }
+    ]
+  },
+
+  't4-use2a': {
+    tipo: 'cloze', parte: 2, titulo: 'Use of English · Parte 2',
+    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    texto: [
+      'There is a drawer in most houses that contains nothing anybody has looked at in four years. It is not a drawer for things you need; it is a drawer for things you cannot {1} yourself to throw away, which is a different category and a much larger one.',
+      'The usual advice is to be ruthless, and the usual advice fails, because it misunderstands what the drawer is {2}. Almost nothing in it is kept for its use. The guarantee for an appliance sold nine years ago is not insurance; it is a receipt for a decision, and throwing it out means admitting {3} the decision was taken by somebody you no longer quite are.',
+      'A better method is to accept the drawer and give it a limit. One drawer, not four; and {4} it will not close, something leaves. This works {5} the usual advice does not, because it never asks you to decide what matters, only what matters {6}. Choosing between two things is a task a human being can perform. Deciding whether a thing matters in the abstract is a task {7} which nobody is equipped, and it is the reason the drawer is still there. You may find, after a year of this, that it empties itself with very {8} help from you.'
+    ],
+    items: [
+      { aceptadas: ['bring'] }, { aceptadas: ['for'] }, { aceptadas: ['that'] },
+      { aceptadas: ['when', 'once'] }, { aceptadas: ['where'] }, { aceptadas: ['most'] },
+      { aceptadas: ['for'] }, { aceptadas: ['little'] }
+    ]
+  },
+
+  't4-use2b': {
+    tipo: 'cloze', parte: 2, titulo: 'Use of English · Parte 2',
+    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    texto: [
+      'Arriving early is treated as a virtue and is usually nothing {1} the sort. The habitually early are not more considerate than everybody else; they are people who find waiting less unpleasant {2} the possibility of being late, and have arranged their lives accordingly.',
+      'This is worth saying because the early tend to be insufferable about it. They will tell you, {3} being asked, how long the journey took, and they will treat somebody else’s different arrangement {4} a moral failing rather than a different tolerance for the same discomfort. The late, {5} their part, are no better: they present their lateness as evidence of a full and interesting life, which it very rarely is.',
+      'What both are doing is converting a temperament into a virtue, which is the commonest move in the whole of human self-description and the hardest {6} spot in oneself. The useful question is not whether you are early or late. It is what you are prepared to give {7} in order to stay that way, and how much of somebody else’s morning you are spending {8} it.'
+    ],
+    items: [
+      { aceptadas: ['of'] }, { aceptadas: ['than'] }, { aceptadas: ['without'] },
+      { aceptadas: ['as'] }, { aceptadas: ['for'] }, { aceptadas: ['to'] },
+      { aceptadas: ['up'] }, { aceptadas: ['on'] }
+    ]
+  },
+
+  't4-use3': {
+    tipo: 'formacion', parte: 3, titulo: 'Use of English · Parte 3',
+    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    items: [
+      { antes: 'The report was written with admirable', despues: '.', raiz: 'BRIEF', aceptadas: ['brevity'] },
+      { antes: 'His', despues: 'was never in doubt, whatever else was.', raiz: 'HONEST', aceptadas: ['honesty'] },
+      { antes: 'The system is', despues: 'complicated for what it does.', raiz: 'NEED', aceptadas: ['needlessly'] },
+      { antes: 'The two sets of figures are not', despues: '.', raiz: 'COMPARE', aceptadas: ['comparable'] },
+      { antes: 'They handled the whole matter with complete', despues: '.', raiz: 'DISCREET', aceptadas: ['discretion'] },
+      { antes: 'The results were', despues: 'disappointing after so much work.', raiz: 'BITTER', aceptadas: ['bitterly'] },
+      { antes: 'She has an', despues: 'memory for names.', raiz: 'EXCEPTION', aceptadas: ['exceptional'] },
+      { antes: 'The scheme proved', despues: 'from the very first week.', raiz: 'WORK', aceptadas: ['unworkable'] }
+    ]
+  },
+
+  't4-use4a': {
+    tipo: 'transformacion', parte: 4, titulo: 'Use of English · Parte 4',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'I have never been so bored.', clave: 'MORE', antes: 'I have never', despues: 'in my life.', aceptadas: ['been more bored'] },
+      { frase: 'Nobody had warned me about the cost.', clave: 'BEEN', antes: 'I', despues: 'about the cost.', aceptadas: ["hadn't been warned", 'had not been warned'] },
+      { frase: 'She did not mind waiting.', clave: 'OBJECT', antes: 'She', despues: 'waiting.', aceptadas: ["didn't object to", 'did not object to'] },
+      { frase: 'It was raining, so we stayed in.', clave: 'ACCOUNT', antes: 'We stayed in', despues: 'the rain.', aceptadas: ['on account of'] },
+      { frase: 'He only calmed down after an hour.', clave: 'TOOK', antes: 'It', despues: 'him to calm down.', aceptadas: ['took an hour for'] },
+      { frase: 'They cannot possibly have finished.', clave: 'WAY', antes: 'There is', despues: 'have finished.', aceptadas: ['no way they can', 'no way they could'] }
+    ]
+  },
+
+  't4-use4b': {
+    tipo: 'transformacion', parte: 4, titulo: 'Use of English · Parte 4',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'She was too tired to argue.', clave: 'ENERGY', antes: 'She did not', despues: 'argue.', aceptadas: ['have the energy to'] },
+      { frase: 'The decision is not mine to make.', clave: 'UP', antes: 'It is not', despues: 'me.', aceptadas: ['up to'] },
+      { frase: 'They have not repaired the lift yet.', clave: 'BEEN', antes: 'The lift', despues: 'yet.', aceptadas: ["hasn't been repaired", 'has not been repaired'] },
+      { frase: 'Everybody thinks he wrote it himself.', clave: 'HAVE', antes: 'He is thought', despues: 'it himself.', aceptadas: ['to have written'] },
+      { frase: 'I would prefer not to discuss it.', clave: 'RATHER', antes: 'I', despues: 'it.', aceptadas: ['would rather not discuss', "'d rather not discuss"] },
+      { frase: 'He did not say a word for an hour.', clave: 'SILENT', antes: 'He', despues: 'for an hour.', aceptadas: ['remained silent', 'stayed silent'] }
+    ]
+  },
+
+
+  /* ===================== TEST 4 · READING ===================== */
+
+  't4-read5': {
+    tipo: 'lectura', parte: 5, titulo: 'Reading · Parte 5',
+    instruccion: 'Lee el texto y elige la mejor respuesta (A, B, C o D) para cada pregunta.',
+    tituloTexto: 'The woman who writes the questions',
+    texto: [
+      'Pilar Anzola works in a room with no windows, which she is careful to say is not a metaphor: the building is old and the room used to be a store. On the table in front of her are eleven newspaper articles, four of which she has already rejected, and a printed sheet of numbers that matters more to her than any of them. She has written examination questions for nineteen years and has never met a single person who has answered one.',
+      'The job is not, she insists, writing questions. “Anybody can write a question. The question is the easy half.” What she is actually doing is predicting the ways in which a competent person might arrive at the wrong answer, and then making sure that each of those ways is represented by one of the options. A wrong answer that nobody chooses is not a wrong answer. It is a blank, and it makes the item easier than anyone intended.',
+      'This is where the sheet of numbers comes in. Every item is tried out on real candidates before it is ever used, and the results are more brutal than most people expect. An item that everybody answers correctly tells you nothing and is thrown away; so is one that everybody gets wrong. The kind that worries her is the third: the item the weakest candidates answer correctly and the strongest ones do not. “That is not a hard question,” she says. “That is a broken one, and it will look perfectly reasonable to you and me for as long as we care to stare at it.”',
+      'She has one private rule, which she describes as the only thing she is dogmatic about. Nothing she believes may appear anywhere in an item: not the topic, not the tone, and above all not the correct answer to a question of opinion. “A candidate who agrees with me should not gain a mark for it. If they can, I have written a bad item, and I have also done something rather worse than that.”',
+      'She offers an example, and it is not one that flatters her. An item she had been pleased with, about a woman returning to the town she grew up in, went to pretesting and failed in a way she had not foreseen. Candidates who had themselves emigrated read the passage quite differently from those who had not, and answered a question about the woman’s motives accordingly. Both readings were defensible. “The text was fine and the question was fine. Together they measured where the candidate had lived. It went in the bin, and it took me three days to stop arguing with the numbers.”',
+      'Asked what she makes of candidates who work through past papers, she is more generous than expected and then rather less so. Past papers, she says, teach the shape of the thing, which is worth knowing, and a candidate who has never seen the format will waste ten minutes finding out. But she has a warning she says nobody wants to hear. “If you can do the old papers and not the new ones, you have learned my habits. That is a genuine achievement and it is not English, and in the end the paper is not the thing you are being examined on.”'
+    ],
+    items: [
+      { pregunta: '1  Why does Anzola point out that the windowless room “is not a metaphor”?',
+        opciones: ['To make light of how ordinary the setting is.',
+                   'To complain about the conditions she works in.',
+                   'To explain why the work takes so long.',
+                   'To suggest the secrecy has been exaggerated.'], correcta: 0 },
+      { pregunta: '2  What does Anzola say the real work of writing an item consists of?',
+        opciones: ['Finding a text that has not been used before.',
+                   'Making the wording as clear as it can possibly be.',
+                   'Anticipating the routes by which people reach a wrong answer.',
+                   'Keeping the difficulty consistent from paper to paper.'], correcta: 2 },
+      { pregunta: '3  Why is an option that nobody chooses a problem?',
+        opciones: ['It suggests the text was too difficult for the level.',
+                   'It makes the item easier than it was meant to be.',
+                   'It shows the candidates were not concentrating.',
+                   'It has usually been taken from an older item.'], correcta: 1 },
+      { pregunta: '4  Which kind of item does Anzola find most troubling?',
+        opciones: ['One that almost every candidate answers correctly.',
+                   'One that almost no candidate answers correctly.',
+                   'One that gives different results each time it is used.',
+                   'One that the strongest candidates get wrong.'], correcta: 3 },
+      { pregunta: '5  Why was the item about the returning woman withdrawn?',
+        opciones: ['The passage was harder than it had appeared.',
+                   'The question turned out to have two correct answers.',
+                   'It measured the candidate’s own experience rather than their English.',
+                   'Candidates found the subject matter upsetting.'], correcta: 2 },
+      { pregunta: '6  What is her warning about past papers?',
+        opciones: ['They are a poor guide to the format now in use.',
+                   'Doing well on them may reflect familiarity with her rather than with English.',
+                   'They take up time that would be better spent reading.',
+                   'They give candidates a misleading sense of the timing.'], correcta: 1 }
+    ]
+  },
+
+  't4-read6': {
+    tipo: 'lectura', parte: 6, titulo: 'Reading · Parte 6',
+    instruccion: 'Cuatro especialistas escriben sobre la semana laboral de cuatro días. Elige el texto (A, B, C o D) que responde a cada pregunta.',
+    opcionesCortas: true,
+    secciones: [
+      { letra: 'A', titulo: 'Nerea Salas, labour economist',
+        texto: ['The trial results are better than I expected and they cannot bear the weight being put on them. Every published trial is of a firm that volunteered, which means a firm whose managers already believed it would work, in a sector where output is easy to shift about. That is not a sample; it is a group of enthusiasts, and I say so as somebody who would like the finding to hold. Run it in more places, including the awkward ones, and I will change my position. Legislate on what we have now and we will spend a decade arguing about numbers that were never designed to answer the question.'] },
+      { letra: 'B', titulo: 'Gareth Mbeki, operations director',
+        texto: ['I read the studies and they moved me not at all; what moved me was running the thing for fourteen months. The output argument turned out to be the easy one — we lost nothing measurable and I no longer expect anybody to believe that until they try it. The genuinely hard problem is coverage. Somebody has to answer the phone on Friday, and every hour I have spent on this has been spent on the rota rather than on productivity. Nobody writing about the four-day week seems to have built one.'] },
+      { letra: 'C', titulo: 'Hélène Ruiz, sociologist of work',
+        texto: ['My worry is who this is for. Shortening the week is straightforward where the work is a set of tasks in a diary and close to impossible where the work is a person in a room: a ward, a classroom, a shop floor. If it spreads through the professions and stops at the door of everybody else, we will have handed a further advantage to those who had one already. I would also say, and I know it is unwelcome, that the firms we keep citing put themselves forward, and a study of volunteers tells you about volunteers.'] },
+      { letra: 'D', titulo: 'Tomas Lindqvist, historian of labour',
+        texto: ['The Saturday half-holiday was going to ruin British industry; so was the eight-hour day; so was the abolition of the six-day week. In each case the objection was coverage, in each case it was serious, and in each case it was solved by people who had been told it could not be. What I resist is the demand for proof beforehand. These changes have never been introduced because a study licensed them. They were introduced, and the studies came afterwards to explain why nothing had collapsed.'] }
+    ],
+    items: [
+      { pregunta: '1  Which expert argues that the change is far harder in some kinds of work than in others?',
+        opciones: ['A', 'B', 'C', 'D'], correcta: 2 },
+      { pregunta: '2  Which expert shares C’s doubts about the firms the research is based on?',
+        opciones: ['A', 'B', 'C', 'D'], correcta: 0 },
+      { pregunta: '3  Which expert takes a different view from A on whether evidence should come first?',
+        opciones: ['A', 'B', 'C', 'D'], correcta: 3 },
+      { pregunta: '4  Which expert was convinced by doing it rather than by any argument?',
+        opciones: ['A', 'B', 'C', 'D'], correcta: 1 }
+    ]
+  },
+
+  't4-read7': {
+    tipo: 'lectura', parte: 7, titulo: 'Reading · Parte 7',
+    instruccion: 'Faltan seis párrafos del texto. Elige para cada hueco el párrafo que encaja (A–G). Hay uno que no va en ninguno.',
+    tituloTexto: 'Sixty-one years of rain',
+    opcionesCortas: true,
+    texto: [
+      'The first entry in the ledger is dated the second of January 1963 and reads, in pencil: “Hard frost. 0.0 mm. Pipes.” It was written by Aurelio Beitia, a schoolmaster, who had been given a rain gauge by his brother-in-law and did not particularly want it.',
+      '{1}',
+      'By 1970 the ledger had become three ledgers, and the entries had acquired a discipline they had lacked at the start: the same time each morning, the same wording, the gauge read before anything else happened in the house.',
+      '{2}',
+      'His daughter Idoia took it over in 1991 without any discussion, in the way such things are taken over.',
+      '{3}',
+      'What none of them understood at the time was what they had. A national weather service maintains a station for as long as the funding lasts, and the average life of one in this region is eleven years. Six decades in one garden, at one height, with one instrument, is a different kind of object altogether.',
+      '{4}',
+      'The telephone call, when it eventually came, was from a university and was not about rain.',
+      '{5}',
+      'The record is now held in two places and copied in a third.',
+      '{6}',
+      'Idoia still reads the gauge at eight. She has been asked whether the daily habit is a burden after thirty-four years, and gives an answer that would have irritated her father, who thought that sort of question sentimental. She says that on the day she stops, sixty-one years become a closed thing that somebody studies, and that until then it is a sentence which has not finished.'
+    ],
+    secciones: [
+      { letra: 'A', texto: ['She was twenty-six, she had no particular interest in the weather, and her father had had a stroke. The first entries in her hand are noticeably careful, as though the ledger were watching her.'] },
+      { letra: 'B', texto: ['They wanted the frost dates. Somebody studying when fruit trees come into flower had run out of local records at 1988, and here was a series that began before their own department existed. The rain, it turned out, was the least interesting column in the book.'] },
+      { letra: 'C', texto: ['He kept it up for the first year out of politeness and for the second out of habit, which is the order in which most long things begin. The entries from that period are irregular and occasionally missing, and he later apologised for them in a marginal note nobody had asked him for.'] },
+      { letra: 'D', texto: ['Rain gauges are simple to the point of insult: a funnel of a known diameter, a container, and a cylinder marked in millimetres. The design has not meaningfully changed since the nineteenth century, and the expensive electronic ones are still checked against a version of it.'] },
+      { letra: 'E', texto: ['Idoia was firm about one condition and the university agreed to it without much argument: the original ledgers stay in the house. She points out, reasonably enough, that they have survived sixty-one years there, and that nothing in an archive has yet been tested for as long.'] },
+      { letra: 'F', texto: ['This mattered far more than anybody could have known. A measurement taken at a different hour is a different measurement, and the value of the whole record rests on the fact that for sixty-one years it has been taken at eight in the morning, whatever else was going on.'] },
+      { letra: 'G', texto: ['The comparison is not entirely fair to the professionals, whose instruments are better and whose figures are checked. But a good instrument moved four times tells you about four gardens. A modest one that has never moved tells you about time.'] }
+    ],
+    items: [
+      { pregunta: '1', opciones: ['A','B','C','D','E','F','G'], correcta: 2 },
+      { pregunta: '2', opciones: ['A','B','C','D','E','F','G'], correcta: 5 },
+      { pregunta: '3', opciones: ['A','B','C','D','E','F','G'], correcta: 0 },
+      { pregunta: '4', opciones: ['A','B','C','D','E','F','G'], correcta: 6 },
+      { pregunta: '5', opciones: ['A','B','C','D','E','F','G'], correcta: 1 },
+      { pregunta: '6', opciones: ['A','B','C','D','E','F','G'], correcta: 4 }
+    ]
+  },
+
+  't4-read8': {
+    tipo: 'lectura', parte: 8, titulo: 'Reading · Parte 8',
+    instruccion: 'Seis personas hablan de un profesor que les marcó. Elige la persona (A–F) que corresponde a cada pregunta.',
+    opcionesCortas: true,
+    secciones: [
+      { letra: 'A', titulo: 'Marta',
+        texto: ['In three years she praised nothing, and I mean nothing: no essay, no answer, no piece of work. Once, in the second year, she read something of mine and nodded, and I can still tell you where I was standing. I spent a long time thinking she was cold. It was only when I began teaching myself that I saw what she had built, which was a currency worth having by making sure there was almost none of it in circulation. I do not know that I could do it. I know exactly what it was for.'] },
+      { letra: 'B', titulo: 'Iker',
+        texto: ['He was, and I say this without pleasure, not much good at the subject. He got things wrong at the board and we knew it by the fifth form. What he was extraordinary at was making us work: the deadlines were real, the standard did not move, and he never once accepted an excuse he had not been given in advance. I learned almost no chemistry from him and I learned how to sit down and do a thing, which has been worth more. He was also, by every account I have since heard, difficult to work with. Both are true.'] },
+      { letra: 'C', titulo: 'Nadine',
+        texto: ['She stopped me in front of thirty people and said that what I had just said was wrong and that I had not thought about it. I was fifteen and I went home furious. Thirty years later I would say it was the single most useful thing anybody did for me at that school, because it turned out that being wrong in public is survivable, and until that afternoon I had arranged my entire life around not finding out. Everyone talks about being encouraged. I was corrected, and I needed it more.'] },
+      { letra: 'D', titulo: 'Sam',
+        texto: ['What he actually did had nothing to do with history. He noticed, over about a fortnight, that I was not eating, and he did not say anything to me about it at all. He said it to somebody who could act, and something quietly happened, and I only pieced together years afterwards who had started it. He taught me perfectly competently as well. It is not the part I would mention.'] },
+      { letra: 'E', titulo: 'Ola',
+        texto: ['I was the favourite and I have come to think it did me no good. Being singled out at fourteen is enormously pleasant and it quietly closes things: I chose his subject, then his university course, then something near enough to his career, and at no point did I notice I was choosing. It took until my late twenties to work out that I had been living inside somebody else’s good opinion. He did nothing wrong. That is what makes it hard to explain.'] },
+      { letra: 'F', titulo: 'Ruy',
+        texto: ['At the time I thought he was a bore and I was not alone; the class had a name for him. What he was doing, which none of us could see, was refusing to make it easy, and I did not understand that until my first term at university, when it turned out I could do something everybody around me was struggling with. I wrote to him that Christmas. I never heard back, and I have no idea whether it reached him, which is the part I still think about.'] }
+    ],
+    items: [
+      { pregunta: '1  Who came to see that the teacher’s manner had been a deliberate method?', opciones: ['A','B','C','D','E','F'], correcta: 0 },
+      { pregunta: '2  Who believes the attention they were given narrowed their choices?', opciones: ['A','B','C','D','E','F'], correcta: 4 },
+      { pregunta: '3  Who is grateful for having been corrected in front of others?', opciones: ['A','B','C','D','E','F'], correcta: 2 },
+      { pregunta: '4  Who separates the quality of the teaching from the character of the teacher?', opciones: ['A','B','C','D','E','F'], correcta: 1 },
+      { pregunta: '5  Who describes the teacher noticing something outside the subject entirely?', opciones: ['A','B','C','D','E','F'], correcta: 3 },
+      { pregunta: '6  Who made contact later and received no reply?', opciones: ['A','B','C','D','E','F'], correcta: 5 },
+      { pregunta: '7  Who remembers one small sign of approval in detail?', opciones: ['A','B','C','D','E','F'], correcta: 0 },
+      { pregunta: '8  Who says they were taught how to work rather than the subject itself?', opciones: ['A','B','C','D','E','F'], correcta: 1 },
+      { pregunta: '9  Who understood the teacher’s value only after leaving school?', opciones: ['A','B','C','D','E','F'], correcta: 5 },
+      { pregunta: '10  Who describes an advantage that turned out to be a disadvantage?', opciones: ['A','B','C','D','E','F'], correcta: 4 }
+    ]
+  },
+
+
+  /* ===================== TEST 4 · LISTENING =====================
+     Audio provisional de espeak-ng. Se sustituye por voz real antes de cobrar. */
+
+  't4-lis1': {
+    tipo: 'listening', parte: 1, titulo: 'Listening · Parte 1',
+    instruccion: 'Escucharás tres extractos. Elige la mejor respuesta (A, B o C) para cada pregunta. <b>Se escucha dos veces</b>.',
+    audio: 'audio/t4-lis1-espeak.mp3', demo: true, escuchas: 2,
+    contexto: 'Extracto 1: un club de lectura que ha dejado de leer. Extracto 2: una mujer que ha dejado su huerto. Extracto 3: dos compañeros y un sistema nuevo de informes.',
+    items: [
+      { pregunta: '1  What does the woman say about the group’s real purpose?',
+        opciones: ['It was social, although nobody would admit it.', 'It was to read books nobody would tackle alone.', 'It was to keep up a habit from their student days.'], correcta: 0 },
+      { pregunta: '2  What does she say about reading books again?',
+        opciones: ['The group should be wound up instead.', 'They should choose much shorter books.', 'It should happen only if somebody genuinely wants it.'], correcta: 2 },
+      { pregunta: '3  Why did the woman really give up the allotment?',
+        opciones: ['Her health had made the work impossible.', 'Most of the nine years had not been rewarding.', 'The rent had risen beyond what she would pay.'], correcta: 1 },
+      { pregunta: '4  What does she say she misses?',
+        opciones: ['The company of the man on the next plot.', 'The vegetables she used to grow.', 'The exercise the work gave her.'], correcta: 0 },
+      { pregunta: '5  What does the woman predict will happen with the new system?',
+        opciones: ['It will be withdrawn before the end of the year.', 'People will quietly work around it.', 'The duplication will be fixed within six weeks.'], correcta: 1 },
+      { pregunta: '6  How does she explain the system’s faults?',
+        opciones: ['Nobody established what the report was for.', 'The developers were given too little time.', 'Staff were never consulted about it.'], correcta: 0 }
+    ]
+  },
+
+  't4-lis2': {
+    tipo: 'listening', parte: 2, titulo: 'Listening · Parte 2',
+    instruccion: 'Completa cada frase con <b>una o dos palabras</b> de lo que oigas. <b>Se escucha dos veces</b>.',
+    audio: 'audio/t4-lis2-espeak.mp3', demo: true, escuchas: 2,
+    items: [
+      { antes: 'Finn says that building a dry stone wall is almost entirely about', despues: '.', aceptadas: ['sorting'] },
+      { antes: 'Before this work he spent fourteen years in', despues: '.', aceptadas: ['forestry'] },
+      { antes: 'Beginners most often choose stones that are too', despues: '.', aceptadas: ['big', 'large'] },
+      { antes: 'With no mortar, the only thing holding the wall together is its own', despues: '.', aceptadas: ['weight'] },
+      { antes: 'The tool he says he could not work without is the', despues: '.', aceptadas: ['line', 'string line'] },
+      { antes: 'The hardest part of any wall to build is the', despues: '.', aceptadas: ['end'] },
+      { antes: 'A properly built wall will stand untouched for about', despues: 'years.', aceptadas: ['150', 'a hundred and fifty'] },
+      { antes: 'He tells beginners to start by taking down a', despues: 'wall.', aceptadas: ['fallen'] }
+    ]
+  },
+
+  't4-lis3': {
+    tipo: 'listening', parte: 3, titulo: 'Listening · Parte 3',
+    instruccion: 'Escucharás una entrevista. Elige la mejor respuesta (A, B, C o D) para cada pregunta. <b>Se escucha dos veces</b>.',
+    audio: 'audio/t4-lis3-espeak.mp3', demo: true, escuchas: 2,
+    contexto: 'Un periodista entrevista a Imelda Rourke, que asesora a ciudades sobre los árboles de calle.',
+    items: [
+      { pregunta: '1  What effect of street trees does Rourke say she can actually measure?',
+        opciones: ['The value they add to nearby property.', 'The difference they make to summer temperature.', 'The amount of rainwater they absorb.', 'The improvement in air quality.'], correcta: 1 },
+      { pregunta: '2  Why do most young street trees die?',
+        opciones: ['Nobody is responsible for watering them.', 'They are damaged by passers-by.', 'Disease spreads quickly along a street.', 'The wrong species are chosen for the site.'], correcta: 0 },
+      { pregunta: '3  What is her criticism of the figures cities publish?',
+        opciones: ['They are deliberately inflated.', 'They combine parks and streets together.', 'They count plantings and never survivals.', 'They are collected too infrequently to be useful.'], correcta: 2 },
+      { pregunta: '4  Why does she argue for planting a variety of species?',
+        opciones: ['Mixed streets are considered more attractive now.', 'Different species suit different soils.', 'It spreads the cost over several years.', 'A single species was once lost to disease.'], correcta: 3 },
+      { pregunta: '5  What is her objection to pledges to plant millions of trees?',
+        opciones: ['The nurseries cannot supply the numbers.', 'The expense falls in years nobody celebrates.', 'The sites chosen are usually unsuitable.', 'They divert money from existing parks.'], correcta: 1 },
+      { pregunta: '6  What would she do with the money instead?',
+        opciones: ['Employ people to water the young trees.', 'Move the trees to wider streets.', 'Plant fewer trees with far more soil each.', 'Replace the failures as soon as they occur.'], correcta: 2 }
+    ]
+  },
+
+  't4-lis4': {
+    tipo: 'listening', parte: 4, titulo: 'Listening · Parte 4',
+    instruccion: 'Escucharás a cinco personas hablando de una decisión que tomaron deprisa. <b>Tarea 1</b> (1–5): por qué decidieron tan rápido. <b>Tarea 2</b> (6–10): qué dicen ahora. Se escucha dos veces.',
+    audio: 'audio/t4-lis4-espeak.mp3', demo: true, escuchas: 2,
+    opcionesCortas: true,
+    contexto: 'Cada tarea tiene su propia lista de ocho opciones.',
+    listas: [
+      { titulo: 'Tarea 1 · ¿Por qué decidieron tan rápido?', opciones: [
+        'they had in fact been deciding for years',
+        'the opportunity would have gone by that evening',
+        'somebody in the room talked them into it',
+        'refusing would have meant admitting something to themselves',
+        'they acted on feeling and knew it at the time',
+        'somebody else had already committed them',
+        'there was no information worth waiting for',
+        'they simply wanted to stop thinking about it'
+      ] },
+      { titulo: 'Tarea 2 · ¿Qué dicen ahora?', opciones: [
+        'they regret how they broke the news rather than the choice',
+        'they would do exactly the same again',
+        'they think the speed was the least important part',
+        'they blame the setting rather than the speed',
+        'they value having consulted nobody',
+        'they now check every decision with someone',
+        'they have avoided large decisions since',
+        'they were surprised how little actually changed'
+      ] }
+    ],
+    items: [
+      { pregunta: 'Tarea 1 · 1  Speaker one', opciones: ['A','B','C','D','E','F','G','H'], correcta: 1 },
+      { pregunta: 'Tarea 1 · 2  Speaker two', opciones: ['A','B','C','D','E','F','G','H'], correcta: 0 },
+      { pregunta: 'Tarea 1 · 3  Speaker three', opciones: ['A','B','C','D','E','F','G','H'], correcta: 3 },
+      { pregunta: 'Tarea 1 · 4  Speaker four', opciones: ['A','B','C','D','E','F','G','H'], correcta: 4 },
+      { pregunta: 'Tarea 1 · 5  Speaker five', opciones: ['A','B','C','D','E','F','G','H'], correcta: 2 },
+      { pregunta: 'Tarea 2 · 6  Speaker one', opciones: ['A','B','C','D','E','F','G','H'], correcta: 4 },
+      { pregunta: 'Tarea 2 · 7  Speaker two', opciones: ['A','B','C','D','E','F','G','H'], correcta: 2 },
+      { pregunta: 'Tarea 2 · 8  Speaker three', opciones: ['A','B','C','D','E','F','G','H'], correcta: 0 },
+      { pregunta: 'Tarea 2 · 9  Speaker four', opciones: ['A','B','C','D','E','F','G','H'], correcta: 1 },
+      { pregunta: 'Tarea 2 · 10  Speaker five', opciones: ['A','B','C','D','E','F','G','H'], correcta: 3 }
+    ]
+  },
+
+
+  /* ============== TEST 4 · SPEAKING Y WRITING ============== */
+
+  't4-speak1': {
+    tipo: 'speaking', parte: 2, titulo: 'Long turn: cómo se aprende un oficio',
+    instruccion: 'Habla durante <b>un minuto seguido</b>. No hace falta contestar a todo: elige y compara.',
+    segundos: 60,
+    pregunta: 'Why might people learn a trade in these ways, and what might be difficult about each?',
+    puntos: ['watching somebody experienced and copying them', 'a course with an examination at the end', 'being left alone with the work and no help'],
+    nota: 'En el examen esto se hace con tres fotografías. Aquí van descritas mientras la academia no aporte las suyas.',
+    items: [ { grabacion: true } ]
+  },
+
+  't4-speak3': {
+    tipo: 'speaking', parte: 3, titulo: 'Parte 3: decidir en voz alta',
+    instruccion: 'Habla durante <b>dos minutos</b>. Comenta las cinco opciones y llega a una conclusión.',
+    segundos: 120,
+    pregunta: 'A neighbourhood has money for one change to its streets. How useful is each of these, and which two would you choose?',
+    puntos: ['planting trees along the main avenue', 'widening the pavements', 'a covered area for the weekly market', 'slowing the traffic to twenty', 'more benches and lighting'],
+    nota: 'En el examen esto se habla con otro candidato durante tres minutos: se negocia y se llega a un acuerdo. Grabándote solo se practica todo menos eso, que es un criterio entero de los cinco.',
+    items: [ { grabacion: true } ]
+  },
+
+  't4-speak4': {
+    tipo: 'speaking', parte: 4, titulo: 'Parte 4: opinar y justificar',
+    instruccion: 'Contesta a las tres preguntas seguidas, <b>dos minutos</b> en total.',
+    segundos: 120,
+    pregunta: 'Questions about decisions and advice.',
+    puntos: [
+      'Are decisions taken quickly usually worse than decisions taken slowly? Why?',
+      'Some people say you should never ask more than one person for advice. Do you agree?',
+      'Is it harder to admit a mistake at work or at home?'
+    ],
+    nota: 'En el examen el examinador pregunta y luego pide tu reacción a lo que ha dicho la otra persona. Aquí solo está la primera mitad.',
+    items: [ { grabacion: true } ]
+  },
+
+  't4-speakr': {
+    tipo: 'speaking', parte: 2, titulo: 'Repaso: un minuto sin parar',
+    instruccion: 'Habla durante <b>un minuto seguido</b>, sin pausas largas. Compara, no describas.',
+    segundos: 60,
+    pregunta: 'Why might these be hard to do well, and what might go wrong in each?',
+    puntos: ['explaining something you know to somebody who does not', 'saying no to a favour you have been asked for', 'giving somebody bad news you are not responsible for'],
+    nota: 'El objetivo no es acertar: es no callarse. Si te quedas en blanco, di por qué te has quedado en blanco y sigue; en el examen eso puntúa más que el silencio.',
+    items: [ { grabacion: true } ]
+  },
+
+  't4-write1': {
+    tipo: 'writing', parte: 1, titulo: 'Essay',
+    instruccion: 'Escribe entre <b>220 y 260 palabras</b>. Es obligatorio: en el examen esta tarea no se elige.',
+    minutos: 45, palabras: [220, 260],
+    enunciado: 'Your class has discussed how a town should decide what to spend money on. Write an essay discussing two of the three methods below and explaining which you think leads to better decisions.',
+    contexto: 'Methods: a vote open to every resident · a committee of elected councillors · a panel of independent specialists.',
+    cierre: 'Write in a formal style. Do not simply list advantages: take a position and support it.',
+    items: [ { escrito: true } ]
+  },
+
+  't4-write2': {
+    tipo: 'writing', parte: 2, titulo: 'A elegir: correo formal o informe',
+    instruccion: 'Elige <b>una</b> de las dos y escribe entre <b>220 y 260 palabras</b>.',
+    minutos: 45, palabras: [220, 260],
+    enunciado: 'Choose one of the following two tasks.',
+    contexto: '1 · You took a course that was advertised very differently from what it turned out to be. Write a formal email to the organisation explaining what happened and saying what you expect them to do.\n2 · Your town council is deciding whether to keep its Saturday bus service. Write a report describing who uses it, what would happen if it stopped, and what you recommend.',
+    cierre: 'El correo formal necesita hechos, fechas y una petición concreta: la indignación sin datos no consigue nada. El informe necesita encabezados y neutralidad. Elige la que menos te apetezca: es la que necesitas practicar.',
     items: [ { escrito: true } ]
   },
 

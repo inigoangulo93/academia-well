@@ -80,9 +80,10 @@ con que formato—, extraido en `well-online-temario.md` sin una sola frase
 copiada. Todo el vocabulario y la gramatica se escriben nuevos contra ese
 fichero.
 
-**Estado del curso: Test 1 y Test 2 completos** (34 de 34 bloques cada uno,
-104 ejercicios, 600 preguntas). Tests 3 y 4, sin empezar. Se decidió no cobrar
-hasta tener los cuatro.
+**Estado del curso: los cuatro tests completos** (34 de 34 bloques cada uno,
+208 ejercicios, 1.196 preguntas). Cada test da un simulacro con 30 preguntas de
+Use of English, 26 de Reading y 30 de Listening, igual que el examen. Falta
+sustituir el audio provisional de espeak-ng por voz real antes de cobrar.
 
 **Al escribir contenido, `node qa/qa-contenido.js` antes de dar nada por bueno.**
 Tarda un segundo y no abre navegador. Los errores de contenido no los ve ninguna

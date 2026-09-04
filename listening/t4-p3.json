@@ -1,0 +1,102 @@
+{
+  "id": "t4-lis3",
+  "examen": "cae",
+  "parte": 3,
+  "tarea": "Multiple choice, conversacion larga",
+  "titulo": "Una entrevista sobre los arboles de calle",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    {
+      "id": "narrador",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro"
+    },
+    {
+      "id": "ent",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-rp",
+      "descripcion": "hombre, 30s, periodista"
+    },
+    {
+      "id": "doc",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-scotland",
+      "descripcion": "mujer, 50s, ingeniera forestal urbana"
+    }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    {
+      "voz": "narrador",
+      "pausa": 0.8,
+      "texto": "You will hear an interview with Imelda Rourke, who advises cities on street trees."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "Imelda, most people think of street trees as decoration."
+    },
+    {
+      "voz": "doc",
+      "pausa": 0.4,
+      "texto": "Most people do, and I would not argue with anybody who plants one because it is beautiful. But the effect I can actually measure is temperature. A street with a closed canopy runs several degrees cooler than the identical street without one, and in the summers we are now having that is not decoration. That is whether the top floor is habitable in August."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "Why do so many of them die?"
+    },
+    {
+      "voz": "doc",
+      "pausa": 0.4,
+      "texto": "Not for the reasons people imagine. It is very rarely vandalism and it is rarely disease. They die of thirst, in their first three summers, because watering a young tree is nobody's job in particular. The planting has a budget and a photograph. The watering has neither."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "Cities do announce very large numbers, though."
+    },
+    {
+      "voz": "doc",
+      "pausa": 0.4,
+      "texto": "They announce plantings. Ask for survivals at five years and the room goes quiet, and I say that having sat in the room. It is not dishonesty exactly. Nobody has been asked to count the second number, so nobody counts it, and a figure that is never collected cannot embarrass anyone."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "You are known for arguing about which species go in."
+    },
+    {
+      "voz": "doc",
+      "pausa": 0.4,
+      "texto": "Because we have done this before. A generation planted one species along every avenue because it was reliable, and then a disease arrived and took the lot in a decade. Variety is insurance. It costs a little more, it looks less tidy, and the people who chose the monoculture were not fools. They were simply certain."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "So the pledges to plant millions of trees do not impress you."
+    },
+    {
+      "voz": "doc",
+      "pausa": 0.4,
+      "texto": "Planting is the cheap part. The cost is in years two to five, and no politician has ever cut a ribbon in year four. I would rather have a pledge for maintenance that nobody can photograph than a pledge for a million trees that nobody will water."
+    },
+    {
+      "voz": "ent",
+      "pausa": 0.3,
+      "texto": "If the money were yours, what would you do with it?"
+    },
+    {
+      "voz": "doc",
+      "pausa": 0.8,
+      "texto": "Fewer trees in bigger holes. Almost every failure I am called to look at is a tree in a pit the size of a suitcase, and it was doomed on the day it went in. Half the number, twice the soil, and you would keep nearly all of them. It is not an inspiring answer and it is the correct one."
+    }
+  ]
+}
