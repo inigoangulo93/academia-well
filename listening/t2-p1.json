@@ -1,0 +1,36 @@
+{
+  "id": "t2-lis1", "examen": "cae", "parte": 1,
+  "tarea": "Multiple choice, tres extractos", "titulo": "Tres conversaciones",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    { "id": "narrador", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-GB", "espeak": "en-gb", "descripcion": "narrador neutro" },
+    { "id": "h1", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-GB", "espeak": "en-gb-x-rp", "descripcion": "hombre, 40s" },
+    { "id": "m1", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-GB", "espeak": "en-gb-scotland", "descripcion": "mujer, 30s" },
+    { "id": "h2", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-US", "espeak": "en-us", "descripcion": "hombre, 20s" },
+    { "id": "m2", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-GB", "espeak": "en-gb-x-gbclan", "descripcion": "mujer, 50s" }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    { "voz": "narrador", "pausa": 0.8, "texto": "Extract one. You hear two people discussing a photograph exhibition." },
+    { "voz": "m1", "pausa": 0.3, "texto": "I came out of it slightly annoyed, and it took me the whole walk home to work out why." },
+    { "voz": "h1", "pausa": 0.3, "texto": "Not the pictures, surely. They were extraordinary." },
+    { "voz": "m1", "pausa": 0.3, "texto": "The pictures were fine. It was the captions. Every one of them told you what to feel before you had had a chance to look." },
+    { "voz": "h1", "pausa": 0.3, "texto": "I did not read them, so I had a lovely time." },
+    { "voz": "m1", "pausa": 0.3, "texto": "That is a skill I have never managed. If there is text on a wall I will read it, and then the photograph is closed." },
+    { "voz": "h1", "pausa": 1.2, "texto": "Then go back on a Tuesday and start at the far end, where they run out of budget for captions." },
+    { "voz": "narrador", "pausa": 0.8, "texto": "Extract two. You hear a man talking about giving up his car." },
+    { "voz": "h2", "pausa": 0.3, "texto": "Everyone asks whether I miss it, and the honest answer is about four times a year, very intensely." },
+    { "voz": "m2", "pausa": 0.3, "texto": "So why not keep one for those four times?" },
+    { "voz": "h2", "pausa": 0.3, "texto": "Because that is not how it works. If it is outside, I use it for everything, including things that take eleven minutes on foot. The car was never the problem. I was." },
+    { "voz": "m2", "pausa": 0.3, "texto": "And the four times?" },
+    { "voz": "h2", "pausa": 0.3, "texto": "I hire one, and it costs less than a year of insurance. What I did not expect was that I would stop planning my life around parking." },
+    { "voz": "m2", "pausa": 1.2, "texto": "That is the part nobody mentions." },
+    { "voz": "narrador", "pausa": 0.8, "texto": "Extract three. You hear two colleagues talking about a training course." },
+    { "voz": "m2", "pausa": 0.3, "texto": "Well? Three days of your life." },
+    { "voz": "h1", "pausa": 0.3, "texto": "Better than I expected, which I accept is not a high bar. The content was mostly obvious." },
+    { "voz": "m2", "pausa": 0.3, "texto": "So it was a waste." },
+    { "voz": "h1", "pausa": 0.3, "texto": "No, and that is the odd thing. What was useful was the other people. I spent two coffee breaks with someone from the Leeds office and solved a problem I had been carrying since March." },
+    { "voz": "m2", "pausa": 0.3, "texto": "So they could have skipped the course and sent you all to a café." },
+    { "voz": "h1", "pausa": 0.6, "texto": "They could, but nobody would have gone. The course is the excuse. I am not sure the organisers know that." }
+  ]
+}

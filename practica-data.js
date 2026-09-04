@@ -113,54 +113,54 @@ window.WELL_PRACTICA = {
         { id: 't2-s1', n: 1, tipo: 'A', bloques: [
           { destreza: 'vocabulario', ejercicios: ['t2-voc1', 't2-voc2'] },
           { destreza: 'gramatica', ejercicios: ['t2-gram1', 't2-gram2'] },
-          { destreza: 'use', parte: 1, tarea: 'Multiple-choice cloze' },
-          { destreza: 'listening', parte: 1, tarea: 'Tres extractos' }
+          { destreza: 'use', parte: 1, tarea: 'Multiple-choice cloze', ejercicios: ['t2-use1'] },
+          { destreza: 'listening', parte: 1, tarea: 'Tres extractos', ejercicios: ['t2-lis1'] }
         ] },
         { id: 't2-s2', n: 2, tipo: 'B', bloques: [
           { destreza: 'vocabulario', ejercicios: ['t2-voc3', 't2-voc4'] },
           { destreza: 'gramatica', ejercicios: ['t2-gram3', 't2-gram4'] },
-          { destreza: 'reading', parte: 5, tarea: 'Multiple choice' },
-          { destreza: 'speaking', tarea: 'Partes 1 y 2' }
+          { destreza: 'reading', parte: 5, tarea: 'Multiple choice', ejercicios: ['t2-read5'] },
+          { destreza: 'speaking', tarea: 'Partes 1 y 2', ejercicios: ['t2-speak1'] }
         ] },
         { id: 't2-s3', n: 3, tipo: 'A', bloques: [
           { destreza: 'vocabulario', ejercicios: ['t2-voc5', 't2-voc6'] },
           { destreza: 'gramatica', ejercicios: ['t2-gram5', 't2-gram6'] },
-          { destreza: 'use', parte: 2, tarea: 'Open cloze' },
-          { destreza: 'listening', parte: 2, tarea: 'Frases incompletas' }
+          { destreza: 'use', parte: 2, tarea: 'Open cloze', ejercicios: ['t2-use2a', 't2-use2b'] },
+          { destreza: 'listening', parte: 2, tarea: 'Frases incompletas', ejercicios: ['t2-lis2'] }
         ] },
         { id: 't2-s4', n: 4, tipo: 'B', bloques: [
           { destreza: 'vocabulario', ejercicios: ['t2-voc7', 't2-voc8'] },
           { destreza: 'gramatica', ejercicios: ['t2-gram7', 't2-gram8'] },
-          { destreza: 'reading', parte: 6, tarea: 'Cross-text matching' },
-          { destreza: 'speaking', tarea: 'Parte 3' }
+          { destreza: 'reading', parte: 6, tarea: 'Cross-text matching', ejercicios: ['t2-read6'] },
+          { destreza: 'speaking', tarea: 'Parte 3', ejercicios: ['t2-speak3'] }
         ] },
         { id: 't2-s5', n: 5, tipo: 'A', bloques: [
           { destreza: 'vocabulario', ejercicios: ['t2-voc9', 't2-voc10'] },
           { destreza: 'gramatica', ejercicios: ['t2-gram9', 't2-gram10'] },
-          { destreza: 'use', parte: 3, tarea: 'Word formation' },
-          { destreza: 'listening', parte: 3, tarea: 'Conversación larga' }
+          { destreza: 'use', parte: 3, tarea: 'Word formation', ejercicios: ['t2-use3'] },
+          { destreza: 'listening', parte: 3, tarea: 'Conversación larga', ejercicios: ['t2-lis3'] }
         ] },
         { id: 't2-s6', n: 6, tipo: 'B', bloques: [
           { destreza: 'vocabulario', ejercicios: ['t2-voc11', 't2-voc12'] },
           { destreza: 'gramatica', ejercicios: ['t2-gram11', 't2-gram12'] },
-          { destreza: 'reading', parte: 7, tarea: 'Gapped text' },
-          { destreza: 'speaking', tarea: 'Parte 4' }
+          { destreza: 'reading', parte: 7, tarea: 'Gapped text', ejercicios: ['t2-read7'] },
+          { destreza: 'speaking', tarea: 'Parte 4', ejercicios: ['t2-speak4'] }
         ] },
         { id: 't2-s7', n: 7, tipo: 'A', bloques: [
           { destreza: 'vocabulario', ejercicios: ['t2-voc13', 't2-voc14'] },
           { destreza: 'gramatica', ejercicios: ['t2-gram13', 't2-gram14'] },
-          { destreza: 'use', parte: 4, tarea: 'Key word transformation' },
-          { destreza: 'listening', parte: 4, tarea: 'Multiple matching' }
+          { destreza: 'use', parte: 4, tarea: 'Key word transformation', ejercicios: ['t2-use4a', 't2-use4b'] },
+          { destreza: 'listening', parte: 4, tarea: 'Multiple matching', ejercicios: ['t2-lis4'] }
         ] },
         { id: 't2-s8', n: 8, tipo: 'B', bloques: [
           { destreza: 'vocabulario', ejercicios: ['t2-voc15', 't2-voc16'] },
           { destreza: 'gramatica', ejercicios: ['t2-gram15', 't2-gram16'] },
-          { destreza: 'reading', parte: 8, tarea: 'Multiple matching' },
-          { destreza: 'speaking', tarea: 'Repaso' }
+          { destreza: 'reading', parte: 8, tarea: 'Multiple matching', ejercicios: ['t2-read8'] },
+          { destreza: 'speaking', tarea: 'Repaso', ejercicios: ['t2-speakr'] }
         ] },
         { id: 't2-s9', n: 9, tipo: 'W', bloques: [
-          { destreza: 'writing', parte: 1, tarea: 'Essay' },
-          { destreza: 'writing', parte: 2, tarea: 'A elegir' }
+          { destreza: 'writing', parte: 1, tarea: 'Essay', ejercicios: ['t2-write1'] },
+          { destreza: 'writing', parte: 2, tarea: 'A elegir', ejercicios: ['t2-write2'] }
         ] }
       ]
     },
@@ -169,6 +169,418 @@ window.WELL_PRACTICA = {
   ],
 
   ejercicios: {
+  /* ===================== TEST 2 · USE OF ENGLISH ===================== */
+
+  /* Parte 1 · multiple-choice cloze: ocho huecos, cuatro opciones cada uno.
+     Se mide colocacion y matiz, no gramatica: las cuatro opciones encajan
+     gramaticalmente y solo una se dice de verdad. */
+  't2-use1': {
+    tipo: 'opcion', parte: 1, titulo: 'Use of English · Parte 1',
+    instruccion: 'Elige la palabra que mejor encaja en cada hueco.',
+    texto: [
+      'Museums have spent thirty years trying to stop being quiet. Where they once {1} on silence, they now offer late openings, workshops and cafés, on the {2} that a building nobody enjoys is a building nobody funds.',
+      'The strategy has largely {3} off. Visitor numbers are up almost everywhere, and the argument that culture belongs to everyone is far harder to {4} than it was. Yet something has been lost along the way, and curators are increasingly willing to {5} it out loud.',
+      'What has gone is the possibility of standing in front of one object for twenty minutes without feeling that you are in somebody’s way. A gallery designed to keep people {6} is not designed for that, and no amount of good intentions can {7} the contradiction. The most thoughtful institutions have begun to set {8} one morning a week when nothing at all is programmed, which is either a small correction or an admission, depending on how generous you feel.'
+    ],
+    items: [
+      { opciones: ['insisted', 'depended', 'relied', 'counted'], correcta: 1 },
+      { opciones: ['grounds', 'basis', 'reason', 'cause'], correcta: 0 },
+      { opciones: ['paid', 'set', 'brought', 'taken'], correcta: 0 },
+      { opciones: ['deny', 'refuse', 'dismiss', 'decline'], correcta: 2 },
+      { opciones: ['tell', 'talk', 'speak', 'say'], correcta: 3 },
+      { opciones: ['moving', 'going', 'running', 'passing'], correcta: 0 },
+      { opciones: ['dissolve', 'solve', 'resolve', 'settle'], correcta: 2 },
+      { opciones: ['apart', 'off', 'aside', 'out'], correcta: 2 }
+    ]
+  },
+
+  /* Parte 2 · open cloze: una sola palabra, sin pistas. Es la parte donde se
+     ve si alguien tiene el idioma dentro o solo estudiado. */
+  't2-use2a': {
+    tipo: 'cloze', parte: 2, titulo: 'Use of English · Parte 2',
+    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    texto: [
+      'The bicycle is the only nineteenth-century machine still in daily use that almost nobody has tried to improve {1} of recognition. Cars, telephones and kitchens have all been reinvented several times {2}; the bicycle has been refined and left alone.',
+      'This is usually explained by saying that the design was simply right first time, which is not quite true. Early bicycles were dangerous and uncomfortable, and it took thirty years {3} anyone arrived at {4} shape we now take for granted. What is true is that {5} the shape settled, there was nowhere obvious to go. Make it lighter and it costs more; add a motor and it becomes something {6}.',
+      'Perhaps that is the real lesson. We assume that everything must eventually be disrupted, {7} the bicycle sits there, quietly refusing {8} change.'
+    ],
+    items: [
+      { aceptadas: ['out'] }, { aceptadas: ['over', 'since'] }, { aceptadas: ['before'] },
+      { aceptadas: ['the'] }, { aceptadas: ['once'] }, { aceptadas: ['else'] },
+      { aceptadas: ['yet', 'but'] }, { aceptadas: ['to'] }
+    ]
+  },
+
+  't2-use2b': {
+    tipo: 'cloze', parte: 2, titulo: 'Use of English · Parte 2 (extra)',
+    instruccion: 'Completa cada hueco con <b>una sola palabra</b>.',
+    texto: [
+      'There is a particular kind of book that exists only to be given: heavy, beautiful and entirely unread. Every household has {1} least one, usually on the lowest shelf, and nobody can remember who brought it.',
+      'It would be easy to be sneering {2} this, and publishers certainly rely on it more than they admit. But the gift book does something a paperback cannot. It says that the giver spent money and thought, {3} that the object is meant to sit in the room rather {4} in a bag. Nobody expects it to be finished, and no one is disappointed {5} it is not.',
+      'The mistake is to judge it {6} the standards of a book that somebody actually chose for {7}. On its own terms — as furniture with good intentions — it works perfectly {8}.'
+    ],
+    items: [
+      { aceptadas: ['at'] }, { aceptadas: ['about'] }, { aceptadas: ['and'] },
+      { aceptadas: ['than'] }, { aceptadas: ['when', 'if'] }, { aceptadas: ['by'] },
+      { aceptadas: ['themselves', 'himself', 'herself'] }, { aceptadas: ['well'] }
+    ]
+  },
+
+  /* Parte 3 · word formation */
+  't2-use3': {
+    tipo: 'formacion', parte: 3, titulo: 'Use of English · Parte 3',
+    instruccion: 'Forma la palabra que falta a partir de la raíz de la derecha.',
+    items: [
+      { antes: 'The scheme was abandoned after a series of', despues: 'delays.', raiz: 'AVOID', aceptadas: ['unavoidable'] },
+      { antes: 'Her', despues: 'of the situation was better than mine.', raiz: 'JUDGE', aceptadas: ['judgement', 'judgment'] },
+      { antes: 'The instructions were written with admirable', despues: '.', raiz: 'CLEAR', aceptadas: ['clarity'] },
+      { antes: 'He was criticised for his', despues: 'to compromise.', raiz: 'WILLING', aceptadas: ['unwillingness'] },
+      { antes: 'The evidence is', despues: 'either way.', raiz: 'CONCLUDE', aceptadas: ['inconclusive'] },
+      { antes: 'They responded with', despues: 'speed.', raiz: 'REMARK', aceptadas: ['remarkable'] },
+      { antes: 'The room was', despues: 'lit for reading.', raiz: 'ADEQUATE', aceptadas: ['inadequately'] },
+      { antes: 'Nobody questioned the', despues: 'of the document.', raiz: 'AUTHENTIC', aceptadas: ['authenticity'] }
+    ]
+  },
+
+  /* Parte 4 · key word transformation */
+  't2-use4a': {
+    tipo: 'transformacion', parte: 4, titulo: 'Use of English · Parte 4',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'I have not eaten here before.', clave: 'FIRST', antes: 'This is', despues: 'eaten here.', aceptadas: ['the first time I have', "the first time I've"] },
+      { frase: 'She only agreed because you asked her.', clave: 'NOT', antes: 'She would', despues: 'you asked her.', aceptadas: ['not have agreed if'] },
+      { frase: 'The noise made it impossible to concentrate.', clave: 'SUCH', antes: 'There was', despues: 'that I could not concentrate.', aceptadas: ['such a noise'] },
+      { frase: 'Somebody should have told us earlier.', clave: 'BEEN', antes: 'We', despues: 'earlier.', aceptadas: ['should have been told'] },
+      { frase: 'He did not apologise, which annoyed everyone.', clave: 'FAILURE', antes: 'His', despues: 'annoyed everyone.', aceptadas: ['failure to apologise'] },
+      { frase: 'They are unlikely to arrive before nine.', clave: 'DOUBT', antes: 'I', despues: 'arrive before nine.', aceptadas: ['doubt whether they will', 'doubt if they will'] }
+    ]
+  },
+
+  't2-use4b': {
+    tipo: 'transformacion', parte: 4, titulo: 'Use of English · Parte 4 (extra)',
+    instruccion: 'Escribe la segunda frase con el mismo significado usando la palabra clave. Entre <b>dos y cinco palabras</b>, sin cambiar la palabra clave.',
+    items: [
+      { frase: 'Nobody expected the meeting to last so long.', clave: 'TAKE', antes: 'Nobody expected the meeting', despues: 'long.', aceptadas: ['to take so'] },
+      { frase: 'It is not worth complaining now.', clave: 'POINT', antes: 'There', despues: 'now.', aceptadas: ['is no point complaining', "'s no point complaining", 'is no point in complaining'] },
+      { frase: 'She managed to finish despite the interruptions.', clave: 'SPITE', antes: 'She finished', despues: 'interruptions.', aceptadas: ['in spite of the'] },
+      { frase: 'I would rather not discuss it today.', clave: 'PREFER', antes: 'I', despues: 'discuss it today.', aceptadas: ['would prefer not to', "'d prefer not to"] },
+      { frase: 'He was too tired to argue.', clave: 'ENERGY', antes: 'He did not have', despues: 'argue.', aceptadas: ['the energy to', 'enough energy to'] },
+      { frase: 'The price includes breakfast.', clave: 'INCLUDED', antes: 'Breakfast', despues: 'the price.', aceptadas: ['is included in'] }
+    ]
+  },
+
+  /* ===================== TEST 2 · READING ===================== */
+
+  't2-read5': {
+    tipo: 'lectura', parte: 5, titulo: 'Reading · Parte 5',
+    instruccion: 'Lee el texto y elige la mejor respuesta (A, B, C o D) para cada pregunta.',
+    tituloTexto: 'The last people to make it by hand',
+    texto: [
+      'There are eleven people left in Britain who can build a wooden wheel to carriage standard, and Deborah Amory is one of them. She learned the trade at forty-one, after a career in insurance that she describes, without bitterness, as twenty years of being adequately paid to be bored.',
+      'The wheelwright’s craft is a good test of the arguments people make about traditional skills, because it resists most of them. It is not, for instance, a case of a technique that machines cannot match. A factory can produce a wheel that is rounder than anything Amory makes, faster and for a fraction of the cost. What it cannot produce is a wheel that will fit a particular eighteenth-century cart whose other three wheels have each warped in a different direction over two centuries. That is the work: not making wheels, but making this wheel, for this cart, which is why the customers are museums and why there are eleven of her.',
+      'She is impatient with the romance that attaches itself to what she does. Visitors arrive expecting a workshop of contemplative silence and find her using an angle grinder. "People want it to be slow," she says. "It is slow, but not because I am being slow on purpose. It is slow because oak does not care what century it is."',
+      'The economics are less grim than one might assume, and less encouraging than the enthusiasts claim. There is more work than she can do, which sounds like health until you consider why: the number of people able to do it has fallen faster than the number of carts needing repair. A shortage produced by decline is not the same as a market.',
+      'What worries her is not that the skill will die but that it will be preserved in the wrong way — demonstrated at heritage centres, filmed, catalogued, and never used. She has taken on two apprentices in fifteen years and lost one to a better-paid job in furniture restoration, which she thought entirely reasonable. "I am not owed a successor," she says. "If it goes, it goes because nobody needed it enough, and that is not a tragedy. It is just arithmetic."',
+      'Yet she keeps a list. On it are the names of every person who has telephoned to ask about training, going back to 1998, with a note beside each about why it came to nothing. Reading it, one gets the impression of a woman who has thought carefully about the difference between accepting an outcome and welcoming it.'
+    ],
+    items: [
+      { pregunta: '1  How does Amory characterise her earlier career?',
+        opciones: ['As comfortable but unengaging.', 'As a period she now resents.', 'As useful preparation for the craft.', 'As a financial necessity at the time.'], correcta: 0 },
+      { pregunta: '2  Why does the writer say the craft "resists most of" the usual arguments?',
+        opciones: ['Machines genuinely cannot produce a wheel of this quality.',
+                   'The customers are unwilling to accept factory alternatives.',
+                   'The work is valued for reasons other than the object produced.',
+                   'The technique has changed little in two hundred years.'], correcta: 2 },
+      { pregunta: '3  What point is Amory making about visitors’ expectations?',
+        opciones: ['They underestimate how physically demanding the work is.',
+                   'They are disappointed by the modern tools she uses.',
+                   'They imagine the workshop is quieter than it really is.',
+                   'They want the slowness to be a choice rather than a constraint.'], correcta: 3 },
+      { pregunta: '4  What does the writer mean by "A shortage produced by decline is not the same as a market"?',
+        opciones: ['Prices will not rise however scarce the skill becomes.',
+                   'Museums are unreliable as long-term customers.',
+                   'Having plenty of work is not evidence that the trade is healthy.',
+                   'Demand for repairs is falling faster than anyone admits.'], correcta: 2 },
+      { pregunta: '5  What is Amory’s attitude to the apprentice who left?',
+        opciones: ['She blames the furniture trade for taking him.',
+                   'She regards his decision as understandable.',
+                   'She sees it as proof that training is pointless.',
+                   'She was relieved, as he was not suited to it.'], correcta: 1 },
+      { pregunta: '6  What does the list at the end suggest about Amory?',
+        opciones: ['She intends to contact the people on it again.',
+                   'She keeps records of everything as a matter of habit.',
+                   'She blames those who failed to follow through.',
+                   'She is more troubled by the situation than she admits.'], correcta: 3 }
+    ]
+  },
+
+  't2-read6': {
+    tipo: 'lectura', parte: 6, titulo: 'Reading · Parte 6',
+    instruccion: 'Cuatro especialistas escriben sobre los deberes escolares. Elige el texto (A, B, C o D) que responde a cada pregunta.',
+    opcionesCortas: true,
+    secciones: [
+      { letra: 'A', titulo: 'Ruth Vaughan, educational psychologist',
+        texto: ['The research on homework is often summarised as showing that it does not work, which is not what it shows. It shows that it does very little for children under eleven and rather a lot for those over fourteen, and that the studies in between are a mess. My objection is not to homework but to the uniform quantity: every child, the same forty minutes, regardless of whether they finished the lesson understanding it. A task that is trivial for one pupil and impossible for another is not a task, it is a sorting mechanism, and we already have enough of those.'] },
+      { letra: 'B', titulo: 'Idris Kalu, secondary school teacher',
+        texto: ['I set less homework than I used to, and my results have not moved in either direction, which tells you something. What changed my mind was not the evidence — I had not read any — but marking two hundred pieces of work a fortnight and noticing that the ones done well were done by pupils who did not need the practice. The rest was copied, rushed, or done by a parent. I now set one task a week and I mark it properly. If somebody can show me that the old way was better, I will go back, but nobody has.'] },
+      { letra: 'C', titulo: 'Petra Lindqvist, comparative education researcher',
+        texto: ['Countries that assign very little homework and countries that assign a great deal both appear near the top of international rankings, which ought to end the argument and never does. The variable that matters is not quantity but whether the work is looked at afterwards. Unmarked homework is worse than none, because it teaches children that effort is invisible. I would add that the debate is conducted almost entirely by people whose own children have a desk and a quiet room, and that this shapes the conclusions more than anyone likes to say.'] },
+      { letra: 'D', titulo: 'Sam Okoro, head of a primary school',
+        texto: ['We stopped setting homework for the under-elevens four years ago and I have had exactly two complaints, both from parents who wanted evidence that we were working them hard. The evidence base for primary homework is thin to the point of transparency, and what replaced it — reading with an adult, for as long as the child will sit still — is the only thing that has ever shown a reliable effect. Where I part company with the abolitionists is at secondary level. By then the argument changes completely, and pretending otherwise does the case no favours.'] }
+    ],
+    items: [
+      { pregunta: '1  Which expert shares D’s view that homework becomes more defensible with older pupils?',
+        opciones: ['A', 'B', 'C', 'D'], correcta: 0 },
+      { pregunta: '2  Which expert takes a different view from C on what makes homework effective?',
+        opciones: ['A', 'B', 'C', 'D'], correcta: 3 },
+      { pregunta: '3  Which expert changed their practice without consulting the research?',
+        opciones: ['A', 'B', 'C', 'D'], correcta: 1 },
+      { pregunta: '4  Which expert points out that the debate is shaped by the circumstances of those having it?',
+        opciones: ['A', 'B', 'C', 'D'], correcta: 2 }
+    ]
+  },
+
+  't2-read7': {
+    tipo: 'lectura', parte: 7, titulo: 'Reading · Parte 7',
+    instruccion: 'Faltan seis párrafos del texto. Elige para cada hueco el párrafo que encaja (A–G). Hay uno que no va en ninguno.',
+    tituloTexto: 'The library that refused to close',
+    opcionesCortas: true,
+    texto: [
+      'The letter arrived in March and said what everyone had expected since the autumn: the branch library on Fenner Road would close in June, along with four others, as part of what the council called a rationalisation of provision.',
+      '{1}',
+      'What nobody had predicted was Marion Achebe. She was sixty-eight, had used the library twice in her life, and had come to the public meeting mainly because it was raining and the hall was warm. She left it as the chair of a campaign, having put her hand up to ask a question and discovered, midway through, that she was making a speech.',
+      '{2}',
+      'The council’s figures, when they finally arrived, turned out to be four years old. Fenner Road had indeed been quiet in 2021, for reasons that required no explanation. Since then its borrowing had risen by a third, which the report did not mention because the report had not looked.',
+      '{3}',
+      'This might have been enough on its own, but Marion had learned something during those months that proved more useful than any statistic. Councils do not respond to being proved wrong; they respond to being made to answer in public, repeatedly, by name.',
+      '{4}',
+      'The reprieve was announced in October, without apology and without reference to the campaign, as a decision taken in the light of new information. Nobody minded. The library reopened its Saturday hours in January.',
+      '{5}',
+      'She is careful, when people ask, not to make it sound like a victory over anybody. The councillors were not villains, she says; they were people working from a spreadsheet nobody had checked, under a deadline nobody had questioned.',
+      '{6}',
+      'The letter is framed now, in the entrance, next to the returns desk. Somebody has written underneath it, in pencil, the date of the meeting in the warm hall.'
+    ],
+    secciones: [
+      { letra: 'A', texto: ['She spent the following six weeks doing something the campaign had not planned and would not have thought of: she read the consultation document. All ninety pages of it, twice, with a pencil. By the end she had a list of eleven questions, of which the first was where the usage figures had come from.'] },
+      { letra: 'B', texto: ['Similar letters had gone out in other boroughs that spring, and most of the closures went ahead. The pattern was familiar enough to have a rhythm: a consultation nobody could attend, a petition nobody read, and a decision that had been taken before the first meeting.'] },
+      { letra: 'C', texto: ['So the campaign stopped writing letters and started attending. Every full council meeting, three of them, always in the same seats, always with the same question, until answering it became less trouble than not answering it.'] },
+      { letra: 'D', texto: ['Marion stood down the following spring, on the grounds that a campaign which has won should stop being a campaign. She still uses the library about twice a year, which she says is exactly the point: it is not for her.'] },
+      { letra: 'E', texto: ['The building itself was never much loved. Put up in 1974 in a style that has aged without ever having been fashionable, it leaked at one corner and was too hot in July. Even its defenders tended to praise what happened inside it rather than the thing itself.'] },
+      { letra: 'F', texto: ['That distinction matters to her more than it might seem. She has been asked to speak at other campaigns and usually declines, because what worked at Fenner Road was not courage or anger but ninety pages and a pencil, and that is a harder thing to put on a poster.'] },
+      { letra: 'G', texto: ['Once that was established, the rest followed quickly. A local reporter asked the same question at a press briefing. Two councillors who had voted for the closure said publicly that they had not been shown the recent figures, which was true and which the leadership would have preferred them not to say.'] }
+    ],
+    items: [
+      { pregunta: '1', opciones: ['A','B','C','D','E','F','G'], correcta: 1 },
+      { pregunta: '2', opciones: ['A','B','C','D','E','F','G'], correcta: 0 },
+      { pregunta: '3', opciones: ['A','B','C','D','E','F','G'], correcta: 6 },
+      { pregunta: '4', opciones: ['A','B','C','D','E','F','G'], correcta: 2 },
+      { pregunta: '5', opciones: ['A','B','C','D','E','F','G'], correcta: 3 },
+      { pregunta: '6', opciones: ['A','B','C','D','E','F','G'], correcta: 5 }
+    ]
+  },
+
+  't2-read8': {
+    tipo: 'lectura', parte: 8, titulo: 'Reading · Parte 8',
+    instruccion: 'Seis personas hablan de un trabajo de verano que marcó su forma de trabajar. Elige la persona (A–F) que corresponde a cada pregunta.',
+    opcionesCortas: true,
+    secciones: [
+      { letra: 'A', titulo: 'Alba, a hotel kitchen',
+        texto: ['I was seventeen and I lasted the whole summer, which surprised everybody including me. The head chef never once told me I had done something well, and I spent years assuming he had disliked me. It was only much later, when somebody worked for me and asked why I never praised anything, that I understood I had copied him without noticing. I have had to unlearn it deliberately, item by item, and I am still not sure I have finished. You take the habits, not the lessons.'] },
+      { letra: 'B', titulo: 'Nils, a call centre',
+        texto: ['Six weeks, and I would not repeat it for money. What it gave me was a very precise understanding of how a person sounds when they have decided to be unpleasant before you pick up, and how little of it is about you. That has been worth more in twenty years of management than anything I studied. I do not romanticise it — it was a miserable place run on targets that nobody believed — but I have never since been thrown by somebody shouting.'] },
+      { letra: 'C', titulo: 'Rosa, fruit picking',
+        texto: ['My parents sent me because they thought I needed to see what hard work was, which is a slightly insulting reason and also correct. The thing that stayed with me was not the work but the arithmetic. We were paid by weight, and within three days everybody had worked out exactly which trees were worth the walk. Nobody taught us that. I have thought about it every time I have been told that people need to be incentivised, because we incentivised ourselves in an afternoon.'] },
+      { letra: 'D', titulo: 'Tomás, a bookshop',
+        texto: ['It was pleasant, badly paid and completely unlike any job I have had since, which is why I mention it. The owner let me order thirty pounds of stock a month on my own judgement, and about half of what I chose did not sell. He never mentioned it. Years later I asked him and he said that thirty pounds was the cheapest training he could buy. I have tried to give people that kind of room and I find it much harder than he made it look.'] },
+      { letra: 'E', titulo: 'Yusuf, a removals firm',
+        texto: ['Everybody assumes the lesson was about physical work and it was not; I was fit and it was fine. It was about other people’s houses. You see how a family lives at the exact moment they are most exposed, and you learn very fast that you are not there to have opinions about it. I have carried that into a career in which I am often in people’s lives at bad moments, and I would not have got it from a book.'] },
+      { letra: 'F', titulo: 'Greta, a swimming pool',
+        texto: ['Lifeguarding is ninety-nine per cent boredom, and the boredom is the job. What you are being paid for is to still be paying attention in the fourth hour, when nothing has happened all day and nothing probably will. I was nineteen and I found it almost unbearable. I now do work that is largely checking things that are almost always fine, and I am good at it precisely because I stopped expecting attention to feel interesting.'] }
+    ],
+    items: [
+      { pregunta: '1  Who says they absorbed a way of behaving without being aware of it?', opciones: ['A','B','C','D','E','F'], correcta: 0 },
+      { pregunta: '2  Who was given freedom to make mistakes that cost the employer money?', opciones: ['A','B','C','D','E','F'], correcta: 3 },
+      { pregunta: '3  Who learned not to take other people’s hostility personally?', opciones: ['A','B','C','D','E','F'], correcta: 1 },
+      { pregunta: '4  Who mentions people organising themselves without being instructed?', opciones: ['A','B','C','D','E','F'], correcta: 2 },
+      { pregunta: '5  Who says the tedium of the work was the skill being tested?', opciones: ['A','B','C','D','E','F'], correcta: 5 },
+      { pregunta: '6  Who describes learning restraint about what they observed?', opciones: ['A','B','C','D','E','F'], correcta: 4 },
+      { pregunta: '7  Who admits that a relative was right about them?', opciones: ['A','B','C','D','E','F'], correcta: 2 },
+      { pregunta: '8  Who has found it difficult to pass on the same treatment they received?', opciones: ['A','B','C','D','E','F'], correcta: 3 },
+      { pregunta: '9  Who explicitly refuses to look back on the job fondly?', opciones: ['A','B','C','D','E','F'], correcta: 1 },
+      { pregunta: '10  Who is still working on undoing what the job taught them?', opciones: ['A','B','C','D','E','F'], correcta: 0 }
+    ]
+  },
+
+  /* ===================== TEST 2 · LISTENING ===================== */
+
+  't2-lis1': {
+    tipo: 'listening', parte: 1, titulo: 'Listening · Parte 1',
+    instruccion: 'Escucharás tres extractos. Elige la mejor respuesta (A, B o C) para cada pregunta. <b>Se escucha dos veces</b>.',
+    audio: 'audio/t2-lis1-espeak.mp3', demo: true, escuchas: 2,
+    contexto: 'Extracto 1: una exposición de fotografía. Extracto 2: un hombre que ha dejado el coche. Extracto 3: dos compañeros y un curso de formación.',
+    items: [
+      { pregunta: '1  What annoyed the woman about the exhibition?',
+        opciones: ['The photographs were poorly displayed.', 'The captions shaped her response in advance.', 'There was too much to take in at once.'], correcta: 1 },
+      { pregunta: '2  What does the man suggest she does?',
+        opciones: ['Go when the gallery is less crowded.', 'Ignore the written material entirely.', 'Begin where the labelling stops.'], correcta: 2 },
+      { pregunta: '3  Why did the man get rid of his car?',
+        opciones: ['He could not justify the running costs.', 'He knew he would overuse it if he kept one.', 'He rarely needed to drive anywhere.'], correcta: 1 },
+      { pregunta: '4  What benefit had he not anticipated?',
+        opciones: ['No longer organising his day around parking.', 'Saving more money than he had calculated.', 'Getting considerably more exercise.'], correcta: 0 },
+      { pregunta: '5  What did the man find valuable about the course?',
+        opciones: ['The material was less obvious than expected.', 'The conversations he had outside the sessions.', 'The chance to work with the Leeds office formally.'], correcta: 1 },
+      { pregunta: '6  What does he imply about the organisers?',
+        opciones: ['They are unaware of what makes the course work.', 'They deliberately schedule long breaks.', 'They should replace the course with informal meetings.'], correcta: 0 }
+    ]
+  },
+
+  't2-lis2': {
+    tipo: 'listening', parte: 2, titulo: 'Listening · Parte 2',
+    instruccion: 'Completa cada frase con <b>una o dos palabras</b> de lo que oigas. <b>Se escucha dos veces</b>.',
+    audio: 'audio/t2-lis2-espeak.mp3', demo: true, escuchas: 2,
+    items: [
+      { antes: 'More than half of the clocks Otto repairs were made after', despues: '.', aceptadas: ['1970'] },
+      { antes: 'Before this work, Otto spent eleven years as a', despues: '.', aceptadas: ['piano tuner', 'tuner'] },
+      { antes: 'The tool he says he could not work without is a', despues: '.', aceptadas: ['notebook'] },
+      { antes: 'The most common cause of trouble he sees is too much', despues: '.', aceptadas: ['oil'] },
+      { antes: 'He finds it hardest to tell an owner that a clock is not worth', despues: '.', aceptadas: ['repairing'] },
+      { antes: 'The best advice he received came from a watchmaker in', despues: '.', aceptadas: ['Dublin'] },
+      { antes: 'His apprentice previously worked in', despues: '.', aceptadas: ['software'] },
+      { antes: 'He advises beginners to start by taking apart a broken', despues: '.', aceptadas: ['alarm clock', 'clock'] }
+    ]
+  },
+
+  't2-lis3': {
+    tipo: 'listening', parte: 3, titulo: 'Listening · Parte 3',
+    instruccion: 'Escucharás una entrevista. Elige la mejor respuesta (A, B, C o D) para cada pregunta. <b>Se escucha dos veces</b>.',
+    audio: 'audio/t2-lis3-espeak.mp3', demo: true, escuchas: 2,
+    contexto: 'Una periodista entrevista al biólogo marino Cormac Whelan sobre el ruido en el mar.',
+    items: [
+      { pregunta: '1  What does Dr Whelan say has changed about the sea?',
+        opciones: ['It was silent and is now noisy.', 'The source of the noise, rather than its presence.', 'Storms have become considerably louder.', 'Whales have grown quieter in response.'], correcta: 1 },
+      { pregunta: '2  Why is noise so serious for marine animals?',
+        opciones: ['It damages their hearing permanently.', 'It travels much further than in air.', 'Sound is how they perceive their surroundings.', 'It disturbs them during the breeding season.'], correcta: 2 },
+      { pregunta: '3  How did he come to study the subject?',
+        opciones: ['He was asked to by a shipping company.', 'He inherited the project from a colleague.', 'Unexplained results led him to it.', 'He had been interested in it since childhood.'], correcta: 2 },
+      { pregunta: '4  Why does he favour slowing ships down?',
+        opciones: ['It is effective and requires nothing new.', 'It is the only measure the industry accepts.', 'It has already been shown to work at scale.', 'Other measures are too expensive to trial.'], correcta: 0 },
+      { pregunta: '5  What does he identify as the obstacle?',
+        opciones: ['The science is still disputed.', 'No single party is responsible for the sea.', 'Shipping companies deny the problem exists.', 'Governments cannot agree on measurement.'], correcta: 1 },
+      { pregunta: '6  Why is he cautiously hopeful?',
+        opciones: ['Public opinion has shifted decisively.', 'New regulations are close to being agreed.', 'The damage reverses as soon as it stops.', 'The affected species recover quickly.'], correcta: 2 }
+    ]
+  },
+
+  't2-lis4': {
+    tipo: 'listening', parte: 4, titulo: 'Listening · Parte 4',
+    instruccion: 'Escucharás a cinco personas hablando de una afición que dejaron. <b>Tarea 1</b> (1–5): por qué la dejaron. <b>Tarea 2</b> (6–10): qué dicen ahora. Se escucha dos veces.',
+    audio: 'audio/t2-lis4-espeak.mp3', demo: true, escuchas: 2,
+    opcionesCortas: true,
+    contexto: 'Cada tarea tiene su propia lista de ocho opciones.',
+    listas: [
+      { titulo: 'Tarea 1 · ¿Por qué la dejaron?', opciones: [
+        'it had stopped serving the purpose it once did',
+        'the group changed into something different',
+        'a physical problem forced the decision',
+        'success turned it into an obligation',
+        'they could no longer make any progress',
+        'it became too expensive to continue',
+        'they ran out of time for it',
+        'they fell out with somebody involved'
+      ] },
+      { titulo: 'Tarea 2 · ¿Qué dicen ahora?', opciones: [
+        'they wish somebody had prepared them for what followed',
+        'they still keep a physical reminder of it',
+        'they blame nobody for what happened',
+        'they suspect returning would require self-deception',
+        'they enjoy a small version of it without ambition',
+        'they regret not having stopped sooner',
+        'they have taken up something similar instead',
+        'they would go back if the old conditions returned'
+      ] }
+    ],
+    items: [
+      { pregunta: 'Tarea 1 · 1  Speaker one', opciones: ['A','B','C','D','E','F','G','H'], correcta: 0 },
+      { pregunta: 'Tarea 1 · 2  Speaker two', opciones: ['A','B','C','D','E','F','G','H'], correcta: 1 },
+      { pregunta: 'Tarea 1 · 3  Speaker three', opciones: ['A','B','C','D','E','F','G','H'], correcta: 2 },
+      { pregunta: 'Tarea 1 · 4  Speaker four', opciones: ['A','B','C','D','E','F','G','H'], correcta: 3 },
+      { pregunta: 'Tarea 1 · 5  Speaker five', opciones: ['A','B','C','D','E','F','G','H'], correcta: 4 },
+      { pregunta: 'Tarea 2 · 6  Speaker one', opciones: ['A','B','C','D','E','F','G','H'], correcta: 1 },
+      { pregunta: 'Tarea 2 · 7  Speaker two', opciones: ['A','B','C','D','E','F','G','H'], correcta: 2 },
+      { pregunta: 'Tarea 2 · 8  Speaker three', opciones: ['A','B','C','D','E','F','G','H'], correcta: 0 },
+      { pregunta: 'Tarea 2 · 9  Speaker four', opciones: ['A','B','C','D','E','F','G','H'], correcta: 3 },
+      { pregunta: 'Tarea 2 · 10 Speaker five', opciones: ['A','B','C','D','E','F','G','H'], correcta: 4 }
+    ]
+  },
+
+  /* ===================== TEST 2 · SPEAKING ===================== */
+
+  't2-speak1': {
+    tipo: 'speaking', parte: 2, titulo: 'Long turn: cómo se llega al trabajo',
+    instruccion: 'Habla durante <b>un minuto seguido</b>. No hace falta contestar a todo: elige y compara.',
+    segundos: 60,
+    pregunta: 'Why might people travel to work in these ways, and what might be difficult about each?',
+    puntos: ['cycling through a city centre', 'a long train journey with a laptop', 'walking twenty minutes each way'],
+    nota: 'En el examen esto se hace con tres fotografías. Aquí van descritas mientras la academia no aporte las suyas.',
+    items: [ { grabacion: true } ]
+  },
+
+  't2-speak3': {
+    tipo: 'speaking', parte: 3, titulo: 'Parte 3: decidir en voz alta',
+    instruccion: 'Habla durante <b>dos minutos</b>. Comenta las cinco opciones y llega a una conclusión.',
+    segundos: 120,
+    pregunta: 'A town has money for one project. How useful is each of these, and which two would you choose?',
+    puntos: ['a covered market', 'better street lighting', 'a public swimming pool', 'more trees', 'free wifi in the centre'],
+    nota: 'En el examen esto se habla con otro candidato durante tres minutos: se negocia y se llega a un acuerdo. Grabándote solo se practica todo menos eso, que es un criterio entero de los cinco.',
+    items: [ { grabacion: true } ]
+  },
+
+  't2-speak4': {
+    tipo: 'speaking', parte: 4, titulo: 'Parte 4: opinar y justificar',
+    instruccion: 'Contesta a las tres preguntas seguidas, <b>dos minutos</b> en total.',
+    segundos: 120,
+    pregunta: 'Questions about towns and change.',
+    puntos: [
+      'Should town centres be closed to cars? Why?',
+      'Some people say small towns cannot survive without tourism. Do you agree?',
+      'Is it a problem when young people leave the place they grew up in?'
+    ],
+    nota: 'En el examen el examinador pregunta y luego pide tu reacción a lo que ha dicho la otra persona. Aquí solo está la primera mitad.',
+    items: [ { grabacion: true } ]
+  },
+
+  't2-speakr': {
+    tipo: 'speaking', parte: 2, titulo: 'Repaso: un minuto sin parar',
+    instruccion: 'Habla durante <b>un minuto seguido</b>, sin pausas largas. Compara, no describas.',
+    segundos: 60,
+    pregunta: 'Why might these moments be difficult, and how might the people be feeling?',
+    puntos: ['starting a job where everyone already knows each other', 'moving back to a place you left years ago', 'learning something new in front of people much younger'],
+    nota: 'El objetivo no es acertar: es no callarse. Si te quedas en blanco, di por qué te has quedado en blanco y sigue; en el examen eso puntúa más que el silencio.',
+    items: [ { grabacion: true } ]
+  },
+
+  /* ===================== TEST 2 · WRITING ===================== */
+
+  't2-write1': {
+    tipo: 'writing', parte: 1, titulo: 'Essay',
+    instruccion: 'Escribe entre <b>220 y 260 palabras</b>. Es obligatorio: en el examen esta tarea no se elige.',
+    minutos: 45, palabras: [220, 260],
+    enunciado: 'Your class has discussed how towns should spend limited public money. Write an essay discussing two of the three areas below and explaining which you think matters more.',
+    contexto: 'Areas: public transport · libraries and cultural centres · green spaces.',
+    cierre: 'Write in a formal style. Do not simply list advantages: take a position and support it.',
+    items: [ { escrito: true } ]
+  },
+
+  't2-write2': {
+    tipo: 'writing', parte: 2, titulo: 'A elegir: carta o informe',
+    instruccion: 'Elige <b>una</b> de las dos y escribe entre <b>220 y 260 palabras</b>.',
+    minutos: 45, palabras: [220, 260],
+    enunciado: 'Choose one of the following two tasks.',
+    contexto: '1 · A magazine has published an article claiming that learning a language as an adult is a waste of time. Write a letter to the editor responding to the article.\n2 · Your college is deciding whether to keep its Saturday study room open. Write a report describing how the room is used and recommending what should happen.',
+    cierre: 'La carta pide un tono claro y algo de indignación medida; el informe pide encabezados y neutralidad. Elige la que menos te apetezca: es la que necesitas practicar.',
+    items: [ { escrito: true } ]
+  },
+
   /* ===================== TEST 2 · GRAMATICA =====================
      Segunda vuelta al temario de Elena, con las mismas areas y en el mismo
      orden que el Test 1 pero apretando: verbos de estado, narrativa con

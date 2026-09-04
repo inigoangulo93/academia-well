@@ -1,0 +1,28 @@
+{
+  "id": "t2-lis3", "examen": "cae", "parte": 3,
+  "tarea": "Multiple choice, conversacion larga", "titulo": "Una entrevista sobre el ruido en el mar",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    { "id": "narrador", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-GB", "espeak": "en-gb", "descripcion": "narrador neutro" },
+    { "id": "ent", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-GB", "espeak": "en-gb-scotland", "descripcion": "mujer, 40s, periodista" },
+    { "id": "bio", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-GB", "espeak": "en-gb-x-rp", "descripcion": "hombre, 50s, biologo marino" }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    { "voz": "narrador", "pausa": 0.8, "texto": "You will hear an interview with the marine biologist Dr Cormac Whelan." },
+    { "voz": "ent", "pausa": 0.3, "texto": "Doctor Whelan, most people think of the sea as a quiet place. You say it is not." },
+    { "voz": "bio", "pausa": 0.4, "texto": "It was never quiet. What has changed is what is making the noise. A hundred years ago the loudest things down there were storms and whales. Today, in most of the northern hemisphere, the loudest thing is a ship, and there is almost nowhere left where you can record for an hour without hearing one." },
+    { "voz": "ent", "pausa": 0.3, "texto": "And that matters because?" },
+    { "voz": "bio", "pausa": 0.4, "texto": "Because sound is how the ocean sees. Light gives out at a couple of hundred metres. Sound travels for a thousand kilometres. An animal that navigates and hunts and finds a mate by listening is not inconvenienced by noise; it is blinded by it." },
+    { "voz": "ent", "pausa": 0.3, "texto": "How did you come to work on this?" },
+    { "voz": "bio", "pausa": 0.4, "texto": "By accident, and I am always slightly embarrassed to admit it. I was studying feeding behaviour and I kept getting results I could not explain. It took me two years to work out that the variable I had not measured was whether a ferry had gone past." },
+    { "voz": "ent", "pausa": 0.3, "texto": "What is the most promising response?" },
+    { "voz": "bio", "pausa": 0.4, "texto": "Slowing ships down. It is unglamorous and it works: drop a container ship by three knots and you take out a remarkable proportion of the noise, and you burn less fuel doing it. There is no new technology to invent and no argument about the science." },
+    { "voz": "ent", "pausa": 0.3, "texto": "So why has it not happened?" },
+    { "voz": "bio", "pausa": 0.4, "texto": "Because nobody owns the problem. The ocean is not anybody's, the ships are registered in a dozen countries, and the benefit is spread over everybody and the cost falls on one operator. That is a familiar shape and it does not resolve itself." },
+    { "voz": "ent", "pausa": 0.3, "texto": "You have been critical of how this is reported." },
+    { "voz": "bio", "pausa": 0.4, "texto": "I have, and I ought to be careful, because journalists have done more for this subject than scientists have. My complaint is narrow: the story is always told with a whale in it, and the animals most affected are small, unphotogenic and enormously more numerous." },
+    { "voz": "ent", "pausa": 0.3, "texto": "Are you hopeful?" },
+    { "voz": "bio", "pausa": 0.6, "texto": "Cautiously, and for an unusual reason. Noise is the one form of pollution that stops the moment you stop making it. There is nothing to clean up. If the ships slowed down tomorrow, the ocean would be quieter tomorrow. Very little else in my field offers that." }
+  ]
+}

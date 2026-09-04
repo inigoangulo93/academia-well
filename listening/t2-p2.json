@@ -1,0 +1,19 @@
+{
+  "id": "t2-lis2", "examen": "cae", "parte": 2,
+  "tarea": "Sentence completion", "titulo": "Un restaurador de relojes",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    { "id": "otto", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-GB", "espeak": "en-gb-x-rp", "descripcion": "hombre, 60s, pausado" }
+  ],
+  "velocidad": 148,
+  "lineas": [
+    { "voz": "otto", "pausa": 0.5, "texto": "My name is Otto Brennan and I repair clocks, which people always assume means antique clocks. In fact rather more than half of what comes through the door was made after 1970." },
+    { "voz": "otto", "pausa": 0.6, "texto": "I did not train for this. I was a piano tuner for eleven years, and the change happened because a customer asked me to look at a clock while I was there, and I could not stop thinking about it for a fortnight." },
+    { "voz": "otto", "pausa": 0.6, "texto": "The tool I would not be without is not a screwdriver or a loupe. It is a notebook. Every repair gets a page, and I have been doing that since the beginning, which means I can look up what I did to a clock in 1996." },
+    { "voz": "otto", "pausa": 0.6, "texto": "The commonest fault is not wear. It is oil. Somebody has been kind to their clock and put oil where oil should never go, and the dust sticks to it." },
+    { "voz": "otto", "pausa": 0.6, "texto": "What I find hardest is telling people that a clock is not worth repairing. It is almost never about the money for them, and the conversation takes longer than the work would." },
+    { "voz": "otto", "pausa": 0.6, "texto": "The best advice I was ever given came from an old watchmaker in Dublin, who told me to put the piece down and go and eat something. He was right about that far more often than he was about clocks." },
+    { "voz": "otto", "pausa": 0.6, "texto": "I have one apprentice, and what surprised me is that she came from software. She says the two jobs are the same job: a system that used to work, and does not, and will tell you why if you are patient." },
+    { "voz": "otto", "pausa": 0.6, "texto": "If you want to start, do not buy tools. Buy a broken alarm clock for very little money and take it apart on a tray, and put every screw in the order you removed it." }
+  ]
+}
