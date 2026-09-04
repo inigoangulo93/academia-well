@@ -1,5 +1,7 @@
 audio/.cache/
 audio/prueba-voces*
+__pycache__/
+*.pyc
 
 # Ninguna clave entra aqui. Este repositorio es publico: una clave commiteada
 # esta expuesta desde el primer push, y borrarla despues no la borra del
