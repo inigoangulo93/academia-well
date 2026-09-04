@@ -427,6 +427,19 @@
   .repro-barra i{display:block;height:100%;width:0;background:#fff;border-radius:100px;
                  transition:width .2s linear}
 
+  /* El texto de la letra elegida, debajo de la pregunta. Amarillo suave para
+     que se lea como eco de lo que acabas de tocar y no como una respuesta mas. */
+  .op-eco{margin:8px 0 0;padding:8px 12px;border-radius:10px;
+          background:rgba(33,64,154,.06);border-left:3px solid var(--azul);
+          font-size:14px;line-height:1.45;color:var(--tinta)}
+  .op-eco b{color:var(--azul);margin-right:6px}
+
+  /* Las dos tareas de la parte 4 se distinguen a simple vista: si se ven
+     iguales, no sabes de que lista es la pregunta que estas contestando. */
+  .lis-tarea.t1{border-left:3px solid var(--azul)}
+  .lis-tarea.t2{border-left:3px solid var(--carmin)}
+  .lis-tarea.t2 h4{color:var(--carmin)}
+
   /* ---------- modal ----------
      Sustituye a window.confirm(). El nativo no se puede maquetar, sale con la
      tipografia del sistema, dice el dominio en la cabecera y en movil aparece
@@ -684,7 +697,7 @@
              background:#fff;border:1px solid var(--linea);border-radius:14px;padding:16px 18px}
   .lis-lista li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;
                 font-size:15.5px;line-height:1.5}
-  .lis-tarea{margin-top:12px}
+  .lis-tarea{margin-top:12px;padding-left:12px}
   .lis-tarea h4{font-family:'Figtree',sans-serif;font-weight:700;font-size:14px;color:var(--carmin);
                 letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
 

@@ -1422,6 +1422,25 @@
   }
 
 
+  // Escribe debajo de la pregunta lo que dice la letra elegida. En la parte 4
+  // del listening las respuestas son ocho letras a secas: sin esto hay que
+  // acordarse de que decia cada una, o subir a la lista a mirarlo.
+  function pintaEco(grupo) {
+    if (!actual || !(actual.listas || []).length) return;
+    var i = +grupo.getAttribute('data-i');
+    var eco = document.querySelector('[data-eco="' + i + '"]');
+    if (!eco) return;
+    var sel = grupo.querySelector('.op.elegida');
+    if (!sel) { eco.hidden = true; eco.textContent = ''; return; }
+    var k = +sel.getAttribute('data-op');
+    var porTarea = actual.items.length / actual.listas.length;
+    var lista = actual.listas[Math.floor(i / porTarea)];
+    var txt = lista && lista.opciones[k];
+    if (!txt) { eco.hidden = true; return; }
+    eco.hidden = false;
+    eco.innerHTML = '<b>' + 'ABCDEFGH'.charAt(k) + '</b> ' + esc(txt);
+  }
+
   function cuerpoEjercicio(ej) {
     var h = '';
     if (ej.tipo === 'listening') {
@@ -1429,34 +1448,66 @@
       // incompletas en la parte 2 y de eleccion en las partes 1, 3 y 4.
       h += reproductor(ej);
       if (ej.contexto) h += '<p class="lis-contexto">' + esc(ej.contexto) + '</p>';
-      // La parte 4 tiene dos tareas sobre los mismos cinco monologos, y cada
-      // una con su propia lista de ocho opciones. Con una sola lista las
-      // respuestas de la segunda tarea no significan nada.
-      (ej.listas || []).forEach(function (lista) {
-        h += '<div class="lis-tarea">';
-        if (lista.titulo) h += '<h4>' + esc(lista.titulo) + '</h4>';
-        h += '<ol class="lis-lista">';
+      // La parte 4 tiene dos tareas sobre los mismos cinco monologos, cada una
+      // con su propia lista de ocho opciones.
+      //
+      // Antes se pintaban las dos listas seguidas y despues las diez preguntas
+      // juntas. Al contestar la pregunta 8, la lista que le tocaba estaba dos
+      // pantallas mas arriba, y las dos listas se ven identicas: ocho letras.
+      // Eso hacia nuestra version MAS dificil que el examen, donde tienes la
+      // hoja delante y ves lista y preguntas a la vez. Ahora cada lista va
+      // pegada a sus propias preguntas.
+      var listas = ej.listas || [];
+      var porTarea = listas.length > 1 && ej.items.length % listas.length === 0
+        ? ej.items.length / listas.length : 0;
+
+      var pintaLista = function (lista, n) {
+        var t = '<div class="lis-tarea' + (porTarea ? ' t' + (n % 2 + 1) : '') + '">';
+        if (lista.titulo) t += '<h4>' + esc(lista.titulo) + '</h4>';
+        t += '<ol class="lis-lista">';
         lista.opciones.forEach(function (o, k) {
-          h += '<li><span class="seccion-letra">' + 'ABCDEFGH'.charAt(k) + '</span><span>' + esc(o) + '</span></li>';
+          t += '<li><span class="seccion-letra">' + 'ABCDEFGH'.charAt(k) + '</span><span>' + esc(o) + '</span></li>';
         });
-        h += '</ol></div>';
-      });
-      if (seElige(ej)) {
-        h += '<ol class="grupos preguntas">';
-        ej.items.forEach(function (it, i) {
-          h += '<li>';
-          if (it.pregunta) h += '<p class="pregunta">' + esc(it.pregunta) + '</p>';
-          h += '<div class="grupo-op' + (ej.opcionesCortas ? ' letras' : '') + '" data-i="' + i +
+        return t + '</ol></div>';
+      };
+
+      var pintaPreguntas = function (desde, hasta) {
+        var t = '<ol class="grupos preguntas">';
+        for (var i = desde; i < hasta; i++) {
+          var it = ej.items[i];
+          t += '<li>';
+          // Agrupadas bajo su tarea, el "Tarea 1 ·" de cada enunciado sobra y
+          // solo alarga la linea.
+          if (it.pregunta) t += '<p class="pregunta">' +
+            esc(porTarea ? it.pregunta.replace(/^\s*(Tarea|Task)\s+\S+\s*·\s*/, '') : it.pregunta) + '</p>';
+          t += '<div class="grupo-op' + (ej.opcionesCortas ? ' letras' : '') + '" data-i="' + i +
                '" role="radiogroup" aria-label="' + T.pregunta.replace('{n}', i + 1) + '">';
           it.opciones.forEach(function (op, k) {
-            h += '<button type="button" class="op" data-op="' + k + '">' +
+            t += '<button type="button" class="op" data-op="' + k + '">' +
                  '<span class="op-letra">' + 'ABCDEFGH'.charAt(k) + '</span>' +
                  (ej.opcionesCortas ? '' : esc(op)) + '</button>';
           });
-          h += '</div></li>';
-        });
-        h += '</ol>';
+          t += '</div>';
+          // Al elegir una letra se escribe aqui lo que esa letra decia. Sin
+          // esto hay que memorizar ocho frases o subir a mirarlas.
+          if (ej.opcionesCortas && listas.length)
+            t += '<p class="op-eco" data-eco="' + i + '" hidden></p>';
+          t += '</li>';
+        }
+        return t + '</ol>';
+      };
+
+      if (seElige(ej)) {
+        if (porTarea) {
+          listas.forEach(function (lista, n) {
+            h += pintaLista(lista, n) + pintaPreguntas(n * porTarea, (n + 1) * porTarea);
+          });
+        } else {
+          listas.forEach(function (lista, n) { h += pintaLista(lista, n); });
+          h += pintaPreguntas(0, ej.items.length);
+        }
       } else {
+        listas.forEach(function (lista, n) { h += pintaLista(lista, n); });
         h += '<ol class="frases">';
         ej.items.forEach(function (it, i) {
           h += '<li><p class="frase">' + esc(it.antes || '') + ' ' + campo(i, 'medio') + ' ' +
@@ -1817,6 +1868,7 @@
     if (op && !op.disabled) {
       $$('.op', op.parentNode).forEach(function (b0) { b0.classList.remove('elegida'); });
       op.classList.add('elegida');
+      pintaEco(op.parentNode);
       return;
     }
     if (e.target.closest('#btn-corregir')) { corrige(); return; }
