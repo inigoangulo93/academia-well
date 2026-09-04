@@ -277,15 +277,22 @@ def main():
 
     # Antes de gastar un solo credito: que no falte ninguna voz por elegir. Es
     # mejor parar aqui que a mitad de los dieciseis, con la mitad pagada.
+    rutas = guiones_de(a)
     if not (a.demo or a.espeak):
         cat = carga_voces()
-        faltan = [p for p, d in cat['papeles'].items()
-                  if d.get('voz') in (None, '', 'PENDIENTE')]
+        usados = set()
+        for r in rutas:
+            with open(r, encoding='utf-8') as f:
+                usados.update(v['papel'] for v in json.load(f)['voces'])
+        faltan = sorted(p for p in usados
+                        if cat['papeles'].get(p, {}).get('voz') in (None, '', 'PENDIENTE'))
         if faltan:
-            sys.exit('Faltan voces por elegir en listening/voces.json: %s' % ', '.join(sorted(faltan)))
+            sys.exit('Falta la voz de: %s\n'
+                     'Estan en listening/voces.json. Solo se piden los papeles que usan '
+                     'los guiones que has pedido, no los diez.' % ', '.join(faltan))
 
     total_pag = total_cache = 0
-    for ruta in guiones_de(a):
+    for ruta in rutas:
         with open(ruta, encoding='utf-8') as f:
             guion = json.load(f)
         nombre = os.path.basename(ruta)

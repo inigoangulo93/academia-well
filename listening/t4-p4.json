@@ -44,9 +44,9 @@
     {
       "id": "cinco",
       "acento": "en-GB",
-      "espeak": "en-gb",
-      "descripcion": "mujer, 60s",
-      "papel": "gb-m-mayor"
+      "espeak": "en-gb-scotland",
+      "descripcion": "mujer, 50s, escocesa",
+      "papel": "gb-m-escocesa"
     }
   ],
   "velocidad": 150,

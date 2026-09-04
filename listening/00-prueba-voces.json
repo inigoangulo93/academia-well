@@ -1,0 +1,121 @@
+{
+  "id": "prueba-voces",
+  "examen": "cae",
+  "parte": 0,
+  "tarea": "Prueba de voces",
+  "titulo": "Una frase por voz",
+  "nota": "No es material de estudio. Es para escuchar las voces seguidas antes de generar los 16 guiones y comprobar que se distinguen entre si. El par de riesgo es narrador (Alistair) y gb-h-medio (Tom): dos britanicos de registro medio.",
+  "voces": [
+    {
+      "id": "narrador",
+      "papel": "narrador",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "prueba de narrador"
+    },
+    {
+      "id": "gb-h-medio",
+      "papel": "gb-h-medio",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-rp",
+      "descripcion": "prueba de gb-h-medio"
+    },
+    {
+      "id": "gb-h-joven",
+      "papel": "gb-h-joven",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbclan",
+      "descripcion": "prueba de gb-h-joven"
+    },
+    {
+      "id": "gb-h-mayor",
+      "papel": "gb-h-mayor",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-rp",
+      "descripcion": "prueba de gb-h-mayor"
+    },
+    {
+      "id": "gb-m-medio",
+      "papel": "gb-m-medio",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "prueba de gb-m-medio"
+    },
+    {
+      "id": "gb-m-joven",
+      "papel": "gb-m-joven",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "prueba de gb-m-joven"
+    },
+    {
+      "id": "gb-m-escocesa",
+      "papel": "gb-m-escocesa",
+      "acento": "en-GB",
+      "espeak": "en-gb-scotland",
+      "descripcion": "prueba de gb-m-escocesa"
+    },
+    {
+      "id": "us-h",
+      "papel": "us-h",
+      "acento": "en-US",
+      "espeak": "en-us",
+      "descripcion": "prueba de us-h"
+    },
+    {
+      "id": "us-m",
+      "papel": "us-m",
+      "acento": "en-US",
+      "espeak": "en-us",
+      "descripcion": "prueba de us-m"
+    }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    {
+      "voz": "narrador",
+      "pausa": 1.2,
+      "texto": "Part One. You will hear three different extracts. There are two questions for each extract."
+    },
+    {
+      "voz": "gb-h-medio",
+      "pausa": 1.2,
+      "texto": "I read the studies and they moved me not at all. What moved me was running the thing for fourteen months."
+    },
+    {
+      "voz": "gb-h-joven",
+      "pausa": 1.2,
+      "texto": "Everyone assumes there was a moment and there was not. I had been reading about it for six years."
+    },
+    {
+      "voz": "gb-h-mayor",
+      "pausa": 1.2,
+      "texto": "I was good at it, and that was the trouble. Being good at something is a trap nobody warns you about."
+    },
+    {
+      "voz": "gb-m-medio",
+      "pausa": 1.2,
+      "texto": "We have not read a book since March and everybody is considerably happier, which tells you something."
+    },
+    {
+      "voz": "gb-m-joven",
+      "pausa": 1.2,
+      "texto": "The hardest part was being the least experienced person in a room of people my own age."
+    },
+    {
+      "voz": "gb-m-escocesa",
+      "pausa": 1.2,
+      "texto": "I came out of it slightly annoyed, and it took me a while to work out why."
+    },
+    {
+      "voz": "us-h",
+      "pausa": 1.2,
+      "texto": "Twenty-six years in hospital administration, and then my hands started shaking."
+    },
+    {
+      "voz": "us-m",
+      "pausa": 1.2,
+      "texto": "They asked on the Monday and I said yes before the end of the call."
+    }
+  ]
+}

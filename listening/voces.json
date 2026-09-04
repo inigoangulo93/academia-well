@@ -12,54 +12,74 @@
   "formato": "mp3_44100_128",
   "papeles": {
     "narrador": {
-      "voz": "PENDIENTE",
+      "voz": "l30f87tf05uxyknGdDw6",
       "acento": "en-GB",
-      "descripcion": "Narrador del examen. Lectura clara y neutra, sin dramatizar. Es la voz que dice que parte es y que hay que hacer."
+      "descripcion": "Narrador del examen. Lectura clara y neutra, sin dramatizar. Es la voz que dice que parte es y que hay que hacer.",
+      "nombre": "Alistair - Clear, Neutral and Informative",
+      "como_suena": "Britanico RP neutro, explicativo y sin dramatizar."
     },
     "gb-h-joven": {
-      "voz": "PENDIENTE",
+      "voz": "j57KDF72L6gxbLk4sOo5",
       "acento": "en-GB",
-      "descripcion": "Hombre britanico, unos 30."
+      "descripcion": "Hombre britanico, unos 30.",
+      "nombre": "George",
+      "como_suena": "25 anos, norte de Inglaterra. El acento norteno lo separa del resto de hombres."
     },
     "gb-h-medio": {
-      "voz": "PENDIENTE",
+      "voz": "5hZv9mAOcmcMt1TxA5Iz",
       "acento": "en-GB",
-      "descripcion": "Hombre britanico, unos 40."
+      "descripcion": "Hombre britanico, unos 40.",
+      "nombre": "Tom",
+      "como_suena": "Sur de Inglaterra, calido e informal, conversacional y de diccion limpia."
     },
     "gb-h-mayor": {
-      "voz": "PENDIENTE",
+      "voz": "0lp4RIz96WD1RUtvEu3Q",
       "acento": "en-GB",
-      "descripcion": "Hombre britanico, 55-60, ritmo pausado."
+      "descripcion": "Hombre britanico, 55-60, ritmo pausado.",
+      "nombre": "Grandfather Joe - Gentle, warm & wise",
+      "como_suena": "RP de Surrey, mayor, ritmo pausado. Suena mas a 70 que a 55-60."
     },
     "gb-m-joven": {
-      "voz": "PENDIENTE",
+      "voz": "LZAcK8Cx5QjdQhfBsJQZ",
       "acento": "en-GB",
-      "descripcion": "Mujer britanica, 20-30."
+      "descripcion": "Mujer britanica, 20-30.",
+      "nombre": "Grace - 25-35 Year Old British Female",
+      "como_suena": "Britanica neutra de 25-35, casual y clara, sin energia de anuncio."
     },
     "gb-m-medio": {
-      "voz": "PENDIENTE",
+      "voz": "DcADU5DwsQtYalQf4OwN",
       "acento": "en-GB",
-      "descripcion": "Mujer britanica, unos 40."
+      "descripcion": "Mujer britanica, unos 40.",
+      "nombre": "Eleanor - Warm British & Midlands Narrator",
+      "como_suena": "43 anos, Derbyshire suave con tonos de Londres; articulada y conversacional."
     },
     "gb-m-mayor": {
       "voz": "PENDIENTE",
       "acento": "en-GB",
-      "descripcion": "Mujer britanica, 55-60."
+      "descripcion": "Mujer britanica, 55-60.",
+      "nombre": null,
+      "como_suena": "SIN CUBRIR. En toda la libreria, el filtro mujer + britanica + mayor devuelve cuatro voces y ninguna es conversacional: todas son de audiolibro. Candidata recomendada: 'Cora - Clear, British Podcast' (registro de podcast, edad sin especificar, ronda los 45). Falta su voice_id."
     },
     "gb-m-escocesa": {
-      "voz": "PENDIENTE",
+      "voz": "iePvrB4HtMcAormXZou7",
       "acento": "en-GB",
-      "descripcion": "Mujer escocesa. El CAE mezcla acentos nativos a proposito: esta es la que rompe el ingles del sur."
+      "descripcion": "Mujer escocesa. El CAE mezcla acentos nativos a proposito: esta es la que rompe el ingles del sur.",
+      "nombre": "Sophie - Warm & energetic Glaswegian",
+      "como_suena": "Glaswegiana nativa. Tiene Live moderation: ElevenLabs avisa de latencia extra."
     },
     "us-h": {
-      "voz": "PENDIENTE",
+      "voz": "gfRt6Z3Z8aTbpLfexQ7N",
       "acento": "en-US",
-      "descripcion": "Hombre estadounidense."
+      "descripcion": "Hombre estadounidense.",
+      "nombre": "Boyd - Versatile, Fatherly and Natural",
+      "como_suena": "Estadounidense de registro medio, asentado y creible."
     },
     "us-m": {
-      "voz": "PENDIENTE",
+      "voz": "T720RsqorTx4ZZWohrNN",
       "acento": "en-US",
-      "descripcion": "Mujer estadounidense."
+      "descripcion": "Mujer estadounidense.",
+      "nombre": "Katie - Authentic and versatile",
+      "como_suena": "Estadounidense, dialogo real, nitida y expresiva."
     }
   }
 }

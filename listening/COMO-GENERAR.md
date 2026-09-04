@@ -20,6 +20,20 @@ dos pasadas mas.
    No llama a la API. Dice cuantos caracteres se pagarian y cuantas lineas ya
    estan en la cache.
 
+## Escucharlas antes (802 caracteres, el 0,6% de un mes)
+
+Las diez voces se eligieron **leyendo fichas, no oyendolas**. El riesgo concreto
+es que `narrador` (Alistair) y `gb-h-medio` (Tom) suenen parecidos: dos
+britanicos de registro medio. Antes de gastar los 35.000:
+
+    python3 gen-listening.py listening/00-prueba-voces.json --proveedor elevenlabs
+
+Escribe `audio/prueba-voces.mp3`: una frase por voz, en un orden pensado para que
+los pares de riesgo salgan seguidos. Se escucha en un minuto.
+
+Si alguna no convence, se cambia su `voice_id` en `voces.json` y se vuelve a
+generar: **la cache solo cobra las lineas de esa voz**, el resto ya esta pagado.
+
 ## Hacerlo
 
     python3 gen-listening.py --todos --proveedor elevenlabs
@@ -35,6 +49,19 @@ Cada linea se guarda en `audio/.cache/` con una firma de (voz, modelo, texto).
 Si cambias una frase de un guion y vuelves a generar, **solo se paga esa
 frase**. Sin esto, corregir una coma en la ultima linea costaba el guion
 entero otra vez. La cache no va al repositorio (`.gitignore`).
+
+## Lo que sabemos de estas voces y lo que no
+
+- **Ninguna se ha escuchado.** Vienen de los metadatos de la libreria. Por eso
+  existe el paso de arriba.
+- **`gb-m-escocesa` (Sophie) tiene *Live moderation* activada.** ElevenLabs avisa
+  de latencia extra. Para generacion en tanda no deberia importar; el script
+  espera hasta 180 s por linea y reintenta con espera creciente.
+- **`gb-h-mayor` (Grandfather Joe) suena mas a 70 que a 55-60.** Aceptable en los
+  papeles donde va, pero es lo primero que se cambia si chirria.
+- **Se descarto `Damiaan - Academic, British English`**, que encajaba bien como
+  narrador, porque su ficha dice que es un clon de voz de una persona real
+  identificable. Esa regla no se salta ni cuando la voz es la buena.
 
 ## Las reglas que no se saltan
 
