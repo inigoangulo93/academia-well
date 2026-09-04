@@ -6,6 +6,13 @@ que el motor los pinta, que acepta la respuesta buena y que rechaza la mala.
 Un ejercicio puede tener los datos perfectos y no pintarse, o pintarse y no
 corregir. Aqui se responde cada uno dos veces, todo bien y todo mal.
 """
+
+# Esta prueba tarda un cuarto de hora. Cuando reventaba, el traceback de
+# Playwright decia que no habia podido pulsar un boton y nada mas: ni en que
+# ejercicio, ni en cual de las dos pasadas. Se apunta aqui el ultimo que se
+# estaba corrigiendo y se dice al final.
+RASTRO = {'ejercicio': ''}
+
 import asyncio, sys, http.server, socketserver, threading, functools
 
 R = '/home/user/academia-well-src'
@@ -49,7 +56,8 @@ async def main():
             .map(id => ({id, tipo: window.WELL_PRACTICA.ejercicios[id].tipo,
                          n: (window.WELL_PRACTICA.ejercicios[id].items||[]).length}))""")
 
-        async def corrige():
+        async def corrige(ident=''):
+            RASTRO['ejercicio'] = ident
             # la celebracion de insignia tapa el boton
             await pg.evaluate("()=>{const p=document.querySelector('#premio');"
                               "if(p&&!p.hidden){p.hidden=true;p.classList.remove('visible');}}")
@@ -92,7 +100,7 @@ async def main():
                 });
               }
             }""", ident)
-            await corrige()
+            await corrige(ident)
             bien = await pg.evaluate("()=>document.querySelectorAll('#ej-cuerpo .hueco.ok, #ej-cuerpo .op.buena').length")
             comprueba(bien == n, '%s: acepta %d de %d respuestas buenas' % (ident, bien, n))
 
@@ -115,7 +123,7 @@ async def main():
                 });
               }
             }""", ident)
-            await corrige()
+            await corrige(ident + ' (todo mal)')
             malo = await pg.evaluate("()=>document.querySelectorAll('#ej-cuerpo .hueco.mal, #ej-cuerpo .op.fallada').length")
             comprueba(malo == n, '%s: marca %d de %d fallos' % (ident, malo, n))
             comprueba(not errores, '%s: errores de consola %s' % (ident, errores))
@@ -130,4 +138,8 @@ async def main():
         sys.exit(1)
     print('Los %d ejercicios se pintan, aceptan lo bueno y rechazan lo malo.' % len(lista))
 
-asyncio.run(main())
+try:
+    asyncio.run(main())
+except Exception:
+    print('\nSe rompio corrigiendo: %s' % (RASTRO['ejercicio'] or 'ninguno todavia'))
+    raise

@@ -59,6 +59,9 @@
   header.main{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);
               -webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--linea);transition:box-shadow .25s ease}
   header.main.scrolled{box-shadow:0 6px 24px rgba(35,43,66,.09)}
+  /* Solo mientras se miden las dos alturas de la cabecera, en el arranque:
+     con la transicion viva se mediria un valor intermedio. */
+  header.main.midiendo,header.main.midiendo *{transition:none!important}
   .nav-inner{display:flex;align-items:center;gap:14px;padding:13px 32px;max-width:1320px;margin:0 auto;
              transition:padding .25s ease}
   header.main.scrolled .nav-inner{padding:8px 32px}

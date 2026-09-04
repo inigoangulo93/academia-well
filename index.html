@@ -1231,7 +1231,15 @@
 
 <script>
 const header = document.getElementById('mainHeader');
-addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 8), {passive:true});
+// La cabecera es sticky y encoge: al encoger, el documento mengua lo mismo. Con
+// un solo umbral, en una pagina que sobresale poco de la ventana el navegador te
+// devuelve arriba, se estira otra vez y tiembla sin parar. Se entra muy por
+// encima de ese salto de altura y se sale casi en el cero.
+addEventListener('scroll', () => {
+  const puesta = header.classList.contains('scrolled');
+  if (!puesta && scrollY > 28) header.classList.add('scrolled');
+  else if (puesta && scrollY < 2) header.classList.remove('scrolled');
+}, {passive:true});
 
 const drops = document.querySelectorAll('.menu > li.has-drop');
 function closeAll(except){

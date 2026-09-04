@@ -2296,31 +2296,56 @@
      variable CSS. */
   var cabecera = $('#cabecera');
   var simBarra = $('#sim-barra');
-  var altoCab = -1;
+  var altoCab = -1, altos = null;
+
+  /* La cabecera solo tiene DOS alturas: entera y encogida. Se miden las dos
+     una vez, con las transiciones apagadas, y a partir de ahi --alto-cab
+     cambia de golpe al cambiar la clase.
+
+     Medirla en cada scroll, como estaba, la pillaba a mitad de su transicion
+     de 250 ms: --alto-cab iba tomando valores intermedios y todo lo que cuelga
+     de ella se arrastraba detras en vez de cambiar de sitio de una vez. */
+  function midePares() {
+    var tenia = cabecera.classList.contains('scrolled');
+    cabecera.classList.add('midiendo');
+    cabecera.classList.remove('scrolled');
+    var entera = Math.round(cabecera.getBoundingClientRect().height);
+    cabecera.classList.add('scrolled');
+    var corta = Math.round(cabecera.getBoundingClientRect().height);
+    cabecera.classList.toggle('scrolled', tenia);
+    void cabecera.offsetHeight;               // asienta antes de devolver la transicion
+    cabecera.classList.remove('midiendo');
+    altos = { entera: entera, corta: corta, salto: entera - corta };
+  }
 
   function publicaAlto() {
-    var h = Math.round(cabecera.getBoundingClientRect().height);
+    if (!altos) midePares();
+    var h = cabecera.classList.contains('scrolled') ? altos.corta : altos.entera;
     if (h === altoCab) return;
     altoCab = h;
     document.documentElement.style.setProperty('--alto-cab', h + 'px');
   }
 
+  /* Histeresis, y no por gusto. La cabecera esta en el flujo (es sticky, no
+     fixed), asi que al encoger 12 px el documento tambien mengua 12 px. En una
+     pagina que sobresale poco de la ventana eso baja el tope de scroll, el
+     navegador te devuelve arriba, la cabecera se estira, el documento vuelve a
+     crecer... y a temblar sin parar. Se entra por encima del salto de altura,
+     nunca por debajo: asi el reajuste no puede devolverte al otro lado del
+     umbral. Se sale casi en el cero, que ahi ya no hay reajuste que valga. */
   var alScroll = function () {
     var y = window.scrollY;
-    cabecera.classList.toggle('scrolled', y > 6);
-    // La barra del simulacro se encoge un poco despues que la cabecera, para
-    // que las dos transiciones no arranquen a la vez y se pisen.
+    if (!altos) midePares();
+    var estaba = cabecera.classList.contains('scrolled');
+    if (!estaba && y > altos.salto + 8) cabecera.classList.add('scrolled');
+    else if (estaba && y < 2) cabecera.classList.remove('scrolled');
+    // La barra del simulacro se encoge un poco despues, para que las dos
+    // transiciones no arranquen a la vez.
     if (simBarra) simBarra.classList.toggle('min', y > 48);
-    // La cabecera esta en mitad de su transicion de altura durante 250 ms:
-    // se vuelve a medir al acabar, si no la variable se queda en el valor
-    // intermedio del primer frame.
     publicaAlto();
-    clearTimeout(alScroll._t);
-    alScroll._t = setTimeout(publicaAlto, 300);
   };
   window.addEventListener('scroll', alScroll, { passive: true });
-  window.addEventListener('resize', publicaAlto, { passive: true });
-  if (window.ResizeObserver) new ResizeObserver(publicaAlto).observe(cabecera);
+  window.addEventListener('resize', function () { altos = null; publicaAlto(); }, { passive: true });
   alScroll();
 
   document.addEventListener('keydown', function (e) {
