@@ -35,8 +35,8 @@
   "lineas": [
     {
       "voz": "narrador",
-      "pausa": 0.8,
-      "texto": "You will hear an interview with Ruth Callaghan, who runs an archive of amateur film."
+      "pausa": 1.0,
+      "texto": "Part Three. You will hear an interview with Ruth Callaghan, who runs an archive of amateur film. For each question, choose the answer — A, B, C or D — which fits best according to what you hear."
     },
     {
       "voz": "ent",
@@ -107,6 +107,11 @@
       "voz": "arch",
       "pausa": 0.8,
       "texto": "Write on the box before you do anything else. Whatever you know: names, the street, roughly when. You are the last person who will ever know it, and once you have gone it is a very pretty film of nobody."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.0,
+      "texto": "That is the end of Part Three."
     }
   ]
 }

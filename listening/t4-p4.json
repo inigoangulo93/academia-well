@@ -59,8 +59,8 @@
   "lineas": [
     {
       "voz": "narrador",
-      "pausa": 0.8,
-      "texto": "You will hear five short extracts in which people talk about a decision they took very quickly."
+      "pausa": 1.0,
+      "texto": "Part Four. You will hear five short extracts in which people talk about a decision they took very quickly. While you listen you must complete both tasks. For Task One, choose from the list A to H why each speaker decided so quickly. For Task Two, choose from the list A to H what each speaker says about it now."
     },
     {
       "voz": "narrador",
@@ -111,6 +111,11 @@
       "voz": "cinco",
       "pausa": 0.8,
       "texto": "We agreed the whole partnership over lunch and shook hands before the coffee, and it took four years to come apart and rather longer to pay for. People assume the lesson is not to decide quickly. It is not. He was extremely persuasive and I let myself be persuaded in a restaurant, and I have made fast decisions since, at a table with a piece of paper on it, that have been perfectly sound."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.0,
+      "texto": "That is the end of Part Four."
     }
   ]
 }

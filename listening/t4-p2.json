@@ -7,6 +7,14 @@
   "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
   "voces": [
     {
+      "id": "narrador",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro"
+    },
+    {
       "id": "finn",
       "proveedor": "elevenlabs",
       "voz": "PENDIENTE",
@@ -17,6 +25,11 @@
   ],
   "velocidad": 148,
   "lineas": [
+    {
+      "voz": "narrador",
+      "pausa": 1.0,
+      "texto": "Part Two. You will hear a man called Finn Aramburu talking about his work building dry stone walls. For each question, complete the sentence with a word or a short phrase."
+    },
     {
       "voz": "finn",
       "pausa": 0.5,
@@ -56,6 +69,11 @@
       "voz": "finn",
       "pausa": 0.8,
       "texto": "If you want to learn, do not build anything. Go and take down a fallen wall, slowly, and lay the stones out as you go. You learn more in a fortnight of taking apart than in a year of putting up."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.0,
+      "texto": "That is the end of Part Two."
     }
   ]
 }

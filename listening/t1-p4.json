@@ -6,25 +6,116 @@
   "titulo": "Cinco personas dejan su ciudad",
   "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
   "voces": [
-    { "id": "narrador", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-GB", "espeak": "en-gb", "descripcion": "narrador neutro" },
-    { "id": "uno", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-GB", "espeak": "en-gb-x-rp", "descripcion": "hombre, 30s" },
-    { "id": "dos", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-GB", "espeak": "en-gb-scotland", "descripcion": "mujer, 40s" },
-    { "id": "tres", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-US", "espeak": "en-us", "descripcion": "hombre, 50s" },
-    { "id": "cuatro", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-GB", "espeak": "en-gb-x-gbclan", "descripcion": "mujer, 20s" },
-    { "id": "cinco", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-GB", "espeak": "en-gb-x-gbcwmd", "descripcion": "hombre, 60s" }
+    {
+      "id": "narrador",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro"
+    },
+    {
+      "id": "uno",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-rp",
+      "descripcion": "hombre, 30s"
+    },
+    {
+      "id": "dos",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-scotland",
+      "descripcion": "mujer, 40s"
+    },
+    {
+      "id": "tres",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-US",
+      "espeak": "en-us",
+      "descripcion": "hombre, 50s"
+    },
+    {
+      "id": "cuatro",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbclan",
+      "descripcion": "mujer, 20s"
+    },
+    {
+      "id": "cinco",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbcwmd",
+      "descripcion": "hombre, 60s"
+    }
   ],
   "velocidad": 150,
   "lineas": [
-    { "voz": "narrador", "pausa": 0.8, "texto": "You will hear five short extracts in which people talk about leaving the city where they had been living." },
-    { "voz": "narrador", "pausa": 0.5, "texto": "Speaker one." },
-    { "voz": "uno", "pausa": 1.0, "texto": "Everybody assumes it was the rent, and the rent was absurd, but I could have paid it. What I could not do was keep pretending that I liked any of it. I had a flat I was never in, a gym I never went to and a circle of people I saw twice a year. When I finally left, three of them told me they had been thinking about it too, which tells you something. I do not miss the city. I miss the version of myself who thought it was going to work out." },
-    { "voz": "narrador", "pausa": 0.5, "texto": "Speaker two." },
-    { "voz": "dos", "pausa": 1.0, "texto": "My mother fell, and after that there was no decision to make, only a date to choose. I do not want to dress it up as some awakening: I moved back because somebody had to, and my brother lives abroad. What I did not expect was to like it. I have friends here I have known since I was six, which at my age is not something you can build from scratch anywhere else. I would not have chosen it, and I am glad it was chosen for me." },
-    { "voz": "narrador", "pausa": 0.5, "texto": "Speaker three." },
-    { "voz": "tres", "pausa": 1.0, "texto": "The company went remote and I did the arithmetic in about ten minutes. Same salary, a house instead of an apartment, and two hours of my day back. What nobody warns you about is that the two hours do not stay yours. They fill up. Within a year I was starting at seven and finishing at seven, because there was no train to catch and therefore no reason to stop. That was the real move I had to make, and it had nothing to do with geography." },
-    { "voz": "narrador", "pausa": 0.5, "texto": "Speaker four." },
-    { "voz": "cuatro", "pausa": 1.0, "texto": "I lasted eight months and I went back, and I am not embarrassed about it any more. The village was beautiful and the people were kind and I was profoundly, unbearably bored. Everyone had told me I would slow down and find myself, and what I found was somebody who needs a bit of noise. I think there is a lot of pressure now to say the countryside cured you. It did not cure me. It just showed me what I actually wanted, which was the city and a smaller flat." },
-    { "voz": "narrador", "pausa": 0.5, "texto": "Speaker five." },
-    { "voz": "cinco", "pausa": 0.6, "texto": "I had planned it for eleven years. Spreadsheets, the lot. And when the day came I sat in the empty flat and could not stand up. My wife had died the spring before, and the plan had been ours, and going through with it alone felt like theft. I went anyway, a month late. It was the right thing and it was also the hardest thing, and I have stopped expecting those to be different." }
+    {
+      "voz": "narrador",
+      "pausa": 1.0,
+      "texto": "Part Four. You will hear five short extracts in which people talk about leaving the city where they had been living. While you listen you must complete both tasks. For Task One, choose from the list A to H why each speaker left. For Task Two, choose from the list A to H what each speaker says now, looking back."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "Speaker one."
+    },
+    {
+      "voz": "uno",
+      "pausa": 1.0,
+      "texto": "Everybody assumes it was the rent, and the rent was absurd, but I could have paid it. What I could not do was keep pretending that I liked any of it. I had a flat I was never in, a gym I never went to and a circle of people I saw twice a year. When I finally left, three of them told me they had been thinking about it too, which tells you something. I do not miss the city. I miss the version of myself who thought it was going to work out."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "Speaker two."
+    },
+    {
+      "voz": "dos",
+      "pausa": 1.0,
+      "texto": "My mother fell, and after that there was no decision to make, only a date to choose. I do not want to dress it up as some awakening: I moved back because somebody had to, and my brother lives abroad. What I did not expect was to like it. I have friends here I have known since I was six, which at my age is not something you can build from scratch anywhere else. I would not have chosen it, and I am glad it was chosen for me."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "Speaker three."
+    },
+    {
+      "voz": "tres",
+      "pausa": 1.0,
+      "texto": "The company went remote and I did the arithmetic in about ten minutes. Same salary, a house instead of an apartment, and two hours of my day back. What nobody warns you about is that the two hours do not stay yours. They fill up. Within a year I was starting at seven and finishing at seven, because there was no train to catch and therefore no reason to stop. That was the real move I had to make, and it had nothing to do with geography."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "Speaker four."
+    },
+    {
+      "voz": "cuatro",
+      "pausa": 1.0,
+      "texto": "I lasted eight months and I went back, and I am not embarrassed about it any more. The village was beautiful and the people were kind and I was profoundly, unbearably bored. Everyone had told me I would slow down and find myself, and what I found was somebody who needs a bit of noise. I think there is a lot of pressure now to say the countryside cured you. It did not cure me. It just showed me what I actually wanted, which was the city and a smaller flat."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "Speaker five."
+    },
+    {
+      "voz": "cinco",
+      "pausa": 0.6,
+      "texto": "I had planned it for eleven years. Spreadsheets, the lot. And when the day came I sat in the empty flat and could not stand up. My wife had died the spring before, and the plan had been ours, and going through with it alone felt like theft. I went anyway, a month late. It was the right thing and it was also the hardest thing, and I have stopped expecting those to be different."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.0,
+      "texto": "That is the end of Part Four."
+    }
   ]
 }

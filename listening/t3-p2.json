@@ -7,6 +7,14 @@
   "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
   "voces": [
     {
+      "id": "narrador",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro"
+    },
+    {
       "id": "gemma",
       "proveedor": "elevenlabs",
       "voz": "PENDIENTE",
@@ -17,6 +25,11 @@
   ],
   "velocidad": 148,
   "lineas": [
+    {
+      "voz": "narrador",
+      "pausa": 1.0,
+      "texto": "Part Two. You will hear a woman called Gemma Iriondo talking about her work restoring neon signs. For each question, complete the sentence with a word or a short phrase."
+    },
     {
       "voz": "gemma",
       "pausa": 0.5,
@@ -56,6 +69,11 @@
       "voz": "gemma",
       "pausa": 0.8,
       "texto": "If you want to start, do not buy a torch. Buy a box of broken tube and break more of it. Everyone wants to make a letter in the first week, and the first thing you actually have to learn is how glass behaves when it is too hot, which you only learn by ruining it."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.0,
+      "texto": "That is the end of Part Two."
     }
   ]
 }

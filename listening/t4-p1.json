@@ -51,6 +51,11 @@
   "lineas": [
     {
       "voz": "narrador",
+      "pausa": 1.0,
+      "texto": "Part One. You will hear three different extracts. For each question, choose the answer — A, B or C — which fits best according to what you hear. There are two questions for each extract."
+    },
+    {
+      "voz": "narrador",
       "pausa": 0.8,
       "texto": "Extract one. You hear two people talking about a book group."
     },
@@ -143,6 +148,11 @@
       "voz": "m1",
       "pausa": 0.8,
       "texto": "I will say it, and it will be written down, and the review is in November, and the specification was signed in March."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.0,
+      "texto": "That is the end of Part One."
     }
   ]
 }

@@ -59,8 +59,8 @@
   "lineas": [
     {
       "voz": "narrador",
-      "pausa": 0.8,
-      "texto": "You will hear five short extracts in which people talk about changing to a completely different kind of work."
+      "pausa": 1.0,
+      "texto": "Part Four. You will hear five short extracts in which people talk about changing to a completely different kind of work. While you listen you must complete both tasks. For Task One, choose from the list A to H why each speaker changed. For Task Two, choose from the list A to H what each speaker says about it now."
     },
     {
       "voz": "narrador",
@@ -111,6 +111,11 @@
       "voz": "cinco",
       "pausa": 0.8,
       "texto": "I retrained at twenty-eight, which everybody told me was young enough not to count, and it counted. I had no choice in it: the thing I qualified for had more or less ceased to exist by the time I finished, and there is no arguing with that. The hardest part was being the least experienced person in a room of people my own age. Nobody is unkind about it; they simply explain things to you, and you have to decide not to mind. I still catch myself pretending to know things, which is the one habit I brought with me and the one I would leave behind if I could."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.0,
+      "texto": "That is the end of Part Four."
     }
   ]
 }

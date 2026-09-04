@@ -1,27 +1,121 @@
 {
-  "id": "t2-lis4", "examen": "cae", "parte": 4,
-  "tarea": "Multiple matching, cinco monologos", "titulo": "Cinco personas dejan una afición",
+  "id": "t2-lis4",
+  "examen": "cae",
+  "parte": 4,
+  "tarea": "Multiple matching, cinco monologos",
+  "titulo": "Cinco personas dejan una afición",
   "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
   "voces": [
-    { "id": "narrador", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-GB", "espeak": "en-gb", "descripcion": "narrador neutro" },
-    { "id": "uno", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-GB", "espeak": "en-gb-x-rp", "descripcion": "hombre, 40s" },
-    { "id": "dos", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-GB", "espeak": "en-gb-scotland", "descripcion": "mujer, 30s" },
-    { "id": "tres", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-US", "espeak": "en-us", "descripcion": "hombre, 60s" },
-    { "id": "cuatro", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-GB", "espeak": "en-gb-x-gbclan", "descripcion": "mujer, 20s" },
-    { "id": "cinco", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-GB", "espeak": "en-gb-x-gbcwmd", "descripcion": "hombre, 30s" }
+    {
+      "id": "narrador",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro"
+    },
+    {
+      "id": "uno",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-rp",
+      "descripcion": "hombre, 40s"
+    },
+    {
+      "id": "dos",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-scotland",
+      "descripcion": "mujer, 30s"
+    },
+    {
+      "id": "tres",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-US",
+      "espeak": "en-us",
+      "descripcion": "hombre, 60s"
+    },
+    {
+      "id": "cuatro",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbclan",
+      "descripcion": "mujer, 20s"
+    },
+    {
+      "id": "cinco",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-gbcwmd",
+      "descripcion": "hombre, 30s"
+    }
   ],
   "velocidad": 150,
   "lineas": [
-    { "voz": "narrador", "pausa": 0.8, "texto": "You will hear five short extracts in which people talk about giving up an activity they had done for years." },
-    { "voz": "narrador", "pausa": 0.5, "texto": "Speaker one." },
-    { "voz": "uno", "pausa": 1.0, "texto": "I ran every morning for nineteen years and then one Tuesday I did not, and that was that. There was no injury and no crisis. What I worked out afterwards was that I had been running to have something that was mine, and by then I had other things that were mine, so it had quietly finished doing its job. I still own the shoes. I am not sentimental about it, but I have not thrown them out either." },
-    { "voz": "narrador", "pausa": 0.5, "texto": "Speaker two." },
-    { "voz": "dos", "pausa": 1.0, "texto": "The choir was the best thing in my week until they replaced the director. The new one was more ambitious and objectively better, and within six months we sounded twice as good and half of us had left. I do not blame him. He was hired to do exactly what he did. But I had joined to sing badly with people I liked on a Wednesday, and that was no longer on offer, and nobody had asked whether it should be." },
-    { "voz": "narrador", "pausa": 0.5, "texto": "Speaker three." },
-    { "voz": "tres", "pausa": 1.0, "texto": "Thirty-one years of Sunday football, and then my knee made the decision for me. What I was unprepared for was how much of my social life had been attached to it. I had eleven friends and it turned out I had eleven teammates, which is not the same thing, and I found that out over about four months of nobody ringing. I have made my peace with it. I would just have liked somebody to warn me." },
-    { "voz": "narrador", "pausa": 0.5, "texto": "Speaker four." },
-    { "voz": "cuatro", "pausa": 1.0, "texto": "I painted seriously from about fifteen and I stopped when I started selling. That sounds like a boast and it is the opposite. The moment there was a person waiting for the thing, I could not begin it. Six months of that and I was avoiding the room. I have not gone back, and I think about it most weeks, but I am fairly sure that if I did I would have to lie to myself about who it was for." },
-    { "voz": "narrador", "pausa": 0.5, "texto": "Speaker five." },
-    { "voz": "cinco", "pausa": 0.6, "texto": "Chess clubs are full of people who are better than you, and for about a decade that was exactly why I went. Then I got to a level where improving further would have taken hours I did not have, and I found that being stuck was unbearable in a way that being bad never was. That is a fact about me and not about chess. I still play my father twice a year and lose, and I enjoy that enormously." }
+    {
+      "voz": "narrador",
+      "pausa": 1.0,
+      "texto": "Part Four. You will hear five short extracts in which people talk about giving up an activity they had done for years. While you listen you must complete both tasks. For Task One, choose from the list A to H why each speaker gave it up. For Task Two, choose from the list A to H what each speaker says about it now."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "Speaker one."
+    },
+    {
+      "voz": "uno",
+      "pausa": 1.0,
+      "texto": "I ran every morning for nineteen years and then one Tuesday I did not, and that was that. There was no injury and no crisis. What I worked out afterwards was that I had been running to have something that was mine, and by then I had other things that were mine, so it had quietly finished doing its job. I still own the shoes. I am not sentimental about it, but I have not thrown them out either."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "Speaker two."
+    },
+    {
+      "voz": "dos",
+      "pausa": 1.0,
+      "texto": "The choir was the best thing in my week until they replaced the director. The new one was more ambitious and objectively better, and within six months we sounded twice as good and half of us had left. I do not blame him. He was hired to do exactly what he did. But I had joined to sing badly with people I liked on a Wednesday, and that was no longer on offer, and nobody had asked whether it should be."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "Speaker three."
+    },
+    {
+      "voz": "tres",
+      "pausa": 1.0,
+      "texto": "Thirty-one years of Sunday football, and then my knee made the decision for me. What I was unprepared for was how much of my social life had been attached to it. I had eleven friends and it turned out I had eleven teammates, which is not the same thing, and I found that out over about four months of nobody ringing. I have made my peace with it. I would just have liked somebody to warn me."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "Speaker four."
+    },
+    {
+      "voz": "cuatro",
+      "pausa": 1.0,
+      "texto": "I painted seriously from about fifteen and I stopped when I started selling. That sounds like a boast and it is the opposite. The moment there was a person waiting for the thing, I could not begin it. Six months of that and I was avoiding the room. I have not gone back, and I think about it most weeks, but I am fairly sure that if I did I would have to lie to myself about who it was for."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.5,
+      "texto": "Speaker five."
+    },
+    {
+      "voz": "cinco",
+      "pausa": 0.6,
+      "texto": "Chess clubs are full of people who are better than you, and for about a decade that was exactly why I went. Then I got to a level where improving further would have taken hours I did not have, and I found that being stuck was unbearable in a way that being bad never was. That is a fact about me and not about chess. I still play my father twice a year and lose, and I enjoy that enormously."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.0,
+      "texto": "That is the end of Part Four."
+    }
   ]
 }

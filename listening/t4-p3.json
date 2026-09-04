@@ -35,8 +35,8 @@
   "lineas": [
     {
       "voz": "narrador",
-      "pausa": 0.8,
-      "texto": "You will hear an interview with Imelda Rourke, who advises cities on street trees."
+      "pausa": 1.0,
+      "texto": "Part Three. You will hear an interview with Imelda Rourke, who advises cities on street trees. For each question, choose the answer — A, B, C or D — which fits best according to what you hear."
     },
     {
       "voz": "ent",
@@ -97,6 +97,11 @@
       "voz": "doc",
       "pausa": 0.8,
       "texto": "Fewer trees in bigger holes. Almost every failure I am called to look at is a tree in a pit the size of a suitcase, and it was doomed on the day it went in. Half the number, twice the soil, and you would keep nearly all of them. It is not an inspiring answer and it is the correct one."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.0,
+      "texto": "That is the end of Part Three."
     }
   ]
 }

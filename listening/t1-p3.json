@@ -6,28 +6,122 @@
   "titulo": "Una entrevista sobre el sueño",
   "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
   "voces": [
-    { "id": "narrador", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-GB", "espeak": "en-gb", "descripcion": "narrador neutro" },
-    { "id": "entrevistadora", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-GB", "espeak": "en-gb-scotland", "descripcion": "mujer, 40s, periodista" },
-    { "id": "investigador", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-GB", "espeak": "en-gb-x-rp", "descripcion": "hombre, 50s, investigador" }
+    {
+      "id": "narrador",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb",
+      "descripcion": "narrador neutro"
+    },
+    {
+      "id": "entrevistadora",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-scotland",
+      "descripcion": "mujer, 40s, periodista"
+    },
+    {
+      "id": "investigador",
+      "proveedor": "elevenlabs",
+      "voz": "PENDIENTE",
+      "acento": "en-GB",
+      "espeak": "en-gb-x-rp",
+      "descripcion": "hombre, 50s, investigador"
+    }
   ],
   "velocidad": 150,
   "lineas": [
-    { "voz": "narrador", "pausa": 0.8, "texto": "You will hear an interview with Doctor Alan Merrick, who studies sleep." },
-    { "voz": "entrevistadora", "pausa": 0.3, "texto": "Doctor Merrick, everyone now seems to know that they should be getting eight hours. Is that figure actually right?" },
-    { "voz": "investigador", "pausa": 0.4, "texto": "It's not wrong, but it has been misunderstood in a way I find genuinely unhelpful. Eight is roughly the middle of a range. Treating it as a target means that a perfectly healthy person who needs seven goes to bed convinced they are failing, and worrying about sleep is one of the more reliable ways of not getting any." },
-    { "voz": "entrevistadora", "pausa": 0.3, "texto": "So the advice itself causes harm." },
-    { "voz": "investigador", "pausa": 0.4, "texto": "In some cases, yes. I would rather people knew their own number than everybody's average." },
-    { "voz": "entrevistadora", "pausa": 0.3, "texto": "Your own research has focused on shift workers. What drew you there?" },
-    { "voz": "investigador", "pausa": 0.4, "texto": "Frustration, mostly. The literature was full of studies on undergraduates, because undergraduates are cheap and they are already in the building. But an undergraduate kept awake for one night in a laboratory tells you very little about a nurse in her eleventh year of nights." },
-    { "voz": "entrevistadora", "pausa": 0.3, "texto": "And what did you find?" },
-    { "voz": "investigador", "pausa": 0.4, "texto": "The thing that surprised me was not the health effects, which were much as expected. It was that the workers who coped best were not the ones with the strictest routines. They were the ones whose employers gave them the same pattern every month, however awkward that pattern was. Predictability mattered more than the hours themselves." },
-    { "voz": "entrevistadora", "pausa": 0.3, "texto": "That sounds like an argument aimed at managers rather than at individuals." },
-    { "voz": "investigador", "pausa": 0.4, "texto": "It is, and that is precisely why it has been slow to catch on. Advice that ends with 'buy a better mattress' sells. Advice that ends with 'change the rota' costs somebody money." },
-    { "voz": "entrevistadora", "pausa": 0.3, "texto": "What about all the devices that measure sleep now? Are they any use?" },
-    { "voz": "investigador", "pausa": 0.4, "texto": "They are reasonably good at telling you when you were asleep and fairly poor at telling you how well. My concern is different, though. I have seen patients who slept perfectly adequately until they started measuring it, and then spent six months anxious about a number on a screen." },
-    { "voz": "entrevistadora", "pausa": 0.3, "texto": "So you would tell people to throw them away." },
-    { "voz": "investigador", "pausa": 0.4, "texto": "I would tell people to use one for a fortnight and then put it in a drawer. A fortnight tells you your pattern. Two years tells you nothing you did not already know and gives you something new to worry about." },
-    { "voz": "entrevistadora", "pausa": 0.3, "texto": "Finally, if there were one change you could make tomorrow, what would it be?" },
-    { "voz": "investigador", "pausa": 0.6, "texto": "Later school start times. The evidence there is about as strong as evidence in my field ever gets, the cost is close to nothing, and we have been discussing it for twenty years without doing it. If I sound impatient, it is because I am." }
+    {
+      "voz": "narrador",
+      "pausa": 1.0,
+      "texto": "Part Three. You will hear an interview with Doctor Alan Merrick, who studies sleep. For each question, choose the answer — A, B, C or D — which fits best according to what you hear."
+    },
+    {
+      "voz": "entrevistadora",
+      "pausa": 0.3,
+      "texto": "Doctor Merrick, everyone now seems to know that they should be getting eight hours. Is that figure actually right?"
+    },
+    {
+      "voz": "investigador",
+      "pausa": 0.4,
+      "texto": "It's not wrong, but it has been misunderstood in a way I find genuinely unhelpful. Eight is roughly the middle of a range. Treating it as a target means that a perfectly healthy person who needs seven goes to bed convinced they are failing, and worrying about sleep is one of the more reliable ways of not getting any."
+    },
+    {
+      "voz": "entrevistadora",
+      "pausa": 0.3,
+      "texto": "So the advice itself causes harm."
+    },
+    {
+      "voz": "investigador",
+      "pausa": 0.4,
+      "texto": "In some cases, yes. I would rather people knew their own number than everybody's average."
+    },
+    {
+      "voz": "entrevistadora",
+      "pausa": 0.3,
+      "texto": "Your own research has focused on shift workers. What drew you there?"
+    },
+    {
+      "voz": "investigador",
+      "pausa": 0.4,
+      "texto": "Frustration, mostly. The literature was full of studies on undergraduates, because undergraduates are cheap and they are already in the building. But an undergraduate kept awake for one night in a laboratory tells you very little about a nurse in her eleventh year of nights."
+    },
+    {
+      "voz": "entrevistadora",
+      "pausa": 0.3,
+      "texto": "And what did you find?"
+    },
+    {
+      "voz": "investigador",
+      "pausa": 0.4,
+      "texto": "The thing that surprised me was not the health effects, which were much as expected. It was that the workers who coped best were not the ones with the strictest routines. They were the ones whose employers gave them the same pattern every month, however awkward that pattern was. Predictability mattered more than the hours themselves."
+    },
+    {
+      "voz": "entrevistadora",
+      "pausa": 0.3,
+      "texto": "That sounds like an argument aimed at managers rather than at individuals."
+    },
+    {
+      "voz": "investigador",
+      "pausa": 0.4,
+      "texto": "It is, and that is precisely why it has been slow to catch on. Advice that ends with 'buy a better mattress' sells. Advice that ends with 'change the rota' costs somebody money."
+    },
+    {
+      "voz": "entrevistadora",
+      "pausa": 0.3,
+      "texto": "What about all the devices that measure sleep now? Are they any use?"
+    },
+    {
+      "voz": "investigador",
+      "pausa": 0.4,
+      "texto": "They are reasonably good at telling you when you were asleep and fairly poor at telling you how well. My concern is different, though. I have seen patients who slept perfectly adequately until they started measuring it, and then spent six months anxious about a number on a screen."
+    },
+    {
+      "voz": "entrevistadora",
+      "pausa": 0.3,
+      "texto": "So you would tell people to throw them away."
+    },
+    {
+      "voz": "investigador",
+      "pausa": 0.4,
+      "texto": "I would tell people to use one for a fortnight and then put it in a drawer. A fortnight tells you your pattern. Two years tells you nothing you did not already know and gives you something new to worry about."
+    },
+    {
+      "voz": "entrevistadora",
+      "pausa": 0.3,
+      "texto": "Finally, if there were one change you could make tomorrow, what would it be?"
+    },
+    {
+      "voz": "investigador",
+      "pausa": 0.6,
+      "texto": "Later school start times. The evidence there is about as strong as evidence in my field ever gets, the cost is close to nothing, and we have been discussing it for twenty years without doing it. If I sound impatient, it is because I am."
+    },
+    {
+      "voz": "narrador",
+      "pausa": 0.0,
+      "texto": "That is the end of Part Three."
+    }
   ]
 }
