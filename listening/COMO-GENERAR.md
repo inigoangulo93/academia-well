@@ -90,7 +90,21 @@ Cada linea se normaliza por separado con `loudnorm` en dos pasadas contra EBU
 R128, a -16 LUFS, antes de juntarla. Probado con dos voces separadas 11,9 LU:
 quedan a 0,1 LU.
 
-Como se hace al MONTAR y no al generar, rehacerlo no cuesta un credito:
+Hay dos caminos, y hacen falta los dos:
+
+**Al generar** (`gen-listening.py`): normaliza cada linea por separado con
+`loudnorm` en dos pasadas. Es el metodo limpio, pero necesita la cache de
+lineas, que vive en la maquina donde se genero.
+
+**Ya montado** (`nivela-audio.py`): arregla ficheros que ya existen, esten
+donde esten, sin necesitar la cache. Usa `dynaudnorm` para igualar la sonoridad
+a lo largo del fichero y `loudnorm` para dejar el nivel global. Es el que se usa
+cuando el audio ya esta en el repositorio.
+
+    python3 nivela-audio.py            dice que haria
+    python3 nivela-audio.py --hazlo    lo hace
+
+Como el primero se hace al MONTAR y no al generar, rehacerlo no cuesta un credito:
 
     ./voz.sh --nivelar
 
