@@ -73,6 +73,27 @@ Las claves parecen alinearse una linea por ejercicio y en orden, pero tienen
 erratas (`when they heared`), asi que el volcado automatico **tiene que
 terminar en revision humana**.
 
+## 3 bis. El audio del listening, hoy
+
+Los cuatro guiones del Test 1 estan escritos y el audio se genera en local con
+`espeak-ng`, gratis y sin cuenta en ningun sitio:
+
+    python3 gen-listening.py listening/t1-p1.json --espeak
+
+**Es provisional y no se publica asi.** Un sintetizador robotico no sirve para
+medir un CAE: el examen mide entender a personas, con su acento, su velocidad y
+sus titubeos. Sirve para dos cosas concretas —que el reproductor y sus reglas
+funcionen con audio real, y ensenarle el flujo entero a Elena antes de pagar
+nada— y para nada mas.
+
+Cuando haya cuenta, **los guiones no cambian**: solo el proveedor. El formato
+tambien se mantiene, MP3, que es lo que devuelven ElevenLabs y Azure.
+
+MP3 y no Opus, aunque Opus pese menos: de un Ogg, Chromium no lee la duracion y
+devuelve infinito, con lo que la barra de progreso se queda clavada en cero.
+WebM lo arregla, pero Safari en iPhone es historicamente irregular con WebM, y
+un listening que no suena en el movil de un alumno no sirve de nada.
+
 ## 4. RESUELTA: de donde salen las frases
 
 **Elena contesto el 4 de septiembre de 2026:** *«son de internet, cogidas de

@@ -57,7 +57,7 @@ window.WELL_PRACTICA = {
           { destreza: 'vocabulario', ejercicios: ['v1-caja', 'v2-caja'] },
           { destreza: 'gramatica', ejercicios: ['g1-transf', 'g2-transf'] },
           { destreza: 'use', parte: 1, tarea: 'Multiple-choice cloze', ejercicios: ['v1-opcion'] },
-          { destreza: 'listening', parte: 1, tarea: 'Tres extractos' }
+          { destreza: 'listening', parte: 1, tarea: 'Tres extractos', ejercicios: ['t1-lis1'] }
         ]},
         { id: 't1-s2', n: 2, tipo: 'B', bloques: [
           { destreza: 'vocabulario', ejercicios: ['v3-caja', 'v4-caja'] },
@@ -75,31 +75,31 @@ window.WELL_PRACTICA = {
           { destreza: 'vocabulario', ejercicios: ['v5-caja', 'v4-formacion'] },
           { destreza: 'gramatica', ejercicios: ['g7-transf', 'g8-transf'] },
           { destreza: 'reading', parte: 6, tarea: 'Cross-text matching', ejercicios: ['t1-read6'] },
-          { destreza: 'speaking', tarea: 'Parte 3' }
+          { destreza: 'speaking', tarea: 'Parte 3', ejercicios: ['t1-speak3'] }
         ]},
         { id: 't1-s5', n: 5, tipo: 'A', bloques: [
           { destreza: 'vocabulario', ejercicios: ['v4-cloze', 'v6-caja'] },
           { destreza: 'gramatica', ejercicios: ['g9-transf', 'g10-transf'] },
           { destreza: 'use', parte: 3, tarea: 'Word formation', ejercicios: ['v1-formacion'] },
-          { destreza: 'listening', parte: 3, tarea: 'Conversación larga' }
+          { destreza: 'listening', parte: 3, tarea: 'Conversación larga', ejercicios: ['t1-lis3'] }
         ]},
         { id: 't1-s6', n: 6, tipo: 'B', bloques: [
           { destreza: 'vocabulario', ejercicios: ['v5-cloze', 'v5-formacion'] },
           { destreza: 'gramatica', ejercicios: ['g11-transf', 'g12-transf'] },
           { destreza: 'reading', parte: 7, tarea: 'Gapped text', ejercicios: ['t1-read7'] },
-          { destreza: 'speaking', tarea: 'Parte 4' }
+          { destreza: 'speaking', tarea: 'Parte 4', ejercicios: ['t1-speak4'] }
         ]},
         { id: 't1-s7', n: 7, tipo: 'A', bloques: [
           { destreza: 'vocabulario', ejercicios: ['v7-caja', 'v6-formacion'] },
           { destreza: 'gramatica', ejercicios: ['g13-transf', 'g14-transf'] },
           { destreza: 'use', parte: 4, tarea: 'Key word transformation', ejercicios: ['v1-transf', 'v2-transf'] },
-          { destreza: 'listening', parte: 4, tarea: 'Multiple matching' }
+          { destreza: 'listening', parte: 4, tarea: 'Multiple matching', ejercicios: ['t1-lis4'] }
         ]},
         { id: 't1-s8', n: 8, tipo: 'B', bloques: [
           { destreza: 'vocabulario', ejercicios: ['v6-cloze', 'v8-caja'] },
           { destreza: 'gramatica', ejercicios: ['g15-transf', 'g16-transf'] },
           { destreza: 'reading', parte: 8, tarea: 'Multiple matching', ejercicios: ['t1-read8'] },
-          { destreza: 'speaking', tarea: 'Repaso' }
+          { destreza: 'speaking', tarea: 'Repaso', ejercicios: ['t1-speak-repaso'] }
         ]},
         { id: 't1-s9', n: 9, tipo: 'W', bloques: [
           { destreza: 'writing', parte: 1, tarea: 'Essay (obligatorio)', ejercicios: ['v1-writing1'] },
@@ -113,6 +113,172 @@ window.WELL_PRACTICA = {
   ],
 
   ejercicios: {
+  /* ---------- Listening ----------
+     Cuatro partes, como el examen. El audio de hoy es PROVISIONAL: lo genera
+     espeak-ng en local, gratis, y es un sintetizador robotico. Sirve para que
+     el reproductor y sus reglas funcionen de verdad, no como material final:
+     el CAE mide entender a personas, con su acento y sus titubeos. Los guiones
+     estan en listening/ y no cambian cuando se pague una voz de verdad. */
+
+  't1-lis1': {
+    tipo: 'listening', parte: 1,
+    titulo: 'Listening · Parte 1',
+    instruccion: 'Escucharás tres extractos. Elige la mejor respuesta (A, B o C) para cada pregunta. <b>Se escucha dos veces</b>.',
+    audio: 'audio/t1-lis1-espeak.mp3', demo: true, escuchas: 2,
+    contexto: 'Extracto 1: dos compañeros hablan de un informe. Extracto 2: una mujer cuenta un curso que ha empezado. Extracto 3: dos personas comentan un cambio en su estación.',
+    items: [
+      { pregunta: '1  What is the man’s main criticism of the report?',
+        opciones: ['Its conclusions are not well supported.', 'It is too long for anyone to read.', 'It leaves out the methodology.'], correcta: 1 },
+      { pregunta: '2  What does the woman realise about herself?',
+        opciones: ['She has been equating length with rigour.', 'She is afraid of being contradicted.', 'She works better under pressure.'], correcta: 0 },
+      { pregunta: '3  Why did the pottery class not relax the woman at first?',
+        opciones: ['The teacher was too demanding.', 'She was unaccustomed to being a beginner.', 'The other students were more skilled.'], correcta: 1 },
+      { pregunta: '4  How does she feel about her work now?',
+        opciones: ['Proud of how far she has come.', 'Frustrated by her slow progress.', 'Untroubled by how bad it is.'], correcta: 2 },
+      { pregunta: '5  What is the woman’s attitude to the closure of the ticket office?',
+        opciones: ['She is angry on principle.', 'She admits she no longer uses it.', 'She thinks the machines will fail.'], correcta: 1 },
+      { pregunta: '6  What do the two speakers agree about?',
+        opciones: ['The promise about platform staff will not be kept.', 'Older passengers will be unable to travel.', 'The petition is unlikely to change anything.'], correcta: 0 }
+    ]
+  },
+
+  't1-lis3': {
+    tipo: 'listening', parte: 3,
+    titulo: 'Listening · Parte 3',
+    instruccion: 'Escucharás una entrevista. Elige la mejor respuesta (A, B, C o D) para cada pregunta. <b>Se escucha dos veces</b>.',
+    audio: 'audio/t1-lis3-espeak.mp3', demo: true, escuchas: 2,
+    contexto: 'Una periodista entrevista al doctor Alan Merrick, que investiga el sueño.',
+    items: [
+      { pregunta: '1  What is Dr Merrick’s objection to the "eight hours" advice?',
+        opciones: ['The figure was arrived at unscientifically.',
+                   'It makes normal sleepers believe they are failing.',
+                   'It applies only to younger adults.',
+                   'It has been superseded by newer research.'], correcta: 1 },
+      { pregunta: '2  Why did he begin studying shift workers?',
+        opciones: ['He had worked night shifts himself.',
+                   'Funding was easier to obtain in that area.',
+                   'Existing studies used convenient rather than relevant subjects.',
+                   'Hospitals approached him for advice.'], correcta: 2 },
+      { pregunta: '3  What surprised him about the workers who coped best?',
+        opciones: ['They slept fewer hours than the others.',
+                   'They had unusually strict personal routines.',
+                   'Their shift patterns were consistent, whatever they were.',
+                   'They had been doing the job the longest.'], correcta: 2 },
+      { pregunta: '4  Why does he think his conclusion has been slow to spread?',
+        opciones: ['It requires employers to spend money.',
+                   'It contradicts what most researchers believe.',
+                   'It is difficult to explain to the public.',
+                   'The evidence for it is still incomplete.'], correcta: 0 },
+      { pregunta: '5  What is his main concern about sleep-tracking devices?',
+        opciones: ['They measure sleep quality inaccurately.',
+                   'They can create anxiety where there was none.',
+                   'They encourage people to sleep too much.',
+                   'They are too expensive for most people.'], correcta: 1 },
+      { pregunta: '6  How does he sound when discussing school start times?',
+        opciones: ['Hopeful that change is close.',
+                   'Uncertain about the strength of the evidence.',
+                   'Exasperated at the lack of action.',
+                   'Defensive about his own field.'], correcta: 2 }
+    ]
+  },
+
+  't1-lis4': {
+    tipo: 'listening', parte: 4,
+    titulo: 'Listening · Parte 4',
+    instruccion: 'Escucharás a cinco personas hablando de por qué dejaron su ciudad. <b>Tarea 1</b> (preguntas 1–5): elige el motivo. <b>Tarea 2</b> (preguntas 6–10): elige lo que dice ahora. Se escucha dos veces.',
+    audio: 'audio/t1-lis4-espeak.mp3', demo: true, escuchas: 2,
+    opcionesCortas: true,
+    contexto: 'Cinco personas cuentan por qué dejaron la ciudad en la que vivían. Cada tarea tiene su propia lista de ocho opciones.',
+    listas: [
+      { titulo: 'Tarea 1 · ¿Por qué se fue cada persona?', opciones: [
+        'the cost of living there',
+        'an obligation to family',
+        'a change in how they worked',
+        'a plan made long in advance',
+        'a wish for a quieter life',
+        'the loss of a relationship with the place',
+        'pressure from friends who had left',
+        'a search for a different kind of work'
+      ] },
+      { titulo: 'Tarea 2 · ¿Qué dice ahora, mirando atrás?', opciones: [
+        'they would make exactly the same choice again',
+        'the change did not deliver what it promised',
+        'the hard part was not the one they had prepared for',
+        'they were glad the decision was taken out of their hands',
+        'they regret having waited so long',
+        'it was the right thing and the hardest thing at once',
+        'they learned something about their own temperament',
+        'other people’s reactions took them by surprise'
+      ] }
+    ],
+    items: [
+      { pregunta: 'Tarea 1 · 1  Speaker one', opciones: ['A','B','C','D','E','F','G','H'], correcta: 5 },
+      { pregunta: 'Tarea 1 · 2  Speaker two', opciones: ['A','B','C','D','E','F','G','H'], correcta: 1 },
+      { pregunta: 'Tarea 1 · 3  Speaker three', opciones: ['A','B','C','D','E','F','G','H'], correcta: 2 },
+      { pregunta: 'Tarea 1 · 4  Speaker four', opciones: ['A','B','C','D','E','F','G','H'], correcta: 4 },
+      { pregunta: 'Tarea 1 · 5  Speaker five', opciones: ['A','B','C','D','E','F','G','H'], correcta: 3 },
+      { pregunta: 'Tarea 2 · 6  Speaker one', opciones: ['A','B','C','D','E','F','G','H'], correcta: 7 },
+      { pregunta: 'Tarea 2 · 7  Speaker two', opciones: ['A','B','C','D','E','F','G','H'], correcta: 3 },
+      { pregunta: 'Tarea 2 · 8  Speaker three', opciones: ['A','B','C','D','E','F','G','H'], correcta: 2 },
+      { pregunta: 'Tarea 2 · 9  Speaker four', opciones: ['A','B','C','D','E','F','G','H'], correcta: 6 },
+      { pregunta: 'Tarea 2 · 10 Speaker five', opciones: ['A','B','C','D','E','F','G','H'], correcta: 5 }
+    ]
+  },
+
+  /* ---------- Speaking ----------
+     La parte 3 y la 4 del examen se hacen en pareja: son una conversacion. Sin
+     pareja no se puede medir Interactive Communication, que es uno de los cinco
+     criterios, y eso se dice sin adornos en la nota de cada ejercicio. Lo que
+     si se puede practicar solo es todo lo demas: soltura, vocabulario,
+     gramatica y organizar una respuesta larga. */
+
+  't1-speak3': {
+    tipo: 'speaking', parte: 3,
+    titulo: 'Parte 3: decidir en voz alta',
+    instruccion: 'Habla durante <b>dos minutos</b>. Comenta las cinco opciones y llega a una conclusión, aunque sea provisional.',
+    segundos: 120,
+    pregunta: 'A school has money for one improvement. How important is each of these, and which two would you choose?',
+    puntos: [
+      'smaller classes',
+      'better science laboratories',
+      'more time for sport',
+      'training for the teachers',
+      'free lunches for everyone'
+    ],
+    nota: 'En el examen esto se habla con otro candidato durante tres minutos: se negocia, se interrumpe y se llega a un acuerdo. Grabándote solo se practica todo menos eso, que es un criterio entero de los cinco. Cuando esté el emparejamiento, esta misma pregunta se hará en pareja.',
+    items: [ { grabacion: true } ]
+  },
+
+  't1-speak4': {
+    tipo: 'speaking', parte: 4,
+    titulo: 'Parte 4: opinar y justificar',
+    instruccion: 'Contesta a las tres preguntas seguidas, <b>dos minutos</b> en total. No hace falta tener razón: hace falta sostener lo que digas.',
+    segundos: 120,
+    pregunta: 'Questions about education and money.',
+    puntos: [
+      'Should university be free for everyone? Why?',
+      'Some people say we should teach practical skills instead of academic subjects. What do you think?',
+      'Is it fair to judge a school by its exam results?'
+    ],
+    nota: 'En el examen el examinador pregunta y luego pide tu reacción a lo que ha dicho la otra persona. Aquí solo está la primera mitad.',
+    items: [ { grabacion: true } ]
+  },
+
+  't1-speak-repaso': {
+    tipo: 'speaking', parte: 2,
+    titulo: 'Repaso: un minuto sin parar',
+    instruccion: 'Habla durante <b>un minuto seguido</b>, sin pausas largas. Compara, no describas.',
+    segundos: 60,
+    pregunta: 'Why might people be doing these things, and how might they be feeling?',
+    puntos: [
+      'giving a talk to a large audience',
+      'working alone late at night',
+      'teaching someone much older than themselves'
+    ],
+    nota: 'Este es el que conviene repetir antes del examen. El objetivo no es acertar: es no callarse. Si te quedas en blanco, di por qué te has quedado en blanco y sigue; en el examen eso puntúa más que el silencio.',
+    items: [ { grabacion: true } ]
+  },
+
   /* Area 3 · The future */
   'g3-transf': {
     tipo: 'transformacion', titulo: 'Futuro · palabra clave',
@@ -856,7 +1022,7 @@ window.WELL_PRACTICA = {
       "tipo": "listening",
       "titulo": "Una cartógrafa",
       "instruccion": "Vas a oír a una cartógrafa hablando de su trabajo. Completa cada frase con <b>una palabra o expresión corta</b>. Lo oirás <b>dos veces</b>.",
-      "audio": "audio/t1-lis2-demo.wav",
+      "audio": "audio/t1-lis2-espeak.mp3",
       "demo": true,
       "escuchas": 2,
       "items": [

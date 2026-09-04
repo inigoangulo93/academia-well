@@ -1157,11 +1157,13 @@
 
   var ANCHO = { caja: 'corto', cloze: 'corto', formacion: 'medio', transformacion: 'largo' };
 
-  // Tipos en los que se responde eligiendo, no escribiendo. Las cuatro partes
-  // del Reading caben en 'lectura': lo unico que cambia entre ellas es si las
-  // opciones son frases (parte 5) o letras que senalan a un trozo del texto
-  // (partes 6, 7 y 8).
-  var ELIGE = { opcion: 1, lectura: 1 };
+  // Se responde eligiendo o escribiendo, y eso lo decide el propio item, no el
+  // tipo de ejercicio: un listening es de huecos en la parte 2 y de elegir en
+  // las partes 1, 3 y 4. Mirar el item en vez del tipo evita tener que tocar
+  // esto cada vez que aparece un formato nuevo.
+  function seElige(ej) {
+    return !!(ej && ej.items && ej.items[0] && ej.items[0].opciones);
+  }
 
   /* ---------- reproductor con reglas de examen ---------- */
 
@@ -1201,17 +1203,36 @@
     pinta();
 
     au.addEventListener('timeupdate', function () {
-      if (au.duration) $('#au-fill').style.width = (au.currentTime / au.duration * 100) + '%';
+      // Hay formatos de los que el navegador no sabe la duracion y devuelve
+      // Infinity. Sin este isFinite, la barra se queda clavada en cero y
+      // parece que el audio no avanza.
+      if (isFinite(au.duration) && au.duration)
+        $('#au-fill').style.width = (au.currentTime / au.duration * 100) + '%';
     });
-    // Sin rebobinar: cualquier salto hacia atras se deshace
-    var tope = 0;
-    au.addEventListener('timeupdate', function () { if (au.currentTime > tope) tope = au.currentTime; });
+    // Sin rebobinar: cualquier salto se deshace y se vuelve a donde iba. Si se
+    // puede repetir el trozo dificil, la nota deja de medir nada.
+    //
+    // La bandera es un seguro barato. Al asignar currentTime se dispara otro
+    // 'seeking'; segun la norma, dentro ya se lee la posicion nueva, la
+    // diferencia con el tope es cero y no se vuelve a corregir. Pero si algun
+    // navegador no la actualiza a tiempo, sin bandera esto se convierte en un
+    // bucle de saltos que no converge.
+    //
+    // AVISO: esto no esta comprobado en un navegador de verdad. El Chromium sin
+    // pantalla de las pruebas no sabe saltar en un audio —ni adelante, ni en
+    // pausa, ni antes de empezar—, asi que qa-listening.py comprueba todo lo
+    // demas y esta regla se queda sin verificar. Hay que probarla a mano.
+    var tope = 0, corrigiendo = false;
+    au.addEventListener('timeupdate', function () {
+      if (au.currentTime > tope) tope = au.currentTime;
+    });
     au.addEventListener('seeking', function () {
-      if (Math.abs(au.currentTime - tope) > 0.6) au.currentTime = tope;
+      if (corrigiendo) { corrigiendo = false; return; }
+      if (Math.abs(au.currentTime - tope) > 0.6) { corrigiendo = true; au.currentTime = tope; }
     });
     au.addEventListener('ended', function () {
       AUDIO.escuchas++;
-      tope = 0;
+      tope = 0; corrigiendo = false;
       $('#au-fill').style.width = '0%';
       pinta();
       track('listening_escucha', { ejercicio: ej.id, escucha: AUDIO.escuchas });
@@ -1228,15 +1249,45 @@
   function cuerpoEjercicio(ej) {
     var h = '';
     if (ej.tipo === 'listening') {
-      // El reproductor impone las reglas del examen; las preguntas son frases
-      // incompletas, que se corrigen como cualquier hueco.
+      // El reproductor impone las reglas del examen. Las preguntas son frases
+      // incompletas en la parte 2 y de eleccion en las partes 1, 3 y 4.
       h += reproductor(ej);
-      h += '<ol class="frases">';
-      ej.items.forEach(function (it, i) {
-        h += '<li><p class="frase">' + esc(it.antes || '') + ' ' + campo(i, 'medio') + ' ' +
-             esc(it.despues || '') + '</p></li>';
+      if (ej.contexto) h += '<p class="lis-contexto">' + esc(ej.contexto) + '</p>';
+      // La parte 4 tiene dos tareas sobre los mismos cinco monologos, y cada
+      // una con su propia lista de ocho opciones. Con una sola lista las
+      // respuestas de la segunda tarea no significan nada.
+      (ej.listas || []).forEach(function (lista) {
+        h += '<div class="lis-tarea">';
+        if (lista.titulo) h += '<h4>' + esc(lista.titulo) + '</h4>';
+        h += '<ol class="lis-lista">';
+        lista.opciones.forEach(function (o, k) {
+          h += '<li><span class="seccion-letra">' + 'ABCDEFGH'.charAt(k) + '</span><span>' + esc(o) + '</span></li>';
+        });
+        h += '</ol></div>';
       });
-      h += '</ol>';
+      if (seElige(ej)) {
+        h += '<ol class="grupos preguntas">';
+        ej.items.forEach(function (it, i) {
+          h += '<li>';
+          if (it.pregunta) h += '<p class="pregunta">' + esc(it.pregunta) + '</p>';
+          h += '<div class="grupo-op' + (ej.opcionesCortas ? ' letras' : '') + '" data-i="' + i +
+               '" role="radiogroup" aria-label="' + T.pregunta.replace('{n}', i + 1) + '">';
+          it.opciones.forEach(function (op, k) {
+            h += '<button type="button" class="op" data-op="' + k + '">' +
+                 '<span class="op-letra">' + 'ABCDEFGH'.charAt(k) + '</span>' +
+                 (ej.opcionesCortas ? '' : esc(op)) + '</button>';
+          });
+          h += '</div></li>';
+        });
+        h += '</ol>';
+      } else {
+        h += '<ol class="frases">';
+        ej.items.forEach(function (it, i) {
+          h += '<li><p class="frase">' + esc(it.antes || '') + ' ' + campo(i, 'medio') + ' ' +
+               esc(it.despues || '') + '</p></li>';
+        });
+        h += '</ol>';
+      }
     } else if (ej.tipo === 'opcion') {
       // El texto solo enseña donde estan los huecos; se responde abajo,
       // eligiendo una de las cuatro opciones, como en el examen
@@ -1323,7 +1374,7 @@
   function campos(cont, ej) {
     cont = cont || $('#ej-cuerpo');
     ej = ej || actual;
-    return ej && ELIGE[ej.tipo] ? $$('.grupo-op', cont) : $$('.hueco', cont);
+    return seElige(ej) ? $$('.grupo-op', cont) : $$('.hueco', cont);
   }
   function valorDe(c) {
     if (!c.classList.contains('grupo-op')) return c.value;
@@ -1332,7 +1383,7 @@
   }
 
   function enfoca() {
-    if (actual && ELIGE[actual.tipo]) return;
+    if (actual && seElige(actual)) return;
     if (!window.matchMedia('(min-width:700px)').matches) return;
     var libres = $$('.hueco').filter(function (i) { return !i.value; });
     (libres[0] || $('.hueco') || {}).focus && (libres[0] || $('.hueco')).focus();

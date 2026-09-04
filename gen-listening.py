@@ -77,6 +77,62 @@ def azure(texto, voz, clave, region):
         return r.read()
 
 
+def espeak(guion, destino):
+    """Voz de verdad, local y gratis, con espeak-ng.
+
+    Es robotica y NO vale como material final: el CAE mide entender a personas,
+    con su acento y sus titubeos, no a un sintetizador. Sirve para dos cosas
+    concretas: probar el reproductor y sus reglas de examen con audio real, y
+    ensenar el flujo completo antes de pagar una voz. Cuando haya cuenta de
+    ElevenLabs o Azure, el guion no cambia: solo el proveedor.
+    """
+    import subprocess, wave, struct
+    voces = {v['id']: v for v in guion['voces']}
+    vel = int(guion.get('velocidad', 150))
+    trozos, hz = [], None
+
+    for i, linea in enumerate(guion['lineas']):
+        v = voces[linea['voz']]
+        # espeak-ng distingue variantes: se aprovecha el acento del guion y se
+        # separan las voces para que en una conversacion no hablen igual
+        acento = v.get('acento', 'en-GB')
+        base = 'en-gb' if acento.startswith('en-GB') else 'en-us'
+        variante = v.get('espeak') or base
+        tmp = os.path.join(RAIZ, 'audio', '_tmp%d.wav' % i)
+        subprocess.run(['espeak-ng', '-v', variante, '-s', str(vel), '-w', tmp, linea['texto']],
+                       check=True, capture_output=True)
+        with wave.open(tmp) as w:
+            hz = w.getframerate()
+            trozos.append(w.readframes(w.getnframes()))
+        os.remove(tmp)
+        # la pausa que pide el guion, en silencio
+        pausa = float(linea.get('pausa', 0))
+        if pausa:
+            trozos.append(b'\x00\x00' * int(hz * pausa))
+        print('  linea %d/%d' % (i + 1, len(guion['lineas'])))
+
+    crudo = destino + '.wav'
+    with wave.open(crudo, 'wb') as w:
+        w.setnchannels(1); w.setsampwidth(2); w.setframerate(hz)
+        for t in trozos: w.writeframes(t)
+    with wave.open(crudo) as w:
+        seg = w.getnframes() / float(w.getframerate())
+
+    # Un WAV de minuto y medio son tres megas y medio; comprimido, medio mega.
+    #
+    # MP3 y no Opus, aunque Opus pese menos: en Ogg, Chromium no lee la
+    # duracion del fichero y devuelve infinito, con lo que la barra de progreso
+    # se queda clavada en cero. WebM lo arregla pero Safari en iPhone es
+    # historicamente irregular con WebM, y un listening que no suena en el movil
+    # de un alumno no sirve de nada. MP3 lo reproduce todo, y ademas es lo que
+    # devuelven ElevenLabs y Azure, asi que el formato no cambia al pagar la voz.
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', crudo,
+                    '-c:a', 'libmp3lame', '-b:a', '32k', '-ar', '16000', '-ac', '1', destino],
+                   check=True)
+    os.remove(crudo)
+    return seg
+
+
 def genera(guion, destino, proveedor):
     voces = {v['id']: v for v in guion['voces']}
     trozos = []
@@ -109,6 +165,8 @@ def main():
     ap.add_argument('guion')
     ap.add_argument('--demo', action='store_true')
     ap.add_argument('--tope', type=float, default=35, help='segundos maximos del relleno')
+    ap.add_argument('--espeak', action='store_true',
+                    help='voz local con espeak-ng: gratis, robotica, provisional')
     ap.add_argument('--proveedor', choices=['elevenlabs', 'azure'])
     a = ap.parse_args()
 
@@ -120,6 +178,12 @@ def main():
         destino = os.path.join(RAIZ, 'audio', guion['id'] + '-demo.wav')
         seg = demo(guion, destino, a.tope)
         print('Relleno escrito en %s (%.0f s). NO es voz: sirve para probar el reproductor.' % (destino, seg))
+        return
+    if a.espeak:
+        destino = os.path.join(RAIZ, 'audio', guion['id'] + '-espeak.mp3')
+        seg = espeak(guion, destino)
+        print('Voz local escrita en %s (%.0f s).' % (destino, seg))
+        print('PROVISIONAL: es un sintetizador, no una persona. No se publica asi.')
         return
     destino = os.path.join(RAIZ, 'audio', guion['id'] + '.mp3')
     genera(guion, destino, a.proveedor)

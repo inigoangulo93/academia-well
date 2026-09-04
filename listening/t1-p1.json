@@ -1,0 +1,40 @@
+{
+  "id": "t1-lis1",
+  "examen": "cae",
+  "parte": 1,
+  "tarea": "Multiple choice, tres extractos",
+  "titulo": "Tres conversaciones",
+  "nota": "Guion de produccion. El audio se genera con gen-listening.py; este fichero no lo lee la web.",
+  "voces": [
+    { "id": "narrador", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-GB", "espeak": "en-gb", "descripcion": "narrador neutro, ritmo lento" },
+    { "id": "hombre1", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-GB", "espeak": "en-gb-x-rp", "descripcion": "hombre, 50s, britanico" },
+    { "id": "mujer1", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-GB", "espeak": "en-gb-scotland", "descripcion": "mujer, 30s, escocesa" },
+    { "id": "hombre2", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-US", "espeak": "en-us", "descripcion": "hombre, 30s, estadounidense" },
+    { "id": "mujer2", "proveedor": "elevenlabs", "voz": "PENDIENTE", "acento": "en-GB", "espeak": "en-gb-x-gbclan", "descripcion": "mujer, 60s, norte de Inglaterra" }
+  ],
+  "velocidad": 150,
+  "lineas": [
+    { "voz": "narrador", "pausa": 0.8, "texto": "Extract one. You hear two colleagues discussing a report." },
+    { "voz": "mujer1", "pausa": 0.3, "texto": "Have you had a chance to look at the draft I sent over?" },
+    { "voz": "hombre1", "pausa": 0.3, "texto": "I have, and I'll be honest with you: the findings are solid, but nobody is going to read forty pages of them." },
+    { "voz": "mujer1", "pausa": 0.3, "texto": "That's rather the point, though. If I cut it down, the first thing to go would be the methodology, and then anyone who disagrees with us has an easy way in." },
+    { "voz": "hombre1", "pausa": 0.3, "texto": "Put the methodology in an appendix. Nobody reads appendices either, but they can't accuse you of hiding it." },
+    { "voz": "mujer1", "pausa": 0.3, "texto": "You're probably right. I've been treating length as a sign of seriousness, which is a habit I picked up at university and should have dropped." },
+    { "voz": "hombre1", "pausa": 1.2, "texto": "We all did. Send me the short version and I'll tell you if it still says what you mean." },
+    { "voz": "narrador", "pausa": 0.8, "texto": "Extract two. You hear a woman telling a friend about a course she has started." },
+    { "voz": "mujer2", "pausa": 0.3, "texto": "I signed up for the pottery class expecting it to relax me, and honestly, for the first month it did the opposite." },
+    { "voz": "hombre2", "pausa": 0.3, "texto": "Because you weren't any good at it?" },
+    { "voz": "mujer2", "pausa": 0.3, "texto": "Because I couldn't stand not being any good at it. That's not the same thing. At work I've spent thirty years being the person who knows what she's doing." },
+    { "voz": "hombre2", "pausa": 0.3, "texto": "So what changed?" },
+    { "voz": "mujer2", "pausa": 0.3, "texto": "The teacher stopped me in the middle of the fourth week and said, very kindly, that I was gripping the clay as if it owed me money. And she was right." },
+    { "voz": "hombre2", "pausa": 0.3, "texto": "And now?" },
+    { "voz": "mujer2", "pausa": 1.2, "texto": "Now I make some genuinely terrible bowls and I don't mind. My husband minds. He has to eat off them." },
+    { "voz": "narrador", "pausa": 0.8, "texto": "Extract three. You hear two people discussing a change at their local station." },
+    { "voz": "hombre2", "pausa": 0.3, "texto": "Did you see they're taking the ticket office out? Machines only from June." },
+    { "voz": "mujer1", "pausa": 0.3, "texto": "I did. And I know I'm supposed to be furious about it, but I bought my last three tickets on my phone and I couldn't tell you when I last spoke to anyone in there." },
+    { "voz": "hombre2", "pausa": 0.3, "texto": "That's exactly the argument they're making, and it works right up until you're eighty and the machine won't take your card." },
+    { "voz": "mujer1", "pausa": 0.3, "texto": "Well, quite. My objection isn't really the machines, it's that they've promised staff will still be on the platform and I don't believe a word of it." },
+    { "voz": "hombre2", "pausa": 0.3, "texto": "Nor do I. That's always the second cut." },
+    { "voz": "mujer1", "pausa": 0.6, "texto": "So I'll sign the petition, but I'll sign it about the staff, not about the window." }
+  ]
+}

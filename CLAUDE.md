@@ -44,7 +44,7 @@ versiones: castellano en la raíz, euskera en `eu/`.
 | `test.html` · `eu/test.html` | Test de nivel online (funnel principal) |
 | `404.html` | Error, **única y en la raíz**: Pages solo sirve esa. Detecta el idioma por la URL |
 | `practica.html` | **Prototipo** de Well Online: panel del alumno, el curso por tests y sesiones, y el informe por destreza. `noindex`, sin enlazar desde ninguna página. Ver `well-online.md` |
-| `gen-listening.py` · `listening/` · `audio/` | Guiones y generación del audio de listening. El audio que hay es **de relleno**, no voz |
+| `gen-listening.py` · `listening/` · `audio/` | Guiones y generación del audio. El audio de hoy es **provisional**: lo hace `espeak-ng` en local, gratis, y es un sintetizador robótico. Los guiones no cambian al pagar una voz |
 | `well-config.js` | Las dos claves de Supabase. **Vacías = sin servidor**, y entonces nada de lo de abajo se carga siquiera |
 | `well-datos.js` | Capa de datos. El navegador manda: `localStorage` siempre; si hay sesión, se sube y se funde |
 | `entrar.html` | Entrada con enlace mágico por correo. `noindex` |

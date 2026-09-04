@@ -1,0 +1,122 @@
+# -*- coding: utf-8 -*-
+"""Comprueba el listening: que suena y que impone las reglas del examen.
+
+Las reglas no son un detalle. Si se puede rebobinar al trozo dificil o
+escuchar tres veces, la nota deja de medir nada y el porcentaje que le damos
+al alumno es mentira.
+"""
+import asyncio, os, sys, http.server, socketserver, threading, functools
+
+R = '/home/user/academia-well-src'
+CH = '/opt/pw-browsers/chromium-1194/chrome-linux/chrome'
+B = None
+fallos = []
+
+def comprueba(cond, texto):
+    print(('  ok   ' if cond else '  FALLA') + '  ' + texto)
+    if not cond: fallos.append(texto)
+
+class Silencioso(http.server.SimpleHTTPRequestHandler):
+    def log_message(self, *a, **k): pass
+
+def servidor():
+    global B
+    socketserver.TCPServer.allow_reuse_address = True
+    s = socketserver.TCPServer(('127.0.0.1', 0), functools.partial(Silencioso, directory=R))
+    B = 'http://127.0.0.1:%d/' % s.server_address[1]
+    threading.Thread(target=s.serve_forever, daemon=True).start()
+    return s
+
+async def main():
+    srv = servidor()
+    from playwright.async_api import async_playwright
+    async with async_playwright() as pw:
+        b = await pw.chromium.launch(executable_path=CH, args=['--no-sandbox'])
+        pg = await b.new_page(viewport={'width': 1280, 'height': 900})
+        await pg.route('**/*', lambda r: asyncio.ensure_future(r.abort())
+                       if '127.0.0.1' not in r.request.url else asyncio.ensure_future(r.continue_()))
+        errores = []
+        pg.on('pageerror', lambda e: errores.append(str(e)))
+
+        await pg.goto(B + 'practica.html', wait_until='domcontentloaded')
+        await pg.wait_for_timeout(400)
+        lista = await pg.evaluate("""() => Object.entries(window.WELL_PRACTICA.ejercicios)
+            .filter(([k,e]) => e.tipo === 'listening')
+            .map(([k,e]) => ({id:k, audio:e.audio, escuchas:e.escuchas, n:e.items.length}))""")
+
+        for e in lista:
+            print('\n%s' % e['id'])
+            errores.clear()
+            await pg.evaluate("()=>localStorage.clear()")
+            await pg.goto(B + 'practica.html#' + e['id'], wait_until='domcontentloaded')
+            await pg.wait_for_timeout(600)
+
+            comprueba(os.path.exists(os.path.join(R, e['audio'])),
+                      'el fichero de audio existe: %s' % e['audio'])
+
+            info = await pg.evaluate("""async () => {
+              const a = document.querySelector('#au');
+              if (!a) return null;
+              await new Promise(ok => {
+                if (a.readyState >= 1) ok();
+                else { a.addEventListener('loadedmetadata', ok, {once:true});
+                       a.addEventListener('error', ok, {once:true}); setTimeout(ok, 5000); }
+              });
+              return { dur: a.duration, err: !!a.error, controles: a.hasAttribute('controls') };
+            }""")
+            comprueba(info and not info['err'], 'el navegador lo carga sin error')
+            # Sin duracion finita la barra de progreso se queda clavada en cero
+            comprueba(info and info['dur'] not in (None,) and info['dur'] == info['dur']
+                      and info['dur'] != float('inf') and info['dur'] > 30,
+                      'el navegador sabe la duracion: %s s' % (info and round(info['dur'], 1)))
+            comprueba(info and not info['controles'],
+                      'sin controles nativos: no se puede arrastrar la barra')
+
+            # --- reglas del examen ---
+            # El antirrebobinado NO se puede comprobar aqui: este Chromium sin
+            # pantalla no sabe saltar en un audio en ningun caso. Se verifica
+            # abajo, una vez, y se dice en voz alta en vez de dar un falso
+            # verde. Lo que si se comprueba es que reproducir avanza.
+            avance = await pg.evaluate("""async () => {
+              const a = document.querySelector('#au');
+              await a.play().catch(()=>{});
+              await new Promise(r => setTimeout(r, 2000));
+              const t = a.currentTime;
+              a.pause();
+              return t;
+            }""")
+            comprueba(avance > 1, 'el audio avanza al reproducir (%.1f s)' % avance)
+
+            comprueba((e['escuchas'] or 2) == 2, 'se escucha dos veces, como en el examen')
+            comprueba(not errores, 'sin errores de consola: %s' % (errores or 'ninguno'))
+
+        # ¿Sabe saltar este navegador? Si no, lo del rebobinado no se puede
+        # medir aqui y hay que decirlo, no callarlo.
+        await pg.goto(B + '404.html', wait_until='domcontentloaded')
+        salta = await pg.evaluate("""async () => {
+          const a = new Audio('audio/t1-lis1-espeak.mp3');
+          await new Promise(ok => a.addEventListener('loadedmetadata', ok, {once:true}));
+          a.currentTime = 50;
+          await new Promise(r => setTimeout(r, 500));
+          return a.currentTime;
+        }""")
+        await pg.evaluate("()=>localStorage.clear()")
+        await b.close()
+    srv.shutdown()
+
+    print()
+    if salta > 40:
+        print('Este navegador si sabe saltar: la regla de no rebobinar SE PUEDE')
+        print('comprobar aqui y habria que anadirla a esta prueba.')
+    else:
+        print('SIN COMPROBAR: la regla de no rebobinar.')
+        print('  Este Chromium sin pantalla no sabe saltar en un audio (se le pidio')
+        print('  ir al segundo 50 y se quedo en %.2f), asi que no se puede medir.' % salta)
+        print('  Hay que probarlo a mano: escucha medio minuto, arrastra hacia atras')
+        print('  y comprueba que vuelve a donde ibas.')
+    print()
+    if fallos:
+        print('%d FALLOS' % len(fallos)); sys.exit(1)
+    print('Los %d listenings suenan, cargan y no ensenan controles nativos.' % len(lista))
+
+asyncio.run(main())
