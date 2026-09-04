@@ -4,10 +4,19 @@ Ocho tests (cuatro de C1 y cuatro de B2), cuatro partes cada uno:
 **32 guiones, 78.382 caracteres**. Con el plan Creator de ElevenLabs (121.000
 creditos al mes) cabe entero en un mes, con unos 42.000 de margen.
 
-Lo que ya esta pagado queda en la cache de `audio/.cache/`: anadir un test
-nuevo solo cuesta lo que ese test ocupa. Los cuatro de C1 son 35.069
-caracteres y los cuatro de B2 son 43.313, asi que si los de C1 ya estan
-generados, terminar B2 cuesta 43.313 y no los 78.382 del total.
+**Solo se paga lo que falte.** Si un guion ya tiene su mp3 en `audio/`, no se
+vuelve a generar. El audio de los cuatro tests de C1 ya esta en el
+repositorio, asi que hoy `--todos` cuesta **43.313 caracteres**, los cuatro de
+B2, y no los 78.382 del total.
+
+Esto es una comprobacion sobre el fichero final, y hace falta ademas de la
+cache. La cache por linea vive en `audio/.cache/`, que esta en `.gitignore`:
+existe solo en el ordenador que la genero. En un clon recien hecho no hay
+cache, y sin esta comprobacion `--todos` habria vuelto a pagar los 35.069
+caracteres de C1 para regenerar unos ficheros que ya estan bien.
+
+Para rehacer algo a proposito --por ejemplo si se cambia una voz-- esta
+`--rehaz`, que ignora los mp3 existentes.
 
 ## El camino corto
 

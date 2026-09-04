@@ -364,6 +364,8 @@ def main():
     ap.add_argument('--simular', action='store_true',
                     help='no llama a la API: dice lo que costaria')
     ap.add_argument('--proveedor', choices=['elevenlabs', 'azure'])
+    ap.add_argument('--rehaz', action='store_true',
+                    help='vuelve a generar tambien los que ya tienen su mp3')
     a = ap.parse_args()
     os.makedirs(os.path.join(RAIZ, 'audio'), exist_ok=True)
 
@@ -384,6 +386,7 @@ def main():
                      'los guiones que has pedido, no los diez.' % ', '.join(faltan))
 
     total_pag = total_cache = 0
+    saltados = []
     for ruta in rutas:
         with open(ruta, encoding='utf-8') as f:
             guion = json.load(f)
@@ -401,6 +404,21 @@ def main():
             continue
 
         destino = os.path.join(RAIZ, 'audio', guion['id'] + '.mp3')
+
+        # Lo que evita pagar dos veces es la cache por linea, y esa cache vive
+        # en audio/.cache/, que esta en .gitignore. O sea: en el ordenador que
+        # la genero y en ninguno mas. En un clon recien hecho, --todos habria
+        # vuelto a pagar los 35.069 caracteres de los cuatro tests de C1 cuyo
+        # mp3 ya esta en el repositorio y ya es correcto. Si el fichero final
+        # existe, no se toca; --rehaz fuerza lo contrario.
+        if not a.rehaz and not a.remonta and os.path.exists(destino) and os.path.getsize(destino) > 0:
+            saltados.append(nombre)
+            if a.simular:
+                print('%-14s ya esta hecho, no se pagaria' % nombre)
+            else:
+                print('%-14s ya esta hecho, no lo toco' % nombre)
+            continue
+
         if not a.simular:
             print(nombre)
         seg, pag, cac = genera(guion, destino, a.proveedor, a.simular, a.remonta)
@@ -417,6 +435,10 @@ def main():
         return
 
     print('-' * 60)
+    if saltados:
+        print('%d guiones ya estaban hechos y no se han vuelto a pagar: %s'
+              % (len(saltados), ', '.join(saltados)))
+        print('Para rehacerlos de todos modos:  --rehaz')
     if a.remonta:
         print('REMONTADO desde cache: no se ha llamado a la API y no se ha gastado nada.')
         return

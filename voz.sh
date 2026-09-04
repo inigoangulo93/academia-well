@@ -82,7 +82,7 @@ if [ "$modo" = "--nivelar" ]; then
 
   paso "4 · subir"
   git add audio/ practica-data.js
-  git commit -q -m "Volumen nivelado en los dieciseis listenings
+  git commit -q -m "Volumen nivelado en los listenings
 
 Cada voz salia con su propio volumen y en los ficheros de cinco o seis
 hablantes se notaba: el rango de sonoridad llegaba a 20 LU cuando en voz
@@ -117,7 +117,7 @@ TXT
   exit 0
 fi
 
-paso "2 · todos los guiones"
+paso "2 · los guiones que falten"
 python3 gen-listening.py --todos --proveedor elevenlabs
 
 paso "3 · enganchar el audio de verdad y jubilar el provisional"
@@ -128,11 +128,12 @@ node qa/qa-contenido.js | tail -3
 
 paso "5 · subir"
 git add audio/ practica-data.js
-git commit -q -m "Voz real de ElevenLabs en los dieciseis listenings
+git commit -q -m "Voz real de ElevenLabs en los listenings que faltaban
 
 Generado con gen-listening.py sobre los guiones de listening/, con las diez
-voces de listening/voces.json. Los ficheros provisionales de espeak se van, y
-con ellos el aviso de voz generada por ordenador del reproductor."
+voces de listening/voces.json. Los que ya tenian su mp3 no se han vuelto a
+generar ni a pagar. Los ficheros provisionales de espeak se van, y con ellos el
+aviso de voz generada por ordenador del reproductor."
 git push origin well-online-practica
 
 echo
