@@ -1,2 +1,10 @@
 audio/.cache/
 audio/prueba-voces*
+
+# Ninguna clave entra aqui. Este repositorio es publico: una clave commiteada
+# esta expuesta desde el primer push, y borrarla despues no la borra del
+# historial. Las claves van en el entorno (export) y en ningun fichero.
+.env
+.env.*
+*.key
+secrets*
