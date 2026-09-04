@@ -19,6 +19,6 @@
  * clave "service_role": esa se salta todos los permisos.
  */
 window.WELL_CONFIG = {
-  supabaseUrl: '',
-  supabaseAnonKey: ''
+  supabaseUrl: 'https://xsvckcolwcwvhrezgqgx.supabase.co',
+  supabaseAnonKey: 'sb_publishable_89_ZZOx4n11Mag7NTE1NcA_G_fohot4'
 };
