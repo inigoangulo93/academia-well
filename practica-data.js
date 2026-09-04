@@ -25,7 +25,25 @@ window.WELL_PRACTICA = {
   version: 3,
   dominioParaAbrir: 0.7,
 
-  examen: { id: 'cae', nombre: 'C1 Advanced', sigla: 'CAE' },
+  /* Los cuatro niveles de la plataforma. Solo C1 tiene curso escrito; los
+     otros tres estan declarados para que la aplicacion sepa que existen y
+     pueda decir la verdad cuando a un alumno le toca uno que aun no esta,
+     en vez de servirle el de C1 como si fuera el suyo.
+
+     Cada nivel es un examen distinto de Cambridge, con su propia estructura:
+     el B2 First tiene 7 partes y 52 preguntas en hora y cuarto, y el C1
+     Advanced 8 partes y 56 en hora y media. No son el mismo curso con las
+     frases mas faciles. */
+  niveles: [
+    { id: 'a2', nombre: 'A2 Key', sigla: 'KET', mcer: 'A2', curso: false },
+    { id: 'b1', nombre: 'B1 Preliminary', sigla: 'PET', mcer: 'B1', curso: false },
+    { id: 'b2', nombre: 'B2 First', sigla: 'FCE', mcer: 'B2', curso: false },
+    { id: 'c1', nombre: 'C1 Advanced', sigla: 'CAE', mcer: 'C1', curso: true }
+  ],
+
+  /* El curso que existe hoy. Su estructura es la del C1 Advanced, medida:
+     Reading & Use of English con 8 partes y 56 preguntas en 90 minutos. */
+  examen: { id: 'cae', nombre: 'C1 Advanced', sigla: 'CAE', mcer: 'C1' },
 
   /* Minutos de cada simulacro. OJO: en el examen real, Reading y Use of
      English son UN SOLO papel de 90 minutos; este reparto es una estimacion de

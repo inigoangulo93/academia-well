@@ -442,6 +442,24 @@
   .lis-tarea.t2{border-left:3px solid var(--carmin)}
   .lis-tarea.t2 h4{color:var(--carmin)}
 
+  /* ---------- admin ---------- */
+  .ad-sub{margin:0 0 20px;color:var(--gris);font-size:15px;line-height:1.5}
+  .ad-caja{background:#fff;border:1px solid var(--linea);border-radius:16px;
+           padding:20px;margin-bottom:14px}
+  .ad-h2{margin:0 0 12px;font-family:'Bree Serif',Georgia,serif;font-size:17px;color:var(--azul)}
+  .ad-eti{display:block;margin-bottom:8px;font-size:13px;font-weight:600;
+          text-transform:uppercase;letter-spacing:.05em;color:var(--gris)}
+  .ad-select{width:100%;max-width:340px;padding:11px 13px;border:1px solid var(--linea);
+             border-radius:11px;font:inherit;font-size:15px;background:var(--crema);color:var(--tinta)}
+  .ad-select:focus{border-color:var(--azul);outline:none;box-shadow:0 0 0 3px var(--azul-suave)}
+  .ad-pista{margin:10px 0 0;font-size:13.5px;line-height:1.5;color:var(--gris);min-height:1.2em}
+  .ad-pista.aviso{color:var(--carmin);font-weight:600}
+  .ad-botones{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+  .ad-lista{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+  .ad-lista li{display:flex;align-items:center;gap:10px;font-size:14.5px;color:var(--tinta)}
+  .ad-lista .ad-si{color:var(--verde);font-weight:700}
+  .ad-lista .ad-no{color:var(--gris)}
+
   /* ---------- modal ----------
      Sustituye a window.confirm(). El nativo no se puede maquetar, sale con la
      tipografia del sistema, dice el dominio en la cabecera y en movil aparece
@@ -1095,6 +1113,33 @@
     <p class="in-sub" id="in-sub"></p>
     <div id="in-notas"></div>
     <p class="in-aviso" id="in-aviso"></p>
+  </section>
+
+  <!-- ============ admin ============
+       No es para alumnos: es para Elena y para probar. Se llega escribiendo
+       #admin, no hay ningun enlace. Lo que hace es poner el nivel a mano, que
+       durante el desarrollo hay que hacer constantemente y obligaba a repetir
+       el test de nivel entero cada vez. -->
+  <section class="pantalla" id="s-admin">
+    <p class="miga"><button type="button" class="miga-atras" data-ir="panel">Tu camino</button></p>
+    <span class="kicker">Admin</span>
+    <h1>Nivel del alumno</h1>
+    <p class="ad-sub" id="ad-actual"></p>
+
+    <div class="ad-caja">
+      <label class="ad-eti" for="ad-nivel">Poner nivel a mano</label>
+      <select id="ad-nivel" class="ad-select"></select>
+      <p class="ad-pista" id="ad-pista"></p>
+      <div class="ad-botones">
+        <button type="button" class="btn btn-azul" id="ad-guardar">Guardar</button>
+        <button type="button" class="btn btn-ghost" id="ad-borrar">Borrar el nivel</button>
+      </div>
+    </div>
+
+    <div class="ad-caja">
+      <h2 class="ad-h2">Cursos escritos</h2>
+      <ul class="ad-lista" id="ad-cursos"></ul>
+    </div>
   </section>
 
   <!-- ============ ejercicio ============ -->

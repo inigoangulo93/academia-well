@@ -1842,8 +1842,77 @@
     else abreSesion(actual._sesion.id);
   }
 
+  /* ---------- admin ----------
+     No es para alumnos. Se llega escribiendo #admin y no hay ningun enlace:
+     poner el nivel a mano es algo que Elena necesita --un alumno al que ya
+     conoce no tiene por que hacer la prueba-- y que durante el desarrollo
+     hacia falta constantemente, obligando a repetir el test de nivel entero
+     cada vez. */
+
+  function nivelDe(mcer) {
+    var n = null;
+    (DATA.niveles || []).forEach(function (x) { if (x.mcer === mcer) n = x; });
+    return n;
+  }
+
+  function pintaAdmin() {
+    var actual = nivelAlumno();
+    $('#ad-actual').textContent = actual
+      ? 'Ahora mismo: ' + actual.nivel + (actual.puntuacion !== undefined && actual.sobre
+          ? ' · ' + actual.puntuacion + '/' + actual.sobre + ' en la prueba' : ' · puesto a mano')
+      : 'Ahora mismo no hay ningun nivel guardado.';
+
+    var sel = $('#ad-nivel');
+    sel.innerHTML = '<option value="">— sin nivel —</option>' +
+      (DATA.niveles || []).map(function (n) {
+        return '<option value="' + esc(n.mcer) + '">' + esc(n.mcer + ' · ' + n.nombre) +
+               (n.curso ? '' : ' (sin curso)') + '</option>';
+      }).join('');
+    sel.value = actual ? actual.nivel : '';
+
+    $('#ad-cursos').innerHTML = (DATA.niveles || []).map(function (n) {
+      return '<li><span class="' + (n.curso ? 'ad-si' : 'ad-no') + '">' +
+             (n.curso ? '✓' : '·') + '</span> <b>' + esc(n.mcer) + '</b> ' + esc(n.nombre) +
+             ' — ' + (n.curso ? esc(DATA.tests.length + ' tests, ' + EJERCICIOS.length + ' ejercicios')
+                              : 'sin escribir') + '</li>';
+    }).join('');
+
+    avisaAdmin();
+  }
+
+  // Si el nivel elegido no tiene curso, se dice antes de guardar. Poner B1 a un
+  // alumno no le da un curso de B1: hoy solo existe el de C1.
+  function avisaAdmin() {
+    var v = $('#ad-nivel').value, n = v ? nivelDe(v) : null;
+    var p = $('#ad-pista');
+    if (!v) { p.className = 'ad-pista'; p.textContent = 'Sin nivel, el panel no ensena ninguna recomendacion.'; return; }
+    if (n && !n.curso) {
+      p.className = 'ad-pista aviso';
+      p.textContent = 'Ojo: ' + n.mcer + ' todavia no tiene curso escrito. El alumno vera el de C1, que no es el suyo.';
+    } else {
+      p.className = 'ad-pista';
+      p.textContent = 'Hay curso de ' + v + ': ' + DATA.tests.length + ' tests.';
+    }
+  }
+
+  function guardaNivelAdmin() {
+    var v = $('#ad-nivel').value;
+    if (!v) { localStorage.removeItem(CLAVE_NIVEL); }
+    else {
+      // Se marca de donde viene. Un nivel puesto a mano no es un resultado de
+      // la prueba y no debe contarse como tal en ningun sitio.
+      localStorage.setItem(CLAVE_NIVEL, JSON.stringify({
+        nivel: v, manual: true, fecha: hoy()
+      }));
+    }
+    subePerfil();
+    pintaAdmin();
+    pintaPanel();
+  }
+
   function pinta(hash) {
     var id = (hash || '').replace('#', '');
+    if (id === 'admin') { pintaAdmin(); muestra('s-admin'); return; }
     if (id.indexOf('informe-') === 0) { abreInforme(id.slice(8), false); return; }
     if (id.indexOf('sim-') === 0 || id.indexOf('simres-') === 0) { pintaPanel(); muestra('s-panel'); return; }
     if (id && porId(EJERCICIOS, id)) { abreEjercicio(id, false); return; }
@@ -1852,6 +1921,10 @@
   }
 
   /* ---------- eventos ---------- */
+
+  document.addEventListener('change', function (e) {
+    if (e.target && e.target.id === 'ad-nivel') avisaAdmin();
+  });
 
   document.addEventListener('click', function (e) {
     var ej = e.target.closest('[data-ej]');
@@ -1865,6 +1938,14 @@
     if (e.target.closest('#sim-siguiente')) { avanzaSimulacro(); return; }
     if (e.target.closest('#sim-salir')) { abandonaSimulacro(); return; }
     if (e.target.closest('#sr-volver')) { alPanel(); return; }
+    if (e.target.closest('#ad-guardar')) { guardaNivelAdmin(); return; }
+    if (e.target.closest('#ad-borrar')) {
+      pregunta({ titulo: '¿Borrar el nivel?',
+                 cuerpo: 'El alumno se queda sin nivel guardado, como si no hubiera hecho la prueba.',
+                 ok: 'Borrar', no: 'Cancelar', peligro: true },
+               function () { $('#ad-nivel').value = ''; guardaNivelAdmin(); });
+      return;
+    }
     if (e.target.closest('#sp-grabar')) { empiezaGrabacion(); return; }
     if (e.target.closest('#sp-parar')) { paraYGuarda(); return; }
     if (e.target.closest('#sp-repetir')) { reseteaSpeaking(); return; }
